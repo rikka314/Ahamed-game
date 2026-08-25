@@ -1,0 +1,63 @@
+import type { CasePackage } from "../../src/domain/case-package.js";
+
+export function createCaseFixture(): CasePackage {
+  return {
+    internalCaseId: "internal_fixture_syndrome_001",
+    publicCaseId: "case_fixture_001",
+    caseVersion: "1.0.0",
+    locale: "en-US",
+    playerVisible: {
+      patientDisplayName: "Test Patient",
+      chiefComplaint: "Persistent fatigue",
+    },
+    patientPersona: {
+      languageStyle: "plain",
+    },
+    patientFacts: {
+      "fact.onset": {
+        status: "present",
+        value: "It started about two weeks ago.",
+        disclosure: "if_asked",
+        questionMatchers: ["when", "start", "onset"],
+      },
+      "fact.rash": {
+        status: "absent",
+        value: "I have not noticed a rash.",
+        disclosure: "if_asked",
+        questionMatchers: ["rash"],
+      },
+      "fact.family_history": {
+        status: "unknown",
+        value: "I do not know my extended family history.",
+        disclosure: "if_asked",
+        questionMatchers: ["family"],
+      },
+      "fact.hidden_clue": {
+        status: "present",
+        value: "server-only-hidden-clue",
+        disclosure: "hidden",
+        questionMatchers: ["hidden"],
+      },
+    },
+    medicalTests: {
+      "test.basic_panel": {
+        status: "completed",
+        report: "A stable, fixture-only result.",
+      },
+    },
+    answerKey: {
+      targetDiagnosis: "Fixture Syndrome",
+      acceptedSynonyms: ["Synthetic Fixture Syndrome"],
+      acceptableDifferentials: ["Example Condition"],
+    },
+    rubric: {
+      mustAskFactIds: ["fact.onset", "fact.rash"],
+      importantTestIds: ["test.basic_panel"],
+      recommendedTurnLimit: 4,
+    },
+    review: {
+      status: "fixture",
+      source: "Synthetic test data; not a real patient case.",
+    },
+  };
+}
