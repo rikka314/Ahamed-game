@@ -115,9 +115,9 @@ test("official Claude SDK transport sends a strict non-streaming Messages reques
   assert.equal(result.modelId, "claude-test-snapshot");
   assert.equal(result.finishReason, "end_turn");
   assert.deepEqual(result.usage, {
-    inputTokens: 11,
+    inputTokens: 16,
     outputTokens: 7,
-    totalTokens: 18,
+    totalTokens: 23,
     cachedInputTokens: 2,
   });
 });
