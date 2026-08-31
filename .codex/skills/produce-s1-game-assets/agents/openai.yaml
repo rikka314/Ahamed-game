@@ -1,0 +1,4 @@
+interface:
+  display_name: "S1 游戏素材制作"
+  short_description: "制作、集成并验收 S1 首批地图、角色、UI、音效与背景音乐素材"
+  default_prompt: "Use $produce-s1-game-assets to continue the next unfinished S1 asset and deliver a verified draft."

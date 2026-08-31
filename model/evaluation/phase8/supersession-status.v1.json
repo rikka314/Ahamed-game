@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "model-evidence-supersession-v1",
+  "recordedAt": "2026-08-28T00:00:00.000Z",
+  "status": "superseded",
+  "reason": "The confirmed dialogue architecture plan replaces Controller-routed turns with one Patient Agent and requires complete re-evaluation.",
+  "currentReleaseState": "not_release_candidate",
+  "contractVersion": "1",
+  "contractLabel": "v1-rc1",
+  "compatibilityPolicy": "incompatible-in-place-upgrade",
+  "onlineControllerRoutingTarget": 0,
+  "scope": "All Phase 8 manifests, candidate/release runs, test evidence, local smoke reports, acceptance reports, bundles and archives generated before the dialogue architecture refactor.",
+  "boundArtifacts": [
+    {
+      "path": "../../cases/manifest.v1-rc1.json",
+      "sha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+      "status": "superseded"
+    },
+    {
+      "path": "runtime-release-20260828-r2/runtime-release-manifest.v1.json",
+      "sha256": "c4fd835c238c6c9de9ad3da75e427eb1bda24d4231a3826ba8a0cd916f63552d",
+      "status": "superseded"
+    },
+    {
+      "path": "software-rc-20260828/ahamed-model-software-rc-20260828.zip",
+      "sha256": "6632228e553e36223c624b16d836b00d7ef55dd4cd270ce35b82505eee183b5e",
+      "status": "superseded"
+    }
+  ],
+  "reacceptanceRequired": [
+    "new case hashes and independent dual-AI case validation",
+    "single-Patient-Agent dialogue and safety evaluation",
+    "new runtime-release manifest and file hashes",
+    "new acceptance report and Software RC archive"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/red-flag-exclusion-matrix-v1.schema.json",
+  "title": "Private red-flag exclusion matrix v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["matrixVersion", "caseId", "caseVersion", "policyVersion", "entries", "review"],
+  "properties": {
+    "matrixVersion": { "const": "red-flag-exclusion-matrix-v1" },
+    "caseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/nonEmpty" },
+    "policyVersion": { "$ref": "#/$defs/id" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["redFlagId", "canonicalName", "applicable", "requiredState", "evidenceFactIds", "evidenceType", "observedValue", "criterionSourceId", "criterionSourceVersion", "reviewDecision"],
+        "properties": {
+          "redFlagId": { "$ref": "#/$defs/id" },
+          "canonicalName": { "$ref": "#/$defs/nonEmpty" },
+          "applicable": { "type": "boolean" },
+          "requiredState": { "const": "absent" },
+          "evidenceFactIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+          "evidenceType": { "$ref": "#/$defs/nonEmpty" },
+          "observedValue": { "anyOf": [{ "type": "string" }, { "type": "number" }] },
+          "unit": { "type": "string" },
+          "criterionSourceId": { "$ref": "#/$defs/id" },
+          "criterionSourceVersion": { "$ref": "#/$defs/nonEmpty" },
+          "reviewDecision": { "enum": ["pending", "approved", "rejected"] }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "applicable": { "const": true } } },
+            "then": { "properties": { "evidenceFactIds": { "minItems": 1 } } }
+          }
+        ]
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["fixture", "pending", "approved", "rejected"] },
+        "reviewerId": { "$ref": "#/$defs/id" },
+        "reviewedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "approved" } } },
+          "then": { "required": ["reviewerId", "reviewedAt"] }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" }
+  }
+}

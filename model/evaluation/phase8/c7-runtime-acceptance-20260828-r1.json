@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "c7-runtime-acceptance-evidence-v1",
+  "generatedAt": "2026-08-28T16:00:13.710Z",
+  "status": "passed",
+  "persistenceCovered": true,
+  "idempotencyCovered": true,
+  "recoveryCovered": true,
+  "providerFailureCovered": true,
+  "testFiles": [
+    {
+      "path": "tests/c7-case-release.test.ts",
+      "sha256": "93933cbfdc8828303a9b57afee96b70ae3734ecb2b1ad32c5dbd9f401fc9163d"
+    },
+    {
+      "path": "tests/c7-dialogue-architecture-benchmark.test.ts",
+      "sha256": "145199a310fe42394cbf96ba49ca49dcb989eb28ba0da54f27a124b0c80c7b43"
+    },
+    {
+      "path": "tests/c7-runtime-release.test.ts",
+      "sha256": "811b6ec1ae3a514d4e1c01e874d2a82fecd8c29cb2e8e4fc1deaa95baee3f3a7"
+    },
+    {
+      "path": "tests/patient-agent-contract.test.ts",
+      "sha256": "71dbb5a61c974f7afc4c9815288428832783e1964ba77f9a10409a48a69e6bcd"
+    },
+    {
+      "path": "tests/provider-output-gates.test.ts",
+      "sha256": "b32cf30a6a4b1b02d18a1c37782977c065d7e2e286ccff80259f2b3aeabdcab4"
+    },
+    {
+      "path": "tests/sqlite-persistence.test.ts",
+      "sha256": "ac52edf5eacac398d0735676babf1de5f57ccb5c9e950078ed08b6a4bb7219d3"
+    },
+    {
+      "path": "tests/phase2-hardening.test.ts",
+      "sha256": "04c47ab07c67c032f4257d37b5442750fc54553d3192d8914e742fa9633a588e"
+    },
+    {
+      "path": "tests/phase2-recovery.test.ts",
+      "sha256": "d6650d87927237aecc87e3f89bde2d60270729d2163dc5267ca6e87869f21ee3"
+    },
+    {
+      "path": "tests/turn-request-crypto.test.ts",
+      "sha256": "3ad8c88d894a8f8f82e1c64c8c309d9a3cfe1c372eb9853e099a90d7328acbe9"
+    }
+  ],
+  "verification": {
+    "exitCode": 0,
+    "signal": null,
+    "stdoutSha256": "beb54e50d5c9baf1a2abc438587b8014ccc8f55b82b45de9a06ac03f0d385933",
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 7050,
+    "stderrBytes": 0
+  }
+}

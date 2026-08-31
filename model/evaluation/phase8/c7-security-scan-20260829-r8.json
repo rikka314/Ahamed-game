@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "phase8-security-scan-report-v1",
+  "generatedAt": "2026-08-28T17:22:29.549Z",
+  "status": "passed",
+  "scannedRoots": [
+    "model",
+    "share"
+  ],
+  "scannedTextFiles": 1978,
+  "scannedPublicEvidenceFiles": 158,
+  "secretFindings": [],
+  "hiddenFieldFindings": [],
+  "hmacConfiguration": {
+    "documented": true,
+    "minimumLengthDocumented": true,
+    "ignoredFromGit": true
+  },
+  "databaseArtifacts": [],
+  "blockers": []
+}

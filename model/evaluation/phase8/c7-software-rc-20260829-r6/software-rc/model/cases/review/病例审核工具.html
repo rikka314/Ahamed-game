@@ -1,0 +1,1762 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AhaMed 病例审核工具</title>
+  <style>
+    :root {
+      --paper: #f4f0e8;
+      --paper-deep: #e9e1d3;
+      --sheet: #fffdf8;
+      --ink: #172723;
+      --muted: #68736e;
+      --line: #d9d2c5;
+      --green: #17684c;
+      --green-soft: #e2efe8;
+      --red: #a33c36;
+      --red-soft: #f8e7e3;
+      --amber: #9a6a1f;
+      --amber-soft: #f7ecd5;
+      --blue: #315f73;
+      --shadow: 0 18px 50px rgba(35, 48, 42, 0.09);
+      --radius: 18px;
+      --sans: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(23, 104, 76, 0.08), transparent 28rem),
+        linear-gradient(115deg, rgba(255,255,255,0.22), transparent 40%),
+        var(--paper);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    button, input, textarea { font: inherit; }
+
+    button { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid rgba(49, 95, 115, 0.28);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -5rem;
+      z-index: 100;
+      padding: .7rem 1rem;
+      color: white;
+      background: var(--ink);
+      border-radius: 8px;
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .app-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 268px minmax(0, 1fr) 342px;
+      grid-template-rows: auto 1fr;
+    }
+
+    .topbar {
+      grid-column: 1 / -1;
+      min-height: 76px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(244, 240, 232, 0.92);
+      border-bottom: 1px solid rgba(23, 39, 35, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      min-width: 246px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(23, 104, 76, 0.28);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      background: rgba(255,255,255,.56);
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing: -.08em;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .brand small { color: var(--muted); }
+
+    .progress-wrap {
+      flex: 1;
+      min-width: 160px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .progress-track {
+      height: 7px;
+      overflow: hidden;
+      background: rgba(23,39,35,.1);
+      border-radius: 99px;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--green);
+      border-radius: inherit;
+      transition: width .35s ease;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .save-state {
+      min-width: 118px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 13px;
+      background: rgba(255,255,255,.62);
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: #ada596;
+      background: white;
+    }
+
+    .button.primary {
+      color: white;
+      border-color: var(--ink);
+      background: var(--ink);
+      font-weight: 700;
+    }
+
+    .button.primary:hover { background: #263d37; }
+
+    .sidebar,
+    .review-rail {
+      position: sticky;
+      top: 76px;
+      height: calc(100vh - 76px);
+      overflow: auto;
+    }
+
+    .sidebar {
+      padding: 26px 18px 30px 22px;
+      border-right: 1px solid rgba(23,39,35,.12);
+    }
+
+    .side-heading {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .case-link {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 10px;
+      text-align: left;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .case-link:hover { background: rgba(255,255,255,.55); }
+
+    .case-link.active {
+      border-color: rgba(23,104,76,.22);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 9px 24px rgba(35,48,42,.06);
+    }
+
+    .case-number {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 12px;
+      background: var(--sheet);
+    }
+
+    .case-link strong,
+    .case-link small { display: block; }
+
+    .case-link strong {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .case-link small {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .case-state-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #aaa69d;
+      box-shadow: 0 0 0 4px rgba(170,166,157,.12);
+    }
+
+    .case-state-dot.approved { background: var(--green); box-shadow: 0 0 0 4px rgba(23,104,76,.12); }
+    .case-state-dot.rejected { background: var(--red); box-shadow: 0 0 0 4px rgba(163,60,54,.12); }
+
+    .reviewer-card {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .field { display: grid; gap: 6px; margin-bottom: 13px; }
+
+    .field label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,253,248,.92);
+    }
+
+    input { height: 42px; padding: 0 11px; }
+
+    textarea {
+      min-height: 106px;
+      padding: 10px 11px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    input:focus,
+    textarea:focus { border-color: var(--blue); outline: 3px solid rgba(49,95,115,.12); }
+
+    .privacy-note {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .content {
+      min-width: 0;
+      padding: 38px clamp(22px, 4vw, 62px) 90px;
+    }
+
+    .case-header {
+      max-width: 920px;
+      margin: 0 auto 28px;
+      animation: rise .35s ease both;
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(32px, 4vw, 55px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    .case-subline {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-sheet {
+      max-width: 920px;
+      margin: 0 auto 22px;
+      padding: clamp(24px, 4vw, 44px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(23,39,35,.12);
+      border-radius: var(--radius);
+      background: var(--sheet);
+      box-shadow: var(--shadow);
+      animation: rise .4s .04s ease both;
+    }
+
+    .hero-sheet::after {
+      content: "";
+      width: 190px;
+      height: 190px;
+      position: absolute;
+      right: -95px;
+      top: -90px;
+      border: 32px solid rgba(23,104,76,.055);
+      border-radius: 50%;
+    }
+
+    .patient-line {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .patient-line h2 { margin: 0; font-size: 29px; }
+
+    .patient-meta { color: var(--muted); }
+
+    .complaint-label {
+      margin: 30px 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .complaint {
+      margin: 0;
+      max-width: 780px;
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.45;
+    }
+
+    .content-block {
+      max-width: 920px;
+      margin: 22px auto;
+      padding: clamp(22px, 3vw, 34px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,253,248,.58);
+      animation: rise .42s .08s ease both;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 19px;
+    }
+
+    .section-head h2 { margin: 0; font-size: 25px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 12px; text-align: right; }
+
+    .fact-groups { display: grid; gap: 22px; }
+
+    .fact-group h3 {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .fact-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px 16px;
+    }
+
+    .fact-row {
+      min-width: 0;
+      padding: 12px 0;
+      display: grid;
+      grid-template-columns: minmax(105px, .7fr) minmax(0, 1.7fr);
+      gap: 13px;
+      border-bottom: 1px dotted #d5cec1;
+    }
+
+    .fact-name { font-weight: 750; font-size: 13px; }
+    .fact-value { min-width: 0; font-size: 14px; }
+
+    .micro {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      background: rgba(255,255,255,.72);
+      font-size: 11px;
+      font-weight: 750;
+      line-height: 1.2;
+    }
+
+    .pill.present, .pill.required { color: var(--green); border-color: rgba(23,104,76,.24); background: var(--green-soft); }
+    .pill.absent, .pill.unnecessary { color: var(--red); border-color: rgba(163,60,54,.2); background: var(--red-soft); }
+    .pill.unknown, .pill.useful { color: var(--amber); border-color: rgba(154,106,31,.22); background: var(--amber-soft); }
+
+    .test-list,
+    .diagnosis-grid { display: grid; gap: 10px; }
+
+    .test-row {
+      padding: 16px 0;
+      display: grid;
+      grid-template-columns: minmax(150px, .7fr) minmax(0, 1.6fr);
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .test-row:last-child { border-bottom: 0; }
+    .test-row strong { font-size: 14px; }
+
+    .diagnosis-callout {
+      padding: 21px 24px;
+      color: white;
+      border-radius: 14px;
+      background: var(--ink);
+    }
+
+    .diagnosis-callout small { color: rgba(255,255,255,.64); }
+    .diagnosis-callout strong { display: block; margin-top: 4px; font-family: var(--serif); font-size: 28px; }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .plain-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .plain-panel h3 { margin: 0 0 11px; font-size: 17px; }
+    .plain-panel p { margin: 7px 0; }
+    .plain-panel ul { margin: 8px 0 0; padding-left: 1.3rem; }
+
+    .risk-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .risk-table th,
+    .risk-table td { padding: 12px 9px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .risk-table th { color: var(--muted); font-size: 11px; letter-spacing: .05em; }
+
+    details {
+      max-width: 920px;
+      margin: 22px auto;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.5);
+    }
+
+    summary { padding: 15px 18px; cursor: pointer; font-weight: 750; }
+
+    pre {
+      max-height: 520px;
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #d7e8df;
+      background: #14211e;
+      border-radius: 0 0 12px 12px;
+      font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .review-rail {
+      padding: 26px 22px 30px 18px;
+      border-left: 1px solid rgba(23,39,35,.12);
+    }
+
+    .review-card {
+      padding: 21px;
+      border: 1px solid rgba(23,39,35,.14);
+      border-radius: var(--radius);
+      background: var(--sheet);
+      box-shadow: var(--shadow);
+    }
+
+    .review-card h2 { margin: 0; font-size: 23px; }
+    .review-help { margin: 5px 0 18px; color: var(--muted); font-size: 12px; }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .decision {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: white;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .decision:hover { transform: translateY(-2px); }
+    .decision small { color: var(--muted); font-size: 10px; font-weight: 600; }
+    .decision.approve:hover, .decision.approve.selected { color: var(--green); border-color: var(--green); background: var(--green-soft); }
+    .decision.reject:hover, .decision.reject.selected { color: var(--red); border-color: var(--red); background: var(--red-soft); }
+
+    .review-footer {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 8px;
+      margin-top: 17px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .review-position { color: var(--muted); font-size: 12px; text-align: center; }
+
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      font-size: 19px;
+    }
+
+    .icon-button:disabled { opacity: .38; cursor: default; }
+
+    .scope-note {
+      margin: 14px 1px 0;
+      padding: 12px 14px;
+      color: #5b554a;
+      border-left: 3px solid #b38b45;
+      background: rgba(247,236,213,.66);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .toast {
+      max-width: min(440px, calc(100vw - 30px));
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 80;
+      padding: 11px 16px;
+      color: white;
+      border-radius: 99px;
+      background: var(--ink);
+      box-shadow: 0 16px 45px rgba(23,39,35,.24);
+      opacity: 0;
+      transform: translate(-50%, 18px);
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .modal {
+      width: min(560px, calc(100vw - 28px));
+      padding: 0;
+      border: 0;
+      border-radius: 18px;
+      background: var(--sheet);
+      box-shadow: 0 30px 90px rgba(23,39,35,.28);
+    }
+
+    .modal::backdrop { background: rgba(15,28,24,.48); backdrop-filter: blur(4px); }
+    .modal-body { padding: 25px; }
+    .modal h2 { margin: 0 0 8px; font-size: 24px; }
+    .modal p { color: var(--muted); }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+
+    .empty-state {
+      max-width: 700px;
+      margin: 90px auto;
+      padding: 50px;
+      text-align: center;
+      border: 1px dashed #bdb3a3;
+      border-radius: 18px;
+      background: rgba(255,255,255,.44);
+    }
+
+    .empty-state h1 { margin: auto; font-size: 38px; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(9px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1180px) {
+      .app-shell { grid-template-columns: 224px minmax(0, 1fr); }
+      .review-rail {
+        grid-column: 2;
+        position: relative;
+        top: auto;
+        height: auto;
+        padding: 0 clamp(22px,4vw,62px) 70px;
+        border-left: 0;
+      }
+      .review-card { max-width: 920px; margin: auto; }
+      .content { padding-bottom: 30px; }
+    }
+
+    @media (max-width: 760px) {
+      .app-shell { display: block; }
+      .topbar { min-height: auto; padding: 12px 14px; flex-wrap: wrap; }
+      .brand { min-width: 0; flex: 0 0 auto; }
+      .brand strong { font-size: 16px; white-space: nowrap; }
+      .brand small { display: none; }
+      .progress-wrap { order: 3; width: 100%; }
+      .top-actions .button:not(.primary), .save-state { display: none; }
+      .top-actions { margin-left: auto; }
+      .top-actions .button.primary { padding-inline: 12px; font-size: 0; }
+      .top-actions .button.primary::after { content: "下载副本"; font-size: 14px; }
+      .sidebar { position: static; height: auto; padding: 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .side-heading { display: none; }
+      .case-list { display: flex; overflow-x: auto; padding-bottom: 3px; }
+      .case-link { min-width: 188px; }
+      .reviewer-card { margin-top: 14px; padding-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .reviewer-card .side-heading, .reviewer-card .privacy-note { grid-column: 1 / -1; display: block; }
+      .field { margin: 0; }
+      .content { padding: 28px 14px 26px; }
+      .hero-sheet, .content-block { padding: 22px 18px; }
+      .fact-list, .split-grid { grid-template-columns: 1fr; }
+      .fact-row, .test-row { grid-template-columns: 1fr; gap: 5px; }
+      .risk-table { display: block; overflow-x: auto; }
+      .review-rail { padding: 0 14px 60px; }
+      .review-card { padding: 18px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .topbar, .sidebar, .review-footer, .top-actions, .toast { display: none !important; }
+      .app-shell { display: block; }
+      .content, .review-rail { padding: 0; }
+      .review-rail { height: auto; overflow: visible; border: 0; }
+      .hero-sheet, .content-block, .review-card { max-width: none; box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#case-content">跳到病例内容</a>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand" aria-label="AhaMed 病例审核工具">
+        <div class="brand-mark" aria-hidden="true">A+</div>
+        <div><strong>病例审核工具</strong><small>看内容，做决定，留下意见</small></div>
+      </div>
+
+      <div class="progress-wrap" aria-label="审核进度">
+        <div class="progress-copy"><span id="progressText">尚未开始</span><span id="progressPercent">0%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <div class="top-actions">
+        <span class="save-state" id="saveState" role="status" aria-live="polite">正在载入…</span>
+        <button class="button" type="button" id="importCasesButton">导入病例</button>
+        <button class="button" type="button" id="importReviewButton">导入意见</button>
+        <button class="button" type="button" id="exportJsonButton">导出意见</button>
+        <button class="button primary" type="button" id="exportHtmlButton">下载已审核副本</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="病例列表与审核人信息">
+      <h2 class="side-heading">病例列表</h2>
+      <nav class="case-list" id="caseList"></nav>
+
+      <section class="reviewer-card" aria-labelledby="reviewerHeading">
+        <h2 class="side-heading" id="reviewerHeading">审核人</h2>
+        <div class="field">
+          <label for="reviewerName">姓名</label>
+          <input id="reviewerName" autocomplete="name" placeholder="请输入姓名">
+        </div>
+        <div class="field">
+          <label for="reviewerId">编号（可选）</label>
+          <input id="reviewerId" autocomplete="off" placeholder="院内编号或审核编号">
+        </div>
+        <p class="privacy-note">请勿填写完整执业证号、证件号码或上传证照图片。</p>
+      </section>
+    </aside>
+
+    <main class="content" id="case-content" tabindex="-1"></main>
+
+    <aside class="review-rail" aria-label="当前病例审核意见">
+      <section class="review-card">
+        <h2>这一例是否接受？</h2>
+        <p class="review-help">先看内容，再点击一个决定。问题与建议都可以留空。</p>
+
+        <div class="decision-grid" role="group" aria-label="审核决定">
+          <button class="decision approve" type="button" id="approveButton" aria-pressed="false">
+            <span>接受</span><small>内容可以继续使用</small>
+          </button>
+          <button class="decision reject" type="button" id="rejectButton" aria-pressed="false">
+            <span>不接受</span><small>需要修改后再审</small>
+          </button>
+        </div>
+
+        <div class="field">
+          <label for="issuesInput">发现的问题或纰漏</label>
+          <textarea id="issuesInput" placeholder="例如：病程时间线不一致；某项检查结果不合理……"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="suggestionsInput">改进建议</label>
+          <textarea id="suggestionsInput" placeholder="例如：建议补充某项病史；调整措辞；增加鉴别诊断……"></textarea>
+        </div>
+
+        <div class="review-footer">
+          <button class="icon-button" type="button" id="previousButton" aria-label="上一例">←</button>
+          <span class="review-position" id="reviewPosition">第 1 例</span>
+          <button class="icon-button" type="button" id="nextButton" aria-label="下一例">→</button>
+        </div>
+      </section>
+
+      <p class="scope-note">这里记录的是可选“内容反馈意见”。下载副本不会自动发布病例；人工反馈不阻塞发布，正式发布依据为与冻结病例精确绑定的双 AI 交叉验证记录。</p>
+    </aside>
+  </div>
+
+  <input type="file" id="caseFileInput" accept=".json,application/json" multiple hidden>
+  <input type="file" id="reviewFileInput" accept=".json,application/json" hidden>
+
+  <dialog class="modal" id="exportDialog">
+    <div class="modal-body">
+      <h2>已生成可回传的 HTML</h2>
+      <p>新文件已经内嵌病例、审核决定、问题和建议。请把下载的新 HTML 文件发回；不需要再附带其他文件。</p>
+      <div class="modal-actions">
+        <button class="button primary" type="button" id="closeDialogButton">知道了</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script id="embedded-review-state" type="application/json">{}</script>
+  <script>
+    (() => {
+      "use strict";
+
+      const INITIAL_CASES = /*__CASE_DATA__*/[{
+  "schemaVersion": "case-package-v1-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c01_respiratory_001",
+  "publicCaseId": "case_c01_respiratory_001",
+  "caseVersion": "1.0.0-draft.1",
+  "locale": "zh-CN",
+  "playerVisible": { "patientDisplayName": "林同学", "chiefComplaint": "鼻塞、流清涕伴咽部不适2天", "ageBand": "18–25岁", "genderDisplay": "女" },
+  "patientPersona": { "languageStyle": "colloquial_zh" },
+  "patientFacts": {
+    "fact.chief_complaint": { "status": "present", "value": "鼻子堵、流清鼻涕，嗓子也有点不舒服。", "disclosure": "spontaneous", "questionMatchers": ["哪里不舒服", "怎么了", "主要症状"] },
+    "fact.onset": { "status": "present", "value": "大约两天前慢慢开始的。", "disclosure": "if_asked", "questionMatchers": ["什么时候", "多久", "起病", "开始"] },
+    "fact.nasal_discharge": { "status": "present", "value": "主要是清鼻涕。", "disclosure": "if_asked", "questionMatchers": ["鼻涕", "流涕"] },
+    "fact.nasal_congestion": { "status": "present", "value": "两边鼻子都有点堵。", "disclosure": "if_asked", "questionMatchers": ["鼻塞", "鼻子堵"] },
+    "fact.sore_throat": { "status": "present", "value": "嗓子轻微发干发痒，吞咽不受影响。", "disclosure": "if_asked", "questionMatchers": ["咽痛", "嗓子", "吞咽"] },
+    "fact.cough": { "status": "present", "value": "偶尔有几声干咳，不频繁。", "disclosure": "if_asked", "questionMatchers": ["咳嗽", "咳痰"] },
+    "fact.high_fever": { "status": "absent", "value": "没有明显高热。", "disclosure": "if_asked", "questionMatchers": ["高热", "发烧", "体温"] },
+    "fact.myalgia": { "status": "absent", "value": "没有明显全身酸痛。", "disclosure": "if_asked", "questionMatchers": ["肌肉酸痛", "全身酸痛"] },
+    "fact.dyspnea": { "status": "absent", "value": "没有呼吸困难或喘不过气。", "disclosure": "if_asked", "questionMatchers": ["呼吸困难", "喘", "气短"] },
+    "fact.confusion": { "status": "absent", "value": "意识一直清楚，没有反应异常。", "disclosure": "if_asked", "questionMatchers": ["意识", "神志", "糊涂"] },
+    "fact.chest_pain": { "status": "absent", "value": "没有胸痛或胸闷。", "disclosure": "if_asked", "questionMatchers": ["胸痛", "胸闷"] },
+    "fact.hemoptysis": { "status": "absent", "value": "没有咳血。", "disclosure": "if_asked", "questionMatchers": ["咳血", "痰中带血"] },
+    "fact.hypotension": { "status": "absent", "value": "没有晕厥或站立不稳。", "disclosure": "if_asked", "questionMatchers": ["低血压", "晕厥", "站不稳"] },
+    "fact.tachypnea": { "status": "absent", "value": "安静坐着时呼吸不快。", "disclosure": "if_asked", "questionMatchers": ["呼吸快", "呼吸频率"] },
+    "fact.hypoxemia": { "status": "absent", "value": "没有口唇发紫或活动后明显憋气。", "disclosure": "if_asked", "questionMatchers": ["缺氧", "口唇发紫", "血氧"] },
+    "fact.inability_oral_intake": { "status": "absent", "value": "能正常喝水和进食。", "disclosure": "if_asked", "questionMatchers": ["喝水", "进食", "吞不下"] },
+    "fact.high_risk_population": { "status": "absent", "value": "是成年人，未怀孕，也没有免疫抑制或重要心肺基础病。", "disclosure": "if_asked", "questionMatchers": ["怀孕", "基础病", "免疫", "高风险"] },
+    "fact.sick_contact": { "status": "unknown", "value": "最近没注意身边是否有人有类似症状。", "disclosure": "if_asked", "questionMatchers": ["接触史", "身边有人", "同学"] },
+    "fact.vital_signs": { "status": "present", "value": "生命体征只能通过对应检查获得。", "disclosure": "test_only", "questionMatchers": [] },
+    "fact.teaching_note": { "status": "present", "value": "服务端教学与评分字段。", "disclosure": "hidden", "questionMatchers": [] }
+  },
+  "medicalTests": {
+    "test.vital_signs": { "status": "completed", "report": "体温37.3℃，心率78次/分，呼吸频率16次/分，血压116/72mmHg，静息血氧饱和度98%。" },
+    "test.complete_blood_count": { "status": "completed", "report": "白细胞计数及分类未见明显异常。" },
+    "test.chest_xray": { "status": "completed", "report": "双肺未见局灶性实变影。" }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.common_cold", "targetDiagnosis": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"],
+    "diagnosisConcepts": [
+      { "conceptId": "concept.common_cold", "preferredTerm": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"] },
+      { "conceptId": "concept.influenza", "preferredTerm": "流行性感冒", "acceptedSynonyms": ["流感"] },
+      { "conceptId": "concept.acute_pharyngitis", "preferredTerm": "急性咽炎", "acceptedSynonyms": ["急性咽部炎症"] },
+      { "conceptId": "concept.acute_bronchitis", "preferredTerm": "急性支气管炎", "acceptedSynonyms": ["急性气管支气管炎"] },
+      { "conceptId": "concept.mild_cap", "preferredTerm": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"] }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": ["fact.onset", "fact.nasal_discharge", "fact.sore_throat", "fact.cough", "fact.high_fever", "fact.myalgia", "fact.dyspnea", "fact.inability_oral_intake"],
+    "acceptableDifferentialConceptIds": ["concept.influenza", "concept.acute_pharyngitis"], "requiredDifferentialCount": 2,
+    "testClassifications": { "test.vital_signs": "required", "test.complete_blood_count": "useful", "test.chest_xray": "unnecessary" },
+    "recommendedTurnLimit": 8, "communicationRubricVersion": "communication-rubric-v1", "communicationCriterionIds": ["communication.respectful_clear", "communication.summary_transition"]
+  },
+  "review": { "status": "pending", "author": "medical-author-a", "notes": "纯合成病例；人工反馈可选且不阻塞发布，正式发布依据为双 AI 交叉验证。" },
+  "provenance": {
+    "sourceType": "synthetic",
+    "sourceCitation": "工程团队依据 CDC Adult Outpatient Clinical Care (2024-04-16, https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html) 与 NICE NG237 (https://www.nice.org.uk/guidance/ng237) 编写的纯合成病例；不含真实患者资料或病例原文。",
+    "license": "internal-synthetic-case; official guidance cited, not redistributed",
+    "createdAt": "2026-08-27T00:00:00.000Z",
+    "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49"
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1", "caseId": "internal_c01_respiratory_001", "caseVersion": "1.0.0-draft.1", "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      { "redFlagId": "redflag.dyspnea", "canonicalName": "呼吸困难", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.dyspnea"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.confusion", "canonicalName": "意识状态改变", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.confusion"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.chest_pain", "canonicalName": "胸痛", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.chest_pain"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hemoptysis", "canonicalName": "咯血", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hemoptysis"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypotension", "canonicalName": "低血压", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypotension"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 116, "unit": "mmHg systolic", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.tachypnea", "canonicalName": "呼吸频率增快", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.tachypnea"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 16, "unit": "breaths/min", "criterionSourceId": "source.cdc.adult_outpatient", "criterionSourceVersion": "2024-04-16", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypoxemia", "canonicalName": "低氧表现", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypoxemia"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 98, "unit": "% SpO2 room air", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.inability_oral_intake", "canonicalName": "无法进食饮水", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.inability_oral_intake"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.high_risk_population", "canonicalName": "MVP排除的高风险人群", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.high_risk_population"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.project.mvp_scope", "criterionSourceVersion": "1", "reviewDecision": "pending" }
+    ],
+    "review": { "status": "pending" }
+  }
+}
+,{
+  "schemaVersion": "case-package-v1-rc1", "evaluationVersion": "scoring-policy-v1", "packageStatus": "draft",
+  "internalCaseId": "internal_c02_respiratory_002", "publicCaseId": "case_c02_respiratory_002", "caseVersion": "1.0.0-draft.1", "locale": "zh-CN",
+  "playerVisible": { "patientDisplayName": "周同学", "chiefComplaint": "突发发热、干咳和全身酸痛1天", "ageBand": "18–25岁", "genderDisplay": "男" },
+  "patientPersona": { "languageStyle": "colloquial_zh" },
+  "patientFacts": {
+    "fact.chief_complaint": { "status": "present", "value": "昨天突然发热，干咳，全身也很酸。", "disclosure": "spontaneous", "questionMatchers": ["哪里不舒服", "怎么了", "主要症状"] },
+    "fact.onset": { "status": "present", "value": "昨天傍晚突然开始，几个小时内就明显起来。", "disclosure": "if_asked", "questionMatchers": ["什么时候", "多久", "起病", "突然"] },
+    "fact.fever": { "status": "present", "value": "最高自己量到38.8℃。", "disclosure": "if_asked", "questionMatchers": ["发热", "发烧", "体温"] },
+    "fact.myalgia": { "status": "present", "value": "腰背和四肢都明显酸痛。", "disclosure": "if_asked", "questionMatchers": ["肌肉酸痛", "全身酸痛"] },
+    "fact.headache": { "status": "present", "value": "有中等程度的头痛。", "disclosure": "if_asked", "questionMatchers": ["头痛", "头疼"] },
+    "fact.cough": { "status": "present", "value": "主要是干咳，没有明显咳痰。", "disclosure": "if_asked", "questionMatchers": ["咳嗽", "咳痰"] },
+    "fact.dyspnea": { "status": "absent", "value": "没有呼吸困难或喘不过气。", "disclosure": "if_asked", "questionMatchers": ["呼吸困难", "喘", "气短"] },
+    "fact.confusion": { "status": "absent", "value": "意识清楚，交流和反应都正常。", "disclosure": "if_asked", "questionMatchers": ["意识", "神志", "糊涂"] },
+    "fact.chest_pain": { "status": "absent", "value": "没有持续胸痛或胸闷。", "disclosure": "if_asked", "questionMatchers": ["胸痛", "胸闷"] },
+    "fact.hemoptysis": { "status": "absent", "value": "没有咳血。", "disclosure": "if_asked", "questionMatchers": ["咳血", "痰中带血"] },
+    "fact.hypotension": { "status": "absent", "value": "没有晕厥或站立不稳。", "disclosure": "if_asked", "questionMatchers": ["低血压", "晕厥", "站不稳"] },
+    "fact.tachypnea": { "status": "absent", "value": "安静时呼吸不快。", "disclosure": "if_asked", "questionMatchers": ["呼吸快", "呼吸频率"] },
+    "fact.hypoxemia": { "status": "absent", "value": "没有口唇发紫或明显憋气。", "disclosure": "if_asked", "questionMatchers": ["缺氧", "口唇发紫", "血氧"] },
+    "fact.inability_oral_intake": { "status": "absent", "value": "虽然胃口差，但可以喝水和吃少量食物。", "disclosure": "if_asked", "questionMatchers": ["喝水", "进食", "吞不下"] },
+    "fact.high_risk_population": { "status": "absent", "value": "是成年人，没有妊娠、免疫抑制或重要慢性病。", "disclosure": "if_asked", "questionMatchers": ["怀孕", "基础病", "免疫", "高风险"] },
+    "fact.sick_contact": { "status": "unknown", "value": "最近上课人多，不清楚具体接触过谁。", "disclosure": "if_asked", "questionMatchers": ["接触史", "同学", "身边有人"] },
+    "fact.vital_signs": { "status": "present", "value": "生命体征只能通过对应检查获得。", "disclosure": "test_only", "questionMatchers": [] },
+    "fact.teaching_note": { "status": "present", "value": "服务端教学与评分字段。", "disclosure": "hidden", "questionMatchers": [] }
+  },
+  "medicalTests": {
+    "test.vital_signs": { "status": "completed", "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。" },
+    "test.respiratory_virus_panel": { "status": "completed", "report": "A型病毒核酸靶标阳性，内参有效。" },
+    "test.chest_xray": { "status": "completed", "report": "双肺未见局灶性实变影。" }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.influenza", "targetDiagnosis": "流行性感冒", "acceptedSynonyms": ["流感"],
+    "diagnosisConcepts": [
+      { "conceptId": "concept.influenza", "preferredTerm": "流行性感冒", "acceptedSynonyms": ["流感"] },
+      { "conceptId": "concept.common_cold", "preferredTerm": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"] },
+      { "conceptId": "concept.acute_pharyngitis", "preferredTerm": "急性咽炎", "acceptedSynonyms": ["急性咽部炎症"] },
+      { "conceptId": "concept.acute_bronchitis", "preferredTerm": "急性支气管炎", "acceptedSynonyms": ["急性气管支气管炎"] },
+      { "conceptId": "concept.mild_cap", "preferredTerm": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"] }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": ["fact.onset", "fact.fever", "fact.myalgia", "fact.headache", "fact.cough", "fact.dyspnea", "fact.confusion", "fact.inability_oral_intake"],
+    "acceptableDifferentialConceptIds": ["concept.common_cold", "concept.mild_cap"], "requiredDifferentialCount": 2,
+    "testClassifications": { "test.vital_signs": "required", "test.respiratory_virus_panel": "useful", "test.chest_xray": "unnecessary" },
+    "recommendedTurnLimit": 8, "communicationRubricVersion": "communication-rubric-v1", "communicationCriterionIds": ["communication.respectful_clear", "communication.emotion_response"]
+  },
+  "review": { "status": "pending", "author": "medical-author-a", "notes": "纯合成病例；人工反馈可选且不阻塞发布，正式发布依据为双 AI 交叉验证。" },
+  "provenance": {
+    "sourceType": "synthetic",
+    "sourceCitation": "工程团队依据国家卫生健康委《流行性感冒诊疗方案（2025年版）》(https://www.nhc.gov.cn/ylyjs/zcwj/202501/f8fcecca59a048bebc4a71847ce57594.shtml) 编写的纯合成病例；不含真实患者资料或病例原文。",
+    "license": "internal-synthetic-case; official guidance cited, not redistributed", "createdAt": "2026-08-27T00:00:00.000Z",
+    "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f"
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1", "caseId": "internal_c02_respiratory_002", "caseVersion": "1.0.0-draft.1", "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      { "redFlagId": "redflag.dyspnea", "canonicalName": "呼吸困难", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.dyspnea"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.confusion", "canonicalName": "意识状态改变", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.confusion"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.chest_pain", "canonicalName": "持续胸痛", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.chest_pain"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hemoptysis", "canonicalName": "咯血", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hemoptysis"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypotension", "canonicalName": "低血压", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypotension"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 118, "unit": "mmHg systolic", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.tachypnea", "canonicalName": "呼吸频率增快", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.tachypnea"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 18, "unit": "breaths/min", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypoxemia", "canonicalName": "低氧表现", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypoxemia"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 97, "unit": "% SpO2 room air", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.inability_oral_intake", "canonicalName": "无法进食饮水", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.inability_oral_intake"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nhc.influenza", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.high_risk_population", "canonicalName": "MVP排除的高风险人群", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.high_risk_population"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.project.mvp_scope", "criterionSourceVersion": "1", "reviewDecision": "pending" }
+    ], "review": { "status": "pending" }
+  }
+}
+,{
+  "schemaVersion": "case-package-v1-rc1", "evaluationVersion": "scoring-policy-v1", "packageStatus": "draft",
+  "internalCaseId": "internal_c03_respiratory_003", "publicCaseId": "case_c03_respiratory_003", "caseVersion": "1.0.0-draft.1", "locale": "zh-CN",
+  "playerVisible": { "patientDisplayName": "陈同学", "chiefComplaint": "咽痛伴低热2天", "ageBand": "18–25岁", "genderDisplay": "女" },
+  "patientPersona": { "languageStyle": "colloquial_zh" },
+  "patientFacts": {
+    "fact.chief_complaint": { "status": "present", "value": "嗓子疼了两天，还有一点低热。", "disclosure": "spontaneous", "questionMatchers": ["哪里不舒服", "怎么了", "主要症状"] },
+    "fact.onset": { "status": "present", "value": "两天前开始，今天疼痛比昨天明显。", "disclosure": "if_asked", "questionMatchers": ["什么时候", "多久", "起病"] },
+    "fact.sore_throat": { "status": "present", "value": "吞咽时嗓子疼，但还能喝水吃饭。", "disclosure": "if_asked", "questionMatchers": ["咽痛", "嗓子", "吞咽"] },
+    "fact.fever": { "status": "present", "value": "最高量到38.1℃。", "disclosure": "if_asked", "questionMatchers": ["发热", "发烧", "体温"] },
+    "fact.cough": { "status": "absent", "value": "基本不咳嗽。", "disclosure": "if_asked", "questionMatchers": ["咳嗽", "咳痰"] },
+    "fact.rhinorrhea": { "status": "absent", "value": "没有明显流鼻涕或鼻塞。", "disclosure": "if_asked", "questionMatchers": ["流鼻涕", "鼻塞"] },
+    "fact.neck_nodes": { "status": "present", "value": "下颌角附近按压有点疼。", "disclosure": "if_asked", "questionMatchers": ["淋巴结", "脖子疼", "颈部包块"] },
+    "fact.dyspnea": { "status": "absent", "value": "呼吸顺畅，没有喘不过气。", "disclosure": "if_asked", "questionMatchers": ["呼吸困难", "喘", "气短"] },
+    "fact.confusion": { "status": "absent", "value": "意识清楚，交流正常。", "disclosure": "if_asked", "questionMatchers": ["意识", "神志", "糊涂"] },
+    "fact.chest_pain": { "status": "absent", "value": "没有胸痛或胸闷。", "disclosure": "if_asked", "questionMatchers": ["胸痛", "胸闷"] },
+    "fact.hemoptysis": { "status": "absent", "value": "没有咳血。", "disclosure": "if_asked", "questionMatchers": ["咳血", "痰中带血"] },
+    "fact.hypotension": { "status": "absent", "value": "没有晕厥或站立不稳。", "disclosure": "if_asked", "questionMatchers": ["低血压", "晕厥"] },
+    "fact.tachypnea": { "status": "absent", "value": "安静时呼吸不快。", "disclosure": "if_asked", "questionMatchers": ["呼吸快", "呼吸频率"] },
+    "fact.hypoxemia": { "status": "absent", "value": "没有口唇发紫或明显憋气。", "disclosure": "if_asked", "questionMatchers": ["缺氧", "口唇发紫", "血氧"] },
+    "fact.inability_oral_intake": { "status": "absent", "value": "能喝水和进食，没有流口水。", "disclosure": "if_asked", "questionMatchers": ["喝水", "进食", "吞不下", "流口水"] },
+    "fact.high_risk_population": { "status": "absent", "value": "是成年人，未怀孕，也没有免疫抑制或重要基础病。", "disclosure": "if_asked", "questionMatchers": ["怀孕", "基础病", "免疫", "高风险"] },
+    "fact.exposure": { "status": "unknown", "value": "不清楚最近是否接触过有类似咽部症状的人。", "disclosure": "if_asked", "questionMatchers": ["接触史", "身边有人"] },
+    "fact.throat_exam": { "status": "present", "value": "咽部检查结果只能通过对应检查获得。", "disclosure": "test_only", "questionMatchers": [] },
+    "fact.teaching_note": { "status": "present", "value": "服务端教学与评分字段。", "disclosure": "hidden", "questionMatchers": [] }
+  },
+  "medicalTests": {
+    "test.vital_signs": { "status": "completed", "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。" },
+    "test.throat_exam": { "status": "completed", "report": "咽部充血，扁桃体轻度肿大，可见少量点状渗出物，无悬雍垂偏移。" },
+    "test.rapid_antigen": { "status": "completed", "report": "A组链球菌快速抗原检测阴性。" },
+    "test.chest_xray": { "status": "completed", "report": "双肺未见局灶性实变影。" }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.acute_pharyngitis", "targetDiagnosis": "急性咽炎", "acceptedSynonyms": ["急性咽部炎症"],
+    "diagnosisConcepts": [
+      { "conceptId": "concept.acute_pharyngitis", "preferredTerm": "急性咽炎", "acceptedSynonyms": ["急性咽部炎症"] },
+      { "conceptId": "concept.common_cold", "preferredTerm": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"] },
+      { "conceptId": "concept.influenza", "preferredTerm": "流行性感冒", "acceptedSynonyms": ["流感"] },
+      { "conceptId": "concept.streptococcal_sore_throat", "preferredTerm": "链球菌性咽峡炎", "acceptedSynonyms": ["A组链球菌性咽部感染"] },
+      { "conceptId": "concept.mild_cap", "preferredTerm": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"] }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": ["fact.onset", "fact.sore_throat", "fact.fever", "fact.cough", "fact.rhinorrhea", "fact.neck_nodes", "fact.dyspnea", "fact.inability_oral_intake"],
+    "acceptableDifferentialConceptIds": ["concept.streptococcal_sore_throat", "concept.influenza"], "requiredDifferentialCount": 2,
+    "testClassifications": { "test.vital_signs": "required", "test.throat_exam": "required", "test.rapid_antigen": "useful", "test.chest_xray": "unnecessary" },
+    "recommendedTurnLimit": 8, "communicationRubricVersion": "communication-rubric-v1", "communicationCriterionIds": ["communication.respectful_clear", "communication.summary_transition"]
+  },
+  "review": { "status": "pending", "author": "medical-author-a", "notes": "纯合成病例；病因粒度与可接受诊断由双 AI 交叉验证后冻结，人工反馈非阻塞。" },
+  "provenance": { "sourceType": "synthetic", "sourceCitation": "工程团队依据 CDC Adult Outpatient Clinical Care pharyngitis guidance (2024-04-16, https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html) 编写的纯合成病例；不含真实患者资料或病例原文。", "license": "internal-synthetic-case; official guidance cited, not redistributed", "createdAt": "2026-08-27T00:00:00.000Z", "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0" },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1", "caseId": "internal_c03_respiratory_003", "caseVersion": "1.0.0-draft.1", "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      { "redFlagId": "redflag.dyspnea", "canonicalName": "呼吸困难", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.dyspnea"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.confusion", "canonicalName": "意识状态改变", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.confusion"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.chest_pain", "canonicalName": "胸痛", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.chest_pain"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hemoptysis", "canonicalName": "咯血", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hemoptysis"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypotension", "canonicalName": "低血压", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypotension"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 114, "unit": "mmHg systolic", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.tachypnea", "canonicalName": "呼吸频率增快", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.tachypnea"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 16, "unit": "breaths/min", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypoxemia", "canonicalName": "低氧表现", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypoxemia"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 98, "unit": "% SpO2 room air", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.inability_oral_intake", "canonicalName": "无法进食饮水", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.inability_oral_intake"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.high_risk_population", "canonicalName": "MVP排除的高风险人群", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.high_risk_population"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.project.mvp_scope", "criterionSourceVersion": "1", "reviewDecision": "pending" }
+    ], "review": { "status": "pending" }
+  }
+}
+,{
+  "schemaVersion": "case-package-v1-rc1", "evaluationVersion": "scoring-policy-v1", "packageStatus": "draft",
+  "internalCaseId": "internal_c04_respiratory_004", "publicCaseId": "case_c04_respiratory_004", "caseVersion": "1.0.0-draft.1", "locale": "zh-CN",
+  "playerVisible": { "patientDisplayName": "王同学", "chiefComplaint": "咳嗽伴少量咳痰8天", "ageBand": "18–25岁", "genderDisplay": "男" },
+  "patientPersona": { "languageStyle": "colloquial_zh" },
+  "patientFacts": {
+    "fact.chief_complaint": { "status": "present", "value": "咳嗽八天了，偶尔会咳出一点痰。", "disclosure": "spontaneous", "questionMatchers": ["哪里不舒服", "怎么了", "主要症状"] },
+    "fact.onset": { "status": "present", "value": "八天前先有鼻塞，过两天后咳嗽变明显。", "disclosure": "if_asked", "questionMatchers": ["什么时候", "多久", "起病"] },
+    "fact.cough": { "status": "present", "value": "白天和晚上都会咳，但还能正常睡觉。", "disclosure": "if_asked", "questionMatchers": ["咳嗽", "夜间"] },
+    "fact.sputum": { "status": "present", "value": "痰量不多，颜色偏黄。", "disclosure": "if_asked", "questionMatchers": ["咳痰", "痰颜色", "痰量"] },
+    "fact.fever": { "status": "absent", "value": "没有达到38℃的发热。", "disclosure": "if_asked", "questionMatchers": ["发热", "发烧", "体温"] },
+    "fact.wheeze": { "status": "unknown", "value": "自己没注意有没有喘鸣声。", "disclosure": "if_asked", "questionMatchers": ["喘鸣", "呼吸声音"] },
+    "fact.dyspnea": { "status": "absent", "value": "没有呼吸困难或活动后明显气短。", "disclosure": "if_asked", "questionMatchers": ["呼吸困难", "喘", "气短"] },
+    "fact.confusion": { "status": "absent", "value": "意识清楚，反应正常。", "disclosure": "if_asked", "questionMatchers": ["意识", "神志", "糊涂"] },
+    "fact.chest_pain": { "status": "absent", "value": "没有持续胸痛或吸气时胸痛。", "disclosure": "if_asked", "questionMatchers": ["胸痛", "胸闷"] },
+    "fact.hemoptysis": { "status": "absent", "value": "痰里没有血。", "disclosure": "if_asked", "questionMatchers": ["咳血", "痰中带血"] },
+    "fact.hypotension": { "status": "absent", "value": "没有晕厥或站立不稳。", "disclosure": "if_asked", "questionMatchers": ["低血压", "晕厥"] },
+    "fact.tachypnea": { "status": "absent", "value": "安静时呼吸不快。", "disclosure": "if_asked", "questionMatchers": ["呼吸快", "呼吸频率"] },
+    "fact.hypoxemia": { "status": "absent", "value": "没有口唇发紫或明显憋气。", "disclosure": "if_asked", "questionMatchers": ["缺氧", "口唇发紫", "血氧"] },
+    "fact.inability_oral_intake": { "status": "absent", "value": "可以正常喝水和吃饭。", "disclosure": "if_asked", "questionMatchers": ["喝水", "进食", "吞不下"] },
+    "fact.high_risk_population": { "status": "absent", "value": "是成年人，没有妊娠、免疫抑制、哮喘或重要心肺基础病。", "disclosure": "if_asked", "questionMatchers": ["怀孕", "基础病", "免疫", "哮喘", "高风险"] },
+    "fact.exposure": { "status": "unknown", "value": "不清楚最近具体接触过哪位有咳嗽的人。", "disclosure": "if_asked", "questionMatchers": ["接触史", "身边有人"] },
+    "fact.chest_exam": { "status": "present", "value": "胸部查体结果只能通过对应检查获得。", "disclosure": "test_only", "questionMatchers": [] },
+    "fact.teaching_note": { "status": "present", "value": "服务端教学与评分字段。", "disclosure": "hidden", "questionMatchers": [] }
+  },
+  "medicalTests": {
+    "test.vital_signs": { "status": "completed", "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。" },
+    "test.chest_exam": { "status": "completed", "report": "双肺呼吸音粗，可闻散在鼾音，咳嗽后减轻；未闻局灶性湿啰音。" },
+    "test.chest_xray": { "status": "completed", "report": "双肺未见局灶性实变影。" },
+    "test.sputum_culture": { "status": "completed", "report": "常规培养未见有临床意义的优势菌生长。" }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.acute_bronchitis", "targetDiagnosis": "急性支气管炎", "acceptedSynonyms": ["急性气管支气管炎"],
+    "diagnosisConcepts": [
+      { "conceptId": "concept.acute_bronchitis", "preferredTerm": "急性支气管炎", "acceptedSynonyms": ["急性气管支气管炎"] },
+      { "conceptId": "concept.mild_cap", "preferredTerm": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"] },
+      { "conceptId": "concept.influenza", "preferredTerm": "流行性感冒", "acceptedSynonyms": ["流感"] },
+      { "conceptId": "concept.common_cold", "preferredTerm": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"] },
+      { "conceptId": "concept.cough_variant_asthma", "preferredTerm": "咳嗽变异性哮喘", "acceptedSynonyms": ["咳嗽型哮喘"] }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": ["fact.onset", "fact.cough", "fact.sputum", "fact.fever", "fact.wheeze", "fact.dyspnea", "fact.chest_pain", "fact.hemoptysis"],
+    "acceptableDifferentialConceptIds": ["concept.mild_cap", "concept.cough_variant_asthma"], "requiredDifferentialCount": 2,
+    "testClassifications": { "test.vital_signs": "required", "test.chest_exam": "required", "test.chest_xray": "useful", "test.sputum_culture": "unnecessary" },
+    "recommendedTurnLimit": 8, "communicationRubricVersion": "communication-rubric-v1", "communicationCriterionIds": ["communication.respectful_clear", "communication.summary_transition"]
+  },
+  "review": { "status": "pending", "author": "medical-author-a", "notes": "纯合成病例草稿；必须独立审核其与下呼吸道其他疾病的鉴别边界。" },
+  "provenance": { "sourceType": "synthetic", "sourceCitation": "工程团队依据 CDC Adult Outpatient Clinical Care acute uncomplicated bronchitis guidance (2024-04-16, https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html) 与 CDC Chest Cold Basics (2025-07-02, https://www.cdc.gov/acute-bronchitis/about/index.html) 编写的纯合成病例；不含真实患者资料或病例原文。", "license": "internal-synthetic-case; official guidance cited, not redistributed", "createdAt": "2026-08-27T00:00:00.000Z", "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba" },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1", "caseId": "internal_c04_respiratory_004", "caseVersion": "1.0.0-draft.1", "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      { "redFlagId": "redflag.dyspnea", "canonicalName": "呼吸困难", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.dyspnea"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.cdc.acute_bronchitis", "criterionSourceVersion": "2025-07-02", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.confusion", "canonicalName": "意识状态改变", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.confusion"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.chest_pain", "canonicalName": "胸痛", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.chest_pain"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hemoptysis", "canonicalName": "咯血", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hemoptysis"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypotension", "canonicalName": "低血压", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypotension"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 120, "unit": "mmHg systolic", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.tachypnea", "canonicalName": "呼吸频率增快", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.tachypnea"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 18, "unit": "breaths/min", "criterionSourceId": "source.cdc.adult_outpatient", "criterionSourceVersion": "2024-04-16", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypoxemia", "canonicalName": "低氧表现", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypoxemia"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 98, "unit": "% SpO2 room air", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.inability_oral_intake", "canonicalName": "无法进食饮水", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.inability_oral_intake"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.high_risk_population", "canonicalName": "MVP排除的高风险人群", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.high_risk_population"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.project.mvp_scope", "criterionSourceVersion": "1", "reviewDecision": "pending" }
+    ], "review": { "status": "pending" }
+  }
+}
+,{
+  "schemaVersion": "case-package-v1-rc1", "evaluationVersion": "scoring-policy-v1", "packageStatus": "draft",
+  "internalCaseId": "internal_c05_respiratory_005", "publicCaseId": "case_c05_respiratory_005", "caseVersion": "1.0.0-draft.1", "locale": "zh-CN",
+  "playerVisible": { "patientDisplayName": "赵同学", "chiefComplaint": "发热、咳嗽伴黄痰3天", "ageBand": "18–25岁", "genderDisplay": "女" },
+  "patientPersona": { "languageStyle": "colloquial_zh" },
+  "patientFacts": {
+    "fact.chief_complaint": { "status": "present", "value": "发热咳嗽三天了，这两天有些黄痰。", "disclosure": "spontaneous", "questionMatchers": ["哪里不舒服", "怎么了", "主要症状"] },
+    "fact.onset": { "status": "present", "value": "三天前先发热，第二天咳嗽和咳痰变明显。", "disclosure": "if_asked", "questionMatchers": ["什么时候", "多久", "起病"] },
+    "fact.fever": { "status": "present", "value": "最高量到38.4℃，退热后精神会好一些。", "disclosure": "if_asked", "questionMatchers": ["发热", "发烧", "体温"] },
+    "fact.cough": { "status": "present", "value": "咳嗽比较频繁，但还能正常说完整句话。", "disclosure": "if_asked", "questionMatchers": ["咳嗽", "频繁"] },
+    "fact.sputum": { "status": "present", "value": "有少量黄痰，不带血。", "disclosure": "if_asked", "questionMatchers": ["咳痰", "痰颜色", "痰量"] },
+    "fact.fatigue": { "status": "present", "value": "比平时乏力，但可以自己走动。", "disclosure": "if_asked", "questionMatchers": ["乏力", "活动"] },
+    "fact.dyspnea": { "status": "absent", "value": "没有静息呼吸困难，也能连续说完整句话。", "disclosure": "if_asked", "questionMatchers": ["呼吸困难", "喘", "气短"] },
+    "fact.confusion": { "status": "absent", "value": "意识清楚，时间地点都能说清。", "disclosure": "if_asked", "questionMatchers": ["意识", "神志", "糊涂"] },
+    "fact.chest_pain": { "status": "absent", "value": "没有持续胸痛或明显吸气痛。", "disclosure": "if_asked", "questionMatchers": ["胸痛", "胸闷", "吸气痛"] },
+    "fact.hemoptysis": { "status": "absent", "value": "没有咳血或痰中带血。", "disclosure": "if_asked", "questionMatchers": ["咳血", "痰中带血"] },
+    "fact.hypotension": { "status": "absent", "value": "没有晕厥、站立不稳或四肢湿冷。", "disclosure": "if_asked", "questionMatchers": ["低血压", "晕厥", "四肢湿冷"] },
+    "fact.tachypnea": { "status": "absent", "value": "安静时呼吸不快。", "disclosure": "if_asked", "questionMatchers": ["呼吸快", "呼吸频率"] },
+    "fact.hypoxemia": { "status": "absent", "value": "没有口唇发紫或静息明显憋气。", "disclosure": "if_asked", "questionMatchers": ["缺氧", "口唇发紫", "血氧"] },
+    "fact.inability_oral_intake": { "status": "absent", "value": "能喝水，也能吃少量食物。", "disclosure": "if_asked", "questionMatchers": ["喝水", "进食", "吞不下"] },
+    "fact.high_risk_population": { "status": "absent", "value": "是成年人，未怀孕，没有免疫抑制或重要心肺基础病。", "disclosure": "if_asked", "questionMatchers": ["怀孕", "基础病", "免疫", "高风险"] },
+    "fact.exposure": { "status": "unknown", "value": "不清楚最近具体接触过哪位有类似症状的人。", "disclosure": "if_asked", "questionMatchers": ["接触史", "身边有人"] },
+    "fact.chest_imaging": { "status": "present", "value": "胸部影像结果只能通过对应检查获得。", "disclosure": "test_only", "questionMatchers": [] },
+    "fact.teaching_note": { "status": "present", "value": "服务端教学与评分字段。", "disclosure": "hidden", "questionMatchers": [] }
+  },
+  "medicalTests": {
+    "test.vital_signs": { "status": "completed", "report": "体温38.2℃，心率92次/分，呼吸频率20次/分，血压118/72mmHg，静息血氧饱和度97%。" },
+    "test.chest_xray": { "status": "completed", "report": "右下肺可见局灶性实变影，未见胸腔积液。" },
+    "test.complete_blood_count": { "status": "completed", "report": "白细胞计数轻度升高，中性粒细胞比例升高。" },
+    "test.throat_swab": { "status": "completed", "report": "咽拭子常规培养未见有临床意义的优势菌生长。" }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.mild_cap", "targetDiagnosis": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"],
+    "diagnosisConcepts": [
+      { "conceptId": "concept.mild_cap", "preferredTerm": "轻症社区获得性肺炎", "acceptedSynonyms": ["社区获得性肺部感染"] },
+      { "conceptId": "concept.acute_bronchitis", "preferredTerm": "急性支气管炎", "acceptedSynonyms": ["急性气管支气管炎"] },
+      { "conceptId": "concept.influenza", "preferredTerm": "流行性感冒", "acceptedSynonyms": ["流感"] },
+      { "conceptId": "concept.common_cold", "preferredTerm": "普通感冒", "acceptedSynonyms": ["急性病毒性上呼吸道感染"] },
+      { "conceptId": "concept.pulmonary_tuberculosis", "preferredTerm": "肺结核", "acceptedSynonyms": ["活动性肺结核"] }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": ["fact.onset", "fact.fever", "fact.cough", "fact.sputum", "fact.dyspnea", "fact.confusion", "fact.chest_pain", "fact.inability_oral_intake"],
+    "acceptableDifferentialConceptIds": ["concept.acute_bronchitis", "concept.influenza"], "requiredDifferentialCount": 2,
+    "testClassifications": { "test.vital_signs": "required", "test.chest_xray": "required", "test.complete_blood_count": "useful", "test.throat_swab": "unnecessary" },
+    "recommendedTurnLimit": 8, "communicationRubricVersion": "communication-rubric-v1", "communicationCriterionIds": ["communication.respectful_clear", "communication.summary_transition"]
+  },
+  "review": { "status": "pending", "author": "medical-author-a", "notes": "纯合成稳定成人病例草稿；不得实现为真实CRB65/CURB-65临床分诊工具，生命体征与非急症边界须独立审核。" },
+  "provenance": { "sourceType": "synthetic", "sourceCitation": "工程团队依据 NICE NG250 Pneumonia: diagnosis and management recommendations (2025, https://www.nice.org.uk/guidance/ng250/chapter/recommendations) 编写的纯合成病例；不含真实患者资料或病例原文。", "license": "internal-synthetic-case; official guidance cited, not redistributed", "createdAt": "2026-08-27T00:00:00.000Z", "contentHash": "sha256:0575f55eb3752c6efd97cea85643fe96d70c45dd36d99d81cb03cf5c6a4597a9" },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1", "caseId": "internal_c05_respiratory_005", "caseVersion": "1.0.0-draft.1", "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      { "redFlagId": "redflag.dyspnea", "canonicalName": "呼吸困难", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.dyspnea"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.confusion", "canonicalName": "意识状态改变", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.confusion"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.chest_pain", "canonicalName": "严重胸痛", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.chest_pain"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hemoptysis", "canonicalName": "咯血", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hemoptysis"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng237", "criterionSourceVersion": "2023", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypotension", "canonicalName": "低血压", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypotension"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 118, "unit": "mmHg systolic", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.tachypnea", "canonicalName": "呼吸频率增快", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.tachypnea"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 20, "unit": "breaths/min", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.hypoxemia", "canonicalName": "低氧表现", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.hypoxemia"], "evidenceType": "patient_fact_and_vital_signs", "observedValue": 97, "unit": "% SpO2 room air", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.inability_oral_intake", "canonicalName": "无法进食饮水", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.inability_oral_intake"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.nice.ng250", "criterionSourceVersion": "2025", "reviewDecision": "pending" },
+      { "redFlagId": "redflag.high_risk_population", "canonicalName": "MVP排除的高风险人群", "applicable": true, "requiredState": "absent", "evidenceFactIds": ["fact.high_risk_population"], "evidenceType": "patient_fact", "observedValue": "absent", "criterionSourceId": "source.project.mvp_scope", "criterionSourceVersion": "1", "reviewDecision": "pending" }
+    ], "review": { "status": "pending" }
+  }
+}
+];
+      const STATE_SCHEMA = "ahamed-case-review-workbench-v1";
+      const REVIEW_EXPORT_SCHEMA = "ahamed-case-content-review-v1";
+      const GENERATOR_VERSION = "1.0.0";
+
+      const elements = {
+        caseList: document.querySelector("#caseList"),
+        content: document.querySelector("#case-content"),
+        progressText: document.querySelector("#progressText"),
+        progressPercent: document.querySelector("#progressPercent"),
+        progressBar: document.querySelector("#progressBar"),
+        saveState: document.querySelector("#saveState"),
+        reviewerName: document.querySelector("#reviewerName"),
+        reviewerId: document.querySelector("#reviewerId"),
+        approveButton: document.querySelector("#approveButton"),
+        rejectButton: document.querySelector("#rejectButton"),
+        issuesInput: document.querySelector("#issuesInput"),
+        suggestionsInput: document.querySelector("#suggestionsInput"),
+        reviewPosition: document.querySelector("#reviewPosition"),
+        previousButton: document.querySelector("#previousButton"),
+        nextButton: document.querySelector("#nextButton"),
+        caseFileInput: document.querySelector("#caseFileInput"),
+        reviewFileInput: document.querySelector("#reviewFileInput"),
+        toast: document.querySelector("#toast"),
+        exportDialog: document.querySelector("#exportDialog")
+      };
+
+      const labels = {
+        "fact.chief_complaint": "主诉表达",
+        "fact.onset": "起病与病程",
+        "fact.nasal_discharge": "鼻涕性质",
+        "fact.nasal_congestion": "鼻塞",
+        "fact.rhinorrhea": "流涕 / 鼻塞",
+        "fact.sore_throat": "咽部不适",
+        "fact.cough": "咳嗽",
+        "fact.sputum": "咳痰",
+        "fact.fever": "发热",
+        "fact.high_fever": "高热",
+        "fact.myalgia": "肌肉酸痛",
+        "fact.headache": "头痛",
+        "fact.fatigue": "乏力",
+        "fact.wheeze": "喘鸣",
+        "fact.exposure": "接触史",
+        "fact.sick_contact": "接触史",
+        "fact.dyspnea": "呼吸困难",
+        "fact.confusion": "意识状态",
+        "fact.chest_pain": "胸痛",
+        "fact.hemoptysis": "咯血",
+        "fact.hypotension": "低血压表现",
+        "fact.tachypnea": "呼吸频率",
+        "fact.hypoxemia": "低氧表现",
+        "fact.inability_oral_intake": "进食饮水",
+        "fact.high_risk_population": "高风险人群",
+        "fact.vital_signs": "生命体征",
+        "fact.chest_exam": "胸部查体",
+        "fact.chest_imaging": "胸部影像",
+        "fact.teaching_note": "后台教学字段",
+        "test.vital_signs": "生命体征",
+        "test.complete_blood_count": "血常规",
+        "test.chest_xray": "胸部 X 线",
+        "test.respiratory_virus_panel": "呼吸道病毒检测",
+        "test.throat_swab": "咽拭子培养",
+        "test.chest_exam": "胸部查体",
+        "test.sputum_culture": "痰培养",
+        "communication.respectful_clear": "表达尊重且清楚",
+        "communication.summary_transition": "总结后自然过渡",
+        "communication.emotion_response": "回应患者情绪"
+      };
+
+      const statusLabels = {
+        present: "明确存在",
+        absent: "明确否认",
+        unknown: "不清楚",
+        spontaneous: "主动陈述",
+        if_asked: "问到才说",
+        test_only: "通过检查获得",
+        hidden: "仅后台可见",
+        required: "必须",
+        useful: "可考虑",
+        unnecessary: "不建议",
+        completed: "已设定",
+        pending: "待审核"
+      };
+
+      let saveTimer = null;
+      let toastTimer = null;
+
+      function parseEmbeddedState() {
+        try {
+          const value = JSON.parse(document.querySelector("#embedded-review-state").textContent || "{}");
+          return value && value.schemaVersion === STATE_SCHEMA ? value : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function caseKey(item) {
+        return [item.internalCaseId || item.publicCaseId || "unknown", item.caseVersion || "unversioned", item.provenance?.contentHash || "no-hash"].join("::");
+      }
+
+      function datasetKey(cases) {
+        const source = cases.map(caseKey).sort().join("|");
+        let hash = 2166136261;
+        for (let index = 0; index < source.length; index += 1) {
+          hash ^= source.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return `${STATE_SCHEMA}:${(hash >>> 0).toString(16)}`;
+      }
+
+      function readLocalState(cases) {
+        try {
+          const raw = localStorage.getItem(embeddedState?.storageKey || datasetKey(cases));
+          if (!raw) return null;
+          const value = JSON.parse(raw);
+          return value && value.schemaVersion === STATE_SCHEMA ? value : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function newerState(first, second) {
+        if (!first) return second;
+        if (!second) return first;
+        const firstTime = Date.parse(first.updatedAt || 0) || 0;
+        const secondTime = Date.parse(second.updatedAt || 0) || 0;
+        return secondTime > firstTime ? second : first;
+      }
+
+      const embeddedState = parseEmbeddedState();
+      const seedCases = embeddedState?.cases?.length ? embeddedState.cases : INITIAL_CASES;
+      const storedState = readLocalState(seedCases);
+      const recovered = newerState(embeddedState, storedState);
+
+      let state = recovered || {
+        schemaVersion: STATE_SCHEMA,
+        generatorVersion: GENERATOR_VERSION,
+        storageKey: datasetKey(seedCases),
+        cases: seedCases,
+        reviews: {},
+        reviewer: { name: "", id: "" },
+        activeIndex: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: null
+      };
+
+      state.cases = Array.isArray(state.cases) ? state.cases : seedCases;
+      state.reviews = state.reviews && typeof state.reviews === "object" ? state.reviews : {};
+      state.reviewer = state.reviewer && typeof state.reviewer === "object" ? state.reviewer : { name: "", id: "" };
+      state.storageKey = state.storageKey || datasetKey(seedCases);
+      state.activeIndex = Math.max(0, Math.min(Number(state.activeIndex) || 0, Math.max(0, state.cases.length - 1)));
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function displayLabel(id) {
+        if (labels[id]) return labels[id];
+        return String(id || "未命名")
+          .replace(/^(fact|test|concept|communication|redflag)\./u, "")
+          .replaceAll("_", " ");
+      }
+
+      function reviewFor(item) {
+        const key = caseKey(item);
+        if (!state.reviews[key]) {
+          state.reviews[key] = { decision: null, issues: "", suggestions: "", reviewedAt: null, updatedAt: null };
+        }
+        return state.reviews[key];
+      }
+
+      function activeCase() { return state.cases[state.activeIndex] || null; }
+
+      function snapshot() {
+        return {
+          schemaVersion: STATE_SCHEMA,
+          generatorVersion: GENERATOR_VERSION,
+          storageKey: state.storageKey,
+          cases: state.cases,
+          reviews: state.reviews,
+          reviewer: state.reviewer,
+          activeIndex: state.activeIndex,
+          createdAt: state.createdAt,
+          updatedAt: state.updatedAt
+        };
+      }
+
+      function saveNow() {
+        state.updatedAt = new Date().toISOString();
+        try {
+          localStorage.setItem(state.storageKey, JSON.stringify(snapshot()));
+          elements.saveState.textContent = `已自动保存 ${new Date(state.updatedAt).toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}`;
+        } catch {
+          elements.saveState.textContent = "浏览器未允许本机保存";
+        }
+      }
+
+      function scheduleSave() {
+        elements.saveState.textContent = "正在保存…";
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveNow, 260);
+      }
+
+      function showToast(message) {
+        elements.toast.textContent = message;
+        elements.toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => elements.toast.classList.remove("show"), 2200);
+      }
+
+      function renderProgress() {
+        const total = state.cases.length;
+        const completed = state.cases.filter((item) => Boolean(reviewFor(item).decision)).length;
+        const percent = total ? Math.round((completed / total) * 100) : 0;
+        elements.progressText.textContent = total ? `已审核 ${completed} / ${total} 例` : "尚未导入病例";
+        elements.progressPercent.textContent = `${percent}%`;
+        elements.progressBar.style.width = `${percent}%`;
+      }
+
+      function renderNavigation() {
+        elements.caseList.innerHTML = state.cases.map((item, index) => {
+          const review = reviewFor(item);
+          const diagnosis = item.answerKey?.targetDiagnosis || "未命名病例";
+          const complaint = item.playerVisible?.chiefComplaint || item.publicCaseId || "";
+          return `
+            <button class="case-link ${index === state.activeIndex ? "active" : ""}" type="button" data-case-index="${index}" aria-current="${index === state.activeIndex ? "true" : "false"}">
+              <span class="case-number">${String(index + 1).padStart(2, "0")}</span>
+              <span><strong>${escapeHtml(diagnosis)}</strong><small>${escapeHtml(complaint)}</small></span>
+              <span class="case-state-dot ${review.decision || ""}" title="${review.decision === "approved" ? "已接受" : review.decision === "rejected" ? "不接受" : "未审核"}"></span>
+            </button>`;
+        }).join("");
+
+        elements.caseList.querySelectorAll("[data-case-index]").forEach((button) => {
+          button.addEventListener("click", () => switchCase(Number(button.dataset.caseIndex)));
+        });
+      }
+
+      function factRows(item) {
+        const facts = Object.entries(item.patientFacts || {});
+        const groups = [
+          ["present", "病例中明确存在", facts.filter(([, fact]) => fact.status === "present" && fact.disclosure !== "hidden")],
+          ["absent", "病例中明确否认", facts.filter(([, fact]) => fact.status === "absent")],
+          ["unknown", "患者不清楚 / 病例未提供", facts.filter(([, fact]) => fact.status === "unknown")],
+          ["hidden", "检查获取或后台字段", facts.filter(([, fact]) => fact.disclosure === "hidden" || fact.disclosure === "test_only")]
+        ];
+
+        return groups.filter(([, , values]) => values.length).map(([status, title, values]) => `
+          <section class="fact-group">
+            <h3>${escapeHtml(title)} · ${values.length} 项</h3>
+            <div class="fact-list">
+              ${values.map(([id, fact]) => `
+                <div class="fact-row">
+                  <div class="fact-name">${escapeHtml(displayLabel(id))}<span class="micro">${escapeHtml(id)} · ${escapeHtml(statusLabels[fact.disclosure] || fact.disclosure)}</span></div>
+                  <div class="fact-value">${escapeHtml(fact.value)}<span class="micro">触发问法：${escapeHtml((fact.questionMatchers || []).join("、") || "不适用")}</span></div>
+                </div>`).join("")}
+            </div>
+          </section>`).join("");
+      }
+
+      function renderTests(item) {
+        return Object.entries(item.medicalTests || {}).map(([id, test]) => {
+          const classification = item.rubric?.testClassifications?.[id];
+          return `
+            <div class="test-row">
+              <div><strong>${escapeHtml(displayLabel(id))}</strong><span class="micro">${escapeHtml(id)}</span>${classification ? `<span class="pill ${escapeHtml(classification)}">${escapeHtml(statusLabels[classification] || classification)}</span>` : ""}</div>
+              <div>${escapeHtml(test.report || "未填写检查结果")}</div>
+            </div>`;
+        }).join("");
+      }
+
+      function preferredConcept(item, conceptId) {
+        return item.answerKey?.diagnosisConcepts?.find((concept) => concept.conceptId === conceptId)?.preferredTerm || displayLabel(conceptId);
+      }
+
+      function renderCase() {
+        const item = activeCase();
+        if (!item) {
+          elements.content.innerHTML = `<section class="empty-state"><p class="eyebrow">空白审核台</p><h1>请导入病例 JSON</h1><p>支持一次选择多个病例文件。导入后仍然可以下载为一个完整 HTML。</p><button class="button primary" type="button" id="emptyImportButton">导入病例</button></section>`;
+          document.querySelector("#emptyImportButton")?.addEventListener("click", () => elements.caseFileInput.click());
+          return;
+        }
+
+        const visible = item.playerVisible || {};
+        const answer = item.answerKey || {};
+        const rubric = item.rubric || {};
+        const redFlags = item.redFlagExclusionMatrix?.entries || [];
+        const requiredQuestions = (rubric.mustAskFactIds || []).map((id) => displayLabel(id));
+        const differentials = (rubric.acceptableDifferentialConceptIds || []).map((id) => preferredConcept(item, id));
+        const communication = (rubric.communicationCriterionIds || []).map((id) => displayLabel(id));
+
+        elements.content.innerHTML = `
+          <header class="case-header">
+            <p class="eyebrow">病例 ${String(state.activeIndex + 1).padStart(2, "0")} / ${String(state.cases.length).padStart(2, "0")} · ${escapeHtml(item.packageStatus === "draft" ? "待审核草稿" : item.packageStatus || "病例")}</p>
+            <h1>${escapeHtml(answer.targetDiagnosis || "未命名病例")}</h1>
+            <p class="case-subline">${escapeHtml(item.publicCaseId || item.internalCaseId)} · 版本 ${escapeHtml(item.caseVersion)} · ${escapeHtml(item.locale || "zh-CN")}</p>
+          </header>
+
+          <section class="hero-sheet" aria-labelledby="overviewTitle">
+            <div class="patient-line"><h2 id="overviewTitle">${escapeHtml(visible.patientDisplayName || "虚拟患者")}</h2><span class="patient-meta">${escapeHtml([visible.ageBand, visible.genderDisplay].filter(Boolean).join(" · "))}</span></div>
+            <p class="complaint-label">初始主诉</p>
+            <p class="complaint">“${escapeHtml(visible.chiefComplaint || "未填写主诉")}”</p>
+          </section>
+
+          <section class="content-block" aria-labelledby="factsTitle">
+            <div class="section-head"><h2 id="factsTitle">患者病史与回答</h2><p>请重点看事实是否合理、前后一致、符合患者口吻</p></div>
+            <div class="fact-groups">${factRows(item)}</div>
+          </section>
+
+          <section class="content-block" aria-labelledby="testsTitle">
+            <div class="section-head"><h2 id="testsTitle">检查与结果</h2><p>“必须 / 可考虑 / 不建议”来自当前评分规则</p></div>
+            <div class="test-list">${renderTests(item) || "<p>没有设定检查。</p>"}</div>
+          </section>
+
+          <section class="content-block" aria-labelledby="answerTitle">
+            <div class="section-head"><h2 id="answerTitle">答案与评分重点</h2><p>这部分只供审核人员查看，不会展示给玩家</p></div>
+            <div class="diagnosis-grid">
+              <div class="diagnosis-callout"><small>标准诊断</small><strong>${escapeHtml(answer.targetDiagnosis || "未设置")}</strong><small>可接受同义词：${escapeHtml((answer.acceptedSynonyms || []).join("、") || "无")}</small></div>
+              <div class="split-grid">
+                <div class="plain-panel"><h3>必须问到</h3><ul>${requiredQuestions.map((value) => `<li>${escapeHtml(value)}</li>`).join("") || "<li>未设置</li>"}</ul></div>
+                <div class="plain-panel"><h3>可接受的鉴别诊断</h3><ul>${differentials.map((value) => `<li>${escapeHtml(value)}</li>`).join("") || "<li>未设置</li>"}</ul><p class="micro">要求数量：${escapeHtml(rubric.requiredDifferentialCount ?? "未设置")}</p></div>
+                <div class="plain-panel"><h3>沟通要求</h3><ul>${communication.map((value) => `<li>${escapeHtml(value)}</li>`).join("") || "<li>未设置</li>"}</ul></div>
+                <div class="plain-panel"><h3>建议问诊长度</h3><p><strong>${escapeHtml(rubric.recommendedTurnLimit ?? "未设置")} 轮</strong></p><p class="micro">评分版本：${escapeHtml(item.evaluationVersion || "未设置")}</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-block" aria-labelledby="riskTitle">
+            <div class="section-head"><h2 id="riskTitle">危险征象排除</h2><p>请确认每项都能由病例内容支持</p></div>
+            <table class="risk-table">
+              <thead><tr><th>危险征象</th><th>要求</th><th>当前证据</th><th>依据</th></tr></thead>
+              <tbody>${redFlags.map((entry) => `
+                <tr>
+                  <td><strong>${escapeHtml(entry.canonicalName)}</strong><span class="micro">${escapeHtml(entry.redFlagId)}</span></td>
+                  <td><span class="pill ${entry.requiredState === "absent" ? "present" : "unknown"}">${entry.requiredState === "absent" ? "应已排除" : escapeHtml(entry.requiredState)}</span></td>
+                  <td>${escapeHtml(Array.isArray(entry.evidenceFactIds) ? entry.evidenceFactIds.map(displayLabel).join("、") : "未设置")}<span class="micro">观测值：${escapeHtml(entry.observedValue ?? "未设置")} ${escapeHtml(entry.unit || "")}</span></td>
+                  <td>${escapeHtml(entry.criterionSourceId || "未设置")}<span class="micro">${escapeHtml(entry.criterionSourceVersion || "")}</span></td>
+                </tr>`).join("") || "<tr><td colspan=\"4\">没有危险征象矩阵。</td></tr>"}</tbody>
+            </table>
+          </section>
+
+          <section class="content-block" aria-labelledby="sourceTitle">
+            <div class="section-head"><h2 id="sourceTitle">来源与作者备注</h2><p>仅使用合成病例，不含真实患者资料</p></div>
+            <div class="split-grid">
+              <div class="plain-panel"><h3>病例来源</h3><p>${escapeHtml(item.provenance?.sourceCitation || "未填写")}</p><span class="micro">${escapeHtml(item.provenance?.license || "")}</span></div>
+              <div class="plain-panel"><h3>作者备注</h3><p>${escapeHtml(item.review?.notes || "无")}</p><span class="micro">作者：${escapeHtml(item.review?.author || "未填写")}</span></div>
+            </div>
+          </section>
+
+          <details>
+            <summary>查看完整原始 JSON（技术核对用）</summary>
+            <pre>${escapeHtml(JSON.stringify(item, null, 2))}</pre>
+          </details>`;
+      }
+
+      function renderReviewPanel() {
+        const item = activeCase();
+        const disabled = !item;
+        const review = item ? reviewFor(item) : { decision: null, issues: "", suggestions: "" };
+        elements.approveButton.disabled = disabled;
+        elements.rejectButton.disabled = disabled;
+        elements.issuesInput.disabled = disabled;
+        elements.suggestionsInput.disabled = disabled;
+        elements.approveButton.classList.toggle("selected", review.decision === "approved");
+        elements.rejectButton.classList.toggle("selected", review.decision === "rejected");
+        elements.approveButton.setAttribute("aria-pressed", String(review.decision === "approved"));
+        elements.rejectButton.setAttribute("aria-pressed", String(review.decision === "rejected"));
+        elements.issuesInput.value = review.issues || "";
+        elements.suggestionsInput.value = review.suggestions || "";
+        elements.reviewPosition.textContent = item ? `第 ${state.activeIndex + 1} / ${state.cases.length} 例` : "没有病例";
+        elements.previousButton.disabled = !item || state.activeIndex === 0;
+        elements.nextButton.disabled = !item || state.activeIndex === state.cases.length - 1;
+      }
+
+      function renderAll({ scroll = false } = {}) {
+        renderNavigation();
+        renderProgress();
+        renderCase();
+        renderReviewPanel();
+        if (scroll) window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function switchCase(index) {
+        if (!Number.isInteger(index) || index < 0 || index >= state.cases.length || index === state.activeIndex) return;
+        saveNow();
+        state.activeIndex = index;
+        scheduleSave();
+        renderAll({ scroll: true });
+      }
+
+      function setDecision(decision) {
+        const item = activeCase();
+        if (!item) return;
+        const review = reviewFor(item);
+        review.decision = decision;
+        review.reviewedAt = new Date().toISOString();
+        review.updatedAt = review.reviewedAt;
+        scheduleSave();
+        renderNavigation();
+        renderProgress();
+        renderReviewPanel();
+        showToast(decision === "approved" ? "已标记为“接受”" : "已标记为“不接受”");
+      }
+
+      function updateReviewText(field, value) {
+        const item = activeCase();
+        if (!item) return;
+        const review = reviewFor(item);
+        review[field] = value;
+        review.updatedAt = new Date().toISOString();
+        scheduleSave();
+      }
+
+      function reviewExport() {
+        const rows = state.cases.map((item) => {
+          const review = reviewFor(item);
+          return {
+            internalCaseId: item.internalCaseId || null,
+            publicCaseId: item.publicCaseId || null,
+            caseVersion: item.caseVersion || null,
+            contentHash: item.provenance?.contentHash || null,
+            targetDiagnosis: item.answerKey?.targetDiagnosis || null,
+            decision: review.decision,
+            issues: review.issues || "",
+            suggestions: review.suggestions || "",
+            reviewedAt: review.reviewedAt,
+            updatedAt: review.updatedAt
+          };
+        });
+        return {
+          schemaVersion: REVIEW_EXPORT_SCHEMA,
+          generatorVersion: GENERATOR_VERSION,
+          exportType: "content-review-draft",
+          formalReleaseApproval: false,
+          exportedAt: new Date().toISOString(),
+          reviewer: { name: state.reviewer.name || "", id: state.reviewer.id || "" },
+          summary: {
+            total: rows.length,
+            approved: rows.filter((row) => row.decision === "approved").length,
+            rejected: rows.filter((row) => row.decision === "rejected").length,
+            pending: rows.filter((row) => !row.decision).length
+          },
+          reviews: rows
+        };
+      }
+
+      function dateStamp() {
+        const date = new Date();
+        const pad = (value) => String(value).padStart(2, "0");
+        return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}`;
+      }
+
+      function safeFilePart(value) {
+        return String(value || "审核人未填写").trim().replace(/[\\/:*?"<>|\s]+/gu, "-").slice(0, 40) || "审核人未填写";
+      }
+
+      function downloadBlob(content, type, filename) {
+        const url = URL.createObjectURL(new Blob([content], { type }));
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1200);
+      }
+
+      function exportJson() {
+        saveNow();
+        downloadBlob(JSON.stringify(reviewExport(), null, 2), "application/json;charset=utf-8", `AhaMed-病例审核意见-${safeFilePart(state.reviewer.name)}-${dateStamp()}.json`);
+        showToast("审核意见 JSON 已下载");
+      }
+
+      function exportHtml() {
+        saveNow();
+        const clone = document.documentElement.cloneNode(true);
+        const stateScript = clone.querySelector("#embedded-review-state");
+        const embeddedJson = JSON.stringify(snapshot()).replaceAll("<", "\\u003c");
+        stateScript.textContent = embeddedJson;
+        const title = clone.querySelector("title");
+        title.textContent = `AhaMed 病例审核 · ${state.reviewer.name || "未署名"}`;
+        downloadBlob(`<!doctype html>\n${clone.outerHTML}`, "text/html;charset=utf-8", `AhaMed-已审核副本-${safeFilePart(state.reviewer.name)}-${dateStamp()}.html`);
+        if (typeof elements.exportDialog.showModal === "function") elements.exportDialog.showModal();
+        else showToast("已审核 HTML 副本已下载");
+      }
+
+      async function importCases(files) {
+        const imported = [];
+        const errors = [];
+        for (const file of files) {
+          try {
+            const value = JSON.parse(await file.text());
+            const values = Array.isArray(value) ? value : [value];
+            for (const item of values) {
+              if (!item || typeof item !== "object" || !(item.internalCaseId || item.publicCaseId) || !item.caseVersion) {
+                throw new Error("缺少病例 ID 或版本");
+              }
+              imported.push(item);
+            }
+          } catch (error) {
+            errors.push(`${file.name}：${error.message || "无法解析"}`);
+          }
+        }
+        if (!imported.length) {
+          showToast(errors[0] || "没有可导入的病例");
+          return;
+        }
+        const merged = new Map(state.cases.map((item) => [caseKey(item), item]));
+        imported.forEach((item) => merged.set(caseKey(item), item));
+        state.cases = [...merged.values()];
+        state.activeIndex = Math.max(0, state.cases.length - imported.length);
+        saveNow();
+        renderAll({ scroll: true });
+        showToast(`已导入 ${imported.length} 例${errors.length ? `，${errors.length} 个文件失败` : ""}`);
+      }
+
+      async function importReview(file) {
+        try {
+          const value = JSON.parse(await file.text());
+          if (value.schemaVersion !== REVIEW_EXPORT_SCHEMA || !Array.isArray(value.reviews)) throw new Error("不是本工具导出的审核意见文件");
+          const index = new Map(state.cases.map((item) => {
+            const looseKey = [item.internalCaseId || item.publicCaseId, item.caseVersion, item.provenance?.contentHash || ""].join("::");
+            return [looseKey, item];
+          }));
+          let matched = 0;
+          for (const row of value.reviews) {
+            const looseKey = [row.internalCaseId || row.publicCaseId, row.caseVersion, row.contentHash || ""].join("::");
+            const item = index.get(looseKey);
+            if (!item) continue;
+            state.reviews[caseKey(item)] = {
+              decision: ["approved", "rejected"].includes(row.decision) ? row.decision : null,
+              issues: String(row.issues || ""),
+              suggestions: String(row.suggestions || ""),
+              reviewedAt: row.reviewedAt || null,
+              updatedAt: row.updatedAt || new Date().toISOString()
+            };
+            matched += 1;
+          }
+          if (value.reviewer) state.reviewer = { name: String(value.reviewer.name || ""), id: String(value.reviewer.id || "") };
+          elements.reviewerName.value = state.reviewer.name;
+          elements.reviewerId.value = state.reviewer.id;
+          saveNow();
+          renderAll();
+          showToast(`已合并 ${matched} 例审核意见`);
+        } catch (error) {
+          showToast(error.message || "审核意见导入失败");
+        }
+      }
+
+      elements.approveButton.addEventListener("click", () => setDecision("approved"));
+      elements.rejectButton.addEventListener("click", () => setDecision("rejected"));
+      elements.issuesInput.addEventListener("input", (event) => updateReviewText("issues", event.target.value));
+      elements.suggestionsInput.addEventListener("input", (event) => updateReviewText("suggestions", event.target.value));
+      elements.previousButton.addEventListener("click", () => switchCase(state.activeIndex - 1));
+      elements.nextButton.addEventListener("click", () => switchCase(state.activeIndex + 1));
+
+      elements.reviewerName.addEventListener("input", (event) => {
+        state.reviewer.name = event.target.value;
+        scheduleSave();
+      });
+      elements.reviewerId.addEventListener("input", (event) => {
+        state.reviewer.id = event.target.value;
+        scheduleSave();
+      });
+
+      document.querySelector("#importCasesButton").addEventListener("click", () => elements.caseFileInput.click());
+      document.querySelector("#importReviewButton").addEventListener("click", () => elements.reviewFileInput.click());
+      document.querySelector("#exportJsonButton").addEventListener("click", exportJson);
+      document.querySelector("#exportHtmlButton").addEventListener("click", exportHtml);
+      document.querySelector("#closeDialogButton").addEventListener("click", () => elements.exportDialog.close());
+      elements.caseFileInput.addEventListener("change", async (event) => {
+        await importCases([...event.target.files]);
+        event.target.value = "";
+      });
+      elements.reviewFileInput.addEventListener("change", async (event) => {
+        if (event.target.files[0]) await importReview(event.target.files[0]);
+        event.target.value = "";
+      });
+      window.addEventListener("beforeunload", saveNow);
+
+      elements.reviewerName.value = state.reviewer.name || "";
+      elements.reviewerId.value = state.reviewer.id || "";
+      elements.saveState.textContent = state.updatedAt ? `已恢复 ${new Date(state.updatedAt).toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}` : "尚无修改";
+      renderAll();
+    })();
+  </script>
+</body>
+</html>

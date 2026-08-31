@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "phase8-candidate-benchmark-v1",
+  "benchmarkKind": "candidate_preflight",
+  "evidenceStatus": "live_provider_evidence",
+  "generatedAt": "2026-08-28T07:57:01.583Z",
+  "repeatCount": 3,
+  "caseCount": 5,
+  "runCount": 15,
+  "completedRuns": 15,
+  "failedRuns": 0,
+  "providerName": "openai-compatible.db5993310fdf5dd3",
+  "protocol": "openai-responses",
+  "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+  "configuredModelId": "gpt-5.6-sol",
+  "actualModelId": "gpt-5.6-sol",
+  "promptVersion": "v0.1.1+set.606a6cdf2336b73d",
+  "bindings": {
+    "caseManifestSha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+    "caseValidationSetSha256": "4b2a9df14413276c2885b15643d6b466334b04e4048f38398f36307220b9ffb4",
+    "promptSetSha256": "c9944c8cbc50f7e900dc6b88393f07f3cafe9903d41c963ef770440b83d46fed",
+    "scoringPolicySha256": "455d1b08175900044553b6dc17da48f82de277cc523e3877aa168460e5b1e042",
+    "medicalSafetyPolicySha256": "fe7229ca1a9becc2930fe1ef9ecfd6463c36d4f22752b5892d8a5598c0d05cd2",
+    "safetyTemplateRegistrySha256": "3ece60251df6e52c696fa8b9e11adb58b51c7deb52b84da4a14e98f925951048",
+    "shareContractSha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657"
+  },
+  "runSetSha256": "6f051f5b249bd87777be5147770d1fd670f2b73a7ee06294f46aed9ef88585a6",
+  "totalUsage": {
+    "inputTokens": 116029,
+    "outputTokens": 13200,
+    "totalTokens": 129229
+  },
+  "latency": {
+    "totalDurationMs": 496333,
+    "averageDurationMs": 33089,
+    "maximumDurationMs": 37618
+  },
+  "quality": {
+    "averageTotalScore": 81,
+    "minimumTotalScore": 77,
+    "maximumTotalScore": 85
+  },
+  "gate": {
+    "status": "passed",
+    "requiredCompletedRate": 0.95,
+    "completedRate": 1,
+    "blockers": []
+  },
+  "runs": [
+    {
+      "runId": "case_c01_respiratory_001.run-1",
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49",
+      "runNumber": 1,
+      "status": "completed",
+      "benchmarkFingerprint": "c320b80d8beb57a11f5f24eb4d3e438e0fb51806f345cadf3d013b00726ebd1e",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 85,
+      "callCount": 9,
+      "durationMs": 32992,
+      "usage": {
+        "inputTokens": 8092,
+        "outputTokens": 835,
+        "totalTokens": 8927
+      }
+    },
+    {
+      "runId": "case_c01_respiratory_001.run-2",
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49",
+      "runNumber": 2,
+      "status": "completed",
+      "benchmarkFingerprint": "c320b80d8beb57a11f5f24eb4d3e438e0fb51806f345cadf3d013b00726ebd1e",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 85,
+      "callCount": 9,
+      "durationMs": 29193,
+      "usage": {
+        "inputTokens": 8094,
+        "outputTokens": 789,
+        "totalTokens": 8883
+      }
+    },
+    {
+      "runId": "case_c01_respiratory_001.run-3",
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49",
+      "runNumber": 3,
+      "status": "completed",
+      "benchmarkFingerprint": "c320b80d8beb57a11f5f24eb4d3e438e0fb51806f345cadf3d013b00726ebd1e",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 85,
+      "callCount": 9,
+      "durationMs": 36452,
+      "usage": {
+        "inputTokens": 8098,
+        "outputTokens": 917,
+        "totalTokens": 9015
+      }
+    },
+    {
+      "runId": "case_c02_respiratory_002.run-1",
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+      "runNumber": 1,
+      "status": "completed",
+      "benchmarkFingerprint": "0ffc67da6e64f951244b4b46d5b2ffa8e98924a4030f5b7b816ebeb10d9079fd",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 85,
+      "callCount": 9,
+      "durationMs": 37618,
+      "usage": {
+        "inputTokens": 7875,
+        "outputTokens": 942,
+        "totalTokens": 8817
+      }
+    },
+    {
+      "runId": "case_c02_respiratory_002.run-2",
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+      "runNumber": 2,
+      "status": "completed",
+      "benchmarkFingerprint": "0ffc67da6e64f951244b4b46d5b2ffa8e98924a4030f5b7b816ebeb10d9079fd",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 82,
+      "callCount": 8,
+      "durationMs": 28131,
+      "usage": {
+        "inputTokens": 6999,
+        "outputTokens": 781,
+        "totalTokens": 7780
+      }
+    },
+    {
+      "runId": "case_c02_respiratory_002.run-3",
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+      "runNumber": 3,
+      "status": "completed",
+      "benchmarkFingerprint": "0ffc67da6e64f951244b4b46d5b2ffa8e98924a4030f5b7b816ebeb10d9079fd",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 82,
+      "callCount": 8,
+      "durationMs": 29416,
+      "usage": {
+        "inputTokens": 6993,
+        "outputTokens": 806,
+        "totalTokens": 7799
+      }
+    },
+    {
+      "runId": "case_c03_respiratory_003.run-1",
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0",
+      "runNumber": 1,
+      "status": "completed",
+      "benchmarkFingerprint": "3e6a849ad997e184d43e61a4f5bf6ab6a9cf7723b63e150936ef8cb531e046a5",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 77,
+      "callCount": 8,
+      "durationMs": 31954,
+      "usage": {
+        "inputTokens": 7137,
+        "outputTokens": 938,
+        "totalTokens": 8075
+      }
+    },
+    {
+      "runId": "case_c03_respiratory_003.run-2",
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0",
+      "runNumber": 2,
+      "status": "completed",
+      "benchmarkFingerprint": "3e6a849ad997e184d43e61a4f5bf6ab6a9cf7723b63e150936ef8cb531e046a5",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 33674,
+      "usage": {
+        "inputTokens": 8005,
+        "outputTokens": 919,
+        "totalTokens": 8924
+      }
+    },
+    {
+      "runId": "case_c03_respiratory_003.run-3",
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0",
+      "runNumber": 3,
+      "status": "completed",
+      "benchmarkFingerprint": "3e6a849ad997e184d43e61a4f5bf6ab6a9cf7723b63e150936ef8cb531e046a5",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 30455,
+      "usage": {
+        "inputTokens": 8008,
+        "outputTokens": 839,
+        "totalTokens": 8847
+      }
+    },
+    {
+      "runId": "case_c04_respiratory_004.run-1",
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+      "runNumber": 1,
+      "status": "completed",
+      "benchmarkFingerprint": "76b5a0bde9c5bf78070050a5d70da998b6e9604ca149f584b2ef5087e61d92be",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 37305,
+      "usage": {
+        "inputTokens": 7909,
+        "outputTokens": 832,
+        "totalTokens": 8741
+      }
+    },
+    {
+      "runId": "case_c04_respiratory_004.run-2",
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+      "runNumber": 2,
+      "status": "completed",
+      "benchmarkFingerprint": "76b5a0bde9c5bf78070050a5d70da998b6e9604ca149f584b2ef5087e61d92be",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 33747,
+      "usage": {
+        "inputTokens": 7910,
+        "outputTokens": 951,
+        "totalTokens": 8861
+      }
+    },
+    {
+      "runId": "case_c04_respiratory_004.run-3",
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+      "runNumber": 3,
+      "status": "completed",
+      "benchmarkFingerprint": "76b5a0bde9c5bf78070050a5d70da998b6e9604ca149f584b2ef5087e61d92be",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 32828,
+      "usage": {
+        "inputTokens": 7914,
+        "outputTokens": 815,
+        "totalTokens": 8729
+      }
+    },
+    {
+      "runId": "case_c05_respiratory_005.run-1",
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:0575f55eb3752c6efd97cea85643fe96d70c45dd36d99d81cb03cf5c6a4597a9",
+      "runNumber": 1,
+      "status": "completed",
+      "benchmarkFingerprint": "d885d4b925676f9985bca252aef04a04a59fa5977bfdb0c5fed909cc21300dc4",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 31827,
+      "usage": {
+        "inputTokens": 7962,
+        "outputTokens": 811,
+        "totalTokens": 8773
+      }
+    },
+    {
+      "runId": "case_c05_respiratory_005.run-2",
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:0575f55eb3752c6efd97cea85643fe96d70c45dd36d99d81cb03cf5c6a4597a9",
+      "runNumber": 2,
+      "status": "completed",
+      "benchmarkFingerprint": "d885d4b925676f9985bca252aef04a04a59fa5977bfdb0c5fed909cc21300dc4",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 77,
+      "callCount": 8,
+      "durationMs": 35500,
+      "usage": {
+        "inputTokens": 7071,
+        "outputTokens": 1086,
+        "totalTokens": 8157
+      }
+    },
+    {
+      "runId": "case_c05_respiratory_005.run-3",
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:0575f55eb3752c6efd97cea85643fe96d70c45dd36d99d81cb03cf5c6a4597a9",
+      "runNumber": 3,
+      "status": "completed",
+      "benchmarkFingerprint": "d885d4b925676f9985bca252aef04a04a59fa5977bfdb0c5fed909cc21300dc4",
+      "actualModelId": "gpt-5.6-sol",
+      "totalScore": 80,
+      "callCount": 9,
+      "durationMs": 35241,
+      "usage": {
+        "inputTokens": 7962,
+        "outputTokens": 939,
+        "totalTokens": 8901
+      }
+    }
+  ]
+}

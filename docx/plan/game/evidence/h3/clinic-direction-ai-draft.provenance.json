@@ -1,0 +1,18 @@
+{
+  "assetId": "map.clinic.graybox-01",
+  "sourceType": "ai-assisted",
+  "author": "OpenAI built-in image generation",
+  "sourceUrl": null,
+  "license": "Generated-output terms review pending; DRAFT direction reference only",
+  "downloadedAt": null,
+  "commercialUse": null,
+  "modificationAllowed": true,
+  "redistributionNotes": "DRAFT visual-direction reference only; not a runtime asset and not approved for release.",
+  "attributionText": null,
+  "generator": "Codex built-in image_gen",
+  "modelVersion": null,
+  "generatedAt": "2026-08-30",
+  "prompt": "Orthographic top-down pixel-art direction sheet for a compact warm-morning community clinic with left queue and entrance, central consultation, right curtained examination area, upper/lower locked zones, no people, text, logos, watermarks, brands, diagnosis information, isometric perspective, anti-aliasing, or mixed pixel density.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

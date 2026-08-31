@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "c6-cli-acceptance-evidence-v1",
+  "generatedAt": "2026-08-28T16:12:48.835Z",
+  "status": "passed",
+  "journeyCount": 3,
+  "turnsPerJourney": 12,
+  "committedTurns": 36,
+  "requiredInputs": [
+    "你好",
+    "请问有什么症状么",
+    "现在还这样么",
+    "今天天气不错",
+    "你平时喜欢做什么",
+    "量一下体温",
+    "你的CT结果怎么样",
+    "好，那去做吧"
+  ],
+  "providerFailure": {
+    "code": "MODEL_UNAVAILABLE",
+    "fakePatientReplies": 0,
+    "committedTurns": 0
+  },
+  "verification": {
+    "exitCode": 0,
+    "signal": null,
+    "stdoutSha256": "0162e7068ea4d36c4857e2843292a1c2946b5fb13392b42bb1d2b85974129030",
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 519,
+    "stderrBytes": 0
+  },
+  "sourceBindings": {
+    "testSha256": "4665cf19acf9f8f68fefe2bbae8d2d468487b6544ada2694cfea3e52f043a8ac",
+    "providerSha256": "3bea79602f9d552e6dbd3bd77a41dc6669ce17ec979b0db0ba1bf07f6c2328c7",
+    "outputGateSha256": "782ed9af3d9277dce8f7100d29d0db2d01574b8cda2c8a62396387dbcbde7a49",
+    "modelServiceSha256": "71686c9ffd36b6ce2938846df03f8fd7101d071e0d8c7f50111f52faaa227e99",
+    "candidateManifestSha256": "177717bf40c361c361b58813889ee0bb039a05b8336e436ff1b9e5d63c60d245"
+  }
+}

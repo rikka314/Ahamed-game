@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/ai-case-cross-validation-v1.schema.json",
+  "title": "AI case cross-validation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "caseId", "caseVersion", "contentHash", "decision", "validations"],
+  "properties": {
+    "schemaVersion": { "const": "ai-case-cross-validation-v1" },
+    "caseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/nonEmpty" },
+    "contentHash": { "$ref": "#/$defs/contentHash" },
+    "decision": { "enum": ["approved", "rejected"] },
+    "validations": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["validatorId", "role", "modelId", "promptVersion", "decision", "validatedAt", "checks", "findings"],
+        "properties": {
+          "validatorId": { "$ref": "#/$defs/id" },
+          "role": { "enum": ["clinical_safety", "diagnostic_quality"] },
+          "modelId": { "$ref": "#/$defs/nonEmpty" },
+          "promptVersion": { "$ref": "#/$defs/nonEmpty" },
+          "decision": { "enum": ["approved", "rejected"] },
+          "validatedAt": { "type": "string", "format": "date-time" },
+          "checks": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["clinicalConsistency", "diagnosisSolvability", "redFlagExclusions", "rubricConsistency", "regressionCoverage", "hiddenTruthSafety"],
+            "properties": {
+              "clinicalConsistency": { "enum": ["pass", "fail"] },
+              "diagnosisSolvability": { "enum": ["pass", "fail"] },
+              "redFlagExclusions": { "enum": ["pass", "fail"] },
+              "rubricConsistency": { "enum": ["pass", "fail"] },
+              "regressionCoverage": { "enum": ["pass", "fail"] },
+              "hiddenTruthSafety": { "enum": ["pass", "fail"] }
+            }
+          },
+          "findings": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

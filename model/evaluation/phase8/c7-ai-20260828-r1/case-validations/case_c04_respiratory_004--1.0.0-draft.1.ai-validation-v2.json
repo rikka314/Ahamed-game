@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v2",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.2e0376f0-463e-40d3-9d5b-c4bf28f219c1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T16:02:42.365Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：8天咳嗽、少量黄痰、无高热/呼吸困难，生命体征稳定，胸片及胸部CT无局灶性实变，符合急性支气管炎；胸部听诊异常可由咳嗽后减轻的鼾音解释。已完成的CT和痰培养虽属不必要检查，但已在量表中正确标为不必要，未造成病例事实冲突。",
+        "诊断可解性：起病、咳嗽、咳痰、发热、喘鸣、呼吸困难及关键胸部危险症状均可通过询问获得；生命体征和胸部查体足以支持目标诊断，并允许鉴别轻症肺炎和咳嗽变异性哮喘。",
+        "危险征象排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除依据；生命体征为稳定范围，安全退出条件充分。",
+        "量表一致性：must-ask字段、目标诊断、两个可接受鉴别诊断、必需检查和不必要检查分类彼此一致；成功轨迹覆盖核心问诊与必需检查，推荐回合数也无明显冲突。",
+        "回归覆盖：成功、错误诊断、危险输入中断及未知信息分支均有轨迹；危险输入明确要求SAFETY_INTERRUPTED、零医疗回合和零服务端写入，覆盖安全中断行为。",
+        "隐藏真相安全：教学字段、答案键及服务端评分信息标记为隐藏，胸部查体仅可通过对应检查获得；未知喘鸣不会被错误强制披露，未见将目标诊断泄露给患者端的结构。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f61e235e-7707-493a-8ee9-8357a250132a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T16:02:58.205Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与急性支气管炎一致：病程8天、先上呼吸道症状后咳嗽、无高热或呼吸困难，查体为可咳后减轻的散在鼾音且无局灶性湿啰音；影像及痰培养结果不矛盾。",
+        "核心诊断可解：病史、生命体征和胸部查体均可在规定回合内获得，且足以支持急性支气管炎并排除明显肺炎危险信号。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；生命体征也与安全排除状态一致。",
+        "must-ask事实均在成功轨迹中覆盖；两个鉴别诊断分别对应轻症社区获得性肺炎和咳嗽变异性哮喘，数量及概念ID与rubric一致；检查分类与病例信息相容。",
+        "成功、失败、安全中断和未知事实四类轨迹均存在，动作、预期事实、诊断结果及安全终止断言彼此一致；未知喘鸣询问可命中对应事实。",
+        "隐藏教学字段未暴露给患者或诊断流程；安全轨迹明确禁止医疗回合、provider调用和原始文本写入，未见通过回归资产泄露隐藏真值的路径。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G14",
+  "componentVariant": "outer-down-right",
+  "componentName": "室外路沿外转角",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from AI-assisted DRAFT components; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left-v2.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-right.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native alpha construction rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create only the fourth G14 exterior curb outer corner joining the downward-facing and right-facing G13 curb edges. Match the accepted rounded hard-pixel style, make the lower-right area outside the arc genuinely transparent so grass can be placed beneath it, preserve the accepted bottom and right straight connections, twelve-pixel curb depth, warm-light-to-deep-shadow palette, and upper-left G03 stone-brick pavement. No anti-aliasing, text, logo or watermark.",
+  "humanEdits": [
+    "Constructed a rounded lower-right quarter-circle using the accepted G14 radial pixel bands.",
+    "Cleared the area outside the rounded arc to alpha 0 instead of filling it with ground color.",
+    "Preserved the accepted bottom and right straight-edge connection pixels and the upper-left G03 pavement without rotating its brick texture.",
+    "Composited the review-only preview over a generated grass-colored backdrop to demonstrate transparency; no grass pixels were baked into the component."
+  ],
+  "status": "DRAFT"
+}

@@ -1,0 +1,2120 @@
+{
+  "schemaVersion": "phase8-private-patient-sample-set-v1",
+  "candidateRunSetSha256": "f3885021b8a658f2a4bab92cd0b85aafd17703327c9561c6ec847280751dbf8d",
+  "sampleSetSha256": "20969ddfe5826ae8f00cd6a38bd975776aff6f54d628ebb441ace10c990ed13b",
+  "sampleCount": 100,
+  "samples": [
+    {
+      "sampleId": "case_c01_respiratory_001.run-1.turn-1",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "大约两天前慢慢开始的。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-1.turn-2",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有流鼻涕吗？鼻涕是什么样的？",
+      "reply": "主要是清鼻涕。",
+      "disclosedFactIds": [
+        "fact.nasal_discharge"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.nasal_discharge",
+          "status": "present",
+          "value": "主要是清鼻涕。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-1.turn-3",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "嗓子轻微发干发痒，吞咽不受影响。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "嗓子轻微发干发痒，吞咽不受影响。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-1.turn-4",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "偶尔有几声干咳，不频繁。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "偶尔有几声干咳，不频繁。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-2.turn-1",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "大约两天前慢慢开始的。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-2.turn-2",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有流鼻涕吗？鼻涕是什么样的？",
+      "reply": "主要是清鼻涕。",
+      "disclosedFactIds": [
+        "fact.nasal_discharge"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.nasal_discharge",
+          "status": "present",
+          "value": "主要是清鼻涕。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-2.turn-3",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "嗓子轻微发干发痒，吞咽不受影响。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "嗓子轻微发干发痒，吞咽不受影响。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-2.turn-4",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "偶尔有几声干咳，不频繁。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "偶尔有几声干咳，不频繁。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-3.turn-1",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "大约两天前慢慢开始的。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-3.turn-2",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有流鼻涕吗？鼻涕是什么样的？",
+      "reply": "主要是清鼻涕。",
+      "disclosedFactIds": [
+        "fact.nasal_discharge"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.nasal_discharge",
+          "status": "present",
+          "value": "主要是清鼻涕。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-3.turn-3",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "嗓子轻微发干发痒，吞咽不受影响。；能正常喝水和进食。",
+      "disclosedFactIds": [
+        "fact.sore_throat",
+        "fact.inability_oral_intake"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "嗓子轻微发干发痒，吞咽不受影响。"
+        },
+        {
+          "factId": "fact.inability_oral_intake",
+          "status": "absent",
+          "value": "能正常喝水和进食。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-3.turn-4",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "偶尔有几声干咳，不频繁。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "偶尔有几声干咳，不频繁。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-4.turn-1",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "大约两天前慢慢开始的。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-4.turn-2",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有流鼻涕吗？鼻涕是什么样的？",
+      "reply": "主要是清鼻涕。",
+      "disclosedFactIds": [
+        "fact.nasal_discharge"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.nasal_discharge",
+          "status": "present",
+          "value": "主要是清鼻涕。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-4.turn-3",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "嗓子轻微发干发痒，吞咽不受影响。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "嗓子轻微发干发痒，吞咽不受影响。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-4.turn-4",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "偶尔有几声干咳，不频繁。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "偶尔有几声干咳，不频繁。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-5.turn-1",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "大约两天前慢慢开始的。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-5.turn-2",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有流鼻涕吗？鼻涕是什么样的？",
+      "reply": "主要是清鼻涕。",
+      "disclosedFactIds": [
+        "fact.nasal_discharge"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.nasal_discharge",
+          "status": "present",
+          "value": "主要是清鼻涕。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-5.turn-3",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "嗓子轻微发干发痒，吞咽不受影响。；能正常喝水和进食。",
+      "disclosedFactIds": [
+        "fact.sore_throat",
+        "fact.inability_oral_intake"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "嗓子轻微发干发痒，吞咽不受影响。"
+        },
+        {
+          "factId": "fact.inability_oral_intake",
+          "status": "absent",
+          "value": "能正常喝水和进食。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c01_respiratory_001.run-5.turn-4",
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "偶尔有几声干咳，不频繁。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "偶尔有几声干咳，不频繁。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "普通感冒",
+        "急性病毒性上呼吸道感染"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-1.turn-1",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "昨天傍晚突然开始，几个小时内就明显起来。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-1.turn-2",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高自己量到38.8℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高自己量到38.8℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-1.turn-3",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有肌肉或全身酸痛？",
+      "reply": "腰背和四肢都明显酸痛。",
+      "disclosedFactIds": [
+        "fact.myalgia"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.myalgia",
+          "status": "present",
+          "value": "腰背和四肢都明显酸痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-1.turn-4",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有头痛？程度怎么样？",
+      "reply": "有中等程度的头痛。",
+      "disclosedFactIds": [
+        "fact.headache"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.headache",
+          "status": "present",
+          "value": "有中等程度的头痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-2.turn-1",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "昨天傍晚突然开始，几个小时内就明显起来。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-2.turn-2",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高自己量到38.8℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高自己量到38.8℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-2.turn-3",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有肌肉或全身酸痛？",
+      "reply": "腰背和四肢都明显酸痛。",
+      "disclosedFactIds": [
+        "fact.myalgia"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.myalgia",
+          "status": "present",
+          "value": "腰背和四肢都明显酸痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-2.turn-4",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有头痛？程度怎么样？",
+      "reply": "有中等程度的头痛。",
+      "disclosedFactIds": [
+        "fact.headache"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.headache",
+          "status": "present",
+          "value": "有中等程度的头痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-3.turn-1",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "昨天傍晚突然开始，几个小时内就明显起来。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-3.turn-2",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高自己量到38.8℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高自己量到38.8℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-3.turn-3",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有肌肉或全身酸痛？",
+      "reply": "腰背和四肢都明显酸痛。",
+      "disclosedFactIds": [
+        "fact.myalgia"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.myalgia",
+          "status": "present",
+          "value": "腰背和四肢都明显酸痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-3.turn-4",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有头痛？程度怎么样？",
+      "reply": "有中等程度的头痛。",
+      "disclosedFactIds": [
+        "fact.headache"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.headache",
+          "status": "present",
+          "value": "有中等程度的头痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-4.turn-1",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "昨天傍晚突然开始，几个小时内就明显起来。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-4.turn-2",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高自己量到38.8℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高自己量到38.8℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-4.turn-3",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有肌肉或全身酸痛？",
+      "reply": "腰背和四肢都明显酸痛。",
+      "disclosedFactIds": [
+        "fact.myalgia"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.myalgia",
+          "status": "present",
+          "value": "腰背和四肢都明显酸痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-4.turn-4",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有头痛？程度怎么样？",
+      "reply": "有中等程度的头痛。",
+      "disclosedFactIds": [
+        "fact.headache"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.headache",
+          "status": "present",
+          "value": "有中等程度的头痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-5.turn-1",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "昨天傍晚突然开始，几个小时内就明显起来。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-5.turn-2",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高自己量到38.8℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高自己量到38.8℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-5.turn-3",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有肌肉或全身酸痛？",
+      "reply": "腰背和四肢都明显酸痛。",
+      "disclosedFactIds": [
+        "fact.myalgia"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.myalgia",
+          "status": "present",
+          "value": "腰背和四肢都明显酸痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c02_respiratory_002.run-5.turn-4",
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有没有头痛？程度怎么样？",
+      "reply": "有中等程度的头痛。",
+      "disclosedFactIds": [
+        "fact.headache"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.headache",
+          "status": "present",
+          "value": "有中等程度的头痛。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "流行性感冒",
+        "流感"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-1.turn-1",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "两天前开始，今天疼痛比昨天明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "两天前开始，今天疼痛比昨天明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-1.turn-2",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "吞咽时嗓子疼，但还能喝水吃饭。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-1.turn-3",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.1℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.1℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-1.turn-4",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "基本不咳嗽。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "absent",
+          "value": "基本不咳嗽。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-2.turn-1",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "两天前开始，今天疼痛比昨天明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "两天前开始，今天疼痛比昨天明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-2.turn-2",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "吞咽时嗓子疼，但还能喝水吃饭。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-2.turn-3",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.1℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.1℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-2.turn-4",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "基本不咳嗽。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "absent",
+          "value": "基本不咳嗽。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-3.turn-1",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "两天前开始，今天疼痛比昨天明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "两天前开始，今天疼痛比昨天明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-3.turn-2",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "吞咽时嗓子疼，但还能喝水吃饭。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-3.turn-3",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.1℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.1℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-3.turn-4",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "基本不咳嗽。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "absent",
+          "value": "基本不咳嗽。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-4.turn-1",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "两天前开始，今天疼痛比昨天明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "两天前开始，今天疼痛比昨天明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-4.turn-2",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "吞咽时嗓子疼，但还能喝水吃饭。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-4.turn-3",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.1℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.1℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-4.turn-4",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "基本不咳嗽。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "absent",
+          "value": "基本不咳嗽。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-5.turn-1",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "两天前开始，今天疼痛比昨天明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "两天前开始，今天疼痛比昨天明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-5.turn-2",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，嗓子疼吗？吞咽有没有受影响？",
+      "reply": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosedFactIds": [
+        "fact.sore_throat"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sore_throat",
+          "status": "present",
+          "value": "吞咽时嗓子疼，但还能喝水吃饭。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-5.turn-3",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.1℃。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.1℃。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c03_respiratory_003.run-5.turn-4",
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "基本不咳嗽。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "absent",
+          "value": "基本不咳嗽。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性咽炎",
+        "急性咽部炎症"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-1.turn-1",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "八天前先有鼻塞，过两天后咳嗽变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-1.turn-2",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "白天和晚上都会咳，但还能正常睡觉。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-1.turn-3",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "痰量不多，颜色偏黄。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "痰量不多，颜色偏黄。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-1.turn-4",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "没有达到38℃的发热。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "absent",
+          "value": "没有达到38℃的发热。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-2.turn-1",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "八天前先有鼻塞，过两天后咳嗽变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-2.turn-2",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "白天和晚上都会咳，但还能正常睡觉。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-2.turn-3",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "痰量不多，颜色偏黄。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "痰量不多，颜色偏黄。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-2.turn-4",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "没有达到38℃的发热。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "absent",
+          "value": "没有达到38℃的发热。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-3.turn-1",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "八天前先有鼻塞，过两天后咳嗽变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-3.turn-2",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "白天和晚上都会咳，但还能正常睡觉。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-3.turn-3",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "痰量不多，颜色偏黄。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "痰量不多，颜色偏黄。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-3.turn-4",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "没有达到38℃的发热。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "absent",
+          "value": "没有达到38℃的发热。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-4.turn-1",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "八天前先有鼻塞，过两天后咳嗽变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-4.turn-2",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "白天和晚上都会咳，但还能正常睡觉。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-4.turn-3",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "痰量不多，颜色偏黄。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "痰量不多，颜色偏黄。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-4.turn-4",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "没有达到38℃的发热。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "absent",
+          "value": "没有达到38℃的发热。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-5.turn-1",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "八天前先有鼻塞，过两天后咳嗽变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-5.turn-2",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "白天和晚上都会咳，但还能正常睡觉。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-5.turn-3",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "痰量不多，颜色偏黄。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "痰量不多，颜色偏黄。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c04_respiratory_004.run-5.turn-4",
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "没有达到38℃的发热。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "absent",
+          "value": "没有达到38℃的发热。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "急性支气管炎",
+        "急性气管支气管炎"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-1.turn-1",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "三天前先发热，第二天咳嗽和咳痰变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "三天前先发热，第二天咳嗽和咳痰变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-1.turn-2",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.4℃，退热后精神会好一些。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.4℃，退热后精神会好一些。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-1.turn-3",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "咳嗽比较频繁，但还能正常说完整句话。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "咳嗽比较频繁，但还能正常说完整句话。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-1.turn-4",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "有少量黄痰，不带血。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "有少量黄痰，不带血。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-2.turn-1",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "三天前先发热，第二天咳嗽和咳痰变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "三天前先发热，第二天咳嗽和咳痰变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-2.turn-2",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.4℃，退热后精神会好一些。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.4℃，退热后精神会好一些。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-2.turn-3",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "咳嗽比较频繁，但还能正常说完整句话。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "咳嗽比较频繁，但还能正常说完整句话。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-2.turn-4",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "有少量黄痰，不带血。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "有少量黄痰，不带血。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-3.turn-1",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "三天前先发热，第二天咳嗽和咳痰变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "三天前先发热，第二天咳嗽和咳痰变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-3.turn-2",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.4℃，退热后精神会好一些。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.4℃，退热后精神会好一些。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-3.turn-3",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "咳嗽比较频繁，但还能正常说完整句话。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "咳嗽比较频繁，但还能正常说完整句话。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-3.turn-4",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "有少量黄痰，不带血。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "有少量黄痰，不带血。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-4.turn-1",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "三天前先发热，第二天咳嗽和咳痰变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "三天前先发热，第二天咳嗽和咳痰变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-4.turn-2",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.4℃，退热后精神会好一些。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.4℃，退热后精神会好一些。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-4.turn-3",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "咳嗽比较频繁，但还能正常说完整句话。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "咳嗽比较频繁，但还能正常说完整句话。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-4.turn-4",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "有少量黄痰，不带血。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "有少量黄痰，不带血。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-5.turn-1",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，这些不舒服是什么时候开始的？",
+      "reply": "三天前先发热，第二天咳嗽和咳痰变明显。",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.onset",
+          "status": "present",
+          "value": "三天前先发热，第二天咳嗽和咳痰变明显。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-5.turn-2",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有发热吗？最高体温是多少？",
+      "reply": "最高量到38.4℃，退热后精神会好一些。",
+      "disclosedFactIds": [
+        "fact.fever"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.fever",
+          "status": "present",
+          "value": "最高量到38.4℃，退热后精神会好一些。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-5.turn-3",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳嗽吗？咳嗽是什么情况？",
+      "reply": "咳嗽比较频繁，但还能正常说完整句话。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.cough",
+          "status": "present",
+          "value": "咳嗽比较频繁，但还能正常说完整句话。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    },
+    {
+      "sampleId": "case_c05_respiratory_005.run-5.turn-4",
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "question": "在当前虚构病例中，有咳痰吗？痰量和颜色怎么样？",
+      "reply": "有少量黄痰，不带血。",
+      "disclosedFactIds": [
+        "fact.sputum"
+      ],
+      "authorizedFacts": [
+        {
+          "factId": "fact.sputum",
+          "status": "present",
+          "value": "有少量黄痰，不带血。"
+        }
+      ],
+      "forbiddenDiagnosisTerms": [
+        "轻症社区获得性肺炎",
+        "社区获得性肺部感染"
+      ]
+    }
+  ]
+}

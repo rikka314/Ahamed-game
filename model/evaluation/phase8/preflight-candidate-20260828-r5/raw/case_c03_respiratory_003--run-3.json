@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "phase8-published-case-live-eval-v1",
+  "referenceStatus": "published_case",
+  "benchmarkFingerprint": "3e6a849ad997e184d43e61a4f5bf6ab6a9cf7723b63e150936ef8cb531e046a5",
+  "caseContentSha256": "e8bdbf50863a3020113f6c0ef988ffe9d33bcebc39bc9a8106355392ee6dfe32",
+  "caseId": "case_c03_respiratory_003",
+  "caseVersion": "1.0.0-draft.1",
+  "providerName": "openai-compatible.db5993310fdf5dd3",
+  "modelId": "gpt-5.6-sol",
+  "actualModelId": "gpt-5.6-sol",
+  "promptVersion": "v0.1.1+set.606a6cdf2336b73d",
+  "providerManifest": {
+    "adapterVersion": "openai-compatible-responses-v2",
+    "sdkVersion": "7.7.0",
+    "schemaVersion": "phase8-v2",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "promptSha256ByRole": {
+      "controller": "454374cb1f5029f3a597696ef39c20793c139409a2d345fd8d00636bf2670704",
+      "patient": "acaac1e2c8e24660660aef99afbab9e6f9f7d4fd722094eb06362deb4dc09d44",
+      "review": "621c7fbd4eb24e38a864f0ad7e5a6f2173a0db264794fa423f245f72da8ec66e"
+    },
+    "schemaSha256ByRole": {
+      "controller": "dea2d6b09ba22f41f3fe346572397bd906ff5078e144fa23c067360778dc03c4",
+      "patient": "0ab2689dd39cf31b3e32d5bfedae1a7a7fa557afe8fd66b55e599bbd1dc45256",
+      "review": "2c48374c4a72c1b0fb5c41cea8b5ca4d68ac5b22f62af544e5db92c1c4ab15ba"
+    }
+  },
+  "evaluationVersion": "scoring-policy-v1",
+  "sessionPhase": "completed",
+  "scores": {
+    "diagnosis": 100,
+    "historyCoverage": 50,
+    "differentialReasoning": 100,
+    "testSelection": 50,
+    "efficiency": 100,
+    "communication": 50,
+    "total": 80
+  },
+  "callCount": 9,
+  "totalUsage": {
+    "inputTokens": 8005,
+    "outputTokens": 932,
+    "totalTokens": 8937
+  },
+  "calls": [
+    {
+      "role": "controller",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 2210,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 952,
+        "outputTokens": 32,
+        "totalTokens": 984
+      }
+    },
+    {
+      "role": "patient",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 2276,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 739,
+        "outputTokens": 49,
+        "totalTokens": 788
+      }
+    },
+    {
+      "role": "controller",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 3472,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 954,
+        "outputTokens": 77,
+        "totalTokens": 1031,
+        "reasoningOutputTokens": 41
+      }
+    },
+    {
+      "role": "patient",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 4819,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 775,
+        "outputTokens": 165,
+        "totalTokens": 940,
+        "reasoningOutputTokens": 96
+      }
+    },
+    {
+      "role": "controller",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 4324,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 953,
+        "outputTokens": 127,
+        "totalTokens": 1080,
+        "reasoningOutputTokens": 93
+      }
+    },
+    {
+      "role": "patient",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 3224,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 794,
+        "outputTokens": 43,
+        "totalTokens": 837
+      }
+    },
+    {
+      "role": "controller",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 4334,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 955,
+        "outputTokens": 65,
+        "totalTokens": 1020,
+        "reasoningOutputTokens": 31
+      }
+    },
+    {
+      "role": "patient",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 7296,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 818,
+        "outputTokens": 42,
+        "totalTokens": 860
+      }
+    },
+    {
+      "role": "review",
+      "actualModelId": "gpt-5.6-sol",
+      "status": "completed",
+      "retryCount": 0,
+      "durationMs": 7678,
+      "responseStatus": "completed",
+      "finishReason": "completed",
+      "usage": {
+        "inputTokens": 1065,
+        "outputTokens": 332,
+        "totalTokens": 1397,
+        "reasoningOutputTokens": 125
+      }
+    }
+  ]
+}

@@ -1,0 +1,1216 @@
+{
+  "schemaVersion": "runtime-release-manifest-v1",
+  "artifactRoot": "game",
+  "buildVersion": "0.1.0-rc.2",
+  "generatedAt": "2026-08-28T17:10:15.679Z",
+  "goNoGoDecisionRef": "c7.dialogue-architecture.2026-08-28",
+  "approvedProviders": [
+    {
+      "providerName": "openai-compatible.db5993310fdf5dd3",
+      "protocol": "openai-responses",
+      "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+      "configuredModelId": "gpt-5.6-sol",
+      "actualModelId": "gpt-5.6-sol",
+      "approvedAt": "2026-08-28T17:00:45.677Z"
+    }
+  ],
+  "remoteInteractiveEnabled": false,
+  "shareContract": {
+    "release": "v1-rc1",
+    "status": "retained_release_candidate",
+    "reason": "模型层 C6/C7 已通过；游戏侧统一 MVP 合并门不在本次范围内。"
+  },
+  "artifacts": [
+    {
+      "path": "model/cases/ai-validation/c01-common-cold-v1.ai-validation.json",
+      "sha256": "3a5a1594d79edc9fa21c685a9dae22863c267b175e039ba835d8dc6b1abf9618",
+      "size": 1614
+    },
+    {
+      "path": "model/cases/ai-validation/c02-influenza-v1.ai-validation.json",
+      "sha256": "91161fbd2ececab1457458ddc903ccc746174337493065b20afe9e4389aacedb",
+      "size": 1590
+    },
+    {
+      "path": "model/cases/ai-validation/c03-acute-pharyngitis-v1.ai-validation.json",
+      "sha256": "9227d750a898c47a0b1dc3714d6642e3abc526f9251d0b0d8e3ecd6bdf1e9fb9",
+      "size": 1567
+    },
+    {
+      "path": "model/cases/ai-validation/c04-acute-bronchitis-v1.ai-validation.json",
+      "sha256": "13aabee97945bec02313706f5144ee7a227f5b757e9f0004805ed067b7cd2e6d",
+      "size": 1601
+    },
+    {
+      "path": "model/cases/ai-validation/c05-mild-cap-v1.ai-validation.json",
+      "sha256": "17b7ee5f24401a1970885c6072b8184bc5fba3a14bfdba92f3564fb3ba73b6a8",
+      "size": 1611
+    },
+    {
+      "path": "model/cases/draft/c01-common-cold-v1.json",
+      "sha256": "5daa0ff35a04ea58cfb1cddfab848c47bd729bbdc847eff8b7453a56b416f1d1",
+      "size": 10946
+    },
+    {
+      "path": "model/cases/draft/c01-reference-draft.json",
+      "sha256": "626bc9569b9f699728ef51282eb482a4f028a9ac8616cb15f360e83ab164b360",
+      "size": 6627
+    },
+    {
+      "path": "model/cases/draft/c02-influenza-v1.json",
+      "sha256": "302eaebd94ee1a9f4cebf7968c5238b5b9233d573b05c9865a6736649e00781e",
+      "size": 10618
+    },
+    {
+      "path": "model/cases/draft/c03-acute-pharyngitis-v1.json",
+      "sha256": "e7c27d10755aa6526bcd2d600bd97ee22b092dfe9b08fa80bfe268faeb3dc308",
+      "size": 10969
+    },
+    {
+      "path": "model/cases/draft/c04-acute-bronchitis-v1.json",
+      "sha256": "f6528c5f677b82e5d434a73aab87eba9e82945fac6205bbecbd30813c7023b01",
+      "size": 10953
+    },
+    {
+      "path": "model/cases/draft/c05-mild-cap-v1.json",
+      "sha256": "8f3d1b0c9fcdc655a82c2531e6e0a530658e31ed633426edc40694bc454948a9",
+      "size": 11016
+    },
+    {
+      "path": "model/cases/draft/README.md",
+      "sha256": "614c4322052de32f3c4f45fdf1f95385bf12500790927155c78fb60920a50308",
+      "size": 956
+    },
+    {
+      "path": "model/cases/fixtures/case-fixture-001.json",
+      "sha256": "7edec3406e19b612d4337b1cbb4f4c171de37cb5c1cd1c9660f4c7c5de668379",
+      "size": 3911
+    },
+    {
+      "path": "model/cases/manifest.dialogue-candidate.v1-rc1.json",
+      "sha256": "177717bf40c361c361b58813889ee0bb039a05b8336e436ff1b9e5d63c60d245",
+      "size": 2025
+    },
+    {
+      "path": "model/cases/manifest.dialogue-rc.v1-rc1.json",
+      "sha256": "25196ea661d74c35ed69dae3112331911d97e18d9d521b357e03da728d441ff1",
+      "size": 4537
+    },
+    {
+      "path": "model/cases/manifest.v1-rc1.json",
+      "sha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+      "size": 3957
+    },
+    {
+      "path": "model/cases/manifest.v1-rc1.status.json",
+      "sha256": "668653b2b745a8a4d05a4b97c6fcf5bc15d0a6410a0d23ce4637b3fdc40d8df9",
+      "size": 579
+    },
+    {
+      "path": "model/cases/provenance/README.md",
+      "sha256": "df1436f3c82e1498765ccecd3c5dcf00b7441ec3c157734d24d4c4e3d9212e60",
+      "size": 169
+    },
+    {
+      "path": "model/cases/published/case_c01_respiratory_001--1.0.0-draft.1.ai-validation.json",
+      "sha256": "15a555efd2d46dc2660de3dfc5e3313056a1ab0bb2d471e3e5af45e72065f37c",
+      "size": 1754
+    },
+    {
+      "path": "model/cases/published/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "sha256": "90f5e89572288f729c7a6f95fc82ce9bdd6cc8c6afbd7f2aae1689fcef01f170",
+      "size": 14533
+    },
+    {
+      "path": "model/cases/published/case_c02_respiratory_002--1.0.0-draft.1.ai-validation.json",
+      "sha256": "30da4c93b125b896b44e789c70f0dec6b3103f67d3c8e04362bd79f81fdb5311",
+      "size": 1730
+    },
+    {
+      "path": "model/cases/published/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "sha256": "740de3fa717713a9a84eb2530789c6fc04cadd32a43f377cb9086c6fe671019f",
+      "size": 14029
+    },
+    {
+      "path": "model/cases/published/case_c03_respiratory_003--1.0.0-draft.1.ai-validation.json",
+      "sha256": "e10351f8488561424fd724d1f9614827ecd20cfb48e1787ab3304f304d05de25",
+      "size": 1707
+    },
+    {
+      "path": "model/cases/published/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "sha256": "bd17f10b9639dcc9d3638ae62cd02d0bf1256cc2f8bff0a77471e1be620d05fc",
+      "size": 14373
+    },
+    {
+      "path": "model/cases/published/case_c04_respiratory_004--1.0.0-draft.1.ai-validation.json",
+      "sha256": "37d4a37dfc121a6e353e3aed8c149bdfc182fe1c744e9790be8252fbc3b36811",
+      "size": 1741
+    },
+    {
+      "path": "model/cases/published/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "sha256": "7fd0bc53b2f910be102a502cd6bef53d9a224e1620e6b6c5ca55b605dd9181fc",
+      "size": 14339
+    },
+    {
+      "path": "model/cases/published/case_c05_respiratory_005--1.0.0-draft.1.ai-validation.json",
+      "sha256": "c75fb645a57f9b72888aed8bc2612728ea4a3c4b8776c82405a51c2d5eac915d",
+      "size": 1751
+    },
+    {
+      "path": "model/cases/published/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "sha256": "71b72eb69beb8ffc13dbec18b5a5b34b2fed6376ea623fa9c04ef0730c298237",
+      "size": 14406
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.ai-validation.json",
+      "sha256": "20d888a0f1c7e0d22346c01c03ecb7c488b34bccb3dcf63b780114d9f1c65f5a",
+      "size": 3427
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "sha256": "d67e4d9eb9ad0674b7963c7f53a23fc30c1acc1b26f81d39ff543a9deea38053",
+      "size": 17357
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.ai-validation.json",
+      "sha256": "4af5ea1c887f16e9c322343208661a75b53851b56747abef645126068dfa8a1b",
+      "size": 3855
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "sha256": "9410ad62ba123260464c927a2c1caef8e040bfb11143968f7d6422afd0f0a00c",
+      "size": 17371
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.ai-validation.json",
+      "sha256": "40f3169b542427a7fc97f3fdf391f48353e435828cd180c176cf105aeb80555f",
+      "size": 3785
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "sha256": "5f1d5717825bd93edd2b48e1db0c1e77f46b2d1373ae9b7b36299f50283a9042",
+      "size": 17788
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.ai-validation.json",
+      "sha256": "a79b8cedd40c393ec84b058f28dfe369ec434f8620696c438a4376846cdb4f42",
+      "size": 4112
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "sha256": "27b3f651920ee56136d5ad4573652e2e9310017730900b16df2485c6a6fd006d",
+      "size": 18039
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.ai-validation.json",
+      "sha256": "61155e745957bdedab7f9b723df5b78af767e13cdf55e62766dcf1b3962d8307",
+      "size": 3830
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "sha256": "378c650116ab9ed2171980d131962c85e9ed1d85adbf4cb7ea4e3a56a4154d5f",
+      "size": 17820
+    },
+    {
+      "path": "model/cases/published/README.md",
+      "sha256": "aae655b2bef19a6ec032b03c4261c1e7d87f801feb75ac9271189a072cd5d607",
+      "size": 1009
+    },
+    {
+      "path": "model/cases/README.md",
+      "sha256": "9b8b897228f9f85676d83c41a1834a61167fc621d02f126795cdafc1c6ab279a",
+      "size": 4031
+    },
+    {
+      "path": "model/cases/regression/c01-common-cold-v1.trajectories.json",
+      "sha256": "a2de93120892509e640292967b45e1a33920889d96c7e8c9a96725e384493997",
+      "size": 1621
+    },
+    {
+      "path": "model/cases/regression/c02-influenza-v1.trajectories.json",
+      "sha256": "3480a515409aacae9cb1bde1ae8f1f215beda38f331d04281a99ef4e337cb575",
+      "size": 1619
+    },
+    {
+      "path": "model/cases/regression/c03-acute-pharyngitis-v1.trajectories.json",
+      "sha256": "53d1c804d83ee80c8f140a533c6ba14576da50d3b3ce0ad9cac5f990a6b6d960",
+      "size": 1671
+    },
+    {
+      "path": "model/cases/regression/c04-acute-bronchitis-v1.trajectories.json",
+      "sha256": "d5949c20b366eef0f4535b0e039b64503fd444d999c79ec9cafeca0d7069357a",
+      "size": 1646
+    },
+    {
+      "path": "model/cases/regression/c05-mild-cap-v1.trajectories.json",
+      "sha256": "aaa3479b339a8eede1ae1063a2ce7d0b1581a567822c7210f55e13b8ee292e74",
+      "size": 1680
+    },
+    {
+      "path": "model/cases/review/病例审核工具.html",
+      "sha256": "0976f165add4c5fcffa9d3ec8e3f16646e669c3c755d8f0d8843b79583b89502",
+      "size": 103272
+    },
+    {
+      "path": "model/cases/review/README.md",
+      "sha256": "e9318a352ff14165669b2d6ce6780711bd07a5177c411e44f4df739f03862ef3",
+      "size": 585
+    },
+    {
+      "path": "model/cases/schemas/ai-case-cross-validation-v1.schema.json",
+      "sha256": "a93bc71de24d7cd7c3cc3611f17637918eb5deb377668d33d81a55927f0030bf",
+      "size": 2345
+    },
+    {
+      "path": "model/cases/schemas/ai-case-cross-validation-v2.schema.json",
+      "sha256": "47aad9680ccd9855e7262dce6f0106a329523162fe5d0f85c48840ff1953e896",
+      "size": 3073
+    },
+    {
+      "path": "model/cases/schemas/case-manifest-v1-rc1.schema.json",
+      "sha256": "6bff1e531e08a326107db412489b3d2a0cb2ca3e18625f448060f1b72d15172c",
+      "size": 3973
+    },
+    {
+      "path": "model/cases/schemas/case-package-v1-rc1.schema.json",
+      "sha256": "656cf4c4b65a4473e055a0ceed901fd871d2d3eec9ce8ce8a7f1b5b2e99031ce",
+      "size": 5618
+    },
+    {
+      "path": "model/cases/schemas/case-regression-trajectories-v1.schema.json",
+      "sha256": "e48805e16f2ee1c45585ac4a711a08b075fb0fad08a5975acf08ef03acb977c3",
+      "size": 1165
+    },
+    {
+      "path": "model/cases/schemas/provenance-record-v1.schema.json",
+      "sha256": "ae286dcb1e7f3ef2c604be3cebe589c4f83af937a28dc1fb78a945c336a906c6",
+      "size": 651
+    },
+    {
+      "path": "model/cases/schemas/red-flag-exclusion-matrix-v1.schema.json",
+      "sha256": "6d85b86c0e6360531e255f18667ffd6c6b9e4df684eed53ac4811ce947bb0fd6",
+      "size": 2556
+    },
+    {
+      "path": "model/cases/schemas/review-record-v1.schema.json",
+      "sha256": "4cba640227961a3e30fbe125c935ae83507ca2d4312adb7ec622b3d85080335c",
+      "size": 1700
+    },
+    {
+      "path": "model/cases/schemas/reviewer-qualification-v1.schema.json",
+      "sha256": "8f1b0dbf6f284ce542b79139635455d948331fa10c07d62f14d8c3cd2f6d2d36",
+      "size": 1586
+    },
+    {
+      "path": "model/cases/schemas/rubric-v1.schema.json",
+      "sha256": "aff45cd310a4497a949c9512fc5e2e43e10e4a4adc3548d24995b411d5fd4eb2",
+      "size": 1356
+    },
+    {
+      "path": "model/evaluation/phase8/c6-cli-acceptance-20260829-r5.json",
+      "sha256": "e46024431f8a6f71ca71c73e970ee6aa2dc9696c602a60d75fe96d33a82a6e94",
+      "size": 1314
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/ai-evidence-index.json",
+      "sha256": "be2dd8ef45042204bc9c4676522b12950a8d3f2aa5723ae262770b643d6251c2",
+      "size": 6636
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/case-validations/case_c01_respiratory_001--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "007e439fd93e47b832ed51d30e25828a08e145da1948289177fb88ed54476a16",
+      "size": 3822
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/case-validations/case_c02_respiratory_002--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "4a00d6bbe3c5ffb1fe272d59a017f3804a639bf995f9ea541dac6d0e99d71da9",
+      "size": 4250
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/case-validations/case_c03_respiratory_003--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "121053fda3eee90522f2647734f4c9ba358eb43885b9ab8d12e552e4390b3538",
+      "size": 4180
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/case-validations/case_c04_respiratory_004--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "a23fba098dc8a10982b94104cc12ff0eb11741d07273dda09da75162cfce8582",
+      "size": 4507
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/case-validations/case_c05_respiratory_005--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "e367e95d8696b636c6829f7b7de21f39f900e78f3588ec8c9c6b7b0cd39c3b1f",
+      "size": 4225
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/publication-index.json",
+      "sha256": "4e2422dd1d77181c4290fd42e07235bf459d68663a2479c9e33c5926e0d80e26",
+      "size": 3512
+    },
+    {
+      "path": "model/evaluation/phase8/c7-ai-20260828-r1/safety-corpus-ai-validation.json",
+      "sha256": "1c5937b37ad879727c8170dec2e2088d23d663cc299f5ce51c6e0a281f0e0dbd",
+      "size": 110950
+    },
+    {
+      "path": "model/evaluation/phase8/c7-dialogue-live-20260829-r4/c7-dialogue-architecture-report.json",
+      "sha256": "1386876598e476fc1d1b0d45e910265f8fd893f340daebd10757052ac8c33bf6",
+      "size": 5610
+    },
+    {
+      "path": "model/evaluation/phase8/c7-dialogue-live-20260829-r4/dialogue-sample-ai-validation.json",
+      "sha256": "234959df9b4f8fe452d3e30e6d8595493083bc61cdd0a244946bfe9b0fc91457",
+      "size": 51109
+    },
+    {
+      "path": "model/evaluation/phase8/c7-dialogue-live-20260829-r4/provider-model-approval.json",
+      "sha256": "6d14351ad047f159d391a14c7d4e3e66444dfdc9c66fecaa92186e255f83137b",
+      "size": 907
+    },
+    {
+      "path": "model/evaluation/phase8/c7-runtime-acceptance-20260829-r7.json",
+      "sha256": "38734a543e57c9fb67dd3eaabd46064feb9e8bab828dbac9c187949e16aab3b4",
+      "size": 2476
+    },
+    {
+      "path": "model/evaluation/phase8/c7-runtime-release-20260829-r8/share-version-decision.json",
+      "sha256": "f6ac0cd30df99e384151b4ed29505d6e095d6e1761bbb7030af4fa6f68d195a7",
+      "size": 352
+    },
+    {
+      "path": "model/evaluation/phase8/c7-security-scan-20260829-r7.json",
+      "sha256": "6937a82e777296870837db32b9f152caaa2533a13c41158ab7e9adcde99880f3",
+      "size": 404
+    },
+    {
+      "path": "model/evaluation/scoring-policy-v1.md",
+      "sha256": "6757dbc1acb6a2ccb5830964b9cc70a6e3d1e14b10ea3ccc1cce5e133ec24d96",
+      "size": 1242
+    },
+    {
+      "path": "model/package-lock.json",
+      "sha256": "b8e88b24567b548a900ad397b2560a5fb083440ec5b1ba1f7a07a70e97fbd570",
+      "size": 5855
+    },
+    {
+      "path": "model/package.json",
+      "sha256": "431b44c631a48c3c8c038665fa7bd6a9d182b496d672bf787cb7c6ffda81cba7",
+      "size": 5005
+    },
+    {
+      "path": "model/prompts/controller/v0.1.0.md",
+      "sha256": "b54c595d81197414f69809647b60fe7dd5de3c8e52304f9ebcab92276921f138",
+      "size": 690
+    },
+    {
+      "path": "model/prompts/controller/v0.1.1.md",
+      "sha256": "c1cfc10e75dce56ac41fb45a462900a0804c7e40047a4cb8db8d482987852fef",
+      "size": 675
+    },
+    {
+      "path": "model/prompts/controller/v0.2.0.md",
+      "sha256": "f91394c2c9ca36efbb56ef02b6fc57cfa8190974ef165215d31fbe6bf4448578",
+      "size": 440
+    },
+    {
+      "path": "model/prompts/evaluator/v0.1.0.md",
+      "sha256": "b69046f6298d3321448b36cbf3abd41ea79353faca3ad406bcb5a8046fef6b36",
+      "size": 705
+    },
+    {
+      "path": "model/prompts/evaluator/v0.1.1.md",
+      "sha256": "206b27718c3c7e22bb0881ca8d71f58fa1c5b66ed8e3623c47a3fcdc3b7aa0d1",
+      "size": 694
+    },
+    {
+      "path": "model/prompts/evaluator/v0.2.0.md",
+      "sha256": "3fa673f3ff2ce53f8091d755efa9541cb16c3ece2f6ca8910e6be33ec17005bd",
+      "size": 382
+    },
+    {
+      "path": "model/prompts/patient/v0.1.0.md",
+      "sha256": "1b619f45d23cc5190fef52c26076aba9575ff8dc865a041cc0a52f06dad30941",
+      "size": 722
+    },
+    {
+      "path": "model/prompts/patient/v0.1.1.md",
+      "sha256": "3de96ac1d176d1c54e25a65e22b4d790b82dab6abdafd2016ae872b8fccf48fb",
+      "size": 1143
+    },
+    {
+      "path": "model/prompts/patient/v0.2.0.md",
+      "sha256": "6dae2eab36676cafc303d51415a44a8a9b598195183d3ecbc2eada58f1c51451",
+      "size": 4612
+    },
+    {
+      "path": "model/prompts/README.md",
+      "sha256": "197885627809d92dd02d99bcc0692cff667abb21e9da617811462b26edbac9f8",
+      "size": 882
+    },
+    {
+      "path": "model/README.md",
+      "sha256": "58bd20f12a47802837da02261bb8acbfac10bbfed177a2b38454e4a16586cb6b",
+      "size": 33051
+    },
+    {
+      "path": "model/src/adapters/share-v1-adapter.ts",
+      "sha256": "67b0a37e95f50f98e327019cdd95aa2fd30889fec71ec5c6b803be20a5b4391e",
+      "size": 9339
+    },
+    {
+      "path": "model/src/application/create-headless-model-service.ts",
+      "sha256": "0df7ecc7b848225be480cf04da69eddc3b05c8b7fa56b79c7520d369edb57b24",
+      "size": 1704
+    },
+    {
+      "path": "model/src/application/create-sqlite-model-service.ts",
+      "sha256": "f5b50ba224a50104cd686a82231f41e61d4096fc843653e02462707eddb35019",
+      "size": 2244
+    },
+    {
+      "path": "model/src/application/keyed-serial-executor.ts",
+      "sha256": "95036c0cd8f02d97ced1a41ab531219a69226c4de334c428eba54a1184976ce1",
+      "size": 605
+    },
+    {
+      "path": "model/src/application/model-service.ts",
+      "sha256": "fe9c4a1e0b819bf501dceb6173afc061abb6227673872b4e4b43f82f1e0b2e56",
+      "size": 119716
+    },
+    {
+      "path": "model/src/application/operation-buffer-integrity.ts",
+      "sha256": "36f9dc48f878562f070c565e17faabd413c39c17a6ea0a06096aa8a093b1d54d",
+      "size": 1995
+    },
+    {
+      "path": "model/src/application/turn-request-crypto.ts",
+      "sha256": "f31aae6802008497be941b773a5f6c87686d1c356a480a6893bb40063e18e02e",
+      "size": 4987
+    },
+    {
+      "path": "model/src/cases/dialogue-candidate-runner.ts",
+      "sha256": "e873d8bdcaeb3eea59875cdfe45ac8aed4cd6bbe18d3ac0fb5906ea0d19b6ff9",
+      "size": 1467
+    },
+    {
+      "path": "model/src/cases/phase6-case-production.ts",
+      "sha256": "1a426d132ff5d79693973067fdcbe884f87256e2916e9e9bf108fe72a716d17d",
+      "size": 18438
+    },
+    {
+      "path": "model/src/cases/phase6-runner.ts",
+      "sha256": "24f8988a31f93ca18f651f425e07bd38d5a41990c14e2ec6067ecf8cddef0170",
+      "size": 862
+    },
+    {
+      "path": "model/src/cli/case-loader.ts",
+      "sha256": "49d5aec07327092f3f0e2ea61c68c9465cbb0a982dbdfdd08c39d2329e9edcfd",
+      "size": 1073
+    },
+    {
+      "path": "model/src/cli/command-parser.ts",
+      "sha256": "b519fffbdc96bdd8a0e8010e68942ca7954688cec133266d5351405be17ec233",
+      "size": 2801
+    },
+    {
+      "path": "model/src/cli/config.ts",
+      "sha256": "1c8043824ec742ca4478007353b8a3f6af303a5d325818999105344ec31ae9fb",
+      "size": 5323
+    },
+    {
+      "path": "model/src/cli/local-dev-main.ts",
+      "sha256": "e3a77cd5ea5db3ce3ca1b55d78927344822541d1d5147a0bfe62dd34805adde7",
+      "size": 1952
+    },
+    {
+      "path": "model/src/cli/local-dev-provider.ts",
+      "sha256": "a4af8dee3579a8b01d718e09e75e13f469466e688775cd0240e6cbe5e26f0cd5",
+      "size": 5286
+    },
+    {
+      "path": "model/src/cli/main.ts",
+      "sha256": "9ca8587670ff26055feecbb25bc58f039d2b1e2f0fc2576b10b49f15ea280b20",
+      "size": 1682
+    },
+    {
+      "path": "model/src/cli/runner.ts",
+      "sha256": "e3d921f3c30f6be8dca36400f6c22f44e3b989f3d385f886499f8bc858ffed81",
+      "size": 15013
+    },
+    {
+      "path": "model/src/domain/case-content-hash.ts",
+      "sha256": "721608345b1bae810f04d83f69aa029398fe9b0aef50d311e98d73920b290340",
+      "size": 1352
+    },
+    {
+      "path": "model/src/domain/case-package-schema.ts",
+      "sha256": "484b8ea3871ceec840eea46fcd11d79575d626b71bfd8ad3f4d61681ea1657fb",
+      "size": 1427
+    },
+    {
+      "path": "model/src/domain/case-package.ts",
+      "sha256": "3cf83464839846d13711e6d22ec1ecd4e688d4239646f13d24adfabbbed01a49",
+      "size": 36210
+    },
+    {
+      "path": "model/src/domain/errors.ts",
+      "sha256": "40ed9e89ed55f69f404927f2c42a27cc9756c6ef1ebec17010daa2d0a9d9c743",
+      "size": 856
+    },
+    {
+      "path": "model/src/domain/patient-persona.ts",
+      "sha256": "1b2a5ccb00e37aa86414efacf5a4df0be5a15850876b05ea178521845bf381a5",
+      "size": 2818
+    },
+    {
+      "path": "model/src/domain/safe-patient-case-view.ts",
+      "sha256": "435fa2abcbdc2a69eaa9d33c1fe03e0afd6c89fc23c6f5676dcc634a51d2fd7f",
+      "size": 7232
+    },
+    {
+      "path": "model/src/domain/session.ts",
+      "sha256": "3f23ddec51699938dc91e6664ce702300fce2fc6e881af362ea8a3a2b4cdef2a",
+      "size": 4876
+    },
+    {
+      "path": "model/src/evaluation/anthropic-live-eval-runner.ts",
+      "sha256": "845b878d42a24f85ed9cbbf27f7486f59297ea66431d1948254373f41e31a4ac",
+      "size": 3250
+    },
+    {
+      "path": "model/src/evaluation/anthropic-live-eval.ts",
+      "sha256": "2338d9df5590229cabab227806f5778e2556b37e856e1e9530c6de195007461c",
+      "size": 1135
+    },
+    {
+      "path": "model/src/evaluation/c7-ai-release-runner.ts",
+      "sha256": "8048515fdb3fdea8f8f8b02cfda00541672102f42f9b468e15559b9e71778408",
+      "size": 13636
+    },
+    {
+      "path": "model/src/evaluation/c7-dialogue-architecture-benchmark.ts",
+      "sha256": "063ed98aa553d86a76124ff2a64afd2fbaf1e00f9929051c987cafdad98e7dae",
+      "size": 9592
+    },
+    {
+      "path": "model/src/evaluation/c7-dialogue-live-runner.ts",
+      "sha256": "f9f01db084c36fa281fdcaf2ea24447cc6f5e729fb1fd4d2e3f5f2deaf538989",
+      "size": 28098
+    },
+    {
+      "path": "model/src/evaluation/deterministic-evaluator.ts",
+      "sha256": "1c8a134f5d67a83b696a5aea6524647c4dccb3b0b0d82985ea422f5196c3d7dd",
+      "size": 1917
+    },
+    {
+      "path": "model/src/evaluation/diagnosis-matcher.ts",
+      "sha256": "21050e25650378a3cc518aedbd97507fd5ec40a1a08bf3f0ac3456e9d7476aa6",
+      "size": 1568
+    },
+    {
+      "path": "model/src/evaluation/openai-live-eval-runner.ts",
+      "sha256": "5057ae484f374935d146a3d06f8f6025ad8596a6f5522bee3d5cf24e1353e86c",
+      "size": 3465
+    },
+    {
+      "path": "model/src/evaluation/openai-live-eval.ts",
+      "sha256": "99b81e83006af95e564e87986edf204b978061b5613d319897e816a549ad953e",
+      "size": 12786
+    },
+    {
+      "path": "model/src/evaluation/phase7-eval-corpus.ts",
+      "sha256": "19c08a5d41405548deffd7f4a5a0ee224cf74c237cadd34387fd030b2cdf262a",
+      "size": 14566
+    },
+    {
+      "path": "model/src/evaluation/phase7-eval-harness.ts",
+      "sha256": "424ad1c8d705c66df7cc11ac2a5d37c6d88f6bdbf8355b157d0a28709c0bf7c2",
+      "size": 11468
+    },
+    {
+      "path": "model/src/evaluation/phase7-offline-runner.ts",
+      "sha256": "c0866904286e9e8a6cd8d103191c00ffef3b2475e8e3357fdea49f79d68756a9",
+      "size": 10061
+    },
+    {
+      "path": "model/src/evaluation/phase7-safety-corpus.ts",
+      "sha256": "da9d403e2aa3dbbdef11b35116dd5ddc856bc5da98c606f07597ed48b6551961",
+      "size": 22805
+    },
+    {
+      "path": "model/src/evaluation/phase8-ai-evidence-runner.ts",
+      "sha256": "c2a778ba879027fd0c51a775eecc7b94f93ac1d87d2f57d9ad5528c3a6e2f22e",
+      "size": 9550
+    },
+    {
+      "path": "model/src/evaluation/phase8-ai-evidence.ts",
+      "sha256": "106b07bf000b5caf3853624a821f68c0b40ce996a48e9700db498df97072a358",
+      "size": 33708
+    },
+    {
+      "path": "model/src/evaluation/phase8-candidate-benchmark.ts",
+      "sha256": "20a1a8c5904b69ddc94b7b40cf8acf341dfe6c2d2512af664fd9a3864ddeedf3",
+      "size": 12038
+    },
+    {
+      "path": "model/src/evaluation/phase8-candidate-live-runner.ts",
+      "sha256": "686e87a3635fde21c897e0a786095a5cf28b92f537861361f07d00100bf3c267",
+      "size": 18925
+    },
+    {
+      "path": "model/src/evaluation/phase8-patient-audit-runner.ts",
+      "sha256": "db619b396b5e008f1d853651f39aa651c8f0eef6faeb67c3cc171934b4705713",
+      "size": 7113
+    },
+    {
+      "path": "model/src/evaluation/public-evaluation-projection.ts",
+      "sha256": "284a9150753728624897b4a4645088542b9cda9aa05768192d87fe62faf8534c",
+      "size": 4548
+    },
+    {
+      "path": "model/src/evaluation/scoring-policy-v1.ts",
+      "sha256": "dece5bba933e4df5ea2ecab7328e5cfd0edcb26389e64713e57384560373ccd1",
+      "size": 12738
+    },
+    {
+      "path": "model/src/headless/runner.ts",
+      "sha256": "1ce76ce4206b3e21a0f43ccc42b0cb89f106e1cdf14527f45deb43b50ea14e0e",
+      "size": 2179
+    },
+    {
+      "path": "model/src/index.ts",
+      "sha256": "c891e4133b216045b3d33a060fa0dea9e09da9f3d75e87afc8974844c0b7d682",
+      "size": 1964
+    },
+    {
+      "path": "model/src/observability/event-sink.ts",
+      "sha256": "df79aff29db717988a796f78ca121127bd5d9ca5ab4e35ff40490f920f2c9668",
+      "size": 606
+    },
+    {
+      "path": "model/src/ops/runner.ts",
+      "sha256": "040f99339f34f5446c9f30bd1f5df4b5100f0cbfe98ed5882942bd7bc6172b65",
+      "size": 10201
+    },
+    {
+      "path": "model/src/persistence/memory/in-memory-model-persistence.ts",
+      "sha256": "a3090d3a6a784c2bf20ff6b8d2d408ff5d41ae8149079410ad4e463c690aaef8",
+      "size": 6287
+    },
+    {
+      "path": "model/src/persistence/ports.ts",
+      "sha256": "97931179208bd9722e7a28b0e596f6c586ab25f325d63359c0adaa35ec673cd4",
+      "size": 2736
+    },
+    {
+      "path": "model/src/persistence/sqlite/migrations.ts",
+      "sha256": "82fd99713cec55787a946636c17464b802e336b0b4e149a5a41989635bc40496",
+      "size": 9679
+    },
+    {
+      "path": "model/src/persistence/sqlite/sqlite-model-persistence.ts",
+      "sha256": "e1e0877e88e4ac4397dc42d7715339d676ae6a9f7cb23e7d54672b820e239b1c",
+      "size": 34471
+    },
+    {
+      "path": "model/src/prompts/prompt-registry.ts",
+      "sha256": "a5feae1cd7d6a63d30f4ff0cbc19e8fdbf2d24f0a3ac6e08908c758f7dec816e",
+      "size": 1953
+    },
+    {
+      "path": "model/src/providers/anthropic-model-provider.ts",
+      "sha256": "1d943613b1dec2da010d9ce33a67f9d57efa64ec3319ddd01c8e1718f19b6384",
+      "size": 9519
+    },
+    {
+      "path": "model/src/providers/anthropic-runtime-config.ts",
+      "sha256": "c3b1ade7273358866c7e4d25ec254a5dc9d55511052fc1988dfce0c40937d5d9",
+      "size": 1073
+    },
+    {
+      "path": "model/src/providers/communication-review-provider.ts",
+      "sha256": "219654f29cda6032487ae6a69f3ce8e019defada9fe3fb521c412abf2c33db0b",
+      "size": 1916
+    },
+    {
+      "path": "model/src/providers/deterministic-model-provider.ts",
+      "sha256": "1d092b646c9498f0d24e3796e2645504003af487e65c9361e32932e7a727acfc",
+      "size": 12636
+    },
+    {
+      "path": "model/src/providers/model-provider.ts",
+      "sha256": "38574ded11f6690b535ab5a8fecafe210ad947ee6b3ee16a7637c90bcae6a535",
+      "size": 7895
+    },
+    {
+      "path": "model/src/providers/openai-model-provider.ts",
+      "sha256": "20aa50d80943eb1a599cc9e0c8d207b6d2447c24a479cc217c351c7c0d062b5f",
+      "size": 45738
+    },
+    {
+      "path": "model/src/providers/openai-runtime-config.ts",
+      "sha256": "76f0fcb7269dfb2aac8df5e70fc72455cd7f7b972cbea34d052f98b56c468393",
+      "size": 1894
+    },
+    {
+      "path": "model/src/release/c6-acceptance-runner.ts",
+      "sha256": "bcca189b8076bf042f02a16def8c3e4394fb1e1af529a4c0aeeaeba0f9432e8c",
+      "size": 4176
+    },
+    {
+      "path": "model/src/release/c7-acceptance-runner.ts",
+      "sha256": "9548eb90fac384fb79ece4fd6c6c88529db065e050d08ee7351157196389c2c0",
+      "size": 3822
+    },
+    {
+      "path": "model/src/release/c7-case-release.ts",
+      "sha256": "8e8c5a6012204e676d510c10965e73de3e48dbeebd8bab3685e95d31e8bcb938",
+      "size": 3074
+    },
+    {
+      "path": "model/src/release/c7-runtime-manifest-runner.ts",
+      "sha256": "e8a8d9993c550b4472f436ea2ec75c620dd06324f0da1ff86eae0c607cc52c35",
+      "size": 18543
+    },
+    {
+      "path": "model/src/release/c7-runtime-release.ts",
+      "sha256": "337f0054ab4b52cf73420cd47b9da146af6fa45cc90dc0d3d5e4221d1b97e930",
+      "size": 15350
+    },
+    {
+      "path": "model/src/release/c7-software-rc-runner.ts",
+      "sha256": "1bfe56a89504cb754e7ea5566dc61ae1a1065d5944e8f8468e8134299001cd4d",
+      "size": 7940
+    },
+    {
+      "path": "model/src/release/phase8-manifest-runner.ts",
+      "sha256": "bdb83e5005cf9243fffd1a45c9b619bec0ac4b9e35cd0eb338d71c3e8a6a206a",
+      "size": 9792
+    },
+    {
+      "path": "model/src/release/phase8-release.ts",
+      "sha256": "4be285a28ae9d138ce84c184269400621fe0af94de2f647862811800c5c57faa",
+      "size": 12403
+    },
+    {
+      "path": "model/src/release/phase8-security-scan-runner.ts",
+      "sha256": "3f539b8741b5b301cacde97d852a1e8c3cc1b99f79a870353b6eeb4366f5c936",
+      "size": 6590
+    },
+    {
+      "path": "model/src/release/phase8-verify-runner.ts",
+      "sha256": "9baa9cb0ee5403288ed16f44fcb4c3728d74493f5cb81a1170db7ec1cb678aef",
+      "size": 1842
+    },
+    {
+      "path": "model/src/repositories/case-repository.ts",
+      "sha256": "8da5813712af3acd982cce1d7f3a187d037252654da9bc08308eeb7e57c5dade",
+      "size": 1448
+    },
+    {
+      "path": "model/src/repositories/file-case-repository.ts",
+      "sha256": "7f26823449a09e5972c7a44ad7f465fb499a567f14d7cc1badef072623a71acf",
+      "size": 976
+    },
+    {
+      "path": "model/src/safety/evaluation-output-gate.ts",
+      "sha256": "39dead608fbc11f2a45aa56861e26c2d8b0905ae9784a5c4f2d2a701ad3168df",
+      "size": 7227
+    },
+    {
+      "path": "model/src/safety/medical-safety-policy-v1.ts",
+      "sha256": "bee180cf11f00865e82d7865d7eba79449bd1d7692b2ec98e220d30b0aec6c6e",
+      "size": 56906
+    },
+    {
+      "path": "model/src/safety/patient-output-gate.ts",
+      "sha256": "ba3f8e50340fb7d1365fb31a753813cb5d777796f7d3d0bf18a902be7a87e835",
+      "size": 15099
+    },
+    {
+      "path": "model/src/safety/prompt-injection-policy.ts",
+      "sha256": "60f0ff719d94680b9f6175c8a55c9210846f110d5d5c554f151e2f89ca7ede7d",
+      "size": 5586
+    },
+    {
+      "path": "model/tests/anthropic-http.test.ts",
+      "sha256": "d2bba35829908911dad7e93a68ad0cc189b022a07442a57c92af277e1fe4865b",
+      "size": 6256
+    },
+    {
+      "path": "model/tests/anthropic-live-eval.test.ts",
+      "sha256": "a09ffc9721f145e9c8e69442ec6948cbe7bb8d91b87328a073ff693e8d431a39",
+      "size": 5683
+    },
+    {
+      "path": "model/tests/anthropic-model-provider.test.ts",
+      "sha256": "9b708a2c74fc5d0619c6c7915e785ec648c670934d283ccddc45d2e77f7fe669",
+      "size": 11008
+    },
+    {
+      "path": "model/tests/anthropic-runtime-config.test.ts",
+      "sha256": "1a182a880b4b8425fcd96f020235b970700a35d0c006695f3480d50f8e31cf2a",
+      "size": 1070
+    },
+    {
+      "path": "model/tests/c6-cli-journeys.test.ts",
+      "sha256": "4665cf19acf9f8f68fefe2bbae8d2d468487b6544ada2694cfea3e52f043a8ac",
+      "size": 5510
+    },
+    {
+      "path": "model/tests/c7-case-release.test.ts",
+      "sha256": "93933cbfdc8828303a9b57afee96b70ae3734ecb2b1ad32c5dbd9f401fc9163d",
+      "size": 3030
+    },
+    {
+      "path": "model/tests/c7-dialogue-architecture-benchmark.test.ts",
+      "sha256": "145199a310fe42394cbf96ba49ca49dcb989eb28ba0da54f27a124b0c80c7b43",
+      "size": 4358
+    },
+    {
+      "path": "model/tests/c7-dialogue-live-evidence.test.ts",
+      "sha256": "368f081b8e2cbf2e7ee2b9246a6d7fc401db874760a4608d11a89f63761d475a",
+      "size": 4928
+    },
+    {
+      "path": "model/tests/c7-runtime-release.test.ts",
+      "sha256": "a84a392655c3fee60d7f9c3422a6140afee772333916149aeb73c9244f546c94",
+      "size": 11489
+    },
+    {
+      "path": "model/tests/case-package.test.ts",
+      "sha256": "288341d6d949cdb81d7a4fa4fee3e2063b32bcd9df7ffddf0cf0c3926320cc8e",
+      "size": 13949
+    },
+    {
+      "path": "model/tests/case-repository.test.ts",
+      "sha256": "1e7ced79b6ead5bac00c7dc650d4fd80ff8ac08bf385e5eee287c6e19141d8d2",
+      "size": 3128
+    },
+    {
+      "path": "model/tests/cli.test.ts",
+      "sha256": "86f11af109eb600014ec3f000325ac2236cac449cef0969b4fb78ba1a575f5b6",
+      "size": 12960
+    },
+    {
+      "path": "model/tests/contract/phase1-contract.test.ts",
+      "sha256": "161d58c20ec6d121b9e473415818f937a1e7d9d55dfa95cc2228408cda136019",
+      "size": 4581
+    },
+    {
+      "path": "model/tests/contract/phase3-cli-adapter.test.ts",
+      "sha256": "44ee6d1227b321f8a6cea7f296b61b53b883f57df6f49e2d8debbaa071b2710c",
+      "size": 4696
+    },
+    {
+      "path": "model/tests/deterministic-provider.test.ts",
+      "sha256": "4e71c4498e333a0a942983ea0366f8e847174c64d7904b95cdc7684d35d32f46",
+      "size": 4240
+    },
+    {
+      "path": "model/tests/fixtures/case-fixture.ts",
+      "sha256": "fc1cbb3b47e1452e09eacae3eda47a874db42a1dcec4161f2d8feab514b4ce07",
+      "size": 4142
+    },
+    {
+      "path": "model/tests/fixtures/case-package-invalid.json",
+      "sha256": "5e97f7064940d7d00b5e1afd18937d5a97e4fc831f7f0e94daa63c9ddf3a111c",
+      "size": 1057
+    },
+    {
+      "path": "model/tests/medical-safety-model-service.test.ts",
+      "sha256": "1209bff17bd20802aa2d5b1295273a4649010a12cd1ebec983b07d1e77a3273e",
+      "size": 9064
+    },
+    {
+      "path": "model/tests/medical-safety-policy-v1.test.ts",
+      "sha256": "e94761a6c97a47927315f75c14d6f72f8e391f6d811f45dabaec22d70a278863",
+      "size": 28482
+    },
+    {
+      "path": "model/tests/model-service.test.ts",
+      "sha256": "db1fd82f40f38b37094ccd67fe146b868cc494aa20406db9f860583631d976d1",
+      "size": 22860
+    },
+    {
+      "path": "model/tests/openai-http.test.ts",
+      "sha256": "9fe957961f841f77fb77f3118faa8ca7b7595a242c9ad1a34820aaa1b9a13401",
+      "size": 9099
+    },
+    {
+      "path": "model/tests/openai-live-eval.test.ts",
+      "sha256": "336b3995405d635d4871920b375ae53202b1e3616ff1871639e526ca74ebba7f",
+      "size": 8646
+    },
+    {
+      "path": "model/tests/openai-model-provider.test.ts",
+      "sha256": "ba9eff041115aa4c38c0e5853a3625f583db48332c5013de40efe186050ee999",
+      "size": 11716
+    },
+    {
+      "path": "model/tests/openai-runtime-config.test.ts",
+      "sha256": "fae3410c9761d4ccbec159c0016674cc5ff63ce94d4fa57bc99312897986ebe2",
+      "size": 2546
+    },
+    {
+      "path": "model/tests/ops-cli.test.ts",
+      "sha256": "5ed19a1a07b46ed594e560d323f7329476a0e8dffa56896d2f1384539424e7ba",
+      "size": 3189
+    },
+    {
+      "path": "model/tests/patient-agent-contract.test.ts",
+      "sha256": "71dbb5a61c974f7afc4c9815288428832783e1964ba77f9a10409a48a69e6bcd",
+      "size": 3391
+    },
+    {
+      "path": "model/tests/phase2-hardening.test.ts",
+      "sha256": "04c47ab07c67c032f4257d37b5442750fc54553d3192d8914e742fa9633a588e",
+      "size": 28766
+    },
+    {
+      "path": "model/tests/phase2-recovery.test.ts",
+      "sha256": "d6650d87927237aecc87e3f89bde2d60270729d2163dc5267ca6e87869f21ee3",
+      "size": 38348
+    },
+    {
+      "path": "model/tests/phase2-service.test.ts",
+      "sha256": "2480b5dc28e1378f06617091627e4159f628295b30da52c914701b7762ab7dbe",
+      "size": 32235
+    },
+    {
+      "path": "model/tests/phase4-service.test.ts",
+      "sha256": "45891a07e01861d726cc0668ee13dd4df9460d1e00add62cc09fcff2f5600ef0",
+      "size": 19296
+    },
+    {
+      "path": "model/tests/phase6-case-production.test.ts",
+      "sha256": "5608ede2882810183c6324d15d633777971174534bffcd3e7a627b31330d7c48",
+      "size": 16277
+    },
+    {
+      "path": "model/tests/phase7-adversarial-runtime.test.ts",
+      "sha256": "ffab3da58ed37aa19044ed132e71238016b1bffc03903b0ba1ee9f3c948cda36",
+      "size": 20296
+    },
+    {
+      "path": "model/tests/phase7-eval-corpus.test.ts",
+      "sha256": "440fa70566510f46848d116f8e47c8a637f02e5ac2af0880688f2053d5f708d2",
+      "size": 4641
+    },
+    {
+      "path": "model/tests/phase7-eval-harness.test.ts",
+      "sha256": "8033867c29e0a4bdf6070420be8d73e2696fdeb71982847f32572d4bdbfe4b38",
+      "size": 7218
+    },
+    {
+      "path": "model/tests/phase7-offline-runner.test.ts",
+      "sha256": "2d479563649765cd4865f52869c65eed68c6a83d59b8cc575cac8d6fccb1ba8a",
+      "size": 11295
+    },
+    {
+      "path": "model/tests/phase7-safety-corpus.test.ts",
+      "sha256": "0000052c739366e193ce167ae4215b42921c1e5a9e6003458b16aed642a77890",
+      "size": 4415
+    },
+    {
+      "path": "model/tests/phase8-ai-evidence.test.ts",
+      "sha256": "905278baa61b2d147e1e47736abcdcbf386b8d34ecfe76f442b1a68eb03ccde6",
+      "size": 11727
+    },
+    {
+      "path": "model/tests/phase8-candidate-benchmark.test.ts",
+      "sha256": "08c6792ed9e4ebba8237bfaeb006a268843450b06f430a274b0acd878639dd9b",
+      "size": 7092
+    },
+    {
+      "path": "model/tests/phase8-release.test.ts",
+      "sha256": "0765340dbf59c0ec73b6908c5cb9106e111f6baded70004d14d100238de27117",
+      "size": 6044
+    },
+    {
+      "path": "model/tests/prompt-registry.test.ts",
+      "sha256": "722a7312996a600c02549a32004ae6bad80c044e7f5b90f2aa395202c00906a0",
+      "size": 2246
+    },
+    {
+      "path": "model/tests/provider-output-gates.test.ts",
+      "sha256": "962109c1b052a4b886fd6306c3e494ccbf5157fa4e8ebe16e88f776a8b083a0e",
+      "size": 14276
+    },
+    {
+      "path": "model/tests/safe-patient-case-view.test.ts",
+      "sha256": "30da77d5d8ead7abd4be9b1444fbd95ac79bdb3d987c91f4992ec50280dfbfd7",
+      "size": 6630
+    },
+    {
+      "path": "model/tests/scoring-policy-v1.test.ts",
+      "sha256": "8f5574aca9c35828b76efa6b05631040e0c1fb9bbc14ff94a7cd1f4b105ab02b",
+      "size": 13294
+    },
+    {
+      "path": "model/tests/session.test.ts",
+      "sha256": "833036aa346afc86c29a754fb1154e387156fa116759d45d31e8d6836a0e26ca",
+      "size": 3540
+    },
+    {
+      "path": "model/tests/sqlite-persistence.test.ts",
+      "sha256": "ac52edf5eacac398d0735676babf1de5f57ccb5c9e950078ed08b6a4bb7219d3",
+      "size": 24300
+    },
+    {
+      "path": "model/tests/turn-request-crypto.test.ts",
+      "sha256": "3ad8c88d894a8f8f82e1c64c8c309d9a3cfe1c372eb9853e099a90d7328acbe9",
+      "size": 2478
+    },
+    {
+      "path": "model/tsconfig.json",
+      "sha256": "c1cf15a8b50bb50b339b8bc8ca6f9109b8c1406ce182398531c785d8d777676c",
+      "size": 545
+    },
+    {
+      "path": "share/contracts/v1/cases.ts",
+      "sha256": "54ee901c0973d978f83e3304672297503e272302fe8ef104f4f3f72bc70c3227",
+      "size": 3176
+    },
+    {
+      "path": "share/contracts/v1/diagnosis.ts",
+      "sha256": "9617b576b69d27b81664c05cd2c0abbe7461c9805668a1ce0eb22183c5990dbe",
+      "size": 340
+    },
+    {
+      "path": "share/contracts/v1/errors.ts",
+      "sha256": "cc403f8149ae4639a503338f50b0cfed94bccce08fda7662c107856852a1e30d",
+      "size": 860
+    },
+    {
+      "path": "share/contracts/v1/evaluation.ts",
+      "sha256": "16a4e33f000f7740840d4e3f39270859440143a60cdf009c335b9ba5afab3ffa",
+      "size": 1932
+    },
+    {
+      "path": "share/contracts/v1/events.ts",
+      "sha256": "73eb66b6fea5e0dc414e3e4370aeaf8331967834321d3ae3c18c8d768f4dac6f",
+      "size": 2161
+    },
+    {
+      "path": "share/contracts/v1/idempotency.ts",
+      "sha256": "9311e9a85ea35eec29c2a8d82098755b2d576e954ce2d436d7d7f7b17798b11f",
+      "size": 1600
+    },
+    {
+      "path": "share/contracts/v1/ids.ts",
+      "sha256": "03db66da056af24c62c6f0f14b7d4fc2566b20d47d4aafb283b7c6050141d934",
+      "size": 1201
+    },
+    {
+      "path": "share/contracts/v1/index.ts",
+      "sha256": "3d3d1cf254ff7f19916a289f938aeaeb7852ab19a2aeeb79cb280fb7a099fb1a",
+      "size": 298
+    },
+    {
+      "path": "share/contracts/v1/sessions.ts",
+      "sha256": "f9a875c3d7f33624b94b230143655c257c3e222360509473ebd24b035de3e8e1",
+      "size": 1753
+    },
+    {
+      "path": "share/contracts/v1/tests.ts",
+      "sha256": "4ced5363790b91cc1f9af4f208feade462111d3a11e8cddea5146f497f653b01",
+      "size": 490
+    },
+    {
+      "path": "share/contracts/v1/turns.ts",
+      "sha256": "ae898e68f0b01b2e58cd3cf303b4b499d2525e86e515f1a56f92716c374f0d9e",
+      "size": 851
+    },
+    {
+      "path": "share/fixtures/v1/fixture-manifest.json",
+      "sha256": "a8491bece8e4050593cdf5e4e6000962bf7e74a3ad4e5893e345157ec08cca9e",
+      "size": 262
+    },
+    {
+      "path": "share/fixtures/v1/public-fixtures.json",
+      "sha256": "4fa59f2e5a79a5c0c99abfeae126d68fdf8c8bd24ee5b7d254084c99663de6ee",
+      "size": 11176
+    },
+    {
+      "path": "share/package-lock.json",
+      "sha256": "0eb29616cc34b39324af0d35dc6dc1eae0c434a9b9b6d294efd8fb1edf301aaa",
+      "size": 1534
+    },
+    {
+      "path": "share/package.json",
+      "sha256": "11912c956b827f47f9a1027190f3e6ad57bdb13ec4c625b82286960be66b8f84",
+      "size": 1593
+    },
+    {
+      "path": "share/README.md",
+      "sha256": "70844fa072847195584b260043631e48c3923707b2de26df7e063176bc621207",
+      "size": 3875
+    },
+    {
+      "path": "share/schemas/v1/public-contracts.schema.json",
+      "sha256": "17993830dc0f09ce29e77f23cda7bcbb40bb74c6f7024918a669a1e27d062583",
+      "size": 16131
+    },
+    {
+      "path": "share/schemas/v1/schema-manifest.json",
+      "sha256": "c627518172f3a898f3a08c75f2bf0622ad42bc47aef5ca60148183845042dd7a",
+      "size": 983
+    },
+    {
+      "path": "share/testing/json-schema-subset.ts",
+      "sha256": "52310f7f79f74bd79e794fd7750b3bca848bceaf31dcb5c9b6285fda45676c8a",
+      "size": 7893
+    },
+    {
+      "path": "share/tests/contract/contracts.test.ts",
+      "sha256": "f6f6bb1521c1b4970b12ae615937cf495d26c59ede8445efcd1cd52e9a51cbcf",
+      "size": 2109
+    },
+    {
+      "path": "share/tests/contract/hidden-fields.test.ts",
+      "sha256": "d2c7d6ee989beab7c990d2919a918fa6b893732c1c83695be9130cfb961b435b",
+      "size": 1306
+    },
+    {
+      "path": "share/tests/contract/schema-fixtures.test.ts",
+      "sha256": "3bc423ffc299c9d937a798e7793cb1b8248e0ef8ab8ad8201a39569b298c457c",
+      "size": 3692
+    },
+    {
+      "path": "share/tests/helpers.ts",
+      "sha256": "7bbfc20d6ecd47231c56a9742e96c76758329be0cbea5931a1e2e219a47f4931",
+      "size": 646
+    },
+    {
+      "path": "share/tests/json-schema-subset.test.ts",
+      "sha256": "343f55d684be832deedc0d5b84a3d7a75fc3104dac26d969b2cb2a886c9d2746",
+      "size": 2807
+    },
+    {
+      "path": "share/tests/serialization.test.ts",
+      "sha256": "8fa2a9d7224170ce1b1acd3c760dc8abc951eb6860d375b852b4a3c22d9191f4",
+      "size": 1434
+    },
+    {
+      "path": "share/tsconfig.json",
+      "sha256": "c6e154fd2ef6a2403b4f5299989833f747583126bfc685dbe4a52761bf1393f3",
+      "size": 459
+    },
+    {
+      "path": "share/versions/CHANGELOG.md",
+      "sha256": "8cc97776e747826bffac3c34fdea39b95d8e1930ff0a2440432364d248be9bb4",
+      "size": 2098
+    },
+    {
+      "path": "share/versions/compatibility-matrix.md",
+      "sha256": "44510cb119ec3ccdbfd2ebcbdeac8c287c029f6f303aabb893ac164036256b80",
+      "size": 1793
+    },
+    {
+      "path": "share/versions/contract-v1-rc1.json",
+      "sha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657",
+      "size": 1628
+    }
+  ],
+  "manifestSha256": "a9ae8fb888f1156c7e4c1476d59cd22e9e062ebc07fb3eb48ec316468c8bd9f7"
+}

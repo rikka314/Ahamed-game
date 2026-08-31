@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "c7-case-publication-index-v1",
+  "candidateManifest": {
+    "path": "cases/manifest.dialogue-candidate.v1-rc1.json",
+    "sha256": "177717bf40c361c361b58813889ee0bb039a05b8336e436ff1b9e5d63c60d245"
+  },
+  "releaseManifest": {
+    "path": "cases/manifest.dialogue-rc.v1-rc1.json",
+    "sha256": "25196ea661d74c35ed69dae3112331911d97e18d9d521b357e03da728d441ff1"
+  },
+  "publishedArtifacts": [
+    {
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:6e9d7a96441a21c18fa796c80d08cca15e3d9daab1709fdebbfd5bc46984f1c8",
+      "path": "published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "validationRecordPath": "published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.ai-validation.json",
+      "caseSha256": "d67e4d9eb9ad0674b7963c7f53a23fc30c1acc1b26f81d39ff543a9deea38053",
+      "validationSha256": "20d888a0f1c7e0d22346c01c03ecb7c488b34bccb3dcf63b780114d9f1c65f5a"
+    },
+    {
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:b4061c868a8109615377523931adb7a5c9d0be79b235c841f4636ac943dc9419",
+      "path": "published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "validationRecordPath": "published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.ai-validation.json",
+      "caseSha256": "9410ad62ba123260464c927a2c1caef8e040bfb11143968f7d6422afd0f0a00c",
+      "validationSha256": "4af5ea1c887f16e9c322343208661a75b53851b56747abef645126068dfa8a1b"
+    },
+    {
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:01460a11835aec4e0ca1d508560d12c5ff664dae1711b5e94acc392e4540a3f5",
+      "path": "published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "validationRecordPath": "published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.ai-validation.json",
+      "caseSha256": "5f1d5717825bd93edd2b48e1db0c1e77f46b2d1373ae9b7b36299f50283a9042",
+      "validationSha256": "40f3169b542427a7fc97f3fdf391f48353e435828cd180c176cf105aeb80555f"
+    },
+    {
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e",
+      "path": "published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "validationRecordPath": "published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.ai-validation.json",
+      "caseSha256": "27b3f651920ee56136d5ad4573652e2e9310017730900b16df2485c6a6fd006d",
+      "validationSha256": "a79b8cedd40c393ec84b058f28dfe369ec434f8620696c438a4376846cdb4f42"
+    },
+    {
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:96360ed1884438660eb4dcf0826a0bbc40903adbf03cd5f4e4e5851735aa316f",
+      "path": "published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "validationRecordPath": "published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.ai-validation.json",
+      "caseSha256": "378c650116ab9ed2171980d131962c85e9ed1d85adbf4cb7ea4e3a56a4154d5f",
+      "validationSha256": "61155e745957bdedab7f9b723df5b78af767e13cdf55e62766dcf1b3962d8307"
+    }
+  ],
+  "validationSetSha256": "bf5f7a9f1053780d0149092709a1be5a860d10ca1fefe47e4d78d23676d593a8"
+}

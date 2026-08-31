@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "phase8-provider-model-approval-v1",
+  "decision": "approved",
+  "decisionRef": "user.directive.complete-phase8.2026-08-28",
+  "decidedAt": "2026-08-28T08:27:15.919Z",
+  "scope": "software_rc_candidate",
+  "approvedProviders": [
+    {
+      "providerName": "openai-compatible.db5993310fdf5dd3",
+      "protocol": "openai-responses",
+      "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+      "configuredModelId": "gpt-5.6-sol",
+      "actualModelId": "gpt-5.6-sol",
+      "promptVersion": "v0.1.1+set.606a6cdf2336b73d"
+    }
+  ],
+  "excludedProviders": [
+    {
+      "providerName": "anthropic",
+      "reason": "No independent Claude key or equivalent live candidate evidence; adapter remains optional and mock-tested only."
+    }
+  ],
+  "candidateReportSha256": "8ffe88be9e5bad24ae6257cbe338946e5c6335cc05315eab88c6cf413da9beed",
+  "qualityReportSha256": "05fbc08ac9c190bfa6604c21620a8d57b9d35d1ae3151e4a3fccacaab3afb14d"
+}

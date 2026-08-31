@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "runtime-release-manifest-v1",
+  "buildVersion": "0.1.0-rc.1",
+  "generatedAt": "2026-08-28T09:22:11.636Z",
+  "goNoGoDecisionRef": "user.directive.complete-phase8.2026-08-28",
+  "approvedProviders": [
+    {
+      "providerName": "openai-compatible.db5993310fdf5dd3",
+      "protocol": "openai-responses",
+      "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+      "configuredModelId": "gpt-5.6-sol",
+      "actualModelId": "gpt-5.6-sol",
+      "approvedAt": "2026-08-28T08:27:15.919Z"
+    }
+  ],
+  "remoteInteractiveEnabled": false,
+  "shareContract": {
+    "release": "v1-rc1",
+    "status": "retained_release_candidate",
+    "reason": "模型层 contract tests 已通过；游戏侧 adapter 与统一 MVP 合并门尚未完成。"
+  },
+  "artifacts": [
+    {
+      "path": "cases/manifest.v1-rc1.json",
+      "sha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+      "size": 3957
+    },
+    {
+      "path": "cases/published/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "sha256": "90f5e89572288f729c7a6f95fc82ce9bdd6cc8c6afbd7f2aae1689fcef01f170",
+      "size": 14533
+    },
+    {
+      "path": "cases/published/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "sha256": "740de3fa717713a9a84eb2530789c6fc04cadd32a43f377cb9086c6fe671019f",
+      "size": 14029
+    },
+    {
+      "path": "cases/published/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "sha256": "bd17f10b9639dcc9d3638ae62cd02d0bf1256cc2f8bff0a77471e1be620d05fc",
+      "size": 14373
+    },
+    {
+      "path": "cases/published/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "sha256": "7fd0bc53b2f910be102a502cd6bef53d9a224e1620e6b6c5ca55b605dd9181fc",
+      "size": 14339
+    },
+    {
+      "path": "cases/published/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "sha256": "71b72eb69beb8ffc13dbec18b5a5b34b2fed6376ea623fa9c04ef0730c298237",
+      "size": 14406
+    },
+    {
+      "path": "cases/schemas/ai-case-cross-validation-v2.schema.json",
+      "sha256": "47aad9680ccd9855e7262dce6f0106a329523162fe5d0f85c48840ff1953e896",
+      "size": 3073
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/ai-evidence-index.json",
+      "sha256": "2089429c27aaf066a5d9a11c67422e40f3962d005291fe4fd8db38108e1bdd67",
+      "size": 3423
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c01_respiratory_001--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "3a9a9084b5a1689e3069cadf01e3883fbfd8fa56dbff7e3317d10c06493071fb",
+      "size": 3938
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c02_respiratory_002--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "a495ce5a1c306e79d088c92142d2d83bea3893e22ac0ca0c6744317c9a239b73",
+      "size": 4207
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c03_respiratory_003--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "4cead785bdf6d9e68fa89015684491e988930a61dc6972e668b93afaebb948e4",
+      "size": 4068
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c04_respiratory_004--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "abf4317682e661365e473735533332a41d4147104724bf93ca2c0be2d264441e",
+      "size": 4032
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c05_respiratory_005--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "1fe25c8f24bc3c10d7d15a4673dfe511c1117928787c2302003b2118c71fbe3c",
+      "size": 3970
+    },
+    {
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/safety-corpus-ai-validation.json",
+      "sha256": "165e7610b158aebbc4185c4917c58cbee9a6311167f1b1c9246b1ea9fe854e0d",
+      "size": 110428
+    },
+    {
+      "path": "evaluation/phase8/preflight-candidate-20260828-r9/candidate-benchmark-report.json",
+      "sha256": "8ffe88be9e5bad24ae6257cbe338946e5c6335cc05315eab88c6cf413da9beed",
+      "size": 12579
+    },
+    {
+      "path": "evaluation/phase8/preflight-candidate-20260828-r9/candidate-quality-safety-report.json",
+      "sha256": "05fbc08ac9c190bfa6604c21620a8d57b9d35d1ae3151e4a3fccacaab3afb14d",
+      "size": 2230
+    },
+    {
+      "path": "evaluation/phase8/preflight-candidate-20260828-r9/patient-sample-ai-validation.json",
+      "sha256": "510f341f6ef3358add3eb869c15ea74332eb726e06b8a63b2505b24d19e4180f",
+      "size": 52302
+    },
+    {
+      "path": "evaluation/phase8/preflight-candidate-20260828-r9/provider-model-approval.json",
+      "sha256": "5d32265aac55cd9154a936dbb964eae71cb4dc05b1ca62809f8d0e88a6f94512",
+      "size": 986
+    },
+    {
+      "path": "evaluation/phase8/runtime-release-20260828-r2/share-version-decision.json",
+      "sha256": "ce0aedbb2ea5f8a697f8003fb3bd15570d76188f6cf2b3fc64296078a4afc8f5",
+      "size": 511
+    },
+    {
+      "path": "evaluation/phase8/runtime-release-20260828-r2/snapshots/share-contract-v1-rc1.json",
+      "sha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657",
+      "size": 1628
+    },
+    {
+      "path": "evaluation/scoring-policy-v1.md",
+      "sha256": "6757dbc1acb6a2ccb5830964b9cc70a6e3d1e14b10ea3ccc1cce5e133ec24d96",
+      "size": 1242
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "b8e88b24567b548a900ad397b2560a5fb083440ec5b1ba1f7a07a70e97fbd570",
+      "size": 5855
+    },
+    {
+      "path": "package.json",
+      "sha256": "452e464ec46622e38cf16f47d7593652814b98e2b1b01da37529b5b94ab94f89",
+      "size": 4197
+    },
+    {
+      "path": "prompts/controller/v0.1.1.md",
+      "sha256": "c1cfc10e75dce56ac41fb45a462900a0804c7e40047a4cb8db8d482987852fef",
+      "size": 675
+    },
+    {
+      "path": "prompts/evaluator/v0.1.1.md",
+      "sha256": "206b27718c3c7e22bb0881ca8d71f58fa1c5b66ed8e3623c47a3fcdc3b7aa0d1",
+      "size": 694
+    },
+    {
+      "path": "prompts/patient/v0.1.1.md",
+      "sha256": "3de96ac1d176d1c54e25a65e22b4d790b82dab6abdafd2016ae872b8fccf48fb",
+      "size": 1143
+    },
+    {
+      "path": "src/evaluation/scoring-policy-v1.ts",
+      "sha256": "dece5bba933e4df5ea2ecab7328e5cfd0edcb26389e64713e57384560373ccd1",
+      "size": 12738
+    },
+    {
+      "path": "src/persistence/sqlite/migrations.ts",
+      "sha256": "4244ca79a4651718fac203ca0733b85fde9160872ca87397688242a017b0c815",
+      "size": 8655
+    },
+    {
+      "path": "src/safety/medical-safety-policy-v1.ts",
+      "sha256": "fe7229ca1a9becc2930fe1ef9ecfd6463c36d4f22752b5892d8a5598c0d05cd2",
+      "size": 55612
+    }
+  ],
+  "manifestSha256": "7d993e78f26655b8a67efb881eb6a18a041da204850d0f9a5ac3c642f3a0acd0"
+}

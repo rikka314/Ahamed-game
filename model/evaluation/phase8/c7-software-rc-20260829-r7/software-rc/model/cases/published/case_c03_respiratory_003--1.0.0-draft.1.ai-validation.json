@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v1",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.crosscheck.respiratory-adult-nonemergency.v1",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:00:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状、咽部检查及阴性 GAS 快检支持综合征级急性咽炎；吞咽困难伴严重呼吸困难输入正确走 SAFETY_INTERRUPTED。"
+      ]
+    },
+    {
+      "validatorId": "ai.validator.diagnostic-quality.001",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:01:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "目标诊断粒度、诊断概念、rubric、检查分类与四类轨迹一致；链球菌感染保留为鉴别而非隐藏标准答案。"
+      ]
+    }
+  ]
+}

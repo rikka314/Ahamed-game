@@ -1,0 +1,45 @@
+{
+  "name": "@ahamed/doctor-game-share",
+  "version": "1.0.0-rc.1",
+  "private": true,
+  "type": "module",
+  "description": "Language-neutral public contracts for the AhaMed Doctor Game boundaries.",
+  "types": "./dist/contracts/v1/index.d.ts",
+  "main": "./dist/contracts/v1/index.js",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/contracts/v1/index.d.ts",
+      "default": "./dist/contracts/v1/index.js"
+    },
+    "./schema-validation": {
+      "types": "./dist/testing/json-schema-subset.d.ts",
+      "default": "./dist/testing/json-schema-subset.js"
+    },
+    "./schemas/*": "./schemas/*",
+    "./fixtures/*": "./fixtures/*",
+    "./versions/*": "./versions/*"
+  },
+  "files": [
+    "dist/contracts",
+    "dist/testing",
+    "schemas",
+    "fixtures",
+    "versions",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"dist/tests/**/*.test.js\"",
+    "test:coverage": "npm run build && node --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-functions=80 --test-coverage-branches=80 --test-coverage-include=\"dist/contracts/**/*.js\" --test-coverage-include=\"dist/testing/**/*.js\" \"dist/tests/**/*.test.js\"",
+    "test:contract": "npm run build && node --test \"dist/tests/contract/**/*.test.js\""
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "typescript": "5.9.3"
+  }
+}

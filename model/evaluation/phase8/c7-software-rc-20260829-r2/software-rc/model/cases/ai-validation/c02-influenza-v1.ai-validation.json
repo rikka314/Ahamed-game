@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v1",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.crosscheck.respiratory-adult-nonemergency.v1",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:00:00.000Z",
+      "checks": { "clinicalConsistency": "pass", "diagnosisSolvability": "pass", "redFlagExclusions": "pass", "rubricConsistency": "pass", "regressionCoverage": "pass", "hiddenTruthSafety": "pass" },
+      "findings": ["突发发热、干咳、明显肌痛与头痛及病毒核酸证据支持流感；意识状态改变的真实健康输入正确走 SAFETY_INTERRUPTED。"]
+    },
+    {
+      "validatorId": "ai.validator.diagnostic-quality.001",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:01:00.000Z",
+      "checks": { "clinicalConsistency": "pass", "diagnosisSolvability": "pass", "redFlagExclusions": "pass", "rubricConsistency": "pass", "regressionCoverage": "pass", "hiddenTruthSafety": "pass" },
+      "findings": ["病例版本、标准答案、鉴别诊断、rubric 与四类回归轨迹自洽，生命体征不支持肺炎重症，隐藏真相未进入公开字段。"]
+    }
+  ]
+}

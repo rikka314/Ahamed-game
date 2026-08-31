@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-08-30",
+  "contentBuildId": "dev",
+  "status": "DRAFT",
+  "candidates": [
+    {
+      "candidateId": "h3-16",
+      "tileSize": 16,
+      "logicalViewport": {
+        "width": 320,
+        "height": 180
+      },
+      "world": {
+        "width": 416,
+        "height": 256
+      },
+      "tileset": {
+        "width": 128,
+        "height": 64,
+        "fileBytes": 911,
+        "sha256": "297821dd07b408aa0eb853a7b25786cc12c80eb8d2f94a5fb6764015fde2a75c",
+        "decodedRgbaBytes": 32768,
+        "tileCount": 32,
+        "margin": 0,
+        "spacing": 0,
+        "extrusion": 0
+      },
+      "runtimeMapBytes": 35184,
+      "productionNote": "Lower texture and authoring cost; fewer pixels available for prop identity."
+    },
+    {
+      "candidateId": "h3-32",
+      "tileSize": 32,
+      "logicalViewport": {
+        "width": 640,
+        "height": 360
+      },
+      "world": {
+        "width": 832,
+        "height": 512
+      },
+      "tileset": {
+        "width": 256,
+        "height": 128,
+        "fileBytes": 1535,
+        "sha256": "315361ba984c25f036a34604a46a3b7606eec351f86cb069dd628314b79faa8b",
+        "decodedRgbaBytes": 131072,
+        "tileCount": 32,
+        "margin": 0,
+        "spacing": 0,
+        "extrusion": 0
+      },
+      "runtimeMapBytes": 35199,
+      "productionNote": "Native detail pass with four times the decoded pixel area; not a scaled 16px export."
+    }
+  ]
+}

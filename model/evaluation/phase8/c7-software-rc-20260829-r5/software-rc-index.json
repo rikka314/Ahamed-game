@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "c7-software-rc-index-v1",
+  "buildVersion": "0.1.0-rc.2",
+  "generatedAt": "2026-08-28T17:08:37.617Z",
+  "runtimeManifest": {
+    "sourcePath": "evaluation/phase8/c7-runtime-release-20260829-r7/runtime-release-manifest.v1.json",
+    "bundledPath": "software-rc/runtime-release-manifest.v1.json",
+    "sha256": "fa1221b6cc135dad8575cb279c5f6b62a5c371a502e62cd8e6e46a14c38cd0c2",
+    "manifestSha256": "c8bb45d142aab8a9a3ecb11a9b2a3d22b88e566ea43aa3c8028f8762b7eac127"
+  },
+  "artifactCount": 238,
+  "providerCount": 1,
+  "remoteInteractiveEnabled": false,
+  "artifactSetSha256": "2850f00dc31d9f12677826b8d93d77d42264f7a9ffa398730a4e31b6758fbdf7",
+  "freshVerification": {
+    "status": "passed",
+    "shareInstall": "npm ci --ignore-scripts",
+    "modelInstall": "npm ci --ignore-scripts",
+    "buildAndTests": "npm test",
+    "smoke": "node dist/src/cli/main.js --provider deterministic with /exit"
+  }
+}

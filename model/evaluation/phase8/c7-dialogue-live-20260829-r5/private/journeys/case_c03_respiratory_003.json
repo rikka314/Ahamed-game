@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c03_respiratory_003",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:01460a11835aec4e0ca1d508560d12c5ff664dae1711b5e94acc392e4540a3f5",
+  "personaTemplateId": "impatient_direct",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好医生",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "嗓子疼了两天，还有一点低热。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗓子疼了两天，还有一点低热。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "医生还是继续问我的病情吧",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "医生还是继续问我的病情吧",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "医生还是继续问我的病情吧",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "平时住校，最近正准备课程考试。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗓子疼了两天，还有一点低热。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的CT结果怎么样",
+      "reply": "胸部CT这项还没有做需要现在去做吗",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好的",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.chest_ct",
+            "status": "completed",
+            "report": "双肺未见局灶性实变、结节或胸腔积液。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.chest_ct",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "CT现在是什么结果",
+      "reply": "双肺未见局灶性实变、结节或胸腔积液。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.chest_ct"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。"
+          },
+          {
+            "testId": "test.chest_ct",
+            "status": "completed",
+            "report": "双肺未见局灶性实变、结节或胸腔积液。"
+          }
+        ]
+      }
+    }
+  ]
+}

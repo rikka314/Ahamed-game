@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "c7-dialogue-private-evidence-binding-v1",
+  "runSetSha256": "5ae975f1d836b8f927b4e16f7eb7e020956438eb63931a7ec90fbb351d7cd740",
+  "sampleSetSha256": "782df954137bc0eb2effbc7ffbbd4d60bc50ed5dbc9bd5bd2d5f6ab62dd8bade",
+  "journeySetSha256": "c570eaae731f178f6412c11b3ba5f2ff521b56e79a7344df2b3bcbe1ec42204f",
+  "sampleCount": 60,
+  "journeys": [
+    {
+      "caseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:6e9d7a96441a21c18fa796c80d08cca15e3d9daab1709fdebbfd5bc46984f1c8",
+      "turnCount": 12,
+      "sha256": "9d50c4a9dea5382b4d33d14ced25b68b6794154c2447185f28852fa7cc72ba8c"
+    },
+    {
+      "caseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:b4061c868a8109615377523931adb7a5c9d0be79b235c841f4636ac943dc9419",
+      "turnCount": 12,
+      "sha256": "cfd44cc568e984bb639fe2ed7aa29db8be4676eaf65b0a5e7e0e7c497db645e2"
+    },
+    {
+      "caseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:01460a11835aec4e0ca1d508560d12c5ff664dae1711b5e94acc392e4540a3f5",
+      "turnCount": 12,
+      "sha256": "4da20f0e6454b63eafc0e7d2b26d18a02d48506d6848cb0830afce26961aa9fc"
+    },
+    {
+      "caseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e",
+      "turnCount": 12,
+      "sha256": "0dfcaa94efb2301dcb59a0d7fc71ab891260cfe426f2f256ffa17e200dab078a"
+    },
+    {
+      "caseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:96360ed1884438660eb4dcf0826a0bbc40903adbf03cd5f4e4e5851735aa316f",
+      "turnCount": 12,
+      "sha256": "e2abef6e8a9774320f8af252145b8a7012708592792478f004e78a117043f33c"
+    }
+  ]
+}

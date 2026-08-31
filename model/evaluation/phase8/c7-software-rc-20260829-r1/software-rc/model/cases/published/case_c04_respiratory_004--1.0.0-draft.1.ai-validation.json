@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v1",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.crosscheck.respiratory-adult-nonemergency.v1",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:00:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "8 天咳嗽、稳定生命体征、非局灶胸部查体及无实变支持急性支气管炎；咳血或咯血伴呼吸困难现正确命中 urgent，否定与虚构控制未误报。"
+      ]
+    },
+    {
+      "validatorId": "ai.validator.diagnostic-quality.001",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:01:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "答案、鉴别诊断、rubric、检查分类和四类轨迹精确绑定；新增 urgent 规则与 SAFETY_INTERRUPTED 期望一致。"
+      ]
+    }
+  ]
+}

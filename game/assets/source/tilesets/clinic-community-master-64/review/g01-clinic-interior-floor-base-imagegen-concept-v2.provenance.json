@@ -1,0 +1,18 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G01",
+  "componentName": "诊所室内地面基础款",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": "OpenAI built-in image generation tool",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Completely redraw G01 as a native 64x64 seamless pale warm ivory clinic floor with restrained terrazzo/vinyl material, subtle mineral grain, tiny irregular pores, soft low-contrast mottling, sparse cream/sage/pale-blue chips, delicate wear and waxed sheen. Use deliberate 1px and 2px pixel clusters, hard edges, no border, grout, objects, text, logo, watermark, blur, anti-aliasing or repeated diagonal motif. The previous image is palette reference only and must not be upscaled.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

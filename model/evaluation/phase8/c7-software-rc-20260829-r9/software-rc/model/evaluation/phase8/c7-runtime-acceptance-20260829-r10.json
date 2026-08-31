@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "c7-runtime-acceptance-evidence-v1",
+  "generatedAt": "2026-08-28T17:57:10.298Z",
+  "status": "passed",
+  "persistenceCovered": true,
+  "idempotencyCovered": true,
+  "recoveryCovered": true,
+  "providerFailureCovered": true,
+  "testFiles": [
+    {
+      "path": "tests/c7-case-release.test.ts",
+      "sha256": "93933cbfdc8828303a9b57afee96b70ae3734ecb2b1ad32c5dbd9f401fc9163d"
+    },
+    {
+      "path": "tests/c7-dialogue-architecture-benchmark.test.ts",
+      "sha256": "145199a310fe42394cbf96ba49ca49dcb989eb28ba0da54f27a124b0c80c7b43"
+    },
+    {
+      "path": "tests/c7-dialogue-live-evidence.test.ts",
+      "sha256": "368f081b8e2cbf2e7ee2b9246a6d7fc401db874760a4608d11a89f63761d475a"
+    },
+    {
+      "path": "tests/c7-runtime-release.test.ts",
+      "sha256": "7b158bf670649dc40101f4ad8ec1c41a90ea621a6d0fb9a3d140a43100c36f7a"
+    },
+    {
+      "path": "tests/phase8-ai-evidence.test.ts",
+      "sha256": "905278baa61b2d147e1e47736abcdcbf386b8d34ecfe76f442b1a68eb03ccde6"
+    },
+    {
+      "path": "tests/patient-agent-contract.test.ts",
+      "sha256": "71dbb5a61c974f7afc4c9815288428832783e1964ba77f9a10409a48a69e6bcd"
+    },
+    {
+      "path": "tests/provider-output-gates.test.ts",
+      "sha256": "962109c1b052a4b886fd6306c3e494ccbf5157fa4e8ebe16e88f776a8b083a0e"
+    },
+    {
+      "path": "tests/safe-patient-case-view.test.ts",
+      "sha256": "30da77d5d8ead7abd4be9b1444fbd95ac79bdb3d987c91f4992ec50280dfbfd7"
+    },
+    {
+      "path": "tests/phase4-service.test.ts",
+      "sha256": "45891a07e01861d726cc0668ee13dd4df9460d1e00add62cc09fcff2f5600ef0"
+    },
+    {
+      "path": "tests/sqlite-persistence.test.ts",
+      "sha256": "ac52edf5eacac398d0735676babf1de5f57ccb5c9e950078ed08b6a4bb7219d3"
+    },
+    {
+      "path": "tests/phase2-hardening.test.ts",
+      "sha256": "04c47ab07c67c032f4257d37b5442750fc54553d3192d8914e742fa9633a588e"
+    },
+    {
+      "path": "tests/phase2-recovery.test.ts",
+      "sha256": "d6650d87927237aecc87e3f89bde2d60270729d2163dc5267ca6e87869f21ee3"
+    },
+    {
+      "path": "tests/turn-request-crypto.test.ts",
+      "sha256": "3ad8c88d894a8f8f82e1c64c8c309d9a3cfe1c372eb9853e099a90d7328acbe9"
+    }
+  ],
+  "verification": {
+    "exitCode": 0,
+    "signal": null,
+    "stdoutSha256": "b4c7998d1d6b79705595a23c72ebd4150345cd87146c3a8ec1bb28e1d7b80a8a",
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 10213,
+    "stderrBytes": 0
+  }
+}

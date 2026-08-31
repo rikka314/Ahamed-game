@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v2",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.02135ff5-b789-45d3-a6ed-7e106fc84e22",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T07:04:14.311Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为合成成人非急症呼吸道感染场景；起病、症状、生命体征、病毒核酸阳性及胸片无实变之间总体一致，未见明显事实冲突。",
+        "诊断可解：流感样症状结合A型病毒核酸靶标阳性，且已提供必要的生命体征；流行性感冒为可获得的明确目标诊断。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有排除证据；血压118/70mmHg、呼吸频率18次/分、静息血氧97%，安全性支持充分。",
+        "评分量表与病例内容相符：必问病史可由事实支持，鉴别诊断数量及候选概念明确，生命体征为必需检查，病毒检测有用，胸片在当前稳定且无实变情境下列为非必要，未见明显规则矛盾。",
+        "回归轨迹覆盖成功、错误诊断、安全中断和未知接触史路径；安全轨迹明确要求中断、零医疗回合及零提供方调用，覆盖充分。",
+        "隐藏教学字段未进入患者可见事实；回归期望和评分摘要未泄露教学说明或答案键给玩家，未发现隐藏真相保护问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ecd94534-e2ea-4457-86ee-3f79f658a347",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T07:04:30.123Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状呈急性高热、干咳、肌痛和头痛，生命体征稳定，流感相关核酸靶标阳性且胸片无局灶实变，与流行性感冒及轻症场景一致。",
+        "目标诊断粒度明确为“流行性感冒/流感”，阳性病毒检测与典型临床表现使诊断可解；普通感冒和轻症社区获得性肺炎作为鉴别也具合理性。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据，且与生命体征报告及红旗矩阵一致。",
+        "must-ask事实、必需生命体征检查、两个可接受鉴别诊断、检查分类和推荐回合限制相互匹配；胸片被标为不必要，并由失败轨迹覆盖其惩罚路径。",
+        "success、failure、safety、unknown 四类回归轨迹均存在，分别覆盖正确诊断、错误诊断、安全中断和未知接触史；期望结果与病例状态及评分策略一致。",
+        "隐藏教学字段未暴露；unknown 轨迹仅返回接触史未知事实，safety 轨迹对意识不清这一高风险表述按中断规则处理，未写入医疗回合或调用提供方。"
+      ]
+    }
+  ]
+}

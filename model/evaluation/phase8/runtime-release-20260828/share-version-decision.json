@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "phase8-share-version-decision-v1",
+  "decision": "retained_release_candidate",
+  "release": "v1-rc1",
+  "decidedAt": "2026-08-28T08:27:29.727Z",
+  "reason": "模型层 contract tests 已通过，但游戏侧 adapter 与统一 MVP 合并门尚未完成；Phase 8-A 明确保留 share v1-rc1，不虚报 stable。",
+  "sourceSha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657",
+  "snapshotSha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657"
+}

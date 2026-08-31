@@ -1,0 +1,18 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G03",
+  "componentName": "左侧室外/门前地面概念参考",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "OpenAI generated DRAFT; release rights and terms require owner review",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": "OpenAI built-in image_gen",
+  "modelVersion": null,
+  "modelVersionNotes": "The built-in tool did not expose a model version in its result.",
+  "generatedAt": "2026-08-31",
+  "prompt": "Create one 32x32-style outdoor/front-door Ground tile for a warm community clinic. Use the accepted pale indoor tile only as a hard-pixel density and restrained-detail reference. Draw muted cool sage-gray concrete paving with subtle aggregate and a darker clean grout edge. Orthographic top-down, one square tile, low noise, no dirt, cracks, wear, objects, people, text, logo, watermark, perspective or anti-aliasing.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

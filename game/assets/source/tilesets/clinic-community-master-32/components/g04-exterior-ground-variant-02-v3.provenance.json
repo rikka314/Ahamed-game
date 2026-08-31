@@ -1,0 +1,33 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "02",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 3,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise only G04 exterior ground variant 2 of 2. Replace the many tiny moss fragments with five visibly larger, continuous, irregular moss patches. Give each patch an area of roughly 24 to 37 pixels, retain small stone openings inside the shapes, and keep the patches separated so they do not create one tile-spanning direction. Match variant 1's pale stone material and five muted olive/sage colours. Preserve all outer border pixels, 32x32 hard edges and seamless tiling. Add no cracks, dirt, objects, text, logo, watermark or anti-aliasing.",
+  "humanEdits": [
+    "Replaced ten small fragments with five medium moss patches.",
+    "Raised moss coverage from 76 to 145 pixels while keeping all patches separated.",
+    "Used darker and mid-tone green values in patch interiors so the larger shapes read at native size.",
+    "Retained irregular stone openings within each patch.",
+    "Preserved every outer border pixel for seamless mixing with G03 and G04 variant 1.",
+    "Created a mixed preview using both G04 moss variants at uneven map positions."
+  ],
+  "status": "DRAFT"
+}

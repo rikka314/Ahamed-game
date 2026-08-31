@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "phase8-ai-evidence-index-v1",
+  "evidenceStatus": "independent_ai_cross_validation",
+  "generatedAt": "2026-08-28T07:03:30.073Z",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol"
+  },
+  "caseManifest": {
+    "path": "cases/manifest.v1-rc1.json",
+    "sha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9"
+  },
+  "caseValidations": [
+    {
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49",
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c01_respiratory_001--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "3a9a9084b5a1689e3069cadf01e3883fbfd8fa56dbff7e3317d10c06493071fb"
+    },
+    {
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:e8ec60ee0d2226b92dc67ca6db48b182166f53d99858789e48de7d8224d1516f",
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c02_respiratory_002--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "a495ce5a1c306e79d088c92142d2d83bea3893e22ac0ca0c6744317c9a239b73"
+    },
+    {
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:5911b9072e8389e3e6197bee60ee2f9215ed5154e7e56e433e82da0f3698e1b0",
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c03_respiratory_003--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "4cead785bdf6d9e68fa89015684491e988930a61dc6972e668b93afaebb948e4"
+    },
+    {
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c04_respiratory_004--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "abf4317682e661365e473735533332a41d4147104724bf93ca2c0be2d264441e"
+    },
+    {
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.0.0-draft.1",
+      "contentHash": "sha256:0575f55eb3752c6efd97cea85643fe96d70c45dd36d99d81cb03cf5c6a4597a9",
+      "path": "evaluation/phase8/preflight-ai-20260828-r2/case-validations/case_c05_respiratory_005--1.0.0-draft.1.ai-validation-v2.json",
+      "sha256": "1fe25c8f24bc3c10d7d15a4673dfe511c1117928787c2302003b2118c71fbe3c"
+    }
+  ],
+  "caseValidationSetSha256": "4b2a9df14413276c2885b15643d6b466334b04e4048f38398f36307220b9ffb4",
+  "safetyCorpus": {
+    "datasetVersion": "phase7-medical-safety-corpus-v1",
+    "corpusHash": "a4e46bcabbfcde6bfb4b8d420641b41401f8e70e72bca8821cdcf0062a59b5d1",
+    "holdoutHash": "a915880b6cbfa0887cb7ed6e71963a3a9528ae8d63f2e89d6f911d9a3c0691ed",
+    "totalSamples": 165,
+    "holdoutSamples": 33,
+    "policyVersion": "medical-safety-policy-v1",
+    "templateRegistryHash": "3ece60251df6e52c696fa8b9e11adb58b51c7deb52b84da4a14e98f925951048",
+    "path": "evaluation/phase8/preflight-ai-20260828-r2/safety-corpus-ai-validation.json",
+    "sha256": "165e7610b158aebbc4185c4917c58cbee9a6311167f1b1c9246b1ea9fe854e0d"
+  }
+}

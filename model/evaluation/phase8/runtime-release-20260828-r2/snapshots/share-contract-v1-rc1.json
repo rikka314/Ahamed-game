@@ -1,0 +1,38 @@
+{
+  "release": "v1-rc1",
+  "packageVersion": "1.0.0-rc.1",
+  "contractVersion": "1",
+  "schemaVersion": "1",
+  "eventVersion": "1",
+  "releasedAt": "2026-08-26",
+  "status": "release-candidate",
+  "entrypoint": "contracts/v1/index.ts",
+  "schemaManifest": "schemas/v1/schema-manifest.json",
+  "fixtureManifest": "fixtures/v1/fixture-manifest.json",
+  "compatibilityMatrix": "versions/compatibility-matrix.md",
+  "invariants": {
+    "shareDependsOnModel": false,
+    "shareDependsOnGame": false,
+    "clientProjectionMode": "allowlist",
+    "scoreRange": [0, 100],
+    "scoreRounding": "half_up_to_integer",
+    "maximumTurns": 20,
+    "sessionTtlDays": 7,
+    "idempotencyRetentionDays": 8
+  },
+  "idempotencyFingerprint": {
+    "algorithm": "canonical-json-v1+sha256",
+    "material": ["contractVersion", "operation", "scopeId", "payload"],
+    "excludedPayloadKeys": ["clientRequestId", "clientTurnId"],
+    "canonicalization": "Recursively sort object keys; preserve array order; reject non-JSON and non-finite values; UTF-8 encode; SHA-256 hash using lowercase hexadecimal.",
+    "sameKeySameHash": "Return the first logical result without repeating side effects.",
+    "sameKeyDifferentHash": "Return IDEMPOTENCY_CONFLICT without executing the operation."
+  },
+  "recovery": {
+    "completedEventsAreAuthoritative": true,
+    "deltaEventsAreAuthoritative": false,
+    "duplicateEvents": "Deduplicate by eventId.",
+    "eventOrdering": "sequence is monotonically increasing within a session.",
+    "unknownWriteOutcome": "Query authoritative session state; do not blindly repeat diagnosis or reward-affecting writes."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G13",
+  "componentVariant": "straight-left",
+  "componentName": "室外路沿直边",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from an AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png",
+  "generator": "Codex deterministic pixel-native directional derivation rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create only the third G13 outdoor curb direction: a vertical curb whose exterior side faces left. Reuse the accepted twelve-pixel curb depth, warm pale cap, deep outer face and slab-joint rhythm. Place the curb along the left edge and retain the accepted G03 horizontal stone-brick pavement on the right. Preserve 32x32 hard pixels and seamless vertical repetition; add no dirt, cracks, text, logo or watermark.",
+  "humanEdits": [
+    "Rotated only the accepted curb structure onto the left tile edge.",
+    "Kept the G03 stone-brick pavement in its original horizontal orientation on the right.",
+    "Converted the curb slab joints into a vertically repeating rhythm.",
+    "Created a nearest-neighbor single-tile and vertical-repeat review preview."
+  ],
+  "status": "DRAFT"
+}

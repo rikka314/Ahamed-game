@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-08-30",
+  "contentBuildId": "dev",
+  "status": "DRAFT",
+  "state": "ready_to_call",
+  "captures": [
+    {
+      "candidateId": "h3-16",
+      "candidate": "16",
+      "device": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "logicalViewport": {
+        "width": 320,
+        "height": 180
+      },
+      "canvasCssBounds": {
+        "x": 147,
+        "y": 260.46875,
+        "width": 1144.4375,
+        "height": 643.75
+      },
+      "file": "clinic-h3-16-desktop.png",
+      "visiblePatients": 2,
+      "compositionCoverage": [
+        "anchor.queue.01",
+        "anchor.entrance",
+        "anchor.patient-seat",
+        "locked-zone.future-upper",
+        "locked-zone.future-lower"
+      ]
+    },
+    {
+      "candidateId": "h3-16",
+      "candidate": "16",
+      "device": "mobile-landscape",
+      "viewport": {
+        "width": 915,
+        "height": 412
+      },
+      "logicalViewport": {
+        "width": 320,
+        "height": 180
+      },
+      "canvasCssBounds": {
+        "x": 102.9375,
+        "y": 0.171875,
+        "width": 707.515625,
+        "height": 397.984375
+      },
+      "file": "clinic-h3-16-mobile-landscape.png",
+      "visiblePatients": 2,
+      "compositionCoverage": [
+        "anchor.queue.01",
+        "anchor.entrance",
+        "anchor.patient-seat",
+        "locked-zone.future-upper",
+        "locked-zone.future-lower"
+      ]
+    },
+    {
+      "candidateId": "h3-32",
+      "candidate": "32",
+      "device": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "logicalViewport": {
+        "width": 640,
+        "height": 360
+      },
+      "canvasCssBounds": {
+        "x": 147,
+        "y": 260.46875,
+        "width": 1144.4375,
+        "height": 643.75
+      },
+      "file": "clinic-h3-32-desktop.png",
+      "visiblePatients": 2,
+      "compositionCoverage": [
+        "anchor.queue.01",
+        "anchor.entrance",
+        "anchor.patient-seat",
+        "locked-zone.future-upper",
+        "locked-zone.future-lower"
+      ]
+    },
+    {
+      "candidateId": "h3-32",
+      "candidate": "32",
+      "device": "mobile-landscape",
+      "viewport": {
+        "width": 915,
+        "height": 412
+      },
+      "logicalViewport": {
+        "width": 640,
+        "height": 360
+      },
+      "canvasCssBounds": {
+        "x": 102.9375,
+        "y": 0.171875,
+        "width": 707.515625,
+        "height": 397.984375
+      },
+      "file": "clinic-h3-32-mobile-landscape.png",
+      "visiblePatients": 2,
+      "compositionCoverage": [
+        "anchor.queue.01",
+        "anchor.entrance",
+        "anchor.patient-seat",
+        "locked-zone.future-upper",
+        "locked-zone.future-lower"
+      ]
+    }
+  ],
+  "realAndroidLandscapeValidation": "pending",
+  "staticApproval": "pending",
+  "inGameApproval": "pending"
+}

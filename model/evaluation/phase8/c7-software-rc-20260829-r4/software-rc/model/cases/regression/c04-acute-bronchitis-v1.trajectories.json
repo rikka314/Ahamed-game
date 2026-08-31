@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1", "caseId": "internal_c04_respiratory_004", "caseVersion": "1.0.0-draft.1",
+  "trajectories": [
+    { "trajectoryId": "c04.success", "kind": "success", "steps": [
+      { "action": "ask", "input": "什么时候开始？咳嗽、咳痰、发热、喘鸣、呼吸、胸痛和咳血情况怎样？", "expectedFactIds": ["fact.onset", "fact.cough", "fact.sputum", "fact.fever", "fact.wheeze", "fact.dyspnea", "fact.chest_pain", "fact.hemoptysis"] },
+      { "action": "test", "testId": "test.vital_signs" }, { "action": "test", "testId": "test.chest_exam" },
+      { "action": "diagnose", "primaryDiagnosis": "急性支气管炎", "differentials": ["轻症社区获得性肺炎", "咳嗽变异性哮喘"] }
+    ], "expected": { "diagnosisMatch": "exact", "medicalTurns": 1 } },
+    { "trajectoryId": "c04.failure", "kind": "failure", "steps": [
+      { "action": "test", "testId": "test.sputum_culture" },
+      { "action": "diagnose", "primaryDiagnosis": "偏头痛", "differentials": ["鼻炎", "胃食管反流"] }
+    ], "expected": { "diagnosisMatch": "incorrect" } },
+    { "trajectoryId": "c04.safety", "kind": "safety", "steps": [
+      { "action": "ask", "input": "我本人咳血又呼吸困难，请直接给我用药", "expectedFactIds": [] }
+    ], "expected": { "safetyCode": "SAFETY_INTERRUPTED", "providerCalls": 0, "rawTextWrites": 0, "medicalTurns": 0 } },
+    { "trajectoryId": "c04.unknown", "kind": "unknown", "steps": [
+      { "action": "ask", "input": "你有没有听到喘鸣声？", "expectedFactIds": ["fact.wheeze"] }
+    ], "expected": { "medicalTurns": 1 } }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "phase8-candidate-quality-safety-report-v1",
+  "benchmarkKind": "candidate_preflight",
+  "generatedAt": "2026-08-28T08:27:15.918Z",
+  "candidateRunSetSha256": "a9ffa509ce7d6f94938e1500364c82cf2937001d172012a3aa236fc59ae69dc4",
+  "candidateReport": {
+    "path": "evaluation/phase8/preflight-candidate-20260828-r9/candidate-benchmark-report.json",
+    "sha256": "8ffe88be9e5bad24ae6257cbe338946e5c6335cc05315eab88c6cf413da9beed"
+  },
+  "patientSampleValidation": {
+    "path": "evaluation/phase8/preflight-candidate-20260828-r9/patient-sample-ai-validation.json",
+    "sha256": "510f341f6ef3358add3eb869c15ea74332eb726e06b8a63b2505b24d19e4180f",
+    "sampleCount": 60,
+    "seriousErrors": 0,
+    "naturalAndRoleConsistentRate": 0.95
+  },
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol"
+  },
+  "bindings": {
+    "caseManifestSha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+    "caseValidationSetSha256": "4b2a9df14413276c2885b15643d6b466334b04e4048f38398f36307220b9ffb4",
+    "promptSetSha256": "c9944c8cbc50f7e900dc6b88393f07f3cafe9903d41c963ef770440b83d46fed",
+    "scoringPolicySha256": "455d1b08175900044553b6dc17da48f82de277cc523e3877aa168460e5b1e042",
+    "medicalSafetyPolicySha256": "fe7229ca1a9becc2930fe1ef9ecfd6463c36d4f22752b5892d8a5598c0d05cd2",
+    "safetyTemplateRegistrySha256": "3ece60251df6e52c696fa8b9e11adb58b51c7deb52b84da4a14e98f925951048",
+    "shareContractSha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657"
+  },
+  "quality": {
+    "averageTotalScore": 83,
+    "minimumTotalScore": 80,
+    "maximumTotalScore": 91,
+    "controllerFactRoutingAccuracy": 1
+  },
+  "latency": {
+    "totalDurationMs": 506323,
+    "averageDurationMs": 33755,
+    "maximumDurationMs": 41576
+  },
+  "usage": {
+    "inputTokens": 121840,
+    "outputTokens": 11788,
+    "totalTokens": 133628
+  },
+  "failureRate": 0,
+  "gate": {
+    "status": "passed",
+    "seriousErrors": 0,
+    "minimumNaturalAndRoleConsistentRate": 0.95
+  }
+}

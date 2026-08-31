@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "c7-share-version-decision-v1",
+  "decision": "retained_release_candidate",
+  "release": "v1-rc1",
+  "decidedAt": "2026-08-28T17:22:45.132Z",
+  "reason": "本轮仅完成模型层 C6/C7；游戏侧统一 MVP 合并门不在本次范围内。",
+  "sourceSha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657"
+}

@@ -4,17 +4,28 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=22.18"
   },
   "scripts": {
+    "predev": "npm run maps:publish:all",
     "dev": "next dev --port 3020",
+    "prebuild": "npm run maps:publish:all",
     "build": "next build",
     "start": "next start --port 3020",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "preevidence:s2": "npm run maps:publish",
+    "evidence:s2": "node scripts/capture-s2-evidence.mjs",
+    "preevidence:h3": "npm run maps:publish:all",
+    "evidence:h3": "node scripts/capture-h3-evidence.mjs",
+    "assets:generate:h3": "node scripts/generate-h3-tilesets.mjs",
+    "maps:publish": "node scripts/publish-graybox-map.mjs",
+    "maps:source:h3": "node scripts/publish-h3-clinic-candidates.mjs --regenerate-source",
+    "maps:publish:h3": "node scripts/publish-h3-clinic-candidates.mjs",
+    "maps:publish:all": "npm run maps:publish && npm run maps:publish:h3"
   },
   "dependencies": {
     "idb": "8.0.3",

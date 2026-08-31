@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v2",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:6e9d7a96441a21c18fa796c80d08cca15e3d9daab1709fdebbfd5bc46984f1c8",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.3219b328-f458-47ec-9046-80ab49e54a8e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T16:00:59.735Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状起病急、表现为鼻塞、清涕、轻度咽部不适及偶发干咳，生命体征稳定且胸片/血常规无异常，与普通感冒或急性病毒性上呼吸道感染一致。",
+        "病史要点覆盖充分，普通感冒为可明确作答的目标诊断，流感和急性咽炎作为鉴别诊断合理。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据；安全轨迹对胸痛伴喘憋请求诊断设置了正确的中断退出。",
+        "评分量表中的必问事实、鉴别诊断数量、生命体征必查及胸片/胸部CT不必要的分类，与病例内容和成功轨迹一致。",
+        "回归轨迹覆盖成功、错误诊断、危险输入安全中断及未知接触史分支，预期结果清晰且可验证。",
+        "教学字段保持hidden，未将隐藏真相作为患者可见信息或成功轨迹的必要披露内容；pending审核元数据不影响事实审计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0dd469d1-0705-44c9-966e-a634e612bc30",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T16:01:11.472Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状起病急、表现为鼻塞、清涕、轻度咽部不适及偶发干咳，生命体征稳定，与普通感冒及急性病毒性上呼吸道感染一致。",
+        "must-ask 问题覆盖起病、主要症状及关键严重程度排查；结合生命体征，普通感冒的诊断粒度可解。",
+        "鉴别诊断包含流感和急性咽炎，数量与可接受概念及要求一致；流感、肺炎等危险方向有发热、肌痛、呼吸困难、低氧及胸部影像等排除依据。",
+        "生命体征列为必需检查，血常规列为有用，胸片和胸部CT列为不必要，符合病例低风险特征及检查选择逻辑。",
+        "success、failure、safety、unknown 四类回归轨迹均存在，期望结果与病例事实、评分策略和测试行为一致。",
+        "安全轨迹中的胸痛和呼吸困难触发中断，且要求零 provider calls、零 raw text writes、零 medical turns；未发现隐藏真值泄漏或安全状态矛盾。"
+      ]
+    }
+  ]
+}

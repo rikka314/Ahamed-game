@@ -1,0 +1,14 @@
+{
+  "contractVersion": "1",
+  "release": "v1-rc1",
+  "schemaFile": "public-contracts.schema.json",
+  "definitions": [
+    "PatientDisplayV1", "TestResultV1", "DisclosedFactV1", "CaseSummaryV1", "ClientCaseProjectionV1", "CaseSelectionV1",
+    "CreateSessionRequestV1", "CreateSessionResponseV1", "SessionReferenceV1", "CancelSessionRequestV1", "CancelSessionResponseV1",
+    "TurnRequestV1", "TurnAcceptedV1", "TurnCompletedV1", "TestRequestV1", "DiagnosisSubmissionV1", "DiagnosisAcceptedV1",
+    "EvaluationScoresV1", "EvaluationEvidenceV1", "EvaluationResultV1", "RewardInputV1", "SharedErrorV1",
+    "SessionCreatedEventV1", "SessionStateChangedEventV1", "TurnAcceptedEventV1", "ActionClassifiedEventV1", "PatientReplyDeltaEventV1",
+    "PatientReplyCompletedEventV1", "TestAcceptedEventV1", "TestCompletedEventV1", "DiagnosisAcceptedEventV1", "EvaluationProgressEventV1",
+    "EvaluationCompletedEventV1", "SafetyInterruptedEventV1", "RequestErrorEventV1"
+  ]
+}

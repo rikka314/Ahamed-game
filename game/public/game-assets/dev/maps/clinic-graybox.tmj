@@ -1,0 +1,1035 @@
+{
+  "compressionlevel": -1,
+  "height": 16,
+  "infinite": false,
+  "layers": [
+    {
+      "id": 1,
+      "name": "Ground",
+      "objects": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "width": 416,
+          "height": 256,
+          "properties": [
+            {
+              "name": "stableId",
+              "type": "string",
+              "value": "ground.world"
+            },
+            {
+              "name": "fillColor",
+              "type": "color",
+              "value": "#17231f"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "x": 64,
+          "y": 56,
+          "width": 288,
+          "height": 144,
+          "properties": [
+            {
+              "name": "stableId",
+              "type": "string",
+              "value": "ground.clinic-floor"
+            },
+            {
+              "name": "fillColor",
+              "type": "color",
+              "value": "#b9c8a7"
+            },
+            {
+              "name": "strokeColor",
+              "type": "color",
+              "value": "#71806a"
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "value": "AHAMED 社区诊所 · 灰盒"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "x": 16,
+          "y": 88,
+          "width": 64,
+          "height": 88,
+          "properties": [
+            {
+              "name": "stableId",
+              "type": "string",
+              "value": "ground.waiting-walkway"
+            },
+            {
+              "name": "fillColor",
+              "type": "color",
+              "value": "#80957e"
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "value": "候诊队列"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "x": 48,
+          "y": 0,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "type": "string",
+              "value": "ground.locked-upper"
+            },
+            {
+              "name": "fillColor",
+              "type": "color",
+              "value": "#485250"
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "value": "未来 CT / B 超 · 未解锁"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "x": 48,
+          "y": 208,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "type": "string",
+              "value": "ground.locked-lower"
+            },
+            {
+              "name": "fillColor",
+              "type": "color",
+              "value": "#485250"
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "value": "未来功能区 · 未解锁"
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "type": "objectgroup",
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "name": "Decoration",
+      "objects": [
+        {
+          "id": 10,
+          "x": 64,
+          "y": 56,
+          "width": 288,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.wall.top"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6d7d65"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "x": 64,
+          "y": 192,
+          "width": 288,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.wall.bottom"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6d7d65"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "x": 64,
+          "y": 56,
+          "width": 8,
+          "height": 64,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.wall.left-top"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6d7d65"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "x": 64,
+          "y": 152,
+          "width": 8,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.wall.left-bottom"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6d7d65"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "x": 344,
+          "y": 56,
+          "width": 8,
+          "height": 144,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.wall.right"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6d7d65"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "x": 184,
+          "y": 112,
+          "width": 72,
+          "height": 32,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.consultation-desk"
+            },
+            {
+              "name": "fillColor",
+              "value": "#8d674f"
+            },
+            {
+              "name": "strokeColor",
+              "value": "#684938"
+            },
+            {
+              "name": "label",
+              "value": "接诊桌"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "x": 252,
+          "y": 136,
+          "width": 20,
+          "height": 24,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.doctor-chair"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6f5240"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 18
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "x": 152,
+          "y": 136,
+          "width": 20,
+          "height": 24,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.patient-chair"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6f5240"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 18
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "x": 220,
+          "y": 102,
+          "width": 24,
+          "height": 16,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.computer"
+            },
+            {
+              "name": "fillColor",
+              "value": "#31464b"
+            },
+            {
+              "name": "strokeColor",
+              "value": "#d5e2cf"
+            },
+            {
+              "name": "label",
+              "value": "电脑"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 35
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "x": 190,
+          "y": 104,
+          "width": 16,
+          "height": 12,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.call-button"
+            },
+            {
+              "name": "fillColor",
+              "value": "#d69a4a"
+            },
+            {
+              "name": "label",
+              "value": "叫号"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 35
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "x": 284,
+          "y": 64,
+          "width": 8,
+          "height": 128,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.curtain-divider"
+            },
+            {
+              "name": "fillColor",
+              "value": "#9b7f82"
+            },
+            {
+              "name": "label",
+              "value": "帘后检查区"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 22
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "x": 312,
+          "y": 80,
+          "width": 28,
+          "height": 64,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.exam-bed"
+            },
+            {
+              "name": "fillColor",
+              "value": "#d9d3bd"
+            },
+            {
+              "name": "strokeColor",
+              "value": "#7b8278"
+            },
+            {
+              "name": "label",
+              "value": "检查床"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "x": 304,
+          "y": 156,
+          "width": 32,
+          "height": 24,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.vitals-device"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6f8f89"
+            },
+            {
+              "name": "strokeColor",
+              "value": "#385b58"
+            },
+            {
+              "name": "label",
+              "value": "基础检查设备（占位）"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "x": 24,
+          "y": 104,
+          "width": 32,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.queue-marker-01"
+            },
+            {
+              "name": "fillColor",
+              "value": "#d8b463"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "x": 24,
+          "y": 160,
+          "width": 32,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "decor.queue-marker-02"
+            },
+            {
+              "name": "fillColor",
+              "value": "#d8b463"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 8
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "type": "objectgroup",
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "name": "Collision",
+      "objects": [
+        {
+          "id": 30,
+          "x": 64,
+          "y": 56,
+          "width": 288,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.wall.top"
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "x": 64,
+          "y": 192,
+          "width": 288,
+          "height": 8,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.wall.bottom"
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "x": 64,
+          "y": 56,
+          "width": 8,
+          "height": 64,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.wall.left-top"
+            }
+          ]
+        },
+        {
+          "id": 33,
+          "x": 64,
+          "y": 152,
+          "width": 8,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.wall.left-bottom"
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "x": 344,
+          "y": 56,
+          "width": 8,
+          "height": 144,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.wall.right"
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "x": 184,
+          "y": 112,
+          "width": 72,
+          "height": 32,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.consultation-desk"
+            }
+          ]
+        },
+        {
+          "id": 36,
+          "x": 284,
+          "y": 64,
+          "width": 8,
+          "height": 88,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.curtain-divider"
+            }
+          ]
+        },
+        {
+          "id": 37,
+          "x": 312,
+          "y": 80,
+          "width": 28,
+          "height": 64,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.exam-bed"
+            }
+          ]
+        },
+        {
+          "id": 38,
+          "x": 304,
+          "y": 156,
+          "width": 32,
+          "height": 24,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.vitals-device"
+            }
+          ]
+        },
+        {
+          "id": 39,
+          "x": 48,
+          "y": 0,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.locked-upper"
+            }
+          ]
+        },
+        {
+          "id": 40,
+          "x": 48,
+          "y": 208,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "collision.locked-lower"
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "type": "objectgroup",
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "name": "AbovePlayer",
+      "objects": [
+        {
+          "id": 41,
+          "x": 280,
+          "y": 60,
+          "width": 16,
+          "height": 16,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "above.curtain-valance"
+            },
+            {
+              "name": "fillColor",
+              "value": "#7b6068"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 100
+            }
+          ]
+        },
+        {
+          "id": 42,
+          "x": 56,
+          "y": 112,
+          "width": 24,
+          "height": 12,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "above.door-header"
+            },
+            {
+              "name": "fillColor",
+              "value": "#6f5846"
+            },
+            {
+              "name": "depth",
+              "type": "int",
+              "value": 100
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "type": "objectgroup",
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 5,
+      "name": "Objects",
+      "objects": [
+        {
+          "id": 50,
+          "point": true,
+          "x": 208,
+          "y": 128,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.camera-center"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 64,
+          "point": true,
+          "x": 264,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "spawn.doctor.01"
+            },
+            {
+              "name": "kind",
+              "value": "spawn"
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "point": true,
+          "x": 188,
+          "y": 128,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.camera-mobile-center"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 51,
+          "point": true,
+          "x": 264,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.doctor-seat"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 52,
+          "point": true,
+          "x": 162,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.patient-seat"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 53,
+          "point": true,
+          "x": 76,
+          "y": 136,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.entrance"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "point": true,
+          "x": 108,
+          "y": 136,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.entry-path.01"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 55,
+          "point": true,
+          "x": 136,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.entry-path.02"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 56,
+          "point": true,
+          "x": 48,
+          "y": 128,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.queue.01"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 57,
+          "point": true,
+          "x": 32,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.queue.02"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 58,
+          "point": true,
+          "x": 48,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.exit"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            }
+          ]
+        },
+        {
+          "id": 59,
+          "point": true,
+          "x": 320,
+          "y": 148,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "anchor.exam.local-01"
+            },
+            {
+              "name": "kind",
+              "value": "anchor"
+            },
+            {
+              "name": "deviceId",
+              "value": "device.local.vitals-01"
+            }
+          ]
+        },
+        {
+          "id": 60,
+          "x": 212,
+          "y": 92,
+          "width": 44,
+          "height": 36,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "interaction.computer.01"
+            },
+            {
+              "name": "kind",
+              "value": "interaction"
+            },
+            {
+              "name": "interactionId",
+              "value": "interaction.computer.01"
+            },
+            {
+              "name": "label",
+              "value": "诊所电脑"
+            }
+          ]
+        },
+        {
+          "id": 61,
+          "x": 180,
+          "y": 92,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "interaction.call-next.01"
+            },
+            {
+              "name": "kind",
+              "value": "interaction"
+            },
+            {
+              "name": "interactionId",
+              "value": "interaction.call-next.01"
+            },
+            {
+              "name": "label",
+              "value": "叫下一位"
+            }
+          ]
+        },
+        {
+          "id": 62,
+          "x": 48,
+          "y": 0,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "locked-zone.future-upper"
+            },
+            {
+              "name": "kind",
+              "value": "locked-zone"
+            },
+            {
+              "name": "label",
+              "value": "未解锁"
+            }
+          ]
+        },
+        {
+          "id": 63,
+          "x": 48,
+          "y": 208,
+          "width": 320,
+          "height": 48,
+          "properties": [
+            {
+              "name": "stableId",
+              "value": "locked-zone.future-lower"
+            },
+            {
+              "name": "kind",
+              "value": "locked-zone"
+            },
+            {
+              "name": "label",
+              "value": "未解锁"
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "type": "objectgroup",
+      "visible": true,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "nextlayerid": 6,
+  "nextobjectid": 66,
+  "orientation": "orthogonal",
+  "properties": [
+    {
+      "name": "mapId",
+      "type": "string",
+      "value": "map.clinic.graybox-01"
+    },
+    {
+      "name": "contentBuildId",
+      "type": "string",
+      "value": "dev"
+    },
+    {
+      "name": "tileSizeStatus",
+      "type": "string",
+      "value": "candidate-h3"
+    }
+  ],
+  "renderorder": "right-down",
+  "tiledversion": "1.12.2",
+  "tileheight": 16,
+  "tilesets": [],
+  "tilewidth": 16,
+  "type": "map",
+  "version": "1.10",
+  "width": 26
+}

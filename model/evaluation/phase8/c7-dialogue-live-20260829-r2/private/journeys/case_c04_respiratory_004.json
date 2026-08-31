@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c04_respiratory_004",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e",
+  "personaTemplateId": "gentle_cooperative",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "咳嗽八天了，偶尔会咳出一点痰。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "咳嗽八天了，偶尔会咳出一点痰。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "医生还是继续问我的病情吧",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢摄影",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "好的",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "好的",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的我现在去做生命体征",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的CT结果怎么样",
+      "reply": "胸部CT这项还没有做需要现在去做吗",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好的我现在去做胸部CT",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.chest_ct",
+            "status": "completed",
+            "report": "双肺未见局灶性实变、支气管扩张或胸腔积液。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1
+    },
+    {
+      "turnNumber": 12,
+      "question": "CT现在是什么结果",
+      "reply": "双肺未见局灶性实变、支气管扩张或胸腔积液。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.chest_ct"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1
+    }
+  ]
+}

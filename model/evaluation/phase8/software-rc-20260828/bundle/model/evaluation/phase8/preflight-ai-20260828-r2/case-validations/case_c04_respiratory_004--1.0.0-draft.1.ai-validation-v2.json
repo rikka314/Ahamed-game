@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v2",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:2b37dafdbb2d2cbd1e4891edcfd07c5ddcc0b36efe8a9476bf64e263398a6cba",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6e65d4b7-97f0-40be-941e-d78f7fc62d8f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T07:05:19.979Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成人非急症呼吸道症状，起病、症状、生命体征、胸部查体及影像结果相互一致，支持急性支气管炎，未见肺炎或其他急危重症证据。",
+        "病史必问项覆盖起病、咳嗽咳痰、发热、喘鸣、呼吸困难、胸痛和咯血；结合生命体征及胸部查体可完成主要诊断和指定鉴别诊断。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均已排除；安全轨迹对用户同时报告咯血和呼吸困难时正确中断，且无医疗调用或原始文本写入。",
+        "评分量表、目标诊断、可接受鉴别诊断、必需检查及测试分类与成功回归轨迹一致；痰培养标为不必要，胸片标为有用，未造成规则冲突。",
+        "回归轨迹覆盖成功、错误诊断、急症安全中断和未知信息询问，能够检验诊断、效率、边界安全及事实查询行为。",
+        "隐藏教学字段未暴露；胸部查体明确为仅可通过检查获得，支持隐藏真相保护。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.563c465d-2999-445a-9b01-86257a35a5db",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "decision": "approved",
+      "validatedAt": "2026-08-28T07:05:35.460Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、查体、生命体征及胸片结果相互一致：短程咳嗽、无高热或呼吸困难、无局灶性湿啰音及肺实变，支持急性支气管炎。",
+        "目标诊断粒度明确且可解；轻症社区获得性肺炎和咳嗽变异性哮喘作为鉴别有临床合理性，病例信息足以完成区分。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据，且与生命体征相符。",
+        "must-ask事实、要求的2项鉴别诊断、必需检查及检查分类与病例内容一致；痰培养标记为不必要也与当前低风险、无肺炎证据的情境相符。",
+        "success、failure、safety和unknown四条回归轨迹均覆盖各自预期：成功路径可得到精确诊断，失败路径为错误诊断，安全路径中断且无医疗调用，unknown路径正确暴露喘鸣事实。",
+        "未见 teaching_note 或其他隐藏服务端字段被纳入患者可见信息、目标诊断提示或回归轨迹，隐藏真值边界安全。"
+      ]
+    }
+  ]
+}
