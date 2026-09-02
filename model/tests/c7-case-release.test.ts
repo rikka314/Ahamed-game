@@ -66,6 +66,10 @@ test("C7 builds a new five-case manifest without mutating the superseded manifes
   };
   const result = buildC7PublishedCaseManifest({
     candidateManifest: candidate,
+    releasePolicy: {
+      policyVersion: "model-release-policy-v1",
+      expectedCaseCount: 5,
+    },
     publishedCases: candidate.draftCases.map((entry) => ({
       ...entry,
       path: `published/dialogue-rc/${entry.publicCaseId}.json`,
@@ -82,4 +86,30 @@ test("C7 builds a new five-case manifest without mutating the superseded manifes
         releaseValidationMethod === "ai_cross_validation",
     ),
   );
+});
+
+test("C7 case manifest publication count comes from release policy", () => {
+  const candidate = {
+    manifestVersion: "case-manifest-v1-rc1",
+    draftCases: [{
+      publicCaseId: "case_1",
+      caseVersion: "1.0.0-draft.1",
+      path: "draft/case-1.json",
+      contentHash: `sha256:${"1".repeat(64)}`,
+    }],
+    publishedCases: [],
+  };
+  const result = buildC7PublishedCaseManifest({
+    candidateManifest: candidate,
+    releasePolicy: {
+      policyVersion: "model-release-policy-v1",
+      expectedCaseCount: 1,
+    },
+    publishedCases: [{
+      ...candidate.draftCases[0]!,
+      path: "published/dialogue-rc/case_1.json",
+      validationRecordPath: "published/dialogue-rc/case_1.ai-validation.json",
+    }],
+  });
+  assert.equal(result.publishedCases.length, 1);
 });

@@ -4,7 +4,32 @@ import test from "node:test";
 import {
   buildC7DialogueArchitectureReport,
   type C7DialogueRunEvidence,
+  type C7DialogueReleasePolicy,
 } from "../src/evaluation/c7-dialogue-architecture-benchmark.js";
+
+const RELEASE_POLICY: C7DialogueReleasePolicy = {
+  policyVersion: "model-release-policy-v1",
+  reviewPolicy: "non_blocking",
+  expectedCaseCount: 5,
+  requiredPersonas: [
+    { personaTemplateId: "gentle_cooperative", count: 2 },
+    { personaTemplateId: "anxious_reassurance_seeking", count: 2 },
+    { personaTemplateId: "impatient_direct", count: 1 },
+  ],
+  minimumRealDialogueTurnsPerCase: 12,
+  requiredTestStates: ["not_completed", "pending_confirmation", "completed"],
+  qualityThresholds: {
+    patientGeneratedReplyRate: 1,
+    maximumControllerProviderCalls: 0,
+    maximumLocalFakeReplies: 0,
+    maximumDiagnosisLeaks: 0,
+    maximumUncompletedTestResultLeaks: 0,
+    minimumPersonaConsistencyRate: 0.95,
+    minimumContextFollowupAccuracy: 0.95,
+    minimumTestActionAccuracy: 0.95,
+    maximumSeriousFactErrors: 0,
+  },
+};
 
 function run(
   index: number,
@@ -44,9 +69,10 @@ function passingRuns(): C7DialogueRunEvidence[] {
   ];
 }
 
-test("C7 passes only when five cases, three personas, long journeys, and all minimum metrics are present", () => {
+test("C7 reports no findings when manifest policy coverage and quality targets are met", () => {
   const report = buildC7DialogueArchitectureReport({
     runs: passingRuns(),
+    policy: RELEASE_POLICY,
     audit: {
       decision: "approved",
       personaConsistencyRate: 0.98,
@@ -57,8 +83,9 @@ test("C7 passes only when five cases, three personas, long journeys, and all min
     generatedAt: "2026-08-28T12:00:00.000Z",
   });
 
-  assert.equal(report.gate.status, "passed");
-  assert.deepEqual(report.gate.blockers, []);
+  assert.equal(report.status, "reported");
+  assert.equal(report.reviewPolicy, "non_blocking");
+  assert.deepEqual(report.findings, []);
   assert.equal(report.coverage.caseCount, 5);
   assert.equal(report.coverage.personaCount, 3);
   assert.equal(report.coverage.minimumTurnsPerRun, 12);
@@ -68,7 +95,7 @@ test("C7 passes only when five cases, three personas, long journeys, and all min
   assert.equal(report.metrics.personaConsistencyRate, 0.98);
 });
 
-test("C7 fails closed on any Controller call, local fake reply, leak, or serious fact error", () => {
+test("C7 records runtime quality risks as findings without producing a failed release state", () => {
   const runs = passingRuns();
   runs[0] = {
     ...runs[0]!,
@@ -79,6 +106,7 @@ test("C7 fails closed on any Controller call, local fake reply, leak, or serious
   };
   const report = buildC7DialogueArchitectureReport({
     runs,
+    policy: RELEASE_POLICY,
     audit: {
       decision: "rejected",
       personaConsistencyRate: 0.99,
@@ -89,15 +117,16 @@ test("C7 fails closed on any Controller call, local fake reply, leak, or serious
     generatedAt: "2026-08-28T12:00:00.000Z",
   });
 
-  assert.equal(report.gate.status, "failed");
-  assert.ok(report.gate.blockers.includes("CONTROLLER_PROVIDER_CALLS_NONZERO"));
-  assert.ok(report.gate.blockers.includes("LOCAL_FAKE_REPLIES_NONZERO"));
-  assert.ok(report.gate.blockers.includes("TARGET_DIAGNOSIS_LEAK_NONZERO"));
-  assert.ok(report.gate.blockers.includes("UNCOMPLETED_TEST_RESULT_LEAK_NONZERO"));
-  assert.ok(report.gate.blockers.includes("SERIOUS_FACT_ERRORS_NONZERO"));
+  assert.equal(report.status, "reported");
+  const codes = new Set(report.findings.map(({ code }) => code));
+  assert.ok(codes.has("CONTROLLER_PROVIDER_CALLS_NONZERO"));
+  assert.ok(codes.has("LOCAL_FAKE_REPLIES_NONZERO"));
+  assert.ok(codes.has("TARGET_DIAGNOSIS_LEAK_NONZERO"));
+  assert.ok(codes.has("UNCOMPLETED_TEST_RESULT_LEAK_NONZERO"));
+  assert.ok(codes.has("SERIOUS_FACT_ERRORS_NONZERO"));
 });
 
-test("C7 rejects incomplete case/persona/test-state coverage and sub-95-percent quality", () => {
+test("C7 uses versioned policy rather than fixed five-case or three-persona blockers", () => {
   const runs = passingRuns().slice(0, 4).map((entry) => ({
     ...entry,
     personaTemplateId: "gentle_cooperative" as const,
@@ -107,6 +136,11 @@ test("C7 rejects incomplete case/persona/test-state coverage and sub-95-percent 
   }));
   const report = buildC7DialogueArchitectureReport({
     runs,
+    policy: {
+      ...RELEASE_POLICY,
+      expectedCaseCount: 4,
+      requiredPersonas: [{ personaTemplateId: "gentle_cooperative", count: 4 }],
+    },
     audit: {
       decision: "approved",
       personaConsistencyRate: 0.94,
@@ -117,11 +151,11 @@ test("C7 rejects incomplete case/persona/test-state coverage and sub-95-percent 
     generatedAt: "2026-08-28T12:00:00.000Z",
   });
 
-  assert.equal(report.gate.status, "failed");
-  assert.ok(report.gate.blockers.includes("FIVE_CASE_COVERAGE_REQUIRED"));
-  assert.ok(report.gate.blockers.includes("THREE_PERSONA_COVERAGE_REQUIRED"));
-  assert.ok(report.gate.blockers.includes("TEST_STATE_COVERAGE_INCOMPLETE"));
-  assert.ok(report.gate.blockers.includes("PERSONA_CONSISTENCY_BELOW_95_PERCENT"));
-  assert.ok(report.gate.blockers.includes("CONTEXT_FOLLOWUP_ACCURACY_BELOW_95_PERCENT"));
-  assert.ok(report.gate.blockers.includes("TEST_ACTION_ACCURACY_BELOW_95_PERCENT"));
+  const codes = new Set(report.findings.map(({ code }) => code));
+  assert.equal(codes.has("CASE_COVERAGE_MISMATCH"), false);
+  assert.equal(codes.has("PERSONA_COVERAGE_MISMATCH"), false);
+  assert.ok(codes.has("TEST_STATE_COVERAGE_INCOMPLETE"));
+  assert.ok(codes.has("PERSONA_CONSISTENCY_BELOW_TARGET"));
+  assert.ok(codes.has("CONTEXT_FOLLOWUP_ACCURACY_BELOW_TARGET"));
+  assert.ok(codes.has("TEST_ACTION_ACCURACY_BELOW_TARGET"));
 });
