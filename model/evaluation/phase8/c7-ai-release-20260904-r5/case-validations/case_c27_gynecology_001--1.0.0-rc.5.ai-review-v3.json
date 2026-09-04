@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:d1ab0cd21751e14895d2660900370aa80da0691b4904526ea60eda170d9d00fc",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.aab34028-a815-4468-bf30-d0874d2f329b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:55:47.327Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁女性，周期规律、经期起始痉挛痛且两日内缓解，无异常大量出血、晕厥、发热、急性剧烈盆腔痛或妊娠证据，生命体征稳定，支持原发性痛经；妇科评估和鉴别诊断设置总体一致。",
+        "主要诊断及两个可接受鉴别诊断均有足够症状和排除信息支持，病例可求解。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、妊娠、大量出血、急性盆腔痛、妇科发热及黏膜/上生殖道受累；安全中断轨迹也明确要求遇到胸痛伴呼吸困难时停止医疗流程。",
+        "评分量表、必问事实、鉴别诊断数量及检查分类之间未见明显内部冲突；盆腔CT标为不必要检查与病例设定一致。",
+        "回归成功轨迹存在事实映射错误：第二个提问实际询问“妊娠”，但expectedFactIds记录为fact.high_risk_population，且未实际询问特殊高风险人群；第三个提问再次询问妊娠。因此成功轨迹不能可靠覆盖rubric中的全部mustAskFactIds，需修正提问或期望事实映射。",
+        "教学字段及服务端评分信息标记为hidden，未见将答案真相或内部评分信息暴露给患者的回归步骤。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.1a8afbdb-40ab-4214-a4f8-2bdea26407d9",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:56:09.285Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：周期性、经期起始的痉挛性下腹痛，持续时间和妇科评估结果支持原发性痛经；内膜异位症和盆腔炎作为鉴别诊断也有基本覆盖。",
+        "诊断可解性通过：病例提供了起病、疼痛模式、伴随症状、进展及关键排除信息，能够达到“原发性痛经”的目标诊断粒度。",
+        "红旗排除通过：红旗矩阵中的意识改变、循环不稳定、无法口服、特殊高风险、妊娠、大量出血、急性剧烈盆腔痛、发热及上生殖道/黏膜受累均有对应阴性事实。",
+        "rubric一致性失败：rubric要求分别覆盖 fact.high_risk_population 与 fact.pregnancy，但成功轨迹第二个问题仅笼统询问“妊娠”却期望 high_risk_population；该问题未明确询问免疫抑制或重要基础病，导致事实匹配与必问项语义不一致。",
+        "回归覆盖失败：成功轨迹的 expectedFactIds 与提问文本存在高风险人群/妊娠错配，可能造成事实抽取回归失败；应将高风险人群和妊娠可能拆为明确问题并同步修正期望事实。其余 failure、safety、unknown 轨迹结构基本完整。",
+        "隐藏真值安全通过：教学字段及服务端字段未进入患者可见内容，目标诊断和测试选择未依赖不应暴露的 hidden 字段。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁女性，周期规律、经期起始痉挛痛且两日内缓解，无异常大量出血、晕厥、发热、急性剧烈盆腔痛或妊娠证据，生命体征稳定，支持原发性痛经；妇科评估和鉴别诊断设置总体一致。",
+    "主要诊断及两个可接受鉴别诊断均有足够症状和排除信息支持，病例可求解。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、妊娠、大量出血、急性盆腔痛、妇科发热及黏膜/上生殖道受累；安全中断轨迹也明确要求遇到胸痛伴呼吸困难时停止医疗流程。",
+    "评分量表、必问事实、鉴别诊断数量及检查分类之间未见明显内部冲突；盆腔CT标为不必要检查与病例设定一致。",
+    "回归成功轨迹存在事实映射错误：第二个提问实际询问“妊娠”，但expectedFactIds记录为fact.high_risk_population，且未实际询问特殊高风险人群；第三个提问再次询问妊娠。因此成功轨迹不能可靠覆盖rubric中的全部mustAskFactIds，需修正提问或期望事实映射。",
+    "教学字段及服务端评分信息标记为hidden，未见将答案真相或内部评分信息暴露给患者的回归步骤。",
+    "临床一致性通过：周期性、经期起始的痉挛性下腹痛，持续时间和妇科评估结果支持原发性痛经；内膜异位症和盆腔炎作为鉴别诊断也有基本覆盖。",
+    "诊断可解性通过：病例提供了起病、疼痛模式、伴随症状、进展及关键排除信息，能够达到“原发性痛经”的目标诊断粒度。",
+    "红旗排除通过：红旗矩阵中的意识改变、循环不稳定、无法口服、特殊高风险、妊娠、大量出血、急性剧烈盆腔痛、发热及上生殖道/黏膜受累均有对应阴性事实。",
+    "rubric一致性失败：rubric要求分别覆盖 fact.high_risk_population 与 fact.pregnancy，但成功轨迹第二个问题仅笼统询问“妊娠”却期望 high_risk_population；该问题未明确询问免疫抑制或重要基础病，导致事实匹配与必问项语义不一致。",
+    "回归覆盖失败：成功轨迹的 expectedFactIds 与提问文本存在高风险人群/妊娠错配，可能造成事实抽取回归失败；应将高风险人群和妊娠可能拆为明确问题并同步修正期望事实。其余 failure、safety、unknown 轨迹结构基本完整。",
+    "隐藏真值安全通过：教学字段及服务端字段未进入患者可见内容，目标诊断和测试选择未依赖不应暴露的 hidden 字段。"
+  ]
+}

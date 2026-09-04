@@ -1,0 +1,47 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-03T21:09:38.204Z",
+  "contentSha256": "0e77b7cd5ab1526ffd75efc6c60dce78ec6fd4d862a9042c898aa2a5fe6e4534",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "public_artifact_allowlist_verified",
+      "message": "Static/server output and public assets report zero matches for personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis, and patientFacts. The public journey contains only the stated public projection fields and reports sensitiveMatches=0.",
+      "severity": "info"
+    },
+    {
+      "code": "browser_storage_surfaces_verified",
+      "message": "IndexedDB, localStorage, and sessionStorage were observed in the runtime scan with zero sensitive matches. IndexedDB contained two values, while localStorage and sessionStorage were empty.",
+      "severity": "info"
+    },
+    {
+      "code": "console_and_cache_surfaces_verified",
+      "message": "Console and CacheStorage were observed with zero sensitive matches; CacheStorage was empty. The scan also reports failedSurfaces=0.",
+      "severity": "info"
+    },
+    {
+      "code": "save_export_not_available",
+      "message": "The current game shell does not expose a save-export surface, so save leakage was not scanned and is not claimed as verified. This is an evidence limitation rather than an observed leakage.",
+      "severity": "warning"
+    },
+    {
+      "code": "private_evidence_separation_verified",
+      "message": "The journey artifacts explicitly separate public/e4-cross-layer-journey.v1.json with visibility public from private/e4-cross-layer-journey.v1.json with visibility private. The public artifact reports sensitiveMatches=0; no private evidence is shown as included in the public artifact.",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.69cb8f3b-245b-4d0f-b288-f4c802adab3b",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v2",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

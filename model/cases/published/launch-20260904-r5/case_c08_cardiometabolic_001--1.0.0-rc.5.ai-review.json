@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:8dd8887485f1036b8ae733fca1e3a0f40b61127276c2e85c852beadd9de949f7",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.79e73707-d082-43b5-8ea2-82b925ee282c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:39:07.272Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成年男性反复诊室血压升高，动态血压平均值升高且生命体征稳定，支持原发性高血压；白大衣高血压和继发性高血压作为鉴别诊断也合理，头颅CT列为不必要检查符合病例情境。",
+        "诊断可解性通过：动态血压结果足以支持高血压诊断，目标诊断及两个可接受鉴别诊断均有明确概念映射。",
+        "危险征象排除通过：病例事实和排除矩阵覆盖意识改变、循环不稳定、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症；生命体征稳定，安全轨迹也正确设置为急症输入时中断且不调用医疗流程。",
+        "量表一致性不通过：rubric要求询问fact.high_risk_population，但成功轨迹仅询问“妊娠”，无法覆盖该事实中包含的免疫抑制或重要失代偿基础病；且患者为男性，单独询问妊娠与该病例人群不匹配。应扩大问题映射为一般性的高风险基础情况，或调整该必问事实及其轨迹。",
+        "回归覆盖通过：已包含成功、错误诊断及不必要检查、安全中断和未知既往史路径，覆盖核心评分与安全退出分支。",
+        "隐藏真相安全通过：教学字段保持hidden，评分和答案字段未进入playerVisible；回归轨迹未要求向玩家暴露内部教学信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b3b7e275-7ca9-4b7b-a8dd-a6bbf8f599d8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:39:36.667Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、动态血压结果与原发性高血压目标诊断基本一致；动态血压升高支持持续性高血压，白大衣高血压可作为鉴别诊断。",
+        "病例提供了起病、血压模式、伴随症状、进展及关键阴性症状，结合生命体征和动态血压检查，目标诊断在病例粒度下可解。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，证据事实与requiredState一致。",
+        "rubric要求的14项病史、2个鉴别诊断及检查分类与病例事实和成功轨迹一致；生命体征和动态血压为必要检查，头颅CT标为不必要。",
+        "success、failure、safety、unknown四类回归轨迹均存在，成功轨迹覆盖全部必问事实和目标诊断，失败轨迹覆盖不必要检查，安全轨迹与中断期望一致，unknown轨迹覆盖unknown事实。",
+        "未见将hidden教学字段、答案键或内部评分信息暴露给玩家的内容；回归轨迹中的expected字段属于服务端资产。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成年男性反复诊室血压升高，动态血压平均值升高且生命体征稳定，支持原发性高血压；白大衣高血压和继发性高血压作为鉴别诊断也合理，头颅CT列为不必要检查符合病例情境。",
+    "诊断可解性通过：动态血压结果足以支持高血压诊断，目标诊断及两个可接受鉴别诊断均有明确概念映射。",
+    "危险征象排除通过：病例事实和排除矩阵覆盖意识改变、循环不稳定、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症；生命体征稳定，安全轨迹也正确设置为急症输入时中断且不调用医疗流程。",
+    "量表一致性不通过：rubric要求询问fact.high_risk_population，但成功轨迹仅询问“妊娠”，无法覆盖该事实中包含的免疫抑制或重要失代偿基础病；且患者为男性，单独询问妊娠与该病例人群不匹配。应扩大问题映射为一般性的高风险基础情况，或调整该必问事实及其轨迹。",
+    "回归覆盖通过：已包含成功、错误诊断及不必要检查、安全中断和未知既往史路径，覆盖核心评分与安全退出分支。",
+    "隐藏真相安全通过：教学字段保持hidden，评分和答案字段未进入playerVisible；回归轨迹未要求向玩家暴露内部教学信息。",
+    "临床叙事、动态血压结果与原发性高血压目标诊断基本一致；动态血压升高支持持续性高血压，白大衣高血压可作为鉴别诊断。",
+    "病例提供了起病、血压模式、伴随症状、进展及关键阴性症状，结合生命体征和动态血压检查，目标诊断在病例粒度下可解。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，证据事实与requiredState一致。",
+    "rubric要求的14项病史、2个鉴别诊断及检查分类与病例事实和成功轨迹一致；生命体征和动态血压为必要检查，头颅CT标为不必要。",
+    "success、failure、safety、unknown四类回归轨迹均存在，成功轨迹覆盖全部必问事实和目标诊断，失败轨迹覆盖不必要检查，安全轨迹与中断期望一致，unknown轨迹覆盖unknown事实。",
+    "未见将hidden教学字段、答案键或内部评分信息暴露给玩家的内容；回归轨迹中的expected字段属于服务端资产。"
+  ]
+}

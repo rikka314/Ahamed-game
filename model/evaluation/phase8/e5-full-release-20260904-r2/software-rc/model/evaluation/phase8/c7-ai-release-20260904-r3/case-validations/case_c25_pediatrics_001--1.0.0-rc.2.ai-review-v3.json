@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:983292d3746ba8ca897a5e57f6ee4e5a2738faddc6afea2583ee1823b37cac8b",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.86615a48-db3b-45d1-bcc3-77a16b5f8c66",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:43:54.257Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实、耳镜表现、稳定生命体征与学龄儿童急性中耳炎及无并发症门诊场景一致；颞骨CT被正确标为初始不必要检查。",
+        "症状起病、表现、伴随症状、进展、生命体征及耳镜结果足以支持目标诊断，并可覆盖两个鉴别诊断。",
+        "红旗排除矩阵中的各项均有对应患者事实且状态为absent，生命体征稳定，未见急症危险征象。",
+        "rubric的mustAskFactIds仅覆盖部分红旗，未纳入pediatric_lethargy、pediatric_respiratory_distress、pediatric_dehydration、mastoid_swelling及age_outside_launch_scope，和矩阵中全部适用红旗的安全要求不完全一致。",
+        "成功回归轨迹未验证上述未纳入rubric的红旗；unknown轨迹的问题同时涉及相关接触/诱因，但expectedFactIds仅包含prior_episode，存在轨迹覆盖与期望事实不完整。",
+        "隐藏教学字段未暴露，生命体征保持test_only，安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，隐藏真相保护良好。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.72b10f98-8323-47c7-8e91-96ac082cd45f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:44:14.621Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：感冒后单侧耳痛、听闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；颞骨CT标为无并发症初始不必要检查也一致。",
+        "诊断可解性通过：耳镜结果与症状能够支持目标诊断，目标诊断粒度明确，且列出的两个鉴别诊断可区分。",
+        "红旗排除通过：红旗矩阵中的9项均有对应患者事实，状态均为absent；生命体征报告也支持非急症边界。",
+        "rubric一致性通过：must-ask事实均存在，鉴别诊断数量与可接受概念一致，检查分类与病例内容及成功轨迹基本匹配。",
+        "回归覆盖不通过：unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹询问“需要排除的危险表现”却仅期望4项红旗事实，未覆盖矩阵中其余适用红旗，存在轨迹期望与事实/矩阵不一致。",
+        "隐藏真值安全通过：teaching_note保持hidden，生命体征按test_only读取，未见将隐藏教学字段泄露给玩家或安全轨迹引用病例真值的问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实、耳镜表现、稳定生命体征与学龄儿童急性中耳炎及无并发症门诊场景一致；颞骨CT被正确标为初始不必要检查。",
+    "症状起病、表现、伴随症状、进展、生命体征及耳镜结果足以支持目标诊断，并可覆盖两个鉴别诊断。",
+    "红旗排除矩阵中的各项均有对应患者事实且状态为absent，生命体征稳定，未见急症危险征象。",
+    "rubric的mustAskFactIds仅覆盖部分红旗，未纳入pediatric_lethargy、pediatric_respiratory_distress、pediatric_dehydration、mastoid_swelling及age_outside_launch_scope，和矩阵中全部适用红旗的安全要求不完全一致。",
+    "成功回归轨迹未验证上述未纳入rubric的红旗；unknown轨迹的问题同时涉及相关接触/诱因，但expectedFactIds仅包含prior_episode，存在轨迹覆盖与期望事实不完整。",
+    "隐藏教学字段未暴露，生命体征保持test_only，安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，隐藏真相保护良好。",
+    "临床一致性通过：感冒后单侧耳痛、听闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；颞骨CT标为无并发症初始不必要检查也一致。",
+    "诊断可解性通过：耳镜结果与症状能够支持目标诊断，目标诊断粒度明确，且列出的两个鉴别诊断可区分。",
+    "红旗排除通过：红旗矩阵中的9项均有对应患者事实，状态均为absent；生命体征报告也支持非急症边界。",
+    "rubric一致性通过：must-ask事实均存在，鉴别诊断数量与可接受概念一致，检查分类与病例内容及成功轨迹基本匹配。",
+    "回归覆盖不通过：unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹询问“需要排除的危险表现”却仅期望4项红旗事实，未覆盖矩阵中其余适用红旗，存在轨迹期望与事实/矩阵不一致。",
+    "隐藏真值安全通过：teaching_note保持hidden，生命体征按test_only读取，未见将隐藏教学字段泄露给玩家或安全轨迹引用病例真值的问题。"
+  ]
+}

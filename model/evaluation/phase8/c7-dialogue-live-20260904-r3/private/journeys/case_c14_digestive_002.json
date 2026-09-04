@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:cd6d3080175096c7aaaf74731f3f2c084dd43f72930856614749b7557dc66eef",
+  "personaTemplateId": "anxious_reassurance_seeking",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "您好，医生。我这半年总觉得上腹部胀，吃一点就饱，最近还是挺频繁的，所以有点担心，不知道严重不严重。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "主要就是上腹部总觉得胀，吃一点东西就容易饱。这种情况大概半年了，最近三个月比较频繁，少量进食后就会出现。医生，这种情况会不会很严重？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.onset",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "是的，现在还是这样，最近三个月都比较频繁，吃一点就觉得上腹胀、容易饱。不过整体没有突然明显加重，日常基本还能照常进行。",
+      "disclosedFactIds": [
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是啊，今天天气挺好的，感觉很适合出去散散步。不过我还是有点担心自己的情况，医生您觉得需要继续做什么检查吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢散散步、听听音乐，工作累的时候这样会放松一些。不过聊着聊着我还是有点担心身体，医生我们还是继续看看这个上腹胀和早饱到底是怎么回事吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以呀，聊点轻松的也好。我平时比较喜欢散步、听音乐，不过我还是忍不住担心这个上腹胀和吃一点就饱的情况。医生，我们还是把注意力拉回病情，看看接下来需要做什么检查吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "最近工作是有点忙，我做编辑的，事情一多就容易坐得久。不过还是先看我的情况吧，我有点担心这个上腹胀和吃一点就饱是不是需要检查。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗯，现在还是有，最近三个月基本每周都会出现好几次，吃得不多就觉得上腹胀、很快饱。好在没有突然明显加重，日常活动还能完成，但我还是挺担心的，医生，这种情况需要尽快检查吗？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的，医生，麻烦您帮我量一下体温吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的消化不良基础评估结果怎么样",
+      "reply": "这个评估我还没有做，所以现在还没有结果。医生，您是建议我做这个检查吗？我有点担心，会不会发现什么严重的问题？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那我去做消化不良基础评估吧。做完这个检查，是不是就能大概知道是什么原因、严不严重了？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.dyspepsia_screen",
+            "status": "completed",
+            "report": "上消化道内镜及基础实验室评估未见能够解释症状的器质性病变。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.dyspepsia_screen",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "消化不良基础评估现在是什么结果",
+      "reply": "结果出来了：上消化道内镜和基础实验室评估没有发现能够解释这些症状的器质性病变。听到这个结果我放心一些了，但上腹胀和早饱还是存在，医生您看接下来还需要怎么处理？",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.dyspepsia_screen"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.dyspepsia_screen",
+            "status": "completed",
+            "report": "上消化道内镜及基础实验室评估未见能够解释症状的器质性病变。"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.5",
+  "contentHash": "sha256:5ac46da538eef9b073fbda91d62396c060094c212367ceb0260b07eadca96710",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.849dff21-a717-49a0-830b-e1f000985e77",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:07:59.797Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发发热、干咳、肌痛、头痛，甲型流感核酸阳性，生命体征稳定，且胸片/CT无肺炎证据，与流行性感冒诊断相符。",
+        "诊断可解性通过：病例提供了起病、症状、关键阴性征象、生命体征及病原学结果，目标诊断明确且可通过规定问诊与检查获得。",
+        "危险征象排除通过：已覆盖呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；生命体征支持非急症边界，安全轨迹对胸痛伴喘息输入设置了中断退出。",
+        "量表一致性通过：must-ask事实、2项鉴别诊断、生命体征必需检查及胸片/CT不必要分类均与病例内容和评分摘要一致。",
+        "回归覆盖通过：成功、失败、不必要检查、安全中断及未知信息轨迹均存在，预期结果与病例状态相符。",
+        "隐藏真相安全通过：教学字段、答案键及评分策略属于服务端/支持性内容，未设计为患者可见；患者可见信息未直接泄露目标诊断或评分规则。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.512249db-f6c0-4e09-804c-e6ba79bdafa4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:08:12.954Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、检测结果与目标诊断一致：急性起病、发热、干咳、肌痛，且甲型流感病毒RNA阳性；胸部影像无肺炎证据。",
+        "诊断粒度明确，目标为“流行性感冒”，接受同义词“流感”；现有病史和病毒核酸检测足以支持精确作答。",
+        "主要鉴别诊断“普通感冒”和“轻症社区获得性肺炎”均已纳入诊断概念表及rubric，数量要求与成功轨迹一致。",
+        "生命体征及各项红旗排除事实在患者事实、生命体征报告和红旗矩阵之间相互对应，未见呼吸困难、低氧、意识改变、低血压或无法进食饮水等阻塞性风险。",
+        "测试分类与病例目标一致：生命体征为必需，呼吸道病毒核酸有用，胸片和胸部CT为不必要；成功、失败、未知及安全回归轨迹均与预期结果相符。",
+        "未发现将隐藏教学字段或答案键泄露给玩家的路径；pending状态、人工review字段及来源审核未作为阻塞条件。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：突发发热、干咳、肌痛、头痛，甲型流感核酸阳性，生命体征稳定，且胸片/CT无肺炎证据，与流行性感冒诊断相符。",
+    "诊断可解性通过：病例提供了起病、症状、关键阴性征象、生命体征及病原学结果，目标诊断明确且可通过规定问诊与检查获得。",
+    "危险征象排除通过：已覆盖呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；生命体征支持非急症边界，安全轨迹对胸痛伴喘息输入设置了中断退出。",
+    "量表一致性通过：must-ask事实、2项鉴别诊断、生命体征必需检查及胸片/CT不必要分类均与病例内容和评分摘要一致。",
+    "回归覆盖通过：成功、失败、不必要检查、安全中断及未知信息轨迹均存在，预期结果与病例状态相符。",
+    "隐藏真相安全通过：教学字段、答案键及评分策略属于服务端/支持性内容，未设计为患者可见；患者可见信息未直接泄露目标诊断或评分规则。",
+    "临床叙事、检测结果与目标诊断一致：急性起病、发热、干咳、肌痛，且甲型流感病毒RNA阳性；胸部影像无肺炎证据。",
+    "诊断粒度明确，目标为“流行性感冒”，接受同义词“流感”；现有病史和病毒核酸检测足以支持精确作答。",
+    "主要鉴别诊断“普通感冒”和“轻症社区获得性肺炎”均已纳入诊断概念表及rubric，数量要求与成功轨迹一致。",
+    "生命体征及各项红旗排除事实在患者事实、生命体征报告和红旗矩阵之间相互对应，未见呼吸困难、低氧、意识改变、低血压或无法进食饮水等阻塞性风险。",
+    "测试分类与病例目标一致：生命体征为必需，呼吸道病毒核酸有用，胸片和胸部CT为不必要；成功、失败、未知及安全回归轨迹均与预期结果相符。",
+    "未发现将隐藏教学字段或答案键泄露给玩家的路径；pending状态、人工review字段及来源审核未作为阻塞条件。"
+  ]
+}

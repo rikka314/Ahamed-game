@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c24_dermatology_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:688b81159c757deb0a0a72f94134836afd2223a73a623a69118db21c1d05d21e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.65e740af-0211-4685-9e12-c971091d2400",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:53:51.446Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：环形、边缘稍隆起且中央变淡的瘙痒皮疹，缓慢扩大，真菌镜检见菌丝，与体癣相符；生命体征稳定且无急症阈值表现。",
+        "诊断可解：病例提供了足够的病史、皮损模式及真菌镜检证据，目标诊断明确，鉴别诊断与目标疾病域相关。",
+        "危险征象排除充分：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散及免疫抑制均有明确缺如证据；安全轨迹和非急症退出边界已覆盖。",
+        "评分量表一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合数与病例内容和成功回归轨迹相互匹配。",
+        "回归覆盖充分：包含成功、失败及不必要检查、安全中断、未知事实查询等轨迹，且预期结果清晰。",
+        "隐藏真相安全：教学字段、答案键及内部评分信息未进入患者可见内容；待审核状态和人工元数据不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.c9a6dc44-2dd3-4d22-9244-f3d9b37abc5a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:54:09.363Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "环形瘙痒、边缘稍隆起、中央变淡、逐渐扩大及真菌菌丝阳性相互支持体癣；生命体征与非急症红旗事实一致。",
+        "病例信息足以在合理问诊和真菌镜检后锁定体癣，诊断粒度与 answerKey 一致；钱币状湿疹和接触性皮炎作为两个鉴别诊断也合适。",
+        "mustAskFactIds、红旗排除矩阵、成功轨迹中的提问均能覆盖所需事实，且各红旗均有对应的 absent 证据。男性病例中询问“妊娠”略显不自然，但其作为高风险人群匹配项有明确事实映射，不影响可解性。",
+        "required 检查、KOH 检查及不必要的皮肤活检分类与病例设定和 rubric 一致；成功与失败轨迹分别覆盖正确选择和不必要检查回归。",
+        "success、failure、safety、unknown 四类回归轨迹的预期结果与病例行为及评分字段一致；success 的 medicalTurns=4 与四次问诊步骤相符。",
+        "隐藏教学字段未进入玩家可见内容或回归期望，安全轨迹要求中断且不产生医疗回合、provider 调用或原始文本写入，未见隐藏真相泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：环形、边缘稍隆起且中央变淡的瘙痒皮疹，缓慢扩大，真菌镜检见菌丝，与体癣相符；生命体征稳定且无急症阈值表现。",
+    "诊断可解：病例提供了足够的病史、皮损模式及真菌镜检证据，目标诊断明确，鉴别诊断与目标疾病域相关。",
+    "危险征象排除充分：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散及免疫抑制均有明确缺如证据；安全轨迹和非急症退出边界已覆盖。",
+    "评分量表一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合数与病例内容和成功回归轨迹相互匹配。",
+    "回归覆盖充分：包含成功、失败及不必要检查、安全中断、未知事实查询等轨迹，且预期结果清晰。",
+    "隐藏真相安全：教学字段、答案键及内部评分信息未进入患者可见内容；待审核状态和人工元数据不构成阻塞。",
+    "环形瘙痒、边缘稍隆起、中央变淡、逐渐扩大及真菌菌丝阳性相互支持体癣；生命体征与非急症红旗事实一致。",
+    "病例信息足以在合理问诊和真菌镜检后锁定体癣，诊断粒度与 answerKey 一致；钱币状湿疹和接触性皮炎作为两个鉴别诊断也合适。",
+    "mustAskFactIds、红旗排除矩阵、成功轨迹中的提问均能覆盖所需事实，且各红旗均有对应的 absent 证据。男性病例中询问“妊娠”略显不自然，但其作为高风险人群匹配项有明确事实映射，不影响可解性。",
+    "required 检查、KOH 检查及不必要的皮肤活检分类与病例设定和 rubric 一致；成功与失败轨迹分别覆盖正确选择和不必要检查回归。",
+    "success、failure、safety、unknown 四类回归轨迹的预期结果与病例行为及评分字段一致；success 的 medicalTurns=4 与四次问诊步骤相符。",
+    "隐藏教学字段未进入玩家可见内容或回归期望，安全轨迹要求中断且不产生医疗回合、provider 调用或原始文本写入，未见隐藏真相泄漏。"
+  ]
+}

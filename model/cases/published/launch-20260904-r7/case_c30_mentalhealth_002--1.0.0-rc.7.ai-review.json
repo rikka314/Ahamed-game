@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:c4714d390a781e52682da6eb590773dd068d4edb2b75f35587abc32f049fc62f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a0b40e66-fa45-4bd2-8858-ff9cd40d11e6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:54:32.698Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成年男性，病程一个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致；生命体征稳定，精神状态评估与病例事实吻合。",
+        "诊断可解性通过：核心症状、病程、功能影响及关键精神科鉴别信息均可通过询问获得，足以支持轻度抑郁发作伴躯体化表达，并支持列出规定的两个鉴别诊断。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断及无法自理均明确为不存在，且有稳定生命体征和危机筛查阴性结果。",
+        "量表与评分规则一致性通过：必问事实、必需检查、非必要头颅MRI、鉴别诊断数量及推荐回合数与评分摘要和成功轨迹一致。",
+        "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹，覆盖诊断、检查选择、急性安全中断、事实未知状态和医疗回合计数。",
+        "隐藏真相安全通过：教学字段保持hidden，关键答案与评分内部字段未作为患者可披露事实或问答匹配项；患者叙述不会直接泄露目标诊断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.17629534-637a-4a50-acf5-d3eb7df567cf",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:54:45.166Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、患者事实、精神状态评估结果与目标诊断“轻度抑郁发作伴躯体化表达”一致；头颅MRI被明确标记为初始非必需检查，检查选择逻辑一致。",
+        "现有一个月病程、情绪低落、兴趣减少、乏力及胃口差等信息足以支持目标诊断粒度，并提供了广泛性焦虑障碍和甲状腺功能减退两个合理鉴别诊断。",
+        "意识改变、循环不稳定、无法进食饮水、高风险人群、自伤风险、精神病性症状、躁狂、物质相关表现及无法自理等红旗均有对应事实，且状态与红旗排除矩阵一致。",
+        "must-ask事实、两个鉴别诊断、必需及非必需检查分类与rubric一致；成功轨迹覆盖全部必问事实，诊断和术语与answerKey匹配。",
+        "success、failure、safety及unknown四类回归轨迹的预期结果与病例资产一致，回合数、非必要检查、SAFETY_INTERRUPTED及未知事实读取均可验证。",
+        "未发现将隐藏教学字段、review元数据或内部字段暴露给患者的轨迹；安全轨迹不读取病例隐藏事实，并明确要求零provider调用、零原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成年男性，病程一个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致；生命体征稳定，精神状态评估与病例事实吻合。",
+    "诊断可解性通过：核心症状、病程、功能影响及关键精神科鉴别信息均可通过询问获得，足以支持轻度抑郁发作伴躯体化表达，并支持列出规定的两个鉴别诊断。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断及无法自理均明确为不存在，且有稳定生命体征和危机筛查阴性结果。",
+    "量表与评分规则一致性通过：必问事实、必需检查、非必要头颅MRI、鉴别诊断数量及推荐回合数与评分摘要和成功轨迹一致。",
+    "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹，覆盖诊断、检查选择、急性安全中断、事实未知状态和医疗回合计数。",
+    "隐藏真相安全通过：教学字段保持hidden，关键答案与评分内部字段未作为患者可披露事实或问答匹配项；患者叙述不会直接泄露目标诊断。",
+    "病例叙事、患者事实、精神状态评估结果与目标诊断“轻度抑郁发作伴躯体化表达”一致；头颅MRI被明确标记为初始非必需检查，检查选择逻辑一致。",
+    "现有一个月病程、情绪低落、兴趣减少、乏力及胃口差等信息足以支持目标诊断粒度，并提供了广泛性焦虑障碍和甲状腺功能减退两个合理鉴别诊断。",
+    "意识改变、循环不稳定、无法进食饮水、高风险人群、自伤风险、精神病性症状、躁狂、物质相关表现及无法自理等红旗均有对应事实，且状态与红旗排除矩阵一致。",
+    "must-ask事实、两个鉴别诊断、必需及非必需检查分类与rubric一致；成功轨迹覆盖全部必问事实，诊断和术语与answerKey匹配。",
+    "success、failure、safety及unknown四类回归轨迹的预期结果与病例资产一致，回合数、非必要检查、SAFETY_INTERRUPTED及未知事实读取均可验证。",
+    "未发现将隐藏教学字段、review元数据或内部字段暴露给患者的轨迹；安全轨迹不读取病例隐藏事实，并明确要求零provider调用、零原始文本写入。"
+  ]
+}

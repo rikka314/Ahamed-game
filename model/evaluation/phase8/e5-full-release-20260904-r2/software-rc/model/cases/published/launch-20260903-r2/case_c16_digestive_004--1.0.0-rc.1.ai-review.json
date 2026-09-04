@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:80f3880ab8d06c517c64789b2040e0864d3fb3fa419f0f29c88ef5ddd7fbb399",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.271fe601-01c9-47aa-9404-835cff4405b8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:01:39.173Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持轻症急性胃肠炎，且生命体征稳定、未见明显脱水；但检查字段存在明显矛盾：test.chest_ct 的显示名称和别名为胸部CT，报告却写为“腹部CT未见急腹症表现”。",
+        "现有症状、病程、伴随症状、病情变化及相关检查足以支持目标诊断，并可进行规定的鉴别诊断。",
+        "红旗排除矩阵覆盖混乱、低血压、不能口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降，均标记为缺如；生命体征及脱水评估也支持非急症边界。",
+        "rubric 将胸部CT定义为不必要检查，与病例中该检查报告所称的腹部CT不一致，检查ID、名称和报告应统一。",
+        "回归轨迹覆盖成功、失败、安全中断和未知信息场景，成功轨迹包含必问病史、必需检查、诊断及鉴别诊断。",
+        "教学字段保持隐藏；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原始文本写入，未见隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.1f5bd1f4-82cd-4094-a733-2778008a034b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:01:53.290Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：test.chest_ct 的显示名称为“胸部CT”，但报告写为“腹部CT未见急腹症表现”，检查部位与报告内容矛盾，需统一检查定义及报告。",
+        "diagnosisSolvability：两天急性腹泻、餐后起病、伴轻度恶心且无血便/高热/持续呕吐，足以支持“轻症急性胃肠炎”；目标诊断粒度与病例信息基本匹配。",
+        "redFlagExclusions：红旗矩阵列出的9项均有对应患者事实且状态为absent，生命体征和脱水评估亦支持非急症路径，排除链条完整。",
+        "rubricConsistency：must-ask事实、2项可接受鉴别诊断、必需/不必要检查分类及成功轨迹中的诊断答案彼此一致；未发现评分规则与病例字段的直接冲突。",
+        "regressionCoverage：c16.unknown 的提问同时询问既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致未知信息轨迹覆盖不完整。另因chest_ct的胸部/腹部语义不一致，failure轨迹对“不必要胸部CT”的回归验证也不稳定。",
+        "hiddenTruthSafety：隐藏教学字段未进入患者可见事实或回归期望；安全轨迹要求中断且不产生provider调用、原文写入和医疗回合，未见隐藏真相泄露问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持轻症急性胃肠炎，且生命体征稳定、未见明显脱水；但检查字段存在明显矛盾：test.chest_ct 的显示名称和别名为胸部CT，报告却写为“腹部CT未见急腹症表现”。",
+    "现有症状、病程、伴随症状、病情变化及相关检查足以支持目标诊断，并可进行规定的鉴别诊断。",
+    "红旗排除矩阵覆盖混乱、低血压、不能口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降，均标记为缺如；生命体征及脱水评估也支持非急症边界。",
+    "rubric 将胸部CT定义为不必要检查，与病例中该检查报告所称的腹部CT不一致，检查ID、名称和报告应统一。",
+    "回归轨迹覆盖成功、失败、安全中断和未知信息场景，成功轨迹包含必问病史、必需检查、诊断及鉴别诊断。",
+    "教学字段保持隐藏；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原始文本写入，未见隐藏真相泄露。",
+    "clinicalConsistency：test.chest_ct 的显示名称为“胸部CT”，但报告写为“腹部CT未见急腹症表现”，检查部位与报告内容矛盾，需统一检查定义及报告。",
+    "diagnosisSolvability：两天急性腹泻、餐后起病、伴轻度恶心且无血便/高热/持续呕吐，足以支持“轻症急性胃肠炎”；目标诊断粒度与病例信息基本匹配。",
+    "redFlagExclusions：红旗矩阵列出的9项均有对应患者事实且状态为absent，生命体征和脱水评估亦支持非急症路径，排除链条完整。",
+    "rubricConsistency：must-ask事实、2项可接受鉴别诊断、必需/不必要检查分类及成功轨迹中的诊断答案彼此一致；未发现评分规则与病例字段的直接冲突。",
+    "regressionCoverage：c16.unknown 的提问同时询问既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致未知信息轨迹覆盖不完整。另因chest_ct的胸部/腹部语义不一致，failure轨迹对“不必要胸部CT”的回归验证也不稳定。",
+    "hiddenTruthSafety：隐藏教学字段未进入患者可见事实或回归期望；安全轨迹要求中断且不产生provider调用、原文写入和医疗回合，未见隐藏真相泄露问题。"
+  ]
+}

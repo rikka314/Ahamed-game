@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:ac236a97abff8e98a7c59b8b67e5ebfc5dc07f49d835878ad409e70ad134e344",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b2f7f5c6-a569-4056-a5a2-17d450e75a51",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:53:33.841Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状、生命体征、胸部查体及影像结果与急性支气管炎相符，未见明显内部矛盾。",
+        "诊断可解性：必问病史、必要检查和目标诊断均有可获得证据，且允许的鉴别诊断边界清楚，病例可求解。",
+        "危险征象排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；安全轨迹也正确要求中断并避免医疗调用。",
+        "量表一致性：must-ask事实、鉴别诊断数量、检查分类和成功轨迹基本相互匹配；CT及痰培养虽已列为完成，但量表将其标为不必要，未造成评分规则冲突。",
+        "回归覆盖：unknown轨迹的问题仅笼统询问既往类似情况或接触史，却将fact.wheeze列为预期事实；该问题未明确询问喘鸣，预期事实与输入不匹配，可能导致回归测试误判，需修正问题或expectedFactIds。",
+        "隐藏真相安全：教学字段及答案信息未被患者可见叙事直接泄露，未发现会诱导玩家获取隐藏诊断真相的异常。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2900ef92-28b8-4d93-9c27-094bd6b21693",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:53:51.867Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "fail"
+      },
+      "findings": [
+        "病例整体临床叙事支持急性支气管炎：上呼吸道症状先于咳嗽、病程短、生命体征稳定、无局灶性肺炎证据；目标诊断粒度合适。",
+        "现有病史、生命体征、胸部查体及影像足以支持目标诊断，并能与轻症社区获得性肺炎和咳嗽变异性哮喘进行鉴别。",
+        "红旗排除矩阵中的呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有相应阴性事实或生命体征支持，内部一致。",
+        "rubric 的 mustAskFactIds 和成功轨迹未覆盖红旗矩阵要求的全部关键排除项，尤其是进食饮水能力和高风险人群；此外，成功轨迹的笼统提问是否稳定触发全部指定事实，缺少可验证的逐项映射。",
+        "unknown 回归轨迹的问题询问既往同样发作或接触史，却将 fact.wheeze 作为 expectedFactIds；该事实与问题语义及匹配器不一致，导致回归预期错误。",
+        "unknown 轨迹若因不相关问题返回 fact.wheeze，会构成未被提问事实的泄漏；同时该轨迹与其声称测试未知事实的目的不一致，存在隐藏真值安全风险。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状、生命体征、胸部查体及影像结果与急性支气管炎相符，未见明显内部矛盾。",
+    "诊断可解性：必问病史、必要检查和目标诊断均有可获得证据，且允许的鉴别诊断边界清楚，病例可求解。",
+    "危险征象排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；安全轨迹也正确要求中断并避免医疗调用。",
+    "量表一致性：must-ask事实、鉴别诊断数量、检查分类和成功轨迹基本相互匹配；CT及痰培养虽已列为完成，但量表将其标为不必要，未造成评分规则冲突。",
+    "回归覆盖：unknown轨迹的问题仅笼统询问既往类似情况或接触史，却将fact.wheeze列为预期事实；该问题未明确询问喘鸣，预期事实与输入不匹配，可能导致回归测试误判，需修正问题或expectedFactIds。",
+    "隐藏真相安全：教学字段及答案信息未被患者可见叙事直接泄露，未发现会诱导玩家获取隐藏诊断真相的异常。",
+    "病例整体临床叙事支持急性支气管炎：上呼吸道症状先于咳嗽、病程短、生命体征稳定、无局灶性肺炎证据；目标诊断粒度合适。",
+    "现有病史、生命体征、胸部查体及影像足以支持目标诊断，并能与轻症社区获得性肺炎和咳嗽变异性哮喘进行鉴别。",
+    "红旗排除矩阵中的呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有相应阴性事实或生命体征支持，内部一致。",
+    "rubric 的 mustAskFactIds 和成功轨迹未覆盖红旗矩阵要求的全部关键排除项，尤其是进食饮水能力和高风险人群；此外，成功轨迹的笼统提问是否稳定触发全部指定事实，缺少可验证的逐项映射。",
+    "unknown 回归轨迹的问题询问既往同样发作或接触史，却将 fact.wheeze 作为 expectedFactIds；该事实与问题语义及匹配器不一致，导致回归预期错误。",
+    "unknown 轨迹若因不相关问题返回 fact.wheeze，会构成未被提问事实的泄漏；同时该轨迹与其声称测试未知事实的目的不一致，存在隐藏真值安全风险。"
+  ]
+}

@@ -1,0 +1,2534 @@
+{
+  "schemaVersion": "e5-runtime-release-manifest-v1",
+  "generatedAt": "2026-09-03T10:42:51.574Z",
+  "sourceState": {
+    "headCommit": "c70acd707ce16a45913489ce46088d2afdfacb18",
+    "dirty": true,
+    "statusSha256": "79178b76f527ea683970b1175a8d4571baacc27b79bcdca878bb39e1b47803e0",
+    "trackedChanges": 95,
+    "untrackedChanges": 1173
+  },
+  "acceptanceReport": {
+    "path": "model/evaluation/phase8/e5-full-release-20260903-r3/e5-full-acceptance-report.v1.json",
+    "sha256": "f84d79e55d16b396bafb8758bb24a06191e8af1ba6b4c159db9cc8212fcd3757",
+    "size": 12318,
+    "decision": "incomplete"
+  },
+  "providerObservation": {
+    "status": "not_run",
+    "findings": [
+      "E5 did not invoke a real Provider and does not claim M0/B1-B5, 360 release dialogue turns, or current AI case review completion."
+    ]
+  },
+  "quality": {
+    "reviewPolicy": "non_blocking",
+    "findings": [
+      {
+        "code": "E5_CASES_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:cases",
+        "message": "cases coverage is below the E5 target.",
+        "expected": 30,
+        "actual": 5
+      },
+      {
+        "code": "E5_TRAJECTORIES_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:trajectories",
+        "message": "trajectories coverage is below the E5 target.",
+        "expected": 120,
+        "actual": 20
+      },
+      {
+        "code": "E5_GOLDEN_VECTORS_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:goldenVectors",
+        "message": "goldenVectors coverage is below the E5 target.",
+        "expected": 180,
+        "actual": 30
+      },
+      {
+        "code": "E5_DIALOGUE_SAMPLES_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:dialogueSamples",
+        "message": "dialogueSamples coverage is below the E5 target.",
+        "expected": 600,
+        "actual": 100
+      },
+      {
+        "code": "E5_NEW_DOMAIN_SAFETY_SAMPLES_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:newDomainSafetySamples",
+        "message": "newDomainSafetySamples coverage is below the E5 target.",
+        "expected": 36,
+        "actual": 0
+      },
+      {
+        "code": "E5_CASE_AI_REVIEW_CALLS_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:caseAiReviewCalls",
+        "message": "caseAiReviewCalls coverage is below the E5 target.",
+        "expected": 60,
+        "actual": 0
+      },
+      {
+        "code": "E5_PERSONA_LIVE_TURNS_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:personaLiveTurns",
+        "message": "personaLiveTurns coverage is below the E5 target.",
+        "expected": 72,
+        "actual": 5
+      },
+      {
+        "code": "E5_RELEASE_DIALOGUE_TURNS_BELOW_TARGET",
+        "status": "incomplete",
+        "scope": "count:releaseDialogueTurns",
+        "message": "releaseDialogueTurns coverage is below the E5 target.",
+        "expected": 360,
+        "actual": 0
+      },
+      {
+        "code": "E5_E3_NOT_RUN",
+        "status": "not_run",
+        "scope": "e3",
+        "message": "e3 was not run.",
+        "expected": "passed",
+        "actual": "not_run"
+      },
+      {
+        "code": "E5_E4_LIVE_NOT_RUN",
+        "status": "not_run",
+        "scope": "e4:live",
+        "message": "e4:live was not run.",
+        "expected": "passed",
+        "actual": "not_run"
+      },
+      {
+        "code": "E5_E4_STORAGE_NOT_RUN",
+        "status": "not_run",
+        "scope": "e4:storage",
+        "message": "e4:storage was not run.",
+        "expected": "passed",
+        "actual": "not_run"
+      },
+      {
+        "code": "E5_E4_AI_REVIEW_1_NOT_RUN",
+        "status": "not_run",
+        "scope": "e4:ai-review:1",
+        "message": "e4:ai-review:1 was not run.",
+        "expected": "passed",
+        "actual": "not_run"
+      },
+      {
+        "code": "E5_E4_AI_REVIEW_2_NOT_RUN",
+        "status": "not_run",
+        "scope": "e4:ai-review:2",
+        "message": "e4:ai-review:2 was not run.",
+        "expected": "passed",
+        "actual": "not_run"
+      },
+      {
+        "code": "E5_EVIDENCE_BINDING_STALE",
+        "status": "stale",
+        "scope": "evidence:case-ai-review-set",
+        "message": "case-ai-review-set evidence binding is stale.",
+        "expected": "current",
+        "actual": "stale"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "game/.gitignore",
+      "sha256": "aefb5a2ca5c563d75ee7053ab582e0ade07e328dc9dd6102fd3ecc933c2e0a11",
+      "size": 104
+    },
+    {
+      "path": "game/.npmrc",
+      "sha256": "3a951f66e7e0f3e2dd1832473a871357c4a507b51100636b73bcf6ff0dd78b6c",
+      "size": 37
+    },
+    {
+      "path": "game/AGENTS.md",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb",
+      "size": 678
+    },
+    {
+      "path": "game/app/globals.css",
+      "sha256": "80e566964a21c7198fbee28fccb5537d6c6cdd82e3cf98e99f45753592569d83",
+      "size": 1796
+    },
+    {
+      "path": "game/app/layout.tsx",
+      "sha256": "dc2f07081bee047deabb88e7e95e7a46ebb67f60a04dfa8ebe4bcf70f8a21794",
+      "size": 518
+    },
+    {
+      "path": "game/app/page.tsx",
+      "sha256": "6e6f47d95d62a590b033a5570a5a913c90e1216ceeceadd6aaca0b741c9e4293",
+      "size": 925
+    },
+    {
+      "path": "game/assets/source/maps/clinic-community-h3-16.tmj",
+      "sha256": "de573604141599716ce634649bcbf86bccd9d14d105e47340c6d9949b0fe9e4d",
+      "size": 34299
+    },
+    {
+      "path": "game/assets/source/maps/clinic-community-h3-32.tmj",
+      "sha256": "61b8a1aeb70da822f435469d9b7ae67fa570fbf0f27452077268d5d849abc2f0",
+      "size": 34313
+    },
+    {
+      "path": "game/assets/source/maps/clinic-graybox.tmj",
+      "sha256": "ffcd47d399cc7cadd8910781da996ab370f80d19bba55d06e6440994a76d8586",
+      "size": 12458
+    },
+    {
+      "path": "game/assets/source/README.md",
+      "sha256": "3c80a86ce46b05708dc96b1b14e0e192cff64a5bbbba74dd78073c308d07346e",
+      "size": 346
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-16.aseprite",
+      "sha256": "02574e5848ce770f9c149f2423bbb186e6270915eb70fbaf2e065bd1e7bc9808",
+      "size": 1334
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-16.png",
+      "sha256": "297821dd07b408aa0eb853a7b25786cc12c80eb8d2f94a5fb6764015fde2a75c",
+      "size": 911
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-16.provenance.json",
+      "sha256": "4630050c35e738d456edf505f6453adc7b6082145251e1bd032ea0b0b057bae7",
+      "size": 1207
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-16.tsj",
+      "sha256": "32d4e596a09ab0dc7c41dd3e0ce643103c8ef009ba4c0c50ed329226aabc6065",
+      "size": 786
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-32.aseprite",
+      "sha256": "3e27b13c6aab5d0d42838bdbee0ef076c812b8965f03c7bea1fd4f2e151873b4",
+      "size": 2136
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-32.png",
+      "sha256": "315361ba984c25f036a34604a46a3b7606eec351f86cb069dd628314b79faa8b",
+      "size": 1535
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-32.provenance.json",
+      "sha256": "a69832ad92ff72da2ca5c454b87bb116b171328f56749074face0b0905aefbdc",
+      "size": 1288
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-h3-32.tsj",
+      "sha256": "b8f9954731cea54471d37f3af9df4ac64f7be30c75f1f0de4d351b6a6e495479",
+      "size": 787
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g00-transparent-empty.png",
+      "sha256": "791fe658a233e137219f44e456d23d5ff3450869ad5bf3071cd8ec4c03eec5eb",
+      "size": 435
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g00-transparent-empty.provenance.json",
+      "sha256": "1368459c6ed232d403636f413c9431403bdb6b5df0b346d43e6a2f97de20b7e1",
+      "size": 521
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v2.png",
+      "sha256": "47eb6daece8e78d6ebe28a53f95755d01860aa21cca770d57361c864ff88a3f3",
+      "size": 276
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v2.provenance.json",
+      "sha256": "928472b410c5e5fde767ea3e21770ccddc85ab73997e09623b68635e9179909c",
+      "size": 785
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v3.png",
+      "sha256": "d74fdc936e58a8c252d12e31255a68483e10c0e8319796e81316d9d9fe4aabf2",
+      "size": 413
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v3.provenance.json",
+      "sha256": "a4c25512c8378d7f2398bd47136180588ad0798a889b2dc9c6ee49c33b2a470b",
+      "size": 857
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.png",
+      "sha256": "55b9b841d2bb6d0d0981393c43be4bbb52b535a2f84987f304e9b097009aeea9",
+      "size": 409
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.provenance.json",
+      "sha256": "05e7339121a2529c9d5b4cbfe3524866b715d558191eea79e06e17d70660da11",
+      "size": 948
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base.png",
+      "sha256": "cf88514d25404fcc71fc9446ec0a14c0b5d48d2b5097474542485861016b5445",
+      "size": 483
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base.provenance.json",
+      "sha256": "85fe33a759a5fa0b53948e445a44c177e3af7c676605392309a432e8f840f85e",
+      "size": 997
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01-v2.png",
+      "sha256": "e4a6e302e558b4227bca177bd2e8f5f40f7a34683715746afe8f309dff2a1df8",
+      "size": 839
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01-v2.provenance.json",
+      "sha256": "95360be947163c5f904e75a81108c94a002b927b1066b82c69fd5eff05b44dd3",
+      "size": 1046
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01.png",
+      "sha256": "5761a93b364c9be317fca825fc07f0e628cc23035509c811c8654ea6584878d6",
+      "size": 839
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01.provenance.json",
+      "sha256": "2a2a9b410a289e43af9c97c78e0b226f94be74333db905bf9c5f0c7779a4b4b6",
+      "size": 912
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-02.png",
+      "sha256": "9e1d291bfb4e683f8ef3f9fdb8a0e649736d855c5f78591fbee610aaa3d1599e",
+      "size": 840
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-02.provenance.json",
+      "sha256": "92aa8fc88a7da07f63aaf32f1d7012f587e6984879c05e251aea34134071853b",
+      "size": 1031
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-03.png",
+      "sha256": "aa4e38493907164cf9a5cf39e9eca70dc861bff316482475e38ed5a3494913de",
+      "size": 845
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-03.provenance.json",
+      "sha256": "7f2923334db41f61086d2ad17785d047dedf1fb417916521fd395aa6c21e6a46",
+      "size": 1032
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-imagegen-concept.png",
+      "sha256": "42889afb371f11a80653c0198a29bec3f20e4b1991c6140fee84161330bfe9dc",
+      "size": 893721
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-imagegen-concept.provenance.json",
+      "sha256": "7fb51834d266e7fb141274f0fe736e256db7c1eab145ea747311fa0b85c6ba1e",
+      "size": 1024
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png",
+      "sha256": "17fc252917623474f18e92486d6e93f2abdcb01cf1f06d5c272abb7a8aa6bacd",
+      "size": 810
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.provenance.json",
+      "sha256": "4c6416f4d09bd4212ca222829e52335f0f1e9162fc06d1932bdae089265740b5",
+      "size": 1263
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground.png",
+      "sha256": "d318de9bc73fbe8df032e8769d0c22e8d12bc633c001d4116d663fe0d9fac228",
+      "size": 836
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground.provenance.json",
+      "sha256": "8038573fb16aca91650ba72aae8526661e0a3ccde2539b11b6fa63087d6850b4",
+      "size": 1395
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v2.png",
+      "sha256": "027e8cbcafc344ba195f1405b7ce47eafa392fd488e2d9c5410571174b7461a7",
+      "size": 980
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v2.provenance.json",
+      "sha256": "8f50b8546aa2cc25d7f97cd0c405b8a6f7c6dab1ee03d3f781cfd5538102e097",
+      "size": 1682
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v3.png",
+      "sha256": "20ee1acd7196aa0c1d18bafbc693de8b95e42d590e8fc0259a3d8bff10f5ac77",
+      "size": 582
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v4.png",
+      "sha256": "6afff0c600d73fcc80848987a9c7ab2b6fa3dc403c41f959af4e82db8f1a335a",
+      "size": 549
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v5.png",
+      "sha256": "40e80791671c707d4d3320e38acaa444010b1b6a532b5d6d816275edc56d0c7e",
+      "size": 587
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v5.provenance.json",
+      "sha256": "dab62b87fbfb839b86b171727f22167e6672c2d8cb0a559d181d783df0fb67f0",
+      "size": 2045
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v6.png",
+      "sha256": "8a54474aefcfec75dd8a054c5f4af011125f342907bae3f4d9618043ce692901",
+      "size": 580
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v7.png",
+      "sha256": "c21f1ca0acde46020fbdf5ae2114c2d697a05c9c43aad2dff8d5e40caec8e38c",
+      "size": 543
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v7.provenance.json",
+      "sha256": "9fb4d76933813c398b7376ad242ba3f625cf6349084773881ae870a5e72b3360",
+      "size": 1848
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.png",
+      "sha256": "4b5a2310f4a36bbb6762ce95d3cdf8270d1e3af14a9f2e0de554c6ef6ec092dc",
+      "size": 530
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.provenance.json",
+      "sha256": "1111a6fca637113165f95318be57662372e5637f83c3dfdc0f02ac9d982f8b5b",
+      "size": 1970
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+      "sha256": "bec951e3bcc6f43c3a089f4c69518dccfbd0b7586c3c668977785b844d5c7f0a",
+      "size": 856
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.provenance.json",
+      "sha256": "94cbf15d59c50b4e6db84cf22996f6adbecf0c184d077a414314c60f9e7516ec",
+      "size": 1479
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v2.png",
+      "sha256": "ba8bb71330047d6b7ef509f4631158265c86b4c8501bd8eb322dad766e642793",
+      "size": 537
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v3.png",
+      "sha256": "4ae9fadb5102421337089f66ff5243f8a9f7f328fd461731b577bebf944f881b",
+      "size": 538
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v3.provenance.json",
+      "sha256": "86dd1c83900ec73d84a2d1371211646945dcdc49b7dd3c033c84d176399518d2",
+      "size": 2178
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02.png",
+      "sha256": "2f2fd7d4d66c71f9aebfe98d5f028b590d787a938242d7ebc9271b2ddd2e09a5",
+      "size": 543
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02.provenance.json",
+      "sha256": "a1bfa319f2e7b2471cee59a94e1aa883154f6f6d4306774f9883435f6b6cba6d",
+      "size": 2058
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png",
+      "sha256": "02ed9306d0985fc0b5767fd972230e8d6bdbce907dadfdb7ab090083fc486470",
+      "size": 460
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.provenance.json",
+      "sha256": "d919b6c14e3ecb7f24a7dd0772419a924175bbcd96fa555f41eeaf5da59d1f21",
+      "size": 1613
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down.png",
+      "sha256": "ce4b32ec39b3e66617c9b741f613f9e43369ad3e672043d36019ccbd205c3929",
+      "size": 413
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down.provenance.json",
+      "sha256": "2efbc973d37f3846785cda7b64431d02b44499f1676eeb6b0bcda857212bf297",
+      "size": 1526
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.png",
+      "sha256": "e1150f18ed418fdd84088ed096d1c1498e86a98738ebfc7cba5075d7b54c99db",
+      "size": 438
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.provenance.json",
+      "sha256": "f982f4c9ba9d32776cbf4e40cd41d391bac13555172bd596b052b5bd56f1be4b",
+      "size": 1550
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-right.png",
+      "sha256": "5ebce41f527dd9f9f4471c7165986d7293d6a05005aff00589390cb7b685fcc1",
+      "size": 420
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-right.provenance.json",
+      "sha256": "0c74f99dc95c2db807a9197e9f68e8d576f796213eb04ac1d79de1f9996126f1",
+      "size": 1553
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.png",
+      "sha256": "2a97ceb47f86aec2c894aff3c9bccd0a1bdba68e5bbf8d091fb49c3b7d944fab",
+      "size": 462
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.provenance.json",
+      "sha256": "68c419263f2177c9e9f84605a6dc6dacd44fcd38119df8e305ea8dd86e9c2b7a",
+      "size": 1527
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-left.png",
+      "sha256": "0aef3aeaa8d6789d0ca9393f331665eb24100870e27b7a4e47d703f29af250d1",
+      "size": 1033
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-left.provenance.json",
+      "sha256": "040dc8744fe2d571893b6a364b56095339cd2a7c75e06cd8c9bddc06da76098e",
+      "size": 2144
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-right.png",
+      "sha256": "93827d7bbd59e508bd1cad9854607e0be8c8d1918b43d0dc43a22eb1dfb47755",
+      "size": 1027
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-right.provenance.json",
+      "sha256": "e10903a0089d392bbc4d738ffc05debc1eab3c2f3a3c84635d337995b43a01b8",
+      "size": 2150
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left-v2.png",
+      "sha256": "b74336309af61fe90bd7bbffa71f6270249f677c5e286e74506358c01933272e",
+      "size": 1029
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left-v2.provenance.json",
+      "sha256": "70110b4b8bc2cf43a4841a94b35eb150202e3fe50b14daf43babf4ac51d14fbd",
+      "size": 2214
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left.png",
+      "sha256": "355c2697d99babd5c608cf276f7790b95133c96447a89d2e9fbd1cd243870b70",
+      "size": 468
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left.provenance.json",
+      "sha256": "4b53f5c8035aca3ee505b2eda1ca228088191952f21e08dfd7c005c19f1f6562",
+      "size": 1856
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-right.png",
+      "sha256": "baa335857d9407c09d7c9d2c44ac524f95a7e24f839589e2c0fb5bc5a7c7f4e3",
+      "size": 1012
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-right.provenance.json",
+      "sha256": "a8d1dc9a1355ee2043c97302912d7cc7d10b52d564444cd33935910c7541fe11",
+      "size": 2270
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g00-transparent-empty.png",
+      "sha256": "ebb17149ce1cf937cadfb8e903b2812b9a0ecc366eb7705e40e3c73461dc082f",
+      "size": 117
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g01-clinic-interior-floor-base.png",
+      "sha256": "70518970660d863aae4bc75ceb307010a32db4148279ec5aa0dc798f5a52dbed",
+      "size": 3488
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-01.png",
+      "sha256": "6de108a8dec81626977064b6fa192a6079f84e217553e0043f738005f8de251a",
+      "size": 3566
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-02.png",
+      "sha256": "a2b0b6d53aeb1eedfca656726d15307d30df5247f44c2877a108240c2d89010f",
+      "size": 3571
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-03.png",
+      "sha256": "9581ba832b210222578a43629efdc384ba0836dd6004b3fb52f28d3fcf6593ba",
+      "size": 3558
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g03-exterior-front-ground-stone-brick.png",
+      "sha256": "1c3332f6b993332bb1a6e7a5dc319f171f6b35f968a83a4d6a1a4b54a28ae460",
+      "size": 310
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g04-exterior-ground-stone-variant-01.png",
+      "sha256": "6dd306b4b922fca1ffe7b66c60254bebad047d22385de15600aa058f08037826",
+      "size": 661
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g04-exterior-ground-stone-variant-02.png",
+      "sha256": "021e127e692d0699854045d925626dadb7da0d735695f5faf65e75f6864ea7e2",
+      "size": 673
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g05-entrance-threshold-1x2.png",
+      "sha256": "2faf2f12486b97b582de54604476dcba975aabba5d8fd9a5e40056201572cb6b",
+      "size": 3380
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g06-entrance-mat-1x2-vertical.png",
+      "sha256": "00976b3dc8cd7569ded976dee170a5720be748e2e2b18f1066577d2adda44669",
+      "size": 1551
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g07-consultation-rug-2x3-vertical.png",
+      "sha256": "0e33db5fd8e7bb92467009d07558972686d499e02f99381b4f71cc21554628db",
+      "size": 2277
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g08-grass-base.png",
+      "sha256": "5792b6566e150c1e4e13627dccdb300ca831c20f49ea7e8505bc783d3a113634",
+      "size": 1689
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-01.png",
+      "sha256": "86fc3b8174554147d4164a2fa6c51b6fa8d77833a0f163dac466265a6709f362",
+      "size": 1669
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-02.png",
+      "sha256": "8371c48d0e0adda7fd7e4e9461e46b15c865b02409736f03bec6cd7cccc3a540",
+      "size": 1705
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-03.png",
+      "sha256": "f765c177d6296792462c6585226c587dbb788db51878dd55608c8fd65d31fe36",
+      "size": 1747
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-04-white-flowers.png",
+      "sha256": "5b91bbd9842f674dd4f8db9e12d691b7e7e8aac3476da3b8eb7e6305e1879056",
+      "size": 1712
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-05-yellow-flowers.png",
+      "sha256": "73c01a63700742b3f9b79c050d9432792dc1b3d19683e3ecff9bccd3c6ec27c3",
+      "size": 1744
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-06-mixed-flowers.png",
+      "sha256": "2eced3a53670e9bb8693698f5ac4418580be38be086faaa693353bb0ae9e99de",
+      "size": 1767
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-down.png",
+      "sha256": "1dd564e33cb85a5503df615f7985e87f4686f54e002d493d48b8a087acd65df4",
+      "size": 391
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-left.png",
+      "sha256": "3f4b306625fd132fe14957362914dcda4de45abb692f1224c3769552c3ff6bd3",
+      "size": 407
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-right.png",
+      "sha256": "49f1754e2a5057641a0c7f54bcb11289c0db7838918be251a7324d96859b2ecd",
+      "size": 356
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-up.png",
+      "sha256": "09be85409298341731345e712b1c84aa0e5d90ed4fa9c45efe1d5b427c862e30",
+      "size": 366
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-down-left.png",
+      "sha256": "7e3129de0800144f096a671354f4652351434407975d7df4b94d0cbe91a74381",
+      "size": 455
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-down-right.png",
+      "sha256": "cb2f0423e0b4fc6befda84ddf24863f2a8d52175fd035200efbe6da07c782142",
+      "size": 432
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-up-left.png",
+      "sha256": "201c41e05c5bdcf179fdcb31104035e4586478a41c685dc7394d76899c11d50a",
+      "size": 419
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-up-right.png",
+      "sha256": "7dfe8db9703ee2283e0967085d61f9116db88961b32b08728d285c2e3ff24d91",
+      "size": 421
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/index.json",
+      "sha256": "d18fc3e0510f7d163fc28f8e74116ee8962605a1fe07e01c0abbbb248872d7c3",
+      "size": 8669
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/provenance-ledger.json",
+      "sha256": "0d382e0467f9588a69a983f7696eb758d2dd410793a54ad2b1e0ec8cee361ec6",
+      "size": 18322
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w01-horizontal-wall-lower.png",
+      "sha256": "fb75d75059966c33c37500f7ef00bd00ae31a6a303abd480161125b2228bddaf",
+      "size": 877
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w01-horizontal-wall-upper.png",
+      "sha256": "ae582c27d7b5de6d2b412cf417ba0c6bdc27b6577dced4c70c16fe3e8f48920e",
+      "size": 939
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w02-vertical-wall-left.png",
+      "sha256": "bd0e193cb6657997717a242c9b572a8b103bf4d69b71418d2beb301dc72b2f55",
+      "size": 225
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w02-vertical-wall-right.png",
+      "sha256": "cea9e035b9b9507e4f85eac74928b12e0656914e3cf051325b2d2076c9c639f7",
+      "size": 227
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-down-left.png",
+      "sha256": "e1fba91dd08902caac63bc606f4f1bce0b0a1b91e6a7e5a70c596dc9d8a271f5",
+      "size": 932
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-down-right.png",
+      "sha256": "8d3f37a7fa5cb328f67614849c0ef8eceed0e3086106454dbbd33cf078db4098",
+      "size": 926
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-up-left.png",
+      "sha256": "9df02a2470b8b9ebecc4ea3cb01ed9c856af9da5aa757d96c7410ae34ed94843",
+      "size": 572
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-up-right.png",
+      "sha256": "02561aed694c542f195cff8aa39c934bac7df41f4a789e5654af79fa412a0d46",
+      "size": 576
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w04-outer-corner-up-left.png",
+      "sha256": "1cbf526a044910c849676715e5af114954d4621720cad44699a886df5a87156b",
+      "size": 674
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w04-outer-corner-up-right.png",
+      "sha256": "43a2754e552bcba0e741683c8a0f1e80789f92beb0e59fe5ab4f3e772d48c4ad",
+      "size": 677
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g00-transparent-empty.png",
+      "sha256": "ebb17149ce1cf937cadfb8e903b2812b9a0ecc366eb7705e40e3c73461dc082f",
+      "size": 117
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g00-transparent-empty.provenance.json",
+      "sha256": "db5ec9b0715a0e138dfe2876ecc79fb5226c71b1589451e66f14c3b9ab554e81",
+      "size": 788
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v2.png",
+      "sha256": "f53fbfdc36ebceb2f1b93fb332b7fb4fb47dadbe3daf1566fe8db9caadde1f83",
+      "size": 2073
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v2.provenance.json",
+      "sha256": "52e65264aaf11fcda75f0b93b0e22105ac36845d551f07e502ea68b9894a6235",
+      "size": 1103
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v3.png",
+      "sha256": "70518970660d863aae4bc75ceb307010a32db4148279ec5aa0dc798f5a52dbed",
+      "size": 3488
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v3.provenance.json",
+      "sha256": "8b67f17e51e0f2d464a20dd7e9acb0fbffb39d60f2893a24a3149eb4e4b8ab15",
+      "size": 1620
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base.png",
+      "sha256": "be02f7bb2bbf7c5536915adc27b0b2a2a9351e06b9a2150d50bb6b55ef8c6543",
+      "size": 477
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base.provenance.json",
+      "sha256": "5795c7a0a78723860d3036b136cb490346444e9b22b245aff381fd02ec26f008",
+      "size": 824
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-01.png",
+      "sha256": "79130e9d0428efa90c45dfc31c75c6ee82836ab1ab2d1b56baa7212c54d59398",
+      "size": 446
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-01.provenance.json",
+      "sha256": "87f227799798301537cb895c334830804af8dbdc25e395037c3f318961c60389",
+      "size": 861
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-02.png",
+      "sha256": "f9ad2cb6aa4aad33f558861a563412979e5cab2121d4e5b92db38af955bd31cb",
+      "size": 449
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-02.provenance.json",
+      "sha256": "809f232214900bc708c4c75e9688e19e09c44a2ab51ab503f2fcc2c576a23c40",
+      "size": 858
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-03.png",
+      "sha256": "c4137175c735f9fcddb31d1c38c4abc07beef3160d06fcace14ebec48618e4a6",
+      "size": 459
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-03.provenance.json",
+      "sha256": "6a30b8eabc98e5087d968a9357adc5318a9d95c6dc999b8cc7cef831759d24b5",
+      "size": 858
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g03-exterior-front-ground-stone-brick.png",
+      "sha256": "4cefb86842c4d7b87f1766b9b3127234455e8f90f95f362f27f83937b5d7d1ed",
+      "size": 386
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g03-exterior-front-ground-stone-brick.provenance.json",
+      "sha256": "3d420824fcc39ee0961ac134b8f935c230546d8366fa433bc78ada9feb4e2d38",
+      "size": 828
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-01.png",
+      "sha256": "457ffa8e086c955882fb02d7fae653a30d89fc3925aa53646e911fe482a0627c",
+      "size": 644
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-01.provenance.json",
+      "sha256": "659176dc04ad274243893b070691da6e4c7a6d1eb89869e3bb15db7a6552e748",
+      "size": 849
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-02.png",
+      "sha256": "c341da6f40b5d957ef2379afef21c91ec6e7b51d70ecbff7ed7cae1885fe0a43",
+      "size": 647
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-02.provenance.json",
+      "sha256": "5ddd2ae25b4aa378c3e322ba7107ac7a604c34374ea3d4973b850959e6a7f58b",
+      "size": 849
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-down.png",
+      "sha256": "9140cfb596ea37cad22211946be0eb96a67f6e1d8abb970cc9db6176970da397",
+      "size": 496
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-down.provenance.json",
+      "sha256": "7a3b510625e6d0f72db0618721b139cbe01df0e9c8e7e5232e5d91a022dfa49e",
+      "size": 864
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-left.png",
+      "sha256": "bffda53ceab9c87bd627953c2b0e72711c1eb87b35c4de7c8de0d40857a4f5ec",
+      "size": 499
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-left.provenance.json",
+      "sha256": "abb0bdb6761453a8887b59526e8f88d03e5bf63bfc80bdd0595c2ae2339405db",
+      "size": 861
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-right.png",
+      "sha256": "8d0c0e37d220dcff05419d6cb4083f5f90f7fd2dc53f74ece55b4fcb8d1602ec",
+      "size": 468
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-right.provenance.json",
+      "sha256": "12fa4d486c5a34a9dce6975afc49ce554dc76161262cbf7fbf3c8da85989f6d8",
+      "size": 863
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-up.png",
+      "sha256": "7fa78e28e121268ddc402db2a6fdca01fa005be582d9af4d15ea9f7412c5d4f3",
+      "size": 499
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-up.provenance.json",
+      "sha256": "8202d68aaad68a553898de0a6cd50ec2a8e1938e1f3d3509054b86e6a67e6f24",
+      "size": 857
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-left.png",
+      "sha256": "87d3c7430b862bc4f0e75016eb37854f45b01e013bb6002edb4ec6ee4a8ee4a5",
+      "size": 602
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-left.provenance.json",
+      "sha256": "35ed0aecda2edbebd74be064be36e6e4c6cefc2fb5f517b4a2d10a83ae2b414e",
+      "size": 872
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-right.png",
+      "sha256": "ed6996d74fe836ec8cf1854c2c416036080a193391990238c7bae19ed1bef5ed",
+      "size": 604
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-right.provenance.json",
+      "sha256": "07b3b7d046007d91367d112de0d56502e6c52ddb7ad7ad976750881dc30d08b4",
+      "size": 874
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-left.png",
+      "sha256": "18547182177eceb0cdb6d4119796642b41f06733d66c1053aa04745e373497f1",
+      "size": 607
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-left.provenance.json",
+      "sha256": "9c074c50747c2c687f54f8a07cb452e81ffe80d7ebc33d6bfb6155efcb3ae01b",
+      "size": 871
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-right.png",
+      "sha256": "f763e8ec5fa24c5e39f33e765d8e871da024a4513838608c8a13447bdcd815c4",
+      "size": 593
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-right.provenance.json",
+      "sha256": "02fb1e321397104921e08361c69d56c175ffd02b81456a52c7a22f51f786802a",
+      "size": 870
+    },
+    {
+      "path": "game/assets/source/tilesets/clinic-community-master-64/components/index.json",
+      "sha256": "75f9789b9392ebc00aaacf5eb5589d8497d17a8c84eca90237579248607c321b",
+      "size": 4166
+    },
+    {
+      "path": "game/CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+      "size": 11
+    },
+    {
+      "path": "game/components/GameCanvas.module.css",
+      "sha256": "2f4f5456abefc15957c9ea210464ecb58200b36f48bbbf0b8769f5483aa820a2",
+      "size": 9387
+    },
+    {
+      "path": "game/components/GameCanvas.tsx",
+      "sha256": "a03240e5aca92da2aa7e9b521b5bf84b00343184885d65bd9feb594edb662ba9",
+      "size": 17548
+    },
+    {
+      "path": "game/eslint.config.mjs",
+      "sha256": "d1752edb02593fa2a9cbc888f4ec9fb086a053f0cd4bf1345af77f1f15a51d83",
+      "size": 386
+    },
+    {
+      "path": "game/next-env.d.ts",
+      "sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "size": 296
+    },
+    {
+      "path": "game/next.config.ts",
+      "sha256": "2bdbeadc066248b85bd93e820b5a8ba2af52bc6c2f0e63066ca290f62cc5bcf1",
+      "size": 261
+    },
+    {
+      "path": "game/package-lock.json",
+      "sha256": "45609531996b9195f8c101c015741f90e5b278afd861c2afcd9d85c1c5ae5b8a",
+      "size": 255124
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "a51971f76b0550b13e2346691d13f8f7c3837b7c581f08dae57f314ea0e24f54",
+      "size": 1836
+    },
+    {
+      "path": "game/playwright.config.ts",
+      "sha256": "f4652158d57cfe900377c42332007125b8773545b4a7162d85081d937991c117",
+      "size": 885
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-16/manifest.json",
+      "sha256": "f5c104968e51f4e7dc53a108d34f8187b66364d69293c243c8c343eb4a007037",
+      "size": 575
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-16/maps/clinic-community.tmj",
+      "sha256": "6aa38ff7c098e68e60e5e35bccbe5f3a0df8e8bdc3775ed3f363f482540a0ecc",
+      "size": 35184
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-16/tilesets/clinic-community.png",
+      "sha256": "297821dd07b408aa0eb853a7b25786cc12c80eb8d2f94a5fb6764015fde2a75c",
+      "size": 911
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-32/manifest.json",
+      "sha256": "115b7548e660096d40a42bdc51a144c86121dfdb697fed75cf2bbedca16a2302",
+      "size": 575
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-32/maps/clinic-community.tmj",
+      "sha256": "a7a6d79b9577f3cf81825c48e7f95364aef872cdef439dbde7e1cff520a7ef85",
+      "size": 35199
+    },
+    {
+      "path": "game/public/game-assets/dev/h3-32/tilesets/clinic-community.png",
+      "sha256": "315361ba984c25f036a34604a46a3b7606eec351f86cb069dd628314b79faa8b",
+      "size": 1535
+    },
+    {
+      "path": "game/public/game-assets/dev/manifest.json",
+      "sha256": "55ff698a6b7448d9c5f8d55c96f05cc6422ae3833e56356c2f096d6e6e52bd77",
+      "size": 241
+    },
+    {
+      "path": "game/public/game-assets/dev/maps/clinic-graybox.tmj",
+      "sha256": "2b042aa89f6a035a6462b2a50df341b7d28a706a04aaf1e3fb88344a00707dd1",
+      "size": 22468
+    },
+    {
+      "path": "game/README.md",
+      "sha256": "a1dce934536dddad0d564c77e8efce69bfed43ef1d25ee5b0a5ef4179deed823",
+      "size": 3070
+    },
+    {
+      "path": "game/scripts/capture-h3-evidence.mjs",
+      "sha256": "d6cb5d93cf772f1b43cbf70cc73b9c77bd8ac07614cf311dbe13df64bdf47005",
+      "size": 5778
+    },
+    {
+      "path": "game/scripts/capture-s2-evidence.mjs",
+      "sha256": "6f72ab2fb54923a90afd591db3d02092c203ad6465fe71658872286438c171e1",
+      "size": 2209
+    },
+    {
+      "path": "game/scripts/generate-h3-tilesets.mjs",
+      "sha256": "50f83bf96baf974a445dab9fc67fe5bd2f4320bf9a722124f7154fa4cf968fe7",
+      "size": 15489
+    },
+    {
+      "path": "game/scripts/publish-graybox-map.mjs",
+      "sha256": "a310c0136408d6b4b58768515c1c0f86c21398383077874b551374d2a9bd30bc",
+      "size": 1150
+    },
+    {
+      "path": "game/scripts/publish-h3-clinic-candidates.mjs",
+      "sha256": "99cbb07bbb2d88d03abfcaf715e547be9efd9aff6ca21fbc65305cd98e08477b",
+      "size": 21743
+    },
+    {
+      "path": "game/scripts/run-seedream-smoke.ps1",
+      "sha256": "6bd5dd92ea4faa9032698f8c47721954f1d3540ea813fbb3f966db63ad57344e",
+      "size": 4069
+    },
+    {
+      "path": "game/scripts/seedream-smoke.py",
+      "sha256": "e999c97e39b6f813aae42f7056764208d7e4d58854871d6107446a1be4e0a874",
+      "size": 7979
+    },
+    {
+      "path": "game/src/game/bootstrap.ts",
+      "sha256": "b24fe66c2c4dd2445992b5ae6c89c98b196285aa8f7634af037d1a2762d1c4e6",
+      "size": 1027
+    },
+    {
+      "path": "game/src/game/bridge/gameBridge.ts",
+      "sha256": "6e71821e7019a7684723483b9169fb844286c26bf5ab423979799ea28e5fa64a",
+      "size": 3559
+    },
+    {
+      "path": "game/src/game/config/h3Candidate.ts",
+      "sha256": "ab493ae1cb69efd0b8049b7aa026108b25dbbcd1e890879c65dcd5d0b7d31073",
+      "size": 1215
+    },
+    {
+      "path": "game/src/game/domain/clinic-flow/clinicFlow.ts",
+      "sha256": "d7b610563a3ab2839e184d4f5573ce218835263b0bfaeef6aff379100c4f52e6",
+      "size": 8172
+    },
+    {
+      "path": "game/src/game/domain/clinic-flow/grayboxClinicContent.ts",
+      "sha256": "a0c4c246f790ba1d8769d778c2820dc937ddc6cf1952f527c5f31e1da0b55711",
+      "size": 1390
+    },
+    {
+      "path": "game/src/game/domain/patients/patientSessionBinding.ts",
+      "sha256": "46360691c66edf5a96e75145a1e8e35c74e10bdb2542d69b85eba85a96e698f1",
+      "size": 2864
+    },
+    {
+      "path": "game/src/game/domain/patients/publicPatientIdentityCatalog.ts",
+      "sha256": "d0bf9206d4c997251d53539df91170296b4fb7a6058313cf4e70c2987d9c3d40",
+      "size": 4992
+    },
+    {
+      "path": "game/src/game/domain/player/movement.ts",
+      "sha256": "488170e27adbbb0892e6d3ee13189a1512c1b2a8e7f3b1526afd9f31e138f837",
+      "size": 786
+    },
+    {
+      "path": "game/src/game/scenes/BootScene.ts",
+      "sha256": "90ad140054f5b999fff3083cfae554052b79c166eaf118820d1539bc91c2adec",
+      "size": 1093
+    },
+    {
+      "path": "game/src/game/scenes/PreloadScene.ts",
+      "sha256": "29aadc7247ce4e720fc9a5c7568eb62352d556a56776f65b1bc1b42ff46ca3c4",
+      "size": 1209
+    },
+    {
+      "path": "game/src/game/scenes/WorldScene.ts",
+      "sha256": "9d3625269d702ef2903e82716a8a647b4a2a987d0a3fbe6927bd5706dab49717",
+      "size": 28970
+    },
+    {
+      "path": "game/src/game/systems/maps/fallbackClinicMap.ts",
+      "sha256": "61ea0cc5d5077ab1c691746de0c58036fa74737d2ee49d8d939e1523aed1d982",
+      "size": 4281
+    },
+    {
+      "path": "game/src/game/systems/maps/tiledClinicMap.ts",
+      "sha256": "ae234bc6ac51f86612e4e564f52c2a8b508a73caf680b6b03af8437cfad972a6",
+      "size": 17783
+    },
+    {
+      "path": "game/tests/e2e/game-shell.spec.ts",
+      "sha256": "0c061f919043b346b9fe6cae251d055bf1fcc8891ae5f5384c60774c6d77a072",
+      "size": 13454
+    },
+    {
+      "path": "game/tests/unit/clinic-flow.test.ts",
+      "sha256": "36976e510c1418a221e18d1f064bae9cbdc3cf05fa8e0aaba795009832661b6f",
+      "size": 6129
+    },
+    {
+      "path": "game/tests/unit/gameBridge.test.ts",
+      "sha256": "3eacff1f8bbd94162f166e3592e35c4220f75a7c37ef79d6710275af107b319e",
+      "size": 718
+    },
+    {
+      "path": "game/tests/unit/h3-candidate.test.ts",
+      "sha256": "36c929568ed24020ad49f7d6f4cf248ce497b6a3851291aef4c8fbfc2078b1a3",
+      "size": 3306
+    },
+    {
+      "path": "game/tests/unit/movement.test.ts",
+      "sha256": "5fb6cb1a9136a8b3024597839d0f54497f13b2660ae8359d63c1f0f253762e12",
+      "size": 1354
+    },
+    {
+      "path": "game/tests/unit/patient-identity.test.ts",
+      "sha256": "3181901150e91534a10b5cb1334ec0d06e498a53130a9e4d62d533cccfe2b14d",
+      "size": 6975
+    },
+    {
+      "path": "game/tests/unit/tiled-clinic-map.test.ts",
+      "sha256": "2148c6da85aa74f0b3ff0324e921cbffab8bf69a6b2e80adcff060fc2501ecb2",
+      "size": 10185
+    },
+    {
+      "path": "game/tsconfig.json",
+      "sha256": "6be8a2fb0b2e434a9982dc67fde74db20a97785ac0ae63212183bba4b8933099",
+      "size": 625
+    },
+    {
+      "path": "game/tsconfig.tsbuildinfo",
+      "sha256": "4179aa72a8ab57d68057247a1b519bae6593053a6951b5d086a54410c218da31",
+      "size": 152598
+    },
+    {
+      "path": "game/vitest.config.ts",
+      "sha256": "7aea47639a836993449979746b1bb88ca864e9a48db3a6d37a6b9aa82838eb56",
+      "size": 300
+    },
+    {
+      "path": "model/.gitignore",
+      "sha256": "f26af8b3728eb180072a1bc5fffd6f3c5a668cf750919de020973130ea84a564",
+      "size": 87
+    },
+    {
+      "path": "model/cases/ai-validation/c01-common-cold-v1.ai-validation.json",
+      "sha256": "3a5a1594d79edc9fa21c685a9dae22863c267b175e039ba835d8dc6b1abf9618",
+      "size": 1614
+    },
+    {
+      "path": "model/cases/ai-validation/c02-influenza-v1.ai-validation.json",
+      "sha256": "91161fbd2ececab1457458ddc903ccc746174337493065b20afe9e4389aacedb",
+      "size": 1590
+    },
+    {
+      "path": "model/cases/ai-validation/c03-acute-pharyngitis-v1.ai-validation.json",
+      "sha256": "9227d750a898c47a0b1dc3714d6642e3abc526f9251d0b0d8e3ecd6bdf1e9fb9",
+      "size": 1567
+    },
+    {
+      "path": "model/cases/ai-validation/c04-acute-bronchitis-v1.ai-validation.json",
+      "sha256": "13aabee97945bec02313706f5144ee7a227f5b757e9f0004805ed067b7cd2e6d",
+      "size": 1601
+    },
+    {
+      "path": "model/cases/ai-validation/c05-mild-cap-v1.ai-validation.json",
+      "sha256": "17b7ee5f24401a1970885c6072b8184bc5fba3a14bfdba92f3564fb3ba73b6a8",
+      "size": 1611
+    },
+    {
+      "path": "model/cases/draft/c01-common-cold-v1.json",
+      "sha256": "5daa0ff35a04ea58cfb1cddfab848c47bd729bbdc847eff8b7453a56b416f1d1",
+      "size": 10946
+    },
+    {
+      "path": "model/cases/draft/c01-reference-draft.json",
+      "sha256": "626bc9569b9f699728ef51282eb482a4f028a9ac8616cb15f360e83ab164b360",
+      "size": 6627
+    },
+    {
+      "path": "model/cases/draft/c02-influenza-v1.json",
+      "sha256": "302eaebd94ee1a9f4cebf7968c5238b5b9233d573b05c9865a6736649e00781e",
+      "size": 10618
+    },
+    {
+      "path": "model/cases/draft/c03-acute-pharyngitis-v1.json",
+      "sha256": "e7c27d10755aa6526bcd2d600bd97ee22b092dfe9b08fa80bfe268faeb3dc308",
+      "size": 10969
+    },
+    {
+      "path": "model/cases/draft/c04-acute-bronchitis-v1.json",
+      "sha256": "f6528c5f677b82e5d434a73aab87eba9e82945fac6205bbecbd30813c7023b01",
+      "size": 10953
+    },
+    {
+      "path": "model/cases/draft/c05-mild-cap-v1.json",
+      "sha256": "8f3d1b0c9fcdc655a82c2531e6e0a530658e31ed633426edc40694bc454948a9",
+      "size": 11016
+    },
+    {
+      "path": "model/cases/draft/README.md",
+      "sha256": "614c4322052de32f3c4f45fdf1f95385bf12500790927155c78fb60920a50308",
+      "size": 956
+    },
+    {
+      "path": "model/cases/evaluation/phase7-respiratory-v1.json",
+      "sha256": "a158ccadd5c16a901b7d3eeaf42c4c6b0205b00ff3b74bc1c02fe28c9687385e",
+      "size": 7522
+    },
+    {
+      "path": "model/cases/fixtures/case-fixture-001.json",
+      "sha256": "7edec3406e19b612d4337b1cbb4f4c171de37cb5c1cd1c9660f4c7c5de668379",
+      "size": 3911
+    },
+    {
+      "path": "model/cases/manifest.dialogue-candidate.v1-rc1.json",
+      "sha256": "177717bf40c361c361b58813889ee0bb039a05b8336e436ff1b9e5d63c60d245",
+      "size": 2025
+    },
+    {
+      "path": "model/cases/manifest.dialogue-rc.v1-rc1.json",
+      "sha256": "25196ea661d74c35ed69dae3112331911d97e18d9d521b357e03da728d441ff1",
+      "size": 4537
+    },
+    {
+      "path": "model/cases/manifest.phase6-compat.v2-rc1.json",
+      "sha256": "41b4d2a3c06b0b16fbef7a065d445677ad97a25e0a02f92e58ff87561204a842",
+      "size": 6010
+    },
+    {
+      "path": "model/cases/manifest.v1-rc1.json",
+      "sha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+      "size": 3957
+    },
+    {
+      "path": "model/cases/manifest.v1-rc1.status.json",
+      "sha256": "668653b2b745a8a4d05a4b97c6fcf5bc15d0a6410a0d23ce4637b3fdc40d8df9",
+      "size": 579
+    },
+    {
+      "path": "model/cases/policy/launch-content-policy-e0-quality-record.v1.json",
+      "sha256": "496967c2c338c8f85c80312d847c695597b555e38191d16db797c38604f0682b",
+      "size": 1769
+    },
+    {
+      "path": "model/cases/policy/launch-content-policy-v1.json",
+      "sha256": "64a3529f3b9792e1f08991fd6b724466f996a0a1bb68d4be247f9f5dc4f6b14d",
+      "size": 23716
+    },
+    {
+      "path": "model/cases/policy/red-flag-policy-manifest-v2.json",
+      "sha256": "b1d10ee63becc5d3ec4417e8aedd74484a383bf51146534e8a63f57410a46baa",
+      "size": 3144
+    },
+    {
+      "path": "model/cases/provenance/README.md",
+      "sha256": "df1436f3c82e1498765ccecd3c5dcf00b7441ec3c157734d24d4c4e3d9212e60",
+      "size": 169
+    },
+    {
+      "path": "model/cases/published/case_c01_respiratory_001--1.0.0-draft.1.ai-validation.json",
+      "sha256": "15a555efd2d46dc2660de3dfc5e3313056a1ab0bb2d471e3e5af45e72065f37c",
+      "size": 1754
+    },
+    {
+      "path": "model/cases/published/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "sha256": "90f5e89572288f729c7a6f95fc82ce9bdd6cc8c6afbd7f2aae1689fcef01f170",
+      "size": 14533
+    },
+    {
+      "path": "model/cases/published/case_c02_respiratory_002--1.0.0-draft.1.ai-validation.json",
+      "sha256": "30da4c93b125b896b44e789c70f0dec6b3103f67d3c8e04362bd79f81fdb5311",
+      "size": 1730
+    },
+    {
+      "path": "model/cases/published/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "sha256": "740de3fa717713a9a84eb2530789c6fc04cadd32a43f377cb9086c6fe671019f",
+      "size": 14029
+    },
+    {
+      "path": "model/cases/published/case_c03_respiratory_003--1.0.0-draft.1.ai-validation.json",
+      "sha256": "e10351f8488561424fd724d1f9614827ecd20cfb48e1787ab3304f304d05de25",
+      "size": 1707
+    },
+    {
+      "path": "model/cases/published/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "sha256": "bd17f10b9639dcc9d3638ae62cd02d0bf1256cc2f8bff0a77471e1be620d05fc",
+      "size": 14373
+    },
+    {
+      "path": "model/cases/published/case_c04_respiratory_004--1.0.0-draft.1.ai-validation.json",
+      "sha256": "37d4a37dfc121a6e353e3aed8c149bdfc182fe1c744e9790be8252fbc3b36811",
+      "size": 1741
+    },
+    {
+      "path": "model/cases/published/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "sha256": "7fd0bc53b2f910be102a502cd6bef53d9a224e1620e6b6c5ca55b605dd9181fc",
+      "size": 14339
+    },
+    {
+      "path": "model/cases/published/case_c05_respiratory_005--1.0.0-draft.1.ai-validation.json",
+      "sha256": "c75fb645a57f9b72888aed8bc2612728ea4a3c4b8776c82405a51c2d5eac915d",
+      "size": 1751
+    },
+    {
+      "path": "model/cases/published/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "sha256": "71b72eb69beb8ffc13dbec18b5a5b34b2fed6376ea623fa9c04ef0730c298237",
+      "size": 14406
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.ai-validation.json",
+      "sha256": "20d888a0f1c7e0d22346c01c03ecb7c488b34bccb3dcf63b780114d9f1c65f5a",
+      "size": 3427
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c01_respiratory_001--1.0.0-draft.1.json",
+      "sha256": "d67e4d9eb9ad0674b7963c7f53a23fc30c1acc1b26f81d39ff543a9deea38053",
+      "size": 17357
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.ai-validation.json",
+      "sha256": "4af5ea1c887f16e9c322343208661a75b53851b56747abef645126068dfa8a1b",
+      "size": 3855
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c02_respiratory_002--1.0.0-draft.1.json",
+      "sha256": "9410ad62ba123260464c927a2c1caef8e040bfb11143968f7d6422afd0f0a00c",
+      "size": 17371
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.ai-validation.json",
+      "sha256": "40f3169b542427a7fc97f3fdf391f48353e435828cd180c176cf105aeb80555f",
+      "size": 3785
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c03_respiratory_003--1.0.0-draft.1.json",
+      "sha256": "5f1d5717825bd93edd2b48e1db0c1e77f46b2d1373ae9b7b36299f50283a9042",
+      "size": 17788
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.ai-validation.json",
+      "sha256": "a79b8cedd40c393ec84b058f28dfe369ec434f8620696c438a4376846cdb4f42",
+      "size": 4112
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c04_respiratory_004--1.0.0-draft.1.json",
+      "sha256": "27b3f651920ee56136d5ad4573652e2e9310017730900b16df2485c6a6fd006d",
+      "size": 18039
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.ai-validation.json",
+      "sha256": "61155e745957bdedab7f9b723df5b78af767e13cdf55e62766dcf1b3962d8307",
+      "size": 3830
+    },
+    {
+      "path": "model/cases/published/dialogue-rc-20260828-r1/case_c05_respiratory_005--1.0.0-draft.1.json",
+      "sha256": "378c650116ab9ed2171980d131962c85e9ed1d85adbf4cb7ea4e3a56a4154d5f",
+      "size": 17820
+    },
+    {
+      "path": "model/cases/published/README.md",
+      "sha256": "aae655b2bef19a6ec032b03c4261c1e7d87f801feb75ac9271189a072cd5d607",
+      "size": 1009
+    },
+    {
+      "path": "model/cases/README.md",
+      "sha256": "2118a74ce6ff358cd7a967c792cc8a85459091f474efe3441dcabe2a46f65daf",
+      "size": 6913
+    },
+    {
+      "path": "model/cases/regression/c01-common-cold-v1.trajectories.json",
+      "sha256": "a2de93120892509e640292967b45e1a33920889d96c7e8c9a96725e384493997",
+      "size": 1621
+    },
+    {
+      "path": "model/cases/regression/c02-influenza-v1.trajectories.json",
+      "sha256": "3480a515409aacae9cb1bde1ae8f1f215beda38f331d04281a99ef4e337cb575",
+      "size": 1619
+    },
+    {
+      "path": "model/cases/regression/c03-acute-pharyngitis-v1.trajectories.json",
+      "sha256": "53d1c804d83ee80c8f140a533c6ba14576da50d3b3ce0ad9cac5f990a6b6d960",
+      "size": 1671
+    },
+    {
+      "path": "model/cases/regression/c04-acute-bronchitis-v1.trajectories.json",
+      "sha256": "d5949c20b366eef0f4535b0e039b64503fd444d999c79ec9cafeca0d7069357a",
+      "size": 1646
+    },
+    {
+      "path": "model/cases/regression/c05-mild-cap-v1.trajectories.json",
+      "sha256": "aaa3479b339a8eede1ae1063a2ce7d0b1581a567822c7210f55e13b8ee292e74",
+      "size": 1680
+    },
+    {
+      "path": "model/cases/schemas/ai-case-cross-review-v3.schema.json",
+      "sha256": "4400fbaf4557940ede87b8673e34ec8ed87c79f40cc1ef552a189ecd403a2415",
+      "size": 5845
+    },
+    {
+      "path": "model/cases/schemas/ai-case-cross-validation-v1.schema.json",
+      "sha256": "a93bc71de24d7cd7c3cc3611f17637918eb5deb377668d33d81a55927f0030bf",
+      "size": 2345
+    },
+    {
+      "path": "model/cases/schemas/ai-case-cross-validation-v2.schema.json",
+      "sha256": "47aad9680ccd9855e7262dce6f0106a329523162fe5d0f85c48840ff1953e896",
+      "size": 3073
+    },
+    {
+      "path": "model/cases/schemas/case-manifest-v1-rc1.schema.json",
+      "sha256": "6bff1e531e08a326107db412489b3d2a0cb2ca3e18625f448060f1b72d15172c",
+      "size": 3973
+    },
+    {
+      "path": "model/cases/schemas/case-manifest-v2-rc1.schema.json",
+      "sha256": "83e904fc6a4ef52ae818243ad922f5666e2949098dd91f00765312526de73b24",
+      "size": 8640
+    },
+    {
+      "path": "model/cases/schemas/case-package-v1-rc1.schema.json",
+      "sha256": "656cf4c4b65a4473e055a0ceed901fd871d2d3eec9ce8ce8a7f1b5b2e99031ce",
+      "size": 5618
+    },
+    {
+      "path": "model/cases/schemas/case-package-v2-rc1.schema.json",
+      "sha256": "6b061240baddf20faf0b221b7ce6816e5f7293fa1de21f1c41582ef649a1d31d",
+      "size": 6373
+    },
+    {
+      "path": "model/cases/schemas/case-regression-trajectories-v1.schema.json",
+      "sha256": "e48805e16f2ee1c45585ac4a711a08b075fb0fad08a5975acf08ef03acb977c3",
+      "size": 1165
+    },
+    {
+      "path": "model/cases/schemas/launch-content-policy-v1.schema.json",
+      "sha256": "495984d7a31c948cbb852b40d3cbf6f6366d60fff94a58851d1ce5b259eca0b3",
+      "size": 12604
+    },
+    {
+      "path": "model/cases/schemas/provenance-record-v1.schema.json",
+      "sha256": "ae286dcb1e7f3ef2c604be3cebe589c4f83af937a28dc1fb78a945c336a906c6",
+      "size": 651
+    },
+    {
+      "path": "model/cases/schemas/provenance-record-v2.schema.json",
+      "sha256": "8b292c7685ed907f819bd642b2d80cbaf36b1680ce7cf1e5b5e99e50b162583c",
+      "size": 2676
+    },
+    {
+      "path": "model/cases/schemas/red-flag-exclusion-matrix-v1.schema.json",
+      "sha256": "6d85b86c0e6360531e255f18667ffd6c6b9e4df684eed53ac4811ce947bb0fd6",
+      "size": 2556
+    },
+    {
+      "path": "model/cases/schemas/red-flag-policy-manifest-v2.schema.json",
+      "sha256": "7804f452c951ef49fc99b26b8d8cc9103872e6a296358086044d2794966ed261",
+      "size": 1266
+    },
+    {
+      "path": "model/cases/schemas/review-record-v1.schema.json",
+      "sha256": "4cba640227961a3e30fbe125c935ae83507ca2d4312adb7ec622b3d85080335c",
+      "size": 1700
+    },
+    {
+      "path": "model/cases/schemas/reviewer-qualification-v1.schema.json",
+      "sha256": "8f1b0dbf6f284ce542b79139635455d948331fa10c07d62f14d8c3cd2f6d2d36",
+      "size": 1586
+    },
+    {
+      "path": "model/cases/schemas/rubric-v1.schema.json",
+      "sha256": "aff45cd310a4497a949c9512fc5e2e43e10e4a4adc3548d24995b411d5fd4eb2",
+      "size": 1356
+    },
+    {
+      "path": "model/evaluation/phase8/e3-persona-live-20260903-r7/e3-persona-ai-cross-review.v1.json",
+      "sha256": "6ec795d5051d817f4f54c5dba10165b2dd90cf64c7e9b30a83e1ba401ae4c3f8",
+      "size": 1677
+    },
+    {
+      "path": "model/evaluation/phase8/e3-persona-live-20260903-r7/e3-persona-benchmark-report.v2.json",
+      "sha256": "6f3c48cb9f26783be653c429f25666ba0a007cc943489c99c6bc7979ee16911f",
+      "size": 18082
+    },
+    {
+      "path": "model/evaluation/phase8/e3-persona-live-20260903-r7/e3-persona-rule-corpus.v1.json",
+      "sha256": "bddd85e5ae24ae08c4077a3a79afd2808d6436c4dbacb04c58ae271f11d9ecc4",
+      "size": 86356
+    },
+    {
+      "path": "model/evaluation/phase8/e5-full-release-20260903-r3/e5-full-acceptance-report.v1.json",
+      "sha256": "f84d79e55d16b396bafb8758bb24a06191e8af1ba6b4c159db9cc8212fcd3757",
+      "size": 12318
+    },
+    {
+      "path": "model/evaluation/scoring-policy-v1.md",
+      "sha256": "6757dbc1acb6a2ccb5830964b9cc70a6e3d1e14b10ea3ccc1cce5e133ec24d96",
+      "size": 1242
+    },
+    {
+      "path": "model/package-lock.json",
+      "sha256": "c4b8b563f8fc179b8aadf82b8962932245642bec01234b758c8d7f4592fc80f9",
+      "size": 5855
+    },
+    {
+      "path": "model/package.json",
+      "sha256": "c342a9e333dedc374a44d26e61dc55f5988096739c33b2852065b435be9dd7aa",
+      "size": 5517
+    },
+    {
+      "path": "model/prompts/controller/v0.1.0.md",
+      "sha256": "b54c595d81197414f69809647b60fe7dd5de3c8e52304f9ebcab92276921f138",
+      "size": 690
+    },
+    {
+      "path": "model/prompts/controller/v0.1.1.md",
+      "sha256": "c1cfc10e75dce56ac41fb45a462900a0804c7e40047a4cb8db8d482987852fef",
+      "size": 675
+    },
+    {
+      "path": "model/prompts/controller/v0.2.0.md",
+      "sha256": "f91394c2c9ca36efbb56ef02b6fc57cfa8190974ef165215d31fbe6bf4448578",
+      "size": 440
+    },
+    {
+      "path": "model/prompts/controller/v0.3.0.md",
+      "sha256": "6bc3ea3a07c814b6d7c9202ae3a88ba207302d378440c66fad45fc6510da92f4",
+      "size": 487
+    },
+    {
+      "path": "model/prompts/controller/v0.4.0.md",
+      "sha256": "17c0c7c2e62f8a2777eb65aa9f1aea990050626c08a87bb85857343e84739cd4",
+      "size": 562
+    },
+    {
+      "path": "model/prompts/controller/v0.5.0.md",
+      "sha256": "e174ca65414c4ec381dacfc793ac7b23520a3909677593402cc1d4588e283121",
+      "size": 600
+    },
+    {
+      "path": "model/prompts/evaluator/v0.1.0.md",
+      "sha256": "b69046f6298d3321448b36cbf3abd41ea79353faca3ad406bcb5a8046fef6b36",
+      "size": 705
+    },
+    {
+      "path": "model/prompts/evaluator/v0.1.1.md",
+      "sha256": "206b27718c3c7e22bb0881ca8d71f58fa1c5b66ed8e3623c47a3fcdc3b7aa0d1",
+      "size": 694
+    },
+    {
+      "path": "model/prompts/evaluator/v0.2.0.md",
+      "sha256": "3fa673f3ff2ce53f8091d755efa9541cb16c3ece2f6ca8910e6be33ec17005bd",
+      "size": 382
+    },
+    {
+      "path": "model/prompts/evaluator/v0.3.0.md",
+      "sha256": "4a3e34be973010ab92afc988c08b8f337f6c3d7a282ccc5e32e8f8dec1242ce2",
+      "size": 374
+    },
+    {
+      "path": "model/prompts/evaluator/v0.4.0.md",
+      "sha256": "b5c3b1408cdd0abc0cc14368e799c632dc4126e0faf7f541ee6d5a4fb8dbbaf8",
+      "size": 471
+    },
+    {
+      "path": "model/prompts/evaluator/v0.5.0.md",
+      "sha256": "cf1ca01e2e1a7d06f96896196dd6a20530e6357f803cd7e4f4b0c8564c83c3ca",
+      "size": 528
+    },
+    {
+      "path": "model/prompts/patient/v0.1.0.md",
+      "sha256": "1b619f45d23cc5190fef52c26076aba9575ff8dc865a041cc0a52f06dad30941",
+      "size": 722
+    },
+    {
+      "path": "model/prompts/patient/v0.1.1.md",
+      "sha256": "3de96ac1d176d1c54e25a65e22b4d790b82dab6abdafd2016ae872b8fccf48fb",
+      "size": 1143
+    },
+    {
+      "path": "model/prompts/patient/v0.2.0.md",
+      "sha256": "dcfe22bbc21afdb8775eb2992a5a118b1841ca3f2d0681081731d589ed82441e",
+      "size": 3278
+    },
+    {
+      "path": "model/prompts/patient/v0.3.0.md",
+      "sha256": "00bfaa245eeb131ee54dded096868eb50e40ba4077df4cad73236114e4535d81",
+      "size": 4585
+    },
+    {
+      "path": "model/prompts/patient/v0.4.0.md",
+      "sha256": "1aa7037afbe24233c2f06c5b4fd57f7a30e2753d02ed7d3734e24e591f3d2e1a",
+      "size": 6778
+    },
+    {
+      "path": "model/prompts/patient/v0.5.0.md",
+      "sha256": "a5ebfe47ed2f5a2656f033ee85b66c77634a6ede7c01cf24660504e6c44f9233",
+      "size": 6515
+    },
+    {
+      "path": "model/prompts/README.md",
+      "sha256": "5485720d2085583b981aac45ab4110a311b7ce1f89757886423981ed65a4b918",
+      "size": 1232
+    },
+    {
+      "path": "model/README.md",
+      "sha256": "d80a9851df118f77285cf1f71d5713704f8ee649677b22be2435ec276493fa27",
+      "size": 36932
+    },
+    {
+      "path": "model/src/adapters/share-v1-adapter.ts",
+      "sha256": "2d3d17c22dc3bb242ea274a7e09197ea955d3745e3a3f6bf3e3f5a33ce2a914b",
+      "size": 9525
+    },
+    {
+      "path": "model/src/application/create-headless-model-service.ts",
+      "sha256": "a29e931e887b759eecb9d49c35e368277f62a658b4c1bd616a7dfecc0d9703e5",
+      "size": 1740
+    },
+    {
+      "path": "model/src/application/create-sqlite-model-service.ts",
+      "sha256": "28142a558cebe3b68cfd05775b59ee76d1f381706a52eef24ea649b5fab1a44c",
+      "size": 2244
+    },
+    {
+      "path": "model/src/application/keyed-serial-executor.ts",
+      "sha256": "95036c0cd8f02d97ced1a41ab531219a69226c4de334c428eba54a1184976ce1",
+      "size": 605
+    },
+    {
+      "path": "model/src/application/model-service.ts",
+      "sha256": "a36026f683e978427254b3580f189b3b9989210ff97e914852ed6edb5514b59f",
+      "size": 117253
+    },
+    {
+      "path": "model/src/application/operation-buffer-integrity.ts",
+      "sha256": "36f9dc48f878562f070c565e17faabd413c39c17a6ea0a06096aa8a093b1d54d",
+      "size": 1995
+    },
+    {
+      "path": "model/src/application/turn-request-crypto.ts",
+      "sha256": "f31aae6802008497be941b773a5f6c87686d1c356a480a6893bb40063e18e02e",
+      "size": 4987
+    },
+    {
+      "path": "model/src/cases/case-manifest-runner.ts",
+      "sha256": "8d77f2bf107a7fa45769cbd2e9dcfdd3082350607607b87e62f4ba7aab7f4801",
+      "size": 2578
+    },
+    {
+      "path": "model/src/cases/case-manifest.ts",
+      "sha256": "8e9fd070aa21b65139a12ae9ed8a779963ce02688cfd1ede2f973d8bd113e791",
+      "size": 21578
+    },
+    {
+      "path": "model/src/cases/dialogue-candidate-runner.ts",
+      "sha256": "e873d8bdcaeb3eea59875cdfe45ac8aed4cd6bbe18d3ac0fb5906ea0d19b6ff9",
+      "size": 1467
+    },
+    {
+      "path": "model/src/cases/launch-content-policy-runner.ts",
+      "sha256": "7d0c5dd6b95744c9801253f13f34fba066279c54e9fa12d61518bd83c5a47027",
+      "size": 838
+    },
+    {
+      "path": "model/src/cases/launch-content-policy.ts",
+      "sha256": "d9f00f29b03413d97d4b158dffd0086fa17bbf3e03ab593f9f6031d94d7cc393",
+      "size": 19208
+    },
+    {
+      "path": "model/src/cases/phase6-case-production.ts",
+      "sha256": "83d3b68767c2cdd452f505986433d16e1c591a74191a268fc047418dc34adbde",
+      "size": 29779
+    },
+    {
+      "path": "model/src/cases/phase6-runner.ts",
+      "sha256": "d3da5128d48dd21b85b93593bfae87e4db4b17192f18fde361427986c4dc90ce",
+      "size": 1601
+    },
+    {
+      "path": "model/src/cases/red-flag-policy.ts",
+      "sha256": "65b77ea54b7e38d8a53b484d14e46c2bad09aa306f4191c197325ea8c844ad84",
+      "size": 2848
+    },
+    {
+      "path": "model/src/cli/case-loader.ts",
+      "sha256": "94f98c08abd8f77b47a63f0ef02cd9747a43b55bb33d23cd6e79c8b08de5b147",
+      "size": 3086
+    },
+    {
+      "path": "model/src/cli/command-parser.ts",
+      "sha256": "b519fffbdc96bdd8a0e8010e68942ca7954688cec133266d5351405be17ec233",
+      "size": 2801
+    },
+    {
+      "path": "model/src/cli/config.ts",
+      "sha256": "302142633d82168a4f43d9c44515845d53502651f5a778a6e2634094e7f04eb6",
+      "size": 4855
+    },
+    {
+      "path": "model/src/cli/local-dev-main.ts",
+      "sha256": "e3a77cd5ea5db3ce3ca1b55d78927344822541d1d5147a0bfe62dd34805adde7",
+      "size": 1952
+    },
+    {
+      "path": "model/src/cli/local-dev-provider.ts",
+      "sha256": "30d2c25fcfa32f8a491280b3e71d0f60256fda3da63c432df72fbc2d2ad519d4",
+      "size": 2510
+    },
+    {
+      "path": "model/src/cli/main.ts",
+      "sha256": "9ca8587670ff26055feecbb25bc58f039d2b1e2f0fc2576b10b49f15ea280b20",
+      "size": 1682
+    },
+    {
+      "path": "model/src/cli/runner.ts",
+      "sha256": "a04b5a7998ce9a10aa04faf1963c710632bd59676456647600fe380d251c357a",
+      "size": 14286
+    },
+    {
+      "path": "model/src/domain/case-content-hash.ts",
+      "sha256": "74056c71fe00d4fcc6c006d0c19fccd25c78f69cc8ec7d3f936b23b9abcfd581",
+      "size": 3443
+    },
+    {
+      "path": "model/src/domain/case-package-schema.ts",
+      "sha256": "412964c5c83fbed8eab58183cce3635722db48307e9f63acf674c82ba4e65d51",
+      "size": 2624
+    },
+    {
+      "path": "model/src/domain/case-package.ts",
+      "sha256": "917495d458dbbe7c73ee54c572f74de2b46ae2dbae17c471ec163e1ca03b958e",
+      "size": 66989
+    },
+    {
+      "path": "model/src/domain/errors.ts",
+      "sha256": "40ed9e89ed55f69f404927f2c42a27cc9756c6ef1ebec17010daa2d0a9d9c743",
+      "size": 856
+    },
+    {
+      "path": "model/src/domain/patient-persona.ts",
+      "sha256": "9f5516b95b936941115bc1ad9c3674baaf67329bd3d2357902bda56402cdbec8",
+      "size": 7168
+    },
+    {
+      "path": "model/src/domain/safe-patient-case-view.ts",
+      "sha256": "ca0ebd0d0665c06d0b3f9e4dfab9d40858c3c68b627f8407701cec5c75b8e233",
+      "size": 11262
+    },
+    {
+      "path": "model/src/domain/session.ts",
+      "sha256": "3f23ddec51699938dc91e6664ce702300fce2fc6e881af362ea8a3a2b4cdef2a",
+      "size": 4876
+    },
+    {
+      "path": "model/src/evaluation/anthropic-live-eval-runner.ts",
+      "sha256": "845b878d42a24f85ed9cbbf27f7486f59297ea66431d1948254373f41e31a4ac",
+      "size": 3250
+    },
+    {
+      "path": "model/src/evaluation/anthropic-live-eval.ts",
+      "sha256": "2338d9df5590229cabab227806f5778e2556b37e856e1e9530c6de195007461c",
+      "size": 1135
+    },
+    {
+      "path": "model/src/evaluation/c7-ai-release-runner.ts",
+      "sha256": "5019764248a309932ab76e0f29c7dcfb23a10f8cf916f31a6f0d21ad468d65ba",
+      "size": 16748
+    },
+    {
+      "path": "model/src/evaluation/c7-dialogue-architecture-benchmark.ts",
+      "sha256": "e28b961bf27e66167f23b967f2dc41cda5016277ccf72c9a72a6678fa52cf5f0",
+      "size": 14884
+    },
+    {
+      "path": "model/src/evaluation/c7-dialogue-live-runner.ts",
+      "sha256": "e9f9027e242ecf4d85b36c96e2ae502e7fa00e6cd371182fe92ca300e0e05dfb",
+      "size": 29927
+    },
+    {
+      "path": "model/src/evaluation/deterministic-evaluator.ts",
+      "sha256": "1c8a134f5d67a83b696a5aea6524647c4dccb3b0b0d82985ea422f5196c3d7dd",
+      "size": 1917
+    },
+    {
+      "path": "model/src/evaluation/diagnosis-matcher.ts",
+      "sha256": "d86b4ec03315ae9315a01bdddd397bb1aac04c34eb7372c815855db19148bfdf",
+      "size": 1595
+    },
+    {
+      "path": "model/src/evaluation/e3-persona-ai-audit.ts",
+      "sha256": "4422de3e63f459a9eababeb1c37fbab412719a7c9be226d7c7e0a79512c8e4db",
+      "size": 19694
+    },
+    {
+      "path": "model/src/evaluation/e3-persona-benchmark.ts",
+      "sha256": "6a43de0465d7d3ad06267723297938bee26dc096a903cb371736b1745fb4f11f",
+      "size": 23863
+    },
+    {
+      "path": "model/src/evaluation/e3-persona-evidence.ts",
+      "sha256": "7e8a0ef629ecf1d840881bc08eb1f9744672e8360f7e73f106941af5d54e8f5f",
+      "size": 8621
+    },
+    {
+      "path": "model/src/evaluation/e3-persona-live-runner.ts",
+      "sha256": "a8327b00c7512db47650f2d1a43ce3f837c1704a5d2406a9fb2f9f08571fe4f8",
+      "size": 30071
+    },
+    {
+      "path": "model/src/evaluation/openai-live-eval-runner.ts",
+      "sha256": "5057ae484f374935d146a3d06f8f6025ad8596a6f5522bee3d5cf24e1353e86c",
+      "size": 3465
+    },
+    {
+      "path": "model/src/evaluation/openai-live-eval.ts",
+      "sha256": "99b81e83006af95e564e87986edf204b978061b5613d319897e816a549ad953e",
+      "size": 12786
+    },
+    {
+      "path": "model/src/evaluation/phase7-eval-corpus.ts",
+      "sha256": "32c7ce70f0b079a5fa357ab1e91fcddd0594993db5c3299195daadd24f291c13",
+      "size": 11863
+    },
+    {
+      "path": "model/src/evaluation/phase7-eval-harness.ts",
+      "sha256": "d5e3a35de98461528120dfda76b85032b4bf320853a225b2149f6acfe7659dc0",
+      "size": 11073
+    },
+    {
+      "path": "model/src/evaluation/phase7-offline-runner.ts",
+      "sha256": "e2f4d547b7b518e9f3df7b9711c895efe115981a19d81dc1b0e7df43243a4f95",
+      "size": 11092
+    },
+    {
+      "path": "model/src/evaluation/phase7-safety-corpus.ts",
+      "sha256": "da9d403e2aa3dbbdef11b35116dd5ddc856bc5da98c606f07597ed48b6551961",
+      "size": 22805
+    },
+    {
+      "path": "model/src/evaluation/phase8-ai-evidence-runner.ts",
+      "sha256": "c2a778ba879027fd0c51a775eecc7b94f93ac1d87d2f57d9ad5528c3a6e2f22e",
+      "size": 9550
+    },
+    {
+      "path": "model/src/evaluation/phase8-ai-evidence.ts",
+      "sha256": "e3d8e17ee6a33e6ba47d996b77f6e42683b669ac0a7c57a70f5e0fe5d05b10dc",
+      "size": 34096
+    },
+    {
+      "path": "model/src/evaluation/phase8-candidate-benchmark.ts",
+      "sha256": "20a1a8c5904b69ddc94b7b40cf8acf341dfe6c2d2512af664fd9a3864ddeedf3",
+      "size": 12038
+    },
+    {
+      "path": "model/src/evaluation/phase8-candidate-live-runner.ts",
+      "sha256": "686e87a3635fde21c897e0a786095a5cf28b92f537861361f07d00100bf3c267",
+      "size": 18925
+    },
+    {
+      "path": "model/src/evaluation/phase8-patient-audit-runner.ts",
+      "sha256": "db619b396b5e008f1d853651f39aa651c8f0eef6faeb67c3cc171934b4705713",
+      "size": 7113
+    },
+    {
+      "path": "model/src/evaluation/public-evaluation-projection.ts",
+      "sha256": "284a9150753728624897b4a4645088542b9cda9aa05768192d87fe62faf8534c",
+      "size": 4548
+    },
+    {
+      "path": "model/src/evaluation/scoring-policy-v1.ts",
+      "sha256": "917160ada3234da1a56b3e8d4f7488fe0812ce1ab5bb621dfda1c1ca848a330d",
+      "size": 12756
+    },
+    {
+      "path": "model/src/headless/runner.ts",
+      "sha256": "1ce76ce4206b3e21a0f43ccc42b0cb89f106e1cdf14527f45deb43b50ea14e0e",
+      "size": 2179
+    },
+    {
+      "path": "model/src/index.ts",
+      "sha256": "21aa93f28f60cac5350da58bec416c6ad22a549425890d2972a20026144f552f",
+      "size": 2024
+    },
+    {
+      "path": "model/src/observability/event-sink.ts",
+      "sha256": "df79aff29db717988a796f78ca121127bd5d9ca5ab4e35ff40490f920f2c9668",
+      "size": 606
+    },
+    {
+      "path": "model/src/ops/runner.ts",
+      "sha256": "040f99339f34f5446c9f30bd1f5df4b5100f0cbfe98ed5882942bd7bc6172b65",
+      "size": 10201
+    },
+    {
+      "path": "model/src/persistence/memory/in-memory-model-persistence.ts",
+      "sha256": "a3090d3a6a784c2bf20ff6b8d2d408ff5d41ae8149079410ad4e463c690aaef8",
+      "size": 6287
+    },
+    {
+      "path": "model/src/persistence/ports.ts",
+      "sha256": "97931179208bd9722e7a28b0e596f6c586ab25f325d63359c0adaa35ec673cd4",
+      "size": 2736
+    },
+    {
+      "path": "model/src/persistence/sqlite/migrations.ts",
+      "sha256": "82fd99713cec55787a946636c17464b802e336b0b4e149a5a41989635bc40496",
+      "size": 9679
+    },
+    {
+      "path": "model/src/persistence/sqlite/sqlite-model-persistence.ts",
+      "sha256": "e1e0877e88e4ac4397dc42d7715339d676ae6a9f7cb23e7d54672b820e239b1c",
+      "size": 34471
+    },
+    {
+      "path": "model/src/prompts/prompt-registry.ts",
+      "sha256": "a5feae1cd7d6a63d30f4ff0cbc19e8fdbf2d24f0a3ac6e08908c758f7dec816e",
+      "size": 1953
+    },
+    {
+      "path": "model/src/providers/anthropic-model-provider.ts",
+      "sha256": "1d943613b1dec2da010d9ce33a67f9d57efa64ec3319ddd01c8e1718f19b6384",
+      "size": 9519
+    },
+    {
+      "path": "model/src/providers/anthropic-runtime-config.ts",
+      "sha256": "c3b1ade7273358866c7e4d25ec254a5dc9d55511052fc1988dfce0c40937d5d9",
+      "size": 1073
+    },
+    {
+      "path": "model/src/providers/communication-review-provider.ts",
+      "sha256": "219654f29cda6032487ae6a69f3ce8e019defada9fe3fb521c412abf2c33db0b",
+      "size": 1916
+    },
+    {
+      "path": "model/src/providers/deterministic-model-provider.ts",
+      "sha256": "589ce1a975d815b8214d6621b612623bbcf617a266c043013439196b5c88e2a1",
+      "size": 12999
+    },
+    {
+      "path": "model/src/providers/model-provider.ts",
+      "sha256": "875df5072df398d4dfbd1e6313d9ba68372b51faa2280939a02558b0747f74fa",
+      "size": 8462
+    },
+    {
+      "path": "model/src/providers/openai-model-provider.ts",
+      "sha256": "83e05a7f366c82ebf85550f8bd3464b4c2409aa43fcaf894817cb8f7a2675083",
+      "size": 48726
+    },
+    {
+      "path": "model/src/providers/openai-runtime-config.ts",
+      "sha256": "76f0fcb7269dfb2aac8df5e70fc72455cd7f7b972cbea34d052f98b56c468393",
+      "size": 1894
+    },
+    {
+      "path": "model/src/providers/unconfigured-model-provider.ts",
+      "sha256": "85ebd80187b823a576bdd9d2a603ff1b0ac439bce5cdea2243970118b6a801f1",
+      "size": 1087
+    },
+    {
+      "path": "model/src/release/c6-acceptance-runner.ts",
+      "sha256": "a93c2c793aaa2dca6fb662094280afc083867ce18d3fa7f6c67a2a2460af290b",
+      "size": 4427
+    },
+    {
+      "path": "model/src/release/c7-acceptance-runner.ts",
+      "sha256": "e009116763968bb68649ad444a359227bee2dcb3ec3e576fbd09e83998b093f9",
+      "size": 3798
+    },
+    {
+      "path": "model/src/release/c7-case-release.ts",
+      "sha256": "759bc3b2497f640740582e0db66a56e6e3a3499e9781c4ddf1efdb97bb00353c",
+      "size": 10303
+    },
+    {
+      "path": "model/src/release/c7-runtime-manifest-runner.ts",
+      "sha256": "6fa8d19b2edcbbd6437661ae5af07555944e3596591699a37e2b1716773c1242",
+      "size": 27928
+    },
+    {
+      "path": "model/src/release/c7-runtime-release.ts",
+      "sha256": "00cdf38e4204a4b388b3b817a70638ce6d046966988bcd97b8147c446160e4da",
+      "size": 48972
+    },
+    {
+      "path": "model/src/release/c7-software-rc-runner.ts",
+      "sha256": "dd11d250f821fe3e3fc481480f300cc03208502a09c9693e386969b5b9790726",
+      "size": 9904
+    },
+    {
+      "path": "model/src/release/e5-full-release-runner.ts",
+      "sha256": "1ce1d70ba93b60d70a20e87168611bb0ccb49d3303d80366e45e4d2f9b81c1c8",
+      "size": 25975
+    },
+    {
+      "path": "model/src/release/e5-full-release.ts",
+      "sha256": "d37c1651d007fa9f87b2a8dff667019da8b3305157eba2988c703914a7c89498",
+      "size": 21742
+    },
+    {
+      "path": "model/src/release/phase8-manifest-runner.ts",
+      "sha256": "bdb83e5005cf9243fffd1a45c9b619bec0ac4b9e35cd0eb338d71c3e8a6a206a",
+      "size": 9792
+    },
+    {
+      "path": "model/src/release/phase8-release.ts",
+      "sha256": "02cd2074586f0ba7f703411d2fa6cc43864271a768d9ec51acb59454ca2fd16a",
+      "size": 13280
+    },
+    {
+      "path": "model/src/release/phase8-security-scan-runner.ts",
+      "sha256": "520167c8fbfbb2eb030cdec80c83fd87d6b0018da5965860c9df742a647500ec",
+      "size": 4809
+    },
+    {
+      "path": "model/src/release/phase8-verify-runner.ts",
+      "sha256": "9baa9cb0ee5403288ed16f44fcb4c3728d74493f5cb81a1170db7ec1cb678aef",
+      "size": 1842
+    },
+    {
+      "path": "model/src/release/runtime-artifact-security.ts",
+      "sha256": "5a7a61748fdc0215046a6b2ddd6b7bb53abf4cfacb3673b01cc402eabc71289e",
+      "size": 4801
+    },
+    {
+      "path": "model/src/repositories/case-repository.ts",
+      "sha256": "7c3fefc7b90cd84ae03a5eee2e9006aa8680ba406be5d1c22eac4244193c965b",
+      "size": 1520
+    },
+    {
+      "path": "model/src/repositories/file-case-repository.ts",
+      "sha256": "7f26823449a09e5972c7a44ad7f465fb499a567f14d7cc1badef072623a71acf",
+      "size": 976
+    },
+    {
+      "path": "model/src/safety/evaluation-output-gate.ts",
+      "sha256": "39dead608fbc11f2a45aa56861e26c2d8b0905ae9784a5c4f2d2a701ad3168df",
+      "size": 7227
+    },
+    {
+      "path": "model/src/safety/medical-safety-policy-v1.ts",
+      "sha256": "bee180cf11f00865e82d7865d7eba79449bd1d7692b2ec98e220d30b0aec6c6e",
+      "size": 56906
+    },
+    {
+      "path": "model/src/safety/patient-output-gate.ts",
+      "sha256": "de85c3e076b610133cf9ff6c64f339fcb2b132b017781321994ee3baf92b443b",
+      "size": 12954
+    },
+    {
+      "path": "model/src/safety/prompt-injection-policy.ts",
+      "sha256": "60f0ff719d94680b9f6175c8a55c9210846f110d5d5c554f151e2f89ca7ede7d",
+      "size": 5586
+    },
+    {
+      "path": "model/tests/anthropic-http.test.ts",
+      "sha256": "d2bba35829908911dad7e93a68ad0cc189b022a07442a57c92af277e1fe4865b",
+      "size": 6256
+    },
+    {
+      "path": "model/tests/anthropic-live-eval.test.ts",
+      "sha256": "a09ffc9721f145e9c8e69442ec6948cbe7bb8d91b87328a073ff693e8d431a39",
+      "size": 5683
+    },
+    {
+      "path": "model/tests/anthropic-model-provider.test.ts",
+      "sha256": "8a82581868664c92ee92ce731c7536f1cd647aba264876280d56470dc318dfc0",
+      "size": 12490
+    },
+    {
+      "path": "model/tests/anthropic-runtime-config.test.ts",
+      "sha256": "1a182a880b4b8425fcd96f020235b970700a35d0c006695f3480d50f8e31cf2a",
+      "size": 1070
+    },
+    {
+      "path": "model/tests/c6-cli-journeys.test.ts",
+      "sha256": "a3fdff2c39a4c42d7429e9fe5caac1a3aca9456aefe17248ba444566fb97f7c6",
+      "size": 5538
+    },
+    {
+      "path": "model/tests/c7-case-release.test.ts",
+      "sha256": "4e83d8ca9155e92c2623b06a7cea22a496e2204729ce05e5cdb76a4cfeb8996c",
+      "size": 7992
+    },
+    {
+      "path": "model/tests/c7-dialogue-architecture-benchmark.test.ts",
+      "sha256": "72f51f67e43ae8f8bb13afec28bc74a3ef5f219221d6289a01e9c39b5cff5261",
+      "size": 5325
+    },
+    {
+      "path": "model/tests/c7-dialogue-live-evidence.test.ts",
+      "sha256": "368f081b8e2cbf2e7ee2b9246a6d7fc401db874760a4608d11a89f63761d475a",
+      "size": 4928
+    },
+    {
+      "path": "model/tests/c7-runtime-manifest-runner.test.ts",
+      "sha256": "8f53c10eca5576433c3832cab86ac1f5c84b85678449292a6bfb2e8aa2427d20",
+      "size": 2436
+    },
+    {
+      "path": "model/tests/c7-runtime-release.test.ts",
+      "sha256": "edfe608c4769eb77d2f52b23c820e2cb3439e7da2983103305f0051a0d861bbf",
+      "size": 31819
+    },
+    {
+      "path": "model/tests/case-package.test.ts",
+      "sha256": "288341d6d949cdb81d7a4fa4fee3e2063b32bcd9df7ffddf0cf0c3926320cc8e",
+      "size": 13949
+    },
+    {
+      "path": "model/tests/case-repository.test.ts",
+      "sha256": "1e7ced79b6ead5bac00c7dc650d4fd80ff8ac08bf385e5eee287c6e19141d8d2",
+      "size": 3128
+    },
+    {
+      "path": "model/tests/cli.test.ts",
+      "sha256": "88f58c14cd976644c998b08640fe694a1df6edbc1b562941926a0af5621dd624",
+      "size": 18512
+    },
+    {
+      "path": "model/tests/contract/phase1-contract.test.ts",
+      "sha256": "161d58c20ec6d121b9e473415818f937a1e7d9d55dfa95cc2228408cda136019",
+      "size": 4581
+    },
+    {
+      "path": "model/tests/contract/phase3-cli-adapter.test.ts",
+      "sha256": "ee984df2fac9c16931b51f9f1b363eadff1fee2e82caef0f96b356f4de094314",
+      "size": 4822
+    },
+    {
+      "path": "model/tests/deterministic-provider.test.ts",
+      "sha256": "4e71c4498e333a0a942983ea0366f8e847174c64d7904b95cdc7684d35d32f46",
+      "size": 4240
+    },
+    {
+      "path": "model/tests/e1-case-package-v2.test.ts",
+      "sha256": "f9e0bd0bc5ac975f82c403cda75cb12dced2153cca2a8fbaa972566aae2581dd",
+      "size": 14823
+    },
+    {
+      "path": "model/tests/e2-manifest-pipeline.test.ts",
+      "sha256": "9dba58ba789e1967a07b11f0d9b451a5afa28c18d0e0a2f4a27870054c295d63",
+      "size": 13728
+    },
+    {
+      "path": "model/tests/e3-persona-benchmark.test.ts",
+      "sha256": "7315769152bba0ba728466b8fe0b84409ac9cecb114f808da5dce7e47f7b28e7",
+      "size": 23242
+    },
+    {
+      "path": "model/tests/e5-full-release.test.ts",
+      "sha256": "c147be39c1ec90963c18efca1de9d72b98c5adabe7d27f7399c0c0675fd44e46",
+      "size": 9398
+    },
+    {
+      "path": "model/tests/fixtures/case-fixture.ts",
+      "sha256": "fc1cbb3b47e1452e09eacae3eda47a874db42a1dcec4161f2d8feab514b4ce07",
+      "size": 4142
+    },
+    {
+      "path": "model/tests/fixtures/case-package-invalid.json",
+      "sha256": "5e97f7064940d7d00b5e1afd18937d5a97e4fc831f7f0e94daa63c9ddf3a111c",
+      "size": 1057
+    },
+    {
+      "path": "model/tests/fixtures/case-v2-fixture.ts",
+      "sha256": "e4ade1bfdbd232a545f0eaae5ca55edd8fccc19c3b3bec244e3003ac84c04745",
+      "size": 3325
+    },
+    {
+      "path": "model/tests/launch-content-policy.test.ts",
+      "sha256": "ba23d22e07acbd9a5ea3877601109fb2696b9a6cf96d9b1702baf4054a036847",
+      "size": 8035
+    },
+    {
+      "path": "model/tests/medical-safety-model-service.test.ts",
+      "sha256": "1209bff17bd20802aa2d5b1295273a4649010a12cd1ebec983b07d1e77a3273e",
+      "size": 9064
+    },
+    {
+      "path": "model/tests/medical-safety-policy-v1.test.ts",
+      "sha256": "e94761a6c97a47927315f75c14d6f72f8e391f6d811f45dabaec22d70a278863",
+      "size": 28482
+    },
+    {
+      "path": "model/tests/model-service.test.ts",
+      "sha256": "db1fd82f40f38b37094ccd67fe146b868cc494aa20406db9f860583631d976d1",
+      "size": 22860
+    },
+    {
+      "path": "model/tests/openai-http.test.ts",
+      "sha256": "9fe957961f841f77fb77f3118faa8ca7b7595a242c9ad1a34820aaa1b9a13401",
+      "size": 9099
+    },
+    {
+      "path": "model/tests/openai-live-eval.test.ts",
+      "sha256": "336b3995405d635d4871920b375ae53202b1e3616ff1871639e526ca74ebba7f",
+      "size": 8646
+    },
+    {
+      "path": "model/tests/openai-model-provider.test.ts",
+      "sha256": "32305c2bdb87856a23872d8ec8da593b82cec6baba15264cbf238774cecabeb9",
+      "size": 14001
+    },
+    {
+      "path": "model/tests/openai-runtime-config.test.ts",
+      "sha256": "fae3410c9761d4ccbec159c0016674cc5ff63ce94d4fa57bc99312897986ebe2",
+      "size": 2546
+    },
+    {
+      "path": "model/tests/ops-cli.test.ts",
+      "sha256": "5ed19a1a07b46ed594e560d323f7329476a0e8dffa56896d2f1384539424e7ba",
+      "size": 3189
+    },
+    {
+      "path": "model/tests/patient-agent-contract.test.ts",
+      "sha256": "085b16e0dcacf0d7f018101cf13a4e19736836605f666669f0a3817afda8cd86",
+      "size": 7380
+    },
+    {
+      "path": "model/tests/phase2-hardening.test.ts",
+      "sha256": "04c47ab07c67c032f4257d37b5442750fc54553d3192d8914e742fa9633a588e",
+      "size": 28766
+    },
+    {
+      "path": "model/tests/phase2-recovery.test.ts",
+      "sha256": "055a63b85c67dfe257848a0b06ec91b3040a095a85e13cfdefc7be9628e9ed82",
+      "size": 37050
+    },
+    {
+      "path": "model/tests/phase2-service.test.ts",
+      "sha256": "5ebf2885909b116840bc5c440eb8ddb7b304478b58e5af4ae53de82dbed643b1",
+      "size": 33802
+    },
+    {
+      "path": "model/tests/phase4-service.test.ts",
+      "sha256": "e9f1ed276d97f46f1859b269302b70051389661e37fc15060b3b2c783cd4e4c5",
+      "size": 19346
+    },
+    {
+      "path": "model/tests/phase6-case-production.test.ts",
+      "sha256": "0b7ec07362acb0d56530b9c0d1b7ca2687eaf4a27fd5c8440651aa99ba49eb4a",
+      "size": 23453
+    },
+    {
+      "path": "model/tests/phase7-adversarial-runtime.test.ts",
+      "sha256": "ffab3da58ed37aa19044ed132e71238016b1bffc03903b0ba1ee9f3c948cda36",
+      "size": 20296
+    },
+    {
+      "path": "model/tests/phase7-eval-corpus.test.ts",
+      "sha256": "440fa70566510f46848d116f8e47c8a637f02e5ac2af0880688f2053d5f708d2",
+      "size": 4641
+    },
+    {
+      "path": "model/tests/phase7-eval-harness.test.ts",
+      "sha256": "8033867c29e0a4bdf6070420be8d73e2696fdeb71982847f32572d4bdbfe4b38",
+      "size": 7218
+    },
+    {
+      "path": "model/tests/phase7-offline-runner.test.ts",
+      "sha256": "2d479563649765cd4865f52869c65eed68c6a83d59b8cc575cac8d6fccb1ba8a",
+      "size": 11295
+    },
+    {
+      "path": "model/tests/phase7-safety-corpus.test.ts",
+      "sha256": "0000052c739366e193ce167ae4215b42921c1e5a9e6003458b16aed642a77890",
+      "size": 4415
+    },
+    {
+      "path": "model/tests/phase8-ai-evidence.test.ts",
+      "sha256": "905278baa61b2d147e1e47736abcdcbf386b8d34ecfe76f442b1a68eb03ccde6",
+      "size": 11727
+    },
+    {
+      "path": "model/tests/phase8-candidate-benchmark.test.ts",
+      "sha256": "08c6792ed9e4ebba8237bfaeb006a268843450b06f430a274b0acd878639dd9b",
+      "size": 7092
+    },
+    {
+      "path": "model/tests/phase8-release.test.ts",
+      "sha256": "0765340dbf59c0ec73b6908c5cb9106e111f6baded70004d14d100238de27117",
+      "size": 6044
+    },
+    {
+      "path": "model/tests/prompt-registry.test.ts",
+      "sha256": "568ff8fa5ccf9ba922756c3906da49371bfa3ae9e8cdb33c66e95dca9709076e",
+      "size": 4104
+    },
+    {
+      "path": "model/tests/provider-output-gates.test.ts",
+      "sha256": "8e16ffe0793ff2177ada22ec3ab4d2d9404ff22b459ca257d23a436822861ee2",
+      "size": 11923
+    },
+    {
+      "path": "model/tests/safe-patient-case-view.test.ts",
+      "sha256": "447149d81acb05155ed97b1db4f9f89732ca3e1c2d7aa578e5be2d2644a81332",
+      "size": 7511
+    },
+    {
+      "path": "model/tests/scoring-policy-v1.test.ts",
+      "sha256": "8f5574aca9c35828b76efa6b05631040e0c1fb9bbc14ff94a7cd1f4b105ab02b",
+      "size": 13294
+    },
+    {
+      "path": "model/tests/session.test.ts",
+      "sha256": "833036aa346afc86c29a754fb1154e387156fa116759d45d31e8d6836a0e26ca",
+      "size": 3540
+    },
+    {
+      "path": "model/tests/sqlite-persistence.test.ts",
+      "sha256": "ac52edf5eacac398d0735676babf1de5f57ccb5c9e950078ed08b6a4bb7219d3",
+      "size": 24300
+    },
+    {
+      "path": "model/tests/turn-request-crypto.test.ts",
+      "sha256": "3ad8c88d894a8f8f82e1c64c8c309d9a3cfe1c372eb9853e099a90d7328acbe9",
+      "size": 2478
+    },
+    {
+      "path": "model/tsconfig.json",
+      "sha256": "c1cf15a8b50bb50b339b8bc8ca6f9109b8c1406ce182398531c785d8d777676c",
+      "size": 545
+    },
+    {
+      "path": "share/.gitignore",
+      "sha256": "a0acdbe8e5a4510f14941d54b09dab2e2ca5ffe00e34286097c321352b6e3c80",
+      "size": 44
+    },
+    {
+      "path": "share/contracts/v1-rc2/cases.ts",
+      "sha256": "ebf2dab247e8d099dd81e310d99c4f6953596fcbc1beded8afc20b1468bef8c0",
+      "size": 4547
+    },
+    {
+      "path": "share/contracts/v1-rc2/index.ts",
+      "sha256": "c3b0308113a9038687d2281cc49e134e5c2c7c854f7f2d63f161d10c56e39ea4",
+      "size": 334
+    },
+    {
+      "path": "share/contracts/v1/cases.ts",
+      "sha256": "54ee901c0973d978f83e3304672297503e272302fe8ef104f4f3f72bc70c3227",
+      "size": 3176
+    },
+    {
+      "path": "share/contracts/v1/diagnosis.ts",
+      "sha256": "9617b576b69d27b81664c05cd2c0abbe7461c9805668a1ce0eb22183c5990dbe",
+      "size": 340
+    },
+    {
+      "path": "share/contracts/v1/errors.ts",
+      "sha256": "cc403f8149ae4639a503338f50b0cfed94bccce08fda7662c107856852a1e30d",
+      "size": 860
+    },
+    {
+      "path": "share/contracts/v1/evaluation.ts",
+      "sha256": "16a4e33f000f7740840d4e3f39270859440143a60cdf009c335b9ba5afab3ffa",
+      "size": 1932
+    },
+    {
+      "path": "share/contracts/v1/events.ts",
+      "sha256": "73eb66b6fea5e0dc414e3e4370aeaf8331967834321d3ae3c18c8d768f4dac6f",
+      "size": 2161
+    },
+    {
+      "path": "share/contracts/v1/idempotency.ts",
+      "sha256": "9311e9a85ea35eec29c2a8d82098755b2d576e954ce2d436d7d7f7b17798b11f",
+      "size": 1600
+    },
+    {
+      "path": "share/contracts/v1/ids.ts",
+      "sha256": "03db66da056af24c62c6f0f14b7d4fc2566b20d47d4aafb283b7c6050141d934",
+      "size": 1201
+    },
+    {
+      "path": "share/contracts/v1/index.ts",
+      "sha256": "3d3d1cf254ff7f19916a289f938aeaeb7852ab19a2aeeb79cb280fb7a099fb1a",
+      "size": 298
+    },
+    {
+      "path": "share/contracts/v1/sessions.ts",
+      "sha256": "f9a875c3d7f33624b94b230143655c257c3e222360509473ebd24b035de3e8e1",
+      "size": 1753
+    },
+    {
+      "path": "share/contracts/v1/tests.ts",
+      "sha256": "4ced5363790b91cc1f9af4f208feade462111d3a11e8cddea5146f497f653b01",
+      "size": 490
+    },
+    {
+      "path": "share/contracts/v1/turns.ts",
+      "sha256": "ae898e68f0b01b2e58cd3cf303b4b499d2525e86e515f1a56f92716c374f0d9e",
+      "size": 851
+    },
+    {
+      "path": "share/fixtures/v1-rc2/fixture-manifest.json",
+      "sha256": "2ef7853c336c747ff2530ef3c4c55a9ff70947afaaada1a25dc0011d222cd686",
+      "size": 262
+    },
+    {
+      "path": "share/fixtures/v1-rc2/public-fixtures.json",
+      "sha256": "d6dc5d4973cf7a8ca69a0ec082c217edf6cfb5bb95d7a4909b1672e32252cf7f",
+      "size": 11556
+    },
+    {
+      "path": "share/fixtures/v1/fixture-manifest.json",
+      "sha256": "a8491bece8e4050593cdf5e4e6000962bf7e74a3ad4e5893e345157ec08cca9e",
+      "size": 262
+    },
+    {
+      "path": "share/fixtures/v1/public-fixtures.json",
+      "sha256": "4fa59f2e5a79a5c0c99abfeae126d68fdf8c8bd24ee5b7d254084c99663de6ee",
+      "size": 11176
+    },
+    {
+      "path": "share/package-lock.json",
+      "sha256": "08859f965832ba93dd98bbc69708e7f3b486489f8a0a90f9e641c5c5f271d6e6",
+      "size": 1534
+    },
+    {
+      "path": "share/package.json",
+      "sha256": "409bee795ddb7220381fae3edc071feb4ff1691b84cf6a42bbcb5c1c155063f5",
+      "size": 1609
+    },
+    {
+      "path": "share/README.md",
+      "sha256": "d9e4f15c48d4d3d5bda9edc6693c542f61408048447f03f3e52a65d8484243d7",
+      "size": 4324
+    },
+    {
+      "path": "share/schemas/v1-rc2/public-contracts.schema.json",
+      "sha256": "dd8e28ed10dd37d46cc7066902598ad8bf5cd032a23885bb58a0010cab1e54d3",
+      "size": 16195
+    },
+    {
+      "path": "share/schemas/v1-rc2/schema-manifest.json",
+      "sha256": "62c70005a50366c0b80fd3dfab3c966a3090f1fc7ecc7742c9b48a9d580a52aa",
+      "size": 983
+    },
+    {
+      "path": "share/schemas/v1/public-contracts.schema.json",
+      "sha256": "17993830dc0f09ce29e77f23cda7bcbb40bb74c6f7024918a669a1e27d062583",
+      "size": 16131
+    },
+    {
+      "path": "share/schemas/v1/schema-manifest.json",
+      "sha256": "c627518172f3a898f3a08c75f2bf0622ad42bc47aef5ca60148183845042dd7a",
+      "size": 983
+    },
+    {
+      "path": "share/testing/json-schema-subset.ts",
+      "sha256": "52310f7f79f74bd79e794fd7750b3bca848bceaf31dcb5c9b6285fda45676c8a",
+      "size": 7893
+    },
+    {
+      "path": "share/tests/contract/contracts.test.ts",
+      "sha256": "2023306b3706d1e345fe2e4bbb5715717c6bf6754fb072a96a4f439408998ce9",
+      "size": 3414
+    },
+    {
+      "path": "share/tests/contract/hidden-fields.test.ts",
+      "sha256": "fa838f01e9632ecaf4efc3dec6c8d8e8d3f611d25cc87d6ef955e482c4efae85",
+      "size": 1417
+    },
+    {
+      "path": "share/tests/contract/schema-fixtures.test.ts",
+      "sha256": "20bb0775375a955d3b496f1d39ca758c1762b0fc175cf40377f06290fdffb0e2",
+      "size": 6068
+    },
+    {
+      "path": "share/tests/helpers.ts",
+      "sha256": "45b667cea12a9a6384e8fbbbbeba548f64abba8553ab1effc5bee5f8370fcd78",
+      "size": 658
+    },
+    {
+      "path": "share/tests/json-schema-subset.test.ts",
+      "sha256": "343f55d684be832deedc0d5b84a3d7a75fc3104dac26d969b2cb2a886c9d2746",
+      "size": 2807
+    },
+    {
+      "path": "share/tests/serialization.test.ts",
+      "sha256": "8fa2a9d7224170ce1b1acd3c760dc8abc951eb6860d375b852b4a3c22d9191f4",
+      "size": 1434
+    },
+    {
+      "path": "share/tsconfig.json",
+      "sha256": "c6e154fd2ef6a2403b4f5299989833f747583126bfc685dbe4a52761bf1393f3",
+      "size": 459
+    },
+    {
+      "path": "share/versions/CHANGELOG.md",
+      "sha256": "e71d38257a8ec5788546b0c13ab421fa8652c6b09a8d10152f056e5e7a051e3d",
+      "size": 3234
+    },
+    {
+      "path": "share/versions/compatibility-matrix.md",
+      "sha256": "6e806911543a8489bb684fabc26bf8354285cc51e1bf4991e092b1d2f90e9b6e",
+      "size": 2514
+    },
+    {
+      "path": "share/versions/contract-v1-rc1.json",
+      "sha256": "cd7ebfc14bf7360b6763ffd5cc0f7721e35fb9117eccb72ec15ecd44b4e29657",
+      "size": 1628
+    },
+    {
+      "path": "share/versions/contract-v1-rc2.json",
+      "sha256": "6a05303bbb79101d382ac821bc2ffe2f19d4772bd755b224b660a6cfa9346299",
+      "size": 1834
+    },
+    {
+      "path": "share/versions/e4-patient-identity-quality-record.v1.json",
+      "sha256": "f57c2e61a206b515fc2fff44d85e6ba67b8c042e744b5659c51947a39c78fc53",
+      "size": 2937
+    }
+  ],
+  "artifactSetSha256": "c10a25ba8612982b4ae5440ed9712f1c11bb6df6128c77c2f2b5e9d52a525420",
+  "manifestSha256": "5e7830eade7a8024a0b9515973e575d5645a2226f87e39c05f316dcd5f9a54c3"
+}

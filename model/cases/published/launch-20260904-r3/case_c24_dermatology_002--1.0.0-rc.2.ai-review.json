@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c24_dermatology_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:c1157157ebb0a6ea0303ee42c3ee33bf309c88a69e9e81930a2477c2f7b3a070",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.e0e87992-4532-4af8-b128-d599f4269e67",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:43:03.949Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为缓慢扩大的边缘隆起、中央变淡环形瘙痒皮疹，且真菌镜检见菌丝，与体癣诊断一致；生命体征稳定，无急症矛盾。",
+        "起病、皮疹形态、伴随症状、病程变化及关键危险征象均有可获取事实，真菌镜检可确认诊断，病例可解。",
+        "红旗矩阵覆盖意识改变、低血压、不能口服、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制，均明确为未出现；另有胸痛伴呼吸困难的安全中断轨迹。",
+        "必问事实、鉴别诊断数量、检查分类和推荐回合数与回归成功轨迹及评分摘要相互一致；两个可接受鉴别诊断均已定义，皮肤活检标为非必要。",
+        "成功、错误、急症安全中断及未知信息轨迹均有覆盖，且预期结果明确，包括诊断、检查、医疗回合和安全代码。",
+        "教学字段与答案键位于隐藏服务端字段，患者可见内容未泄露目标诊断；pending审核元数据不影响病例事实安全性。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.8bceffdd-b165-48cc-840a-c8918a98db1c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:43:25.272Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、体征模式与真菌镜检阳性相互支持体癣；生命体征稳定，病例总体临床一致。",
+        "诊断粒度适当，目标诊断为体癣，环形瘙痒伴边缘隆起、中央变淡及KOH见菌丝，具有良好可解性；钱币状湿疹和接触性皮炎作为鉴别也合理。",
+        "红旗矩阵列出9项均适用且要求排除，但rubric的mustAskFactIds及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，未覆盖黏膜受累、皮肤水疱、全身中毒表现、快速扩散皮疹和免疫抑制，存在排除范围不完整。",
+        "rubric内部的目标诊断、2个鉴别诊断及检查分类基本匹配，但其must-ask红旗范围与redFlagExclusionMatrix不一致，且成功轨迹的提问措辞称需排除“危险表现”，与实际仅记录四项不完全一致。",
+        "四类回归轨迹均存在，但unknown轨迹同时询问既往发作和相关接触/诱因，预期事实仅列fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的宽泛红旗提问也未覆盖矩阵中的全部适用项目，因此回归资产不一致。",
+        "未见隐藏教学字段泄露；安全轨迹预期中断且不产生医疗回合、provider调用或原始文本写入，hidden truth与安全隔离要求一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床表现为缓慢扩大的边缘隆起、中央变淡环形瘙痒皮疹，且真菌镜检见菌丝，与体癣诊断一致；生命体征稳定，无急症矛盾。",
+    "起病、皮疹形态、伴随症状、病程变化及关键危险征象均有可获取事实，真菌镜检可确认诊断，病例可解。",
+    "红旗矩阵覆盖意识改变、低血压、不能口服、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制，均明确为未出现；另有胸痛伴呼吸困难的安全中断轨迹。",
+    "必问事实、鉴别诊断数量、检查分类和推荐回合数与回归成功轨迹及评分摘要相互一致；两个可接受鉴别诊断均已定义，皮肤活检标为非必要。",
+    "成功、错误、急症安全中断及未知信息轨迹均有覆盖，且预期结果明确，包括诊断、检查、医疗回合和安全代码。",
+    "教学字段与答案键位于隐藏服务端字段，患者可见内容未泄露目标诊断；pending审核元数据不影响病例事实安全性。",
+    "临床叙事、体征模式与真菌镜检阳性相互支持体癣；生命体征稳定，病例总体临床一致。",
+    "诊断粒度适当，目标诊断为体癣，环形瘙痒伴边缘隆起、中央变淡及KOH见菌丝，具有良好可解性；钱币状湿疹和接触性皮炎作为鉴别也合理。",
+    "红旗矩阵列出9项均适用且要求排除，但rubric的mustAskFactIds及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，未覆盖黏膜受累、皮肤水疱、全身中毒表现、快速扩散皮疹和免疫抑制，存在排除范围不完整。",
+    "rubric内部的目标诊断、2个鉴别诊断及检查分类基本匹配，但其must-ask红旗范围与redFlagExclusionMatrix不一致，且成功轨迹的提问措辞称需排除“危险表现”，与实际仅记录四项不完全一致。",
+    "四类回归轨迹均存在，但unknown轨迹同时询问既往发作和相关接触/诱因，预期事实仅列fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的宽泛红旗提问也未覆盖矩阵中的全部适用项目，因此回归资产不一致。",
+    "未见隐藏教学字段泄露；安全轨迹预期中断且不产生医疗回合、provider调用或原始文本写入，hidden truth与安全隔离要求一致。"
+  ]
+}

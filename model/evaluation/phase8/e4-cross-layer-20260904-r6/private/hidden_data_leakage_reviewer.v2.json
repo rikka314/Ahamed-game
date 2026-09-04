@@ -1,0 +1,27 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-04T07:21:09.865Z",
+  "contentSha256": "4c82b0c8655361e8f3b00d88276b0f8a885e8d1d17d33dc1da755a8519dd29a1",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "save_export_surface_not_available",
+      "message": "The save-export surface is not exposed by the current game shell. Evidence records availability as not_available with an explicit reason; no leakage finding is inferred.",
+      "severity": "warning"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.ff06322c-cea3-4ec5-8c38-1ae6af4d894d",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v3",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

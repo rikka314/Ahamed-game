@@ -1,0 +1,276 @@
+{
+  "schemaVersion": "launch-content-policy-v1",
+  "policyVersion": "launch-content-policy-2026-09-02",
+  "status": "frozen",
+  "frozenAt": "2026-09-02T00:00:00.000Z",
+  "reviewPolicy": {
+    "mode": "non_blocking",
+    "currentStatus": "not_run",
+    "aggregateDecisions": [
+      "approved",
+      "revision_recommended",
+      "rejected",
+      "not_run"
+    ],
+    "technicalErrorsRemainBlocking": true
+  },
+  "targets": {
+    "totalCases": 30,
+    "migratedCases": 5,
+    "newCases": 25,
+    "basicCases": 24,
+    "advancedCases": 6,
+    "diseaseDomains": 9,
+    "personas": 6,
+    "casesPerPersona": 5,
+    "minimumDomainsPerPersona": 3,
+    "uniquePatientRoles": 30
+  },
+  "diseaseDomains": [
+    { "domainId": "respiratory", "displayName": "呼吸系统", "quota": 7, "migratedCaseQuota": 5, "newCaseQuota": 2 },
+    { "domainId": "cardiometabolic", "displayName": "心血管、内分泌与代谢", "quota": 5, "migratedCaseQuota": 0, "newCaseQuota": 5 },
+    { "domainId": "digestive", "displayName": "消化系统", "quota": 4, "migratedCaseQuota": 0, "newCaseQuota": 4 },
+    { "domainId": "urinary_renal", "displayName": "泌尿与肾脏", "quota": 3, "migratedCaseQuota": 0, "newCaseQuota": 3 },
+    { "domainId": "musculoskeletal", "displayName": "骨骼肌肉", "quota": 3, "migratedCaseQuota": 0, "newCaseQuota": 3 },
+    { "domainId": "dermatology", "displayName": "皮肤科", "quota": 2, "migratedCaseQuota": 0, "newCaseQuota": 2 },
+    { "domainId": "pediatrics", "displayName": "儿科", "quota": 2, "migratedCaseQuota": 0, "newCaseQuota": 2 },
+    { "domainId": "gynecology", "displayName": "妇科", "quota": 2, "migratedCaseQuota": 0, "newCaseQuota": 2 },
+    { "domainId": "mental_health", "displayName": "精神心理", "quota": 2, "migratedCaseQuota": 0, "newCaseQuota": 2 }
+  ],
+  "personas": [
+    {
+      "personaTemplateId": "gentle_cooperative",
+      "displayName": "温和配合",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 3,
+      "observableBehaviors": ["礼貌、耐心、逐问逐答"],
+      "prohibitedBehaviors": ["主动一次说完全部病史"]
+    },
+    {
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "displayName": "焦虑求安慰",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 2,
+      "observableBehaviors": ["询问严重程度并寻求确认和安抚"],
+      "prohibitedBehaviors": ["夸大或编造危险症状"]
+    },
+    {
+      "personaTemplateId": "impatient_direct",
+      "displayName": "急躁直接",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 1,
+      "observableBehaviors": ["回答短、直接、希望尽快结束"],
+      "prohibitedBehaviors": ["辱骂、威胁或拒绝必要问诊"]
+    },
+    {
+      "personaTemplateId": "talkative_digressive",
+      "displayName": "话多发散",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 3,
+      "observableBehaviors": ["提供较多非医疗生活细节并容易绕开主题"],
+      "prohibitedBehaviors": ["用发散掩盖被明确询问的医学事实"]
+    },
+    {
+      "personaTemplateId": "accommodating_minimizing",
+      "displayName": "迎合淡化",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 2,
+      "observableBehaviors": ["顺着医生说并弱化不适措辞"],
+      "prohibitedBehaviors": ["把 present 事实说成 absent 或淡化安全红旗"]
+    },
+    {
+      "personaTemplateId": "guarded_questioning",
+      "displayName": "戒备质疑",
+      "quota": 5,
+      "minimumDomainCoverage": 3,
+      "offTopicReminderTurns": 2,
+      "observableBehaviors": ["追问询问或检查的原因并较少主动披露"],
+      "prohibitedBehaviors": ["无理由拒绝必要问诊、改变事实或敌意攻击"]
+    }
+  ],
+  "productionBatches": [
+    { "batchId": "M0", "kind": "migration", "quota": 5 },
+    { "batchId": "B1", "kind": "new_content", "quota": 5 },
+    { "batchId": "B2", "kind": "new_content", "quota": 5 },
+    { "batchId": "B3", "kind": "new_content", "quota": 5 },
+    { "batchId": "B4", "kind": "new_content", "quota": 5 },
+    { "batchId": "B5", "kind": "new_content", "quota": 5 }
+  ],
+  "cases": [
+    { "sequence": 1, "publicCaseId": "case_c01_respiratory_001", "diseaseDomainId": "respiratory", "topic": "普通感冒", "difficulty": "basic", "personaTemplateId": "gentle_cooperative", "productionBatch": "M0", "origin": "migrated", "patientRoleId": "patient-role.public-c01", "launchSafetyClass": "routine_outpatient", "boundary": "保留既有医学主题" },
+    { "sequence": 2, "publicCaseId": "case_c02_respiratory_002", "diseaseDomainId": "respiratory", "topic": "流行性感冒", "difficulty": "basic", "personaTemplateId": "anxious_reassurance_seeking", "productionBatch": "M0", "origin": "migrated", "patientRoleId": "patient-role.public-c02", "launchSafetyClass": "routine_outpatient", "boundary": "排除重症流感表现" },
+    { "sequence": 3, "publicCaseId": "case_c03_respiratory_003", "diseaseDomainId": "respiratory", "topic": "急性咽炎", "difficulty": "basic", "personaTemplateId": "impatient_direct", "productionBatch": "M0", "origin": "migrated", "patientRoleId": "patient-role.public-c03", "launchSafetyClass": "routine_outpatient", "boundary": "排除气道危象" },
+    { "sequence": 4, "publicCaseId": "case_c04_respiratory_004", "diseaseDomainId": "respiratory", "topic": "急性支气管炎", "difficulty": "basic", "personaTemplateId": "gentle_cooperative", "productionBatch": "M0", "origin": "migrated", "patientRoleId": "patient-role.public-c04", "launchSafetyClass": "routine_outpatient", "boundary": "排除肺炎与高风险人群" },
+    { "sequence": 5, "publicCaseId": "case_c05_respiratory_005", "diseaseDomainId": "respiratory", "topic": "轻症社区获得性肺炎", "difficulty": "advanced", "personaTemplateId": "anxious_reassurance_seeking", "productionBatch": "M0", "origin": "migrated", "patientRoleId": "patient-role.public-c05", "launchSafetyClass": "routine_outpatient", "boundary": "限低风险门诊成人且红旗全部阴性" },
+    { "sequence": 6, "publicCaseId": "case_c06_respiratory_006", "diseaseDomainId": "respiratory", "topic": "过敏性鼻炎", "difficulty": "basic", "personaTemplateId": "talkative_digressive", "productionBatch": "B1", "origin": "new", "patientRoleId": "patient-role.public-c06", "launchSafetyClass": "routine_outpatient", "boundary": "与感染性上呼吸道疾病鉴别" },
+    { "sequence": 7, "publicCaseId": "case_c07_respiratory_007", "diseaseDomainId": "respiratory", "topic": "咳嗽变异性哮喘", "difficulty": "advanced", "personaTemplateId": "guarded_questioning", "productionBatch": "B2", "origin": "new", "patientRoleId": "patient-role.public-c07", "launchSafetyClass": "routine_outpatient", "boundary": "排除急性重度发作与低氧" },
+    { "sequence": 8, "publicCaseId": "case_c08_cardiometabolic_001", "diseaseDomainId": "cardiometabolic", "topic": "原发性高血压", "difficulty": "basic", "personaTemplateId": "guarded_questioning", "productionBatch": "B1", "origin": "new", "patientRoleId": "patient-role.public-c08", "launchSafetyClass": "routine_outpatient", "boundary": "排除高血压急症和继发性红旗" },
+    { "sequence": 9, "publicCaseId": "case_c09_cardiometabolic_002", "diseaseDomainId": "cardiometabolic", "topic": "2 型糖尿病", "difficulty": "advanced", "personaTemplateId": "accommodating_minimizing", "productionBatch": "B2", "origin": "new", "patientRoleId": "patient-role.public-c09", "launchSafetyClass": "routine_outpatient", "boundary": "排除酮症、严重低血糖和急性感染" },
+    { "sequence": 10, "publicCaseId": "case_c10_cardiometabolic_003", "diseaseDomainId": "cardiometabolic", "topic": "甲状腺功能亢进", "difficulty": "basic", "personaTemplateId": "talkative_digressive", "productionBatch": "B3", "origin": "new", "patientRoleId": "patient-role.public-c10", "launchSafetyClass": "routine_outpatient", "boundary": "排除甲状腺危象和严重心律问题" },
+    { "sequence": 11, "publicCaseId": "case_c11_cardiometabolic_004", "diseaseDomainId": "cardiometabolic", "topic": "甲状腺功能减退", "difficulty": "advanced", "personaTemplateId": "anxious_reassurance_seeking", "productionBatch": "B4", "origin": "new", "patientRoleId": "patient-role.public-c11", "launchSafetyClass": "routine_outpatient", "boundary": "与抑郁和贫血等鉴别" },
+    { "sequence": 12, "publicCaseId": "case_c12_cardiometabolic_005", "diseaseDomainId": "cardiometabolic", "topic": "血脂异常（体检发现）", "difficulty": "basic", "personaTemplateId": "impatient_direct", "productionBatch": "B5", "origin": "new", "patientRoleId": "patient-role.public-c12", "launchSafetyClass": "routine_outpatient", "boundary": "训练无明显症状的风险评估" },
+    { "sequence": 13, "publicCaseId": "case_c13_digestive_001", "diseaseDomainId": "digestive", "topic": "胃食管反流病", "difficulty": "basic", "personaTemplateId": "impatient_direct", "productionBatch": "B1", "origin": "new", "patientRoleId": "patient-role.public-c13", "launchSafetyClass": "routine_outpatient", "boundary": "排除急性冠脉和消化道出血红旗" },
+    { "sequence": 14, "publicCaseId": "case_c14_digestive_002", "diseaseDomainId": "digestive", "topic": "功能性消化不良", "difficulty": "basic", "personaTemplateId": "anxious_reassurance_seeking", "productionBatch": "B2", "origin": "new", "patientRoleId": "patient-role.public-c14", "launchSafetyClass": "routine_outpatient", "boundary": "排除体重下降、贫血和进行性吞咽困难" },
+    { "sequence": 15, "publicCaseId": "case_c15_digestive_003", "diseaseDomainId": "digestive", "topic": "肠易激综合征", "difficulty": "basic", "personaTemplateId": "talkative_digressive", "productionBatch": "B3", "origin": "new", "patientRoleId": "patient-role.public-c15", "launchSafetyClass": "routine_outpatient", "boundary": "明确慢性模式并排除器质性红旗" },
+    { "sequence": 16, "publicCaseId": "case_c16_digestive_004", "diseaseDomainId": "digestive", "topic": "轻症急性胃肠炎", "difficulty": "basic", "personaTemplateId": "accommodating_minimizing", "productionBatch": "B4", "origin": "new", "patientRoleId": "patient-role.public-c16", "launchSafetyClass": "routine_outpatient", "boundary": "排除严重脱水、血便和高风险暴露" },
+    { "sequence": 17, "publicCaseId": "case_c17_urinary_001", "diseaseDomainId": "urinary_renal", "topic": "急性单纯性膀胱炎", "difficulty": "basic", "personaTemplateId": "gentle_cooperative", "productionBatch": "B1", "origin": "new", "patientRoleId": "patient-role.public-c17", "launchSafetyClass": "routine_outpatient", "boundary": "非孕成人并排除肾盂肾炎和性病红旗" },
+    { "sequence": 18, "publicCaseId": "case_c18_urinary_002", "diseaseDomainId": "urinary_renal", "topic": "良性前列腺增生", "difficulty": "basic", "personaTemplateId": "guarded_questioning", "productionBatch": "B3", "origin": "new", "patientRoleId": "patient-role.public-c18", "launchSafetyClass": "routine_outpatient", "boundary": "排除急性尿潴留、血尿和恶性提示" },
+    { "sequence": 19, "publicCaseId": "case_c19_urinary_003", "diseaseDomainId": "urinary_renal", "topic": "单纯输尿管结石", "difficulty": "advanced", "personaTemplateId": "impatient_direct", "productionBatch": "B3", "origin": "new", "patientRoleId": "patient-role.public-c19", "launchSafetyClass": "routine_outpatient", "boundary": "排除感染性梗阻、单肾和肾功能异常" },
+    { "sequence": 20, "publicCaseId": "case_c20_musculoskeletal_001", "diseaseDomainId": "musculoskeletal", "topic": "机械性腰痛", "difficulty": "basic", "personaTemplateId": "accommodating_minimizing", "productionBatch": "B3", "origin": "new", "patientRoleId": "patient-role.public-c20", "launchSafetyClass": "routine_outpatient", "boundary": "排除马尾综合征、创伤、感染和肿瘤红旗" },
+    { "sequence": 21, "publicCaseId": "case_c21_musculoskeletal_002", "diseaseDomainId": "musculoskeletal", "topic": "膝骨关节炎", "difficulty": "basic", "personaTemplateId": "gentle_cooperative", "productionBatch": "B2", "origin": "new", "patientRoleId": "patient-role.public-c21", "launchSafetyClass": "routine_outpatient", "boundary": "排除急性感染性关节炎和骨折" },
+    { "sequence": 22, "publicCaseId": "case_c22_musculoskeletal_003", "diseaseDomainId": "musculoskeletal", "topic": "痛风性关节炎", "difficulty": "basic", "personaTemplateId": "guarded_questioning", "productionBatch": "B4", "origin": "new", "patientRoleId": "patient-role.public-c22", "launchSafetyClass": "routine_outpatient", "boundary": "排除感染性关节炎和严重系统表现" },
+    { "sequence": 23, "publicCaseId": "case_c23_dermatology_001", "diseaseDomainId": "dermatology", "topic": "过敏性接触性皮炎", "difficulty": "basic", "personaTemplateId": "accommodating_minimizing", "productionBatch": "B1", "origin": "new", "patientRoleId": "patient-role.public-c23", "launchSafetyClass": "routine_outpatient", "boundary": "排除严重药疹、黏膜受累和感染" },
+    { "sequence": 24, "publicCaseId": "case_c24_dermatology_002", "diseaseDomainId": "dermatology", "topic": "体癣", "difficulty": "basic", "personaTemplateId": "impatient_direct", "productionBatch": "B2", "origin": "new", "patientRoleId": "patient-role.public-c24", "launchSafetyClass": "routine_outpatient", "boundary": "排除广泛感染和免疫抑制" },
+    { "sequence": 25, "publicCaseId": "case_c25_pediatrics_001", "diseaseDomainId": "pediatrics", "topic": "学龄儿童急性中耳炎", "difficulty": "basic", "personaTemplateId": "anxious_reassurance_seeking", "productionBatch": "B5", "origin": "new", "patientRoleId": "patient-role.public-c25", "launchSafetyClass": "routine_outpatient", "boundary": "患者直接作答并排除乳突炎和重症感染" },
+    { "sequence": 26, "publicCaseId": "case_c26_pediatrics_002", "diseaseDomainId": "pediatrics", "topic": "学龄儿童功能性腹痛", "difficulty": "basic", "personaTemplateId": "talkative_digressive", "productionBatch": "B5", "origin": "new", "patientRoleId": "patient-role.public-c26", "launchSafetyClass": "routine_outpatient", "boundary": "患者直接作答并排除急腹症和生长异常" },
+    { "sequence": 27, "publicCaseId": "case_c27_gynecology_001", "diseaseDomainId": "gynecology", "topic": "原发性痛经", "difficulty": "basic", "personaTemplateId": "accommodating_minimizing", "productionBatch": "B5", "origin": "new", "patientRoleId": "patient-role.public-c27", "launchSafetyClass": "routine_outpatient", "boundary": "排除妊娠、急腹症和异常大量出血" },
+    { "sequence": 28, "publicCaseId": "case_c28_gynecology_002", "diseaseDomainId": "gynecology", "topic": "外阴阴道念珠菌病", "difficulty": "basic", "personaTemplateId": "guarded_questioning", "productionBatch": "B5", "origin": "new", "patientRoleId": "patient-role.public-c28", "launchSafetyClass": "routine_outpatient", "boundary": "非孕成人且敏感史按最小必要披露" },
+    { "sequence": 29, "publicCaseId": "case_c29_mentalhealth_001", "diseaseDomainId": "mental_health", "topic": "广泛性焦虑障碍", "difficulty": "basic", "personaTemplateId": "talkative_digressive", "productionBatch": "B4", "origin": "new", "patientRoleId": "patient-role.public-c29", "launchSafetyClass": "routine_outpatient", "boundary": "排除物质、甲状腺和急性危机因素" },
+    { "sequence": 30, "publicCaseId": "case_c30_mentalhealth_002", "diseaseDomainId": "mental_health", "topic": "轻度抑郁发作伴躯体化表达", "difficulty": "advanced", "personaTemplateId": "gentle_cooperative", "productionBatch": "B4", "origin": "new", "patientRoleId": "patient-role.public-c30", "launchSafetyClass": "routine_outpatient", "boundary": "病例内自伤风险明确阴性且真实玩家输入继续走危机退出" }
+  ],
+  "launchExclusions": [
+    { "exclusionId": "risk.emergency_critical_care", "category": "clinical_risk", "rule": "普通首发病例不包含高风险急症或重症处置路径" },
+    { "exclusionId": "risk.obstetric_emergency", "category": "clinical_risk", "rule": "普通首发病例不包含孕产急症" },
+    { "exclusionId": "risk.self_harm_crisis", "category": "clinical_risk", "rule": "普通首发病例不把自伤危机作为病例主题；真实玩家输入仍走安全退出" },
+    { "exclusionId": "risk.severe_infectious_disease", "category": "clinical_risk", "rule": "普通首发病例不包含重症传染病" },
+    { "exclusionId": "persona.guardian_or_multi_speaker", "category": "persona_scope", "rule": "首发病例不引入监护人、翻译或多说话者" },
+    { "exclusionId": "persona.cognitive_confusion", "category": "persona_scope", "rule": "认知混乱不作为基础人格轴" },
+    { "exclusionId": "runtime.online_unreviewed_case_generation", "category": "runtime_scope", "rule": "运行时不随机生成未经离线记录的完整病例" },
+    { "exclusionId": "source.real_patient_records", "category": "source_rights", "rule": "不得使用真实患者病历、未脱敏材料或个人病情抓取内容" },
+    { "exclusionId": "source.unlicensed_case_content", "category": "source_rights", "rule": "不得复制未取得再分发权的病例、教材、题目、解析、表格或插图" },
+    { "exclusionId": "product.treatment_or_prescribing", "category": "product_scope", "rule": "首发不提供真实患者治疗、处方或用药剂量建议" }
+  ],
+  "versionPolicy": {
+    "casePackageSchemaVersion": "case-package-v2-rc1",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "provenanceSchemaVersion": "provenance-record-v2",
+    "redFlagPolicyVersion": "red-flag-policy-manifest-v2",
+    "aiCaseReviewSchemaVersion": "ai-case-cross-review-v3",
+    "contentManifestVersion": "launch-case-manifest-v2-rc1",
+    "patientPromptVersion": "v0.5.0",
+    "contentHashPolicyVersion": "case-content-hash-v2",
+    "migratedCaseVersion": { "candidate": "1.1.0-rc.1", "final": "1.1.0" },
+    "newCaseVersion": { "candidate": "1.0.0-rc.1", "final": "1.0.0" },
+    "readOnlyCompatibleInputs": ["case-package-v1-rc1", "patient-persona-templates-v1"],
+    "releaseRule": "load_only_manifest_listed_v2_cases",
+    "contentHashIncludes": [
+      "patientIdentity",
+      "explicitPatientPersonaAnchors",
+      "patientFacts",
+      "medicalTests",
+      "answerKey",
+      "rubric",
+      "provenance",
+      "redFlagEvidence"
+    ],
+    "contentHashExcludes": ["aiReviewResults", "packageStatus", "generatedAt"]
+  },
+  "sourceLicensePolicy": {
+    "policyVersion": "source-license-policy-v1",
+    "reviewPolicy": "non_blocking",
+    "sourceRoles": ["topic_selection", "clinical_fact", "terminology", "synthetic_structure", "method_reference"],
+    "decisionRules": [
+      {
+        "sourceKind": "government_policy_or_epidemiology",
+        "allowedRoles": ["topic_selection"],
+        "disposition": "usable_with_conditions",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "只用于疾病域、基层适用性和优先级，不作为病例正文。"
+      },
+      {
+        "sourceKind": "authoritative_clinical_guideline",
+        "allowedRoles": ["clinical_fact", "terminology"],
+        "disposition": "usable_with_conditions",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "只核对事实、检查、红旗和诊断边界，病例叙事必须原创。"
+      },
+      {
+        "sourceKind": "cc_by_4_synthetic_data",
+        "allowedRoles": ["synthetic_structure", "terminology"],
+        "disposition": "usable_with_conditions",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "可参考合成结构并保留署名，不直接转为中文成品病例。"
+      },
+      {
+        "sourceKind": "permissive_code_repository",
+        "allowedRoles": ["method_reference"],
+        "disposition": "usable_with_conditions",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "代码许可证不自动授权仓库中的病例和上游数据。"
+      },
+      {
+        "sourceKind": "noncommercial_or_restricted_reference",
+        "allowedRoles": ["topic_selection", "method_reference"],
+        "disposition": "reference_only",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "商业产品只作阅读参考，不直接改编或再分发。"
+      },
+      {
+        "sourceKind": "restricted_clinical_case_data",
+        "allowedRoles": ["method_reference"],
+        "disposition": "prohibited",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "没有本项目明确再分发权时不得用于病例内容。"
+      },
+      {
+        "sourceKind": "unknown_or_ambiguous_license",
+        "allowedRoles": ["topic_selection", "method_reference"],
+        "disposition": "unresolved_high_risk",
+        "allowVerbatimReuse": false,
+        "requiresAttribution": true,
+        "requiresPerSourceLicenseReview": true,
+        "notes": "记录高风险和不确定性；可继续原创开发，但不得复制原文。"
+      }
+    ],
+    "prohibitedSourceKinds": [
+      "commercial_textbook_case_content",
+      "real_hospital_record",
+      "unlicensed_internal_teaching_case",
+      "restricted_mimic_or_derived_case",
+      "unlicensed_published_case",
+      "unknown_license_clinical_dialogue",
+      "scraped_personal_health_story"
+    ],
+    "unresolvedSource": {
+      "riskLevel": "high",
+      "disposition": "record_high_risk_and_continue",
+      "allowCaseDevelopment": true,
+      "allowVerbatimReuse": false,
+      "manifestFindingRequired": true
+    },
+    "reviewers": [
+      { "role": "source_provenance", "independentInvocation": true, "counterpartOutputVisible": false },
+      { "role": "license_risk", "independentInvocation": true, "counterpartOutputVisible": false }
+    ]
+  },
+  "supersededEvidence": {
+    "status": "superseded",
+    "recordPath": "../../evaluation/phase8/e0-expansion-supersession-status.v1.json",
+    "reason": "旧 C6/C7/RC 证据早于 AI-only 完整历史纠偏或只覆盖 5 个 v1 病例，不能证明本次 30 例、Persona v2 与 CasePackage v2 的当前发布状态。",
+    "artifacts": [
+      { "artifactId": "c6.acceptance.r6", "path": "../../evaluation/phase8/c6-cli-acceptance-20260829-r6.json", "status": "superseded" },
+      { "artifactId": "c7.ai.r1", "path": "../../evaluation/phase8/c7-ai-20260828-r1/ai-evidence-index.json", "status": "superseded" },
+      { "artifactId": "c7.dialogue-live.r5", "path": "../../evaluation/phase8/c7-dialogue-live-20260829-r5/c7-dialogue-architecture-report.json", "status": "superseded" },
+      { "artifactId": "c7.acceptance.r10", "path": "../../evaluation/phase8/c7-runtime-acceptance-20260829-r10.json", "status": "superseded" },
+      { "artifactId": "c7.runtime-manifest.r11", "path": "../../evaluation/phase8/c7-runtime-release-20260829-r11/runtime-release-manifest.v1.json", "status": "superseded" },
+      { "artifactId": "c7.software-rc.r9", "path": "../../evaluation/phase8/c7-software-rc-20260829-r9.zip", "status": "superseded" }
+    ]
+  }
+}

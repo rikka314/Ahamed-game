@@ -1,0 +1,1232 @@
+{
+  "schemaVersion": "e3-persona-benchmark-report-v2",
+  "generatedAt": "2026-09-03T21:34:38.824Z",
+  "reviewPolicy": "non_blocking",
+  "status": "reported",
+  "decision": "not_run",
+  "coverage": {
+    "ruleAssertions": 72,
+    "rulePersonas": 6,
+    "ruleScenarios": 12,
+    "realPersonas": 1,
+    "committedTurns": 63,
+    "minimumTurnsPerPersona": 9
+  },
+  "metrics": {
+    "patientGeneratedReplyRate": 1,
+    "personaConsistencyRate": 0,
+    "seriousFactErrors": 0,
+    "diagnosisLeaks": 0,
+    "uncompletedTestResultLeaks": 0,
+    "unknownAsAbsentErrors": 0
+  },
+  "audit": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "promptVersion": "e3-persona-consistency-review-v1",
+      "validationRunId": "run.persona_consistency_reviewer.b39db476-288f-4e4c-9310-4109e90e59ec",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "E3 live journeys did not reach the minimum 72 committed samples."
+      ]
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "promptVersion": "e3-medical-fact-boundary-review-v1",
+      "validationRunId": "run.medical_fact_boundary_reviewer.0ea994a6-b38f-411e-976b-349e59d86f35",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "E3 live journeys did not reach the minimum 72 committed samples."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "code": "REAL_PERSONA_COVERAGE_MISMATCH",
+      "message": "E3 live evidence does not contain exactly one completed run for each persona",
+      "expected": 6,
+      "actual": 1
+    },
+    {
+      "code": "COMMITTED_TURNS_BELOW_TARGET",
+      "message": "E3 live evidence is below 12 committed turns per persona or 72 total turns",
+      "expected": "12 per persona and 72 total",
+      "actual": "9 per persona and 63 total"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "greeting:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "multiple_questions:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "ambiguous_reference:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "consecutive_off_topic:3"
+    },
+    {
+      "code": "MEDICAL_REFERENCE_COVERAGE_INCOMPLETE",
+      "message": "one or more personas have no committed evidence for this question",
+      "scope": "reassurance_and_emotion:1",
+      "expected": 6,
+      "actual": 5
+    },
+    {
+      "code": "MEDICAL_REFERENCE_COVERAGE_INCOMPLETE",
+      "message": "one or more personas have no committed evidence for this question",
+      "scope": "questioning_a_test:1",
+      "expected": 6,
+      "actual": 1
+    },
+    {
+      "code": "MEDICAL_REFERENCE_COVERAGE_INCOMPLETE",
+      "message": "one or more personas have no committed evidence for this question",
+      "scope": "unknown_fact:1",
+      "expected": 6,
+      "actual": 1
+    },
+    {
+      "code": "MEDICAL_REFERENCE_COVERAGE_INCOMPLETE",
+      "message": "one or more personas have no committed evidence for this question",
+      "scope": "explicit_test_order:1",
+      "expected": 6,
+      "actual": 1
+    },
+    {
+      "code": "MEDICAL_REFERENCE_COVERAGE_INCOMPLETE",
+      "message": "one or more personas have no committed evidence for this question",
+      "scope": "diagnosis_discussion_without_submission:1",
+      "expected": 6,
+      "actual": 1
+    },
+    {
+      "code": "PERSONA_CONSISTENCY_BELOW_TARGET",
+      "message": "AI-audited persona consistency is below 95%",
+      "expected": 0.95,
+      "actual": 0
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "gentle_cooperative"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "anxious_reassurance_seeking"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "impatient_direct"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "talkative_digressive"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "accommodating_minimizing"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "guarded_questioning"
+    },
+    {
+      "code": "AUDIT_DECISION_NON_APPROVED",
+      "message": "an independent E3 audit role returned a non-approved decision",
+      "scope": "persona_consistency_reviewer",
+      "expected": "approved",
+      "actual": "not_run"
+    },
+    {
+      "code": "AUDIT_REPORTED_FINDINGS",
+      "message": "an independent E3 audit role reported one or more findings",
+      "scope": "persona_consistency_reviewer",
+      "expected": 0,
+      "actual": 1
+    },
+    {
+      "code": "AUDIT_DECISION_NON_APPROVED",
+      "message": "an independent E3 audit role returned a non-approved decision",
+      "scope": "medical_fact_boundary_reviewer",
+      "expected": "approved",
+      "actual": "not_run"
+    },
+    {
+      "code": "AUDIT_REPORTED_FINDINGS",
+      "message": "an independent E3 audit role reported one or more findings",
+      "scope": "medical_fact_boundary_reviewer",
+      "expected": 0,
+      "actual": 1
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "persona_consistency_reviewer"
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "medical_fact_boundary_reviewer"
+    },
+    {
+      "code": "PERSONA_RUN_FAILED",
+      "message": "one or more live persona runs did not complete"
+    }
+  ],
+  "runs": [
+    {
+      "runId": "e3-run-01",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:cd30f669c1bf05a0eec39a127cfa0c824f6bb1a8ecd8b9c8a3ee71d1ddb21fff",
+      "committedTurns": 10,
+      "fullHistoryTurns": 10,
+      "patientGeneratedReplies": 10,
+      "patientProviderCalls": 13,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.nasal_congestion"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "Patient output failed the reply grounding gate."
+    },
+    {
+      "runId": "e3-run-02",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:39ab77398e4a24952207fd5483e2e238c72d4b2d14bf59cfa4f49b5c99578d85",
+      "committedTurns": 10,
+      "fullHistoryTurns": 10,
+      "patientGeneratedReplies": 10,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.cough",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "Patient output failed the reply grounding gate."
+    },
+    {
+      "runId": "e3-run-03",
+      "personaTemplateId": "impatient_direct",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:634e79695d441f3f639abc4ffce7989008343b32f48abf3dff03b775f7c32869",
+      "committedTurns": 9,
+      "fullHistoryTurns": 9,
+      "patientGeneratedReplies": 9,
+      "patientProviderCalls": 11,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "Patient output failed the reply grounding gate."
+    },
+    {
+      "runId": "e3-run-04",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:f6f32e6e03551b09602f0c1c6f92c90004a3ad0187915428c8f00a9e57727862",
+      "committedTurns": 14,
+      "fullHistoryTurns": 14,
+      "patientGeneratedReplies": 14,
+      "patientProviderCalls": 15,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [
+            "fact.dyspnea",
+            "fact.nasal_congestion"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.nasal_congestion"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.nasal_congestion",
+            "fact.nasal_discharge"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.sick_contact"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.cough",
+            "fact.high_fever",
+            "fact.myalgia",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "e3-run-05",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:f2a1ab6796ed966bf5a164327736e51c6cff6406d54a5d19e53311bb6cb70922",
+      "committedTurns": 10,
+      "fullHistoryTurns": 10,
+      "patientGeneratedReplies": 10,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.cough",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.onset",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "Patient output failed the reply grounding gate."
+    },
+    {
+      "runId": "e3-run-06",
+      "personaTemplateId": "guarded_questioning",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:3d22abe2250b2f8112d5de43e0732037b4c47ea31ec242958d22d4ad05231115",
+      "committedTurns": 10,
+      "fullHistoryTurns": 10,
+      "patientGeneratedReplies": 10,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 2,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "questionOrdinal": 3,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint",
+            "fact.nasal_congestion",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "Patient output failed the reply grounding gate."
+    }
+  ],
+  "evidenceStatus": "live_provider_observation",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelIds": [
+      "gpt-5.6-sol"
+    ],
+    "promptVersion": "v0.5.0+set.0aac708b202d7b18"
+  },
+  "bindings": {
+    "anchorCasePath": "cases/draft/c01-common-cold-v1.json",
+    "anchorCaseSha256": "5daa0ff35a04ea58cfb1cddfab848c47bd729bbdc847eff8b7453a56b416f1d1",
+    "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+    "variantContentHashes": [
+      "sha256:cd30f669c1bf05a0eec39a127cfa0c824f6bb1a8ecd8b9c8a3ee71d1ddb21fff",
+      "sha256:39ab77398e4a24952207fd5483e2e238c72d4b2d14bf59cfa4f49b5c99578d85",
+      "sha256:634e79695d441f3f639abc4ffce7989008343b32f48abf3dff03b775f7c32869",
+      "sha256:f6f32e6e03551b09602f0c1c6f92c90004a3ad0187915428c8f00a9e57727862",
+      "sha256:f2a1ab6796ed966bf5a164327736e51c6cff6406d54a5d19e53311bb6cb70922",
+      "sha256:3d22abe2250b2f8112d5de43e0732037b4c47ea31ec242958d22d4ad05231115"
+    ],
+    "ruleCorpusSha256": "1998e041d6547fb668bf53e49b39b20771bc77807d51b80c7257243d459fc990",
+    "patientPromptSha256": "a5ebfe47ed2f5a2656f033ee85b66c77634a6ede7c01cf24660504e6c44f9233",
+    "sampleSetSha256": "baa53c45d0f6fe52a4e6d1c4f907dba8f0a33965d8020524627679627b5ea47a",
+    "auditSha256": "079ff189cba31a3fe8471a71018beba719ed75ea0326de38c8dadbde31892994",
+    "journeyArtifacts": [
+      {
+        "path": "private/journeys/e3-run-01.json",
+        "sizeBytes": 8482,
+        "sha256": "85cbeea29684afe014164c2420cf024472d8a18d5a8e0da1cfc0edc4f5f795c9"
+      },
+      {
+        "path": "private/journeys/e3-run-02.json",
+        "sizeBytes": 9244,
+        "sha256": "9b7d5a9e8befddb11e3ce6b24c46697df3142e584408030cfe13b72e338b5bf6"
+      },
+      {
+        "path": "private/journeys/e3-run-03.json",
+        "sizeBytes": 7273,
+        "sha256": "5fa2b02de1c5d2b62374c5fbeae1aa429d547b2c2b75d499106e5d1de8a97637"
+      },
+      {
+        "path": "private/journeys/e3-run-04.json",
+        "sizeBytes": 13650,
+        "sha256": "8289900a9df74f235f0152721cf1ec35ad4cd952822d42e31fac01082129581b"
+      },
+      {
+        "path": "private/journeys/e3-run-05.json",
+        "sizeBytes": 8956,
+        "sha256": "b9e3057c4d050c7676bd407c71fbfee38071ae76d30d141e08d2439bcc5beeda"
+      },
+      {
+        "path": "private/journeys/e3-run-06.json",
+        "sizeBytes": 9102,
+        "sha256": "d90219eb86367c2a71beb7dbfa6a31d51eb79a52a13e8262313cc1bffc7957e4"
+      }
+    ],
+    "reusePolicy": {
+      "schemaVersion": "e3-reuse-policy-v1",
+      "configuredModelId": "gpt-5.6-sol",
+      "releasePolicySha256": "b072591270f99424642ae5f3f05e337b7dcd599b5609d8e40da23da97a04749b",
+      "sourceFileCount": 104,
+      "sourceTreeSha256": "3de3351d81c48bd3151070efa7265e6ae90d1f254c01b63bce0674758552308f"
+    }
+  }
+}

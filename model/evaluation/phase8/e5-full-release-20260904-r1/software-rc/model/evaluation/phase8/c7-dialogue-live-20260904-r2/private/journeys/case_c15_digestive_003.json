@@ -1,0 +1,272 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:5b427653256ad5e88e5abbd49414d0ea5880719b5c7cdb1e9f19ee7f0a38a768",
+  "personaTemplateId": "talkative_digressive",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "您好，医生。我这半年一直有点腹痛，还伴着排便习惯变化，时好时坏的。平时我是中学老师，生活还算规律，平常也会散散步、听听音乐，不过这个肚子不舒服还是挺影响心情的。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "主要就是肚子疼，断断续续有半年了，常常跟排便联系在一起。有时候便次会变，排便的性状也不太一样，时好时坏的。除此之外倒没有发现便血、半夜疼醒或者明显瘦下去。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.onset",
+        "fact.primary_pattern",
+        "fact.associated_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗯，现在还是这样，腹痛和排便变化还是反反复复的，时好时坏，整体没有突然加重，日常生活基本还能照常进行。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是啊，今天挺舒服的。我刚才还想着下班后去附近走一走，顺便听会儿音乐。天气一好，人的心情也会跟着轻松点。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时比较喜欢散步，尤其是下班以后在附近走一圈，放松一下。也会听音乐，什么类型都听一点，有时候备课或者整理东西时就放着当背景音乐。我是中学老师，平时工作也挺忙的，偶尔还会看看教育方面的文章。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以啊，医生您平时下班后喜欢做什么？我最近听歌比较多，散步的时候戴着耳机，感觉挺放松的。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "最近确实有点忙，学校这阵子事情不少，备课、上课还要处理些杂事。不过我也会尽量抽时间散散步、听听音乐放松一下。对了，医生，咱们要不要还是接着看看我这半年反复的肚子疼和排便变化？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.onset",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗯，现在还是会有，腹痛和排便习惯变化还是反反复复的，时好时坏，主要还是跟排便有些关系。不过没有突然明显加重，日常生活基本还能照常进行。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好，医生，您帮我量一下体温吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的消化系统基础筛查结果怎么样",
+      "reply": "这个消化系统基础筛查还没有做，所以现在还没有结果。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那我去做消化系统基础筛查。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.basic_gi_screen",
+            "status": "completed",
+            "report": "血常规和炎症指标未见异常。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.basic_gi_screen",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "消化系统基础筛查现在是什么结果",
+      "reply": "结果出来了，血常规和炎症指标都没有发现异常。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.basic_gi_screen"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.basic_gi_screen",
+            "status": "completed",
+            "report": "血常规和炎症指标未见异常。"
+          }
+        ]
+      }
+    }
+  ]
+}

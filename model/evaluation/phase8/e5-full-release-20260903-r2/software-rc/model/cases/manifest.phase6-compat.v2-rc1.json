@@ -1,0 +1,155 @@
+{
+  "manifestVersion": "case-manifest-v2-rc1",
+  "casePackageSchemaVersion": "case-package-v2-rc1",
+  "allowedCasePackageSchemaVersions": [
+    "case-package-v1-rc1",
+    "case-package-v2-rc1"
+  ],
+  "provenanceSchemaVersion": "provenance-record-v2",
+  "aiReviewSchemaVersion": "ai-case-cross-review-v3",
+  "reviewPolicy": "non_blocking",
+  "releasePolicy": {
+    "policyVersion": "model-release-policy-v1",
+    "expectedCaseCount": 5,
+    "requiredPersonas": [
+      {
+        "personaTemplateId": "gentle_cooperative",
+        "count": 2,
+        "minimumDiseaseDomains": 1
+      },
+      {
+        "personaTemplateId": "anxious_reassurance_seeking",
+        "count": 2,
+        "minimumDiseaseDomains": 1
+      },
+      {
+        "personaTemplateId": "impatient_direct",
+        "count": 1,
+        "minimumDiseaseDomains": 1
+      }
+    ],
+    "diseaseDomainQuotas": [
+      { "diseaseDomainId": "respiratory", "count": 5 }
+    ],
+    "difficultyQuotas": { "basic": 4, "advanced": 1 },
+    "minimumRegressionTrajectoriesPerCase": 4,
+    "minimumRealDialogueTurnsPerCase": 12,
+    "requiredTestStates": [
+      "not_completed",
+      "pending_confirmation",
+      "completed"
+    ],
+    "qualityThresholds": {
+      "patientGeneratedReplyRate": 1,
+      "maximumControllerProviderCalls": 0,
+      "maximumLocalFakeReplies": 0,
+      "maximumDiagnosisLeaks": 0,
+      "maximumUncompletedTestResultLeaks": 0,
+      "minimumPersonaConsistencyRate": 0.95,
+      "minimumContextFollowupAccuracy": 0.95,
+      "minimumTestActionAccuracy": 0.95,
+      "maximumSeriousFactErrors": 0
+    }
+  },
+  "aiReviewPolicy": {
+    "schemaVersions": [
+      "ai-case-cross-validation-v1",
+      "ai-case-cross-review-v3"
+    ],
+    "requiredRoles": ["clinical_safety", "diagnostic_quality"],
+    "independentInvocation": true,
+    "counterpartOutputVisible": false
+  },
+  "reviewSummary": {
+    "status": "stale",
+    "findingsCount": 5,
+    "staleCount": 5,
+    "notRunCount": 0
+  },
+  "redFlagPolicyVersion": "red-flag-policy-manifest-v2",
+  "patientPromptVersion": "v0.5.0",
+  "evaluationPolicyVersion": "scoring-policy-v1",
+  "contentHashPolicyVersion": "case-content-hash-v1",
+  "cases": [
+    {
+      "publicCaseId": "case_c01_respiratory_001",
+      "patientRoleId": "patient-role.public-c01",
+      "caseVersion": "1.0.0-draft.1",
+      "casePackageSchemaVersion": "case-package-v1-rc1",
+      "path": "draft/c01-common-cold-v1.json",
+      "regressionPath": "regression/c01-common-cold-v1.trajectories.json",
+      "evaluationCorpusPath": "evaluation/phase7-respiratory-v1.json",
+      "contentHash": "sha256:6e9d7a96441a21c18fa796c80d08cca15e3d9daab1709fdebbfd5bc46984f1c8",
+      "packageStatus": "draft",
+      "reviewStatus": "stale",
+      "reviewRecordPath": "ai-validation/c01-common-cold-v1.ai-validation.json",
+      "diseaseDomainId": "respiratory",
+      "difficulty": "basic",
+      "personaTemplateId": "gentle_cooperative"
+    },
+    {
+      "publicCaseId": "case_c02_respiratory_002",
+      "patientRoleId": "patient-role.public-c02",
+      "caseVersion": "1.0.0-draft.1",
+      "casePackageSchemaVersion": "case-package-v1-rc1",
+      "path": "draft/c02-influenza-v1.json",
+      "regressionPath": "regression/c02-influenza-v1.trajectories.json",
+      "evaluationCorpusPath": "evaluation/phase7-respiratory-v1.json",
+      "contentHash": "sha256:b4061c868a8109615377523931adb7a5c9d0be79b235c841f4636ac943dc9419",
+      "packageStatus": "draft",
+      "reviewStatus": "stale",
+      "reviewRecordPath": "ai-validation/c02-influenza-v1.ai-validation.json",
+      "diseaseDomainId": "respiratory",
+      "difficulty": "basic",
+      "personaTemplateId": "anxious_reassurance_seeking"
+    },
+    {
+      "publicCaseId": "case_c03_respiratory_003",
+      "patientRoleId": "patient-role.public-c03",
+      "caseVersion": "1.0.0-draft.1",
+      "casePackageSchemaVersion": "case-package-v1-rc1",
+      "path": "draft/c03-acute-pharyngitis-v1.json",
+      "regressionPath": "regression/c03-acute-pharyngitis-v1.trajectories.json",
+      "evaluationCorpusPath": "evaluation/phase7-respiratory-v1.json",
+      "contentHash": "sha256:01460a11835aec4e0ca1d508560d12c5ff664dae1711b5e94acc392e4540a3f5",
+      "packageStatus": "draft",
+      "reviewStatus": "stale",
+      "reviewRecordPath": "ai-validation/c03-acute-pharyngitis-v1.ai-validation.json",
+      "diseaseDomainId": "respiratory",
+      "difficulty": "basic",
+      "personaTemplateId": "impatient_direct"
+    },
+    {
+      "publicCaseId": "case_c04_respiratory_004",
+      "patientRoleId": "patient-role.public-c04",
+      "caseVersion": "1.0.0-draft.1",
+      "casePackageSchemaVersion": "case-package-v1-rc1",
+      "path": "draft/c04-acute-bronchitis-v1.json",
+      "regressionPath": "regression/c04-acute-bronchitis-v1.trajectories.json",
+      "evaluationCorpusPath": "evaluation/phase7-respiratory-v1.json",
+      "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e",
+      "packageStatus": "draft",
+      "reviewStatus": "stale",
+      "reviewRecordPath": "ai-validation/c04-acute-bronchitis-v1.ai-validation.json",
+      "diseaseDomainId": "respiratory",
+      "difficulty": "basic",
+      "personaTemplateId": "gentle_cooperative"
+    },
+    {
+      "publicCaseId": "case_c05_respiratory_005",
+      "patientRoleId": "patient-role.public-c05",
+      "caseVersion": "1.0.0-draft.1",
+      "casePackageSchemaVersion": "case-package-v1-rc1",
+      "path": "draft/c05-mild-cap-v1.json",
+      "regressionPath": "regression/c05-mild-cap-v1.trajectories.json",
+      "evaluationCorpusPath": "evaluation/phase7-respiratory-v1.json",
+      "contentHash": "sha256:96360ed1884438660eb4dcf0826a0bbc40903adbf03cd5f4e4e5851735aa316f",
+      "packageStatus": "draft",
+      "reviewStatus": "stale",
+      "reviewRecordPath": "ai-validation/c05-mild-cap-v1.ai-validation.json",
+      "diseaseDomainId": "respiratory",
+      "difficulty": "advanced",
+      "personaTemplateId": "anxious_reassurance_seeking"
+    }
+  ]
+}

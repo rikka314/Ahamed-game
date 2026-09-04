@@ -1,0 +1,12 @@
+{
+  "contentBuildId": "dev",
+  "generatedAt": null,
+  "assets": [
+    {
+      "assetId": "map.clinic.graybox-01",
+      "kind": "tiled-map",
+      "path": "/game-assets/dev/maps/clinic-graybox.tmj",
+      "status": "placeholder"
+    }
+  ]
+}

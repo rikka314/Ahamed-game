@@ -1,0 +1,47 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-04T09:33:01.708Z",
+  "contentSha256": "184b3c11954998d00cad37c84b3a6fb9e3630f34260b16e547c89212f7268428",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "PUBLIC_ARTIFACT_ALLOWLIST_VERIFIED",
+      "message": "Evidence states that the public projector removes persona, answer, rubric, and hidden-fact fields; the build/public-asset leakage scan reports no sensitive tokens in static/server output or public assets. The public journey contains only the declared public case summary and disclosed chief-complaint content.",
+      "severity": "info"
+    },
+    {
+      "code": "BROWSER_STORAGE_SCAN_PASSED",
+      "message": "IndexedDB, localStorage, sessionStorage, and CacheStorage were observed and reported with zero sensitive matches. The runtime surface scan reports status pass, failedSurfaces 0, and sensitiveMatches 0.",
+      "severity": "info"
+    },
+    {
+      "code": "SAVE_EXPORT_NOT_AVAILABLE",
+      "message": "The saveExport surface was explicitly recorded as not_available because the current game shell does not expose a save-export surface. This is an honest product-surface limitation, not a leakage finding.",
+      "severity": "warning"
+    },
+    {
+      "code": "CONSOLE_AND_CACHE_SCAN_PASSED",
+      "message": "Console and cache-related browser surfaces were scanned with no sensitive matches; console, localStorage, sessionStorage, and CacheStorage evidence is present, and no scan failure is reported.",
+      "severity": "info"
+    },
+    {
+      "code": "PRIVATE_EVIDENCE_SEPARATION_VERIFIED",
+      "message": "Public and private journey artifacts are separately identified with distinct paths, hashes, byte sizes, and visibility labels. The public artifact reports aggregate metrics and sensitiveMatches 0, while the private artifact remains designated private.",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.2e4b4bb1-8f94-49a4-ac7b-c14e21caade0",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v3",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

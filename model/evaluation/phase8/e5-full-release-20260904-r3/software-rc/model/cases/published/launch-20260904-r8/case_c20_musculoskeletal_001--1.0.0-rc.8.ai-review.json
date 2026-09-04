@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:788ac9f24cf019403f3b3cac2df4e7ea70bef4b9dc0cefdabd58d49382c70d11",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.12c3ad97-f025-4e9b-bd3b-f664ab88de90",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:19:04.157Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：搬重物后起病、活动诱发的急性腰痛，神经查体正常且无感染、肿瘤、严重外伤或马尾综合征征象，与机械性腰痛相符。",
+        "诊断可解性通过：病史、生命体征和神经系统查体足以支持目标诊断，并设置了合理的鉴别诊断；腰椎MRI明确标为初始不必要检查。",
+        "危险征象排除通过：病例事实及排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经缺损；生命体征与神经查体均有安全退出依据。",
+        "量表一致性通过：must-ask事实、必需与不必要检查、鉴别诊断数量及推荐回合限制相互一致；成功轨迹覆盖要求，失败轨迹覆盖错误诊断和不必要检查。",
+        "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，安全轨迹明确要求不调用服务端、不写入原始文本且不计医疗回合。",
+        "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，回归与评分摘要未要求向患者暴露内部字段或评分逻辑。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.68df2022-fd3a-49b4-af6a-6c2ce9ca3fde",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:19:18.700Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事一致：搬重物后起病、活动诱发/加重、无神经缺损及红旗表现，支持机械性腰痛；生命体征和神经系统查体结果相互吻合。",
+        "诊断可解且粒度适当：目标诊断为“机械性腰痛”，并接受“非特异性腰痛”；现有病史足以与腰椎间盘突出、肾绞痛进行区分。",
+        "红旗排除项覆盖完整，矩阵中的九项红旗均有对应患者事实且状态为absent；神经系统查体和生命体征检查也与安全排除逻辑一致。",
+        "rubric与答案键一致：必问事实均可通过匹配问题获得，两个鉴别诊断均在允许集合内，要求数量为2；生命体征和神经系统查体为required，腰椎MRI为unnecessary，与病例设定相符。",
+        "四类回归轨迹内部一致：success覆盖病史、必要检查、目标诊断和两个鉴别诊断；failure验证不必要MRI及错误诊断；safety轨迹为独立胸痛气促输入并要求中断；unknown轨迹正确覆盖既往发作事实。",
+        "未见隐藏真值泄漏：教学字段隐藏，生命体征仅可通过检查读取；病例状态、review.status和pending元数据不影响内容审计结论。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：搬重物后起病、活动诱发的急性腰痛，神经查体正常且无感染、肿瘤、严重外伤或马尾综合征征象，与机械性腰痛相符。",
+    "诊断可解性通过：病史、生命体征和神经系统查体足以支持目标诊断，并设置了合理的鉴别诊断；腰椎MRI明确标为初始不必要检查。",
+    "危险征象排除通过：病例事实及排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经缺损；生命体征与神经查体均有安全退出依据。",
+    "量表一致性通过：must-ask事实、必需与不必要检查、鉴别诊断数量及推荐回合限制相互一致；成功轨迹覆盖要求，失败轨迹覆盖错误诊断和不必要检查。",
+    "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，安全轨迹明确要求不调用服务端、不写入原始文本且不计医疗回合。",
+    "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，回归与评分摘要未要求向患者暴露内部字段或评分逻辑。",
+    "临床叙事一致：搬重物后起病、活动诱发/加重、无神经缺损及红旗表现，支持机械性腰痛；生命体征和神经系统查体结果相互吻合。",
+    "诊断可解且粒度适当：目标诊断为“机械性腰痛”，并接受“非特异性腰痛”；现有病史足以与腰椎间盘突出、肾绞痛进行区分。",
+    "红旗排除项覆盖完整，矩阵中的九项红旗均有对应患者事实且状态为absent；神经系统查体和生命体征检查也与安全排除逻辑一致。",
+    "rubric与答案键一致：必问事实均可通过匹配问题获得，两个鉴别诊断均在允许集合内，要求数量为2；生命体征和神经系统查体为required，腰椎MRI为unnecessary，与病例设定相符。",
+    "四类回归轨迹内部一致：success覆盖病史、必要检查、目标诊断和两个鉴别诊断；failure验证不必要MRI及错误诊断；safety轨迹为独立胸痛气促输入并要求中断；unknown轨迹正确覆盖既往发作事实。",
+    "未见隐藏真值泄漏：教学字段隐藏，生命体征仅可通过检查读取；病例状态、review.status和pending元数据不影响内容审计结论。"
+  ]
+}

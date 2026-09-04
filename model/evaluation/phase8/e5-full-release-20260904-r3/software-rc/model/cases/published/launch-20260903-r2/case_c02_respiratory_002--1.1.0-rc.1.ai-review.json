@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:6fb7c5d92f991c30a6aee434f6e870704b164fca3f8860783e0c0872e8f0284d",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6e9cc006-84a7-455b-b3e8-bb713446f496",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:52:02.642Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为突发发热、干咳、肌痛、头痛，且呼吸道病毒核酸阳性，结合生命体征稳定及胸部影像无实变，目标诊断“流行性感冒”具有事实一致性。",
+        "关键危险征象均有明确排除证据：无呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧及无法进食饮水；生命体征亦支持非急症范围。",
+        "病例可通过病史、生命体征及病毒检测完成诊断；鉴别诊断和检查分类与评分规则相互一致。",
+        "回归轨迹覆盖成功、错误诊断、安全中断和未知接触史场景；安全轨迹明确要求零医疗调用、零原始文本写入和零医疗回合。",
+        "教学字段、评分策略摘要及其他隐藏服务端字段未被安排为患者可见内容，未发现隐藏真相泄露或利用人工 pending 元数据阻塞决策的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b97c893b-6c7b-4932-88b4-b23e295dc828",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:52:13.573Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例的急性突发发热、干咳、明显肌痛和头痛，结合A型呼吸道病毒核酸阳性，支持流行性感冒；生命体征稳定且胸部影像无实变，临床叙事一致。",
+        "目标诊断粒度明确，答案键、同义词及成功轨迹均指向“流行性感冒/流感”；普通感冒和轻症社区获得性肺炎作为鉴别诊断可操作。",
+        "病例已明确排除呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群，且与生命体征和红旗矩阵相互一致。",
+        "must-ask事实、鉴别诊断数量、检查分类和推荐回合限制与成功轨迹一致；生命体征为必需检查，病毒检测有用，胸片和CT均标为不必要，未发现评分规则冲突。",
+        "success、failure、safety、unknown 四类回归轨迹均存在；成功轨迹可得到目标诊断，失败轨迹明确错误，安全轨迹中断且禁止调用和写入，unknown轨迹覆盖未知接触史。",
+        "隐藏教学字段未被玩家可见内容或回归轨迹引用；review.status、pending元数据不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为突发发热、干咳、肌痛、头痛，且呼吸道病毒核酸阳性，结合生命体征稳定及胸部影像无实变，目标诊断“流行性感冒”具有事实一致性。",
+    "关键危险征象均有明确排除证据：无呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧及无法进食饮水；生命体征亦支持非急症范围。",
+    "病例可通过病史、生命体征及病毒检测完成诊断；鉴别诊断和检查分类与评分规则相互一致。",
+    "回归轨迹覆盖成功、错误诊断、安全中断和未知接触史场景；安全轨迹明确要求零医疗调用、零原始文本写入和零医疗回合。",
+    "教学字段、评分策略摘要及其他隐藏服务端字段未被安排为患者可见内容，未发现隐藏真相泄露或利用人工 pending 元数据阻塞决策的问题。",
+    "病例的急性突发发热、干咳、明显肌痛和头痛，结合A型呼吸道病毒核酸阳性，支持流行性感冒；生命体征稳定且胸部影像无实变，临床叙事一致。",
+    "目标诊断粒度明确，答案键、同义词及成功轨迹均指向“流行性感冒/流感”；普通感冒和轻症社区获得性肺炎作为鉴别诊断可操作。",
+    "病例已明确排除呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群，且与生命体征和红旗矩阵相互一致。",
+    "must-ask事实、鉴别诊断数量、检查分类和推荐回合限制与成功轨迹一致；生命体征为必需检查，病毒检测有用，胸片和CT均标为不必要，未发现评分规则冲突。",
+    "success、failure、safety、unknown 四类回归轨迹均存在；成功轨迹可得到目标诊断，失败轨迹明确错误，安全轨迹中断且禁止调用和写入，unknown轨迹覆盖未知接触史。",
+    "隐藏教学字段未被玩家可见内容或回归轨迹引用；review.status、pending元数据不构成阻塞。"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "contentBuildId": "dev",
+  "candidateId": "h3-16",
+  "status": "DRAFT",
+  "generatedAt": null,
+  "assets": [
+    {
+      "assetId": "map.clinic.graybox-01",
+      "kind": "tiled-map",
+      "path": "/game-assets/dev/h3-16/maps/clinic-community.tmj",
+      "status": "DRAFT",
+      "tileSize": 16
+    },
+    {
+      "assetId": "tileset.clinic.community-01",
+      "kind": "tileset",
+      "path": "/game-assets/dev/h3-16/tilesets/clinic-community.png",
+      "status": "DRAFT",
+      "tileSize": 16,
+      "margin": 0,
+      "spacing": 0,
+      "extrusion": 0
+    }
+  ]
+}

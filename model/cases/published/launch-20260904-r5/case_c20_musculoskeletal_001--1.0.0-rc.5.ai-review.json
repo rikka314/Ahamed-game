@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:9306a5ec72a89f62f5da5d4a4f0771632f9d6d3c354131fffc2c617e8380622a",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1868f466-551c-47d7-9984-fd8ccbf21aea",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:51:27.269Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成年男性搬重物后急性腰痛，症状模式、生命体征、神经系统查体及机械性腰痛目标诊断相互一致。",
+        "起病、疼痛特点、伴随症状、病程变化及两个可接受鉴别诊断均使目标诊断可判定；成功轨迹包含必要问诊和检查。",
+        "马尾综合征、严重外伤、感染、恶性肿瘤、进行性神经功能缺损及循环或全身危险征象均有明确阴性事实支持安全门诊退出。",
+        "必须询问事实、所需检查、非必要MRI分类、鉴别诊断数量及沟通要求与评分摘要和回归轨迹一致。",
+        "成功、失败、安全中断及未知事实轨迹均有覆盖；胸痛伴呼吸困难轨迹明确中断且不产生医疗调用或原始文本写入。",
+        "教学字段、评分字段及隐藏事实未被安排向患者暴露，病例不会因隐藏真相泄漏而影响评估安全性。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.07de1aca-5dca-4574-8330-ebcf6e79d596",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:51:50.728Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例表现、起病诱因及活动相关疼痛与机械性腰痛一致，且明确排除了主要神经、感染、肿瘤、严重外伤及马尾综合征警示；男性病例中直接询问“妊娠”略显不合语境，但其所属的高风险人群字段仍可作为统一红旗核查项，不构成阻塞。",
+        "症状事实、必要红旗信息、生命体征和神经系统查体均可通过询问或检查获得，目标诊断“机械性腰痛”及其同义词“非特异性腰痛”清晰可判定。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经功能缺损，证据事实与观察状态一致。",
+        "目标诊断、可接受鉴别诊断、鉴别诊断数量、必需检查及腰椎MRI不必要检查的设定彼此一致；rubric要求的事实均在患者事实中有对应字段。",
+        "成功轨迹覆盖全部13项must-ask事实、两项必需检查、目标诊断和两项鉴别诊断；失败轨迹覆盖错误诊断与不必要MRI；安全轨迹和unknown轨迹的期望也与相应字段一致。",
+        "教学字段保持hidden，安全轨迹要求中断且不产生provider调用或原始文本写入，回归资产未要求暴露隐藏真值；MRI报告虽提示检查不作为初始必需项，但未泄露目标诊断。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成年男性搬重物后急性腰痛，症状模式、生命体征、神经系统查体及机械性腰痛目标诊断相互一致。",
+    "起病、疼痛特点、伴随症状、病程变化及两个可接受鉴别诊断均使目标诊断可判定；成功轨迹包含必要问诊和检查。",
+    "马尾综合征、严重外伤、感染、恶性肿瘤、进行性神经功能缺损及循环或全身危险征象均有明确阴性事实支持安全门诊退出。",
+    "必须询问事实、所需检查、非必要MRI分类、鉴别诊断数量及沟通要求与评分摘要和回归轨迹一致。",
+    "成功、失败、安全中断及未知事实轨迹均有覆盖；胸痛伴呼吸困难轨迹明确中断且不产生医疗调用或原始文本写入。",
+    "教学字段、评分字段及隐藏事实未被安排向患者暴露，病例不会因隐藏真相泄漏而影响评估安全性。",
+    "病例表现、起病诱因及活动相关疼痛与机械性腰痛一致，且明确排除了主要神经、感染、肿瘤、严重外伤及马尾综合征警示；男性病例中直接询问“妊娠”略显不合语境，但其所属的高风险人群字段仍可作为统一红旗核查项，不构成阻塞。",
+    "症状事实、必要红旗信息、生命体征和神经系统查体均可通过询问或检查获得，目标诊断“机械性腰痛”及其同义词“非特异性腰痛”清晰可判定。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经功能缺损，证据事实与观察状态一致。",
+    "目标诊断、可接受鉴别诊断、鉴别诊断数量、必需检查及腰椎MRI不必要检查的设定彼此一致；rubric要求的事实均在患者事实中有对应字段。",
+    "成功轨迹覆盖全部13项must-ask事实、两项必需检查、目标诊断和两项鉴别诊断；失败轨迹覆盖错误诊断与不必要MRI；安全轨迹和unknown轨迹的期望也与相应字段一致。",
+    "教学字段保持hidden，安全轨迹要求中断且不产生provider调用或原始文本写入，回归资产未要求暴露隐藏真值；MRI报告虽提示检查不作为初始必需项，但未泄露目标诊断。"
+  ]
+}

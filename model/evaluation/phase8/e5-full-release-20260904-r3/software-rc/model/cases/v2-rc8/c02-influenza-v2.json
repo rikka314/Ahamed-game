@@ -1,0 +1,533 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c02_respiratory_002",
+  "publicCaseId": "case_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.7",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "突发发热、干咳和全身酸痛1天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c02",
+    "patientDisplayName": "周同学",
+    "ageBand": "18–25岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "在读大学生",
+    "dailyLife": "平时住校，最近班级活动较多。",
+    "interests": [
+      "打羽毛球",
+      "看电影"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "anxious_reassurance_seeking",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "容易追问是否严重",
+      "希望得到明确安慰"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "high"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "昨天突然发热，干咳，全身也很酸。",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "怎么了",
+        "主要症状"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "昨天傍晚突然开始，几个小时内就明显起来。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病",
+        "突然"
+      ]
+    },
+    "fact.fever": {
+      "status": "present",
+      "value": "最高自己量到38.8℃。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热",
+        "发烧",
+        "体温"
+      ]
+    },
+    "fact.myalgia": {
+      "status": "present",
+      "value": "腰背和四肢都明显酸痛。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "肌肉酸痛",
+        "全身酸痛"
+      ]
+    },
+    "fact.headache": {
+      "status": "present",
+      "value": "有中等程度的头痛。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "头痛",
+        "头疼"
+      ]
+    },
+    "fact.cough": {
+      "status": "present",
+      "value": "主要是干咳，没有明显咳痰。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳嗽",
+        "咳痰"
+      ]
+    },
+    "fact.dyspnea": {
+      "status": "absent",
+      "value": "没有呼吸困难或喘不过气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸困难",
+        "喘",
+        "气短"
+      ]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应都正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识",
+        "神志",
+        "糊涂"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "没有持续胸痛或胸闷。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "胸痛",
+        "胸闷"
+      ]
+    },
+    "fact.hemoptysis": {
+      "status": "absent",
+      "value": "没有咳血。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳血",
+        "痰中带血"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥或站立不稳。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站不稳"
+      ]
+    },
+    "fact.tachypnea": {
+      "status": "absent",
+      "value": "安静时呼吸不快。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸快",
+        "呼吸频率"
+      ]
+    },
+    "fact.hypoxemia": {
+      "status": "absent",
+      "value": "没有口唇发紫或明显憋气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "缺氧",
+        "口唇发紫",
+        "血氧"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "虽然胃口差，但可以喝水和吃少量食物。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "喝水",
+        "进食",
+        "吞不下"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "是成年人，没有妊娠、免疫抑制或重要慢性病。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "怀孕",
+        "基础病",
+        "免疫",
+        "高风险"
+      ]
+    },
+    "fact.sick_contact": {
+      "status": "unknown",
+      "value": "最近上课人多，不清楚具体接触过谁。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触史",
+        "同学",
+        "身边有人"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只能通过对应检查获得。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "体温",
+        "量体温",
+        "测体温",
+        "血压",
+        "心率",
+        "血氧"
+      ],
+      "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。"
+    },
+    "test.respiratory_virus_panel": {
+      "status": "completed",
+      "displayName": "呼吸道病毒核酸检测",
+      "aliases": [
+        "病毒核酸",
+        "呼吸道病毒检测",
+        "流感核酸",
+        "核酸检测"
+      ],
+      "report": "Influenza A 病毒RNA靶标阳性，内参有效。"
+    },
+    "test.chest_xray": {
+      "status": "completed",
+      "displayName": "胸部X线",
+      "aliases": [
+        "胸片",
+        "拍胸片",
+        "胸部X光",
+        "X线"
+      ],
+      "report": "双肺未见局灶性实变影。"
+    },
+    "test.chest_ct": {
+      "status": "completed",
+      "displayName": "胸部CT",
+      "aliases": [
+        "CT",
+        "胸部CT",
+        "胸部CT检查",
+        "做CT"
+      ],
+      "report": "双肺未见局灶性实变或胸腔积液。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.influenza",
+    "targetDiagnosis": "流行性感冒",
+    "acceptedSynonyms": [
+      "流感"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.influenza",
+        "preferredTerm": "流行性感冒",
+        "acceptedSynonyms": [
+          "流感"
+        ]
+      },
+      {
+        "conceptId": "concept.common_cold",
+        "preferredTerm": "普通感冒",
+        "acceptedSynonyms": [
+          "急性病毒性上呼吸道感染"
+        ]
+      },
+      {
+        "conceptId": "concept.acute_pharyngitis",
+        "preferredTerm": "急性咽炎",
+        "acceptedSynonyms": [
+          "急性咽部炎症"
+        ]
+      },
+      {
+        "conceptId": "concept.acute_bronchitis",
+        "preferredTerm": "急性支气管炎",
+        "acceptedSynonyms": [
+          "急性气管支气管炎"
+        ]
+      },
+      {
+        "conceptId": "concept.mild_cap",
+        "preferredTerm": "轻症社区获得性肺炎",
+        "acceptedSynonyms": [
+          "社区获得性肺部感染"
+        ]
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.fever",
+      "fact.myalgia",
+      "fact.headache",
+      "fact.cough",
+      "fact.dyspnea",
+      "fact.confusion",
+      "fact.inability_oral_intake",
+      "fact.chest_pain",
+      "fact.hemoptysis",
+      "fact.hypotension",
+      "fact.tachypnea",
+      "fact.hypoxemia",
+      "fact.high_risk_population"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.common_cold",
+      "concept.mild_cap"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.respiratory_virus_panel": "useful",
+      "test.chest_xray": "unnecessary",
+      "test.chest_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 8,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.emotion_response"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "medical-author-a",
+    "notes": "纯合成病例；人工反馈可选且不阻塞发布，正式发布依据为双 AI 交叉验证。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-08-27T00:00:00.000Z",
+    "contentHash": "sha256:e5432756c0d8974ca22864e81378c63375b3e7ce03574a3918a7e1775dcc6e36",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.cdc.outpatient",
+        "sourceRole": "clinical_fact",
+        "title": "Outpatient Clinical Care for Adults",
+        "authorsOrOrganization": "US Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c02_respiratory_002",
+    "caseVersion": "1.1.0-rc.7",
+    "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      {
+        "redFlagId": "redflag.dyspnea",
+        "canonicalName": "呼吸困难",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.dyspnea"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "持续胸痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemoptysis",
+        "canonicalName": "咯血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemoptysis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 118,
+        "unit": "mmHg systolic",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.tachypnea",
+        "canonicalName": "呼吸频率增快",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.tachypnea"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 18,
+        "unit": "breaths/min",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypoxemia",
+        "canonicalName": "低氧表现",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypoxemia"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 97,
+        "unit": "% SpO2 room air",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "MVP排除的高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  }
+}

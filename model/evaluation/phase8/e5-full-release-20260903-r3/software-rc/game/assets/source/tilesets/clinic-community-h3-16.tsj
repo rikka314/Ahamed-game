@@ -1,0 +1,42 @@
+{
+  "columns": 8,
+  "image": "clinic-community-h3-16.png",
+  "imageheight": 64,
+  "imagewidth": 128,
+  "margin": 0,
+  "name": "clinic-community-h3-16",
+  "spacing": 0,
+  "tilecount": 32,
+  "tileheight": 16,
+  "tilewidth": 16,
+  "tiledversion": "1.12.2",
+  "type": "tileset",
+  "version": "1.10",
+  "properties": [
+    {
+      "name": "assetId",
+      "type": "string",
+      "value": "tileset.clinic.community-01"
+    },
+    {
+      "name": "contentBuildId",
+      "type": "string",
+      "value": "dev"
+    },
+    {
+      "name": "h3Candidate",
+      "type": "string",
+      "value": "16"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "value": "DRAFT"
+    },
+    {
+      "name": "paddingStatus",
+      "type": "string",
+      "value": "candidate-zero"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c28_gynecology_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:12d0f96fcc092ef320b8da7d3c75efe9541561c741c318f31d18a656015bb2f0",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1c928c83-03c9-4a0c-8abb-0a4733ecb889",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:12:21.549Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：不通过。test.chest_ct 的检查名称为“胸部CT”，但报告写成“盆腔CT不是本例初始必需检查”，存在检查部位与报告内容不一致；其余症状、镜检芽生孢子及假菌丝与外阴阴道念珠菌病基本相符。",
+        "诊断可解性：通过。白色稠厚分泌物、明显外阴瘙痒及镜检所见芽生孢子和假菌丝能够支持目标诊断，且已提供合理鉴别诊断。",
+        "红旗排除：通过。生命体征稳定，矩阵列出的意识改变、低血压、不能口服、妊娠、高危人群、显著出血、急性盆腔痛、妇科发热及黏膜或上生殖道受累均明确为 absent，未见急症信号。",
+        "量表一致性：通过。must-ask 事实、必需与不必要检查、两个鉴别诊断及沟通标准均与病例内容和成功轨迹相互匹配。",
+        "回归覆盖：通过。包含成功、失败、安全中断和未知信息轨迹，覆盖诊断、检查选择、安全退出及不确定事实处理。",
+        "隐藏真相安全：通过。教学字段保持 hidden，生命体征设为 test_only；胸部不适伴呼吸困难的安全轨迹要求中断、零医疗回合、零提供方调用及零原始文本写入，未泄露隐藏字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.84934ea9-de32-480b-a99b-f11ba9a32d4a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:12:42.386Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现及分泌物镜检结果支持外阴阴道念珠菌病，诊断本身可成立；但 test.chest_ct 的报告却写成“盆腔CT不是本例初始必需检查”，与检查名称不一致，存在检查报告错配。",
+        "主要症状、典型分泌物特征及芽生孢子/假菌丝镜检均已提供，目标诊断粒度适当，病例总体可解。",
+        "红旗矩阵列出9项均需排除，但 rubric 和成功轨迹仅覆盖其中4项；妊娠、出血及黏膜/上生殖道受累等排除证据未在成功路径中明确覆盖，红旗排除轨迹不完整。",
+        "诊断、鉴别诊断数量和检查分类总体一致，但 mustAskFactIds 与 redFlagExclusionMatrix 的完整红旗集合不一致，且未说明为何省略其余适用红旗项目。",
+        "c28.unknown 轨迹的提问同时涉及既往同样发作和相关接触/诱因，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure；c28.success 的泛化“危险表现”提问也未覆盖矩阵列出的全部红旗事实。",
+        "未见将 teaching_note、评分字段或其他隐藏教学真值暴露给患者/模型路径的迹象；安全中断轨迹也未引用病例隐藏事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：不通过。test.chest_ct 的检查名称为“胸部CT”，但报告写成“盆腔CT不是本例初始必需检查”，存在检查部位与报告内容不一致；其余症状、镜检芽生孢子及假菌丝与外阴阴道念珠菌病基本相符。",
+    "诊断可解性：通过。白色稠厚分泌物、明显外阴瘙痒及镜检所见芽生孢子和假菌丝能够支持目标诊断，且已提供合理鉴别诊断。",
+    "红旗排除：通过。生命体征稳定，矩阵列出的意识改变、低血压、不能口服、妊娠、高危人群、显著出血、急性盆腔痛、妇科发热及黏膜或上生殖道受累均明确为 absent，未见急症信号。",
+    "量表一致性：通过。must-ask 事实、必需与不必要检查、两个鉴别诊断及沟通标准均与病例内容和成功轨迹相互匹配。",
+    "回归覆盖：通过。包含成功、失败、安全中断和未知信息轨迹，覆盖诊断、检查选择、安全退出及不确定事实处理。",
+    "隐藏真相安全：通过。教学字段保持 hidden，生命体征设为 test_only；胸部不适伴呼吸困难的安全轨迹要求中断、零医疗回合、零提供方调用及零原始文本写入，未泄露隐藏字段。",
+    "临床表现及分泌物镜检结果支持外阴阴道念珠菌病，诊断本身可成立；但 test.chest_ct 的报告却写成“盆腔CT不是本例初始必需检查”，与检查名称不一致，存在检查报告错配。",
+    "主要症状、典型分泌物特征及芽生孢子/假菌丝镜检均已提供，目标诊断粒度适当，病例总体可解。",
+    "红旗矩阵列出9项均需排除，但 rubric 和成功轨迹仅覆盖其中4项；妊娠、出血及黏膜/上生殖道受累等排除证据未在成功路径中明确覆盖，红旗排除轨迹不完整。",
+    "诊断、鉴别诊断数量和检查分类总体一致，但 mustAskFactIds 与 redFlagExclusionMatrix 的完整红旗集合不一致，且未说明为何省略其余适用红旗项目。",
+    "c28.unknown 轨迹的提问同时涉及既往同样发作和相关接触/诱因，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure；c28.success 的泛化“危险表现”提问也未覆盖矩阵列出的全部红旗事实。",
+    "未见将 teaching_note、评分字段或其他隐藏教学真值暴露给患者/模型路径的迹象；安全中断轨迹也未引用病例隐藏事实。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:3e0a4d1e701ad6fc474618609e7112ca28f467fa6a121906978a59894df632a8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.bc3a570d-03c5-4f4f-a126-7e9ae5c50b6e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:56:58.737Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：胸部CT的检查名称与报告“腹部CT未见异常”不一致；且糖化血红蛋白仅支持糖尿病诊断，未充分说明2型亚型。",
+        "诊断可解性不通过：症状和糖化血红蛋白可明确糖尿病方向，但缺少血糖、既往史、体型或其他分型依据，难以可靠区分并锁定2型糖尿病。",
+        "红旗排除通过：意识异常、低血压、不能进食、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症等均明确为不存在，且生命体征稳定。",
+        "评分规则与病例内容基本一致：必问事实、鉴别诊断数量及必需/不必要检查均有对应定义；但应修正检查名称与报告的冲突。",
+        "回归覆盖通过：包含成功、失败、安全中断及未知信息轨迹，成功轨迹覆盖必问病史、必要检查和目标诊断。",
+        "隐藏真相安全通过：教学字段、仅检查可得的生命体征及答案键未被患者事实或可见对话轨迹泄露；安全轨迹也明确要求中断并禁止医疗回合。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.eec45be4-5641-425f-a6c6-ee7a960bed56",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:57:15.868Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 名称、别名均为胸部 CT，但报告写成“腹部CT未见异常”，检查部位自相矛盾。",
+        "诊断可解性失败：糖化血红蛋白达到糖尿病诊断范围可支持“糖尿病”，但病例缺少足以区分 2 型与其他糖尿病类型的证据；年龄和缓慢症状本身不足以唯一锁定“2 型糖尿病”，目标诊断粒度过细。",
+        "红旗排除失败：矩阵将酮症酸中毒、高血压急症、严重低血糖等设为适用且已排除，却仅以患者可问答的概括性 absent 事实为证据，缺乏相应血糖/酮体、酸碱状态或血压等客观依据；rubric 与成功轨迹也只要求询问其中4项，未覆盖矩阵其余适用红旗。",
+        "Rubric 一致性失败：必问红旗集合与 redFlagExclusionMatrix 的10项适用红旗不一致；此外“针对性检查/基础检查”均可触发 HbA1c，测试别名过于宽泛，不能稳定评价具体检查选择。",
+        "回归覆盖失败：虽包含 success、failure、safety、unknown 四类轨迹，但 unknown 输入同时询问“既往同样情况”和“相关接触”，按 questionMatchers 应同时披露 fact.prior_episode 与 fact.relevant_exposure，expectedFactIds 却只列前者，冻结期望与病例事实不一致。",
+        "隐藏真值安全通过：目标诊断保留在 answerKey 等服务端字段；患者可见主诉与可问答事实未直接泄露“2 型糖尿病”答案，检查结果也仅在执行检查后读取。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性不通过：胸部CT的检查名称与报告“腹部CT未见异常”不一致；且糖化血红蛋白仅支持糖尿病诊断，未充分说明2型亚型。",
+    "诊断可解性不通过：症状和糖化血红蛋白可明确糖尿病方向，但缺少血糖、既往史、体型或其他分型依据，难以可靠区分并锁定2型糖尿病。",
+    "红旗排除通过：意识异常、低血压、不能进食、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症等均明确为不存在，且生命体征稳定。",
+    "评分规则与病例内容基本一致：必问事实、鉴别诊断数量及必需/不必要检查均有对应定义；但应修正检查名称与报告的冲突。",
+    "回归覆盖通过：包含成功、失败、安全中断及未知信息轨迹，成功轨迹覆盖必问病史、必要检查和目标诊断。",
+    "隐藏真相安全通过：教学字段、仅检查可得的生命体征及答案键未被患者事实或可见对话轨迹泄露；安全轨迹也明确要求中断并禁止医疗回合。",
+    "临床一致性失败：test.chest_ct 名称、别名均为胸部 CT，但报告写成“腹部CT未见异常”，检查部位自相矛盾。",
+    "诊断可解性失败：糖化血红蛋白达到糖尿病诊断范围可支持“糖尿病”，但病例缺少足以区分 2 型与其他糖尿病类型的证据；年龄和缓慢症状本身不足以唯一锁定“2 型糖尿病”，目标诊断粒度过细。",
+    "红旗排除失败：矩阵将酮症酸中毒、高血压急症、严重低血糖等设为适用且已排除，却仅以患者可问答的概括性 absent 事实为证据，缺乏相应血糖/酮体、酸碱状态或血压等客观依据；rubric 与成功轨迹也只要求询问其中4项，未覆盖矩阵其余适用红旗。",
+    "Rubric 一致性失败：必问红旗集合与 redFlagExclusionMatrix 的10项适用红旗不一致；此外“针对性检查/基础检查”均可触发 HbA1c，测试别名过于宽泛，不能稳定评价具体检查选择。",
+    "回归覆盖失败：虽包含 success、failure、safety、unknown 四类轨迹，但 unknown 输入同时询问“既往同样情况”和“相关接触”，按 questionMatchers 应同时披露 fact.prior_episode 与 fact.relevant_exposure，expectedFactIds 却只列前者，冻结期望与病例事实不一致。",
+    "隐藏真值安全通过：目标诊断保留在 answerKey 等服务端字段；患者可见主诉与可问答事实未直接泄露“2 型糖尿病”答案，检查结果也仅在执行检查后读取。"
+  ]
+}

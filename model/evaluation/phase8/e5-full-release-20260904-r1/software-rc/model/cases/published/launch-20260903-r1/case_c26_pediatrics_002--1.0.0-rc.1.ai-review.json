@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:ba23ac455aa75c1e509e3a6e8f159c146db34e678024fc01a5b2dba6c30b4b7a",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1b4af3cb-df10-4e22-a40e-6bc6ea6e7018",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:10:26.354Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：项目要求审核合成成人非急症病例，但本例患者为8–12岁儿童；且检查项目为“胸部CT”，报告却描述“腹部CT不是无红旗慢性腹痛的初始必需检查”，存在检查名称与报告内容不一致。",
+        "诊断可解性通过：病程、脐周反复痛、休息缓解、无夜间痛醒/便血/持续呕吐、进食和生长正常，以及稳定生长曲线和无腹部压痛或包块，能够支持学龄儿童功能性腹痛；便秘和乳糜泻作为鉴别诊断也有明确概念。",
+        "危险征象排除通过：红旗排除矩阵中的各项均有对应事实且观察值为absent，生命体征稳定，未见无法进食、低血压、意识改变、嗜睡、脱水或呼吸窘迫等危险表现。",
+        "量表一致性失败：病例年龄范围与成人病例审核范围不一致；此外胸部CT的报告内容实际讨论腹部CT，容易造成测试选择与反馈评分解释混淆。",
+        "回归覆盖通过：成功、失败、安全中断和未知事实轨迹均存在；成功轨迹覆盖核心病史、必要检查、目标诊断及两个鉴别诊断，安全轨迹明确要求中断且无医疗调用或写入。",
+        "隐藏真相保护通过：教学字段、答案键和服务端评分信息标记为hidden；安全轨迹中的胸痛气促请求被设计为中断，不会将病例隐藏诊断直接暴露给玩家。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7d84550b-a64f-4e10-af04-2f6b450edd15",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:10:49.213Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主诊断与病史总体相符，但 test.chest_ct 的名称为“胸部CT”，报告却描述“腹部CT”，检查对象存在明显不一致；此外未提供腹痛发作频率等功能性腹痛定义细节。",
+        "现有脐周反复腹痛、正常进食和生长、无夜间痛醒及其他红旗表现，结合针对性检查结果，目标诊断及两个鉴别诊断具有可解性。",
+        "红旗事实均明确标记为 absent，矩阵中的证据事实可追溯；年龄段为8–12岁，也未显示超出适用范围。",
+        "目标概念、接受同义词、两个允许鉴别诊断、所需检查及成功轨迹彼此一致；胸部CT被标记为 unnecessary 与病例设定相符，但其报告应统一为胸部或腹部影像之一。",
+        "unknown 轨迹的问题同时询问既往同样发作和相关接触/诱因，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致回归期望与问句覆盖范围不一致。",
+        "安全轨迹明确要求中断、零provider调用、零写入和零医疗回合，且未暴露隐藏教学字段或诊断真值，安全与隐藏真值边界一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性失败：项目要求审核合成成人非急症病例，但本例患者为8–12岁儿童；且检查项目为“胸部CT”，报告却描述“腹部CT不是无红旗慢性腹痛的初始必需检查”，存在检查名称与报告内容不一致。",
+    "诊断可解性通过：病程、脐周反复痛、休息缓解、无夜间痛醒/便血/持续呕吐、进食和生长正常，以及稳定生长曲线和无腹部压痛或包块，能够支持学龄儿童功能性腹痛；便秘和乳糜泻作为鉴别诊断也有明确概念。",
+    "危险征象排除通过：红旗排除矩阵中的各项均有对应事实且观察值为absent，生命体征稳定，未见无法进食、低血压、意识改变、嗜睡、脱水或呼吸窘迫等危险表现。",
+    "量表一致性失败：病例年龄范围与成人病例审核范围不一致；此外胸部CT的报告内容实际讨论腹部CT，容易造成测试选择与反馈评分解释混淆。",
+    "回归覆盖通过：成功、失败、安全中断和未知事实轨迹均存在；成功轨迹覆盖核心病史、必要检查、目标诊断及两个鉴别诊断，安全轨迹明确要求中断且无医疗调用或写入。",
+    "隐藏真相保护通过：教学字段、答案键和服务端评分信息标记为hidden；安全轨迹中的胸痛气促请求被设计为中断，不会将病例隐藏诊断直接暴露给玩家。",
+    "临床主诊断与病史总体相符，但 test.chest_ct 的名称为“胸部CT”，报告却描述“腹部CT”，检查对象存在明显不一致；此外未提供腹痛发作频率等功能性腹痛定义细节。",
+    "现有脐周反复腹痛、正常进食和生长、无夜间痛醒及其他红旗表现，结合针对性检查结果，目标诊断及两个鉴别诊断具有可解性。",
+    "红旗事实均明确标记为 absent，矩阵中的证据事实可追溯；年龄段为8–12岁，也未显示超出适用范围。",
+    "目标概念、接受同义词、两个允许鉴别诊断、所需检查及成功轨迹彼此一致；胸部CT被标记为 unnecessary 与病例设定相符，但其报告应统一为胸部或腹部影像之一。",
+    "unknown 轨迹的问题同时询问既往同样发作和相关接触/诱因，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致回归期望与问句覆盖范围不一致。",
+    "安全轨迹明确要求中断、零provider调用、零写入和零医疗回合，且未暴露隐藏教学字段或诊断真值，安全与隐藏真值边界一致。"
+  ]
+}

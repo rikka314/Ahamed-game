@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "launch-content-policy-e0-quality-record-v1",
+  "policyVersion": "launch-content-policy-2026-09-02",
+  "recordedAt": "2026-09-02T00:00:00.000Z",
+  "technicalStatus": "passed",
+  "aiReview": {
+    "reviewPolicy": "non_blocking",
+    "status": "not_run",
+    "findingsCount": 0
+  },
+  "metrics": {
+    "totalCases": 30,
+    "migratedCases": 5,
+    "newCases": 25,
+    "basicCases": 24,
+    "advancedCases": 6,
+    "diseaseDomains": 9,
+    "personas": 6,
+    "uniquePublicCaseIds": 30,
+    "uniquePatientRoleIds": 30
+  },
+  "checks": [
+    { "checkId": "case_count", "status": "pass", "details": "30/30 cases" },
+    { "checkId": "new_case_count", "status": "pass", "details": "25/25 new cases" },
+    { "checkId": "difficulty_quota", "status": "pass", "details": "24 basic, 6 advanced" },
+    { "checkId": "disease_domain_quota", "status": "pass", "details": "9/9 domains" },
+    { "checkId": "persona_distribution", "status": "pass", "details": "6/6 personas with five cases and minimum domain spread" },
+    { "checkId": "identity_uniqueness", "status": "pass", "details": "30 publicCaseIds, 30 patientRoleIds" },
+    { "checkId": "launch_exclusions", "status": "pass", "details": "10 explicit exclusions; no high-risk launch case" },
+    { "checkId": "source_license_policy", "status": "pass", "details": "7 source decision rules" },
+    { "checkId": "version_policy", "status": "pass", "details": "case-package-v2-rc1, patient-persona-templates-v2" },
+    { "checkId": "superseded_evidence", "status": "pass", "details": "6 historical artifact groups" }
+  ],
+  "findings": [],
+  "supersededEvidence": {
+    "status": "superseded",
+    "recordPath": "../../evaluation/phase8/e0-expansion-supersession-status.v1.json",
+    "artifactCount": 6
+  }
+}

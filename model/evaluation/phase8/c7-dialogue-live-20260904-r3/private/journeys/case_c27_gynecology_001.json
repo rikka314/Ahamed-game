@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:051c287f9942138935ae6621d00f48ed4e75e79f5b6dde7dc06babb3f4f5abb3",
+  "personaTemplateId": "accommodating_minimizing",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好，医生。我就是最近来月经的时候肚子有点痛，已经有一阵子了，想来看看。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "主要就是每次来月经开始的时候，下腹会一阵一阵地痛，像痉挛那种，一般两天以内就会慢慢减轻。月经周期还算规律，也没有特别多的出血或者晕厥，平时日常活动还能做，就是有点不舒服。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.associated_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗯，最近还是这样，主要是来月经刚开始时下腹一阵一阵地痛，一般两天内会慢慢减轻。你是问我现在此刻还痛，还是最近几次月经都这样？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是呀，天气挺好的，适合出去散散步、听听音乐。不过医生，还是先看我的肚子痛吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢散散步，也会听听音乐，比较简单。医生，要不我们还是继续看看月经时肚子痛的情况？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以呀，不过我们还是先把月经时肚子痛这件事看清楚吧。你可以接着问我疼痛的具体情况，或者需要做什么检查。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "还行吧，平时就是上课、偶尔散步听音乐，不算特别忙。医生，我们还是继续看看月经时肚子痛的情况吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "最近几次来月经还是会这样，刚开始时下腹一阵一阵地痛，一般两天内会缓解。你是问我现在这一刻还在痛，还是问最近几次月经的情况呀？",
+      "disclosedFactIds": [
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的，量一下吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的妇科评估结果怎么样",
+      "reply": "妇科评估还没有做，所以现在还没有结果。需要的话可以安排检查，看看盆腔和妇科方面有没有异常。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那就做妇科评估吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.pelvic_assessment",
+            "status": "completed",
+            "report": "基础妇科评估未发现压痛、包块或其他器质性异常。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.pelvic_assessment",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "妇科评估现在是什么结果",
+      "reply": "妇科评估已经做过了，基础评估没有发现压痛、包块或其他器质性异常。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.pelvic_assessment"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.pelvic_assessment",
+            "status": "completed",
+            "report": "基础妇科评估未发现压痛、包块或其他器质性异常。"
+          }
+        ]
+      }
+    }
+  ]
+}

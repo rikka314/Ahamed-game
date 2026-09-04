@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8a89db471b5c74b8ad44b10f3c5de18773ea432d00d4dfcd3712ec6a7536b028",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.5a743d19-676c-4acd-a65a-752ca7d889a2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:08:26.419Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持过敏性接触性皮炎，但 test.chest_ct 的检查名称为“胸部CT”，报告却写成“皮肤活检不是本例初始必需检查”，检查项目与报告内容不一致，属于明显事实/数据绑定错误。",
+        "起病、局限性接触分布、瘙痒红疹、无水疱及全身症状等信息足以支持目标诊断，并允许与刺激性接触性皮炎、体癣进行鉴别，诊断可解性通过。",
+        "红旗矩阵覆盖意识改变、低血压、无法口服、特殊高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制；相关事实均标记为缺如，且生命体征稳定，另有胸痛气促安全中断轨迹，排除充分。",
+        "必问事实、鉴别诊断数量、必需/不必要检查分类与成功回归轨迹基本一致；生命体征和皮肤检查被设为必需，胸部CT设为不必要。",
+        "回归轨迹覆盖成功、错误检查/错误诊断、急性安全中断及未知信息分支，且对医疗回合、提供者调用和原始文本写入有明确期望，覆盖充分。",
+        "教学字段保持隐藏，生命体征仅可通过检查读取；安全轨迹要求中断且不产生医疗回合、提供者调用或原始文本写入，未见隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f84e3218-9b80-4159-8ddc-d0fb078f7121",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:08:41.254Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床内容总体支持过敏性接触性皮炎，但“更换腕带后起病、接触区域吻合”与 fact.relevant_exposure=unknown 存在信息不一致；应明确该暴露是否为已知相关诱因。",
+        "目标诊断粒度适当，时间关系、局部分布和皮肤检查均足以支持过敏性接触性皮炎，并保留了刺激性接触性皮炎和体癣作为合理鉴别。",
+        "红旗矩阵的九项均有对应 patient fact，状态均为 absent，requiredState 与 observedValue 一致，未见隐藏危险真值泄漏。",
+        "rubric 的 mustAsk 仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，但矩阵另列 mucosal involvement、skin blistering、systemic toxicity、rapidly spreading rash、immunosuppression 五项同样 applicable 的必需排除项；两者边界未对齐。另有 communication criteria，但未提供 scoring policy 要求的显式 labeled fixture reviewer 证据。",
+        "success 回归轨迹未覆盖矩阵中的五项未纳入 mustAsk 的红旗，也未覆盖 fact.relevant_exposure；因此不能完整验证红旗排除与暴露史回归。test.chest_ct 的检查报告内容却写成“皮肤活检不是本例初始必需检查”，与胸部 CT 的 testId/displayName 不一致。",
+        "teaching_note 为 hidden，安全轨迹明确要求 SAFETY_INTERRUPTED、providerCalls=0、rawTextWrites=0、medicalTurns=0，未见将隐藏教学字段暴露给玩家的轨迹。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持过敏性接触性皮炎，但 test.chest_ct 的检查名称为“胸部CT”，报告却写成“皮肤活检不是本例初始必需检查”，检查项目与报告内容不一致，属于明显事实/数据绑定错误。",
+    "起病、局限性接触分布、瘙痒红疹、无水疱及全身症状等信息足以支持目标诊断，并允许与刺激性接触性皮炎、体癣进行鉴别，诊断可解性通过。",
+    "红旗矩阵覆盖意识改变、低血压、无法口服、特殊高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制；相关事实均标记为缺如，且生命体征稳定，另有胸痛气促安全中断轨迹，排除充分。",
+    "必问事实、鉴别诊断数量、必需/不必要检查分类与成功回归轨迹基本一致；生命体征和皮肤检查被设为必需，胸部CT设为不必要。",
+    "回归轨迹覆盖成功、错误检查/错误诊断、急性安全中断及未知信息分支，且对医疗回合、提供者调用和原始文本写入有明确期望，覆盖充分。",
+    "教学字段保持隐藏，生命体征仅可通过检查读取；安全轨迹要求中断且不产生医疗回合、提供者调用或原始文本写入，未见隐藏真相泄露风险。",
+    "临床内容总体支持过敏性接触性皮炎，但“更换腕带后起病、接触区域吻合”与 fact.relevant_exposure=unknown 存在信息不一致；应明确该暴露是否为已知相关诱因。",
+    "目标诊断粒度适当，时间关系、局部分布和皮肤检查均足以支持过敏性接触性皮炎，并保留了刺激性接触性皮炎和体癣作为合理鉴别。",
+    "红旗矩阵的九项均有对应 patient fact，状态均为 absent，requiredState 与 observedValue 一致，未见隐藏危险真值泄漏。",
+    "rubric 的 mustAsk 仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，但矩阵另列 mucosal involvement、skin blistering、systemic toxicity、rapidly spreading rash、immunosuppression 五项同样 applicable 的必需排除项；两者边界未对齐。另有 communication criteria，但未提供 scoring policy 要求的显式 labeled fixture reviewer 证据。",
+    "success 回归轨迹未覆盖矩阵中的五项未纳入 mustAsk 的红旗，也未覆盖 fact.relevant_exposure；因此不能完整验证红旗排除与暴露史回归。test.chest_ct 的检查报告内容却写成“皮肤活检不是本例初始必需检查”，与胸部 CT 的 testId/displayName 不一致。",
+    "teaching_note 为 hidden，安全轨迹明确要求 SAFETY_INTERRUPTED、providerCalls=0、rawTextWrites=0、medicalTurns=0，未见将隐藏教学字段暴露给玩家的轨迹。"
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:bb4e58952a0a80820d40b2bca038b136cd2de1f6af80f924e278d01f0d13bc2f",
+  "personaTemplateId": "talkative_digressive",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好，医生。我这段时间老是肚子痛，已经反反复复三个月了。有时候我还会听音乐、出去散步，不过肚子痛的时候就不太想动。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "主要就是肚脐周围会反反复复地疼，休息一会儿通常能缓解。吃饭和长个子都还正常，没有半夜疼醒、便血或者一直吐。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.associated_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗯，现在还是会这样，肚脐周围反复疼，不过休息一会儿一般能缓解，整体没有明显越来越严重。我平时吃饭、上学和长个子都还正常。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern",
+        "fact.progression",
+        "fact.associated_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是呀，天气好舒服！我本来还想下午出去散散步，顺便听听音乐呢。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我喜欢出去散步，也喜欢听音乐！有时候写完作业就戴着耳机听一会儿，天气好的时候还会和家里人一起出去走走。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2",
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "好呀！我平时还喜欢听音乐，写完作业就会听一会儿，天气好的时候也想出去散步。对了，聊完这些以后，您还可以再问问我的肚子痛。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2",
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "最近还行吧，就是要上课、写作业，有时候会觉得有点忙。写完作业我就想听会儿音乐，天气好的话也会出去散步。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗯，现在还是会有，肚脐周围反复疼，不过休息一会儿通常能缓解，最近总体没有明显加重。",
+      "disclosedFactIds": [
+        "fact.primary_pattern",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好，医生，量吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的生长评估结果怎么样",
+      "reply": "生长评估还没有做，所以现在还没有结果。您是要给我做这个检查吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那就做生长评估吧，医生。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.growth_assessment",
+            "status": "completed",
+            "report": "生长曲线稳定，腹部查体无压痛或包块。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.growth_assessment",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "生长评估现在是什么结果",
+      "reply": "生长评估结果出来了：我的生长曲线稳定，腹部检查没有压痛，也没有摸到包块。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.growth_assessment"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.growth_assessment",
+            "status": "completed",
+            "report": "生长曲线稳定，腹部查体无压痛或包块。"
+          }
+        ]
+      }
+    }
+  ]
+}

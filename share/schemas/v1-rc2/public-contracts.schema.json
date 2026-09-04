@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.example/schemas/doctor-game/v1-rc2/public-contracts.schema.json",
+  "title": "AhaMed Doctor Game public contract v1-rc2",
+  "$defs": {
+    "Id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+    "Timestamp": { "type": "string", "format": "date-time" },
+    "SessionPhaseV1": { "type": "string", "enum": ["created", "active", "awaiting_model", "test_pending", "diagnosis_submitted", "evaluating", "completed", "expired", "cancelled", "failed"] },
+    "SafetyDecisionV1": { "type": "string", "enum": ["ALLOW_GAME", "EXIT_SELF_HARM_CRISIS", "EXIT_URGENT_RED_FLAG", "EXIT_OUT_OF_SCOPE", "EXIT_REAL_HEALTH", "EXIT_FAIL_CLOSED"] },
+    "PatientDisplayV1": {
+      "type": "object", "additionalProperties": false, "required": ["displayName"],
+      "properties": { "displayName": { "type": "string", "minLength": 1 }, "ageBand": { "type": "string" }, "genderDisplay": { "type": "string" }, "portraitAssetId": { "$ref": "#/$defs/Id" } }
+    },
+    "TestResultV1": {
+      "type": "object", "additionalProperties": false, "required": ["testId", "status"],
+      "properties": { "testId": { "$ref": "#/$defs/Id" }, "status": { "enum": ["unavailable", "pending", "completed"] }, "report": { "type": "string" }, "assetId": { "$ref": "#/$defs/Id" }, "completedAt": { "$ref": "#/$defs/Timestamp" }, "reasonCode": { "type": "string" } }
+    },
+    "DisclosedFactV1": {
+      "type": "object", "additionalProperties": false, "required": ["factId", "displayText", "disclosedAtTurn"],
+      "properties": { "factId": { "$ref": "#/$defs/Id" }, "displayText": { "type": "string" }, "disclosedAtTurn": { "type": "integer", "minimum": 0 } }
+    },
+    "CaseSummaryV1": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "sessionId", "caseId", "caseVersion", "patientNpcId", "patientRoleId", "chiefComplaint", "patientDisplay", "allowedActions", "sessionPhase"],
+      "properties": {
+        "contractVersion": { "const": "1" }, "sessionId": { "$ref": "#/$defs/Id" }, "caseId": { "$ref": "#/$defs/Id" }, "caseVersion": { "$ref": "#/$defs/Id" }, "patientNpcId": { "$ref": "#/$defs/Id" }, "patientRoleId": { "$ref": "#/$defs/Id" },
+        "title": { "type": "string" }, "chiefComplaint": { "type": "string", "minLength": 1 }, "patientDisplay": { "$ref": "#/$defs/PatientDisplayV1" },
+        "allowedActions": { "type": "array", "items": { "enum": ["ask_patient", "order_test", "submit_diagnosis"] }, "minItems": 1, "uniqueItems": true }, "sessionPhase": { "$ref": "#/$defs/SessionPhaseV1" }
+      }
+    },
+    "ClientCaseProjectionV1": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "sessionId", "caseVersion", "initialPresentation", "disclosedFacts", "completedTests", "turnCount", "sessionPhase"],
+      "properties": {
+        "contractVersion": { "const": "1" }, "sessionId": { "$ref": "#/$defs/Id" }, "caseVersion": { "$ref": "#/$defs/Id" }, "initialPresentation": { "type": "string" },
+        "disclosedFacts": { "type": "array", "items": { "$ref": "#/$defs/DisclosedFactV1" } }, "completedTests": { "type": "array", "items": { "$ref": "#/$defs/TestResultV1" } },
+        "turnCount": { "type": "integer", "minimum": 0 }, "turnLimit": { "type": "integer", "minimum": 1, "maximum": 20 }, "sessionPhase": { "$ref": "#/$defs/SessionPhaseV1" }
+      }
+    },
+    "CaseSelectionV1": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["mode"], "properties": { "mode": { "const": "daily" } } },
+        { "type": "object", "additionalProperties": false, "required": ["mode", "publicCaseId"], "properties": { "mode": { "const": "specific" }, "publicCaseId": { "$ref": "#/$defs/Id" } } },
+        { "type": "object", "additionalProperties": false, "required": ["mode", "fixtureId"], "properties": { "mode": { "const": "fixture" }, "fixtureId": { "$ref": "#/$defs/Id" } } }
+      ]
+    },
+    "CreateSessionRequestV1": {
+      "type": "object", "additionalProperties": false, "required": ["clientRequestId", "caseSelection", "locale"],
+      "properties": { "clientRequestId": { "$ref": "#/$defs/Id" }, "userId": { "$ref": "#/$defs/Id" }, "gameProfileId": { "$ref": "#/$defs/Id" }, "caseSelection": { "$ref": "#/$defs/CaseSelectionV1" }, "locale": { "type": "string", "minLength": 2 } }
+    },
+    "CreateSessionResponseV1": {
+      "type": "object", "additionalProperties": false, "required": ["session", "projection"],
+      "properties": { "session": { "$ref": "#/$defs/CaseSummaryV1" }, "projection": { "$ref": "#/$defs/ClientCaseProjectionV1" } }
+    },
+    "SessionReferenceV1": {
+      "type": "object", "additionalProperties": false, "required": ["contractVersion", "sessionId", "sessionPhase", "createdAt", "expiresAt"],
+      "properties": { "contractVersion": { "const": "1" }, "sessionId": { "$ref": "#/$defs/Id" }, "userId": { "$ref": "#/$defs/Id" }, "gameProfileId": { "$ref": "#/$defs/Id" }, "sessionPhase": { "$ref": "#/$defs/SessionPhaseV1" }, "createdAt": { "$ref": "#/$defs/Timestamp" }, "expiresAt": { "$ref": "#/$defs/Timestamp" } }
+    },
+    "CancelSessionRequestV1": { "type": "object", "additionalProperties": false, "required": ["clientRequestId"], "properties": { "clientRequestId": { "$ref": "#/$defs/Id" } } },
+    "CancelSessionResponseV1": { "type": "object", "additionalProperties": false, "required": ["sessionId", "sessionPhase", "cancelledAt"], "properties": { "sessionId": { "$ref": "#/$defs/Id" }, "sessionPhase": { "const": "cancelled" }, "cancelledAt": { "$ref": "#/$defs/Timestamp" } } },
+    "TurnRequestV1": { "type": "object", "additionalProperties": false, "required": ["clientTurnId", "text", "locale"], "properties": { "clientTurnId": { "$ref": "#/$defs/Id" }, "text": { "type": "string", "minLength": 1, "maxLength": 1000 }, "locale": { "type": "string", "minLength": 2 } } },
+    "TurnAcceptedV1": { "type": "object", "additionalProperties": false, "required": ["sessionId", "clientTurnId", "turnNumber"], "properties": { "sessionId": { "$ref": "#/$defs/Id" }, "clientTurnId": { "$ref": "#/$defs/Id" }, "turnNumber": { "type": "integer", "minimum": 1, "maximum": 20 } } },
+    "TurnEffectV1": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["type", "result"], "properties": { "type": { "const": "test_completed" }, "result": { "allOf": [{ "$ref": "#/$defs/TestResultV1" }, { "type": "object", "required": ["status"], "properties": { "status": { "const": "completed" } } }] } } },
+        { "type": "object", "additionalProperties": false, "required": ["type", "testId", "reasonCode"], "properties": { "type": { "const": "test_unavailable" }, "testId": { "$ref": "#/$defs/Id" }, "reasonCode": { "type": "string", "minLength": 1 } } }
+      ]
+    },
+    "TurnCompletedV1": {
+      "type": "object", "additionalProperties": false, "required": ["sessionId", "turnId", "reply", "disclosedFactIds", "effects", "turnNumber", "sessionPhase"],
+      "properties": { "sessionId": { "$ref": "#/$defs/Id" }, "turnId": { "$ref": "#/$defs/Id" }, "reply": { "type": "string" }, "disclosedFactIds": { "type": "array", "items": { "$ref": "#/$defs/Id" }, "uniqueItems": true }, "effects": { "type": "array", "items": { "$ref": "#/$defs/TurnEffectV1" } }, "turnNumber": { "type": "integer", "minimum": 1, "maximum": 20 }, "sessionPhase": { "$ref": "#/$defs/SessionPhaseV1" } }
+    },
+    "TestRequestV1": { "type": "object", "additionalProperties": false, "required": ["clientRequestId", "testId"], "properties": { "clientRequestId": { "$ref": "#/$defs/Id" }, "testId": { "$ref": "#/$defs/Id" }, "deviceId": { "$ref": "#/$defs/Id" } } },
+    "DiagnosisSubmissionV1": { "type": "object", "additionalProperties": false, "required": ["clientRequestId", "primaryDiagnosis", "differentials"], "properties": { "clientRequestId": { "$ref": "#/$defs/Id" }, "primaryDiagnosis": { "type": "string", "minLength": 1 }, "differentials": { "type": "array", "items": { "type": "string", "minLength": 1 }, "maxItems": 10 }, "notes": { "type": "string", "maxLength": 2000 } } },
+    "DiagnosisAcceptedV1": { "type": "object", "additionalProperties": false, "required": ["submissionId", "sessionPhase"], "properties": { "submissionId": { "$ref": "#/$defs/Id" }, "sessionPhase": { "enum": ["diagnosis_submitted", "evaluating"] } } },
+    "EvaluationScoresV1": {
+      "type": "object", "additionalProperties": false, "required": ["diagnosis", "historyCoverage", "differentialReasoning", "testSelection", "efficiency", "communication", "total"],
+      "properties": { "diagnosis": { "$ref": "#/$defs/Score" }, "historyCoverage": { "$ref": "#/$defs/Score" }, "differentialReasoning": { "$ref": "#/$defs/Score" }, "testSelection": { "$ref": "#/$defs/Score" }, "efficiency": { "$ref": "#/$defs/Score" }, "communication": { "$ref": "#/$defs/Score" }, "total": { "$ref": "#/$defs/Score" } }
+    },
+    "Score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "EvaluationEvidenceV1": {
+      "type": "object", "additionalProperties": false, "required": ["criterionId", "outcome", "explanation"],
+      "properties": { "criterionId": { "$ref": "#/$defs/Id" }, "outcome": { "enum": ["met", "partial", "missed", "not_applicable"] }, "explanation": { "type": "string" }, "supportingTurnIds": { "type": "array", "items": { "$ref": "#/$defs/Id" } }, "supportingTestIds": { "type": "array", "items": { "$ref": "#/$defs/Id" } } }
+    },
+    "EvaluationResultV1": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "evaluationId", "sessionId", "caseVersion", "diagnosis", "scores", "evidence", "summary", "completedAt", "evaluationVersion"],
+      "properties": {
+        "contractVersion": { "const": "1" }, "evaluationId": { "$ref": "#/$defs/Id" }, "sessionId": { "$ref": "#/$defs/Id" }, "caseVersion": { "$ref": "#/$defs/Id" },
+        "diagnosis": { "type": "object", "additionalProperties": false, "required": ["correct", "explanation"], "properties": { "correct": { "type": "boolean" }, "matchedConceptId": { "$ref": "#/$defs/Id" }, "matchType": { "enum": ["exact", "synonym", "parent", "child", "semantic"] }, "explanation": { "type": "string" } } },
+        "scores": { "$ref": "#/$defs/EvaluationScoresV1" }, "evidence": { "type": "array", "items": { "$ref": "#/$defs/EvaluationEvidenceV1" } }, "summary": { "type": "string" }, "completedAt": { "$ref": "#/$defs/Timestamp" }, "evaluationVersion": { "const": "scoring-policy-v1" }
+      }
+    },
+    "RewardInputV1": {
+      "type": "object", "additionalProperties": false, "required": ["evaluationId", "sessionId", "scoreTotal", "diagnosisCorrect", "criterionOutcomes"],
+      "properties": { "evaluationId": { "$ref": "#/$defs/Id" }, "sessionId": { "$ref": "#/$defs/Id" }, "scoreTotal": { "$ref": "#/$defs/Score" }, "diagnosisCorrect": { "type": "boolean" }, "criterionOutcomes": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["criterionId", "outcome"], "properties": { "criterionId": { "$ref": "#/$defs/Id" }, "outcome": { "enum": ["met", "partial", "missed", "not_applicable"] } } } } }
+    },
+    "SharedErrorV1": {
+      "type": "object", "additionalProperties": false, "required": ["code", "message", "retryable"],
+      "properties": { "code": { "enum": ["INVALID_REQUEST", "UNSUPPORTED_CONTRACT_VERSION", "SESSION_NOT_FOUND", "SESSION_EXPIRED", "SESSION_CANCELLED", "INVALID_SESSION_STATE", "DUPLICATE_REQUEST", "IDEMPOTENCY_CONFLICT", "OPERATION_IN_PROGRESS", "OPERATION_RECOVERY_REQUIRED", "TURN_LIMIT_REACHED", "TEST_NOT_AVAILABLE", "TEST_ALREADY_COMPLETED", "DIAGNOSIS_ALREADY_SUBMITTED", "MODEL_TIMEOUT", "MODEL_UNAVAILABLE", "EVALUATION_UNAVAILABLE", "STREAM_INTERRUPTED", "SAFETY_REAL_HEALTH_INPUT", "SAFETY_PROMPT_INJECTION", "SAFETY_INTERRUPTED", "INTERNAL_ERROR"] }, "message": { "type": "string" }, "retryable": { "type": "boolean" }, "traceId": { "$ref": "#/$defs/Id" }, "details": { "type": "object" } }
+    },
+    "EventBase": {
+      "type": "object", "additionalProperties": false, "required": ["contractVersion", "eventVersion", "eventId", "eventType", "sessionId", "sequence", "emittedAt", "payload"],
+      "properties": { "contractVersion": { "const": "1" }, "eventVersion": { "const": "1" }, "eventId": { "$ref": "#/$defs/Id" }, "eventType": { "type": "string" }, "sessionId": { "$ref": "#/$defs/Id" }, "clientTurnId": { "$ref": "#/$defs/Id" }, "sequence": { "type": "integer", "minimum": 0 }, "emittedAt": { "$ref": "#/$defs/Timestamp" }, "traceId": { "$ref": "#/$defs/Id" }, "payload": { "type": "object" } }
+    },
+    "SessionCreatedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "session.created" }, "payload": { "type": "object", "additionalProperties": false, "required": ["sessionPhase"], "properties": { "sessionPhase": { "enum": ["created", "active"] } } } } }] },
+    "SessionStateChangedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "session.state_changed" }, "payload": { "type": "object", "additionalProperties": false, "required": ["from", "to"], "properties": { "from": { "$ref": "#/$defs/SessionPhaseV1" }, "to": { "$ref": "#/$defs/SessionPhaseV1" } } } } }] },
+    "TurnAcceptedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "turn.accepted" }, "payload": { "$ref": "#/$defs/TurnAcceptedV1" } } }] },
+    "ActionClassifiedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "action.classified" }, "payload": { "type": "object", "additionalProperties": false, "required": ["action"], "properties": { "action": { "enum": ["ask_patient", "other"] } } } } }] },
+    "PatientReplyDeltaEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "patient.reply.delta" }, "payload": { "type": "object", "additionalProperties": false, "required": ["delta"], "properties": { "delta": { "type": "string" } } } } }] },
+    "PatientReplyCompletedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "patient.reply.completed" }, "payload": { "$ref": "#/$defs/TurnCompletedV1" } } }] },
+    "TestAcceptedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "test.accepted" }, "payload": { "type": "object", "additionalProperties": false, "required": ["testId"], "properties": { "testId": { "$ref": "#/$defs/Id" } } } } }] },
+    "TestCompletedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "test.completed" }, "payload": { "$ref": "#/$defs/TestResultV1" } } }] },
+    "DiagnosisAcceptedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "diagnosis.accepted" }, "payload": { "$ref": "#/$defs/DiagnosisAcceptedV1" } } }] },
+    "EvaluationProgressEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "evaluation.progress" }, "payload": { "type": "object", "additionalProperties": false, "required": ["percent", "stage"], "properties": { "percent": { "type": "number", "minimum": 0, "maximum": 100 }, "stage": { "type": "string" } } } } }] },
+    "EvaluationCompletedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "evaluation.completed" }, "payload": { "$ref": "#/$defs/EvaluationResultV1" } } }] },
+    "SafetyInterruptedEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "safety.interrupted" }, "payload": { "type": "object", "additionalProperties": false, "required": ["decision", "templateId"], "properties": { "decision": { "enum": ["EXIT_SELF_HARM_CRISIS", "EXIT_URGENT_RED_FLAG", "EXIT_OUT_OF_SCOPE", "EXIT_REAL_HEALTH", "EXIT_FAIL_CLOSED"] }, "templateId": { "$ref": "#/$defs/Id" } } } } }] },
+    "RequestErrorEventV1": { "allOf": [{ "$ref": "#/$defs/EventBase" }, { "properties": { "eventType": { "const": "request.error" }, "payload": { "$ref": "#/$defs/SharedErrorV1" } } }] }
+  }
+}

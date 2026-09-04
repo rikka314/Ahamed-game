@@ -1,0 +1,591 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c13_digestive_001",
+  "publicCaseId": "case_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.5",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "饭后反酸、胸口烧灼一个月"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c13",
+    "patientDisplayName": "患者13号",
+    "ageBand": "26–35岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "产品经理",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "impatient_direct",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "表达简短直接",
+      "希望尽快聚焦重点"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "饭后反酸、胸口烧灼一个月",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "一个月前开始反复出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "饭后和躺下时反酸烧心",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "吞咽通畅，无黑便或活动性胸痛",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.gastrointestinal_bleeding": {
+      "status": "absent",
+      "value": "没有呕血、黑便或便血。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呕血",
+        "黑便",
+        "便血"
+      ]
+    },
+    "fact.peritoneal_signs": {
+      "status": "absent",
+      "value": "没有持续剧烈腹痛、腹部僵硬或反跳痛表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "持续剧烈腹痛",
+        "腹部僵硬",
+        "反跳痛"
+      ]
+    },
+    "fact.persistent_vomiting": {
+      "status": "absent",
+      "value": "没有反复或持续呕吐。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "持续呕吐",
+        "反复呕吐"
+      ]
+    },
+    "fact.jaundice": {
+      "status": "absent",
+      "value": "没有皮肤或眼白发黄。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "黄疸",
+        "眼白发黄",
+        "皮肤发黄"
+      ]
+    },
+    "fact.unintentional_weight_loss": {
+      "status": "absent",
+      "value": "没有无法解释的持续体重下降。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "非意愿性体重下降",
+        "消瘦",
+        "体重减轻"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.upper_gi_assessment": {
+      "status": "completed",
+      "displayName": "上消化道评估",
+      "aliases": [
+        "上消化道评估",
+        "做上消化道评估",
+        "test.upper_gi_assessment"
+      ],
+      "report": "上消化道评估未发现报警征象。"
+    },
+    "test.abdominal_ct": {
+      "status": "completed",
+      "displayName": "腹部CT",
+      "aliases": [
+        "腹部CT",
+        "做腹部CT",
+        "test.abdominal_ct"
+      ],
+      "report": "腹部CT未见异常。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.gerd",
+    "targetDiagnosis": "胃食管反流病",
+    "acceptedSynonyms": [
+      "胃食管反流"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.gerd",
+        "preferredTerm": "胃食管反流病",
+        "acceptedSynonyms": [
+          "胃食管反流"
+        ]
+      },
+      {
+        "conceptId": "concept.functional_dyspepsia",
+        "preferredTerm": "功能性消化不良",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.peptic_ulcer",
+        "preferredTerm": "消化性溃疡",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.gastrointestinal_bleeding",
+      "fact.peritoneal_signs",
+      "fact.persistent_vomiting",
+      "fact.jaundice",
+      "fact.unintentional_weight_loss"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.functional_dyspepsia",
+      "concept.peptic_ulcer"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.upper_gi_assessment": "required",
+      "test.abdominal_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B1病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:b6aba24ed209f654448003e160b2de1c83724ba710a6362813227e892fc9d933",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.digestive",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c13_digestive_001",
+    "caseVersion": "1.0.0-rc.5",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.gastrointestinal_bleeding",
+        "canonicalName": "消化道出血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.gastrointestinal_bleeding"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.peritoneal_signs",
+        "canonicalName": "腹膜刺激征",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.peritoneal_signs"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.persistent_vomiting",
+        "canonicalName": "持续呕吐",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.persistent_vomiting"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.jaundice",
+        "canonicalName": "黄疸",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.jaundice"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.unintentional_weight_loss",
+        "canonicalName": "非意愿性体重下降",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.unintentional_weight_loss"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.digestive",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c13_digestive_001",
+    "caseVersion": "1.0.0-rc.5",
+    "contentHash": "sha256:b6aba24ed209f654448003e160b2de1c83724ba710a6362813227e892fc9d933",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.2c51a0e5-3654-43df-8e64-af3a806a00f6",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:45:15.493Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性：26–35岁男性，饭后及平卧时反酸、烧心，病程一个月且生命体征稳定，符合无报警征象的胃食管反流病门诊病例；腹部CT列为不必要检查也与病例边界一致。",
+          "诊断可解性：核心症状、发生时间、诱发模式、进展及相关症状均有明确事实支持，目标诊断与接受术语定义清楚，且提供了两个可接受鉴别诊断。",
+          "危险征象排除：意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确阴性事实；生命体征和上消化道评估支持非急症退出。",
+          "量表一致性：must-ask事实、必需/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；失败轨迹正确覆盖不必要腹部CT和错误诊断。",
+          "回归覆盖：包含成功、失败、安全中断及未知事实轨迹；胸痛伴呼吸困难的安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+          "隐藏真相安全：教学字段及答案键未置于玩家可见内容，回归输入未通过提示泄露目标诊断；pending审核元数据不影响本次事实审计结论。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.983b536a-bf51-49b0-b8ef-898dc4bce35d",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:45:50.781Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "症状模式与胃食管反流病一致：饭后及躺下时反酸、烧心，病程和功能状态支持非急症门诊病例；腹部CT标记为不必要检查也与病例设定一致。",
+          "核心诊断粒度适当，目标为“胃食管反流病”，且症状信息足以支持临床诊断；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，数量及概念均匹配。",
+          "生命体征、上消化道评估及患者询问覆盖了矩阵列出的红旗排除项，病例未发现红旗状态与回归资产之间的冲突。",
+          "mustAskFactIds、鉴别诊断数量、检查分类、推荐回合数与成功轨迹基本一致；失败轨迹正确覆盖了不必要腹部CT和错误诊断路径。",
+          "success、failure、safety、unknown 四类回归轨迹均存在，且各自的预期诊断、无必要检查、安全中断及未知事实读取行为与病例内容相符。",
+          "隐藏 teaching_note、服务端评分字段及答案键未进入 playerVisible 或患者可询问信息；安全轨迹明确要求中断且不产生 provider 调用、原始文本写入或医疗回合。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床一致性：26–35岁男性，饭后及平卧时反酸、烧心，病程一个月且生命体征稳定，符合无报警征象的胃食管反流病门诊病例；腹部CT列为不必要检查也与病例边界一致。",
+      "诊断可解性：核心症状、发生时间、诱发模式、进展及相关症状均有明确事实支持，目标诊断与接受术语定义清楚，且提供了两个可接受鉴别诊断。",
+      "危险征象排除：意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确阴性事实；生命体征和上消化道评估支持非急症退出。",
+      "量表一致性：must-ask事实、必需/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；失败轨迹正确覆盖不必要腹部CT和错误诊断。",
+      "回归覆盖：包含成功、失败、安全中断及未知事实轨迹；胸痛伴呼吸困难的安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+      "隐藏真相安全：教学字段及答案键未置于玩家可见内容，回归输入未通过提示泄露目标诊断；pending审核元数据不影响本次事实审计结论。",
+      "症状模式与胃食管反流病一致：饭后及躺下时反酸、烧心，病程和功能状态支持非急症门诊病例；腹部CT标记为不必要检查也与病例设定一致。",
+      "核心诊断粒度适当，目标为“胃食管反流病”，且症状信息足以支持临床诊断；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，数量及概念均匹配。",
+      "生命体征、上消化道评估及患者询问覆盖了矩阵列出的红旗排除项，病例未发现红旗状态与回归资产之间的冲突。",
+      "mustAskFactIds、鉴别诊断数量、检查分类、推荐回合数与成功轨迹基本一致；失败轨迹正确覆盖了不必要腹部CT和错误诊断路径。",
+      "success、failure、safety、unknown 四类回归轨迹均存在，且各自的预期诊断、无必要检查、安全中断及未知事实读取行为与病例内容相符。",
+      "隐藏 teaching_note、服务端评分字段及答案键未进入 playerVisible 或患者可询问信息；安全轨迹明确要求中断且不产生 provider 调用、原始文本写入或医疗回合。"
+    ]
+  }
+}

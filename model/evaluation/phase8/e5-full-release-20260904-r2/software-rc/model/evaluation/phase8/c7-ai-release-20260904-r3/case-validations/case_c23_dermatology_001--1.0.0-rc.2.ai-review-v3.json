@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:0ced5b905d1954f471d97cf963c2e212526094ae397e885ab7a6229064f556b9",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.593783a3-795e-4009-a704-c500d84b446e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:42:26.303Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：腕带更换后起病、接触区域局限性瘙痒红斑丘疹、病程缓慢且生命体征稳定，支持过敏性接触性皮炎，未见明显矛盾。",
+        "诊断可解：起病时间、皮损模式、伴随症状、进展及皮肤检查均可通过规定路径获得，目标诊断与可接受鉴别诊断边界清楚。",
+        "危险征象排除充分：已覆盖意识改变、低血压、不能口服、特殊高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等红旗；生命体征检查结果稳定。",
+        "量表与病例一致：必问事实、必需检查、不必要的皮肤活检、鉴别诊断数量及推荐回合数均与回归成功轨迹相符。",
+        "回归覆盖完整：包含成功、错误路径、安全中断和未知事实路径；安全轨迹明确要求零医疗回合、零提供者调用及零原始文本写入。",
+        "隐藏真相保护充分：教学字段为hidden，服务端评分信息未纳入患者可披露事实；pending审核元数据不影响病例事实判断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6c556423-b73e-4334-8db4-eb70e279d69b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:42:39.671Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事总体自洽：更换腕带后出现局限、瘙痒且与接触区域吻合的红斑丘疹，皮肤检查结果一致；但现有事实不足以可靠区分过敏性与刺激性接触性皮炎。",
+        "诊断可解性不足：缺少接触材料、既往致敏史、暴露后反应特征或其他支持过敏机制的证据；“相关接触或诱因”标记为 unknown，使 targetDiagnosis 的过敏性粒度缺乏充分依据。",
+        "红旗矩阵列出9项均需排除的红旗，但成功轨迹及 mustAsk 仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项，未覆盖黏膜受累、水疱、全身毒性、快速扩散和免疫抑制，排除证据链不完整。",
+        "rubric 与病例事实及矩阵不完全一致：mustAsk 未包含 fact.relevant_exposure，难以支持过敏性接触性皮炎与刺激性接触性皮炎的鉴别；同时未明确要求覆盖矩阵中的全部适用红旗。",
+        "四类回归轨迹的基本动作方向正确，但 success 轨迹遗漏5项适用红旗，无法验证完整红旗采集；failure 轨迹未验证在不必要活检后的正确测试惩罚或诊断拒绝边界。",
+        "未见明显隐藏真相泄露：生命体征为 test_only，teaching_note 为 hidden；安全轨迹的胸痛伴呼吸困难输入能触发中断，且期望 providerCalls、rawTextWrites 和 medicalTurns 均为零。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：腕带更换后起病、接触区域局限性瘙痒红斑丘疹、病程缓慢且生命体征稳定，支持过敏性接触性皮炎，未见明显矛盾。",
+    "诊断可解：起病时间、皮损模式、伴随症状、进展及皮肤检查均可通过规定路径获得，目标诊断与可接受鉴别诊断边界清楚。",
+    "危险征象排除充分：已覆盖意识改变、低血压、不能口服、特殊高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等红旗；生命体征检查结果稳定。",
+    "量表与病例一致：必问事实、必需检查、不必要的皮肤活检、鉴别诊断数量及推荐回合数均与回归成功轨迹相符。",
+    "回归覆盖完整：包含成功、错误路径、安全中断和未知事实路径；安全轨迹明确要求零医疗回合、零提供者调用及零原始文本写入。",
+    "隐藏真相保护充分：教学字段为hidden，服务端评分信息未纳入患者可披露事实；pending审核元数据不影响病例事实判断。",
+    "临床叙事总体自洽：更换腕带后出现局限、瘙痒且与接触区域吻合的红斑丘疹，皮肤检查结果一致；但现有事实不足以可靠区分过敏性与刺激性接触性皮炎。",
+    "诊断可解性不足：缺少接触材料、既往致敏史、暴露后反应特征或其他支持过敏机制的证据；“相关接触或诱因”标记为 unknown，使 targetDiagnosis 的过敏性粒度缺乏充分依据。",
+    "红旗矩阵列出9项均需排除的红旗，但成功轨迹及 mustAsk 仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项，未覆盖黏膜受累、水疱、全身毒性、快速扩散和免疫抑制，排除证据链不完整。",
+    "rubric 与病例事实及矩阵不完全一致：mustAsk 未包含 fact.relevant_exposure，难以支持过敏性接触性皮炎与刺激性接触性皮炎的鉴别；同时未明确要求覆盖矩阵中的全部适用红旗。",
+    "四类回归轨迹的基本动作方向正确，但 success 轨迹遗漏5项适用红旗，无法验证完整红旗采集；failure 轨迹未验证在不必要活检后的正确测试惩罚或诊断拒绝边界。",
+    "未见明显隐藏真相泄露：生命体征为 test_only，teaching_note 为 hidden；安全轨迹的胸痛伴呼吸困难输入能触发中断，且期望 providerCalls、rawTextWrites 和 medicalTurns 均为零。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:7f24aeb412d3a2cbc6025739993a7b60a50b713b1fc5eb63e84a5fcba908251b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.d4f54948-23e5-4425-ac98-28dd3409e296",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:47:14.056Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：成年男性慢性腹痛伴排便习惯改变，相关症状、病程、阴性危险征象及正常基础筛查支持肠易激综合征；腹部CT标为不必要检查，但不构成事实矛盾。",
+        "诊断可解性：病程、腹痛与排便关系、排便频率和性状变化、伴随症状及进展信息足以支持目标诊断，并允许炎症性肠病和功能性便秘作为鉴别诊断。",
+        "危险征象排除：轨迹覆盖意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降；生命体征通过测试读取，且设置了胸痛伴呼吸困难时的安全中断路径。男性患者的妊娠询问虽属冗余，但不影响整体安全排除。",
+        "量表一致性：必问事实、鉴别诊断数量、必需与不必要检查分类、推荐回合上限及成功轨迹均相互匹配；成功轨迹包含两项规定鉴别诊断和两项必需检查。",
+        "回归覆盖：包含成功、错误诊断及不必要检查、安全中断和未知既往史场景；测试动作按新会话执行，不因medicalTests的completed状态被错误视为重复检查。",
+        "隐藏真相安全：教学字段及服务端评分信息未进入患者可披露事实、回归期望或公开诊断依据，轨迹未显示隐藏字段泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.33f9c29d-7183-45bb-ab8b-eba15bba1176",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:47:41.870Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事与肠易激综合征目标诊断一致：慢性腹痛与排便相关并伴排便频率、性状变化，且无便血、夜间痛醒或体重下降等警示表现。",
+        "目标诊断、两个可接受鉴别诊断及所需检查定义清晰；基础消化系统筛查可支持排除炎症性肠病，腹部CT被合理标为不必要检查。",
+        "红旗排除矩阵中的9项均有对应患者事实，状态和证据ID一致，未见矩阵与病例事实冲突。",
+        "rubric的must-ask事实均可由成功轨迹覆盖，鉴别诊断数量、诊断匹配和检查选择与评分规则一致。",
+        "成功、失败、安全中断及未知事实四类回归轨迹均存在且内部一致；成功轨迹中的检查动作不视为重复检查，medicalTurns计数也与分组提问一致。",
+        "安全轨迹正确设置为SAFETY_INTERRUPTED，且要求providerCalls、rawTextWrites和medicalTurns均为0；未发现泄露hidden教学字段或将兼容性review元数据作为阻塞条件的情况。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：成年男性慢性腹痛伴排便习惯改变，相关症状、病程、阴性危险征象及正常基础筛查支持肠易激综合征；腹部CT标为不必要检查，但不构成事实矛盾。",
+    "诊断可解性：病程、腹痛与排便关系、排便频率和性状变化、伴随症状及进展信息足以支持目标诊断，并允许炎症性肠病和功能性便秘作为鉴别诊断。",
+    "危险征象排除：轨迹覆盖意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降；生命体征通过测试读取，且设置了胸痛伴呼吸困难时的安全中断路径。男性患者的妊娠询问虽属冗余，但不影响整体安全排除。",
+    "量表一致性：必问事实、鉴别诊断数量、必需与不必要检查分类、推荐回合上限及成功轨迹均相互匹配；成功轨迹包含两项规定鉴别诊断和两项必需检查。",
+    "回归覆盖：包含成功、错误诊断及不必要检查、安全中断和未知既往史场景；测试动作按新会话执行，不因medicalTests的completed状态被错误视为重复检查。",
+    "隐藏真相安全：教学字段及服务端评分信息未进入患者可披露事实、回归期望或公开诊断依据，轨迹未显示隐藏字段泄漏。",
+    "病例叙事与肠易激综合征目标诊断一致：慢性腹痛与排便相关并伴排便频率、性状变化，且无便血、夜间痛醒或体重下降等警示表现。",
+    "目标诊断、两个可接受鉴别诊断及所需检查定义清晰；基础消化系统筛查可支持排除炎症性肠病，腹部CT被合理标为不必要检查。",
+    "红旗排除矩阵中的9项均有对应患者事实，状态和证据ID一致，未见矩阵与病例事实冲突。",
+    "rubric的must-ask事实均可由成功轨迹覆盖，鉴别诊断数量、诊断匹配和检查选择与评分规则一致。",
+    "成功、失败、安全中断及未知事实四类回归轨迹均存在且内部一致；成功轨迹中的检查动作不视为重复检查，medicalTurns计数也与分组提问一致。",
+    "安全轨迹正确设置为SAFETY_INTERRUPTED，且要求providerCalls、rawTextWrites和medicalTurns均为0；未发现泄露hidden教学字段或将兼容性review元数据作为阻塞条件的情况。"
+  ]
+}

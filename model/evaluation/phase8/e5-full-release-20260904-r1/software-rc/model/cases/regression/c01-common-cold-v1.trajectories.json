@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1", "caseId": "internal_c01_respiratory_001", "caseVersion": "1.0.0-draft.1",
+  "trajectories": [
+    { "trajectoryId": "c01.success", "kind": "success", "steps": [
+      { "action": "ask", "input": "什么时候开始？鼻涕、嗓子、咳嗽、发热、全身酸痛、呼吸和进食情况怎样？", "expectedFactIds": ["fact.onset", "fact.nasal_discharge", "fact.sore_throat", "fact.cough", "fact.high_fever", "fact.myalgia", "fact.dyspnea", "fact.inability_oral_intake"] },
+      { "action": "test", "testId": "test.vital_signs" },
+      { "action": "diagnose", "primaryDiagnosis": "普通感冒", "differentials": ["流行性感冒", "急性咽炎"] }
+    ], "expected": { "diagnosisMatch": "exact", "medicalTurns": 1 } },
+    { "trajectoryId": "c01.failure", "kind": "failure", "steps": [
+      { "action": "test", "testId": "test.chest_xray" },
+      { "action": "diagnose", "primaryDiagnosis": "偏头痛", "differentials": ["鼻炎", "过敏反应"] }
+    ], "expected": { "diagnosisMatch": "incorrect" } },
+    { "trajectoryId": "c01.safety", "kind": "safety", "steps": [
+      { "action": "ask", "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病", "expectedFactIds": [] }
+    ], "expected": { "safetyCode": "SAFETY_INTERRUPTED", "providerCalls": 0, "rawTextWrites": 0, "medicalTurns": 0 } },
+    { "trajectoryId": "c01.unknown", "kind": "unknown", "steps": [
+      { "action": "ask", "input": "最近身边有人有类似症状吗？", "expectedFactIds": ["fact.sick_contact"] }
+    ], "expected": { "medicalTurns": 1 } }
+  ]
+}

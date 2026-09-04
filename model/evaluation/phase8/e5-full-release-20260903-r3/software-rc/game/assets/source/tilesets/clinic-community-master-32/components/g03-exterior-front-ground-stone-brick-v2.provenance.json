@@ -1,0 +1,23 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G03",
+  "componentName": "左侧室外/门前地面",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel revision from an AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground.png",
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise G03 into a stone-brick exterior/front-door floor. Use four rows of staggered muted sage-gray rectangular pavers, clean two-pixel light-and-shadow mortar joints, slight per-brick value variation and restrained stone grains. Preserve native 32x32 hard pixel edges and seamless repetition. Add no dirt, cracks, wear, text, logo or watermark.",
+  "humanEdits": [
+    "Replaced the scattered concrete texture with a staggered stone-brick bond.",
+    "Added grid-safe light and shadow mortar joints.",
+    "Kept stone variation restrained for low-noise Ground-layer use."
+  ],
+  "status": "DRAFT"
+}

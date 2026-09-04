@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:de1d00c8778c47cc873c1d616e5d27a9dfa601cf664d5ec80cf86f8009cd31d1",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.7eb6f1b2-03b3-418f-a2d1-a90284377474",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:36:41.144Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状为慢性、缓慢进展的上腹胀和早饱，生命体征稳定，基础评估及腹部CT未见异常，功能性消化不良作为目标诊断具有临床连贯性；CT标注为非必要检查也与量表一致。",
+        "诊断可解性：起病、症状模式、伴随症状、进展及关键危险表现均有可获取事实，必要检查结果支持目标诊断，并提供两个合理鉴别诊断。",
+        "危险征象排除：红旗矩阵中的9项危险征象均明确为absent，生命体征稳定；胸痛伴呼吸困难的安全轨迹要求中断并避免医疗调用和文本写入，退出机制明确。",
+        "量表一致性：must-ask事实、必需检查、两个鉴别诊断、CT不必要分类及10回合建议均与成功轨迹和评分策略一致。",
+        "回归覆盖：同时覆盖成功、错误诊断/不当检查、安全中断及未知事实询问路径，预期结果具体且可验证。",
+        "隐藏真相安全：教学字段、test_only生命体征及答案键未置于患者可见事实；回归输入未要求泄露内部评分、目标诊断或隐藏字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.1c792dff-7615-4579-9aad-6cf5c894912a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:36:59.993Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不足：症状仅持续两个月，而“功能性消化不良”的正式诊断通常需要更长的症状持续时间；当前病例更适合表述为疑似或未分化消化不良，直接锁定目标诊断偏强。",
+        "诊断可解性不足：早饱和餐后上腹胀支持消化不良，但缺少足以支持“功能性”定性的时间标准及部分关键病史，正常CT和基础评估不能单独完成该诊断确认。",
+        "红旗排除矩阵完整：九项红旗均有对应患者事实，状态均为absent，且生命体征稳定；未发现矩阵内部缺项。",
+        "rubric与病例资产不完全一致：rubric的mustAsk仅覆盖四项红旗，而redFlagExclusionMatrix要求九项；success轨迹也只期望四项，导致评分要求与红旗排除要求不一致。",
+        "回归覆盖存在缺口：unknown轨迹的问题同时询问既往发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹未覆盖其余五项矩阵红旗，无法验证完整红旗路径。",
+        "未发现明显隐藏真相泄漏：目标诊断、教学字段和服务端评分字段未出现在playerVisible或患者可见事实中。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状为慢性、缓慢进展的上腹胀和早饱，生命体征稳定，基础评估及腹部CT未见异常，功能性消化不良作为目标诊断具有临床连贯性；CT标注为非必要检查也与量表一致。",
+    "诊断可解性：起病、症状模式、伴随症状、进展及关键危险表现均有可获取事实，必要检查结果支持目标诊断，并提供两个合理鉴别诊断。",
+    "危险征象排除：红旗矩阵中的9项危险征象均明确为absent，生命体征稳定；胸痛伴呼吸困难的安全轨迹要求中断并避免医疗调用和文本写入，退出机制明确。",
+    "量表一致性：must-ask事实、必需检查、两个鉴别诊断、CT不必要分类及10回合建议均与成功轨迹和评分策略一致。",
+    "回归覆盖：同时覆盖成功、错误诊断/不当检查、安全中断及未知事实询问路径，预期结果具体且可验证。",
+    "隐藏真相安全：教学字段、test_only生命体征及答案键未置于患者可见事实；回归输入未要求泄露内部评分、目标诊断或隐藏字段。",
+    "临床一致性不足：症状仅持续两个月，而“功能性消化不良”的正式诊断通常需要更长的症状持续时间；当前病例更适合表述为疑似或未分化消化不良，直接锁定目标诊断偏强。",
+    "诊断可解性不足：早饱和餐后上腹胀支持消化不良，但缺少足以支持“功能性”定性的时间标准及部分关键病史，正常CT和基础评估不能单独完成该诊断确认。",
+    "红旗排除矩阵完整：九项红旗均有对应患者事实，状态均为absent，且生命体征稳定；未发现矩阵内部缺项。",
+    "rubric与病例资产不完全一致：rubric的mustAsk仅覆盖四项红旗，而redFlagExclusionMatrix要求九项；success轨迹也只期望四项，导致评分要求与红旗排除要求不一致。",
+    "回归覆盖存在缺口：unknown轨迹的问题同时询问既往发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹未覆盖其余五项矩阵红旗，无法验证完整红旗路径。",
+    "未发现明显隐藏真相泄漏：目标诊断、教学字段和服务端评分字段未出现在playerVisible或患者可见事实中。"
+  ]
+}

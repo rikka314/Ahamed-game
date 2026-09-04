@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:cf8d5236807f914713cdd9900efe9d87abd42ee6f4a65a90c65c80be945b77e0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.7a90b234-ac78-4bcc-8c3e-2467d785fe6c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:03:30.309Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：26–35岁女性，慢性餐后上腹胀与早饱，病程及持续时间符合功能性消化不良的门诊病例设定；生命体征稳定，内镜及基础实验室未发现器质性病变。",
+        "诊断可解性通过：症状模式、病程、阴性器质性评估和危险征象信息足以支持“功能性消化不良”，且鉴别诊断范围明确。",
+        "危险征象排除通过：意识改变、低血压、不能进食、出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降等均有明确的缺失状态；另有生命体征检查和安全中断轨迹。",
+        "量表一致性通过：必问事实、必需检查、可接受鉴别诊断数量及不必要腹部CT的分类彼此一致，并与成功及失败轨迹相符。",
+        "回归覆盖通过：同时覆盖成功诊疗、错误诊疗及不必要检查、安全中断、未知既往史追问等关键路径，预期结果清晰可判定。",
+        "隐藏真相安全通过：教学字段和答案键未进入患者可见叙事；安全轨迹要求中断、零医疗回合、零提供者调用和零原始文本写入，未见泄露隐藏诊断或评分规则的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7e7fa9bf-0176-43f7-9836-a067ae19dbc5",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:03:51.032Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现符合功能性消化不良，尤其是餐后饱胀和早饱模式；病程及阴性内镜/基础实验室结果支持目标诊断，腹部CT列为不必要检查合理。",
+        "病例信息足以在询问起病、症状模式、进展及危险表现后完成诊断，目标诊断粒度明确，鉴别诊断也可操作。",
+        "红旗矩阵中的九项危险表现均有对应患者事实且状态一致为 absent；成功轨迹明确覆盖相关询问。",
+        "rubric 的必问事实、2项鉴别诊断、必需/不必要检查分类与病例内容及答案键一致；目标诊断未被错误纳入鉴别要求。",
+        "success、failure、safety、unknown 四类回归轨迹均存在，步骤、期望事实、诊断结果、无关检查及安全中断行为与病例配置一致。",
+        "隐藏教学字段、test-only生命体征及服务端字段未在患者可见叙事或回归输入中泄露，未发现可利用隐藏真值直接作答的路径。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：26–35岁女性，慢性餐后上腹胀与早饱，病程及持续时间符合功能性消化不良的门诊病例设定；生命体征稳定，内镜及基础实验室未发现器质性病变。",
+    "诊断可解性通过：症状模式、病程、阴性器质性评估和危险征象信息足以支持“功能性消化不良”，且鉴别诊断范围明确。",
+    "危险征象排除通过：意识改变、低血压、不能进食、出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降等均有明确的缺失状态；另有生命体征检查和安全中断轨迹。",
+    "量表一致性通过：必问事实、必需检查、可接受鉴别诊断数量及不必要腹部CT的分类彼此一致，并与成功及失败轨迹相符。",
+    "回归覆盖通过：同时覆盖成功诊疗、错误诊疗及不必要检查、安全中断、未知既往史追问等关键路径，预期结果清晰可判定。",
+    "隐藏真相安全通过：教学字段和答案键未进入患者可见叙事；安全轨迹要求中断、零医疗回合、零提供者调用和零原始文本写入，未见泄露隐藏诊断或评分规则的设计。",
+    "临床表现符合功能性消化不良，尤其是餐后饱胀和早饱模式；病程及阴性内镜/基础实验室结果支持目标诊断，腹部CT列为不必要检查合理。",
+    "病例信息足以在询问起病、症状模式、进展及危险表现后完成诊断，目标诊断粒度明确，鉴别诊断也可操作。",
+    "红旗矩阵中的九项危险表现均有对应患者事实且状态一致为 absent；成功轨迹明确覆盖相关询问。",
+    "rubric 的必问事实、2项鉴别诊断、必需/不必要检查分类与病例内容及答案键一致；目标诊断未被错误纳入鉴别要求。",
+    "success、failure、safety、unknown 四类回归轨迹均存在，步骤、期望事实、诊断结果、无关检查及安全中断行为与病例配置一致。",
+    "隐藏教学字段、test-only生命体征及服务端字段未在患者可见叙事或回归输入中泄露，未发现可利用隐藏真值直接作答的路径。"
+  ]
+}

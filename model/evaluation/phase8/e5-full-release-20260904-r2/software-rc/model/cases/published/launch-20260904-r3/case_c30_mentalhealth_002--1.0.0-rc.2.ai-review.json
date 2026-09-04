@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:c1a37057a638327e15419326a4951801d840720eb18b8d29859a7af594b29267",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8f400c99-4728-49e1-901c-c2aa4a50ca4b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:47:16.428Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状持续约一个月，表现为情绪低落、兴趣减少、乏力和睡眠差，仍能基本工作；生命体征稳定，精神状态评估提示轻度抑郁且现实检验完整，整体与目标诊断及非急症边界一致。",
+        "诊断可解性：起病、核心症状、伴随症状、病程变化及关键排除信息均有事实支撑；生命体征和精神状态评估结果进一步支持诊断，且鉴别诊断数量与内容明确。",
+        "危险征象排除：意识混乱、低血压、不能口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒和自理障碍均明确为不存在；危机筛查阴性，未见需升级急诊处置的事实。",
+        "量表与规则一致性：must-ask事实、2项可接受鉴别诊断、必需及不必要检查分类、推荐回合限制均与病例事实和评分策略相匹配。",
+        "回归覆盖：成功、错误诊断/不必要检查、安全中断及未知信息路径均有覆盖；安全轨迹预期为中断且无医疗回合、无提供者调用和原始文本写入，符合安全退出要求。",
+        "隐藏真相安全：教学字段未向玩家暴露，目标诊断仅保留在答案键及评分所需结构中；pending审核元数据不影响事实判断，未发现通过回归或报告泄漏隐藏答案的情况。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a17d12d6-83c4-47ac-8086-8392bc0200ba",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:47:32.502Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事支持轻度抑郁表现，但未提供明确的躯体化症状或相关评估依据；“轻度抑郁发作伴躯体化表达”的诊断粒度超出病例证据。",
+        "目标诊断的核心抑郁线索基本可解，但“伴躯体化表达”缺乏可验证事实，可能导致玩家无法依据病例内容稳定命中目标概念。",
+        "红旗矩阵包含9项适用红旗，但rubric及成功轨迹仅要求/覆盖其中4项；自伤风险、精神病性症状、躁狂、物质中毒和自理能力不足等未被完整纳入必问与回归验证。",
+        "rubric的mustAskFactIds与redFlagExclusionMatrix不一致，且病例目标诊断包含未在事实或检查结果中支持的“躯体化表达”，诊断粒度与评分目标未完全对齐。",
+        "unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，按questionMatchers应可能命中fact.prior_episode与fact.relevant_exposure，但expectedFactIds仅列出前者；success轨迹也未覆盖全部红旗事实，存在回归覆盖缺口。",
+        "未发现将teaching_note、评分字段或其他隐藏真值直接暴露给玩家的明显问题；answerKey及内部回归字段保持为服务端内容。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状持续约一个月，表现为情绪低落、兴趣减少、乏力和睡眠差，仍能基本工作；生命体征稳定，精神状态评估提示轻度抑郁且现实检验完整，整体与目标诊断及非急症边界一致。",
+    "诊断可解性：起病、核心症状、伴随症状、病程变化及关键排除信息均有事实支撑；生命体征和精神状态评估结果进一步支持诊断，且鉴别诊断数量与内容明确。",
+    "危险征象排除：意识混乱、低血压、不能口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒和自理障碍均明确为不存在；危机筛查阴性，未见需升级急诊处置的事实。",
+    "量表与规则一致性：must-ask事实、2项可接受鉴别诊断、必需及不必要检查分类、推荐回合限制均与病例事实和评分策略相匹配。",
+    "回归覆盖：成功、错误诊断/不必要检查、安全中断及未知信息路径均有覆盖；安全轨迹预期为中断且无医疗回合、无提供者调用和原始文本写入，符合安全退出要求。",
+    "隐藏真相安全：教学字段未向玩家暴露，目标诊断仅保留在答案键及评分所需结构中；pending审核元数据不影响事实判断，未发现通过回归或报告泄漏隐藏答案的情况。",
+    "临床叙事支持轻度抑郁表现，但未提供明确的躯体化症状或相关评估依据；“轻度抑郁发作伴躯体化表达”的诊断粒度超出病例证据。",
+    "目标诊断的核心抑郁线索基本可解，但“伴躯体化表达”缺乏可验证事实，可能导致玩家无法依据病例内容稳定命中目标概念。",
+    "红旗矩阵包含9项适用红旗，但rubric及成功轨迹仅要求/覆盖其中4项；自伤风险、精神病性症状、躁狂、物质中毒和自理能力不足等未被完整纳入必问与回归验证。",
+    "rubric的mustAskFactIds与redFlagExclusionMatrix不一致，且病例目标诊断包含未在事实或检查结果中支持的“躯体化表达”，诊断粒度与评分目标未完全对齐。",
+    "unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，按questionMatchers应可能命中fact.prior_episode与fact.relevant_exposure，但expectedFactIds仅列出前者；success轨迹也未覆盖全部红旗事实，存在回归覆盖缺口。",
+    "未发现将teaching_note、评分字段或其他隐藏真值直接暴露给玩家的明显问题；answerKey及内部回归字段保持为服务端内容。"
+  ]
+}

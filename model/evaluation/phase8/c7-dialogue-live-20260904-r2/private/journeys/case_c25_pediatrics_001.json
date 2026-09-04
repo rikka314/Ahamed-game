@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:983292d3746ba8ca897a5e57f6ee4e5a2738faddc6afea2583ee1823b37cac8b",
+  "personaTemplateId": "anxious_reassurance_seeking",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "医生您好，我右边耳朵疼，听声音还有点发闷，已经两天了……会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "就是右边耳朵疼，听声音有点发闷，已经两天了。除此之外暂时没觉得特别不舒服……医生，会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗯，现在还是这样，右耳还疼，听声音也有点发闷……医生，这种情况会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是呀，天气挺好的，我平时也喜欢出去散散步。不过我的右耳还是疼、听声音发闷，医生，这个真的不会很严重吗？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我喜欢出去散散步，也喜欢听音乐，听音乐的时候会觉得放松一点……不过医生，我的耳朵这样真的不要紧吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以聊一会儿，不过我还是有点担心我的右耳……我们还是先看看耳朵到底是怎么回事吧，医生。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "还好，不算太忙……不过医生，我还是有点担心右耳疼、听声音发闷这件事。我们能不能先看看耳朵到底是怎么回事？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗯，现在还是这样，右耳还在疼，听声音也有点发闷……医生，会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.primary_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好，量一下体温吧……我有点担心，不知道会不会发烧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的耳镜检查结果怎么样",
+      "reply": "耳镜检查还没有做呢，医生。可以现在帮我检查一下吗？我有点担心耳朵里面是不是很严重。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那就做耳镜检查吧……医生，检查的时候会不会疼？我有点害怕，但想赶紧知道耳朵到底怎么了。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.otoscopy",
+            "status": "completed",
+            "report": "耳镜见鼓膜充血膨隆、活动度降低。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.otoscopy",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "耳镜检查现在是什么结果",
+      "reply": "耳镜检查结果出来了：医生看到右耳鼓膜有充血、膨隆，活动度也有些降低。这个结果能帮助判断耳朵里面的情况……我有点担心，严重吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.otoscopy"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.otoscopy",
+            "status": "completed",
+            "report": "耳镜见鼓膜充血膨隆、活动度降低。"
+          }
+        ]
+      }
+    }
+  ]
+}

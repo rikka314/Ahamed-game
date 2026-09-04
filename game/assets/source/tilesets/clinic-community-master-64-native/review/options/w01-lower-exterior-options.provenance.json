@@ -1,0 +1,72 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "W01",
+  "candidatePurpose": "Choose the outdoor-facing material for the lower/south clinic wall before replacing active component 28.",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "license": "Project-original AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": [
+    "OpenAI built-in image generation tool",
+    "Sharp 0.35.3 deterministic native-pixel rendering and validation"
+  ],
+  "modelVersion": null,
+  "generatedAt": "2026-09-02",
+  "commonPrompt": "A seamless 64px orthographic lower/south exterior clinic wall tile: transparent interior-side upper area, narrow white top cap and hard contact shadow, outdoor-facing facade extending downward, restrained bottom plinth and ground contact shadow; candidate-specific restrained palette; hard pixels; no text, logo, door, window, medical symbol, branded trim or watermark.",
+  "candidates": [
+    {
+      "option": 1,
+      "name": "smooth-plaster",
+      "concept": "../concepts/w01-lower-exterior-option-01-smooth-plaster-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-01-smooth-plaster.png",
+      "promptDifference": "Very clean smooth painted plaster with sparse tiny mineral marks and a slim pale-gray weatherproof plinth."
+    },
+    {
+      "option": 2,
+      "name": "fine-stucco",
+      "concept": "../concepts/w01-lower-exterior-option-02-fine-stucco-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-02-fine-stucco.png",
+      "promptDifference": "Fine-grain white stucco with irregular aggregate, tiny pores, restrained weathering and a cool-gray concrete plinth."
+    },
+    {
+      "option": 3,
+      "name": "white-brick",
+      "concept": "../concepts/w01-lower-exterior-option-03-white-brick-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-03-white-brick.png",
+      "promptDifference": "Low-contrast white-painted staggered brick masonry with softly worn paint and a simple gray plinth.",
+      "supersededCandidate": true,
+      "ownerDisposition": "rejected: no brick wall"
+    },
+    {
+      "option": "3R",
+      "name": "muted-terracotta-brick",
+      "concept": "../concepts/w01-lower-exterior-option-03-muted-terracotta-brick-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-03-muted-terracotta-brick.png",
+      "promptDifference": "Color-only revision of option 3: subdued warm clay and terracotta brick faces with the original staggered geometry, mortar, white wall-top cap and gray plinth retained exactly.",
+      "status": "DRAFT",
+      "ownerDisposition": "rejected: no brick wall"
+    },
+    {
+      "option": 4,
+      "name": "grooved-panel",
+      "concept": "../concepts/w01-lower-exterior-option-04-grooved-panel-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-04-grooved-panel.png",
+      "promptDifference": "Modern white facade panels with a few thin horizontal recessed grooves, subtle panel variation and a clean gray plinth."
+    },
+    {
+      "option": 5,
+      "name": "sage-mineral-render",
+      "concept": "../concepts/w01-lower-exterior-option-05-sage-mineral-render-imagegen-concept.png",
+      "file": "w01-lower-exterior-option-05-sage-mineral-render.png",
+      "promptDifference": "Continuous low-saturation dusty sage mineral render with fine irregular aggregate, subtle non-directional mottling and restrained lower-edge weathering; no bricks, blocks, panel seams, grooves or repeating line pattern. White top cap and gray waterproof plinth retained.",
+      "status": "DRAFT",
+      "ownerDisposition": "selected by owner for the active DRAFT source component on 2026-09-02"
+    }
+  ],
+  "latestCandidate": 5,
+  "activeAssetReplaced": true,
+  "staticApproval": "owner-confirmed option 5 for the active DRAFT source component on 2026-09-02",
+  "inGameApproval": "pending",
+  "status": "DRAFT"
+}

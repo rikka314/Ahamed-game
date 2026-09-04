@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.1.0-rc.2",
+  "contentHash": "sha256:81be11ef038d63082a8b681eaf4f7efe41e03bf57e5d901aad4a1d42730583ec",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4766db4d-c0a5-41ac-962b-095909a87719",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:51:13.320Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成年女性，症状起病急、表现为鼻塞、清涕、轻度咽部不适及偶发干咳；生命体征稳定，未见呼吸困难、低氧、意识改变、胸痛、咯血、低血压、呼吸增快或无法进食饮水等危险征象，临床叙述与普通感冒相符。",
+        "首发询问轨迹覆盖全部must-ask事实，包含起病、症状特征、主要危险征象及高风险人群排除；结合生命体征后可合理求解普通感冒，并支持流感和急性咽炎作为两个鉴别诊断。",
+        "红旗排除矩阵中的适用项目均有对应患者事实或生命体征证据，观察值与病例内容一致；安全轨迹对用户自述胸痛和呼吸困难正确中断，且要求零医疗回合、零提供方调用和零原始文本写入。",
+        "量表要求、目标诊断、鉴别诊断数量、检查分类及推荐回合数与回归成功轨迹一致；胸片和胸部CT标为不必要，血常规为有用，生命体征为必需，未发现评分规则与病例事实冲突。",
+        "回归轨迹覆盖成功、错误诊断/不必要检查、安全中断和未知接触史四类路径，足以检验主要发布边界与退出行为。",
+        "隐藏教学字段、内部病例标识及评分摘要未被设计为患者可询问事实；接触史明确为unknown并要求询问后获得，不应被错误当作已知阴性。人工review状态为pending不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2bdb82b7-eafb-4635-97f0-0c1741baf274",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:51:29.188Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为急性、轻症上呼吸道症状，生命体征稳定，无肺炎或其他严重感染证据，普通感冒及所列鉴别诊断与病例一致。",
+        "起病、症状谱、危险表现和高风险人群均可通过问诊获得；目标诊断粒度明确，且普通感冒与急性病毒性上呼吸道感染映射清晰。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群等红旗均有对应事实和矩阵证据，状态一致。",
+        "must-ask事实、2项鉴别诊断及检查分类与答案键一致；生命体征设为必需，血常规有用，胸片和胸部CT列为不必要，内部逻辑无冲突。",
+        "success、failure、safety、unknown四类轨迹均存在，成功、失败、不安全输入和未知接触史场景的预期结果与病例事实及评分策略相符。",
+        "隐藏教学字段未暴露诊断结论或评分依据；test_only生命体征通过检查获取，未发现支持材料向玩家泄露隐藏真值的问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁成年女性，症状起病急、表现为鼻塞、清涕、轻度咽部不适及偶发干咳；生命体征稳定，未见呼吸困难、低氧、意识改变、胸痛、咯血、低血压、呼吸增快或无法进食饮水等危险征象，临床叙述与普通感冒相符。",
+    "首发询问轨迹覆盖全部must-ask事实，包含起病、症状特征、主要危险征象及高风险人群排除；结合生命体征后可合理求解普通感冒，并支持流感和急性咽炎作为两个鉴别诊断。",
+    "红旗排除矩阵中的适用项目均有对应患者事实或生命体征证据，观察值与病例内容一致；安全轨迹对用户自述胸痛和呼吸困难正确中断，且要求零医疗回合、零提供方调用和零原始文本写入。",
+    "量表要求、目标诊断、鉴别诊断数量、检查分类及推荐回合数与回归成功轨迹一致；胸片和胸部CT标为不必要，血常规为有用，生命体征为必需，未发现评分规则与病例事实冲突。",
+    "回归轨迹覆盖成功、错误诊断/不必要检查、安全中断和未知接触史四类路径，足以检验主要发布边界与退出行为。",
+    "隐藏教学字段、内部病例标识及评分摘要未被设计为患者可询问事实；接触史明确为unknown并要求询问后获得，不应被错误当作已知阴性。人工review状态为pending不构成阻塞。",
+    "临床表现为急性、轻症上呼吸道症状，生命体征稳定，无肺炎或其他严重感染证据，普通感冒及所列鉴别诊断与病例一致。",
+    "起病、症状谱、危险表现和高风险人群均可通过问诊获得；目标诊断粒度明确，且普通感冒与急性病毒性上呼吸道感染映射清晰。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群等红旗均有对应事实和矩阵证据，状态一致。",
+    "must-ask事实、2项鉴别诊断及检查分类与答案键一致；生命体征设为必需，血常规有用，胸片和胸部CT列为不必要，内部逻辑无冲突。",
+    "success、failure、safety、unknown四类轨迹均存在，成功、失败、不安全输入和未知接触史场景的预期结果与病例事实及评分策略相符。",
+    "隐藏教学字段未暴露诊断结论或评分依据；test_only生命体征通过检查获取，未发现支持材料向玩家泄露隐藏真值的问题。"
+  ]
+}

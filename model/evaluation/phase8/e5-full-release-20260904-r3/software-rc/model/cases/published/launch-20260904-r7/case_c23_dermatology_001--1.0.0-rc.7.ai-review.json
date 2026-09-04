@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:326911565135286ab0f4bfee24b4f59442824bb5a0cd27efa1c6e709e856fa9e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.abc4d715-58fd-490f-a680-d0ef67902b61",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:50:31.106Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成人局限性接触区域瘙痒性红斑丘疹，起病与新腕带金属扣暴露一致，停戴后未扩散，皮肤检查及镍斑贴阳性支持过敏性接触性皮炎；病情与检查设置一致。",
+        "目标诊断、可接受同义词及两个鉴别诊断均明确，所需病史、生命体征和皮肤检查足以完成诊断，且活检被合理标记为初始不必要。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、迅速扩散及免疫抑制等红旗均有对应排除事实；生命体征通过检查读取，符合隐藏读取约束。",
+        "rubric 的 must-ask 事实、诊断与鉴别诊断要求、检查分类和回合上限彼此一致；成功轨迹覆盖全部必问事实并完成必需检查。",
+        "回归轨迹覆盖成功、失败、不相关急症中断及未知既往史场景；安全轨迹明确要求中断、零医疗回合、零提供方调用和零原始文本写入。",
+        "教学字段保持 hidden，生命体征保持 test_only，未将内部评分、教学或审核元数据暴露给患者；review.status、reviewDecision=pending及人工审核字段不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.02b69363-4dc1-4480-866a-15d81b8fd49c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:50:45.579Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事前后一致：腕带金属扣接触部位局限性瘙痒红疹、停戴后不再扩大，皮肤检查及镍斑贴阳性均支持过敏性接触性皮炎。",
+        "目标诊断粒度适当且可解；“接触性湿疹”作为接受同义词合理，刺激性接触性皮炎和体癣作为鉴别诊断也具有可解释性。",
+        "生命体征、黏膜受累、水疱或剥脱、系统毒性、快速扩散及高风险状态等红旗均有对应事实，且轨迹覆盖完整。",
+        "rubric、必问事实、鉴别诊断数量和检查分类相互一致；生命体征及皮肤检查为必需，皮肤活检标记为不必要，与病例内容相符。",
+        "success、failure、safety、unknown 四类回归轨迹的预期结果与病例及评分策略一致；成功轨迹覆盖全部 must-ask 事实并完成正确诊断。",
+        "隐藏事实与安全轨迹未泄漏教学字段；胸痛伴呼吸困难输入预期中断且不产生医疗回合，unknown 轨迹仅读取既往发作事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成人局限性接触区域瘙痒性红斑丘疹，起病与新腕带金属扣暴露一致，停戴后未扩散，皮肤检查及镍斑贴阳性支持过敏性接触性皮炎；病情与检查设置一致。",
+    "目标诊断、可接受同义词及两个鉴别诊断均明确，所需病史、生命体征和皮肤检查足以完成诊断，且活检被合理标记为初始不必要。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、迅速扩散及免疫抑制等红旗均有对应排除事实；生命体征通过检查读取，符合隐藏读取约束。",
+    "rubric 的 must-ask 事实、诊断与鉴别诊断要求、检查分类和回合上限彼此一致；成功轨迹覆盖全部必问事实并完成必需检查。",
+    "回归轨迹覆盖成功、失败、不相关急症中断及未知既往史场景；安全轨迹明确要求中断、零医疗回合、零提供方调用和零原始文本写入。",
+    "教学字段保持 hidden，生命体征保持 test_only，未将内部评分、教学或审核元数据暴露给患者；review.status、reviewDecision=pending及人工审核字段不构成阻塞。",
+    "临床叙事前后一致：腕带金属扣接触部位局限性瘙痒红疹、停戴后不再扩大，皮肤检查及镍斑贴阳性均支持过敏性接触性皮炎。",
+    "目标诊断粒度适当且可解；“接触性湿疹”作为接受同义词合理，刺激性接触性皮炎和体癣作为鉴别诊断也具有可解释性。",
+    "生命体征、黏膜受累、水疱或剥脱、系统毒性、快速扩散及高风险状态等红旗均有对应事实，且轨迹覆盖完整。",
+    "rubric、必问事实、鉴别诊断数量和检查分类相互一致；生命体征及皮肤检查为必需，皮肤活检标记为不必要，与病例内容相符。",
+    "success、failure、safety、unknown 四类回归轨迹的预期结果与病例及评分策略一致；成功轨迹覆盖全部 must-ask 事实并完成正确诊断。",
+    "隐藏事实与安全轨迹未泄漏教学字段；胸痛伴呼吸困难输入预期中断且不产生医疗回合，unknown 轨迹仅读取既往发作事实。"
+  ]
+}

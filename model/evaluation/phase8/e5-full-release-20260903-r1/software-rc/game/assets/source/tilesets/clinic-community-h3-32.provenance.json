@@ -1,0 +1,24 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "variantId": "h3-32",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "downloadedAt": null,
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "redistributionNotes": "Project-original native 32px grid redraw informed by an AI direction reference; not a nearest-neighbor enlargement; DRAFT only.",
+  "attributionText": null,
+  "generator": "Codex built-in image_gen direction reference; project Node raster generator; LibreSprite 1.1-dev",
+  "modelVersion": null,
+  "generatedAt": "2026-08-30",
+  "prompt": "Warm morning community clinic, strict orthographic top-down pixel art, exact 32x32 grid with native detail, hard edges, no text, logo, watermark, brand replica, diagnosis clue, anti-aliasing, or mixed pixel density.",
+  "humanEdits": [],
+  "generationSteps": [
+    "A project-authored Node raster recipe drew native 32px silhouettes and details independently from the 16px pixel output",
+    "The recipe added restrained material and equipment details without changing the functional footprint",
+    "LibreSprite batch-encoded the generated PNG as an editable .aseprite source"
+  ],
+  "status": "DRAFT"
+}

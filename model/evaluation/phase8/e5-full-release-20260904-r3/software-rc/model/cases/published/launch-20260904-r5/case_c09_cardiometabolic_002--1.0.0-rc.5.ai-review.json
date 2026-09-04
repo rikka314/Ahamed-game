@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:86616dd1e7bab8b800025c86c899e48193cf18d0ed20fee886d082ea4eec397d",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.285fe157-0449-4d82-bb38-395a4d627bb3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:39:59.318Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状起病缓慢、体重偏高、家族史及糖化血红蛋白结果共同支持2型糖尿病；生命体征稳定，腹部CT未见相关异常，病例内部无明显矛盾。",
+        "诊断可解性：主诉、关键病史、必要检查及糖尿病分型信息足以支持“2型糖尿病”，且设置了尿崩症和甲状腺功能亢进作为可区分的鉴别诊断。",
+        "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均明确为无；生命体征亦稳定，符合非急症门诊边界。",
+        "量表一致性：must-ask事实、2项鉴别诊断、生命体征和糖化血红蛋白等必需项目与成功轨迹一致；腹部CT被正确标为非必要检查，回合上限和沟通标准有对应依据。",
+        "回归覆盖：包含成功、失败、急症安全中断及未知信息轨迹；成功轨迹覆盖病史、红旗排除、检查和诊断，失败轨迹验证无关检查与错误诊断，安全轨迹验证零医疗调用和零原始文本写入。",
+        "隐藏真相安全：教学字段、答案键和评分信息未暴露给患者；安全中断轨迹要求不调用医疗流程且不写入原始文本。review.status、reviewDecision为pending仅属兼容元数据，不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.265a75f7-2420-4134-b7a5-bd981b0ba53e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:40:13.396Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与2型糖尿病一致：渐进性口渴、尿频/夜尿、体重偏高及轻度非意愿性下降；糖化血红蛋白达到诊断范围，且C肽保留、胰岛自身抗体阴性与成人缓慢起病表型相符。",
+        "诊断粒度适当，目标概念明确为“2型糖尿病”；现有病史、鉴别诊断和糖化血红蛋白结果足以支持作答。",
+        "红旗事实、redFlagExclusionMatrix及生命体征检查相互一致，意识改变、循环不稳、无法口服、酮症酸中毒等急症排除信息均有对应证据。",
+        "mustAskFactIds均可由成功轨迹覆盖；允许的两个鉴别诊断与requiredDifferentialCount=2一致；生命体征和糖化血红蛋白标为必需，腹部CT标为不必要，与病例目标一致。",
+        "success、failure、safety和unknown四类回归轨迹的动作、期望事实、诊断结果、非必要检查及安全中断断言均与病例资产匹配。",
+        "未发现将隐藏教学字段或人工审核pending状态泄露给玩家的设计；安全轨迹对新的胸痛伴呼吸困难请求采取中断、零提供商调用和零原文写入，符合安全断言。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状起病缓慢、体重偏高、家族史及糖化血红蛋白结果共同支持2型糖尿病；生命体征稳定，腹部CT未见相关异常，病例内部无明显矛盾。",
+    "诊断可解性：主诉、关键病史、必要检查及糖尿病分型信息足以支持“2型糖尿病”，且设置了尿崩症和甲状腺功能亢进作为可区分的鉴别诊断。",
+    "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均明确为无；生命体征亦稳定，符合非急症门诊边界。",
+    "量表一致性：must-ask事实、2项鉴别诊断、生命体征和糖化血红蛋白等必需项目与成功轨迹一致；腹部CT被正确标为非必要检查，回合上限和沟通标准有对应依据。",
+    "回归覆盖：包含成功、失败、急症安全中断及未知信息轨迹；成功轨迹覆盖病史、红旗排除、检查和诊断，失败轨迹验证无关检查与错误诊断，安全轨迹验证零医疗调用和零原始文本写入。",
+    "隐藏真相安全：教学字段、答案键和评分信息未暴露给患者；安全中断轨迹要求不调用医疗流程且不写入原始文本。review.status、reviewDecision为pending仅属兼容元数据，不构成阻塞。",
+    "临床表现与2型糖尿病一致：渐进性口渴、尿频/夜尿、体重偏高及轻度非意愿性下降；糖化血红蛋白达到诊断范围，且C肽保留、胰岛自身抗体阴性与成人缓慢起病表型相符。",
+    "诊断粒度适当，目标概念明确为“2型糖尿病”；现有病史、鉴别诊断和糖化血红蛋白结果足以支持作答。",
+    "红旗事实、redFlagExclusionMatrix及生命体征检查相互一致，意识改变、循环不稳、无法口服、酮症酸中毒等急症排除信息均有对应证据。",
+    "mustAskFactIds均可由成功轨迹覆盖；允许的两个鉴别诊断与requiredDifferentialCount=2一致；生命体征和糖化血红蛋白标为必需，腹部CT标为不必要，与病例目标一致。",
+    "success、failure、safety和unknown四类回归轨迹的动作、期望事实、诊断结果、非必要检查及安全中断断言均与病例资产匹配。",
+    "未发现将隐藏教学字段或人工审核pending状态泄露给玩家的设计；安全轨迹对新的胸痛伴呼吸困难请求采取中断、零提供商调用和零原文写入，符合安全断言。"
+  ]
+}

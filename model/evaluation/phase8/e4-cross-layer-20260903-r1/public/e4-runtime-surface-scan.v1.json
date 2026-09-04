@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "e4-runtime-surface-scan-v1",
+  "generatedAt": "2026-09-03T12:12:04.379Z",
+  "status": "pass",
+  "observations": [
+    {
+      "surface": "console",
+      "availability": "observed",
+      "serializedValues": [
+        "info:%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+        "log:[HMR] connected",
+        "log:%cPhaser v4.2.1 (WebGL | Web Audio)%c https://phaser.io/v4021 color: #ffffff; background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARBJREFUeNpi/P//P0OHsPB/BiCoePuWkYFEwALSXJElzMBgLwE2CNkQxgWr/yMr/p8QimlBu5DQ//+8vBBco/ofzAe6imH+qv/53/6jYJAYSA4ZoxoANYTPKhiuCQZwGcJU+e4dqpMmvsDq14krV2MPAxDha2CMKvoXoiE/PBQUDgQD8j82UFae9B9bOIC8B9UD9gIjjIMN7Ns6lWHn4XMoYu62RgxO3tkMjIyMII2MYAOAtmFVhA+ADHf2ycGMRhANjUq8YO+WKWCvgAORIV8CkpDCrzIwsLIymC1qAtuAD4Bsh3sBmqAY3qcGwL2AC4DCpKtzHlgzOLWihwEuzTCN0GhDJHeYC4gByBphACDAAH2dDIxdjr+VAAAAAElFTkSuQmCC\"), linear-gradient(to bottom, #000814, #001d3d, #003566); background-repeat: no-repeat; background-position: 4px center, 0 0; padding: 2px 6px 2px 24px; background: transparent",
+        "warning:[.WebGL-0x79a4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning:[.WebGL-0x79a4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning:[.WebGL-0x79a4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "warning:[.WebGL-0x79a4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "indexedDB",
+      "availability": "observed",
+      "serializedValues": [
+        "{\"name\":\"__next_debug_channel\",\"version\":1}"
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "localStorage",
+      "availability": "observed",
+      "serializedValues": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "sessionStorage",
+      "availability": "observed",
+      "serializedValues": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "cacheStorage",
+      "availability": "observed",
+      "serializedValues": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "saveExport",
+      "availability": "not_available",
+      "serializedValues": [],
+      "reason": "The current game shell does not expose a save-export surface",
+      "sensitiveMatches": []
+    }
+  ],
+  "metrics": {
+    "observedSurfaces": 5,
+    "unavailableSurfaces": 1,
+    "sensitiveMatches": 0
+  }
+}

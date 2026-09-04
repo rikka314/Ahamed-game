@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:2e7b8420fe359abba7f668f2b42c0b9faa5f9517ad1d549b135ff9db21b41911",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.5c089b0d-2bc1-4373-812c-4616edc4dfe7",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:40:38.237Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、症状模式、生命体征及神经系统查体相互一致，支持无红旗的机械性腰痛。",
+        "起病诱因、机械性疼痛特点、神经系统阴性表现和病程信息足以支持目标诊断，并允许区分所列鉴别诊断。",
+        "红旗排除矩阵中的项目均有明确的阴性事实；安全轨迹对非本病例胸痛伴呼吸困难请求进行了正确中断，未产生医疗回合或写入。",
+        "必问病史、鉴别诊断数量及检查分类与病例内容和评分策略一致；生命体征及神经系统查体为必需，腰椎MRI标为无必要。",
+        "回归轨迹覆盖成功、错误诊断、过急安全中断及未知病史分支，且预期结果与病例状态相符。",
+        "教学字段、评分字段及答案信息未进入患者可见内容；未发现隐藏真相泄露或可由元数据直接推断答案的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.3ada5ed1-94b2-433f-b24e-22bf35d142d6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:40:56.591Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例主诉、诱因、机械性疼痛模式及神经系统查体结果支持机械性腰痛，目标诊断粒度适当；MRI设为不必要检查也与无红旗急性腰痛情境一致。",
+        "通过起病、疼痛特点、伴随症状、病程及部分危险表现可稳定推导目标诊断；成功轨迹命中目标诊断及两项鉴别诊断，整体可解。",
+        "红旗排除矩阵要求9项危险表现均为absent，但rubric的mustAskFactIds及成功轨迹仅覆盖4项，未覆盖马尾综合征、重大创伤、感染、恶性肿瘤警示及进行性神经功能缺损等字段，存在安全排除覆盖不一致。",
+        "rubric与redFlagExclusionMatrix不一致：矩阵中全部适用红旗均要求排除，但评分rubric没有将对应事实纳入mustAsk，导致病例要求与评分标准不匹配。",
+        "四类回归轨迹并非完全一致：unknown轨迹的问题同时询问既往发作和相关接触，但expectedFactIds仅声明fact.prior_episode，未覆盖fact.relevant_exposure；成功轨迹也继承了红旗覆盖缺口。",
+        "未见将hidden教学字段泄露到患者可见叙事、检查报告或回归轨迹中的情况，隐藏真值边界基本安全。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例叙事、症状模式、生命体征及神经系统查体相互一致，支持无红旗的机械性腰痛。",
+    "起病诱因、机械性疼痛特点、神经系统阴性表现和病程信息足以支持目标诊断，并允许区分所列鉴别诊断。",
+    "红旗排除矩阵中的项目均有明确的阴性事实；安全轨迹对非本病例胸痛伴呼吸困难请求进行了正确中断，未产生医疗回合或写入。",
+    "必问病史、鉴别诊断数量及检查分类与病例内容和评分策略一致；生命体征及神经系统查体为必需，腰椎MRI标为无必要。",
+    "回归轨迹覆盖成功、错误诊断、过急安全中断及未知病史分支，且预期结果与病例状态相符。",
+    "教学字段、评分字段及答案信息未进入患者可见内容；未发现隐藏真相泄露或可由元数据直接推断答案的问题。",
+    "病例主诉、诱因、机械性疼痛模式及神经系统查体结果支持机械性腰痛，目标诊断粒度适当；MRI设为不必要检查也与无红旗急性腰痛情境一致。",
+    "通过起病、疼痛特点、伴随症状、病程及部分危险表现可稳定推导目标诊断；成功轨迹命中目标诊断及两项鉴别诊断，整体可解。",
+    "红旗排除矩阵要求9项危险表现均为absent，但rubric的mustAskFactIds及成功轨迹仅覆盖4项，未覆盖马尾综合征、重大创伤、感染、恶性肿瘤警示及进行性神经功能缺损等字段，存在安全排除覆盖不一致。",
+    "rubric与redFlagExclusionMatrix不一致：矩阵中全部适用红旗均要求排除，但评分rubric没有将对应事实纳入mustAsk，导致病例要求与评分标准不匹配。",
+    "四类回归轨迹并非完全一致：unknown轨迹的问题同时询问既往发作和相关接触，但expectedFactIds仅声明fact.prior_episode，未覆盖fact.relevant_exposure；成功轨迹也继承了红旗覆盖缺口。",
+    "未见将hidden教学字段泄露到患者可见叙事、检查报告或回归轨迹中的情况，隐藏真值边界基本安全。"
+  ]
+}

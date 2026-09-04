@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/launch-content-policy-v1.schema.json",
+  "title": "Launch content policy v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "status",
+    "frozenAt",
+    "reviewPolicy",
+    "targets",
+    "diseaseDomains",
+    "personas",
+    "productionBatches",
+    "cases",
+    "launchExclusions",
+    "versionPolicy",
+    "sourceLicensePolicy",
+    "supersededEvidence"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "launch-content-policy-v1" },
+    "policyVersion": { "const": "launch-content-policy-2026-09-02" },
+    "status": { "const": "frozen" },
+    "frozenAt": { "type": "string", "format": "date-time" },
+    "reviewPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "currentStatus", "aggregateDecisions", "technicalErrorsRemainBlocking"],
+      "properties": {
+        "mode": { "const": "non_blocking" },
+        "currentStatus": { "enum": ["approved", "revision_recommended", "rejected", "not_run"] },
+        "aggregateDecisions": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "enum": ["approved", "revision_recommended", "rejected", "not_run"] }
+        },
+        "technicalErrorsRemainBlocking": { "const": true }
+      }
+    },
+    "targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["totalCases", "migratedCases", "newCases", "basicCases", "advancedCases", "diseaseDomains", "personas", "casesPerPersona", "minimumDomainsPerPersona", "uniquePatientRoles"],
+      "properties": {
+        "totalCases": { "const": 30 },
+        "migratedCases": { "const": 5 },
+        "newCases": { "const": 25 },
+        "basicCases": { "const": 24 },
+        "advancedCases": { "const": 6 },
+        "diseaseDomains": { "const": 9 },
+        "personas": { "const": 6 },
+        "casesPerPersona": { "const": 5 },
+        "minimumDomainsPerPersona": { "const": 3 },
+        "uniquePatientRoles": { "const": 30 }
+      }
+    },
+    "diseaseDomains": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": { "$ref": "#/$defs/diseaseDomain" }
+    },
+    "personas": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/persona" }
+    },
+    "productionBatches": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/productionBatch" }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 30,
+      "items": { "$ref": "#/$defs/plannedCase" }
+    },
+    "launchExclusions": {
+      "type": "array",
+      "minItems": 8,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/exclusion" }
+    },
+    "versionPolicy": { "$ref": "#/$defs/versionPolicy" },
+    "sourceLicensePolicy": { "$ref": "#/$defs/sourceLicensePolicy" },
+    "supersededEvidence": { "$ref": "#/$defs/supersededEvidence" }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "diseaseDomain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domainId", "displayName", "quota", "migratedCaseQuota", "newCaseQuota"],
+      "properties": {
+        "domainId": { "$ref": "#/$defs/stableId" },
+        "displayName": { "$ref": "#/$defs/nonEmpty" },
+        "quota": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "migratedCaseQuota": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "newCaseQuota": { "type": "integer", "minimum": 0, "maximum": 25 }
+      }
+    },
+    "persona": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["personaTemplateId", "displayName", "quota", "minimumDomainCoverage", "offTopicReminderTurns", "observableBehaviors", "prohibitedBehaviors"],
+      "properties": {
+        "personaTemplateId": { "$ref": "#/$defs/stableId" },
+        "displayName": { "$ref": "#/$defs/nonEmpty" },
+        "quota": { "const": 5 },
+        "minimumDomainCoverage": { "type": "integer", "minimum": 3, "maximum": 9 },
+        "offTopicReminderTurns": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "observableBehaviors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        },
+        "prohibitedBehaviors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "productionBatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["batchId", "kind", "quota"],
+      "properties": {
+        "batchId": { "enum": ["M0", "B1", "B2", "B3", "B4", "B5"] },
+        "kind": { "enum": ["migration", "new_content"] },
+        "quota": { "const": 5 }
+      }
+    },
+    "plannedCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "publicCaseId", "diseaseDomainId", "topic", "difficulty", "personaTemplateId", "productionBatch", "origin", "patientRoleId", "launchSafetyClass", "boundary"],
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "publicCaseId": { "$ref": "#/$defs/stableId" },
+        "diseaseDomainId": { "$ref": "#/$defs/stableId" },
+        "topic": { "$ref": "#/$defs/nonEmpty" },
+        "difficulty": { "enum": ["basic", "advanced"] },
+        "personaTemplateId": { "$ref": "#/$defs/stableId" },
+        "productionBatch": { "enum": ["M0", "B1", "B2", "B3", "B4", "B5"] },
+        "origin": { "enum": ["migrated", "new"] },
+        "patientRoleId": {
+          "type": "string",
+          "pattern": "^patient-role\\.public-c(?:0[1-9]|[12][0-9]|30)$"
+        },
+        "launchSafetyClass": { "enum": ["routine_outpatient", "excluded_high_risk"] },
+        "boundary": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exclusionId", "category", "rule"],
+      "properties": {
+        "exclusionId": { "$ref": "#/$defs/stableId" },
+        "category": { "enum": ["clinical_risk", "persona_scope", "runtime_scope", "source_rights", "product_scope"] },
+        "rule": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "versionPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate", "final"],
+      "properties": {
+        "candidate": { "$ref": "#/$defs/semver" },
+        "final": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "versionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["casePackageSchemaVersion", "personaTemplateVersion", "provenanceSchemaVersion", "redFlagPolicyVersion", "aiCaseReviewSchemaVersion", "contentManifestVersion", "patientPromptVersion", "contentHashPolicyVersion", "migratedCaseVersion", "newCaseVersion", "readOnlyCompatibleInputs", "releaseRule", "contentHashIncludes", "contentHashExcludes"],
+      "properties": {
+        "casePackageSchemaVersion": { "const": "case-package-v2-rc1" },
+        "personaTemplateVersion": { "const": "patient-persona-templates-v2" },
+        "provenanceSchemaVersion": { "const": "provenance-record-v2" },
+        "redFlagPolicyVersion": { "const": "red-flag-policy-manifest-v2" },
+        "aiCaseReviewSchemaVersion": { "const": "ai-case-cross-review-v3" },
+        "contentManifestVersion": { "const": "launch-case-manifest-v2-rc1" },
+        "patientPromptVersion": { "const": "v0.5.0" },
+        "contentHashPolicyVersion": { "const": "case-content-hash-v2" },
+        "migratedCaseVersion": { "$ref": "#/$defs/versionPair" },
+        "newCaseVersion": { "$ref": "#/$defs/versionPair" },
+        "readOnlyCompatibleInputs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "enum": ["case-package-v1-rc1", "patient-persona-templates-v1"] }
+        },
+        "releaseRule": { "const": "load_only_manifest_listed_v2_cases" },
+        "contentHashIncludes": {
+          "type": "array",
+          "minItems": 6,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        },
+        "contentHashExcludes": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "licenseRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceKind", "allowedRoles", "disposition", "allowVerbatimReuse", "requiresAttribution", "requiresPerSourceLicenseReview", "notes"],
+      "properties": {
+        "sourceKind": { "$ref": "#/$defs/stableId" },
+        "allowedRoles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["topic_selection", "clinical_fact", "terminology", "synthetic_structure", "method_reference"] }
+        },
+        "disposition": { "enum": ["usable_with_conditions", "reference_only", "prohibited", "unresolved_high_risk"] },
+        "allowVerbatimReuse": { "type": "boolean" },
+        "requiresAttribution": { "type": "boolean" },
+        "requiresPerSourceLicenseReview": { "type": "boolean" },
+        "notes": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "sourceReviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "independentInvocation", "counterpartOutputVisible"],
+      "properties": {
+        "role": { "enum": ["source_provenance", "license_risk"] },
+        "independentInvocation": { "const": true },
+        "counterpartOutputVisible": { "const": false }
+      }
+    },
+    "sourceLicensePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policyVersion", "reviewPolicy", "sourceRoles", "decisionRules", "prohibitedSourceKinds", "unresolvedSource", "reviewers"],
+      "properties": {
+        "policyVersion": { "const": "source-license-policy-v1" },
+        "reviewPolicy": { "const": "non_blocking" },
+        "sourceRoles": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": { "enum": ["topic_selection", "clinical_fact", "terminology", "synthetic_structure", "method_reference"] }
+        },
+        "decisionRules": {
+          "type": "array",
+          "minItems": 5,
+          "items": { "$ref": "#/$defs/licenseRule" }
+        },
+        "prohibitedSourceKinds": {
+          "type": "array",
+          "minItems": 6,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/stableId" }
+        },
+        "unresolvedSource": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["riskLevel", "disposition", "allowCaseDevelopment", "allowVerbatimReuse", "manifestFindingRequired"],
+          "properties": {
+            "riskLevel": { "const": "high" },
+            "disposition": { "const": "record_high_risk_and_continue" },
+            "allowCaseDevelopment": { "const": true },
+            "allowVerbatimReuse": { "const": false },
+            "manifestFindingRequired": { "const": true }
+          }
+        },
+        "reviewers": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/sourceReviewer" }
+        }
+      }
+    },
+    "supersededArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifactId", "path", "status"],
+      "properties": {
+        "artifactId": { "$ref": "#/$defs/stableId" },
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "status": { "const": "superseded" }
+      }
+    },
+    "supersededEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "recordPath", "reason", "artifacts"],
+      "properties": {
+        "status": { "const": "superseded" },
+        "recordPath": { "$ref": "#/$defs/nonEmpty" },
+        "reason": { "$ref": "#/$defs/nonEmpty" },
+        "artifacts": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/supersededArtifact" }
+        }
+      }
+    }
+  }
+}

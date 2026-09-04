@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "e4-patient-identity-quality-record-v1",
+  "contractRelease": "v1-rc2",
+  "recordedAt": "2026-09-03",
+  "engineeringStatus": "passed",
+  "reviewPolicy": "non_blocking",
+  "metrics": {
+    "publicPatientRoles": 30,
+    "uniqueAppearanceIds": 30,
+    "reusableNpcSlots": 2,
+    "runtimeAdapterSessionBindings": 30
+  },
+  "checks": [
+    {
+      "checkId": "public_contract_projection",
+      "status": "pass",
+      "details": "CaseSummaryV1 requires patientRoleId and the allowlist projector removes persona, answer, rubric and hidden-fact fields."
+    },
+    {
+      "checkId": "release_artifact_isolation",
+      "status": "pass",
+      "details": "The frozen rc1 entrypoint, Schema and fixtures remain under v1 paths while rc2 publishes independent v1-rc2 artifacts."
+    },
+    {
+      "checkId": "identity_catalog_uniqueness",
+      "status": "pass",
+      "details": "30/30 patientRoleId values, appearance IDs and launch tints are unique and resolvable."
+    },
+    {
+      "checkId": "reusable_npc_slot_rotation",
+      "status": "pass",
+      "details": "30 share CaseSummary bindings enter one persistent clinic flow through the runtime queue adapter, rotate through two npcId slots and complete by sessionId and patientRoleId."
+    },
+    {
+      "checkId": "mapping_failure_modes",
+      "status": "pass",
+      "details": "Missing roles or assets, duplicate session/role bindings, npc slot mismatch and portrait mismatch fail explicitly."
+    },
+    {
+      "checkId": "production_build",
+      "status": "pass",
+      "details": "Next.js 16.3.2 Turbopack production build completed successfully."
+    },
+    {
+      "checkId": "build_and_public_asset_leakage_scan",
+      "status": "pass",
+      "details": "No personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis or patientFacts tokens were found in .next static/server output or public assets."
+    },
+    {
+      "checkId": "thirty_case_live_cross_layer_journey",
+      "status": "not_run",
+      "details": "Deferred to E5 after M0 and B1-B5 freeze the 30 production case packages."
+    },
+    {
+      "checkId": "runtime_storage_and_log_leakage_scan",
+      "status": "not_run",
+      "details": "IndexedDB, runtime logs and saves require the E5 browser journey and were not fabricated from static evidence."
+    }
+  ],
+  "aiCrossReview": {
+    "status": "not_run",
+    "roles": [
+      "contract_projection_reviewer",
+      "hidden_data_leakage_reviewer"
+    ],
+    "findingsCount": 0,
+    "details": "Both isolated reviews remain scheduled for E5 and do not block E4 engineering completion."
+  },
+  "verification": {
+    "shareTests": "87/87 passed",
+    "modelTests": "397/397 passed",
+    "gameTests": "35/35 passed",
+    "contractGate": "82/82 passed",
+    "shareCoverage": "lines 100%, functions 100%, branches 86.21%",
+    "gameLint": "passed",
+    "gameTypecheck": "passed",
+    "gameProductionBuild": "passed"
+  }
+}

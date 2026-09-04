@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:9de65206926ff3bcec9c3a37a8e6458371675499bfa1b3dfebba865b94791bbb",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.e74791c3-3b5b-4e77-8a4f-8d4a3453f6e3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:41:09.223Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁成人男性，夜间及运动后干咳、无感染或胸部危险症状，肺功能提示轻度可逆性气流受限，胸部CT未见局灶异常，整体与咳嗽变异性哮喘一致。",
+        "目标诊断有明确症状和检查依据，且设置了上气道咳嗽综合征、胃食管反流病两个可接受鉴别诊断，诊断可解性充分。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险状态、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均明确排除；生命体征检查已设为必需，安全中断轨迹存在。",
+        "必问病史、红旗排查、必需检查、非必要胸部CT惩罚项及鉴别诊断数量与评分摘要一致；成人病例纳入的首发策略与病例人群相符。",
+        "成功、失败、安全中断和未知信息回归轨迹覆盖了诊断、非必要检查、安全退出及未知事实读取等关键路径。",
+        "教学字段、答案键和内部评分信息未放入患者可见事实；审核结论不依赖或泄露隐藏真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.398270d0-00fb-4e40-b765-cca7d828bd41",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:41:24.156Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为夜间及运动后阵发性干咳，无感染或明显危重表现；肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘，胸部CT正常与该诊断不矛盾。",
+        "目标诊断粒度明确，症状模式、肺功能结果和鉴别诊断设置足以支持唯一目标概念；接受同义词配置一致。",
+        "意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促及低氧等红旗均有对应事实且设为缺失，生命体征检查结果也与门诊非急症边界一致。",
+        "must-ask事实覆盖起病、症状模式、伴随症状、进展及全部红旗；两个可接受鉴别诊断、鉴别数量、必需/不必要检查分类和12回合上限彼此一致。",
+        "success、failure、safety、unknown四类回归轨迹均与病例事实、检查别名、目标诊断和评分预期一致；成功轨迹的4个问诊回合与预期一致，失败轨迹正确标记胸部CT为不必要。",
+        "回归资产未暴露hidden teaching字段或服务端评分信息；安全轨迹对用户自述当前胸痛和气促按中断处理，并要求零医疗回合、零提供方调用和零原文写入，符合安全隔离预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁成人男性，夜间及运动后干咳、无感染或胸部危险症状，肺功能提示轻度可逆性气流受限，胸部CT未见局灶异常，整体与咳嗽变异性哮喘一致。",
+    "目标诊断有明确症状和检查依据，且设置了上气道咳嗽综合征、胃食管反流病两个可接受鉴别诊断，诊断可解性充分。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险状态、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均明确排除；生命体征检查已设为必需，安全中断轨迹存在。",
+    "必问病史、红旗排查、必需检查、非必要胸部CT惩罚项及鉴别诊断数量与评分摘要一致；成人病例纳入的首发策略与病例人群相符。",
+    "成功、失败、安全中断和未知信息回归轨迹覆盖了诊断、非必要检查、安全退出及未知事实读取等关键路径。",
+    "教学字段、答案键和内部评分信息未放入患者可见事实；审核结论不依赖或泄露隐藏真相。",
+    "临床表现为夜间及运动后阵发性干咳，无感染或明显危重表现；肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘，胸部CT正常与该诊断不矛盾。",
+    "目标诊断粒度明确，症状模式、肺功能结果和鉴别诊断设置足以支持唯一目标概念；接受同义词配置一致。",
+    "意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促及低氧等红旗均有对应事实且设为缺失，生命体征检查结果也与门诊非急症边界一致。",
+    "must-ask事实覆盖起病、症状模式、伴随症状、进展及全部红旗；两个可接受鉴别诊断、鉴别数量、必需/不必要检查分类和12回合上限彼此一致。",
+    "success、failure、safety、unknown四类回归轨迹均与病例事实、检查别名、目标诊断和评分预期一致；成功轨迹的4个问诊回合与预期一致，失败轨迹正确标记胸部CT为不必要。",
+    "回归资产未暴露hidden teaching字段或服务端评分信息；安全轨迹对用户自述当前胸痛和气促按中断处理，并要求零医疗回合、零提供方调用和零原文写入，符合安全隔离预期。"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "01",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native moss revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise only G04 exterior ground variant 1 of 2. Add clearly visible but restrained pixel moss in several internal mortar joints and brick corners, using three muted sage-green values. Preserve the accepted G03 staggered stone-brick geometry, all four border pixels, 32x32 hard edges and seamless tiling. Add no cracks, mud, litter, text, logo or watermark.",
+  "humanEdits": [
+    "Added three irregular moss clusters along internal mortar joints and adjacent brick corners.",
+    "Used dark, mid and light muted sage-green pixels so the moss reads at native 32px.",
+    "Preserved every outer border pixel for seamless mixed tiling with G03.",
+    "Created a sparse mixed-patch preview to check that the moss works as an occasional variation rather than a repeated carpet."
+  ],
+  "status": "DRAFT"
+}

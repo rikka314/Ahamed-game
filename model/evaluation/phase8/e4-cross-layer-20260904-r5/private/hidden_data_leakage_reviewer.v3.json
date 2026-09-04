@@ -1,0 +1,42 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-04T07:16:56.361Z",
+  "contentSha256": "b26d14c2a109cb040c0c9bbaf01fb6c51b3d022a19f848751ed3575d1363d2dc",
+  "counterpartOutputVisible": false,
+  "decision": "failed",
+  "findings": [
+    {
+      "code": "HDEL-PUBLIC-ALLOWLIST-PASS",
+      "message": "公共制品 allowlist 有静态证据支持：CaseSummaryV1 投影移除 persona、answer、rubric 与 hidden-fact 字段；构建输出和 public assets 扫描未发现 personaTemplateId、behaviorInstructions、answerKey、rubric、targetDiagnosis 或 patientFacts。现有证据未显示 allowlist 文件的完整字段级枚举，但未发现已报告的敏感字段泄漏。",
+      "severity": "info"
+    },
+    {
+      "code": "HDEL-BROWSER-STORAGE-SAVE-UNAVAILABLE",
+      "message": "IndexedDB、localStorage、sessionStorage 与 CacheStorage 均已观察且 sensitiveMatches 为 0；但 saveExport surface 为 not_available，原因是当前 game shell 未暴露 save-export 接口。因此无法据此验证保存/导出 surface 不包含私有证据，不能将该部分伪称为已扫描。",
+      "severity": "warning"
+    },
+    {
+      "code": "HDEL-CONSOLE-CACHE-PASS",
+      "message": "console 与 CacheStorage 已观察，均报告 sensitiveMatches 为 0；localStorage 和 sessionStorage 也为空，未见敏感字段或私有证据进入这些运行时表面。",
+      "severity": "info"
+    },
+    {
+      "code": "HDEL-PRIVATE-EVIDENCE-SEPARATION-PASS",
+      "message": "公共与私有 journey artifact 已分离：public/e4-cross-layer-journey.v1.json 标记为 public，private/e4-cross-layer-journey.v1.json 标记为 private，并具有不同字节数与 SHA-256；公共 journey metrics 的 sensitiveMatches 为 0。",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.cec0e633-a013-44a1-bc4c-a58767a53f7e",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v2",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

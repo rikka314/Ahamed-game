@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:f35767351fddbde49fff2c71c7f94067e829de0ca6e3dd46706223dcfe7c41ea",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.cbe20fae-0ea1-4fdd-af55-d3bc5851335d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:10:35.089Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状呈缓慢进展，伴口渴、夜尿增多、体重偏高及轻度非意愿性下降；糖化血红蛋白达到诊断范围，结合起病年龄、代谢表型、C肽保留和自身抗体阴性，支持2型糖尿病，腹部CT结果也未造成矛盾。",
+        "诊断可解性：主诉、关键病史、必要检查和鉴别诊断均可通过规定路径获得；目标诊断明确，尿崩症和甲状腺功能亢进作为鉴别诊断具有合理性。",
+        "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险状态、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均明确为不存在；生命体征稳定且未达急症阈值，安全中断轨迹也覆盖了急症式输入。",
+        "量表一致性：must-ask事实、必需检查、非必要腹部CT、鉴别诊断数量及推荐回合数与成功和失败轨迹及评分策略一致；未知既往发作的单独轨迹也与事实披露规则一致。",
+        "回归覆盖：包含成功、错误诊断及不必要检查、安全中断和未知事实查询轨迹，能够覆盖主要评分、退出和边界行为。",
+        "隐藏真相安全：教学字段、答案键及服务端评分信息标记为隐藏；玩家可见内容仅提供主诉和身份信息，未发现通过公开叙事或轨迹泄露目标诊断的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6bcafdd7-e4a5-40ba-a562-c154f610ecaf",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:10:49.999Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "fail"
+      },
+      "findings": [
+        "主要诊断具有良好可解性：症状模式、体重偏高、缓慢起病及糖化血红蛋白诊断范围均支持2型糖尿病，鉴别诊断数量和粒度也符合要求。",
+        "糖化血红蛋白检查报告同时声称空腹C肽保留及胰岛自身抗体阴性，但medicalTests中没有对应的独立检查项目或结果来源；单列的HbA1c结果不应无来源地承担糖尿病分型证据，造成检查选择与报告内容不一致。",
+        "must-ask事实、红旗排除项及必需检查均被rubric和success轨迹覆盖；两项可接受鉴别诊断及requiredDifferentialCount=2一致。",
+        "success、failure、safety、unknown四类回归轨迹的预期与病例行为总体一致，success的4个问诊回合、必需检查和正确诊断路径可复现。",
+        "隐藏字段本身未被轨迹直接要求披露，但HbA1c报告内嵌未建模的C肽和自身抗体结果，存在将未声明检查结果作为可见诊断依据的隐性真值泄露风险；应补充对应test定义，或删除这些分型结果并将报告限定为HbA1c信息。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状呈缓慢进展，伴口渴、夜尿增多、体重偏高及轻度非意愿性下降；糖化血红蛋白达到诊断范围，结合起病年龄、代谢表型、C肽保留和自身抗体阴性，支持2型糖尿病，腹部CT结果也未造成矛盾。",
+    "诊断可解性：主诉、关键病史、必要检查和鉴别诊断均可通过规定路径获得；目标诊断明确，尿崩症和甲状腺功能亢进作为鉴别诊断具有合理性。",
+    "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险状态、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均明确为不存在；生命体征稳定且未达急症阈值，安全中断轨迹也覆盖了急症式输入。",
+    "量表一致性：must-ask事实、必需检查、非必要腹部CT、鉴别诊断数量及推荐回合数与成功和失败轨迹及评分策略一致；未知既往发作的单独轨迹也与事实披露规则一致。",
+    "回归覆盖：包含成功、错误诊断及不必要检查、安全中断和未知事实查询轨迹，能够覆盖主要评分、退出和边界行为。",
+    "隐藏真相安全：教学字段、答案键及服务端评分信息标记为隐藏；玩家可见内容仅提供主诉和身份信息，未发现通过公开叙事或轨迹泄露目标诊断的问题。",
+    "主要诊断具有良好可解性：症状模式、体重偏高、缓慢起病及糖化血红蛋白诊断范围均支持2型糖尿病，鉴别诊断数量和粒度也符合要求。",
+    "糖化血红蛋白检查报告同时声称空腹C肽保留及胰岛自身抗体阴性，但medicalTests中没有对应的独立检查项目或结果来源；单列的HbA1c结果不应无来源地承担糖尿病分型证据，造成检查选择与报告内容不一致。",
+    "must-ask事实、红旗排除项及必需检查均被rubric和success轨迹覆盖；两项可接受鉴别诊断及requiredDifferentialCount=2一致。",
+    "success、failure、safety、unknown四类回归轨迹的预期与病例行为总体一致，success的4个问诊回合、必需检查和正确诊断路径可复现。",
+    "隐藏字段本身未被轨迹直接要求披露，但HbA1c报告内嵌未建模的C肽和自身抗体结果，存在将未声明检查结果作为可见诊断依据的隐性真值泄露风险；应补充对应test定义，或删除这些分型结果并将报告限定为HbA1c信息。"
+  ]
+}

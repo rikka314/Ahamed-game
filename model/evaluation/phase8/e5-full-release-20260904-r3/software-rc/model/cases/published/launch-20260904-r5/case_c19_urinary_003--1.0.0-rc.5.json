@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c19_urinary_003",
+  "publicCaseId": "case_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.5",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "突发右侧腰腹绞痛半天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c19",
+    "patientDisplayName": "患者19号",
+    "ageBand": "26–35岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "厨师",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "impatient_direct",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "表达简短直接",
+      "希望尽快聚焦重点"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "突发右侧腰腹绞痛半天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "半天前突然开始",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "右侧腰腹部阵发绞痛并向腹股沟放射",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "无发热、寒战或无尿",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.fever_with_flank_pain": {
+      "status": "absent",
+      "value": "没有发热、寒战伴腰部疼痛。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热伴腰痛",
+        "寒战",
+        "肾区疼痛"
+      ]
+    },
+    "fact.anuria": {
+      "status": "absent",
+      "value": "没有完全无尿或尿量显著减少。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "无尿",
+        "尿量显著减少"
+      ]
+    },
+    "fact.gross_hematuria": {
+      "status": "absent",
+      "value": "没有肉眼可见血尿。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "肉眼血尿",
+        "尿色发红"
+      ]
+    },
+    "fact.infected_obstruction": {
+      "status": "absent",
+      "value": "没有发热寒战合并尿路梗阻或尿潴留表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "感染性尿路梗阻",
+        "发热伴尿不出",
+        "尿潴留"
+      ]
+    },
+    "fact.single_kidney": {
+      "status": "absent",
+      "value": "没有孤立肾、移植肾或已知重要泌尿系结构异常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "孤立肾",
+        "移植肾",
+        "泌尿系结构异常"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.urinary_ultrasound": {
+      "status": "completed",
+      "displayName": "泌尿系超声",
+      "aliases": [
+        "泌尿系超声",
+        "做泌尿系超声",
+        "test.urinary_ultrasound"
+      ],
+      "report": "超声提示右侧输尿管小结石，无明显积水。"
+    },
+    "test.contrast_ct": {
+      "status": "completed",
+      "displayName": "增强CT",
+      "aliases": [
+        "增强CT",
+        "做增强CT",
+        "test.contrast_ct"
+      ],
+      "report": "增强CT不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.ureteral_stone",
+    "targetDiagnosis": "单纯输尿管结石",
+    "acceptedSynonyms": [
+      "输尿管结石"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.ureteral_stone",
+        "preferredTerm": "单纯输尿管结石",
+        "acceptedSynonyms": [
+          "输尿管结石"
+        ]
+      },
+      {
+        "conceptId": "concept.pyelonephritis",
+        "preferredTerm": "急性肾盂肾炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.appendicitis",
+        "preferredTerm": "急性阑尾炎",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.fever_with_flank_pain",
+      "fact.anuria",
+      "fact.gross_hematuria",
+      "fact.infected_obstruction",
+      "fact.single_kidney"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.pyelonephritis",
+      "concept.appendicitis"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.urinary_ultrasound": "required",
+      "test.contrast_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 12,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B3病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:212df1cf9bf9ea4c5ba95b7c4fee4c7e19791531ce461bba71c69d8021192464",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.urinary_renal",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c19_urinary_003",
+    "caseVersion": "1.0.0-rc.5",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.fever_with_flank_pain",
+        "canonicalName": "发热伴腰痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.fever_with_flank_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.anuria",
+        "canonicalName": "无尿",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.anuria"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.gross_hematuria",
+        "canonicalName": "肉眼血尿",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.gross_hematuria"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.infected_obstruction",
+        "canonicalName": "感染性尿路梗阻",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.infected_obstruction"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.single_kidney",
+        "canonicalName": "孤立肾或重要泌尿结构风险",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.single_kidney"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.urinary_renal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c19_urinary_003",
+    "caseVersion": "1.0.0-rc.5",
+    "contentHash": "sha256:212df1cf9bf9ea4c5ba95b7c4fee4c7e19791531ce461bba71c69d8021192464",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.4216994c-f221-4e71-91b6-a75ee6023503",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:50:51.414Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床事实一致：突发右侧腰腹绞痛向腹股沟放射、无感染或严重梗阻表现，超声提示右侧输尿管小结石且无明显积水，支持单纯输尿管结石。",
+          "诊断可解：成功轨迹覆盖起病、症状模式、伴随症状、进展及必要安全信息，并完成生命体征和泌尿系超声，可支持目标诊断及两个鉴别诊断。",
+          "危险征象排除充分：已覆盖意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等；生命体征通过规定检查读取，且设置了胸痛气促的安全中断退出。",
+          "量表与病例一致：必问事实、所需鉴别诊断数量、必要/不必要检查分类、回合上限及评分摘要之间无明显矛盾。",
+          "回归覆盖充分：包含成功、失败、不必要检查、急症安全中断和未知既往史轨迹，预期结果明确且与病例版本一致。",
+          "隐藏真相安全：教学字段及服务端评分信息标记为隐藏，回归轨迹未要求向患者暴露内部字段；pending 状态和人工审核元数据不影响本次事实审计。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.2766baa1-25b7-4b58-8871-fc39b1ed468b",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:51:04.358Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现、超声结果与“单纯输尿管结石”一致；无发热、无尿、循环不稳定等信息，增强CT被正确标为初始非必需检查。",
+          "诊断粒度明确，目标诊断可由典型放射性绞痛及超声结果求解；两项鉴别诊断也已明确列出。",
+          "9项红旗均有对应患者事实，且矩阵中的适用性、要求状态、证据事实ID和观察值相互一致。",
+          "must-ask事实、2项可接受鉴别诊断、必需/不必要检查分类及目标诊断均与答案键和评分规则一致；男性病例询问“妊娠”略显模板化，但不影响评分一致性或病例可解性。",
+          "success轨迹覆盖全部13项must-ask事实、2项必需检查、精确诊断及2项鉴别诊断；failure、safety和unknown轨迹分别覆盖不必要检查、医疗安全中断和unknown事实回归。",
+          "回归轨迹未暴露teaching note或答案键等隐藏真值；安全轨迹要求中断、零provider调用、零原始文本写入和零医疗回合，预期约束明确。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床事实一致：突发右侧腰腹绞痛向腹股沟放射、无感染或严重梗阻表现，超声提示右侧输尿管小结石且无明显积水，支持单纯输尿管结石。",
+      "诊断可解：成功轨迹覆盖起病、症状模式、伴随症状、进展及必要安全信息，并完成生命体征和泌尿系超声，可支持目标诊断及两个鉴别诊断。",
+      "危险征象排除充分：已覆盖意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等；生命体征通过规定检查读取，且设置了胸痛气促的安全中断退出。",
+      "量表与病例一致：必问事实、所需鉴别诊断数量、必要/不必要检查分类、回合上限及评分摘要之间无明显矛盾。",
+      "回归覆盖充分：包含成功、失败、不必要检查、急症安全中断和未知既往史轨迹，预期结果明确且与病例版本一致。",
+      "隐藏真相安全：教学字段及服务端评分信息标记为隐藏，回归轨迹未要求向患者暴露内部字段；pending 状态和人工审核元数据不影响本次事实审计。",
+      "临床表现、超声结果与“单纯输尿管结石”一致；无发热、无尿、循环不稳定等信息，增强CT被正确标为初始非必需检查。",
+      "诊断粒度明确，目标诊断可由典型放射性绞痛及超声结果求解；两项鉴别诊断也已明确列出。",
+      "9项红旗均有对应患者事实，且矩阵中的适用性、要求状态、证据事实ID和观察值相互一致。",
+      "must-ask事实、2项可接受鉴别诊断、必需/不必要检查分类及目标诊断均与答案键和评分规则一致；男性病例询问“妊娠”略显模板化，但不影响评分一致性或病例可解性。",
+      "success轨迹覆盖全部13项must-ask事实、2项必需检查、精确诊断及2项鉴别诊断；failure、safety和unknown轨迹分别覆盖不必要检查、医疗安全中断和unknown事实回归。",
+      "回归轨迹未暴露teaching note或答案键等隐藏真值；安全轨迹要求中断、零provider调用、零原始文本写入和零医疗回合，预期约束明确。"
+    ]
+  }
+}

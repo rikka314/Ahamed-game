@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "e3-private-persona-journey-v1",
+  "runId": "e3-run-03",
+  "personaTemplateId": "impatient_direct",
+  "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+  "status": "not_run",
+  "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TIMEOUT]",
+  "turns": []
+}

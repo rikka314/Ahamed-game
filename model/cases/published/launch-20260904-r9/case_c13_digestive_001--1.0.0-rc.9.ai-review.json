@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:659905de9c508346653bbf63aa452e78a494407921102e6d5577b5b16fa0fdcd",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.ade6df5e-ba3d-479b-ae9b-2111b9a93b7d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:45:42.647Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：饭后及躺下时反酸、烧心，病程一个月，且无出血、吞咽障碍、持续呕吐、黄疸、体重下降或腹膜刺激征，符合稳定门诊型胃食管反流病病例；生命体征和上消化道评估设定与非急症边界一致。",
+        "诊断可解性：核心症状模式支持胃食管反流病，目标诊断明确；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，病例信息足以完成判断。",
+        "危险征象排除：病例矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降；成功轨迹还读取生命体征并完成上消化道评估，另有胸痛伴呼吸困难的安全中断路径。",
+        "量表一致性：must-ask事实均有对应询问路径，必需检查、不必要检查、鉴别诊断数量及推荐回合数与评分摘要相符；腹部CT在失败轨迹中被明确标记为不必要。",
+        "回归覆盖：包含成功、失败、不必要检查、安全中断和未知事实路径；测试动作按新会话执行语义处理，不会因medicalTests的completed状态被误判为重复检查或无操作。",
+        "隐藏真相安全：教学字段、答案键和评分策略未置于患者可见内容；回归期望值属于审计输入，不构成病例对话中的诊断泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.7493b189-73de-4ffc-a0aa-5fd366da7672",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:45:59.320Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：饭后及卧位反酸、烧心，病程和无报警征象支持胃食管反流病；生命体征及上消化道评估设为必要，腹部CT设为不必要，整体合理。medicalTests 中的 completed 仅为可返回报告模板，不影响回归轨迹中的测试动作。",
+        "诊断可解性：核心症状与目标诊断匹配明确，诊断粒度为胃食管反流病恰当；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，病例信息足以完成判断。",
+        "红旗排除：红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险、消化道出血、腹膜刺激征、持续呕吐、黄疸及体重下降，均有对应患者事实且状态为 absent；成功轨迹覆盖全部要求询问。",
+        "Rubric一致性：mustAskFactIds、鉴别诊断数量与概念、检查分类、推荐回合数及目标诊断彼此一致；成功轨迹可满足评分要求，失败轨迹对应不必要检查和错误诊断。",
+        "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，预期事实、诊断匹配、必要/不必要检查、安全中断及未知既往史读取与病例定义一致；success 的 medicalTurns=4 与四次问诊动作相符。",
+        "隐藏真值安全：教学字段、test-only 生命体征及内部评分信息未作为患者可直接询问内容暴露；安全轨迹明确要求中断且 providerCalls、rawTextWrites 和 medicalTurns 均为零，未见回归资产泄漏隐藏真值或绕过安全流程。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：饭后及躺下时反酸、烧心，病程一个月，且无出血、吞咽障碍、持续呕吐、黄疸、体重下降或腹膜刺激征，符合稳定门诊型胃食管反流病病例；生命体征和上消化道评估设定与非急症边界一致。",
+    "诊断可解性：核心症状模式支持胃食管反流病，目标诊断明确；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，病例信息足以完成判断。",
+    "危险征象排除：病例矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降；成功轨迹还读取生命体征并完成上消化道评估，另有胸痛伴呼吸困难的安全中断路径。",
+    "量表一致性：must-ask事实均有对应询问路径，必需检查、不必要检查、鉴别诊断数量及推荐回合数与评分摘要相符；腹部CT在失败轨迹中被明确标记为不必要。",
+    "回归覆盖：包含成功、失败、不必要检查、安全中断和未知事实路径；测试动作按新会话执行语义处理，不会因medicalTests的completed状态被误判为重复检查或无操作。",
+    "隐藏真相安全：教学字段、答案键和评分策略未置于患者可见内容；回归期望值属于审计输入，不构成病例对话中的诊断泄露。",
+    "临床一致性：饭后及卧位反酸、烧心，病程和无报警征象支持胃食管反流病；生命体征及上消化道评估设为必要，腹部CT设为不必要，整体合理。medicalTests 中的 completed 仅为可返回报告模板，不影响回归轨迹中的测试动作。",
+    "诊断可解性：核心症状与目标诊断匹配明确，诊断粒度为胃食管反流病恰当；功能性消化不良和消化性溃疡作为两个可接受鉴别诊断，病例信息足以完成判断。",
+    "红旗排除：红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险、消化道出血、腹膜刺激征、持续呕吐、黄疸及体重下降，均有对应患者事实且状态为 absent；成功轨迹覆盖全部要求询问。",
+    "Rubric一致性：mustAskFactIds、鉴别诊断数量与概念、检查分类、推荐回合数及目标诊断彼此一致；成功轨迹可满足评分要求，失败轨迹对应不必要检查和错误诊断。",
+    "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，预期事实、诊断匹配、必要/不必要检查、安全中断及未知既往史读取与病例定义一致；success 的 medicalTurns=4 与四次问诊动作相符。",
+    "隐藏真值安全：教学字段、test-only 生命体征及内部评分信息未作为患者可直接询问内容暴露；安全轨迹明确要求中断且 providerCalls、rawTextWrites 和 medicalTurns 均为零，未见回归资产泄漏隐藏真值或绕过安全流程。"
+  ]
+}

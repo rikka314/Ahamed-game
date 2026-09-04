@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:83d615e9ce6b4e3b2501bfab80f73a9a47e2fdfc7aaa9d75244f009a9754206f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.10791945-9fdd-4f6d-9871-c3f7a7818b8f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:23:07.175Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例属于8–12岁儿科人群，感冒后耳痛、听力发闷及耳镜所见与学龄儿童急性中耳炎一致；颞骨CT明确标为无并发症病例初始不必要检查。",
+        "诊断可由病史与耳镜检查支持，目标诊断、可接受鉴别诊断及要求数量定义清晰。",
+        "生命体征稳定，意识、循环、口服摄入、年龄范围、儿童嗜睡、呼吸窘迫、脱水及耳后/乳突肿胀等适用危险征象均有明确排除证据。",
+        "评分量表要求的病史项目、必需检查、不必要检查、鉴别诊断数量及沟通标准与病例内容一致，首发儿科范围已明确纳入。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知既往史等关键路径；成功路径在10回合限制内完成。",
+        "教学字段、答案键及评分策略位于服务端隐藏内容；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，未见隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b9fbc389-43b9-4e75-ae34-5bb795d85c2d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:23:16.951Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、感冒后起病及耳镜所见与学龄儿童急性中耳炎一致，诊断粒度适当。",
+        "关键病史、耳镜检查和生命体征足以支持目标诊断；目标诊断及两个鉴别诊断均可由病例信息和答案词表明确求解。",
+        "意识改变、循环不稳定、无法口服、高风险人群、年龄越界、儿童嗜睡、呼吸窘迫、脱水及乳突/耳后肿胀均有明确排除证据。",
+        "must-ask事实、两个可接受鉴别诊断、必需/不必要检查分类与答案及评分规则一致。",
+        "success、failure、safety和unknown四类回归轨迹均存在，期望结果与病例事实、检查分类及评分策略一致。",
+        "未见将hidden教学字段或内部评分信息暴露给玩家的轨迹；安全中断轨迹明确要求零医疗回合、零provider调用和零原文写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例属于8–12岁儿科人群，感冒后耳痛、听力发闷及耳镜所见与学龄儿童急性中耳炎一致；颞骨CT明确标为无并发症病例初始不必要检查。",
+    "诊断可由病史与耳镜检查支持，目标诊断、可接受鉴别诊断及要求数量定义清晰。",
+    "生命体征稳定，意识、循环、口服摄入、年龄范围、儿童嗜睡、呼吸窘迫、脱水及耳后/乳突肿胀等适用危险征象均有明确排除证据。",
+    "评分量表要求的病史项目、必需检查、不必要检查、鉴别诊断数量及沟通标准与病例内容一致，首发儿科范围已明确纳入。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知既往史等关键路径；成功路径在10回合限制内完成。",
+    "教学字段、答案键及评分策略位于服务端隐藏内容；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，未见隐藏真相泄露风险。",
+    "临床表现、感冒后起病及耳镜所见与学龄儿童急性中耳炎一致，诊断粒度适当。",
+    "关键病史、耳镜检查和生命体征足以支持目标诊断；目标诊断及两个鉴别诊断均可由病例信息和答案词表明确求解。",
+    "意识改变、循环不稳定、无法口服、高风险人群、年龄越界、儿童嗜睡、呼吸窘迫、脱水及乳突/耳后肿胀均有明确排除证据。",
+    "must-ask事实、两个可接受鉴别诊断、必需/不必要检查分类与答案及评分规则一致。",
+    "success、failure、safety和unknown四类回归轨迹均存在，期望结果与病例事实、检查分类及评分策略一致。",
+    "未见将hidden教学字段或内部评分信息暴露给玩家的轨迹；安全中断轨迹明确要求零医疗回合、零provider调用和零原文写入。"
+  ]
+}

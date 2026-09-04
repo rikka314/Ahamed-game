@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:97c72502e67cf762009f1274364ad9ad369b0a8ee408d95b2f8b06cb38d5b61f",
+  "personaTemplateId": "anxious_reassurance_seeking",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好，医生。我发热、咳嗽三天了，这两天还有些黄痰，心里有点担心，会不会越来越严重。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "我发热、咳嗽已经三天了，这两天还有些黄痰，感觉比平时乏力一点。我有点担心会不会越来越严重。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "嗯，还是有发热、咳嗽，黄痰也还有一些，感觉比平时乏力。我有点担心是不是在加重……您是想问发热还是咳嗽有没有好一点吗？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.cough",
+        "fact.sputum",
+        "fact.fatigue"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是啊，天气是不错。不过我还是有点担心自己的发热和咳嗽，医生您接着问吧，您觉得我需要做检查吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢烘焙，也会追剧，做点小蛋糕的时候心情会放松一些。不过我还是有点担心这次发热咳嗽，医生，我们还是接着看看病情吧，您觉得需要做检查吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以聊两句呀……我平时还挺喜欢烘焙和追剧的。不过我还是有点担心身体，怕耽误了病情。医生，我们还是先把发热咳嗽的情况问清楚吧？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.cough"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "最近还行，学校里的事情有一点忙，不过我还能自己应付。只是我还是有点担心这次发热咳嗽，怕拖久了会变严重……医生，我们还是先看看病情吧？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "嗯，现在还是有发热、咳嗽，黄痰也还有一些，感觉比平时乏力。我有点担心是不是在加重……",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.cough",
+        "fact.sputum",
+        "fact.fatigue"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的，先量一下生命体征吧，我也有点担心现在体温是不是还在升高。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.2℃，心率92次/分，呼吸频率20次/分，血压118/72mmHg，静息血氧饱和度97%。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的胸部X线结果怎么样",
+      "reply": "胸部X线还没有做，所以现在还没有结果。医生，您觉得我需要拍胸片吗？我有点担心是不是病情加重了。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.2℃，心率92次/分，呼吸频率20次/分，血压118/72mmHg，静息血氧饱和度97%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好的，那我去拍胸片。我有点紧张，希望能尽快知道结果，医生您看应该不会很严重吧？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.chest_xray",
+            "status": "completed",
+            "report": "右下肺可见局灶性实变影，未见胸腔积液。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.chest_xray",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.2℃，心率92次/分，呼吸频率20次/分，血压118/72mmHg，静息血氧饱和度97%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "胸部X线现在是什么结果",
+      "reply": "胸部X线结果出来了：右下肺看到一片局灶性的实变影，不过没有发现胸腔积液。我有点紧张，这个结果是不是很严重？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.chest_xray"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.2℃，心率92次/分，呼吸频率20次/分，血压118/72mmHg，静息血氧饱和度97%。"
+          },
+          {
+            "testId": "test.chest_xray",
+            "status": "completed",
+            "report": "右下肺可见局灶性实变影，未见胸腔积液。"
+          }
+        ]
+      }
+    }
+  ]
+}

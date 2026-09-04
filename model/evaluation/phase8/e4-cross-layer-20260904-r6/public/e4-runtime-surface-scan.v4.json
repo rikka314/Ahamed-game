@@ -1,0 +1,1373 @@
+{
+  "schemaVersion": "e4-runtime-surface-scan-v4",
+  "generatedAt": "2026-09-04T07:20:57.223Z",
+  "status": "pass",
+  "scannerImplementation": {
+    "path": "game/tests/e2e/e4-patient-identity-closure.spec.ts",
+    "sha256": "70f1052c12baa2bd2d6410e3c92f4dba445bf60058213232a9080d7bf6066965",
+    "bytes": 22054
+  },
+  "subject": {
+    "gameSource": {
+      "schemaVersion": "e4-game-source-snapshot-v1",
+      "files": [
+        {
+          "path": "game/.npmrc",
+          "sha256": "e738f0128dff9bd809b377432eff2a9057e12567e2097f5d5f2efef90908ed91",
+          "bytes": 56
+        },
+        {
+          "path": "game/app/api/clinic/cases/route.ts",
+          "sha256": "6469d65c43260f011aafeacc65a5703936e965202338b65958d7ba32cf681577",
+          "bytes": 675
+        },
+        {
+          "path": "game/app/api/clinic/sessions/[sessionId]/diagnosis/route.ts",
+          "sha256": "a11d7565a6fc469ccfb59df14918c7b3b79785241f763d9de989f239b34c7295",
+          "bytes": 2355
+        },
+        {
+          "path": "game/app/api/clinic/sessions/[sessionId]/route.ts",
+          "sha256": "75e4c24b46569d7d41735512d61318b7d18acab9409659f6ba4de5bcbd078a03",
+          "bytes": 951
+        },
+        {
+          "path": "game/app/api/clinic/sessions/[sessionId]/turns/route.ts",
+          "sha256": "45b6dd3ed56c1e6ce6444555ac07e25948d408ab7ca5e2163058fa2fc94b16ff",
+          "bytes": 3688
+        },
+        {
+          "path": "game/app/api/clinic/sessions/route.ts",
+          "sha256": "8d8824fd1f4387d90366567734cb2fb3be9435698b1b0f6afd89d15eeb2772f0",
+          "bytes": 1663
+        },
+        {
+          "path": "game/app/globals.css",
+          "sha256": "80e566964a21c7198fbee28fccb5537d6c6cdd82e3cf98e99f45753592569d83",
+          "bytes": 1796
+        },
+        {
+          "path": "game/app/layout.tsx",
+          "sha256": "f0c3aadeb175c2d11e75654bdf442c29965648b2e8a579bc61f82a57f00a0ca7",
+          "bytes": 557
+        },
+        {
+          "path": "game/app/page.tsx",
+          "sha256": "f472ad8732fa699c7418634148cd0a376149130aae503f33299a29c685e3cbc6",
+          "bytes": 173
+        },
+        {
+          "path": "game/app/world-preview/page.tsx",
+          "sha256": "55d66afa73f6b3391e6320e37d71aaa847909edea3e8112635b3242c1a8c1bf3",
+          "bytes": 933
+        },
+        {
+          "path": "game/assets/source/maps/clinic-community-h3-16.tmj",
+          "sha256": "de573604141599716ce634649bcbf86bccd9d14d105e47340c6d9949b0fe9e4d",
+          "bytes": 34299
+        },
+        {
+          "path": "game/assets/source/maps/clinic-community-h3-32.tmj",
+          "sha256": "61b8a1aeb70da822f435469d9b7ae67fa570fbf0f27452077268d5d849abc2f0",
+          "bytes": 34313
+        },
+        {
+          "path": "game/assets/source/maps/clinic-graybox.tmj",
+          "sha256": "ffcd47d399cc7cadd8910781da996ab370f80d19bba55d06e6440994a76d8586",
+          "bytes": 12458
+        },
+        {
+          "path": "game/assets/source/README.md",
+          "sha256": "3c80a86ce46b05708dc96b1b14e0e192cff64a5bbbba74dd78073c308d07346e",
+          "bytes": 346
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-16.aseprite",
+          "sha256": "02574e5848ce770f9c149f2423bbb186e6270915eb70fbaf2e065bd1e7bc9808",
+          "bytes": 1334
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-16.png",
+          "sha256": "297821dd07b408aa0eb853a7b25786cc12c80eb8d2f94a5fb6764015fde2a75c",
+          "bytes": 911
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-16.provenance.json",
+          "sha256": "4630050c35e738d456edf505f6453adc7b6082145251e1bd032ea0b0b057bae7",
+          "bytes": 1207
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-16.tsj",
+          "sha256": "32d4e596a09ab0dc7c41dd3e0ce643103c8ef009ba4c0c50ed329226aabc6065",
+          "bytes": 786
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-32.aseprite",
+          "sha256": "3e27b13c6aab5d0d42838bdbee0ef076c812b8965f03c7bea1fd4f2e151873b4",
+          "bytes": 2136
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-32.png",
+          "sha256": "315361ba984c25f036a34604a46a3b7606eec351f86cb069dd628314b79faa8b",
+          "bytes": 1535
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-32.provenance.json",
+          "sha256": "a69832ad92ff72da2ca5c454b87bb116b171328f56749074face0b0905aefbdc",
+          "bytes": 1288
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-h3-32.tsj",
+          "sha256": "b8f9954731cea54471d37f3af9df4ac64f7be30c75f1f0de4d351b6a6e495479",
+          "bytes": 787
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g00-transparent-empty.png",
+          "sha256": "791fe658a233e137219f44e456d23d5ff3450869ad5bf3071cd8ec4c03eec5eb",
+          "bytes": 435
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g00-transparent-empty.provenance.json",
+          "sha256": "1368459c6ed232d403636f413c9431403bdb6b5df0b346d43e6a2f97de20b7e1",
+          "bytes": 521
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v2.png",
+          "sha256": "47eb6daece8e78d6ebe28a53f95755d01860aa21cca770d57361c864ff88a3f3",
+          "bytes": 276
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v2.provenance.json",
+          "sha256": "928472b410c5e5fde767ea3e21770ccddc85ab73997e09623b68635e9179909c",
+          "bytes": 785
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v3.png",
+          "sha256": "d74fdc936e58a8c252d12e31255a68483e10c0e8319796e81316d9d9fe4aabf2",
+          "bytes": 413
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v3.provenance.json",
+          "sha256": "a4c25512c8378d7f2398bd47136180588ad0798a889b2dc9c6ee49c33b2a470b",
+          "bytes": 857
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.png",
+          "sha256": "55b9b841d2bb6d0d0981393c43be4bbb52b535a2f84987f304e9b097009aeea9",
+          "bytes": 409
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.provenance.json",
+          "sha256": "05e7339121a2529c9d5b4cbfe3524866b715d558191eea79e06e17d70660da11",
+          "bytes": 948
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base.png",
+          "sha256": "cf88514d25404fcc71fc9446ec0a14c0b5d48d2b5097474542485861016b5445",
+          "bytes": 483
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base.provenance.json",
+          "sha256": "85fe33a759a5fa0b53948e445a44c177e3af7c676605392309a432e8f840f85e",
+          "bytes": 997
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01-v2.png",
+          "sha256": "e4a6e302e558b4227bca177bd2e8f5f40f7a34683715746afe8f309dff2a1df8",
+          "bytes": 839
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01-v2.provenance.json",
+          "sha256": "95360be947163c5f904e75a81108c94a002b927b1066b82c69fd5eff05b44dd3",
+          "bytes": 1046
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01.png",
+          "sha256": "5761a93b364c9be317fca825fc07f0e628cc23035509c811c8654ea6584878d6",
+          "bytes": 839
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-01.provenance.json",
+          "sha256": "2a2a9b410a289e43af9c97c78e0b226f94be74333db905bf9c5f0c7779a4b4b6",
+          "bytes": 912
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-02.png",
+          "sha256": "9e1d291bfb4e683f8ef3f9fdb8a0e649736d855c5f78591fbee610aaa3d1599e",
+          "bytes": 840
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-02.provenance.json",
+          "sha256": "92aa8fc88a7da07f63aaf32f1d7012f587e6984879c05e251aea34134071853b",
+          "bytes": 1031
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-03.png",
+          "sha256": "aa4e38493907164cf9a5cf39e9eca70dc861bff316482475e38ed5a3494913de",
+          "bytes": 845
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g02-clinic-interior-floor-variant-03.provenance.json",
+          "sha256": "7f2923334db41f61086d2ad17785d047dedf1fb417916521fd395aa6c21e6a46",
+          "bytes": 1032
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-imagegen-concept.png",
+          "sha256": "42889afb371f11a80653c0198a29bec3f20e4b1991c6140fee84161330bfe9dc",
+          "bytes": 893721
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-imagegen-concept.provenance.json",
+          "sha256": "7fb51834d266e7fb141274f0fe736e256db7c1eab145ea747311fa0b85c6ba1e",
+          "bytes": 1024
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png",
+          "sha256": "17fc252917623474f18e92486d6e93f2abdcb01cf1f06d5c272abb7a8aa6bacd",
+          "bytes": 810
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.provenance.json",
+          "sha256": "4c6416f4d09bd4212ca222829e52335f0f1e9162fc06d1932bdae089265740b5",
+          "bytes": 1263
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground.png",
+          "sha256": "d318de9bc73fbe8df032e8769d0c22e8d12bc633c001d4116d663fe0d9fac228",
+          "bytes": 836
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground.provenance.json",
+          "sha256": "8038573fb16aca91650ba72aae8526661e0a3ccde2539b11b6fa63087d6850b4",
+          "bytes": 1395
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v2.png",
+          "sha256": "027e8cbcafc344ba195f1405b7ce47eafa392fd488e2d9c5410571174b7461a7",
+          "bytes": 980
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v2.provenance.json",
+          "sha256": "8f50b8546aa2cc25d7f97cd0c405b8a6f7c6dab1ee03d3f781cfd5538102e097",
+          "bytes": 1682
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v3.png",
+          "sha256": "20ee1acd7196aa0c1d18bafbc693de8b95e42d590e8fc0259a3d8bff10f5ac77",
+          "bytes": 582
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v4.png",
+          "sha256": "6afff0c600d73fcc80848987a9c7ab2b6fa3dc403c41f959af4e82db8f1a335a",
+          "bytes": 549
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v5.png",
+          "sha256": "40e80791671c707d4d3320e38acaa444010b1b6a532b5d6d816275edc56d0c7e",
+          "bytes": 587
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v5.provenance.json",
+          "sha256": "dab62b87fbfb839b86b171727f22167e6672c2d8cb0a559d181d783df0fb67f0",
+          "bytes": 2045
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v6.png",
+          "sha256": "8a54474aefcfec75dd8a054c5f4af011125f342907bae3f4d9618043ce692901",
+          "bytes": 580
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v7.png",
+          "sha256": "c21f1ca0acde46020fbdf5ae2114c2d697a05c9c43aad2dff8d5e40caec8e38c",
+          "bytes": 543
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v7.provenance.json",
+          "sha256": "9fb4d76933813c398b7376ad242ba3f625cf6349084773881ae870a5e72b3360",
+          "bytes": 1848
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.png",
+          "sha256": "4b5a2310f4a36bbb6762ce95d3cdf8270d1e3af14a9f2e0de554c6ef6ec092dc",
+          "bytes": 530
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.provenance.json",
+          "sha256": "1111a6fca637113165f95318be57662372e5637f83c3dfdc0f02ac9d982f8b5b",
+          "bytes": 1970
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+          "sha256": "bec951e3bcc6f43c3a089f4c69518dccfbd0b7586c3c668977785b844d5c7f0a",
+          "bytes": 856
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.provenance.json",
+          "sha256": "94cbf15d59c50b4e6db84cf22996f6adbecf0c184d077a414314c60f9e7516ec",
+          "bytes": 1479
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v2.png",
+          "sha256": "ba8bb71330047d6b7ef509f4631158265c86b4c8501bd8eb322dad766e642793",
+          "bytes": 537
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v3.png",
+          "sha256": "4ae9fadb5102421337089f66ff5243f8a9f7f328fd461731b577bebf944f881b",
+          "bytes": 538
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02-v3.provenance.json",
+          "sha256": "86dd1c83900ec73d84a2d1371211646945dcdc49b7dd3c033c84d176399518d2",
+          "bytes": 2178
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02.png",
+          "sha256": "2f2fd7d4d66c71f9aebfe98d5f028b590d787a938242d7ebc9271b2ddd2e09a5",
+          "bytes": 543
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-02.provenance.json",
+          "sha256": "a1bfa319f2e7b2471cee59a94e1aa883154f6f6d4306774f9883435f6b6cba6d",
+          "bytes": 2058
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png",
+          "sha256": "02ed9306d0985fc0b5767fd972230e8d6bdbce907dadfdb7ab090083fc486470",
+          "bytes": 460
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.provenance.json",
+          "sha256": "d919b6c14e3ecb7f24a7dd0772419a924175bbcd96fa555f41eeaf5da59d1f21",
+          "bytes": 1613
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down.png",
+          "sha256": "ce4b32ec39b3e66617c9b741f613f9e43369ad3e672043d36019ccbd205c3929",
+          "bytes": 413
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down.provenance.json",
+          "sha256": "2efbc973d37f3846785cda7b64431d02b44499f1676eeb6b0bcda857212bf297",
+          "bytes": 1526
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.png",
+          "sha256": "e1150f18ed418fdd84088ed096d1c1498e86a98738ebfc7cba5075d7b54c99db",
+          "bytes": 438
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.provenance.json",
+          "sha256": "f982f4c9ba9d32776cbf4e40cd41d391bac13555172bd596b052b5bd56f1be4b",
+          "bytes": 1550
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-right.png",
+          "sha256": "5ebce41f527dd9f9f4471c7165986d7293d6a05005aff00589390cb7b685fcc1",
+          "bytes": 420
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-right.provenance.json",
+          "sha256": "0c74f99dc95c2db807a9197e9f68e8d576f796213eb04ac1d79de1f9996126f1",
+          "bytes": 1553
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.png",
+          "sha256": "2a97ceb47f86aec2c894aff3c9bccd0a1bdba68e5bbf8d091fb49c3b7d944fab",
+          "bytes": 462
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.provenance.json",
+          "sha256": "68c419263f2177c9e9f84605a6dc6dacd44fcd38119df8e305ea8dd86e9c2b7a",
+          "bytes": 1527
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-left.png",
+          "sha256": "0aef3aeaa8d6789d0ca9393f331665eb24100870e27b7a4e47d703f29af250d1",
+          "bytes": 1033
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-left.provenance.json",
+          "sha256": "040dc8744fe2d571893b6a364b56095339cd2a7c75e06cd8c9bddc06da76098e",
+          "bytes": 2144
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-right.png",
+          "sha256": "93827d7bbd59e508bd1cad9854607e0be8c8d1918b43d0dc43a22eb1dfb47755",
+          "bytes": 1027
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-right.provenance.json",
+          "sha256": "e10903a0089d392bbc4d738ffc05debc1eab3c2f3a3c84635d337995b43a01b8",
+          "bytes": 2150
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left-v2.png",
+          "sha256": "b74336309af61fe90bd7bbffa71f6270249f677c5e286e74506358c01933272e",
+          "bytes": 1029
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left-v2.provenance.json",
+          "sha256": "70110b4b8bc2cf43a4841a94b35eb150202e3fe50b14daf43babf4ac51d14fbd",
+          "bytes": 2214
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left.png",
+          "sha256": "355c2697d99babd5c608cf276f7790b95133c96447a89d2e9fbd1cd243870b70",
+          "bytes": 468
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left.provenance.json",
+          "sha256": "4b53f5c8035aca3ee505b2eda1ca228088191952f21e08dfd7c005c19f1f6562",
+          "bytes": 1856
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-right.png",
+          "sha256": "baa335857d9407c09d7c9d2c44ac524f95a7e24f839589e2c0fb5bc5a7c7f4e3",
+          "bytes": 1012
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-right.provenance.json",
+          "sha256": "a8d1dc9a1355ee2043c97302912d7cc7d10b52d564444cd33935910c7541fe11",
+          "bytes": 2270
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g00-transparent-empty.png",
+          "sha256": "ebb17149ce1cf937cadfb8e903b2812b9a0ecc366eb7705e40e3c73461dc082f",
+          "bytes": 117
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g01-clinic-interior-floor-base.png",
+          "sha256": "70518970660d863aae4bc75ceb307010a32db4148279ec5aa0dc798f5a52dbed",
+          "bytes": 3488
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-01.png",
+          "sha256": "6de108a8dec81626977064b6fa192a6079f84e217553e0043f738005f8de251a",
+          "bytes": 3566
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-02.png",
+          "sha256": "a2b0b6d53aeb1eedfca656726d15307d30df5247f44c2877a108240c2d89010f",
+          "bytes": 3571
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g02-clinic-interior-floor-variant-03.png",
+          "sha256": "9581ba832b210222578a43629efdc384ba0836dd6004b3fb52f28d3fcf6593ba",
+          "bytes": 3558
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g03-exterior-front-ground-stone-brick.png",
+          "sha256": "1c3332f6b993332bb1a6e7a5dc319f171f6b35f968a83a4d6a1a4b54a28ae460",
+          "bytes": 310
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g04-exterior-ground-stone-variant-01.png",
+          "sha256": "6dd306b4b922fca1ffe7b66c60254bebad047d22385de15600aa058f08037826",
+          "bytes": 661
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g04-exterior-ground-stone-variant-02.png",
+          "sha256": "021e127e692d0699854045d925626dadb7da0d735695f5faf65e75f6864ea7e2",
+          "bytes": 673
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g05-entrance-threshold-1x2.png",
+          "sha256": "2faf2f12486b97b582de54604476dcba975aabba5d8fd9a5e40056201572cb6b",
+          "bytes": 3380
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g06-entrance-mat-1x2-vertical.png",
+          "sha256": "00976b3dc8cd7569ded976dee170a5720be748e2e2b18f1066577d2adda44669",
+          "bytes": 1551
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g07-consultation-rug-2x3-vertical.png",
+          "sha256": "0e33db5fd8e7bb92467009d07558972686d499e02f99381b4f71cc21554628db",
+          "bytes": 2277
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g08-grass-base.png",
+          "sha256": "5792b6566e150c1e4e13627dccdb300ca831c20f49ea7e8505bc783d3a113634",
+          "bytes": 1689
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-01.png",
+          "sha256": "86fc3b8174554147d4164a2fa6c51b6fa8d77833a0f163dac466265a6709f362",
+          "bytes": 1669
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-02.png",
+          "sha256": "8371c48d0e0adda7fd7e4e9461e46b15c865b02409736f03bec6cd7cccc3a540",
+          "bytes": 1705
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-03.png",
+          "sha256": "f765c177d6296792462c6585226c587dbb788db51878dd55608c8fd65d31fe36",
+          "bytes": 1747
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-04-white-flowers.png",
+          "sha256": "5b91bbd9842f674dd4f8db9e12d691b7e7e8aac3476da3b8eb7e6305e1879056",
+          "bytes": 1712
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-05-yellow-flowers.png",
+          "sha256": "73c01a63700742b3f9b79c050d9432792dc1b3d19683e3ecff9bccd3c6ec27c3",
+          "bytes": 1744
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g09-grass-variant-06-mixed-flowers.png",
+          "sha256": "2eced3a53670e9bb8693698f5ac4418580be38be086faaa693353bb0ae9e99de",
+          "bytes": 1767
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-down.png",
+          "sha256": "1dd564e33cb85a5503df615f7985e87f4686f54e002d493d48b8a087acd65df4",
+          "bytes": 391
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-left.png",
+          "sha256": "3f4b306625fd132fe14957362914dcda4de45abb692f1224c3769552c3ff6bd3",
+          "bytes": 407
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-right.png",
+          "sha256": "49f1754e2a5057641a0c7f54bcb11289c0db7838918be251a7324d96859b2ecd",
+          "bytes": 356
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g13-exterior-curb-straight-up.png",
+          "sha256": "09be85409298341731345e712b1c84aa0e5d90ed4fa9c45efe1d5b427c862e30",
+          "bytes": 366
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-down-left.png",
+          "sha256": "7e3129de0800144f096a671354f4652351434407975d7df4b94d0cbe91a74381",
+          "bytes": 455
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-down-right.png",
+          "sha256": "cb2f0423e0b4fc6befda84ddf24863f2a8d52175fd035200efbe6da07c782142",
+          "bytes": 432
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-up-left.png",
+          "sha256": "201c41e05c5bdcf179fdcb31104035e4586478a41c685dc7394d76899c11d50a",
+          "bytes": 419
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/g14-exterior-curb-outer-corner-up-right.png",
+          "sha256": "7dfe8db9703ee2283e0967085d61f9116db88961b32b08728d285c2e3ff24d91",
+          "bytes": 421
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/index.json",
+          "sha256": "d18fc3e0510f7d163fc28f8e74116ee8962605a1fe07e01c0abbbb248872d7c3",
+          "bytes": 8669
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/provenance-ledger.json",
+          "sha256": "0d382e0467f9588a69a983f7696eb758d2dd410793a54ad2b1e0ec8cee361ec6",
+          "bytes": 18322
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w01-horizontal-wall-lower.png",
+          "sha256": "fb75d75059966c33c37500f7ef00bd00ae31a6a303abd480161125b2228bddaf",
+          "bytes": 877
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w01-horizontal-wall-upper.png",
+          "sha256": "ae582c27d7b5de6d2b412cf417ba0c6bdc27b6577dced4c70c16fe3e8f48920e",
+          "bytes": 939
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w02-vertical-wall-left.png",
+          "sha256": "bd0e193cb6657997717a242c9b572a8b103bf4d69b71418d2beb301dc72b2f55",
+          "bytes": 225
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w02-vertical-wall-right.png",
+          "sha256": "cea9e035b9b9507e4f85eac74928b12e0656914e3cf051325b2d2076c9c639f7",
+          "bytes": 227
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-down-left.png",
+          "sha256": "e1fba91dd08902caac63bc606f4f1bce0b0a1b91e6a7e5a70c596dc9d8a271f5",
+          "bytes": 932
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-down-right.png",
+          "sha256": "8d3f37a7fa5cb328f67614849c0ef8eceed0e3086106454dbbd33cf078db4098",
+          "bytes": 926
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-up-left.png",
+          "sha256": "9df02a2470b8b9ebecc4ea3cb01ed9c856af9da5aa757d96c7410ae34ed94843",
+          "bytes": 572
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w03-inner-corner-up-right.png",
+          "sha256": "02561aed694c542f195cff8aa39c934bac7df41f4a789e5654af79fa412a0d46",
+          "bytes": 576
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w04-outer-corner-up-left.png",
+          "sha256": "1cbf526a044910c849676715e5af114954d4621720cad44699a886df5a87156b",
+          "bytes": 674
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64-native/components/w04-outer-corner-up-right.png",
+          "sha256": "43a2754e552bcba0e741683c8a0f1e80789f92beb0e59fe5ab4f3e772d48c4ad",
+          "bytes": 677
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g00-transparent-empty.png",
+          "sha256": "ebb17149ce1cf937cadfb8e903b2812b9a0ecc366eb7705e40e3c73461dc082f",
+          "bytes": 117
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g00-transparent-empty.provenance.json",
+          "sha256": "db5ec9b0715a0e138dfe2876ecc79fb5226c71b1589451e66f14c3b9ab554e81",
+          "bytes": 788
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v2.png",
+          "sha256": "f53fbfdc36ebceb2f1b93fb332b7fb4fb47dadbe3daf1566fe8db9caadde1f83",
+          "bytes": 2073
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v2.provenance.json",
+          "sha256": "52e65264aaf11fcda75f0b93b0e22105ac36845d551f07e502ea68b9894a6235",
+          "bytes": 1103
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v3.png",
+          "sha256": "70518970660d863aae4bc75ceb307010a32db4148279ec5aa0dc798f5a52dbed",
+          "bytes": 3488
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v3.provenance.json",
+          "sha256": "8b67f17e51e0f2d464a20dd7e9acb0fbffb39d60f2893a24a3149eb4e4b8ab15",
+          "bytes": 1620
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base.png",
+          "sha256": "be02f7bb2bbf7c5536915adc27b0b2a2a9351e06b9a2150d50bb6b55ef8c6543",
+          "bytes": 477
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base.provenance.json",
+          "sha256": "5795c7a0a78723860d3036b136cb490346444e9b22b245aff381fd02ec26f008",
+          "bytes": 824
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-01.png",
+          "sha256": "79130e9d0428efa90c45dfc31c75c6ee82836ab1ab2d1b56baa7212c54d59398",
+          "bytes": 446
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-01.provenance.json",
+          "sha256": "87f227799798301537cb895c334830804af8dbdc25e395037c3f318961c60389",
+          "bytes": 861
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-02.png",
+          "sha256": "f9ad2cb6aa4aad33f558861a563412979e5cab2121d4e5b92db38af955bd31cb",
+          "bytes": 449
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-02.provenance.json",
+          "sha256": "809f232214900bc708c4c75e9688e19e09c44a2ab51ab503f2fcc2c576a23c40",
+          "bytes": 858
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-03.png",
+          "sha256": "c4137175c735f9fcddb31d1c38c4abc07beef3160d06fcace14ebec48618e4a6",
+          "bytes": 459
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g02-clinic-interior-floor-variant-03.provenance.json",
+          "sha256": "6a30b8eabc98e5087d968a9357adc5318a9d95c6dc999b8cc7cef831759d24b5",
+          "bytes": 858
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g03-exterior-front-ground-stone-brick.png",
+          "sha256": "4cefb86842c4d7b87f1766b9b3127234455e8f90f95f362f27f83937b5d7d1ed",
+          "bytes": 386
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g03-exterior-front-ground-stone-brick.provenance.json",
+          "sha256": "3d420824fcc39ee0961ac134b8f935c230546d8366fa433bc78ada9feb4e2d38",
+          "bytes": 828
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-01.png",
+          "sha256": "457ffa8e086c955882fb02d7fae653a30d89fc3925aa53646e911fe482a0627c",
+          "bytes": 644
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-01.provenance.json",
+          "sha256": "659176dc04ad274243893b070691da6e4c7a6d1eb89869e3bb15db7a6552e748",
+          "bytes": 849
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-02.png",
+          "sha256": "c341da6f40b5d957ef2379afef21c91ec6e7b51d70ecbff7ed7cae1885fe0a43",
+          "bytes": 647
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g04-exterior-ground-variant-02.provenance.json",
+          "sha256": "5ddd2ae25b4aa378c3e322ba7107ac7a604c34374ea3d4973b850959e6a7f58b",
+          "bytes": 849
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-down.png",
+          "sha256": "9140cfb596ea37cad22211946be0eb96a67f6e1d8abb970cc9db6176970da397",
+          "bytes": 496
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-down.provenance.json",
+          "sha256": "7a3b510625e6d0f72db0618721b139cbe01df0e9c8e7e5232e5d91a022dfa49e",
+          "bytes": 864
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-left.png",
+          "sha256": "bffda53ceab9c87bd627953c2b0e72711c1eb87b35c4de7c8de0d40857a4f5ec",
+          "bytes": 499
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-left.provenance.json",
+          "sha256": "abb0bdb6761453a8887b59526e8f88d03e5bf63bfc80bdd0595c2ae2339405db",
+          "bytes": 861
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-right.png",
+          "sha256": "8d0c0e37d220dcff05419d6cb4083f5f90f7fd2dc53f74ece55b4fcb8d1602ec",
+          "bytes": 468
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-right.provenance.json",
+          "sha256": "12fa4d486c5a34a9dce6975afc49ce554dc76161262cbf7fbf3c8da85989f6d8",
+          "bytes": 863
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-up.png",
+          "sha256": "7fa78e28e121268ddc402db2a6fdca01fa005be582d9af4d15ea9f7412c5d4f3",
+          "bytes": 499
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g13-exterior-curb-straight-up.provenance.json",
+          "sha256": "8202d68aaad68a553898de0a6cd50ec2a8e1938e1f3d3509054b86e6a67e6f24",
+          "bytes": 857
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-left.png",
+          "sha256": "87d3c7430b862bc4f0e75016eb37854f45b01e013bb6002edb4ec6ee4a8ee4a5",
+          "bytes": 602
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-left.provenance.json",
+          "sha256": "35ed0aecda2edbebd74be064be36e6e4c6cefc2fb5f517b4a2d10a83ae2b414e",
+          "bytes": 872
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-right.png",
+          "sha256": "ed6996d74fe836ec8cf1854c2c416036080a193391990238c7bae19ed1bef5ed",
+          "bytes": 604
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-down-right.provenance.json",
+          "sha256": "07b3b7d046007d91367d112de0d56502e6c52ddb7ad7ad976750881dc30d08b4",
+          "bytes": 874
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-left.png",
+          "sha256": "18547182177eceb0cdb6d4119796642b41f06733d66c1053aa04745e373497f1",
+          "bytes": 607
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-left.provenance.json",
+          "sha256": "9c074c50747c2c687f54f8a07cb452e81ffe80d7ebc33d6bfb6155efcb3ae01b",
+          "bytes": 871
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-right.png",
+          "sha256": "f763e8ec5fa24c5e39f33e765d8e871da024a4513838608c8a13447bdcd815c4",
+          "bytes": 593
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/g14-exterior-curb-outer-corner-up-right.provenance.json",
+          "sha256": "02fb1e321397104921e08361c69d56c175ffd02b81456a52c7a22f51f786802a",
+          "bytes": 870
+        },
+        {
+          "path": "game/assets/source/tilesets/clinic-community-master-64/components/index.json",
+          "sha256": "75f9789b9392ebc00aaacf5eb5589d8497d17a8c84eca90237579248607c321b",
+          "bytes": 4166
+        },
+        {
+          "path": "game/components/GameCanvas.module.css",
+          "sha256": "2f4f5456abefc15957c9ea210464ecb58200b36f48bbbf0b8769f5483aa820a2",
+          "bytes": 9387
+        },
+        {
+          "path": "game/components/GameCanvas.tsx",
+          "sha256": "a03240e5aca92da2aa7e9b521b5bf84b00343184885d65bd9feb594edb662ba9",
+          "bytes": 17548
+        },
+        {
+          "path": "game/components/StandardizedPatientWorkspace.module.css",
+          "sha256": "00c5e4f8452cc9260f68d012d48a55e3d552bf94cdd3e52f63e3a731006bbde1",
+          "bytes": 17230
+        },
+        {
+          "path": "game/components/StandardizedPatientWorkspace.tsx",
+          "sha256": "23b100d83f3fb49b400cd676142dfa817024931d77e2ea80c249d7d4bf94b3bf",
+          "bytes": 30277
+        },
+        {
+          "path": "game/eslint.config.mjs",
+          "sha256": "b7ce5103d0f3e0c239f521fddc901a44d08ce60681cf4af0ca6c9a79acb72b9a",
+          "bytes": 398
+        },
+        {
+          "path": "game/next-env.d.ts",
+          "sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+          "bytes": 296
+        },
+        {
+          "path": "game/next.config.ts",
+          "sha256": "4b1958c132ca3fcaa315aeb067032c26581573855b78bcf4a8db2f0fb5646bec",
+          "bytes": 1544
+        },
+        {
+          "path": "game/package-lock.json",
+          "sha256": "262dfeb9163ed40ddb4a7248a8c0921b7f82898d10732bb26e92f37e39b65705",
+          "bytes": 255682
+        },
+        {
+          "path": "game/package.json",
+          "sha256": "42b688235ff254bb555d07827ffe4ca70f8fd0e7aa05f8f1a1108ae85a61f558",
+          "bytes": 1886
+        },
+        {
+          "path": "game/playwright.config.ts",
+          "sha256": "6d60e8b1f4872b498e5ada44135eba87fee4301c44ffb62e7fed79a75e6bee4f",
+          "bytes": 923
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-16/manifest.json",
+          "sha256": "f5c104968e51f4e7dc53a108d34f8187b66364d69293c243c8c343eb4a007037",
+          "bytes": 575
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-16/maps/clinic-community.tmj",
+          "sha256": "6aa38ff7c098e68e60e5e35bccbe5f3a0df8e8bdc3775ed3f363f482540a0ecc",
+          "bytes": 35184
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-16/tilesets/clinic-community.png",
+          "sha256": "297821dd07b408aa0eb853a7b25786cc12c80eb8d2f94a5fb6764015fde2a75c",
+          "bytes": 911
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-32/manifest.json",
+          "sha256": "115b7548e660096d40a42bdc51a144c86121dfdb697fed75cf2bbedca16a2302",
+          "bytes": 575
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-32/maps/clinic-community.tmj",
+          "sha256": "a7a6d79b9577f3cf81825c48e7f95364aef872cdef439dbde7e1cff520a7ef85",
+          "bytes": 35199
+        },
+        {
+          "path": "game/public/game-assets/dev/h3-32/tilesets/clinic-community.png",
+          "sha256": "315361ba984c25f036a34604a46a3b7606eec351f86cb069dd628314b79faa8b",
+          "bytes": 1535
+        },
+        {
+          "path": "game/public/game-assets/dev/manifest.json",
+          "sha256": "55ff698a6b7448d9c5f8d55c96f05cc6422ae3833e56356c2f096d6e6e52bd77",
+          "bytes": 241
+        },
+        {
+          "path": "game/public/game-assets/dev/maps/clinic-graybox.tmj",
+          "sha256": "2b042aa89f6a035a6462b2a50df341b7d28a706a04aaf1e3fb88344a00707dd1",
+          "bytes": 22468
+        },
+        {
+          "path": "game/scripts/capture-h3-evidence.mjs",
+          "sha256": "e71c9a03c2693527f66f1add18fedf7bb838cdf4216c2c2bae991ffbb28faeec",
+          "bytes": 5791
+        },
+        {
+          "path": "game/scripts/capture-s2-evidence.mjs",
+          "sha256": "6f72ab2fb54923a90afd591db3d02092c203ad6465fe71658872286438c171e1",
+          "bytes": 2209
+        },
+        {
+          "path": "game/scripts/generate-h3-tilesets.mjs",
+          "sha256": "50f83bf96baf974a445dab9fc67fe5bd2f4320bf9a722124f7154fa4cf968fe7",
+          "bytes": 15489
+        },
+        {
+          "path": "game/scripts/publish-graybox-map.mjs",
+          "sha256": "a310c0136408d6b4b58768515c1c0f86c21398383077874b551374d2a9bd30bc",
+          "bytes": 1150
+        },
+        {
+          "path": "game/scripts/publish-h3-clinic-candidates.mjs",
+          "sha256": "99cbb07bbb2d88d03abfcaf715e547be9efd9aff6ca21fbc65305cd98e08477b",
+          "bytes": 21743
+        },
+        {
+          "path": "game/scripts/run-seedream-smoke.ps1",
+          "sha256": "6bd5dd92ea4faa9032698f8c47721954f1d3540ea813fbb3f966db63ad57344e",
+          "bytes": 4069
+        },
+        {
+          "path": "game/scripts/seedream-smoke.py",
+          "sha256": "e999c97e39b6f813aae42f7056764208d7e4d58854871d6107446a1be4e0a874",
+          "bytes": 7979
+        },
+        {
+          "path": "game/src/game/bootstrap.ts",
+          "sha256": "b24fe66c2c4dd2445992b5ae6c89c98b196285aa8f7634af037d1a2762d1c4e6",
+          "bytes": 1027
+        },
+        {
+          "path": "game/src/game/bridge/gameBridge.ts",
+          "sha256": "6e71821e7019a7684723483b9169fb844286c26bf5ab423979799ea28e5fa64a",
+          "bytes": 3559
+        },
+        {
+          "path": "game/src/game/config/h3Candidate.ts",
+          "sha256": "ab493ae1cb69efd0b8049b7aa026108b25dbbcd1e890879c65dcd5d0b7d31073",
+          "bytes": 1215
+        },
+        {
+          "path": "game/src/game/domain/clinic-flow/clinicFlow.ts",
+          "sha256": "d7b610563a3ab2839e184d4f5573ce218835263b0bfaeef6aff379100c4f52e6",
+          "bytes": 8172
+        },
+        {
+          "path": "game/src/game/domain/clinic-flow/grayboxClinicContent.ts",
+          "sha256": "a0c4c246f790ba1d8769d778c2820dc937ddc6cf1952f527c5f31e1da0b55711",
+          "bytes": 1390
+        },
+        {
+          "path": "game/src/game/domain/patients/patientSessionBinding.ts",
+          "sha256": "46360691c66edf5a96e75145a1e8e35c74e10bdb2542d69b85eba85a96e698f1",
+          "bytes": 2864
+        },
+        {
+          "path": "game/src/game/domain/patients/publicPatientIdentityCatalog.ts",
+          "sha256": "d0bf9206d4c997251d53539df91170296b4fb7a6058313cf4e70c2987d9c3d40",
+          "bytes": 4992
+        },
+        {
+          "path": "game/src/game/domain/player/movement.ts",
+          "sha256": "488170e27adbbb0892e6d3ee13189a1512c1b2a8e7f3b1526afd9f31e138f837",
+          "bytes": 786
+        },
+        {
+          "path": "game/src/game/scenes/BootScene.ts",
+          "sha256": "90ad140054f5b999fff3083cfae554052b79c166eaf118820d1539bc91c2adec",
+          "bytes": 1093
+        },
+        {
+          "path": "game/src/game/scenes/PreloadScene.ts",
+          "sha256": "29aadc7247ce4e720fc9a5c7568eb62352d556a56776f65b1bc1b42ff46ca3c4",
+          "bytes": 1209
+        },
+        {
+          "path": "game/src/game/scenes/WorldScene.ts",
+          "sha256": "9d3625269d702ef2903e82716a8a647b4a2a987d0a3fbe6927bd5706dab49717",
+          "bytes": 28970
+        },
+        {
+          "path": "game/src/game/systems/maps/fallbackClinicMap.ts",
+          "sha256": "61ea0cc5d5077ab1c691746de0c58036fa74737d2ee49d8d939e1523aed1d982",
+          "bytes": 4281
+        },
+        {
+          "path": "game/src/game/systems/maps/tiledClinicMap.ts",
+          "sha256": "ae234bc6ac51f86612e4e564f52c2a8b508a73caf680b6b03af8437cfad972a6",
+          "bytes": 17783
+        },
+        {
+          "path": "game/src/server/clinic-http.ts",
+          "sha256": "f311ebd9cf3e3e7e3ab4c593598243af67be7301308add44eed19544c0f34c50",
+          "bytes": 7058
+        },
+        {
+          "path": "game/src/server/clinic-rate-limit.ts",
+          "sha256": "29200cddecbb78d5d45a2a85086fa8c1af02e16d0fe6f4a3431afe7d21f01fa6",
+          "bytes": 3264
+        },
+        {
+          "path": "game/src/server/clinic-runtime.ts",
+          "sha256": "321eab0af84e8449b4abd5071fa6786908043a864f54490cf4e33f4c420e5e58",
+          "bytes": 1152
+        },
+        {
+          "path": "game/src/server/clinic-turn.ts",
+          "sha256": "59e4a077779b28978192ebcfa51a49948ab3666a87f1cca6393e7d6d5a6efe50",
+          "bytes": 3843
+        },
+        {
+          "path": "game/tests/e2e/dialogue-shell.spec.ts",
+          "sha256": "075167924924dccb8f3f4dfc6f7f8ec8c5ea230942eb475775269b7048425c9d",
+          "bytes": 22019
+        },
+        {
+          "path": "game/tests/e2e/e4-patient-identity-closure.spec.ts",
+          "sha256": "70f1052c12baa2bd2d6410e3c92f4dba445bf60058213232a9080d7bf6066965",
+          "bytes": 22054
+        },
+        {
+          "path": "game/tests/e2e/game-shell.spec.ts",
+          "sha256": "f0174898a7cc01beb3658b90d51fbf8493abddedd541970444d7c8febf94bdee",
+          "bytes": 13597
+        },
+        {
+          "path": "game/tests/support/server-only.ts",
+          "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+          "bytes": 11
+        },
+        {
+          "path": "game/tests/unit/clinic-flow.test.ts",
+          "sha256": "36976e510c1418a221e18d1f064bae9cbdc3cf05fa8e0aaba795009832661b6f",
+          "bytes": 6129
+        },
+        {
+          "path": "game/tests/unit/clinic-http.test.ts",
+          "sha256": "bb77e9ad91e5ab4ae12f65f9644c343f1e6232be0cafc3a3bbcd94ab171a9788",
+          "bytes": 4851
+        },
+        {
+          "path": "game/tests/unit/clinic-rate-limit.test.ts",
+          "sha256": "cc8bf6ce314bc4d46abb37afb55767db23d7550f7859db05f80eeee775aaab2d",
+          "bytes": 2120
+        },
+        {
+          "path": "game/tests/unit/clinic-session-route.test.ts",
+          "sha256": "6f80248d019f58a1b36e8c2bfc8ca9696f23ecf16ebbccea6fea97cbcb3c0048",
+          "bytes": 3878
+        },
+        {
+          "path": "game/tests/unit/clinic-turn-route.test.ts",
+          "sha256": "3e0565f58e27687c7ee9b000a0affae42fca19fe23fbd4b04515dca6fec29d06",
+          "bytes": 4839
+        },
+        {
+          "path": "game/tests/unit/clinic-turn.test.ts",
+          "sha256": "2b80b5d7904c5f8cb23b903a7c376678d571f6f65d9025151923a7f2b42339ed",
+          "bytes": 8877
+        },
+        {
+          "path": "game/tests/unit/gameBridge.test.ts",
+          "sha256": "3eacff1f8bbd94162f166e3592e35c4220f75a7c37ef79d6710275af107b319e",
+          "bytes": 718
+        },
+        {
+          "path": "game/tests/unit/h3-candidate.test.ts",
+          "sha256": "36c929568ed24020ad49f7d6f4cf248ce497b6a3851291aef4c8fbfc2078b1a3",
+          "bytes": 3306
+        },
+        {
+          "path": "game/tests/unit/model-runtime-release.test.ts",
+          "sha256": "8fc68f4b3f5cfcc6eaa1e4bf0c30e4740ebce9703698b849ac791c959196a060",
+          "bytes": 591
+        },
+        {
+          "path": "game/tests/unit/movement.test.ts",
+          "sha256": "5fb6cb1a9136a8b3024597839d0f54497f13b2660ae8359d63c1f0f253762e12",
+          "bytes": 1354
+        },
+        {
+          "path": "game/tests/unit/patient-identity.test.ts",
+          "sha256": "3181901150e91534a10b5cb1334ec0d06e498a53130a9e4d62d533cccfe2b14d",
+          "bytes": 6975
+        },
+        {
+          "path": "game/tests/unit/tiled-clinic-map.test.ts",
+          "sha256": "2148c6da85aa74f0b3ff0324e921cbffab8bf69a6b2e80adcff060fc2501ecb2",
+          "bytes": 10185
+        },
+        {
+          "path": "game/tsconfig.json",
+          "sha256": "6be8a2fb0b2e434a9982dc67fde74db20a97785ac0ae63212183bba4b8933099",
+          "bytes": 625
+        },
+        {
+          "path": "game/vitest.config.ts",
+          "sha256": "c2b3106c727b89a1d1df5d1cf10747c6dcaba0e44590473ba1718772bfc4f97a",
+          "bytes": 413
+        }
+      ],
+      "sourceTreeSha256": "62841920c47676c0646a1922caa149dcabc605d86f9aa03d1817199302ef1215"
+    },
+    "browserRuntime": {
+      "schemaVersion": "e4-browser-runtime-snapshot-v1",
+      "browserName": "chromium",
+      "freshWebServerRequired": true,
+      "pagePath": "/world-preview",
+      "artifacts": [
+        {
+          "path": "/_next/static/chunks/_1-fd33a._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "64dc97a28df9b91ed0f867885e373ffcae2de69804bd3d818d6180c595115957",
+          "bytes": 106816
+        },
+        {
+          "path": "/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_0ltg-di._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "bac4b672f8d841edbf97a68fedcb5fb2da718596996fce7374e7a0f91d875f7c",
+          "bytes": 594
+        },
+        {
+          "path": "/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1mojsay._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "afddc7ff7745c3b04afdf480abb98a2471f9652f2b701946d80264619672781b",
+          "bytes": 15615
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_%40swc_helpers_cjs_1extyzs._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "0f3bb80c3387aca56bfce58441cceefd2a22d4990e43bd03dd7b1eeda3f4d74a",
+          "bytes": 1986
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_0lf7u8j._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "be342a2f13127e6a54ffef4e4800a8ce6baf5d88a060628e685d375939d36643",
+          "bytes": 71064
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_0zl26r5._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "27641268ab8462b18e3367be22cfc404ef0806f88a5b7800dbc1d132b4835c8e",
+          "bytes": 160223
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_build_polyfills_polyfill-nomodule.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+          "bytes": 112594
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_client_0n4g9jl._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "9103eaa9f1ca0b80975a65bc118ed55caad2c9696b3b76b2e9a7db7d52a2cbb3",
+          "bytes": 901899
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_compiled_1h4je2a._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "c70216f3b8a81883187fce5ac65b8ddd3549f9a28d6727b957e48292f9b27432",
+          "bytes": 144584
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_compiled_next-devtools_index_1w2tgfw.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "be2be51e88ae6df7e9ca6bc6eb947e00df2e4c0d0e1aebff74985f399f50a681",
+          "bytes": 864205
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_compiled_react-dom_1w4wzli._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "87587fbbce9c247b6d58913ed704b32d7aea208395f3ad033d7545134c9d0e0d",
+          "bytes": 1062275
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_next_dist_compiled_react-server-dom-turbopack_17jnm_8._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "fb03315b4f782b7d6ba717db589c9c1e6c39fc5e6f0b97bb8ef51a795de0a8b5",
+          "bytes": 176907
+        },
+        {
+          "path": "/_next/static/chunks/1-o6_phaser_dist_phaser_esm_1a19dc4.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "99c5c13f31928a188ee946a22dda2cf5fc9d721e6cdbcdeef8b3a96a93215077",
+          "bytes": 9234119
+        },
+        {
+          "path": "/_next/static/chunks/game_1anvha4._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "d4f93710e587c3d800a082d5d1a50452c18361f48992688b1a6d74d150b7a471",
+          "bytes": 778
+        },
+        {
+          "path": "/_next/static/chunks/game_1v6bi6z._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "4f42cbbb002ff4113602419e8a4ecbcdd1c4a09d4268c8d56f015f2ee66f17b5",
+          "bytes": 98712
+        },
+        {
+          "path": "/_next/static/chunks/game_20fvzox._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "587682aea7031b69537325f711b1863c33251f1a5c527b40a967bf85e313eac5",
+          "bytes": 535
+        },
+        {
+          "path": "/_next/static/chunks/game_app_globals_1_c0q30.css",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "sha256": "7b428e05848808c538bb6fbd3b7d69be2e862e4c0d1422391d290b00ad18c75a",
+          "bytes": 1836
+        },
+        {
+          "path": "/_next/static/chunks/game_components_GameCanvas_module_1bxf82h.css",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "sha256": "3170b61b522fdbf99783e90ca687317ec3f63e4786e4c571fd7a8f2912db793a",
+          "bytes": 11794
+        },
+        {
+          "path": "/_next/static/chunks/game_src_game_bootstrap_ts_1399fzg._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "9ab37fda118e05bd6804b73db4125ae3fbb92e571122b3a67856b725ba36ec64",
+          "bytes": 580
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-game_1zag_ym._.js",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "sha256": "424754bce4f55c4cdc3b404e3565e01d367602284bc2b888e00dc9255061a9b8",
+          "bytes": 105307
+        },
+        {
+          "path": "/world-preview",
+          "status": 200,
+          "contentType": "text/html; charset=utf-8",
+          "sha256": "c0b3b86715ed6b51b7a6df08215c973157bb825a6789780198b017cd4d5164c3",
+          "bytes": 15040
+        }
+      ],
+      "artifactSetSha256": "ce85b35373de9d28283f97cdd7c54b8536fc49488fda3691e4882ef206c1a9f0"
+    }
+  },
+  "observations": [
+    {
+      "surface": "console",
+      "availability": "observed",
+      "valueCount": 7,
+      "utf8Bytes": 1462,
+      "valueDigests": [
+        {
+          "valueIndex": 0,
+          "sha256": "1cbeba69ff2f6e1bfa9b1f14427ff265152968ad27f8db7cd3adc4adae165d72",
+          "utf8Bytes": 126
+        },
+        {
+          "valueIndex": 1,
+          "sha256": "b24e2d99160ab42ceb6ddfe3b7682e12b21c8c1e0186c62ea0a5bfeef16e4468",
+          "utf8Bytes": 19
+        },
+        {
+          "valueIndex": 2,
+          "sha256": "c8c0694c010f9608ff075f9b43f165124eb25e657fd879ca7df595425b3fdfac",
+          "utf8Bytes": 792
+        },
+        {
+          "valueIndex": 3,
+          "sha256": "482eb5995673ff75a87f5da2bed0962ecf6bbc144a7d5570b957bc7bf468288e",
+          "utf8Bytes": 122
+        },
+        {
+          "valueIndex": 4,
+          "sha256": "482eb5995673ff75a87f5da2bed0962ecf6bbc144a7d5570b957bc7bf468288e",
+          "utf8Bytes": 122
+        },
+        {
+          "valueIndex": 5,
+          "sha256": "482eb5995673ff75a87f5da2bed0962ecf6bbc144a7d5570b957bc7bf468288e",
+          "utf8Bytes": 122
+        },
+        {
+          "valueIndex": 6,
+          "sha256": "1b6ed90c7618eb955875eedf8a399bc8b5a1c8aa0511bc6e426cd05fda5e3b4a",
+          "utf8Bytes": 159
+        }
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "indexedDB",
+      "availability": "observed",
+      "valueCount": 2,
+      "utf8Bytes": 9130,
+      "valueDigests": [
+        {
+          "valueIndex": 0,
+          "sha256": "38bae9aa290cd27e6b0cf35bebc0a8610bb14336c74561b64d4f064d4a1aa44f",
+          "utf8Bytes": 43
+        },
+        {
+          "valueIndex": 1,
+          "sha256": "851588c4b4a38a265ba9bd8d92f547f52a59e9a1cc62c89d830131f3f6dc4e08",
+          "utf8Bytes": 9087
+        }
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "localStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "sessionStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "cacheStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "saveExport",
+      "availability": "not_available",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": [],
+      "reason": "The current game shell does not expose a save-export surface"
+    }
+  ],
+  "metrics": {
+    "observedSurfaces": 5,
+    "unavailableSurfaces": 1,
+    "failedSurfaces": 0,
+    "sensitiveMatches": 0
+  }
+}

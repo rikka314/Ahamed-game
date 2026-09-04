@@ -1,0 +1,32 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "02",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v8.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native variation rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create G04 exterior ground variant 2 of 2 as a second mossy 32x32 stone-brick tile. Match variant 1's pale stone material and five muted olive/sage moss colours, but use an independent, slightly sparser distribution concentrated around short mortar sections and brick corners. Do not reuse variant 1's fragment positions, do not form continuous diagonal runs of three pixels or more, preserve all outer border pixels and hard pixel edges, and keep seamless mixed tiling. Add no cracks, dirt, objects, text, logo, watermark or anti-aliasing.",
+  "humanEdits": [
+    "Created ten compact moss fragments at coordinates independent from variant 1.",
+    "Used the same five-colour moss palette so both variants remain one material family.",
+    "Kept the second variant slightly sparser than variant 1.",
+    "Removed every continuous three-pixel diagonal moss run.",
+    "Preserved every outer border pixel for seamless mixing with G03 and variant 1.",
+    "Created a mixed preview using irregular placements of both accepted-direction variants."
+  ],
+  "status": "DRAFT"
+}

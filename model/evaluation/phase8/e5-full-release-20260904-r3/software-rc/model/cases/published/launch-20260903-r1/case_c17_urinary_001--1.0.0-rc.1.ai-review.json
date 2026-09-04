@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8f62d8f0f68c6dac7dd999194c07c1a2d88eb345d2461496173879cebb87d2b7",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8242a370-3383-4178-bb31-f55e6108da0b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:03:01.172Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名称和别名均指向“胸部CT”，但报告却写成“泌尿系CT未见结石或梗阻”，检查名称、检查部位与报告内容不一致。",
+        "诊断可解性通过：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛和生命体征不稳，能够支持急性单纯性膀胱炎；鉴别诊断也有明确候选。",
+        "危险征象排除通过：红旗矩阵覆盖并标记为 absent 的相关事实完整，包括意识改变、低血压、不能口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾；生命体征另有检查读取。",
+        "评分量表一致性失败：评分将 test.chest_ct 规定为 unnecessary，但其报告实际描述泌尿系CT，容易造成检查标识、测试分类及临床语义错配；应统一为泌尿系影像检查，或改写为真正的胸部CT报告。",
+        "回归覆盖通过：包含成功、错误路径、安全中断和未知信息路径；成功路径覆盖核心病史、必要检查及诊断，安全路径明确要求中断且无医疗调用或写入。",
+        "隐藏真相保护通过：教学字段为 hidden，生命体征为 test_only，回归轨迹未直接暴露教学字段或内部评分信息；pending 审核元数据也未被当作病例事实。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.9b461a1d-de8b-49ff-8dd6-83a46918efea",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:03:17.590Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状、尿常规结果与“急性单纯性膀胱炎”总体一致，现有信息足以支持目标诊断；但 test.chest_ct 的显示名和别名指向胸部CT，报告却写成“泌尿系CT未见结石或梗阻”，检查身份与报告内容不一致。",
+        "目标诊断粒度明确，acceptedSynonyms与targetConcept一致；急性肾盂肾炎和尿道炎作为两个鉴别诊断也有症状学依据。",
+        "红旗矩阵中的9项均有对应 patient_fact，requiredState与observedValue一致；伴随症状还覆盖了发热、腰痛及阴道异常分泌物，未见直接安全排除矛盾。",
+        "mustAskFactIds均存在且与成功轨迹的核心问诊内容一致；鉴别诊断数量、检查分类和推荐回合数也相互匹配。",
+        "unknown轨迹的问题同时命中 fact.prior_episode 和 fact.relevant_exposure 的问句匹配词，但 expectedFactIds 仅包含 fact.prior_episode，导致轨迹预期与事实匹配规则不一致。成功轨迹要求“需要排除的危险表现”，按各红旗事实的通用匹配词可能命中全部红旗项，却只列出其中4项，亦存在潜在回归不稳定性。",
+        "答案键、教学字段和红旗矩阵属于服务端/内部字段，未见通过患者可见字段直接泄露隐藏答案；回归资产中的诊断文本虽为内部评测数据，当前不构成玩家侧泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性失败：test.chest_ct 的显示名称和别名均指向“胸部CT”，但报告却写成“泌尿系CT未见结石或梗阻”，检查名称、检查部位与报告内容不一致。",
+    "诊断可解性通过：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛和生命体征不稳，能够支持急性单纯性膀胱炎；鉴别诊断也有明确候选。",
+    "危险征象排除通过：红旗矩阵覆盖并标记为 absent 的相关事实完整，包括意识改变、低血压、不能口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾；生命体征另有检查读取。",
+    "评分量表一致性失败：评分将 test.chest_ct 规定为 unnecessary，但其报告实际描述泌尿系CT，容易造成检查标识、测试分类及临床语义错配；应统一为泌尿系影像检查，或改写为真正的胸部CT报告。",
+    "回归覆盖通过：包含成功、错误路径、安全中断和未知信息路径；成功路径覆盖核心病史、必要检查及诊断，安全路径明确要求中断且无医疗调用或写入。",
+    "隐藏真相保护通过：教学字段为 hidden，生命体征为 test_only，回归轨迹未直接暴露教学字段或内部评分信息；pending 审核元数据也未被当作病例事实。",
+    "病例症状、尿常规结果与“急性单纯性膀胱炎”总体一致，现有信息足以支持目标诊断；但 test.chest_ct 的显示名和别名指向胸部CT，报告却写成“泌尿系CT未见结石或梗阻”，检查身份与报告内容不一致。",
+    "目标诊断粒度明确，acceptedSynonyms与targetConcept一致；急性肾盂肾炎和尿道炎作为两个鉴别诊断也有症状学依据。",
+    "红旗矩阵中的9项均有对应 patient_fact，requiredState与observedValue一致；伴随症状还覆盖了发热、腰痛及阴道异常分泌物，未见直接安全排除矛盾。",
+    "mustAskFactIds均存在且与成功轨迹的核心问诊内容一致；鉴别诊断数量、检查分类和推荐回合数也相互匹配。",
+    "unknown轨迹的问题同时命中 fact.prior_episode 和 fact.relevant_exposure 的问句匹配词，但 expectedFactIds 仅包含 fact.prior_episode，导致轨迹预期与事实匹配规则不一致。成功轨迹要求“需要排除的危险表现”，按各红旗事实的通用匹配词可能命中全部红旗项，却只列出其中4项，亦存在潜在回归不稳定性。",
+    "答案键、教学字段和红旗矩阵属于服务端/内部字段，未见通过患者可见字段直接泄露隐藏答案；回归资产中的诊断文本虽为内部评测数据，当前不构成玩家侧泄露。"
+  ]
+}

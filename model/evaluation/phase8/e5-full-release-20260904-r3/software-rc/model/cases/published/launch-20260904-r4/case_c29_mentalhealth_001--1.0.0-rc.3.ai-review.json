@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:ce8f7ebf22d2f0d109026e624b170bf8cd105202fe41d16ded916cc37e6bc0b0",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8d7a9702-820a-41ef-bc7a-385d69360058",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:12:54.455Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：半年以上、多方面难以控制的担心，伴焦虑相关症状且无躁狂、精神病性或物质诱发线索；生命体征稳定，甲状腺功能筛查无异常，支持广泛性焦虑障碍。",
+        "诊断可解性通过：病例已提供建立主要诊断所需的病程、核心症状、伴随症状、功能影响及关键鉴别排除信息，目标诊断与可接受同义词明确。",
+        "危险征象排除通过：已覆盖意识改变、低血压、无法口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗；生命体征稳定，且设有胸痛伴呼吸困难的安全中断轨迹。",
+        "量表与评分规则一致性通过：must-ask事实、必需检查、应避免的头颅MRI、两个鉴别诊断及推荐回合数相互匹配；成功轨迹满足目标诊断和鉴别诊断要求。",
+        "回归覆盖通过：支持成功、错误诊断与不必要检查、安全中断、未知既往史追问四类轨迹，且预期结果与病例事实及评分策略一致。",
+        "隐藏真相安全通过：教学字段保持hidden，评分策略与服务端字段未纳入患者可见内容；回归输入未要求泄露内部病例标识、答案键或隐藏教学信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.fc1150e9-4b8f-4609-9987-b27be88c12a8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:13:07.047Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与广泛性焦虑障碍一致：多领域、难以控制的担心持续半年，并伴典型焦虑相关症状；甲状腺功能筛查正常、无躁狂或精神病性表现，诊断粒度适当。",
+        "核心诊断可解：起病时长、担心模式、伴随症状及进展均有事实支持，广泛性焦虑障碍是明确且可区分的目标诊断。",
+        "红旗矩阵中的各项均有对应的 absent patient fact，且成功轨迹覆盖了这些排除项；未见将已存在红旗错误标为阴性的情况。",
+        "rubric 内部结构一致：must-ask、两个可接受鉴别诊断、必需/不必要检查及推荐回合数彼此匹配。",
+        "成功回归轨迹存在覆盖缺口：其唯一的询问文本明确提到起病、主要表现、伴随症状、变化和危险表现，但未明确询问相关物质/兴奋剂暴露，却将 fact.relevant_exposure 列为 expectedFactIds；因此不能稳定证明该事实已被询问并披露。",
+        "未发现隐藏教学字段或 test-only 生命体征被不当暴露；精神状态检查和头颅MRI结果作为检查结果呈现，未泄露服务端评分字段。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：半年以上、多方面难以控制的担心，伴焦虑相关症状且无躁狂、精神病性或物质诱发线索；生命体征稳定，甲状腺功能筛查无异常，支持广泛性焦虑障碍。",
+    "诊断可解性通过：病例已提供建立主要诊断所需的病程、核心症状、伴随症状、功能影响及关键鉴别排除信息，目标诊断与可接受同义词明确。",
+    "危险征象排除通过：已覆盖意识改变、低血压、无法口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗；生命体征稳定，且设有胸痛伴呼吸困难的安全中断轨迹。",
+    "量表与评分规则一致性通过：must-ask事实、必需检查、应避免的头颅MRI、两个鉴别诊断及推荐回合数相互匹配；成功轨迹满足目标诊断和鉴别诊断要求。",
+    "回归覆盖通过：支持成功、错误诊断与不必要检查、安全中断、未知既往史追问四类轨迹，且预期结果与病例事实及评分策略一致。",
+    "隐藏真相安全通过：教学字段保持hidden，评分策略与服务端字段未纳入患者可见内容；回归输入未要求泄露内部病例标识、答案键或隐藏教学信息。",
+    "临床叙事与广泛性焦虑障碍一致：多领域、难以控制的担心持续半年，并伴典型焦虑相关症状；甲状腺功能筛查正常、无躁狂或精神病性表现，诊断粒度适当。",
+    "核心诊断可解：起病时长、担心模式、伴随症状及进展均有事实支持，广泛性焦虑障碍是明确且可区分的目标诊断。",
+    "红旗矩阵中的各项均有对应的 absent patient fact，且成功轨迹覆盖了这些排除项；未见将已存在红旗错误标为阴性的情况。",
+    "rubric 内部结构一致：must-ask、两个可接受鉴别诊断、必需/不必要检查及推荐回合数彼此匹配。",
+    "成功回归轨迹存在覆盖缺口：其唯一的询问文本明确提到起病、主要表现、伴随症状、变化和危险表现，但未明确询问相关物质/兴奋剂暴露，却将 fact.relevant_exposure 列为 expectedFactIds；因此不能稳定证明该事实已被询问并披露。",
+    "未发现隐藏教学字段或 test-only 生命体征被不当暴露；精神状态检查和头颅MRI结果作为检查结果呈现，未泄露服务端评分字段。"
+  ]
+}

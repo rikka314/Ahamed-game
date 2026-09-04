@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:97e6e7b70015cea319a349935afd39c2fd690660ec99673cf0b148c6bb303911",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.3a6a8810-19d2-4dfd-ad55-3c950ad09c67",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:23:59.669Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：18–25岁女性呈现经期开始时痉挛性下腹痛、周期规律、两天内缓解且无异常出血、发热、急性剧痛或器质性异常，支持原发性痛经；盆腔CT列为不必要检查也与病例设定一致。",
+        "诊断可解性：病例提供了起病、疼痛模式、伴随症状、进展及妇科评估结果，并明确排除了妊娠和主要急症，足以稳定支持“原发性痛经”，且可合理提出子宫内膜异位症和盆腔炎作为鉴别诊断。",
+        "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠可能、影响循环的大量出血、急性剧烈盆腔痛、妇科感染伴发热及黏膜或上生殖道受累均有明确阴性状态；生命体征检查结果稳定，具备安全退出基础。",
+        "量表一致性：must-ask事实、必需检查、不必要检查、鉴别诊断数量及沟通标准彼此一致；成功轨迹完整覆盖要求，失败轨迹正确覆盖错误诊断和不必要检查。",
+        "回归覆盖：成功、失败、安全中断和未知事实轨迹均有明确预期；安全轨迹要求SAFETY_INTERRUPTED、零医疗回合及零服务端写入，未知事实轨迹也覆盖了相应事实读取。",
+        "隐藏真相安全：教学字段保持hidden，未将服务端教学或评分字段暴露为患者可见信息；病例事实、评分摘要和回归预期之间未发现会泄露隐藏诊断真相的内容。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.bde8b1db-9ff7-4d3e-bb8d-825b6c80398a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:24:14.127Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状呈经期开始时痉挛痛、两天内缓解，周期规律且无大量出血、发热或器质性异常，支持“原发性痛经”；子宫内膜异位症和盆腔炎作为鉴别诊断与病例设定一致。",
+        "诊断粒度适当，目标概念、接受同义词、鉴别诊断数量及回归轨迹中的诊断字符串均一致，病例具有可解性。",
+        "红旗事实覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、妊娠可能、大量出血、急性剧烈盆腔痛、妇科发热及上生殖道受累，且均标记为 absent；未见与主诊断冲突的红旗。",
+        "rubric 的 mustAskFactIds、requiredDifferentialCount、可接受鉴别诊断及检查分类与 success/failure 回归轨迹一致；生命体征和妇科评估为必需，盆腔CT被正确标记为不必要。",
+        "四类回归轨迹均具备：成功路径覆盖全部必问事实并得到精确诊断，失败路径验证错误诊断与不必要检查，安全路径正确中断，unknown 路径保留未知既往史，不存在明显断言或计数冲突。",
+        "建议后续增强病例显式检查资产：患者事实称“适当检测均不支持当前妊娠”，但 medicalTests 未列出妊娠检测；当前不影响既定诊断与回归预期，但正式发布前宜明确该检测是否执行及其结果。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：18–25岁女性呈现经期开始时痉挛性下腹痛、周期规律、两天内缓解且无异常出血、发热、急性剧痛或器质性异常，支持原发性痛经；盆腔CT列为不必要检查也与病例设定一致。",
+    "诊断可解性：病例提供了起病、疼痛模式、伴随症状、进展及妇科评估结果，并明确排除了妊娠和主要急症，足以稳定支持“原发性痛经”，且可合理提出子宫内膜异位症和盆腔炎作为鉴别诊断。",
+    "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠可能、影响循环的大量出血、急性剧烈盆腔痛、妇科感染伴发热及黏膜或上生殖道受累均有明确阴性状态；生命体征检查结果稳定，具备安全退出基础。",
+    "量表一致性：must-ask事实、必需检查、不必要检查、鉴别诊断数量及沟通标准彼此一致；成功轨迹完整覆盖要求，失败轨迹正确覆盖错误诊断和不必要检查。",
+    "回归覆盖：成功、失败、安全中断和未知事实轨迹均有明确预期；安全轨迹要求SAFETY_INTERRUPTED、零医疗回合及零服务端写入，未知事实轨迹也覆盖了相应事实读取。",
+    "隐藏真相安全：教学字段保持hidden，未将服务端教学或评分字段暴露为患者可见信息；病例事实、评分摘要和回归预期之间未发现会泄露隐藏诊断真相的内容。",
+    "症状呈经期开始时痉挛痛、两天内缓解，周期规律且无大量出血、发热或器质性异常，支持“原发性痛经”；子宫内膜异位症和盆腔炎作为鉴别诊断与病例设定一致。",
+    "诊断粒度适当，目标概念、接受同义词、鉴别诊断数量及回归轨迹中的诊断字符串均一致，病例具有可解性。",
+    "红旗事实覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、妊娠可能、大量出血、急性剧烈盆腔痛、妇科发热及上生殖道受累，且均标记为 absent；未见与主诊断冲突的红旗。",
+    "rubric 的 mustAskFactIds、requiredDifferentialCount、可接受鉴别诊断及检查分类与 success/failure 回归轨迹一致；生命体征和妇科评估为必需，盆腔CT被正确标记为不必要。",
+    "四类回归轨迹均具备：成功路径覆盖全部必问事实并得到精确诊断，失败路径验证错误诊断与不必要检查，安全路径正确中断，unknown 路径保留未知既往史，不存在明显断言或计数冲突。",
+    "建议后续增强病例显式检查资产：患者事实称“适当检测均不支持当前妊娠”，但 medicalTests 未列出妊娠检测；当前不影响既定诊断与回归预期，但正式发布前宜明确该检测是否执行及其结果。"
+  ]
+}

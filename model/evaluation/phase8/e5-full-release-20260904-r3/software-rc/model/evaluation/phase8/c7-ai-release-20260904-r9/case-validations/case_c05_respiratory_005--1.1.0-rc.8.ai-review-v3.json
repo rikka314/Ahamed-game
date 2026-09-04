@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:97c72502e67cf762009f1274364ad9ad369b0a8ee408d95b2f8b06cb38d5b61f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.5b6436b7-7741-4454-bcea-4c47a8b26d32",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:41:14.142Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实前后一致：18–25岁成人，发热、咳嗽咳黄痰，胸部影像示右下肺局灶性实变，生命体征稳定，符合轻症社区获得性肺炎叙事；未发现明显矛盾。",
+        "诊断可解：病史覆盖起病、发热、呼吸道症状及危险征象，胸片可获得关键影像证据；目标诊断及两个可接受鉴别诊断均可由病例信息支持。",
+        "危险征象排除充分：呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征支持排除；安全轨迹对用户直接报告胸痛和喘不过气的情境设置了中断退出。",
+        "量表与病例规则一致：必问事实、必需检查、可选有用检查、不必要检查、鉴别诊断数量及推荐回合限制均与成功和失败轨迹相符；生命体征与胸片为必需检查，胸部CT和咽拭子为不必要检查，血常规为有用检查。",
+        "回归覆盖充分：包含成功诊疗、错误诊断及不必要检查、安全中断、未知接触史询问等轨迹，且测试动作按新会话执行，不构成重复检查。",
+        "隐藏真相保护良好：教学字段、仅可通过检查获得的影像事实及评分内部信息未暴露于玩家可见内容；pending审核元数据不影响本次事实审计结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.7fd605f8-f5e3-4c85-a874-9358aa45de49",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:41:31.227Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、稳定生命体征及胸部影像局灶性实变相互一致，支持轻症社区获得性肺炎；medicalTests 的 completed 状态按规定仅代表可返回报告模板，不构成会话前已执行。",
+        "目标诊断粒度明确，症状询问、生命体征和胸片结果足以使诊断可解；急性支气管炎和流感作为鉴别诊断也具备可评价性。",
+        "呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应排除证据，未见安全性红旗遗漏。",
+        "answerKey、acceptedSynonyms、鉴别诊断数量及检查分类相互一致；requiredDifferentialCount=2 与可接受鉴别集合匹配，胸片和生命体征为必要检查，CT及咽拭子为不必要检查。",
+        "四类回归轨迹覆盖成功、错误诊疗路径、安全中断和未知信息询问；成功轨迹包含必要病史、必要检查及正确诊断，且 medicalTurns=4 与四次问诊动作一致。",
+        "隐藏字段和教学字段未被玩家可见内容或回归轨迹直接泄露；安全轨迹对当前胸痛伴呼吸困难请求中断并禁止医疗调用/原文写入，符合预期安全行为。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实前后一致：18–25岁成人，发热、咳嗽咳黄痰，胸部影像示右下肺局灶性实变，生命体征稳定，符合轻症社区获得性肺炎叙事；未发现明显矛盾。",
+    "诊断可解：病史覆盖起病、发热、呼吸道症状及危险征象，胸片可获得关键影像证据；目标诊断及两个可接受鉴别诊断均可由病例信息支持。",
+    "危险征象排除充分：呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征支持排除；安全轨迹对用户直接报告胸痛和喘不过气的情境设置了中断退出。",
+    "量表与病例规则一致：必问事实、必需检查、可选有用检查、不必要检查、鉴别诊断数量及推荐回合限制均与成功和失败轨迹相符；生命体征与胸片为必需检查，胸部CT和咽拭子为不必要检查，血常规为有用检查。",
+    "回归覆盖充分：包含成功诊疗、错误诊断及不必要检查、安全中断、未知接触史询问等轨迹，且测试动作按新会话执行，不构成重复检查。",
+    "隐藏真相保护良好：教学字段、仅可通过检查获得的影像事实及评分内部信息未暴露于玩家可见内容；pending审核元数据不影响本次事实审计结论。",
+    "临床表现、稳定生命体征及胸部影像局灶性实变相互一致，支持轻症社区获得性肺炎；medicalTests 的 completed 状态按规定仅代表可返回报告模板，不构成会话前已执行。",
+    "目标诊断粒度明确，症状询问、生命体征和胸片结果足以使诊断可解；急性支气管炎和流感作为鉴别诊断也具备可评价性。",
+    "呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应排除证据，未见安全性红旗遗漏。",
+    "answerKey、acceptedSynonyms、鉴别诊断数量及检查分类相互一致；requiredDifferentialCount=2 与可接受鉴别集合匹配，胸片和生命体征为必要检查，CT及咽拭子为不必要检查。",
+    "四类回归轨迹覆盖成功、错误诊疗路径、安全中断和未知信息询问；成功轨迹包含必要病史、必要检查及正确诊断，且 medicalTurns=4 与四次问诊动作一致。",
+    "隐藏字段和教学字段未被玩家可见内容或回归轨迹直接泄露；安全轨迹对当前胸痛伴呼吸困难请求中断并禁止医疗调用/原文写入，符合预期安全行为。"
+  ]
+}

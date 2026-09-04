@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c06_respiratory_006",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:4f6ea11084979b3fa29de61c39c6b25b6bd5a5afe6fb85ea4a1ba44f837930c9",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.920bb5e6-b514-4cbf-af9a-a808792841c3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:54:54.147Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在轻度矛盾：主要模式明确记载接触灰尘后加重、起病于整理旧房间后，但 relevant_exposure 又标为 unknown，需统一暴露史定义或状态。",
+        "症状模式、鼻腔检查及稳定生命体征足以支持过敏性鼻炎，目标诊断和可接受鉴别诊断清晰，诊断可解。",
+        "红旗矩阵要求排除9项危险征象，但 mustAskFactIds 和成功回归轨迹仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population，未覆盖 dyspnea、chest_pain、hemoptysis、tachypnea、hypoxemia；安全排除不完整。",
+        "量表与回归覆盖不一致：矩阵列出的全部适用红旗未纳入 must-ask；同时评分要求的测试选择与轨迹基本一致，但整体安全字段覆盖不足，需统一 rubric、矩阵和轨迹。",
+        "success 轨迹未验证全部适用红旗，unknown 轨迹仅覆盖 prior_episode，failure 轨迹也未检验不必要检查扣分或红旗缺失等边界，因此回归覆盖不足。",
+        "教学字段标记为 hidden，回归输入未将答案键或教学注释暴露给玩家；未发现隐藏真相泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.dabeb3f3-ad54-48e1-ba89-b83769bda4be",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:55:12.537Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不完全：病史已明确“整理旧房间后起病”且“接触灰尘后明显”，但 fact.relevant_exposure 又记为未留意明确接触或诱因，存在事实表述冲突。",
+        "诊断可解性良好：喷嚏、清涕、鼻痒、眼痒、无发热及鼻黏膜苍白水肿伴清亮分泌物共同支持过敏性鼻炎，并提供了普通感冒和非过敏性鼻炎作为合理鉴别。",
+        "红旗排除覆盖不足：矩阵列出9项适用红旗，但 rubric.mustAskFactIds 仅要求询问其中4项，未覆盖呼吸困难、胸痛、咯血、呼吸急促和低氧血症；生命体征检查不能替代全部症状性红旗询问。",
+        "rubric内部基本一致：目标诊断、2项可接受鉴别、2项必需检查、胸部CT不必要及10回合限制彼此匹配，成功轨迹也符合这些要求。",
+        "四类回归轨迹与病例字段总体一致：success、failure、safety 和 unknown 的动作、事实ID、诊断及期望结果均可对应；胸部CT仅出现在失败轨迹，符合其不必要分类。",
+        "未见隐藏教学字段、服务端字段或人工pending元数据被暴露为玩家诊断依据；安全轨迹要求中断且不产生医疗回合、provider调用或原文写入，定义清晰。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在轻度矛盾：主要模式明确记载接触灰尘后加重、起病于整理旧房间后，但 relevant_exposure 又标为 unknown，需统一暴露史定义或状态。",
+    "症状模式、鼻腔检查及稳定生命体征足以支持过敏性鼻炎，目标诊断和可接受鉴别诊断清晰，诊断可解。",
+    "红旗矩阵要求排除9项危险征象，但 mustAskFactIds 和成功回归轨迹仅覆盖 confusion、hypotension、inability_oral_intake、high_risk_population，未覆盖 dyspnea、chest_pain、hemoptysis、tachypnea、hypoxemia；安全排除不完整。",
+    "量表与回归覆盖不一致：矩阵列出的全部适用红旗未纳入 must-ask；同时评分要求的测试选择与轨迹基本一致，但整体安全字段覆盖不足，需统一 rubric、矩阵和轨迹。",
+    "success 轨迹未验证全部适用红旗，unknown 轨迹仅覆盖 prior_episode，failure 轨迹也未检验不必要检查扣分或红旗缺失等边界，因此回归覆盖不足。",
+    "教学字段标记为 hidden，回归输入未将答案键或教学注释暴露给玩家；未发现隐藏真相泄漏。",
+    "临床一致性不完全：病史已明确“整理旧房间后起病”且“接触灰尘后明显”，但 fact.relevant_exposure 又记为未留意明确接触或诱因，存在事实表述冲突。",
+    "诊断可解性良好：喷嚏、清涕、鼻痒、眼痒、无发热及鼻黏膜苍白水肿伴清亮分泌物共同支持过敏性鼻炎，并提供了普通感冒和非过敏性鼻炎作为合理鉴别。",
+    "红旗排除覆盖不足：矩阵列出9项适用红旗，但 rubric.mustAskFactIds 仅要求询问其中4项，未覆盖呼吸困难、胸痛、咯血、呼吸急促和低氧血症；生命体征检查不能替代全部症状性红旗询问。",
+    "rubric内部基本一致：目标诊断、2项可接受鉴别、2项必需检查、胸部CT不必要及10回合限制彼此匹配，成功轨迹也符合这些要求。",
+    "四类回归轨迹与病例字段总体一致：success、failure、safety 和 unknown 的动作、事实ID、诊断及期望结果均可对应；胸部CT仅出现在失败轨迹，符合其不必要分类。",
+    "未见隐藏教学字段、服务端字段或人工pending元数据被暴露为玩家诊断依据；安全轨迹要求中断且不产生医疗回合、provider调用或原文写入，定义清晰。"
+  ]
+}

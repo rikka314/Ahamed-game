@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:ed133dfd0ba511320003c9a09258e2d8fd180ddd66b0c677ff7270a312ba716c",
+  "personaTemplateId": "gentle_cooperative",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "您好，医生。我咳嗽已经八天了，偶尔会咳出一点痰，想来看看是怎么回事。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "主要就是咳嗽，已经八天了，偶尔会咳出一点痰。",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "是的，现在还是会咳嗽，白天晚上都有，偶尔能咳出一点痰。不过目前还不影响睡觉。您是想问咳嗽，还是咳痰的情况呢？",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.cough",
+        "fact.sputum"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是啊，今天看着挺舒服的。不过我这咳嗽还没完全好，医生您接着问就行。",
+      "disclosedFactIds": [
+        "fact.cough"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢摄影，偶尔也会和同学一起骑行，课余参加社团活动比较多。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2",
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以啊，医生。您想聊点什么？我平时比较喜欢摄影，偶尔也和同学一起骑行。不过如果方便的话，咱们还是尽快继续看看咳嗽的情况吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "还行吧，最近课和社团活动都有一点忙，不过还应付得来。咱们还是先继续看看咳嗽的情况吧，医生您接着问就好。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "是的，现在还是会咳嗽，白天和晚上都有，偶尔能咳出一点痰，不过目前还不影响睡觉。",
+      "disclosedFactIds": [
+        "fact.cough",
+        "fact.sputum"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的，医生，您量吧。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的胸部查体结果怎么样",
+      "reply": "胸部还没检查呢。医生，您可以现在帮我做一下胸部查体。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好的，医生，那就做胸部查体吧，我配合您。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.chest_exam",
+            "status": "completed",
+            "report": "双肺呼吸音粗，可闻散在鼾音，咳嗽后减轻；未闻局灶性湿啰音。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.chest_exam",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "胸部查体现在是什么结果",
+      "reply": "胸部查体结果是：双肺呼吸音比较粗，能听到散在的鼾音，咳嗽之后会减轻，没有听到局灶性的湿啰音。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.chest_exam"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+          },
+          {
+            "testId": "test.chest_exam",
+            "status": "completed",
+            "report": "双肺呼吸音粗，可闻散在鼾音，咳嗽后减轻；未闻局灶性湿啰音。"
+          }
+        ]
+      }
+    }
+  ]
+}

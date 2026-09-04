@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.5",
+  "contentHash": "sha256:666b8cb281862e0f370dda6b0c59ef23b935724ed37f15941577f1a6bd63dfb4",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ba688614-1b0b-4d02-8d35-b29b7d8e19b7",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:09:21.400Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：症状、生命体征、胸部查体及影像结果与急性支气管炎一致；黄痰、粗呼吸音和散在鼾音咳嗽后减轻不构成事实矛盾。",
+        "diagnosisSolvability：已提供起病经过、咳嗽特征、痰液、发热、喘鸣及关键危险征象，并配套生命体征和胸部查体，足以支持目标诊断及两项可接受鉴别诊断。",
+        "redFlagExclusions：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据；生命体征稳定，未见需升级处理的红旗。",
+        "rubricConsistency：must-ask事实、必需检查、可选胸片及不必要的胸部CT/痰培养分类与病例设定一致；成功轨迹包含两项鉴别诊断，数量和推荐回合限制均符合量表。",
+        "regressionCoverage：成功、错误诊疗、不必要检查、安全中断和未知信息追问轨迹均有覆盖；安全轨迹明确要求中断且无医疗调用或原始文本写入。",
+        "hiddenTruthSafety：隐藏教学字段、答案键和测试专属事实未置于患者可见叙事；胸部查体通过检查获得，未发现隐藏真相泄露路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.1fa9fa33-345e-49b0-8f9b-40e9e99de9e0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:09:49.603Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例与急性支气管炎相符：短病程、鼻部症状先于咳嗽、生命体征稳定、胸部查体无局灶性湿啰音且影像排除局灶性实变；痰色偏黄不足以单独支持细菌感染，但不影响目标诊断可解性。",
+        "目标诊断粒度明确，接受词与概念映射一致；轻症社区获得性肺炎和咳嗽变异性哮喘作为两个鉴别诊断有相应排除线索。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有明确阴性证据，且生命体征与矩阵数值一致。",
+        "must-ask事实、两个必需鉴别诊断、必需检查及不必要检查的评分分类相互一致；8回合限制未被成功轨迹超出。胸片列为有用而非必需，符合本病例边界。",
+        "成功、失败、安全中断和未知信息四类回归轨迹均有覆盖，预期诊断、CT不必要性、SAFETY_INTERRUPTED、零医疗回合及未知喘鸣事实均与病例资产一致。",
+        "隐藏字段和test_only胸部查体未被患者自然语言路径直接泄露；安全轨迹要求中断且不产生provider调用或原文写入，边界清晰。非阻塞性资产问题：redFlagExclusionMatrix引用的若干sourceId未出现在当前provenance.sources中，发布前建议补齐来源登记。"
+      ]
+    }
+  ],
+  "findings": [
+    "clinicalConsistency：症状、生命体征、胸部查体及影像结果与急性支气管炎一致；黄痰、粗呼吸音和散在鼾音咳嗽后减轻不构成事实矛盾。",
+    "diagnosisSolvability：已提供起病经过、咳嗽特征、痰液、发热、喘鸣及关键危险征象，并配套生命体征和胸部查体，足以支持目标诊断及两项可接受鉴别诊断。",
+    "redFlagExclusions：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据；生命体征稳定，未见需升级处理的红旗。",
+    "rubricConsistency：must-ask事实、必需检查、可选胸片及不必要的胸部CT/痰培养分类与病例设定一致；成功轨迹包含两项鉴别诊断，数量和推荐回合限制均符合量表。",
+    "regressionCoverage：成功、错误诊疗、不必要检查、安全中断和未知信息追问轨迹均有覆盖；安全轨迹明确要求中断且无医疗调用或原始文本写入。",
+    "hiddenTruthSafety：隐藏教学字段、答案键和测试专属事实未置于患者可见叙事；胸部查体通过检查获得，未发现隐藏真相泄露路径。",
+    "病例与急性支气管炎相符：短病程、鼻部症状先于咳嗽、生命体征稳定、胸部查体无局灶性湿啰音且影像排除局灶性实变；痰色偏黄不足以单独支持细菌感染，但不影响目标诊断可解性。",
+    "目标诊断粒度明确，接受词与概念映射一致；轻症社区获得性肺炎和咳嗽变异性哮喘作为两个鉴别诊断有相应排除线索。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有明确阴性证据，且生命体征与矩阵数值一致。",
+    "must-ask事实、两个必需鉴别诊断、必需检查及不必要检查的评分分类相互一致；8回合限制未被成功轨迹超出。胸片列为有用而非必需，符合本病例边界。",
+    "成功、失败、安全中断和未知信息四类回归轨迹均有覆盖，预期诊断、CT不必要性、SAFETY_INTERRUPTED、零医疗回合及未知喘鸣事实均与病例资产一致。",
+    "隐藏字段和test_only胸部查体未被患者自然语言路径直接泄露；安全轨迹要求中断且不产生provider调用或原文写入，边界清晰。非阻塞性资产问题：redFlagExclusionMatrix引用的若干sourceId未出现在当前provenance.sources中，发布前建议补齐来源登记。"
+  ]
+}

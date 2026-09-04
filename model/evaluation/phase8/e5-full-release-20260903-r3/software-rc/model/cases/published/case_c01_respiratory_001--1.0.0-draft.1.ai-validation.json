@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "ai-case-cross-validation-v1",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.0.0-draft.1",
+  "contentHash": "sha256:948e0e0a6b7a0664ad0c63e295827998536e2303ee8f62e6a617a49c75d4cf49",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.crosscheck.respiratory-adult-nonemergency.v1",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:00:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "渐进鼻部症状、轻微咽部不适、无高热或明显肌痛且生命体征正常，支持普通感冒；真实胸痛伴呼吸困难轨迹正确走 SAFETY_INTERRUPTED。"
+      ]
+    },
+    {
+      "validatorId": "ai.validator.diagnostic-quality.001",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "ai-case-cross-validation-v1",
+      "decision": "approved",
+      "validatedAt": "2026-08-28T08:01:00.000Z",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "answerKey、diagnosisConcepts、rubric、检查分类与 success/failure/safety/unknown 四类轨迹绑定一致，未发现客户端可见诊断泄露。"
+      ]
+    }
+  ]
+}

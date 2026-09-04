@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:741b5bbd5487d34a8bf6539bbd9c0b7c86e1f40a682b3eca4a8806e0904a07c1",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.pending.1",
+      "role": "clinical_safety",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c12_cardiometabolic_005.1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    },
+    {
+      "validatorId": "validator.pending.2",
+      "role": "diagnostic_quality",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c12_cardiometabolic_005.2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例结构已生成，但两项真实 AI 交叉审核尚未运行。"
+  ]
+}

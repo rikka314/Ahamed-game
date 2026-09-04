@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:dda3c8b080c3eee44f009ec02eb689de2e60703656e99e4a164324112e5e75bf",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.950e7d4b-6014-4897-abc5-f6d44ac7c067",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:42:20.085Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人非急症咳嗽病例的症状模式、稳定生命体征、肺功能轻度可逆性气流受限与咳嗽变异性哮喘相互一致；胸部CT未见局灶异常也无明显矛盾。",
+        "诊断可解性通过：已提供起病、症状模式、伴随症状和进展信息，且肺功能结果支持目标诊断；允许的两个鉴别诊断与评分策略一致。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均明确为无；另有生命体征检查及安全中断轨迹。",
+        "量表一致性通过：must-ask事实、两个鉴别诊断、必需检查及不必要的胸部CT分类均相互匹配；成功轨迹在建议回合数内完成。",
+        "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知事实查询等轨迹，覆盖诊断、检查选择、红旗安全和未知状态处理。",
+        "隐藏真相安全通过：教学字段保持hidden；completed状态仅作为可返回报告模板，不应被解释为会话开始前已执行，且回归轨迹中的检查动作具有明确提交路径；pending兼容元数据不影响本次审核。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.31b354ec-017b-43f5-b223-59018e180cd8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:42:35.150Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为夜间及运动后阵发性干咳，伴肺功能提示轻度可逆性气流受限，与咳嗽变异性哮喘相符；胸部CT阴性及无感染、低氧等表现不构成矛盾。",
+        "目标诊断粒度明确，诊断名称及同义词映射一致；肺功能检查提供了足以支持目标诊断的关键证据，且设置了上气道咳嗽综合征和胃食管反流病作为可接受鉴别诊断。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧表现，均有对应患者事实且状态一致。",
+        "must-ask事实、可接受鉴别诊断数量、必需/不必要检查分类与答案键一致；requiredDifferentialCount为2，成功轨迹正好提供两项鉴别诊断。",
+        "四类回归轨迹内部一致：成功轨迹覆盖必需病史、必需检查及正确诊断；失败轨迹使用不必要胸部CT并提交错误诊断；安全轨迹应中断且不产生医疗调用；unknown轨迹正确覆盖既往发作事实。medicalTests中的completed状态不影响新会话轨迹中的test动作判定。",
+        "未见将教学字段、review.pending或人工审核元数据泄露为可见诊断依据的问题；安全轨迹不依赖隐藏事实，且预期providerCalls、rawTextWrites和medicalTurns均为零。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人非急症咳嗽病例的症状模式、稳定生命体征、肺功能轻度可逆性气流受限与咳嗽变异性哮喘相互一致；胸部CT未见局灶异常也无明显矛盾。",
+    "诊断可解性通过：已提供起病、症状模式、伴随症状和进展信息，且肺功能结果支持目标诊断；允许的两个鉴别诊断与评分策略一致。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均明确为无；另有生命体征检查及安全中断轨迹。",
+    "量表一致性通过：must-ask事实、两个鉴别诊断、必需检查及不必要的胸部CT分类均相互匹配；成功轨迹在建议回合数内完成。",
+    "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知事实查询等轨迹，覆盖诊断、检查选择、红旗安全和未知状态处理。",
+    "隐藏真相安全通过：教学字段保持hidden；completed状态仅作为可返回报告模板，不应被解释为会话开始前已执行，且回归轨迹中的检查动作具有明确提交路径；pending兼容元数据不影响本次审核。",
+    "临床表现为夜间及运动后阵发性干咳，伴肺功能提示轻度可逆性气流受限，与咳嗽变异性哮喘相符；胸部CT阴性及无感染、低氧等表现不构成矛盾。",
+    "目标诊断粒度明确，诊断名称及同义词映射一致；肺功能检查提供了足以支持目标诊断的关键证据，且设置了上气道咳嗽综合征和胃食管反流病作为可接受鉴别诊断。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧表现，均有对应患者事实且状态一致。",
+    "must-ask事实、可接受鉴别诊断数量、必需/不必要检查分类与答案键一致；requiredDifferentialCount为2，成功轨迹正好提供两项鉴别诊断。",
+    "四类回归轨迹内部一致：成功轨迹覆盖必需病史、必需检查及正确诊断；失败轨迹使用不必要胸部CT并提交错误诊断；安全轨迹应中断且不产生医疗调用；unknown轨迹正确覆盖既往发作事实。medicalTests中的completed状态不影响新会话轨迹中的test动作判定。",
+    "未见将教学字段、review.pending或人工审核元数据泄露为可见诊断依据的问题；安全轨迹不依赖隐藏事实，且预期providerCalls、rawTextWrites和medicalTurns均为零。"
+  ]
+}

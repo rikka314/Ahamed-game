@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:5b427653256ad5e88e5abbd49414d0ea5880719b5c7cdb1e9f19ee7f0a38a768",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.257b784e-646f-42ec-b3e1-27e0cc792b32",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:37:29.560Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成年非急症场景，半年反复腹痛且与排便相关、排便频率和性状变化，无便血、夜间痛醒或体重下降，生命体征稳定，基础消化系统筛查及腹部CT未见异常，整体与肠易激综合征相符。",
+        "核心病史、危险征象询问、必要检查及两个鉴别诊断均有明确答案依据；虽未细化腹痛频率等诊断细节，但不影响本合成病例的基本诊断可解性。",
+        "红旗矩阵列出的危险征象均明确为未出现，生命体征稳定且无急症阈值证据；安全轨迹对胸痛伴呼吸困难等脱离病例场景的急症请求设有中断处理。",
+        "评分量表的must-ask事实、required与unnecessary检查、鉴别诊断数量及推荐回合限制，与成功回归轨迹和答案键一致。",
+        "回归轨迹覆盖成功、错误诊断、急症安全中断及未知事实询问，且预期结果明确。",
+        "教学字段、答案键及仅测试可读取的生命体征未暴露给患者；未见通过患者话术或回归轨迹泄露隐藏真相的内容。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f405302c-404d-43b8-836f-36ca36e7cb07",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:37:45.957Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例的病程、排便相关腹痛、排便频率/性状变化、缺乏主要报警症状及基础检查正常，能够支持在目标粒度诊断为肠易激综合征；虽未量化腹痛频率，但不妨碍合成病例的可解性。",
+        "目标诊断为明确的肠易激综合征，acceptedSynonyms 与 diagnosisConcepts 一致；两个鉴别诊断与 rubric 要求及成功轨迹一致。",
+        "红旗排除矩阵中的九项均有对应的 absent patient fact；成功轨迹覆盖的四项与 mustAskFactIds 一致，其余报警表现也由 associated_pattern 或独立事实支持。",
+        "mustAskFactIds、requiredDifferentialCount、测试分类、推荐回合数及成功轨迹的检查选择相互一致；腹部CT被正确标记为不必要。",
+        "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏了可被该问题直接触发的 fact.relevant_exposure，导致轨迹期望与事实匹配器不一致；应拆分问题或补充该事实ID。",
+        "supportingArtifacts 未将隐藏 teaching_note 暴露给玩家；安全轨迹也未要求读取医学事实，providerCalls、rawTextWrites 与 medicalTurns 的期望彼此一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成年非急症场景，半年反复腹痛且与排便相关、排便频率和性状变化，无便血、夜间痛醒或体重下降，生命体征稳定，基础消化系统筛查及腹部CT未见异常，整体与肠易激综合征相符。",
+    "核心病史、危险征象询问、必要检查及两个鉴别诊断均有明确答案依据；虽未细化腹痛频率等诊断细节，但不影响本合成病例的基本诊断可解性。",
+    "红旗矩阵列出的危险征象均明确为未出现，生命体征稳定且无急症阈值证据；安全轨迹对胸痛伴呼吸困难等脱离病例场景的急症请求设有中断处理。",
+    "评分量表的must-ask事实、required与unnecessary检查、鉴别诊断数量及推荐回合限制，与成功回归轨迹和答案键一致。",
+    "回归轨迹覆盖成功、错误诊断、急症安全中断及未知事实询问，且预期结果明确。",
+    "教学字段、答案键及仅测试可读取的生命体征未暴露给患者；未见通过患者话术或回归轨迹泄露隐藏真相的内容。",
+    "病例的病程、排便相关腹痛、排便频率/性状变化、缺乏主要报警症状及基础检查正常，能够支持在目标粒度诊断为肠易激综合征；虽未量化腹痛频率，但不妨碍合成病例的可解性。",
+    "目标诊断为明确的肠易激综合征，acceptedSynonyms 与 diagnosisConcepts 一致；两个鉴别诊断与 rubric 要求及成功轨迹一致。",
+    "红旗排除矩阵中的九项均有对应的 absent patient fact；成功轨迹覆盖的四项与 mustAskFactIds 一致，其余报警表现也由 associated_pattern 或独立事实支持。",
+    "mustAskFactIds、requiredDifferentialCount、测试分类、推荐回合数及成功轨迹的检查选择相互一致；腹部CT被正确标记为不必要。",
+    "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏了可被该问题直接触发的 fact.relevant_exposure，导致轨迹期望与事实匹配器不一致；应拆分问题或补充该事实ID。",
+    "supportingArtifacts 未将隐藏 teaching_note 暴露给玩家；安全轨迹也未要求读取医学事实，providerCalls、rawTextWrites 与 medicalTurns 的期望彼此一致。"
+  ]
+}

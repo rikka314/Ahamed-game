@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:d8e156ed066ba3043235ce346f12e7b9c4b0a5512724be2bf1dd96f2c2c4a2a3",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.503ac332-9da9-4498-b0ce-d7026d20c739",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:45:13.085Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：26–35岁成人，慢性上腹胀与早饱、无进展性吞咽困难或消瘦，生命体征稳定，基础评估未见器质性病变，支持功能性消化不良。",
+        "诊断可解性通过：首发策略覆盖起病、症状模式、进展及关键伴随症状，完成必要评估后可稳定得到目标诊断，并提供两个可接受鉴别诊断。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难均明确为缺如；同时有生命体征稳定证据及安全中断轨迹。",
+        "量表一致性通过：必需检查、非必要腹部CT、鉴别诊断数量、推荐回合数及沟通条目与评分策略一致。",
+        "回归覆盖通过：包含成功、失败、危险输入中断和未知事实轨迹，且期望结果明确覆盖诊断、非必要检查、安全码、零提供者调用及未知事实读取。",
+        "隐藏真相安全通过：教学字段、答案键和评分策略未置于玩家可见内容；安全轨迹要求不写入原始文本且不产生医疗回合，未见隐藏信息泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a16bcd15-e247-47ca-89d5-fba57ac364e9",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:45:26.457Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：半年病程、餐后饱胀/早饱及消化不良基础评估阴性，支持功能性消化不良；腹部CT列为不必要检查也与病例设定一致。",
+        "诊断可解性通过：症状模式、病程及排除器质性病变信息足以支持目标诊断，目标粒度明确为“功能性消化不良”。",
+        "红旗排除通过：红旗事实、排除矩阵及成功轨迹覆盖一致，且生命体征通过专门检查读取，未见关键安全信息缺失。",
+        "Rubric一致性通过：14项must-ask事实均可由成功轨迹覆盖；两个可接受鉴别诊断、必需检查、不必要检查及推荐回合数彼此一致。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，预期事实、诊断结果、检查选择、回合数及安全中断行为与病例资产匹配。",
+        "隐藏真值安全通过：教学字段及服务端信息未暴露于患者可见内容或轨迹输入；安全轨迹预期无事实读取、提供方调用、原文写入及医疗回合，边界清晰。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：26–35岁成人，慢性上腹胀与早饱、无进展性吞咽困难或消瘦，生命体征稳定，基础评估未见器质性病变，支持功能性消化不良。",
+    "诊断可解性通过：首发策略覆盖起病、症状模式、进展及关键伴随症状，完成必要评估后可稳定得到目标诊断，并提供两个可接受鉴别诊断。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难均明确为缺如；同时有生命体征稳定证据及安全中断轨迹。",
+    "量表一致性通过：必需检查、非必要腹部CT、鉴别诊断数量、推荐回合数及沟通条目与评分策略一致。",
+    "回归覆盖通过：包含成功、失败、危险输入中断和未知事实轨迹，且期望结果明确覆盖诊断、非必要检查、安全码、零提供者调用及未知事实读取。",
+    "隐藏真相安全通过：教学字段、答案键和评分策略未置于玩家可见内容；安全轨迹要求不写入原始文本且不产生医疗回合，未见隐藏信息泄露风险。",
+    "临床一致性通过：半年病程、餐后饱胀/早饱及消化不良基础评估阴性，支持功能性消化不良；腹部CT列为不必要检查也与病例设定一致。",
+    "诊断可解性通过：症状模式、病程及排除器质性病变信息足以支持目标诊断，目标粒度明确为“功能性消化不良”。",
+    "红旗排除通过：红旗事实、排除矩阵及成功轨迹覆盖一致，且生命体征通过专门检查读取，未见关键安全信息缺失。",
+    "Rubric一致性通过：14项must-ask事实均可由成功轨迹覆盖；两个可接受鉴别诊断、必需检查、不必要检查及推荐回合数彼此一致。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，预期事实、诊断结果、检查选择、回合数及安全中断行为与病例资产匹配。",
+    "隐藏真值安全通过：教学字段及服务端信息未暴露于患者可见内容或轨迹输入；安全轨迹预期无事实读取、提供方调用、原文写入及医疗回合，边界清晰。"
+  ]
+}

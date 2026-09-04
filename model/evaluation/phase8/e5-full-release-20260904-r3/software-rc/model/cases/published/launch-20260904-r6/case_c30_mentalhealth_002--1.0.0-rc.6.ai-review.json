@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:e798e4564f0336bf0b9d903ff8a9fc398fcc988faf83c8af348d13c4a5d0f196",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b60f31b2-dbce-48b4-829f-5cf27e0f768f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:25:41.995Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：26–35岁男性，病程约1个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致；意识、现实检验和生命体征稳定，无急症线索。",
+        "诊断可解性通过：现有病史和精神状态评估支持“轻度抑郁发作伴躯体化表达”，并提供了广泛性焦虑障碍和甲状腺功能减退作为可接受鉴别诊断。",
+        "危险征象排除通过：自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断、意识改变、循环不稳定、无法进食饮水及无法自理等均有明确阴性事实；生命体征检查结果稳定。",
+        "评分量表一致性通过：must-ask事实覆盖起病、核心症状、进展、躯体化表达及各项安全筛查；鉴别诊断数量、必需检查、MRI不必要检查和沟通标准彼此一致。",
+        "回归覆盖通过：成功、失败、不必要检查、安全中断及未知事实轨迹均存在，成功轨迹覆盖全部必问事实、必需检查、目标诊断和两个鉴别诊断；安全轨迹明确要求中断、零医疗回合及零提供方调用。",
+        "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，玩家可见内容未泄露目标诊断或评分规则；review.status、reviewDecision及人工审核待定元数据不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.59ad1771-e9be-4b4e-ba78-6e5136d2be57",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:25:54.102Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙述、精神状态评估与目标诊断一致：症状持续一个月，存在情绪低落、兴趣减少、乏力及食欲差等表现，并有躯体化表达；现实检验完整且危机筛查阴性。",
+        "目标诊断具有可解性，关键病程、症状模式、严重程度、躯体表达及精神科红旗事实均可通过询问和检查获得；目标粒度与答案词表一致。",
+        "9项红旗均在患者事实、矩阵及回归轨迹中明确为 absent，且覆盖意识改变、循环不稳定、无法口服、高风险人群、自伤、精神病性症状、躁狂、物质相关问题及无法自理。",
+        "rubric 的 must-ask 列表、两个可接受鉴别诊断、requiredDifferentialCount=2、必需/不必要检查分类与成功轨迹完全对应；MRI 作为不必要检查也与失败轨迹一致。",
+        "success、failure、safety、unknown 四类回归轨迹均有明确预期，成功诊断及鉴别诊断与答案键匹配，失败和安全中断条件可判定，未知既往发作事实也有对应覆盖。",
+        "未发现将 pending 状态、人工 reviewer 元数据或隐藏教学字段错误暴露给患者的设计；安全轨迹不写入医疗回合、原始文本或提供方调用，符合预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：26–35岁男性，病程约1个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致；意识、现实检验和生命体征稳定，无急症线索。",
+    "诊断可解性通过：现有病史和精神状态评估支持“轻度抑郁发作伴躯体化表达”，并提供了广泛性焦虑障碍和甲状腺功能减退作为可接受鉴别诊断。",
+    "危险征象排除通过：自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断、意识改变、循环不稳定、无法进食饮水及无法自理等均有明确阴性事实；生命体征检查结果稳定。",
+    "评分量表一致性通过：must-ask事实覆盖起病、核心症状、进展、躯体化表达及各项安全筛查；鉴别诊断数量、必需检查、MRI不必要检查和沟通标准彼此一致。",
+    "回归覆盖通过：成功、失败、不必要检查、安全中断及未知事实轨迹均存在，成功轨迹覆盖全部必问事实、必需检查、目标诊断和两个鉴别诊断；安全轨迹明确要求中断、零医疗回合及零提供方调用。",
+    "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，玩家可见内容未泄露目标诊断或评分规则；review.status、reviewDecision及人工审核待定元数据不构成阻塞。",
+    "病例叙述、精神状态评估与目标诊断一致：症状持续一个月，存在情绪低落、兴趣减少、乏力及食欲差等表现，并有躯体化表达；现实检验完整且危机筛查阴性。",
+    "目标诊断具有可解性，关键病程、症状模式、严重程度、躯体表达及精神科红旗事实均可通过询问和检查获得；目标粒度与答案词表一致。",
+    "9项红旗均在患者事实、矩阵及回归轨迹中明确为 absent，且覆盖意识改变、循环不稳定、无法口服、高风险人群、自伤、精神病性症状、躁狂、物质相关问题及无法自理。",
+    "rubric 的 must-ask 列表、两个可接受鉴别诊断、requiredDifferentialCount=2、必需/不必要检查分类与成功轨迹完全对应；MRI 作为不必要检查也与失败轨迹一致。",
+    "success、failure、safety、unknown 四类回归轨迹均有明确预期，成功诊断及鉴别诊断与答案键匹配，失败和安全中断条件可判定，未知既往发作事实也有对应覆盖。",
+    "未发现将 pending 状态、人工 reviewer 元数据或隐藏教学字段错误暴露给患者的设计；安全轨迹不写入医疗回合、原始文本或提供方调用，符合预期。"
+  ]
+}

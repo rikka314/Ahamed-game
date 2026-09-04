@@ -1,0 +1,126 @@
+{
+  "aiCrossReview": {
+    "reviews": [
+      {
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260903-r2/private/contract_projection_reviewer.v1.json",
+        "evidenceSha256": "2d65cac2a265f6fc27c28359e95c02b29ac09679b11863126e210100c51a54e0",
+        "findings": [],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-contract-projection-review-v1",
+        "reviewerId": "contract_projection_reviewer",
+        "status": "pass"
+      },
+      {
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260903-r2/private/hidden_data_leakage_reviewer.v1.json",
+        "evidenceSha256": "eb9aa863cfc4fa91bd5e3bca63f212a741c701294b5553b03d310e2f0c367c10",
+        "findings": [
+          {
+            "code": "save_surface_not_available",
+            "message": "saveExport surface was not available because the current game shell does not expose a save-export surface; save-output leakage could not be verified from the provided evidence.",
+            "severity": "warning"
+          },
+          {
+            "code": "public_artifact_scan_pass",
+            "message": "Provided evidence reports no personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis, or patientFacts tokens in .next static/server output or public assets.",
+            "severity": "info"
+          },
+          {
+            "code": "runtime_surfaces_no_sensitive_matches",
+            "message": "Provided runtime surface evidence reports zero sensitive matches across observed console, IndexedDB, localStorage, sessionStorage, and CacheStorage surfaces. This assessment relies on the supplied scan record and is not an independently executed scan.",
+            "severity": "info"
+          },
+          {
+            "code": "private_evidence_separation_supported",
+            "message": "The supplied contract evidence states that the public projector removes persona, answer, rubric, and hidden-fact fields; observed public journey records contain only allowlisted case and disclosed-fact data.",
+            "severity": "info"
+          }
+        ],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-hidden-data-leakage-review-v1",
+        "reviewerId": "hidden_data_leakage_reviewer",
+        "status": "pass"
+      }
+    ],
+    "status": "pass"
+  },
+  "bindings": {
+    "aiReviews": [
+      {
+        "bytes": 677,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/private/contract_projection_reviewer.v1.json",
+        "sha256": "2d65cac2a265f6fc27c28359e95c02b29ac09679b11863126e210100c51a54e0"
+      },
+      {
+        "bytes": 1924,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/private/hidden_data_leakage_reviewer.v1.json",
+        "sha256": "eb9aa863cfc4fa91bd5e3bca63f212a741c701294b5553b03d310e2f0c367c10"
+      }
+    ],
+    "baseQualityRecord": {
+      "bytes": 7025,
+      "path": "share/versions/e4-patient-identity-quality-record.v1.json",
+      "sha256": "6af69b7478d3c6eaefc37f8a148f308c8c816a413ed4c4b6439dd7d96aa6924a"
+    },
+    "journeyIndex": {
+      "bytes": 781,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/e4-cross-layer-evidence-index.v1.json",
+      "sha256": "90260fe689d1e87fa55e4d5fc8e540b1d75ea64827e7cc57ee164f26e489891d"
+    },
+    "publicJourney": {
+      "bytes": 37790,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/public/e4-cross-layer-journey.v1.json",
+      "sha256": "0fae680ab7d8f0d385406de640c963335ae82f408005e3ce4766f9c5bf619883"
+    },
+    "reviewTarget": {
+      "bytes": 142662,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/private/e4-closure-review-target.v1.json",
+      "sha256": "5bea29bf2fea8aa240f2d10817fbe319c92dee6607a5f6e30827f79d7ef4a7dd"
+    },
+    "runtimeSurfaceScan": {
+      "bytes": 94881,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260903-r2/public/e4-runtime-surface-scan.v1.json",
+      "sha256": "fe377cde7b6a512aa9313fa5b002404585dab7836211f5062b412984fc87095b"
+    }
+  },
+  "checks": [
+    {
+      "checkId": "thirty_case_live_cross_layer_journey",
+      "details": "30 CasePackage v2 records completed ModelService create-session and ask-patient calls in 15 two-slot shifts.",
+      "status": "pass"
+    },
+    {
+      "checkId": "runtime_storage_and_log_leakage_scan",
+      "details": "5 browser surfaces observed; 1 unavailable surfaces recorded without fabrication; 0 surface scans failed; 0 sensitive matches.",
+      "status": "pass"
+    },
+    {
+      "checkId": "independent_ai_cross_review",
+      "details": "Contract projection and hidden-data leakage reviews ran as isolated single-role invocations.",
+      "status": "pass"
+    }
+  ],
+  "decision": "passed",
+  "generatedAt": "2026-09-03T12:17:39.478Z",
+  "metrics": {
+    "askPatientCalls": 30,
+    "completedAiReviews": 2,
+    "completedTurns": 30,
+    "createSessionCalls": 30,
+    "crossLayerCases": 30,
+    "failedRuntimeSurfaces": 0,
+    "observedRuntimeSurfaces": 5,
+    "publicPatientRoles": 30,
+    "reusableNpcSlots": 2,
+    "sensitiveMatches": 0,
+    "shifts": 15,
+    "unavailableRuntimeSurfaces": 1
+  },
+  "reviewPolicy": "non_blocking",
+  "schemaVersion": "e4-patient-identity-e5-closure-v1"
+}

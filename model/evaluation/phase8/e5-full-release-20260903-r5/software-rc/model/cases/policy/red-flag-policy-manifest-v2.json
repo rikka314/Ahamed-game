@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "red-flag-policy-manifest-v2",
+  "policyVersion": "red-flag-policy-manifest-v2",
+  "commonRedFlagIds": [
+    "redflag.confusion",
+    "redflag.hypotension",
+    "redflag.inability_oral_intake",
+    "redflag.high_risk_population"
+  ],
+  "domains": [
+    {
+      "diseaseDomainId": "respiratory",
+      "displayName": "呼吸系统",
+      "requiredRedFlagIds": [
+        "redflag.dyspnea",
+        "redflag.chest_pain",
+        "redflag.hemoptysis",
+        "redflag.tachypnea",
+        "redflag.hypoxemia"
+      ]
+    },
+    {
+      "diseaseDomainId": "cardiometabolic",
+      "displayName": "心血管、内分泌与代谢",
+      "requiredRedFlagIds": [
+        "redflag.chest_pain",
+        "redflag.syncope",
+        "redflag.focal_neurologic_deficit",
+        "redflag.severe_hypoglycemia",
+        "redflag.ketoacidosis",
+        "redflag.hypertensive_emergency"
+      ]
+    },
+    {
+      "diseaseDomainId": "digestive",
+      "displayName": "消化系统",
+      "requiredRedFlagIds": [
+        "redflag.gastrointestinal_bleeding",
+        "redflag.peritoneal_signs",
+        "redflag.persistent_vomiting",
+        "redflag.jaundice",
+        "redflag.unintentional_weight_loss"
+      ]
+    },
+    {
+      "diseaseDomainId": "urinary_renal",
+      "displayName": "泌尿与肾脏",
+      "requiredRedFlagIds": [
+        "redflag.fever_with_flank_pain",
+        "redflag.anuria",
+        "redflag.gross_hematuria",
+        "redflag.infected_obstruction",
+        "redflag.single_kidney"
+      ]
+    },
+    {
+      "diseaseDomainId": "musculoskeletal",
+      "displayName": "骨骼肌肉",
+      "requiredRedFlagIds": [
+        "redflag.cauda_equina",
+        "redflag.major_trauma",
+        "redflag.musculoskeletal_infection",
+        "redflag.malignancy_warning",
+        "redflag.progressive_neurologic_deficit"
+      ]
+    },
+    {
+      "diseaseDomainId": "dermatology",
+      "displayName": "皮肤科",
+      "requiredRedFlagIds": [
+        "redflag.mucosal_involvement",
+        "redflag.skin_blistering",
+        "redflag.systemic_toxicity",
+        "redflag.rapidly_spreading_rash",
+        "redflag.immunosuppression"
+      ]
+    },
+    {
+      "diseaseDomainId": "pediatrics",
+      "displayName": "儿科",
+      "requiredRedFlagIds": [
+        "redflag.age_outside_launch_scope",
+        "redflag.pediatric_lethargy",
+        "redflag.pediatric_respiratory_distress",
+        "redflag.pediatric_dehydration",
+        "redflag.mastoid_swelling"
+      ]
+    },
+    {
+      "diseaseDomainId": "gynecology",
+      "displayName": "妇科",
+      "requiredRedFlagIds": [
+        "redflag.pregnancy",
+        "redflag.hemodynamically_significant_bleeding",
+        "redflag.acute_pelvic_pain",
+        "redflag.gynecologic_fever",
+        "redflag.mucosal_or_upper_tract_involvement"
+      ]
+    },
+    {
+      "diseaseDomainId": "mental_health",
+      "displayName": "精神心理",
+      "requiredRedFlagIds": [
+        "redflag.self_harm_risk",
+        "redflag.psychosis",
+        "redflag.mania",
+        "redflag.substance_intoxication",
+        "redflag.inability_to_care_for_self"
+      ]
+    }
+  ]
+}

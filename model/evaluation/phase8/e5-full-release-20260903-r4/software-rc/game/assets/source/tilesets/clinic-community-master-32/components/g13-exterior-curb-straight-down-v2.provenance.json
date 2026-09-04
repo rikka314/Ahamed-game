@@ -1,0 +1,27 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G13",
+  "componentVariant": "straight-down",
+  "componentName": "室外路沿直边",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from an AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down.png",
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Make only the temporary G13 downward-facing outdoor curb substantially more visible at native 32x32 size. Increase the curb from eight to twelve pixels, use a warm pale stone cap with a strong continuous highlight, deepen the front face and contact shadow, and retain the accepted G03 stone-brick pavement above. Keep horizontal repetition, hard pixel edges, and add no dirt, cracks, text, logo or watermark.",
+  "humanEdits": [
+    "Increased the visible curb depth from eight pixels to twelve pixels.",
+    "Introduced a warmer pale cap to separate the curb from the sage-gray pavement.",
+    "Strengthened the front-face gradient and two-row contact shadow.",
+    "Preserved the upper pavement from the accepted G03 stone-brick source.",
+    "Created a comparison preview showing revision 1, revision 2 and horizontal repetition."
+  ],
+  "status": "DRAFT"
+}

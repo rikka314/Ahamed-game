@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:6fb7c5d92f991c30a6aee434f6e870704b164fca3f8860783e0c0872e8f0284d",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.2be14959-1189-4fd2-9915-efba168a6bc4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:28:57.469Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发高热、干咳、肌痛、头痛与A型呼吸道病毒核酸阳性相符；生命体征稳定，胸部影像无实变，未见明显矛盾。",
+        "诊断可解性通过：目标诊断为流行性感冒，症状模式与核酸结果均提供了充分、明确的判别依据；普通感冒和轻症社区获得性肺炎可作为合理鉴别诊断。",
+        "危险征象排除通过：已覆盖呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群；患者事实和生命体征均支持非急症边界。",
+        "量表一致性通过：must-ask项目与病例信息及成功轨迹一致；必需检查、可用检查和不必要检查的分类与本例稳定状态及诊断目标相符，鉴别诊断数量要求也明确。",
+        "回归覆盖通过：包含成功、错误诊断、危险症状中断和未知接触史轨迹，并分别定义了诊断、安全中断、无医疗调用及未知事实处理预期。",
+        "隐藏真相安全通过：教学字段保持hidden，生命体征限定为test_only；回归轨迹未要求泄露隐藏字段，安全中断轨迹明确禁止医疗回合、原文写入和提供诊断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.8fa531f9-06de-4b12-9ec5-672c6ed01f0c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:29:10.086Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "突发高热、干咳、明显肌痛和头痛，结合A型呼吸道病毒核酸阳性，且生命体征稳定、胸部影像无实变，支持流行性感冒；目标诊断粒度适当。",
+        "病例提供了区分普通感冒与轻症社区获得性肺炎所需的关键症状、病毒检测及影像依据，主要诊断可解。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应排除事实；生命体征数值与红旗矩阵一致。",
+        "must-ask事实、鉴别诊断数量、检查分类和8回合限制彼此一致；成功轨迹命中全部要求，且差异诊断为允许概念。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期结果分别与病例事实、评分规则和安全中断语义一致。",
+        "test_only、hidden字段未被回归输入或成功轨迹泄露；安全轨迹明确要求中断、零医疗回合、零provider调用和零原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：突发高热、干咳、肌痛、头痛与A型呼吸道病毒核酸阳性相符；生命体征稳定，胸部影像无实变，未见明显矛盾。",
+    "诊断可解性通过：目标诊断为流行性感冒，症状模式与核酸结果均提供了充分、明确的判别依据；普通感冒和轻症社区获得性肺炎可作为合理鉴别诊断。",
+    "危险征象排除通过：已覆盖呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群；患者事实和生命体征均支持非急症边界。",
+    "量表一致性通过：must-ask项目与病例信息及成功轨迹一致；必需检查、可用检查和不必要检查的分类与本例稳定状态及诊断目标相符，鉴别诊断数量要求也明确。",
+    "回归覆盖通过：包含成功、错误诊断、危险症状中断和未知接触史轨迹，并分别定义了诊断、安全中断、无医疗调用及未知事实处理预期。",
+    "隐藏真相安全通过：教学字段保持hidden，生命体征限定为test_only；回归轨迹未要求泄露隐藏字段，安全中断轨迹明确禁止医疗回合、原文写入和提供诊断。",
+    "突发高热、干咳、明显肌痛和头痛，结合A型呼吸道病毒核酸阳性，且生命体征稳定、胸部影像无实变，支持流行性感冒；目标诊断粒度适当。",
+    "病例提供了区分普通感冒与轻症社区获得性肺炎所需的关键症状、病毒检测及影像依据，主要诊断可解。",
+    "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应排除事实；生命体征数值与红旗矩阵一致。",
+    "must-ask事实、鉴别诊断数量、检查分类和8回合限制彼此一致；成功轨迹命中全部要求，且差异诊断为允许概念。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期结果分别与病例事实、评分规则和安全中断语义一致。",
+    "test_only、hidden字段未被回归输入或成功轨迹泄露；安全轨迹明确要求中断、零医疗回合、零provider调用和零原始文本写入。"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "e3-private-persona-journey-v1",
+  "runId": "e3-run-01",
+  "personaTemplateId": "gentle_cooperative",
+  "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+  "status": "failed",
+  "failureCode": "The model provider is unavailable. [OPENAI_TRANSIENT]",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "scenarioId": "greeting",
+      "question": "你好，我们先简单认识一下。",
+      "reply": "您好，医生。我姓林，现在在读大学。请您问吧，我会尽量配合。",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 0,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 2,
+      "scenarioId": "chief_complaint",
+      "question": "你今天最主要哪里不舒服？",
+      "reply": "我这两天主要是鼻子有点堵、一直流清鼻涕，嗓子也有点不太舒服。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 1,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 3,
+      "scenarioId": "onset",
+      "question": "这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 2,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 4,
+      "scenarioId": "multiple_questions",
+      "question": "鼻涕是什么样的，嗓子和咳嗽怎么样，有没有发烧？",
+      "reply": "鼻涕主要是清的。嗓子有点发干、发痒，但吞咽不受影响。咳嗽不多，偶尔干咳几声。没有明显发烧或高热。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.nasal_discharge",
+        "fact.sore_throat",
+        "fact.cough",
+        "fact.high_fever"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 3,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 5,
+      "scenarioId": "repeated_question",
+      "question": "我再确认一次，具体是什么时候开始的？",
+      "reply": "大约两天前开始的，是慢慢出现的。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 4,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    }
+  ]
+}

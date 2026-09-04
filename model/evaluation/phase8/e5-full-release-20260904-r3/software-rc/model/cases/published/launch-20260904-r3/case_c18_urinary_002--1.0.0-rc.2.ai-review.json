@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c18_urinary_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:c3b15454c8dd43b0c68c26af9c8ac6c509e547551f7cfffd973b856d03c5a46c",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.89359fd3-2cd0-4858-82d3-9e7e640a9630",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:39:15.026Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实、症状进展、生命体征及检查结果相互一致，支持稳定的下尿路症状和良性前列腺增生；泌尿系CT设为不必要也基本合理。",
+        "症状史、前列腺评估和生命体征足以支持良性前列腺增生，并保留前列腺癌和膀胱过度活动症作为鉴别诊断，诊断可解。",
+        "红旗矩阵列出9项均为适用且要求排除，但rubric及成功轨迹仅明确覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖fever with flank pain、anuria、gross hematuria、infected obstruction、single kidney，安全退出前的危险征象排除不完整。",
+        "rubric的mustAskFactIds与redFlagExclusionMatrix不一致；矩阵要求的5项红旗事实未纳入必问项，也未在成功路径的expectedFactIds中体现。",
+        "虽有成功、错误测试选择、安全中断和未知事实轨迹，但回归未验证全部适用红旗的询问与排除，无法覆盖完整的安全回归要求。",
+        "隐藏的teaching_note未暴露，生命体征保持test_only且通过检查读取；安全中断轨迹也明确禁止provider调用、原文写入和医疗回合，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.88c2f399-5170-4cbd-aa9d-215cb4a79f8f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:39:35.063Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为中老年男性渐进性排尿等待、尿线变细和夜尿，前列腺对称性增大且无硬结，与良性前列腺增生及设定鉴别诊断一致。",
+        "主要诊断粒度明确，症状、前列腺评估和鉴别诊断足以支持作答；泌尿系CT被正确标为不必要检查。",
+        "红旗矩阵中的9项均有对应事实且设为absent，未见病例叙事与排除状态的直接冲突。",
+        "answerKey、rubric、测试分类、必问事实和成功轨迹的诊断及鉴别诊断要求总体一致。",
+        "回归轨迹覆盖不完整：成功轨迹的危险表现提问只期待4项红旗事实，未覆盖矩阵中的发热伴腰痛、无尿、肉眼血尿、感染性梗阻和孤立肾；unknown轨迹同时询问既往发作和相关暴露，却只期待fact.prior_episode，遗漏fact.relevant_exposure。应补齐期望事实或缩小提问范围。",
+        "安全轨迹明确要求SAFETY_INTERRUPTED、零提供者调用、零原始文本写入和零医疗回合，未发现隐藏真相泄露或安全回归矛盾。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实、症状进展、生命体征及检查结果相互一致，支持稳定的下尿路症状和良性前列腺增生；泌尿系CT设为不必要也基本合理。",
+    "症状史、前列腺评估和生命体征足以支持良性前列腺增生，并保留前列腺癌和膀胱过度活动症作为鉴别诊断，诊断可解。",
+    "红旗矩阵列出9项均为适用且要求排除，但rubric及成功轨迹仅明确覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖fever with flank pain、anuria、gross hematuria、infected obstruction、single kidney，安全退出前的危险征象排除不完整。",
+    "rubric的mustAskFactIds与redFlagExclusionMatrix不一致；矩阵要求的5项红旗事实未纳入必问项，也未在成功路径的expectedFactIds中体现。",
+    "虽有成功、错误测试选择、安全中断和未知事实轨迹，但回归未验证全部适用红旗的询问与排除，无法覆盖完整的安全回归要求。",
+    "隐藏的teaching_note未暴露，生命体征保持test_only且通过检查读取；安全中断轨迹也明确禁止provider调用、原文写入和医疗回合，隐藏真相保护充分。",
+    "临床表现为中老年男性渐进性排尿等待、尿线变细和夜尿，前列腺对称性增大且无硬结，与良性前列腺增生及设定鉴别诊断一致。",
+    "主要诊断粒度明确，症状、前列腺评估和鉴别诊断足以支持作答；泌尿系CT被正确标为不必要检查。",
+    "红旗矩阵中的9项均有对应事实且设为absent，未见病例叙事与排除状态的直接冲突。",
+    "answerKey、rubric、测试分类、必问事实和成功轨迹的诊断及鉴别诊断要求总体一致。",
+    "回归轨迹覆盖不完整：成功轨迹的危险表现提问只期待4项红旗事实，未覆盖矩阵中的发热伴腰痛、无尿、肉眼血尿、感染性梗阻和孤立肾；unknown轨迹同时询问既往发作和相关暴露，却只期待fact.prior_episode，遗漏fact.relevant_exposure。应补齐期望事实或缩小提问范围。",
+    "安全轨迹明确要求SAFETY_INTERRUPTED、零提供者调用、零原始文本写入和零医疗回合，未发现隐藏真相泄露或安全回归矛盾。"
+  ]
+}

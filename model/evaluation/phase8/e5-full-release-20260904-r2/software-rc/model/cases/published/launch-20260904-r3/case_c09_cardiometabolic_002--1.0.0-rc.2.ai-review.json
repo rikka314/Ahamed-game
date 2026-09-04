@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:2418ebbc0980935b87161554f122468ec87868f9c047fce44239b8d78ce5bbce",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b9b31357-a902-4ee9-889a-b773e3d34775",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:33:20.544Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体一致：渐进性口渴、尿频、轻度体重下降，糖化血红蛋白达到糖尿病诊断范围，生命体征稳定且无酮症酸中毒或意识异常表现，支持非急症门诊评估及拟诊2型糖尿病。",
+        "目标诊断可由症状模式和糖化血红蛋白结果求解；尿崩症、甲状腺功能亢进作为两个鉴别诊断也与题设一致。",
+        "红旗事实均明确记录为不存在，且生命体征稳定；未发现需要立即急诊处置的隐藏危险征象。",
+        "rubric的mustAskFactIds仅要求confusion、hypotension、inability_oral_intake、high_risk_population四项红旗，但redFlagExclusionMatrix另列胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症，二者覆盖范围不一致。",
+        "成功回归轨迹只验证前四项红旗，未验证矩阵中其余六项；安全轨迹中的胸痛仅触发中断，不能证明常规病例中其余红旗排除流程已覆盖，因此回归安全覆盖不足。",
+        "隐藏真相保护充分：生命体征设为仅检查读取，教学字段隐藏，答案键未暴露于患者可见内容；急症安全轨迹要求中断且无医疗回合、无原始文本写入，符合安全退出要求。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.d418f179-b179-43d1-b711-a94ebc8f520c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:33:43.503Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "HbA1c达到糖尿病诊断范围能够支持“糖尿病”，但病例未提供足以区分2型与1型或其他糖尿病亚型的证据；将目标锁定为“2型糖尿病”存在诊断粒度偏细的问题。",
+        "在现有公开病史和检查结果下，精确求解“2型糖尿病”不够稳健；年龄段、缓慢起病及无酮症酸中毒仅属倾向性线索，不能替代亚型判定依据。",
+        "红旗矩阵中的各项均有对应patient fact，且观察值均为absent；生命体征报告也支持非急症边界，未发现矩阵内部矛盾。",
+        "must-ask事实、两个可接受鉴别诊断及其数量、required/unnecessary检查分类，与答案键和成功轨迹总体一致。",
+        "unknown轨迹的提问同时询问“既往是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致回归期望与事实匹配器不一致。",
+        "安全轨迹明确要求中断，且输入包含胸痛及呼吸困难等急性危险诉求；其SAFETY_INTERRUPTED、零provider调用、零写入和零医疗回合的期望彼此一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体一致：渐进性口渴、尿频、轻度体重下降，糖化血红蛋白达到糖尿病诊断范围，生命体征稳定且无酮症酸中毒或意识异常表现，支持非急症门诊评估及拟诊2型糖尿病。",
+    "目标诊断可由症状模式和糖化血红蛋白结果求解；尿崩症、甲状腺功能亢进作为两个鉴别诊断也与题设一致。",
+    "红旗事实均明确记录为不存在，且生命体征稳定；未发现需要立即急诊处置的隐藏危险征象。",
+    "rubric的mustAskFactIds仅要求confusion、hypotension、inability_oral_intake、high_risk_population四项红旗，但redFlagExclusionMatrix另列胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症，二者覆盖范围不一致。",
+    "成功回归轨迹只验证前四项红旗，未验证矩阵中其余六项；安全轨迹中的胸痛仅触发中断，不能证明常规病例中其余红旗排除流程已覆盖，因此回归安全覆盖不足。",
+    "隐藏真相保护充分：生命体征设为仅检查读取，教学字段隐藏，答案键未暴露于患者可见内容；急症安全轨迹要求中断且无医疗回合、无原始文本写入，符合安全退出要求。",
+    "HbA1c达到糖尿病诊断范围能够支持“糖尿病”，但病例未提供足以区分2型与1型或其他糖尿病亚型的证据；将目标锁定为“2型糖尿病”存在诊断粒度偏细的问题。",
+    "在现有公开病史和检查结果下，精确求解“2型糖尿病”不够稳健；年龄段、缓慢起病及无酮症酸中毒仅属倾向性线索，不能替代亚型判定依据。",
+    "红旗矩阵中的各项均有对应patient fact，且观察值均为absent；生命体征报告也支持非急症边界，未发现矩阵内部矛盾。",
+    "must-ask事实、两个可接受鉴别诊断及其数量、required/unnecessary检查分类，与答案键和成功轨迹总体一致。",
+    "unknown轨迹的提问同时询问“既往是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致回归期望与事实匹配器不一致。",
+    "安全轨迹明确要求中断，且输入包含胸痛及呼吸困难等急性危险诉求；其SAFETY_INTERRUPTED、零provider调用、零写入和零医疗回合的期望彼此一致。"
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:f81c1e86e57a918da13b8b9638cd1e593231da4a9fd50a0ba866c7e3b2cddcfd",
+  "personaTemplateId": "anxious_reassurance_seeking",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "你好，医生。我昨天突然发热、干咳，全身也很酸，感觉来得挺快的……会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "我昨天傍晚突然发热、干咳，全身尤其腰背和四肢都酸痛，感觉几个小时内就明显起来了。医生，这样会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "您是问我现在发热、干咳和全身酸痛还在不在吗？我刚才说的是昨天开始的情况，您想具体问哪一项？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是啊，今天天气确实不错。可我还是有点担心昨天突然发热、干咳的事，医生，这种情况会不会很严重啊？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "我平时喜欢打羽毛球，也会看看电影，住校有空就和同学约着打几局。只是这次突然发烧咳嗽，还是让我有点担心……不过医生您先问病情吧，这种情况一般会很严重吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以聊一会儿别的。我平时喜欢打羽毛球，也喜欢看电影，不过我还是有点担心昨天突然发热、干咳这件事……咱们聊完后，您能不能再帮我看看严不严重？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "最近还挺忙的，班级活动比较多，平时也要上课、住校，空下来才会去打羽毛球。不过我还是有点担心昨天突然发热、干咳这件事……医生，咱们还是先看看病情吧，这种情况会不会很严重？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life",
+        "persona.interest.1"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "我昨天傍晚开始突然发热、干咳，腰背和四肢也很酸痛，几个小时内就明显起来了。您是想分别问我现在发热、咳嗽，还是酸痛还在不在吗？我有点担心，怕会不会很严重。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.onset"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "好的，麻烦您帮我量一下体温吧。我有点担心会不会又升高了。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的呼吸道病毒核酸检测结果怎么样",
+      "reply": "这个呼吸道病毒核酸检测我还没有做，所以现在没有结果。医生，您是建议我做这个检查吗？我有点担心到底严不严重。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那就去做呼吸道病毒核酸检测吧。希望能尽快知道结果，我还是有点担心，不会很严重吧？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.respiratory_virus_panel",
+            "status": "completed",
+            "report": "Influenza A 病毒RNA靶标阳性，内参有效。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.respiratory_virus_panel",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "呼吸道病毒核酸检测现在是什么结果",
+      "reply": "Influenza A 病毒RNA靶标阳性，内参有效。",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.respiratory_virus_panel"
+      ],
+      "effects": [],
+      "patientProviderCalls": 2,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "体温38.6℃，心率94次/分，呼吸频率18次/分，血压118/70mmHg，静息血氧饱和度97%。"
+          },
+          {
+            "testId": "test.respiratory_virus_panel",
+            "status": "completed",
+            "report": "Influenza A 病毒RNA靶标阳性，内参有效。"
+          }
+        ]
+      }
+    }
+  ]
+}

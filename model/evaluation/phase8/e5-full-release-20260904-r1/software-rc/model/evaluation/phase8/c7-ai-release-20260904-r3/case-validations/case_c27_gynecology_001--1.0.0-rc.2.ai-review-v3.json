@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:b404713141f319bc63f81e1c1711f71bbaca871cb4c3f55e140b7d3115b305e8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.16654a51-6aab-4afa-8e38-04e71b8862a7",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:45:16.513Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体一致：症状呈典型经期痉挛痛、两天内缓解、周期规律且生命体征稳定，妇科评估未提示器质性病变或妊娠，支持原发性痛经；盆腔CT列为非必要检查也与病例设定一致。",
+        "目标诊断、可接受鉴别诊断、必需检查和回归成功轨迹能够支持求解原发性痛经。",
+        "红旗排除存在覆盖缺口：矩阵列出9项适用红旗，但成功轨迹仅要求询问confusion、hypotension、inability oral intake、high risk population，未明确覆盖pregnancy、hemodynamically significant bleeding、acute pelvic pain、gynecologic fever及mucosal or upper tract involvement。",
+        "rubric.mustAskFactIds仅包含4项红旗事实，而redFlagExclusionMatrix要求9项红旗均为absent，评分规则与安全排除矩阵不一致，可能允许未完成完整红旗排除即得分或诊断。",
+        "回归覆盖不足：c27.success未验证全部矩阵红旗的询问、未披露或检查性排除路径；因此无法证明正常成功轨迹能安全退出。安全中断轨迹本身的SAFETY_INTERRUPTED、零医疗回合和零写入要求清楚。",
+        "隐藏教学字段和服务端评分字段未进入患者可见内容或回归输出，未发现隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7dba6333-8a25-4b5e-9032-da44a85b4366",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:45:35.033Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与“原发性痛经”总体一致：规律月经相关痉挛痛、两天内缓解、无异常大量出血或明显全身危险表现，诊断粒度适当。",
+        "通过起病、疼痛模式、伴随症状、进展及妇科评估，目标诊断可解；鉴别诊断数量和概念也满足设定。",
+        "红旗矩阵列出9项均适用且要求为absent，但rubric及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population，遗漏pregnancy、hemodynamically significant bleeding、acute pelvic pain、gynecologic fever及mucosal_or_upper_tract_involvement，排除要求与执行路径不一致。",
+        "rubric的mustAskFactIds与成功轨迹基本一致，但二者共同遗漏红旗矩阵要求的5项事实；此外妇科评估报告包含“无妊娠证据”，却未将妊娠排除纳入必问或成功轨迹，形成评分与病例证据边界不一致。",
+        "四类回归轨迹并未完整覆盖冻结要求：success未验证全部适用红旗；unknown问题同时询问既往发作和相关接触，却仅期望fact.prior_episode，未期望fact.relevant_exposure，存在事实提取回归不一致。",
+        "未见隐藏教学字段、test-only生命体征或服务端字段被暴露；安全轨迹对胸痛伴呼吸困难的非本病例请求设定中断、零provider调用和零文本写入，边界清晰。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体一致：症状呈典型经期痉挛痛、两天内缓解、周期规律且生命体征稳定，妇科评估未提示器质性病变或妊娠，支持原发性痛经；盆腔CT列为非必要检查也与病例设定一致。",
+    "目标诊断、可接受鉴别诊断、必需检查和回归成功轨迹能够支持求解原发性痛经。",
+    "红旗排除存在覆盖缺口：矩阵列出9项适用红旗，但成功轨迹仅要求询问confusion、hypotension、inability oral intake、high risk population，未明确覆盖pregnancy、hemodynamically significant bleeding、acute pelvic pain、gynecologic fever及mucosal or upper tract involvement。",
+    "rubric.mustAskFactIds仅包含4项红旗事实，而redFlagExclusionMatrix要求9项红旗均为absent，评分规则与安全排除矩阵不一致，可能允许未完成完整红旗排除即得分或诊断。",
+    "回归覆盖不足：c27.success未验证全部矩阵红旗的询问、未披露或检查性排除路径；因此无法证明正常成功轨迹能安全退出。安全中断轨迹本身的SAFETY_INTERRUPTED、零医疗回合和零写入要求清楚。",
+    "隐藏教学字段和服务端评分字段未进入患者可见内容或回归输出，未发现隐藏真相泄露风险。",
+    "临床表现与“原发性痛经”总体一致：规律月经相关痉挛痛、两天内缓解、无异常大量出血或明显全身危险表现，诊断粒度适当。",
+    "通过起病、疼痛模式、伴随症状、进展及妇科评估，目标诊断可解；鉴别诊断数量和概念也满足设定。",
+    "红旗矩阵列出9项均适用且要求为absent，但rubric及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population，遗漏pregnancy、hemodynamically significant bleeding、acute pelvic pain、gynecologic fever及mucosal_or_upper_tract_involvement，排除要求与执行路径不一致。",
+    "rubric的mustAskFactIds与成功轨迹基本一致，但二者共同遗漏红旗矩阵要求的5项事实；此外妇科评估报告包含“无妊娠证据”，却未将妊娠排除纳入必问或成功轨迹，形成评分与病例证据边界不一致。",
+    "四类回归轨迹并未完整覆盖冻结要求：success未验证全部适用红旗；unknown问题同时询问既往发作和相关接触，却仅期望fact.prior_episode，未期望fact.relevant_exposure，存在事实提取回归不一致。",
+    "未见隐藏教学字段、test-only生命体征或服务端字段被暴露；安全轨迹对胸痛伴呼吸困难的非本病例请求设定中断、零provider调用和零文本写入，边界清晰。"
+  ]
+}

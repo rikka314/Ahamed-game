@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:a7536f5e23206a4331d99730b7319d88e93457a6d06f17459af98ede660608b1",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.13056bc5-2856-4ee6-b37f-a92fc6879ec1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:41:52.575Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与急性第一跖趾关节晶体性关节炎一致；生命体征稳定，关节评估支持痛风性关节炎，且未见全身感染证据。",
+        "目标诊断明确，症状、起病方式和检查结果足以支持痛风性关节炎；感染性关节炎与假性痛风作为鉴别诊断合理。",
+        "红旗矩阵所列危险征象均标记为缺如，且包含生命体征检查和患者问诊证据；未见需要急诊升级的事实。",
+        "量表要求的病史覆盖、两个鉴别诊断、必需检查及MRI不必要性与病例内容和回归成功轨迹一致。",
+        "回归轨迹覆盖成功、错误检查/诊断、安全中断及未知事实场景，安全轨迹明确要求中断、零医疗回合和零原始文本写入。",
+        "未发现隐藏教学字段或测试专用事实向患者可见信息泄漏；生命体征仅可通过检查读取，符合隐藏真相保护要求。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.d5046d0e-55e6-4ccf-bd90-0be67ab0c03d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:42:03.428Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与痛风性关节炎总体一致：第一跖趾关节夜间突发红肿剧痛，关节评估支持晶体性关节炎；“总体变化缓慢”与急性起病略有措辞张力，但不足以阻断病例。",
+        "诊断可解性良好，症状部位、起病方式、炎症表现及关节评估共同支持目标诊断；感染性关节炎和假性痛风作为鉴别诊断粒度适当。",
+        "红旗事实均明确标记为缺如，生命体征稳定，关节评估未见全身感染证据；矩阵中的部分红旗对本例相关性较低，但状态、证据事实和要求状态彼此一致。",
+        "rubric与病例资产一致：must-ask事实均存在，两个鉴别概念和requiredDifferentialCount匹配，生命体征及关节评估为必需检查，足部MRI为不必要检查，回合上限也不构成冲突。",
+        "四类回归轨迹覆盖成功、失败、安全中断和未知事实路径；成功路径命中目标诊断及两个鉴别，失败路径使用不必要MRI并给出错误诊断，安全路径符合零调用/零写入预期，未知路径命中prior_episode。",
+        "隐藏教学字段未向玩家暴露，目标诊断仅出现在答案键和回归期望中；pending审核元数据未被当作病例阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床叙事与急性第一跖趾关节晶体性关节炎一致；生命体征稳定，关节评估支持痛风性关节炎，且未见全身感染证据。",
+    "目标诊断明确，症状、起病方式和检查结果足以支持痛风性关节炎；感染性关节炎与假性痛风作为鉴别诊断合理。",
+    "红旗矩阵所列危险征象均标记为缺如，且包含生命体征检查和患者问诊证据；未见需要急诊升级的事实。",
+    "量表要求的病史覆盖、两个鉴别诊断、必需检查及MRI不必要性与病例内容和回归成功轨迹一致。",
+    "回归轨迹覆盖成功、错误检查/诊断、安全中断及未知事实场景，安全轨迹明确要求中断、零医疗回合和零原始文本写入。",
+    "未发现隐藏教学字段或测试专用事实向患者可见信息泄漏；生命体征仅可通过检查读取，符合隐藏真相保护要求。",
+    "临床表现与痛风性关节炎总体一致：第一跖趾关节夜间突发红肿剧痛，关节评估支持晶体性关节炎；“总体变化缓慢”与急性起病略有措辞张力，但不足以阻断病例。",
+    "诊断可解性良好，症状部位、起病方式、炎症表现及关节评估共同支持目标诊断；感染性关节炎和假性痛风作为鉴别诊断粒度适当。",
+    "红旗事实均明确标记为缺如，生命体征稳定，关节评估未见全身感染证据；矩阵中的部分红旗对本例相关性较低，但状态、证据事实和要求状态彼此一致。",
+    "rubric与病例资产一致：must-ask事实均存在，两个鉴别概念和requiredDifferentialCount匹配，生命体征及关节评估为必需检查，足部MRI为不必要检查，回合上限也不构成冲突。",
+    "四类回归轨迹覆盖成功、失败、安全中断和未知事实路径；成功路径命中目标诊断及两个鉴别，失败路径使用不必要MRI并给出错误诊断，安全路径符合零调用/零写入预期，未知路径命中prior_episode。",
+    "隐藏教学字段未向玩家暴露，目标诊断仅出现在答案键和回归期望中；pending审核元数据未被当作病例阻塞。"
+  ]
+}

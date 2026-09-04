@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c11_cardiometabolic_004",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:b798c56867cb5774a7123c253bd6a07ea9f8ac1a8873f5deec6db55e3edd2269",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a88ee517-b3b5-4683-9454-9c429123813a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:58:37.154Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显检查标识不一致：test.chest_ct 的显示名和别名为胸部CT，但报告内容为“头颅MRI未见异常”。这会造成检查项目与结果错配，影响临床解释和评分可靠性，需修正后再发布。",
+        "病例症状呈缓慢进展的乏力、怕冷、反应变慢，伴皮肤干燥和轻度便秘；甲状腺功能结果显示促甲状腺激素升高、游离甲状腺素降低，目标诊断甲状腺功能减退可明确求解。",
+        "列明的意识改变、低血压、不能口服、高风险人群、胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症均为 absent，生命体征稳定；未见未排除的急症红旗。",
+        "必问病史、鉴别诊断数量与概念、必需及不必要检查分类、回合限制和沟通标准彼此一致；胸部CT被标为不必要检查也与评分策略一致。",
+        "回归轨迹覆盖成功诊疗、错误检查与错误诊断、安全中断以及未知病史信息，且安全轨迹明确要求零医疗调用、零原始文本写入和零医疗回合，覆盖充分。",
+        "生命体征通过检查读取、教学字段隐藏，未将隐藏教学信息或目标诊断直接暴露给患者；未发现隐藏真相泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7764886b-59a5-4c1a-84ef-d339e08a5d73",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:59:00.783Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：test.chest_ct 的显示名称与别名均指向胸部CT，但报告内容却为“头颅MRI未见异常”，检查类型与结果明显矛盾。",
+        "诊断可解性通过：乏力、怕冷、反应变慢、皮肤干燥及便秘等表现，结合TSH升高和游离T4降低，足以支持“甲状腺功能减退”；诊断粒度及两个鉴别诊断清晰。",
+        "红旗排除通过：矩阵中的10项红旗均有对应患者事实且状态为absent，生命体征稳定，未见急症状态与证据冲突。",
+        "Rubric一致性通过：must-ask事实、两个可接受鉴别诊断、必需/不必要检查分类及成功轨迹总体匹配；检查结果标签错误属于病例检查工件一致性问题。",
+        "回归覆盖不通过：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，应命中fact.prior_episode及fact.relevant_exposure，但expectedFactIds仅列出前者，轨迹预期不完整。",
+        "隐藏真值安全通过：隐藏教学字段未被玩家可见内容或回归轨迹直接暴露；安全轨迹要求中断且不产生医疗回合、provider调用或原文写入，未发现泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显检查标识不一致：test.chest_ct 的显示名和别名为胸部CT，但报告内容为“头颅MRI未见异常”。这会造成检查项目与结果错配，影响临床解释和评分可靠性，需修正后再发布。",
+    "病例症状呈缓慢进展的乏力、怕冷、反应变慢，伴皮肤干燥和轻度便秘；甲状腺功能结果显示促甲状腺激素升高、游离甲状腺素降低，目标诊断甲状腺功能减退可明确求解。",
+    "列明的意识改变、低血压、不能口服、高风险人群、胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症均为 absent，生命体征稳定；未见未排除的急症红旗。",
+    "必问病史、鉴别诊断数量与概念、必需及不必要检查分类、回合限制和沟通标准彼此一致；胸部CT被标为不必要检查也与评分策略一致。",
+    "回归轨迹覆盖成功诊疗、错误检查与错误诊断、安全中断以及未知病史信息，且安全轨迹明确要求零医疗调用、零原始文本写入和零医疗回合，覆盖充分。",
+    "生命体征通过检查读取、教学字段隐藏，未将隐藏教学信息或目标诊断直接暴露给患者；未发现隐藏真相泄漏。",
+    "临床一致性不通过：test.chest_ct 的显示名称与别名均指向胸部CT，但报告内容却为“头颅MRI未见异常”，检查类型与结果明显矛盾。",
+    "诊断可解性通过：乏力、怕冷、反应变慢、皮肤干燥及便秘等表现，结合TSH升高和游离T4降低，足以支持“甲状腺功能减退”；诊断粒度及两个鉴别诊断清晰。",
+    "红旗排除通过：矩阵中的10项红旗均有对应患者事实且状态为absent，生命体征稳定，未见急症状态与证据冲突。",
+    "Rubric一致性通过：must-ask事实、两个可接受鉴别诊断、必需/不必要检查分类及成功轨迹总体匹配；检查结果标签错误属于病例检查工件一致性问题。",
+    "回归覆盖不通过：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，应命中fact.prior_episode及fact.relevant_exposure，但expectedFactIds仅列出前者，轨迹预期不完整。",
+    "隐藏真值安全通过：隐藏教学字段未被玩家可见内容或回归轨迹直接暴露；安全轨迹要求中断且不产生医疗回合、provider调用或原文写入，未发现泄漏。"
+  ]
+}

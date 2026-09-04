@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:6f8fd24314352bd3628286a15d239a8c4a0e3e1bb4b1748b98354b8caae0f66e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.9a37f4dc-f3cf-4dd4-b97c-f57c41bcb746",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:09:32.295Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁成人局限性腕带接触区域皮疹，起病、暴露、分布、停戴后不扩散及检查结果相互一致，符合过敏性接触性皮炎。",
+        "病史、皮肤检查及镍斑贴试验足以支持目标诊断；刺激性接触性皮炎和体癣作为两个可接受鉴别诊断，设置合理。",
+        "生命体征稳定，且意识改变、低血压、不能进食、高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等危险征象均明确排除；无急症表现。",
+        "必问事实、检查分类、鉴别诊断数量及推荐回合数与成功轨迹和评分摘要一致；皮肤活检标为初始不必要检查，亦有失败回归覆盖。",
+        "回归轨迹覆盖成功、错误诊疗、不相关急症安全中断及未知既往史分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+        "教学字段、评分字段及答案关键内容标记为隐藏，安全中断轨迹不产生医疗输出；review 状态和各项 pending 元数据不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.19e1693c-efe5-4173-818b-475cd655bbfe",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:09:47.940Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：起病与更换金属腕带时间相关，皮疹局限于接触区域，斑贴试验镍阳性，支持过敏性接触性皮炎；体癣和刺激性接触性皮炎作为鉴别诊断合理。",
+        "诊断可解性通过：病史、暴露史、皮损分布及检查结果共同支持目标诊断，且目标诊断粒度与答案键一致；接受“接触性湿疹”作为同义表述合理。",
+        "红旗排除通过：意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制均有明确缺失状态和对应询问路径。",
+        "Rubric一致性通过：must-ask事实、2项鉴别诊断、必需检查、非必要活检及10回合限制与病例内容和回归轨迹相互匹配。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、错误检查、安全中断及未知既往史场景的预期结果与病例状态一致。",
+        "隐藏真值安全通过：教学字段保持hidden，生命体征设置为仅可通过检查读取；回归轨迹未要求直接暴露隐藏字段，也未将人工pending元数据作为病例阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁成人局限性腕带接触区域皮疹，起病、暴露、分布、停戴后不扩散及检查结果相互一致，符合过敏性接触性皮炎。",
+    "病史、皮肤检查及镍斑贴试验足以支持目标诊断；刺激性接触性皮炎和体癣作为两个可接受鉴别诊断，设置合理。",
+    "生命体征稳定，且意识改变、低血压、不能进食、高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等危险征象均明确排除；无急症表现。",
+    "必问事实、检查分类、鉴别诊断数量及推荐回合数与成功轨迹和评分摘要一致；皮肤活检标为初始不必要检查，亦有失败回归覆盖。",
+    "回归轨迹覆盖成功、错误诊疗、不相关急症安全中断及未知既往史分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+    "教学字段、评分字段及答案关键内容标记为隐藏，安全中断轨迹不产生医疗输出；review 状态和各项 pending 元数据不构成阻塞。",
+    "临床一致性通过：起病与更换金属腕带时间相关，皮疹局限于接触区域，斑贴试验镍阳性，支持过敏性接触性皮炎；体癣和刺激性接触性皮炎作为鉴别诊断合理。",
+    "诊断可解性通过：病史、暴露史、皮损分布及检查结果共同支持目标诊断，且目标诊断粒度与答案键一致；接受“接触性湿疹”作为同义表述合理。",
+    "红旗排除通过：意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制均有明确缺失状态和对应询问路径。",
+    "Rubric一致性通过：must-ask事实、2项鉴别诊断、必需检查、非必要活检及10回合限制与病例内容和回归轨迹相互匹配。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、错误检查、安全中断及未知既往史场景的预期结果与病例状态一致。",
+    "隐藏真值安全通过：教学字段保持hidden，生命体征设置为仅可通过检查读取；回归轨迹未要求直接暴露隐藏字段，也未将人工pending元数据作为病例阻塞。"
+  ]
+}

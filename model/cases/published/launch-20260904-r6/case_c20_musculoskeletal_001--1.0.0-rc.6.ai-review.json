@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:18f6a652a2378aabf5e3f1d417058b366d350850d8b0c19bb27068917e96017d",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4e757125-866a-47b5-8880-6e2849de7872",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:20:46.322Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁成人，搬重物后出现急性机械性腰痛，症状模式、查体结果、生命体征及红旗排除彼此一致。",
+        "目标诊断“机械性腰痛”明确，接受同义词“非特异性腰痛”；两个鉴别诊断和所需检查均有清晰定义，病例可解。",
+        "马尾综合征、进行性神经功能缺损、严重外伤、感染、恶性肿瘤及特殊高风险人群等红旗均有对应事实排除；生命体征和神经系统查体也纳入安全评估。",
+        "rubric中的必问事实覆盖起病、症状模式、进展及全部关键红旗；生命体征和神经系统查体标为必需，腰椎MRI标为无红旗急性腰痛初始阶段不必要，内部逻辑一致。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知事实读取；安全轨迹对胸痛伴呼吸困难可中断并要求零医疗调用和零原文写入，退出约束明确。",
+        "教学字段、生命体征读取限制及其他服务端字段未作为患者可直接披露信息，未见隐藏真相泄漏或通过评分策略暴露答案的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.5503e565-539f-4378-bb8d-395d0d4c3883",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:20:59.153Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、检查结果与机械性腰痛目标诊断一致；搬重物诱发、活动相关疼痛且无神经缺损或其他危险信号，临床边界清楚。",
+        "目标诊断粒度适当，机械性腰痛与非特异性腰痛同义词映射明确；现有病史足以排除主要危险方向并支持作答。",
+        "红旗排除矩阵覆盖意识、循环、进食、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤及进行性神经缺损，证据事实与必问项一致。",
+        "rubric中的必问事实、鉴别诊断数量、检查分类和推荐回合数与病例内容及成功轨迹一致；腰椎MRI列为不必要检查有明确病例依据。",
+        "成功、失败、安全中断和未知事实四类回归轨迹均存在，动作、期望事实、诊断结果及安全断言未见明显矛盾。",
+        "未发现隐藏教学字段、患者事实、检查报告、答案键或回归资产之间会泄露目标答案或制造安全性冲突的问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁成人，搬重物后出现急性机械性腰痛，症状模式、查体结果、生命体征及红旗排除彼此一致。",
+    "目标诊断“机械性腰痛”明确，接受同义词“非特异性腰痛”；两个鉴别诊断和所需检查均有清晰定义，病例可解。",
+    "马尾综合征、进行性神经功能缺损、严重外伤、感染、恶性肿瘤及特殊高风险人群等红旗均有对应事实排除；生命体征和神经系统查体也纳入安全评估。",
+    "rubric中的必问事实覆盖起病、症状模式、进展及全部关键红旗；生命体征和神经系统查体标为必需，腰椎MRI标为无红旗急性腰痛初始阶段不必要，内部逻辑一致。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知事实读取；安全轨迹对胸痛伴呼吸困难可中断并要求零医疗调用和零原文写入，退出约束明确。",
+    "教学字段、生命体征读取限制及其他服务端字段未作为患者可直接披露信息，未见隐藏真相泄漏或通过评分策略暴露答案的设计。",
+    "病例叙事、检查结果与机械性腰痛目标诊断一致；搬重物诱发、活动相关疼痛且无神经缺损或其他危险信号，临床边界清楚。",
+    "目标诊断粒度适当，机械性腰痛与非特异性腰痛同义词映射明确；现有病史足以排除主要危险方向并支持作答。",
+    "红旗排除矩阵覆盖意识、循环、进食、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤及进行性神经缺损，证据事实与必问项一致。",
+    "rubric中的必问事实、鉴别诊断数量、检查分类和推荐回合数与病例内容及成功轨迹一致；腰椎MRI列为不必要检查有明确病例依据。",
+    "成功、失败、安全中断和未知事实四类回归轨迹均存在，动作、期望事实、诊断结果及安全断言未见明显矛盾。",
+    "未发现隐藏教学字段、患者事实、检查报告、答案键或回归资产之间会泄露目标答案或制造安全性冲突的问题。"
+  ]
+}

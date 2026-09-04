@@ -1,0 +1,25 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "canvas": "64x64",
+  "conversion": "exact-2x-nearest-neighbour",
+  "generatedAt": "2026-08-31",
+  "status": "DRAFT",
+  "items": [
+    { "number": 1, "componentId": "G00", "name": "透明空瓦片", "taskCardStatus": "LISTED_REQUIRED", "source32": "g00-transparent-empty.png", "file64": "g00-transparent-empty.png" },
+    { "number": 2, "componentId": "G01", "name": "诊所室内地面基础块", "taskCardStatus": "LISTED_REQUIRED", "source32": "g01-clinic-interior-floor-base-v4.png", "file64": "g01-clinic-interior-floor-base.png" },
+    { "number": 3, "componentId": "G02", "variant": "01", "name": "诊所室内地面轻微变化 01", "taskCardStatus": "LISTED_REQUIRED", "source32": "g02-clinic-interior-floor-variant-01-v2.png", "file64": "g02-clinic-interior-floor-variant-01.png" },
+    { "number": 4, "componentId": "G02", "variant": "02", "name": "诊所室内地面轻微变化 02", "taskCardStatus": "LISTED_REQUIRED", "source32": "g02-clinic-interior-floor-variant-02.png", "file64": "g02-clinic-interior-floor-variant-02.png" },
+    { "number": 5, "componentId": "G02", "variant": "03", "name": "诊所室内地面轻微变化 03", "taskCardStatus": "LISTED_REQUIRED", "source32": "g02-clinic-interior-floor-variant-03.png", "file64": "g02-clinic-interior-floor-variant-03.png" },
+    { "number": 6, "componentId": "G03", "name": "室外门前石砖地面", "taskCardStatus": "LISTED_REQUIRED", "source32": "g03-exterior-front-ground-stone-brick-v2.png", "file64": "g03-exterior-front-ground-stone-brick.png" },
+    { "number": 7, "componentId": "G04", "variant": "01", "name": "室外地面青苔变体 01", "taskCardStatus": "LISTED_REQUIRED", "source32": "g04-exterior-ground-variant-01-v8.png", "file64": "g04-exterior-ground-variant-01.png" },
+    { "number": 8, "componentId": "G04", "variant": "02", "name": "室外地面青苔变体 02", "taskCardStatus": "LISTED_REQUIRED", "source32": "g04-exterior-ground-variant-02-v3.png", "file64": "g04-exterior-ground-variant-02.png" },
+    { "number": 9, "componentId": "G13", "variant": "straight-up", "name": "室外直线路沿·上", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g13-exterior-curb-straight-up.png", "file64": "g13-exterior-curb-straight-up.png" },
+    { "number": 10, "componentId": "G13", "variant": "straight-down", "name": "室外直线路沿·下", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g13-exterior-curb-straight-down-v2.png", "file64": "g13-exterior-curb-straight-down.png" },
+    { "number": 11, "componentId": "G13", "variant": "straight-left", "name": "室外直线路沿·左", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g13-exterior-curb-straight-left.png", "file64": "g13-exterior-curb-straight-left.png" },
+    { "number": 12, "componentId": "G13", "variant": "straight-right", "name": "室外直线路沿·右", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g13-exterior-curb-straight-right.png", "file64": "g13-exterior-curb-straight-right.png" },
+    { "number": 13, "componentId": "G14", "variant": "outer-up-left", "name": "室外圆角路沿·左上", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g14-exterior-curb-outer-corner-up-left-v2.png", "file64": "g14-exterior-curb-outer-corner-up-left.png" },
+    { "number": 14, "componentId": "G14", "variant": "outer-up-right", "name": "室外圆角路沿·右上", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g14-exterior-curb-outer-corner-up-right.png", "file64": "g14-exterior-curb-outer-corner-up-right.png" },
+    { "number": 15, "componentId": "G14", "variant": "outer-down-left", "name": "室外圆角路沿·左下", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g14-exterior-curb-outer-corner-down-left.png", "file64": "g14-exterior-curb-outer-corner-down-left.png" },
+    { "number": 16, "componentId": "G14", "variant": "outer-down-right", "name": "室外圆角路沿·右下", "taskCardStatus": "USER_REQUESTED_EXTENSION", "source32": "g14-exterior-curb-outer-corner-down-right.png", "file64": "g14-exterior-curb-outer-corner-down-right.png" }
+  ]
+}

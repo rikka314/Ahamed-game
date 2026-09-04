@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.2",
+  "contentHash": "sha256:abe165e73b2d06a8891ec9f37f58b58f23eeeb4f2190e60c6f2113315b0bf94a",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.5c78e4ab-a701-431a-89a8-ebfd69b0bb2d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:51:44.339Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为急性发热、干咳、肌痛和头痛，呼吸道病毒核酸A型靶标阳性，生命体征稳定且胸部影像无实变，与流行性感冒及所列鉴别诊断一致。",
+        "起病、症状、危险征象及高风险人群信息足以支持目标诊断；生命体征和病毒检测可完成诊断判断。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；血压118/70mmHg、呼吸频率18次/分、静息血氧97%，未见急症信号。",
+        "安全轨迹覆盖胸痛伴呼吸困难时的SAFETY_INTERRUPTED退出，且要求无医疗回合、无提供方调用和原始文本写入，符合安全中断要求。",
+        "目标诊断、两项可接受鉴别诊断、必需的生命体征检查、可选病毒检测及不必要胸部影像的评分规则相互一致。",
+        "成功、失败、安全中断和未知信息轨迹均有回归覆盖；接触史保持为未知，不应被擅自推断。隐藏教学字段未暴露于患者可见内容，未发现隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.87e3af3a-1949-4348-a378-f405b6f008b1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:51:58.999Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为急性高热、肌痛、头痛、干咳，且呼吸道病毒检测提示A型病毒靶标阳性，流行性感冒在病例设定下可解；生命体征及胸部影像也与无重症、无局灶性肺炎一致。",
+        "诊断粒度适当，目标诊断、同义词及可接受鉴别诊断总体一致。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据，红旗矩阵与患者事实及生命体征相符。",
+        "rubric要求询问高风险人群，但成功轨迹的提问仅提到“危险表现”，未明确询问妊娠、免疫抑制或重要基础病；单靠该提问不应稳定地产生fact.high_risk_population，存在评分口径不一致。",
+        "成功回归轨迹预期一次ask同时覆盖全部14个must-ask事实，却未明确要求高风险人群等非症状信息；同时ask、test、diagnose三类动作对应medicalTurns=1的计数定义不清，需修订提问或明确回合计数规则。",
+        "安全轨迹不暴露病例隐藏事实，也正确设定中断、零医疗调用及零原文写入；unknown轨迹对接触史的预期事实与unknown状态一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床表现为急性发热、干咳、肌痛和头痛，呼吸道病毒核酸A型靶标阳性，生命体征稳定且胸部影像无实变，与流行性感冒及所列鉴别诊断一致。",
+    "起病、症状、危险征象及高风险人群信息足以支持目标诊断；生命体征和病毒检测可完成诊断判断。",
+    "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；血压118/70mmHg、呼吸频率18次/分、静息血氧97%，未见急症信号。",
+    "安全轨迹覆盖胸痛伴呼吸困难时的SAFETY_INTERRUPTED退出，且要求无医疗回合、无提供方调用和原始文本写入，符合安全中断要求。",
+    "目标诊断、两项可接受鉴别诊断、必需的生命体征检查、可选病毒检测及不必要胸部影像的评分规则相互一致。",
+    "成功、失败、安全中断和未知信息轨迹均有回归覆盖；接触史保持为未知，不应被擅自推断。隐藏教学字段未暴露于患者可见内容，未发现隐藏真相泄露风险。",
+    "临床表现为急性高热、肌痛、头痛、干咳，且呼吸道病毒检测提示A型病毒靶标阳性，流行性感冒在病例设定下可解；生命体征及胸部影像也与无重症、无局灶性肺炎一致。",
+    "诊断粒度适当，目标诊断、同义词及可接受鉴别诊断总体一致。",
+    "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据，红旗矩阵与患者事实及生命体征相符。",
+    "rubric要求询问高风险人群，但成功轨迹的提问仅提到“危险表现”，未明确询问妊娠、免疫抑制或重要基础病；单靠该提问不应稳定地产生fact.high_risk_population，存在评分口径不一致。",
+    "成功回归轨迹预期一次ask同时覆盖全部14个must-ask事实，却未明确要求高风险人群等非症状信息；同时ask、test、diagnose三类动作对应medicalTurns=1的计数定义不清，需修订提问或明确回合计数规则。",
+    "安全轨迹不暴露病例隐藏事实，也正确设定中断、零医疗调用及零原文写入；unknown轨迹对接触史的预期事实与unknown状态一致。"
+  ]
+}

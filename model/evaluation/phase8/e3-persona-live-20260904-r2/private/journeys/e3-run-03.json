@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "e3-private-persona-journey-v1",
+  "runId": "e3-run-03",
+  "personaTemplateId": "impatient_direct",
+  "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+  "status": "failed",
+  "failureCode": "Patient output failed the reply grounding gate.",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "scenarioId": "greeting",
+      "question": "你好，我们先简单认识一下。",
+      "reply": "你好，我姓林，是在读大学生。你直接问吧，我想尽快了解是什么情况。",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.scene_label",
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 0,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 2,
+      "scenarioId": "chief_complaint",
+      "question": "你今天最主要哪里不舒服？",
+      "reply": "主要是鼻子堵、流清鼻涕，嗓子也有点不舒服。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 1,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 3,
+      "scenarioId": "onset",
+      "question": "这些不舒服是什么时候开始的？",
+      "reply": "大约两天前慢慢开始的。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 2,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 4,
+      "scenarioId": "multiple_questions",
+      "question": "鼻涕是什么样的，嗓子和咳嗽怎么样，有没有发烧？",
+      "reply": "鼻涕主要是清的。嗓子有点干、发痒，吞咽没受影响；偶尔干咳几声，不频繁。没有明显发烧或高热。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.nasal_discharge",
+        "fact.sore_throat",
+        "fact.cough",
+        "fact.high_fever"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 3,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 5,
+      "scenarioId": "repeated_question",
+      "question": "我再确认一次，具体是什么时候开始的？",
+      "reply": "大约两天前开始的，是慢慢出现的。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 4,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 6,
+      "scenarioId": "ambiguous_reference",
+      "question": "刚才说的那个现在还明显吗？",
+      "reply": "你指的是鼻塞、流鼻涕，还是嗓子不舒服？这些现在都还有，不过具体哪一个你想确认？",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 5,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 7,
+      "scenarioId": "consecutive_off_topic",
+      "question": "我们先聊聊学校生活吧。",
+      "reply": "学校生活还算正常，平时住校上课。这个先简单聊聊就行，你继续问症状吧。",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 6,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 8,
+      "scenarioId": "consecutive_off_topic",
+      "question": "你最近听了什么音乐？",
+      "reply": "最近就听些流行歌，没有特别固定的。聊完了吗？你继续问症状吧。",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.interest.1"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 7,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 9,
+      "scenarioId": "consecutive_off_topic",
+      "question": "先别说病情，散步时一般去哪里？",
+      "reply": "一般就在学校操场或者校园附近走走。说完这个了，你继续问症状吧。",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.interest.2",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 8,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    }
+  ]
+}

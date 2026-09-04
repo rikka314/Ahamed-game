@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/review-record-v1.schema.json",
+  "title": "Private case review record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "author"],
+  "properties": {
+    "status": { "enum": ["fixture", "pending", "approved", "rejected"] },
+    "author": { "$ref": "#/$defs/nonEmpty" },
+    "releaseApproval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewerId", "caseId", "caseVersion", "contentHash", "checklistVersion", "decision", "signedAt", "signatureMethod"],
+      "properties": {
+        "reviewerId": { "$ref": "#/$defs/id" },
+        "caseId": { "$ref": "#/$defs/id" },
+        "caseVersion": { "$ref": "#/$defs/nonEmpty" },
+        "contentHash": { "$ref": "#/$defs/contentHash" },
+        "checklistVersion": { "$ref": "#/$defs/id" },
+        "decision": { "enum": ["approved", "rejected"] },
+        "signedAt": { "type": "string", "format": "date-time" },
+        "signatureMethod": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "approved" } } },
+      "then": {
+        "required": ["releaseApproval"],
+        "properties": {
+          "releaseApproval": {
+            "properties": { "decision": { "const": "approved" } }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

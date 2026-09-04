@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:741b5bbd5487d34a8bf6539bbd9c0b7c86e1f40a682b3eca4a8806e0904a07c1",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.63a8817e-e744-4473-a968-48f149f0ccc3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:44:11.512Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性无症状血脂异常体检复查，生命体征稳定，临床叙事与血脂检查及初始门诊边界一致；冠状动脉CT明确标为初始不必要检查，未见事实冲突。",
+        "目标诊断“血脂异常（体检发现）”及接受同义词清晰；甲状腺功能减退、糖尿病作为两个可接受鉴别诊断，诊断任务可解。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确排除证据，且生命体征检查已完成。",
+        "must-ask事实、必需/不必要检查分类、鉴别诊断数量和推荐回合限制相互一致；成功轨迹覆盖评分要求。",
+        "回归轨迹同时覆盖成功、错误检查/诊断、安全中断及未知既往史场景，安全轨迹要求无医疗回合、无提供方调用和无原文写入，覆盖充分。",
+        "教学字段保持hidden，未将内部评分或答案泄露给玩家；review.pending及人工审核元数据不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.721d562e-4d62-46b7-ac18-1eb6e29f2080",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:44:23.347Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与血脂异常目标诊断一致：无明显症状、体重增加和运动减少，血脂检查提示总胆固醇及低密度脂蛋白胆固醇升高；冠状动脉CT被明确标为初始非必需检查，前后一致。",
+        "目标诊断可由主诉和血脂检查直接求解，诊断粒度适当；甲状腺功能减退和糖尿病作为两个可接受鉴别诊断，数量及概念均匹配。",
+        "红旗排除矩阵覆盖的10项红旗均有对应患者事实，状态均为absent，且与生命体征稳定及无急性症状的病例设定一致。",
+        "mustAsk完整覆盖14个规定事实；required与unnecessary检查分类、诊断目标、鉴别诊断数量及沟通标准彼此一致。",
+        "success、failure、safety、unknown四类回归轨迹均有明确步骤和期望结果：成功轨迹覆盖问诊、检查及诊断，失败轨迹验证错误诊断和不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知既往史读取。",
+        "隐藏教学字段未泄露为玩家可见信息；病例仍保留足够公开线索和检查结果支持目标诊断，未见利用隐藏真值才能作答的要求。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性无症状血脂异常体检复查，生命体征稳定，临床叙事与血脂检查及初始门诊边界一致；冠状动脉CT明确标为初始不必要检查，未见事实冲突。",
+    "目标诊断“血脂异常（体检发现）”及接受同义词清晰；甲状腺功能减退、糖尿病作为两个可接受鉴别诊断，诊断任务可解。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确排除证据，且生命体征检查已完成。",
+    "must-ask事实、必需/不必要检查分类、鉴别诊断数量和推荐回合限制相互一致；成功轨迹覆盖评分要求。",
+    "回归轨迹同时覆盖成功、错误检查/诊断、安全中断及未知既往史场景，安全轨迹要求无医疗回合、无提供方调用和无原文写入，覆盖充分。",
+    "教学字段保持hidden，未将内部评分或答案泄露给玩家；review.pending及人工审核元数据不构成阻塞。",
+    "临床叙事与血脂异常目标诊断一致：无明显症状、体重增加和运动减少，血脂检查提示总胆固醇及低密度脂蛋白胆固醇升高；冠状动脉CT被明确标为初始非必需检查，前后一致。",
+    "目标诊断可由主诉和血脂检查直接求解，诊断粒度适当；甲状腺功能减退和糖尿病作为两个可接受鉴别诊断，数量及概念均匹配。",
+    "红旗排除矩阵覆盖的10项红旗均有对应患者事实，状态均为absent，且与生命体征稳定及无急性症状的病例设定一致。",
+    "mustAsk完整覆盖14个规定事实；required与unnecessary检查分类、诊断目标、鉴别诊断数量及沟通标准彼此一致。",
+    "success、failure、safety、unknown四类回归轨迹均有明确步骤和期望结果：成功轨迹覆盖问诊、检查及诊断，失败轨迹验证错误诊断和不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知既往史读取。",
+    "隐藏教学字段未泄露为玩家可见信息；病例仍保留足够公开线索和检查结果支持目标诊断，未见利用隐藏真值才能作答的要求。"
+  ]
+}

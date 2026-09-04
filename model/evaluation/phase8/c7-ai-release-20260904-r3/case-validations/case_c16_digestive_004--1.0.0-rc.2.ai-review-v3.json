@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:88c9bec6f331e142ffa1562002b698c581d1b9e464c92f7401d38a19686411ce",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.e95cde48-f6e9-40e0-9a6f-014c88ef74bf",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:38:02.117Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：腹泻两天、轻度恶心、可饮水且无血便/高热/持续呕吐，生命体征及脱水评估稳定，符合轻症急性胃肠炎；腹部CT虽属不必要检查，但与失败轨迹中的错误测试选择一致，不构成病例事实矛盾。",
+        "诊断可解性：起病、症状模式、伴随症状和进展均有事实支持，且目标诊断及两个可接受鉴别诊断定义明确。",
+        "红旗排除：意识改变、低血压、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确记录为缺失；生命体征和脱水评估也支持非急症边界。",
+        "量表一致性：must-ask事实、鉴别诊断数量及检查分类与病例内容和成功轨迹基本一致；生命体征与脱水评估为必需，腹部CT为不必要检查。",
+        "回归覆盖：成功、错误测试/错误诊断、安全中断和未知事实轨迹均存在；但unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，却只声明期望返回fact.prior_episode，遗漏对应的fact.relevant_exposure，导致轨迹期望与问题覆盖不一致。",
+        "隐藏真相安全：教学字段保持hidden，生命体征仅可通过检查读取；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，未见隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.4d460218-871e-4f8d-afc8-73e1d37eaab4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:38:22.923Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：两天急性腹泻伴轻度恶心、聚餐后起病、可饮水且无血便/高热/持续呕吐，生命体征及脱水评估稳定，支持轻症急性胃肠炎；腹部CT未见急腹症也不矛盾。",
+        "诊断可解性：目标诊断粒度合适，病例信息足以支持“轻症急性胃肠炎”，且食物不耐受和肠易激综合征可作为合理鉴别；虽缺少病原学证据，但不影响该门诊综合诊断。",
+        "红旗排除：红旗矩阵列出9项均要求排除，但mustAskFactIds及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项；胃肠道出血、腹膜刺激征、持续呕吐、黄疸、非意向性体重下降未纳入必问/成功路径，导致矩阵与执行要求不一致。",
+        "rubric一致性：requiredDifferentialCount=2与可接受鉴别一致，必需检查和不必要CT分类也一致；但rubric的must-ask集合与9项红旗排除矩阵不完整对齐，且成功提问使用宽泛的“危险表现”却只声明命中四项，评分边界不明确。",
+        "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”及“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹同样未覆盖矩阵其余五项红旗，存在冻结回归资产与病例事实/评分要求的覆盖缺口。",
+        "隐藏真值安全：生命体征被正确设置为test_only，教学字段为hidden，回归轨迹中的诊断和事实预期属于服务端资产，未见将隐藏字段直接暴露给患者的叙事或提问设计。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：腹泻两天、轻度恶心、可饮水且无血便/高热/持续呕吐，生命体征及脱水评估稳定，符合轻症急性胃肠炎；腹部CT虽属不必要检查，但与失败轨迹中的错误测试选择一致，不构成病例事实矛盾。",
+    "诊断可解性：起病、症状模式、伴随症状和进展均有事实支持，且目标诊断及两个可接受鉴别诊断定义明确。",
+    "红旗排除：意识改变、低血压、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确记录为缺失；生命体征和脱水评估也支持非急症边界。",
+    "量表一致性：must-ask事实、鉴别诊断数量及检查分类与病例内容和成功轨迹基本一致；生命体征与脱水评估为必需，腹部CT为不必要检查。",
+    "回归覆盖：成功、错误测试/错误诊断、安全中断和未知事实轨迹均存在；但unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，却只声明期望返回fact.prior_episode，遗漏对应的fact.relevant_exposure，导致轨迹期望与问题覆盖不一致。",
+    "隐藏真相安全：教学字段保持hidden，生命体征仅可通过检查读取；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，未见隐藏真相泄露。",
+    "临床一致性：两天急性腹泻伴轻度恶心、聚餐后起病、可饮水且无血便/高热/持续呕吐，生命体征及脱水评估稳定，支持轻症急性胃肠炎；腹部CT未见急腹症也不矛盾。",
+    "诊断可解性：目标诊断粒度合适，病例信息足以支持“轻症急性胃肠炎”，且食物不耐受和肠易激综合征可作为合理鉴别；虽缺少病原学证据，但不影响该门诊综合诊断。",
+    "红旗排除：红旗矩阵列出9项均要求排除，但mustAskFactIds及成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项；胃肠道出血、腹膜刺激征、持续呕吐、黄疸、非意向性体重下降未纳入必问/成功路径，导致矩阵与执行要求不一致。",
+    "rubric一致性：requiredDifferentialCount=2与可接受鉴别一致，必需检查和不必要CT分类也一致；但rubric的must-ask集合与9项红旗排除矩阵不完整对齐，且成功提问使用宽泛的“危险表现”却只声明命中四项，评分边界不明确。",
+    "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”及“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹同样未覆盖矩阵其余五项红旗，存在冻结回归资产与病例事实/评分要求的覆盖缺口。",
+    "隐藏真值安全：生命体征被正确设置为test_only，教学字段为hidden，回归轨迹中的诊断和事实预期属于服务端资产，未见将隐藏字段直接暴露给患者的叙事或提问设计。"
+  ]
+}

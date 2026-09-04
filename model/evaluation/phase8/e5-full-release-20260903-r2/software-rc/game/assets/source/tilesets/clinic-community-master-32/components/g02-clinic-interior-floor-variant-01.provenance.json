@@ -1,0 +1,20 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G02",
+  "componentVariant": "01",
+  "componentName": "室内地面细微变体",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.png",
+  "generator": "Codex pixel-native variant rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create G02 interior-floor subtle variant 01 from the accepted G01 revision-4 tile. Preserve the pale base, grout, palette and hard 32x32 pixel edges; relocate only a few material flecks; add no dirt, wear or new motif.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

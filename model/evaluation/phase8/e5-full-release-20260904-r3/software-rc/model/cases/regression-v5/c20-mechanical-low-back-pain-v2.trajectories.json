@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.4",
+  "trajectories": [
+    {
+      "trajectoryId": "c20.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、具体症状、还伴有什么、加重。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：意识状态、低血压、能否饮水、妊娠。",
+          "expectedFactIds": [
+            "fact.confusion",
+            "fact.hypotension",
+            "fact.inability_oral_intake",
+            "fact.high_risk_population"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：会阴麻木、严重外伤、发热寒战、肿瘤病史。",
+          "expectedFactIds": [
+            "fact.cauda_equina",
+            "fact.major_trauma",
+            "fact.musculoskeletal_infection",
+            "fact.malignancy_warning"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：进行性无力。",
+          "expectedFactIds": [
+            "fact.progressive_neurologic_deficit"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.neurologic_exam"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "机械性腰痛",
+          "differentials": [
+            "腰椎间盘突出",
+            "肾绞痛"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 4
+      }
+    },
+    {
+      "trajectoryId": "c20.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.lumbar_mri"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.lumbar_mri"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c20.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c20.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

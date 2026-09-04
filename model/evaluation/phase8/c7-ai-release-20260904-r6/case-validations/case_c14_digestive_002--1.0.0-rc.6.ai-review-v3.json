@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:2ab2f9a11abcda6f6db8006e190a41e07b82ea53c66905becca90c35fa0c382c",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.3bf6838c-cd76-4119-8a61-3d73289ff416",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:17:20.382Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与功能性消化不良相符：症状持续时间符合，基础评估未发现解释症状的器质性病变，生命体征稳定；腹部CT标为非必要检查，不构成病例事实矛盾。",
+        "首发症状、病程、症状模式、伴随症状及进展均可通过询问获得，且必要检查足以支持目标诊断，诊断可解。",
+        "意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降及进行性吞咽困难均有明确排除证据；生命体征检查结果稳定。",
+        "量表要求、差异诊断数量、必需与不必要检查分类及推荐回合数彼此一致；成功轨迹覆盖全部必问事实、必要检查和两个差异诊断。",
+        "回归轨迹覆盖成功、失败、不必要检查、急症安全中断及未知事实分支；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原始文本写入。",
+        "教学字段和评分摘要标记为隐藏，安全轨迹未显示隐藏真相泄露或不当写入；pending审核元数据不影响事实审计结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2311c96b-77df-42f3-9d7c-9ddb8bde0e0f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:17:35.169Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：症状持续时间、典型餐后饱胀/早饱模式及内镜和基础实验室阴性结果支持功能性消化不良，未见明显内部矛盾。",
+        "诊断可解性通过：病例提供了满足诊断所需的时间轴、症状模式和器质性病变排除信息，目标诊断粒度明确为“功能性消化不良”。",
+        "红旗排除通过：10项红旗均有对应患者事实、requiredState和矩阵证据，且相关询问轨迹覆盖完整。",
+        "Rubric一致性通过：mustAskFactIds、可接受鉴别诊断、所需鉴别诊断数量及检查分类与病例事实和回归轨迹一致。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均有明确预期；成功路径覆盖必问信息及必需检查，失败路径包含不必要CT和错误诊断，未知事实保持unknown。",
+        "隐藏真值安全通过：答案键、rubric、红旗矩阵和supportingArtifacts之间未发现泄露式冲突或不一致；pending审核元数据不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床叙事与功能性消化不良相符：症状持续时间符合，基础评估未发现解释症状的器质性病变，生命体征稳定；腹部CT标为非必要检查，不构成病例事实矛盾。",
+    "首发症状、病程、症状模式、伴随症状及进展均可通过询问获得，且必要检查足以支持目标诊断，诊断可解。",
+    "意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降及进行性吞咽困难均有明确排除证据；生命体征检查结果稳定。",
+    "量表要求、差异诊断数量、必需与不必要检查分类及推荐回合数彼此一致；成功轨迹覆盖全部必问事实、必要检查和两个差异诊断。",
+    "回归轨迹覆盖成功、失败、不必要检查、急症安全中断及未知事实分支；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原始文本写入。",
+    "教学字段和评分摘要标记为隐藏，安全轨迹未显示隐藏真相泄露或不当写入；pending审核元数据不影响事实审计结论。",
+    "临床一致性通过：症状持续时间、典型餐后饱胀/早饱模式及内镜和基础实验室阴性结果支持功能性消化不良，未见明显内部矛盾。",
+    "诊断可解性通过：病例提供了满足诊断所需的时间轴、症状模式和器质性病变排除信息，目标诊断粒度明确为“功能性消化不良”。",
+    "红旗排除通过：10项红旗均有对应患者事实、requiredState和矩阵证据，且相关询问轨迹覆盖完整。",
+    "Rubric一致性通过：mustAskFactIds、可接受鉴别诊断、所需鉴别诊断数量及检查分类与病例事实和回归轨迹一致。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均有明确预期；成功路径覆盖必问信息及必需检查，失败路径包含不必要CT和错误诊断，未知事实保持unknown。",
+    "隐藏真值安全通过：答案键、rubric、红旗矩阵和supportingArtifacts之间未发现泄露式冲突或不一致；pending审核元数据不构成阻塞。"
+  ]
+}

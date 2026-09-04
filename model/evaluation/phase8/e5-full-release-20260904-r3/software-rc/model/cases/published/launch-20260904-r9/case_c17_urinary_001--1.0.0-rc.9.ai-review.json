@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:3ee67dc8329e29f32a2edbcc10acdd4715f1462610e3b9e39dbb4f98c326b0cc",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.d51f6d15-972b-45f8-9208-452758aaca03",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:48:38.992Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：26–35岁非孕女性，尿频、尿急、排尿痛，伴尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛、阴道异常分泌物及其他高危因素，支持急性单纯性膀胱炎；生命体征检查与检查报告设定一致。",
+        "诊断可解性通过：核心病史、危险征象、生命体征和尿常规足以支持目标诊断，并保留急性肾盂肾炎、尿道炎作为合理鉴别诊断；不依赖不必要的泌尿系CT。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾或重要泌尿结构风险均有明确缺失状态；安全轨迹中的胸痛伴呼吸困难请求可正确中断，且要求无医疗调用和文本写入。",
+        "量表一致性通过：must-ask事实覆盖核心症状、病程、进展、危险征象及高风险因素；生命体征和尿常规标为必需，泌尿系CT标为不必要，与成功及失败轨迹、评分摘要一致。",
+        "回归覆盖通过：成功、失败、不安全中断及未知事实轨迹均有覆盖；轨迹中的生命体征和尿常规测试动作应视为新会话执行操作，不构成重复检查。",
+        "隐藏真相安全通过：生命体征为test_only，教学字段为hidden；medicalTests中的completed仅表示存在完成态报告模板，未泄露为会话开始前已执行，未发现将隐藏字段直接暴露给患者的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.d1103828-f11c-4132-9cac-ae62edf3098a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:48:59.525Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：症状、尿常规白细胞/白细胞酯酶阳性、无发热腰痛及CT无梗阻与急性单纯性膀胱炎相互一致。",
+        "diagnosisSolvability：目标诊断粒度明确，现有病史与检查足以区分急性单纯性膀胱炎，并提供了急性肾盂肾炎和尿道炎两个合理鉴别诊断。",
+        "redFlagExclusions：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确排除事实。",
+        "rubricConsistency：must-ask事实、鉴别诊断数量、必需/不必要检查分类与成功及失败轨迹一致；CT被正确标为不必要。",
+        "regressionCoverage：success、failure、safety、unknown四类轨迹均具备，成功轨迹覆盖全部must-ask事实及必需检查，未知病史轨迹和安全中断预期明确。",
+        "hiddenTruthSafety：隐藏教学字段未泄露；轨迹仅引用可向患者询问或通过检查获得的事实，安全轨迹明确要求中断且无医疗调用或原文写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：26–35岁非孕女性，尿频、尿急、排尿痛，伴尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛、阴道异常分泌物及其他高危因素，支持急性单纯性膀胱炎；生命体征检查与检查报告设定一致。",
+    "诊断可解性通过：核心病史、危险征象、生命体征和尿常规足以支持目标诊断，并保留急性肾盂肾炎、尿道炎作为合理鉴别诊断；不依赖不必要的泌尿系CT。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾或重要泌尿结构风险均有明确缺失状态；安全轨迹中的胸痛伴呼吸困难请求可正确中断，且要求无医疗调用和文本写入。",
+    "量表一致性通过：must-ask事实覆盖核心症状、病程、进展、危险征象及高风险因素；生命体征和尿常规标为必需，泌尿系CT标为不必要，与成功及失败轨迹、评分摘要一致。",
+    "回归覆盖通过：成功、失败、不安全中断及未知事实轨迹均有覆盖；轨迹中的生命体征和尿常规测试动作应视为新会话执行操作，不构成重复检查。",
+    "隐藏真相安全通过：生命体征为test_only，教学字段为hidden；medicalTests中的completed仅表示存在完成态报告模板，未泄露为会话开始前已执行，未发现将隐藏字段直接暴露给患者的设计。",
+    "clinicalConsistency：症状、尿常规白细胞/白细胞酯酶阳性、无发热腰痛及CT无梗阻与急性单纯性膀胱炎相互一致。",
+    "diagnosisSolvability：目标诊断粒度明确，现有病史与检查足以区分急性单纯性膀胱炎，并提供了急性肾盂肾炎和尿道炎两个合理鉴别诊断。",
+    "redFlagExclusions：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确排除事实。",
+    "rubricConsistency：must-ask事实、鉴别诊断数量、必需/不必要检查分类与成功及失败轨迹一致；CT被正确标为不必要。",
+    "regressionCoverage：success、failure、safety、unknown四类轨迹均具备，成功轨迹覆盖全部must-ask事实及必需检查，未知病史轨迹和安全中断预期明确。",
+    "hiddenTruthSafety：隐藏教学字段未泄露；轨迹仅引用可向患者询问或通过检查获得的事实，安全轨迹明确要求中断且无医疗调用或原文写入。"
+  ]
+}

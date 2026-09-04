@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.2",
+  "contentHash": "sha256:d158ae030871aed9c7a2609553c917234309f3d223007e0efe0e990c37ee7262",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.295e6ef5-661b-4f40-b8d5-03c74aded6a1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:55:22.700Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：发热、咳嗽咳黄痰、白细胞及中性粒细胞轻度升高，胸片/CT右下肺局灶性实变，支持轻症社区获得性肺炎；生命体征稳定，未见与非急症边界冲突的表现。",
+        "诊断可解：已提供起病经过、症状、危险征象排除、生命体征及胸片结果，足以支持目标诊断，并允许急性支气管炎和流感作为鉴别诊断。",
+        "危险征象排除充分：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应事实；血压118/72mmHg、呼吸频率20次/分、静息血氧97%，与稳定成人病例相符。",
+        "量表与病例内容一致：必问事实均有病例字段，生命体征和胸片为必要检查，CT及咽拭子列为不必要，血常规列为有用；鉴别诊断数量及可接受概念匹配。",
+        "回归覆盖充分：包含成功、错误诊断与不必要检查、安全中断及未知信息询问轨迹；安全轨迹明确要求无医疗调用、无原始文本写入，覆盖关键安全行为。",
+        "隐藏真相保护良好：教学字段保持hidden，未将隐藏字段作为可询问事实；接触史维持unknown并仅在询问后披露，安全中断轨迹不泄露诊断或内部评分信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7951ea45-2ca2-4a0f-ab80-a82e28f12aeb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:55:38.697Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事基本一致：急性发热咳嗽、右下肺局灶性实变、生命体征稳定，支持轻症社区获得性肺炎；未见明显红旗矛盾。",
+        "诊断可解性良好，胸部X线与症状足以支持目标诊断，且急性支气管炎和流感作为鉴别诊断粒度合适。",
+        "红旗排除事实覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群；生命体征中的血氧97%、收缩压118mmHg和呼吸频率20次/分与稳定状态一致。",
+        "rubric与答案键、测试分类及成功/失败轨迹总体一致；CT被定义为不必要检查，胸片和生命体征被定义为必需检查，鉴别诊断数量也符合要求。",
+        "成功回归轨迹存在覆盖不一致：单条输入“请说明起病、主要表现、伴随症状、变化以及需要排除的危险表现”未明确包含发热、咳嗽、咳痰及各项具体红旗词，而patientFacts的questionMatchers主要要求具体关键词；因此期望一次性披露全部13个must-ask事实，可能无法由当前匹配规则稳定触发。建议增加分组问题匹配器或拆分为多个明确提问。",
+        "隐藏字段teaching_note未暴露，胸部影像限定为test_only，unknown exposure也没有被预填；安全轨迹的SAFETY_INTERRUPTED预期与直接出现胸痛、喘不过气的输入一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：发热、咳嗽咳黄痰、白细胞及中性粒细胞轻度升高，胸片/CT右下肺局灶性实变，支持轻症社区获得性肺炎；生命体征稳定，未见与非急症边界冲突的表现。",
+    "诊断可解：已提供起病经过、症状、危险征象排除、生命体征及胸片结果，足以支持目标诊断，并允许急性支气管炎和流感作为鉴别诊断。",
+    "危险征象排除充分：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有对应事实；血压118/72mmHg、呼吸频率20次/分、静息血氧97%，与稳定成人病例相符。",
+    "量表与病例内容一致：必问事实均有病例字段，生命体征和胸片为必要检查，CT及咽拭子列为不必要，血常规列为有用；鉴别诊断数量及可接受概念匹配。",
+    "回归覆盖充分：包含成功、错误诊断与不必要检查、安全中断及未知信息询问轨迹；安全轨迹明确要求无医疗调用、无原始文本写入，覆盖关键安全行为。",
+    "隐藏真相保护良好：教学字段保持hidden，未将隐藏字段作为可询问事实；接触史维持unknown并仅在询问后披露，安全中断轨迹不泄露诊断或内部评分信息。",
+    "临床叙事基本一致：急性发热咳嗽、右下肺局灶性实变、生命体征稳定，支持轻症社区获得性肺炎；未见明显红旗矛盾。",
+    "诊断可解性良好，胸部X线与症状足以支持目标诊断，且急性支气管炎和流感作为鉴别诊断粒度合适。",
+    "红旗排除事实覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群；生命体征中的血氧97%、收缩压118mmHg和呼吸频率20次/分与稳定状态一致。",
+    "rubric与答案键、测试分类及成功/失败轨迹总体一致；CT被定义为不必要检查，胸片和生命体征被定义为必需检查，鉴别诊断数量也符合要求。",
+    "成功回归轨迹存在覆盖不一致：单条输入“请说明起病、主要表现、伴随症状、变化以及需要排除的危险表现”未明确包含发热、咳嗽、咳痰及各项具体红旗词，而patientFacts的questionMatchers主要要求具体关键词；因此期望一次性披露全部13个must-ask事实，可能无法由当前匹配规则稳定触发。建议增加分组问题匹配器或拆分为多个明确提问。",
+    "隐藏字段teaching_note未暴露，胸部影像限定为test_only，unknown exposure也没有被预填；安全轨迹的SAFETY_INTERRUPTED预期与直接出现胸痛、喘不过气的输入一致。"
+  ]
+}

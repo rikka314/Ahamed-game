@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:95dae15df0cb629d196fd8c20e899e7b9e36e113a638414a4bc5992077975d43",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.16bcf454-843a-4e95-88b1-cfac69d409a4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:57:05.274Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：病例症状持续约半年，涵盖广泛且难以控制的担心及典型伴随症状，生命体征和精神状态结果与非急症广泛性焦虑障碍情境一致；鉴别方向和不必要的头颅MRI设定合理。",
+        "diagnosisSolvability：首发主诉、病程、核心模式、伴随症状及进展信息足以支持“广泛性焦虑障碍”，目标诊断和接受同义词明确。",
+        "redFlagExclusions：已覆盖意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断及无法自理；生命体征和精神状态检查支持安全门诊退出。",
+        "rubricConsistency：must-ask事实、两个可接受鉴别诊断、必需与不必要检查分类及推荐回合数彼此一致，且与病例内容相匹配。",
+        "regressionCoverage：成功、失败、安全中断和未知信息轨迹均有覆盖；成功轨迹覆盖全部必问事实、必需检查、正确诊断及两个鉴别诊断，失败轨迹覆盖不必要检查，安全轨迹明确要求中断且无医疗写入。",
+        "hiddenTruthSafety：隐藏教学字段、答案键及服务端评分信息未暴露于患者可见内容或回归输入；test-only生命体征通过检查读取，未造成隐性事实泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.33dcbf96-58bc-4806-b835-e0a987a13169",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:57:19.429Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事与广泛性焦虑障碍一致：症状持续约半年，涉及多个生活领域、难以控制，并具备多项伴随症状；无躁狂、精神病性症状或物质诱发证据。",
+        "诊断粒度明确，目标概念、首选诊断及接受同义词一致；通过规定的病史询问可获得诊断所需信息。",
+        "九项红旗均有对应患者事实、状态为 absent，且与红旗排除矩阵及必要询问项一致。",
+        "鉴别诊断数量、概念ID和测试分类与评分rubric一致；生命体征及精神状态评估为必需，头颅MRI标记为不必要。",
+        "四类回归轨迹均有覆盖：成功、失败、不安全请求中断及未知既往史路径的预期结果与病例资产一致。",
+        "隐藏教学字段及服务端评分字段未泄露到患者可见内容；检查结果和诊断目标之间未见不当隐藏真相暴露。"
+      ]
+    }
+  ],
+  "findings": [
+    "clinicalConsistency：病例症状持续约半年，涵盖广泛且难以控制的担心及典型伴随症状，生命体征和精神状态结果与非急症广泛性焦虑障碍情境一致；鉴别方向和不必要的头颅MRI设定合理。",
+    "diagnosisSolvability：首发主诉、病程、核心模式、伴随症状及进展信息足以支持“广泛性焦虑障碍”，目标诊断和接受同义词明确。",
+    "redFlagExclusions：已覆盖意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断及无法自理；生命体征和精神状态检查支持安全门诊退出。",
+    "rubricConsistency：must-ask事实、两个可接受鉴别诊断、必需与不必要检查分类及推荐回合数彼此一致，且与病例内容相匹配。",
+    "regressionCoverage：成功、失败、安全中断和未知信息轨迹均有覆盖；成功轨迹覆盖全部必问事实、必需检查、正确诊断及两个鉴别诊断，失败轨迹覆盖不必要检查，安全轨迹明确要求中断且无医疗写入。",
+    "hiddenTruthSafety：隐藏教学字段、答案键及服务端评分信息未暴露于患者可见内容或回归输入；test-only生命体征通过检查读取，未造成隐性事实泄漏。",
+    "病例叙事与广泛性焦虑障碍一致：症状持续约半年，涉及多个生活领域、难以控制，并具备多项伴随症状；无躁狂、精神病性症状或物质诱发证据。",
+    "诊断粒度明确，目标概念、首选诊断及接受同义词一致；通过规定的病史询问可获得诊断所需信息。",
+    "九项红旗均有对应患者事实、状态为 absent，且与红旗排除矩阵及必要询问项一致。",
+    "鉴别诊断数量、概念ID和测试分类与评分rubric一致；生命体征及精神状态评估为必需，头颅MRI标记为不必要。",
+    "四类回归轨迹均有覆盖：成功、失败、不安全请求中断及未知既往史路径的预期结果与病例资产一致。",
+    "隐藏教学字段及服务端评分字段未泄露到患者可见内容；检查结果和诊断目标之间未见不当隐藏真相暴露。"
+  ]
+}

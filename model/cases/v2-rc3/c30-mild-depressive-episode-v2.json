@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c30_mentalhealth_002",
+  "publicCaseId": "case_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.3",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "情绪低落、乏力并反复诉说身体不适一个月"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c30",
+    "patientDisplayName": "患者30号",
+    "ageBand": "26–35岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "平面设计师",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "gentle_cooperative",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "语气温和礼貌",
+      "按问题逐项回答"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "high",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "情绪低落、乏力并反复诉说身体不适一个月",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "一个月前逐渐开始",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "近一个月情绪低落、兴趣减少并感到乏力",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "常以头沉、胃口差和全身没劲描述困扰，仍能基本工作，无自伤想法、躁狂或精神病性症状",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.somatic_expression": {
+      "status": "present",
+      "value": "最近经常先说头沉、胃口差和全身没劲，进一步询问时才会谈到情绪低落。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "身体不适",
+        "头沉",
+        "胃口",
+        "全身没劲",
+        "躯体表现"
+      ]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.self_harm_risk": {
+      "status": "absent",
+      "value": "未出现self harm risk相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.psychosis": {
+      "status": "absent",
+      "value": "未出现psychosis相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.mania": {
+      "status": "absent",
+      "value": "未出现mania相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.substance_intoxication": {
+      "status": "absent",
+      "value": "未出现substance intoxication相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_to_care_for_self": {
+      "status": "absent",
+      "value": "未出现inability to care for self相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.mental_status_exam": {
+      "status": "completed",
+      "displayName": "精神状态评估",
+      "aliases": [
+        "精神状态评估",
+        "做精神状态评估",
+        "test.mental_status_exam"
+      ],
+      "report": "精神状态评估提示轻度抑郁表现，躯体不适与情绪波动同步，现实检验完整且危机筛查阴性。"
+    },
+    "test.brain_mri": {
+      "status": "completed",
+      "displayName": "头颅MRI",
+      "aliases": [
+        "头颅MRI",
+        "做头颅MRI",
+        "test.brain_mri"
+      ],
+      "report": "头颅MRI不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.mild_depressive_episode",
+    "targetDiagnosis": "轻度抑郁发作伴躯体化表达",
+    "acceptedSynonyms": [
+      "轻度抑郁症"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.mild_depressive_episode",
+        "preferredTerm": "轻度抑郁发作伴躯体化表达",
+        "acceptedSynonyms": [
+          "轻度抑郁症"
+        ]
+      },
+      {
+        "conceptId": "concept.generalized_anxiety_disorder",
+        "preferredTerm": "广泛性焦虑障碍",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.hypothyroidism",
+        "preferredTerm": "甲状腺功能减退",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.somatic_expression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.self_harm_risk",
+      "fact.psychosis",
+      "fact.mania",
+      "fact.substance_intoxication",
+      "fact.inability_to_care_for_self"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.generalized_anxiety_disorder",
+      "concept.hypothyroidism"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.mental_status_exam": "required",
+      "test.brain_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 12,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B4病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:9a9a62be426760f6953ff2b18159bfd5da4545b8daed8798778827d8e4bb0e7e",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.mental_health",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c30_mentalhealth_002",
+    "caseVersion": "1.0.0-rc.3",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.self_harm_risk",
+        "canonicalName": "self harm risk",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.self_harm_risk"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.psychosis",
+        "canonicalName": "psychosis",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.psychosis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.mania",
+        "canonicalName": "mania",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.mania"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.substance_intoxication",
+        "canonicalName": "substance intoxication",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.substance_intoxication"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_to_care_for_self",
+        "canonicalName": "inability to care for self",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_to_care_for_self"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.mental_health",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  }
+}

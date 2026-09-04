@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8bef6b50b4bc3d25c0ff03e187c1132c990a7a6bd8c060f677a2d5a54ce98ae8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.99162b07-fbca-4165-bfe3-f7860710b87f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:59:58.651Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写成“腹部CT未见异常”，需统一检查部位及报告内容。",
+        "饭后及卧位反酸烧心、病程一个月、生命体征稳定且未见报警征象，足以支持胃食管反流病，并允许鉴别功能性消化不良和消化性溃疡。",
+        "红旗排除矩阵中的意识障碍、低血压、无法进食、高危人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为 absent，且有对应事实证据。",
+        "量表要求与成功轨迹基本一致：覆盖必问病史、完成生命体征和上消化道评估，胸部CT标记为不必要；诊断及鉴别诊断要求也相符。",
+        "回归轨迹覆盖成功、错误测试与错误诊断、安全中断及未知信息询问；急性“胸痛又喘不过气”输入设置为中断且不产生医疗回合，安全退出逻辑可接受。",
+        "隐藏教学字段未暴露；生命体征通过检查读取，红旗事实按询问披露，未见隐藏真相泄漏或利用隐藏字段作答的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2320856e-c305-4920-84cc-aa750f3cbd4b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:00:15.022Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名称和别名指向胸部CT，但报告内容却写为“腹部CT未见异常”，检查部位与结果不一致，需统一。",
+        "诊断可解性通过：饭后及躺下时反酸、烧心，病程一个月且无报警表现，足以支持胃食管反流病；鉴别诊断也有明确候选。",
+        "红旗排除失败：redFlagExclusionMatrix要求9项红旗均为absent，但rubric.mustAskFactIds及成功轨迹仅覆盖其中4项，未覆盖消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿体重下降，无法通过规定问诊路径完整验证。",
+        "rubric一致性通过：目标诊断、两个可接受鉴别诊断、所需鉴别数量及生命体征/上消化道评估/胸部CT的required与unnecessary分类彼此一致。",
+        "回归覆盖失败：unknown轨迹的问题同时询问既往发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；同时成功轨迹未覆盖矩阵要求的全部红旗排除证据。",
+        "隐藏真值安全通过：隐藏教学字段未进入玩家可见内容；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用、零原始文本写入及零医疗回合，未发现与病例真值泄露相关的不一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写成“腹部CT未见异常”，需统一检查部位及报告内容。",
+    "饭后及卧位反酸烧心、病程一个月、生命体征稳定且未见报警征象，足以支持胃食管反流病，并允许鉴别功能性消化不良和消化性溃疡。",
+    "红旗排除矩阵中的意识障碍、低血压、无法进食、高危人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为 absent，且有对应事实证据。",
+    "量表要求与成功轨迹基本一致：覆盖必问病史、完成生命体征和上消化道评估，胸部CT标记为不必要；诊断及鉴别诊断要求也相符。",
+    "回归轨迹覆盖成功、错误测试与错误诊断、安全中断及未知信息询问；急性“胸痛又喘不过气”输入设置为中断且不产生医疗回合，安全退出逻辑可接受。",
+    "隐藏教学字段未暴露；生命体征通过检查读取，红旗事实按询问披露，未见隐藏真相泄漏或利用隐藏字段作答的问题。",
+    "临床一致性失败：test.chest_ct 的显示名称和别名指向胸部CT，但报告内容却写为“腹部CT未见异常”，检查部位与结果不一致，需统一。",
+    "诊断可解性通过：饭后及躺下时反酸、烧心，病程一个月且无报警表现，足以支持胃食管反流病；鉴别诊断也有明确候选。",
+    "红旗排除失败：redFlagExclusionMatrix要求9项红旗均为absent，但rubric.mustAskFactIds及成功轨迹仅覆盖其中4项，未覆盖消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿体重下降，无法通过规定问诊路径完整验证。",
+    "rubric一致性通过：目标诊断、两个可接受鉴别诊断、所需鉴别数量及生命体征/上消化道评估/胸部CT的required与unnecessary分类彼此一致。",
+    "回归覆盖失败：unknown轨迹的问题同时询问既往发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；同时成功轨迹未覆盖矩阵要求的全部红旗排除证据。",
+    "隐藏真值安全通过：隐藏教学字段未进入玩家可见内容；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用、零原始文本写入及零医疗回合，未发现与病例真值泄露相关的不一致。"
+  ]
+}

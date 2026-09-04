@@ -1,0 +1,17 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G14",
+  "componentVariant": "outer-down-right",
+  "componentName": "室外圆角路沿",
+  "taskCardStatus": "USER_REQUESTED_EXTENSION",
+  "revision": 1,
+  "sourceType": "derived-ai-assisted",
+  "author": "AhaMed project draft",
+  "license": "Project-original AI-assisted DRAFT; release rights require owner approval",
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-down-right.png",
+  "generator": "Sharp 0.35.3 deterministic nearest-neighbour conversion",
+  "generatedAt": "2026-08-31",
+  "prompt": "Convert the selected current 32x32 DRAFT component to 64x64 using exact 2x nearest-neighbour sampling. Preserve sRGB values and alpha; introduce no new detail.",
+  "humanEdits": ["No visual edits; canvas scale only."],
+  "status": "DRAFT"
+}

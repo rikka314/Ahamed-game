@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:c94f69a3bd5f02f010f90d63b29bf6d0228616bc275377696775999ca44b4f32",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.f72da8ae-b194-43dc-9779-a683a5a75c3c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:03:48.040Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体一致：典型右侧输尿管绞痛，生命体征稳定，超声见小结石且无明显积水，未见感染性梗阻等急症征象；胸部CT被正确标为非初始必需检查。",
+        "诊断可求解：病史模式、生命体征和针对性超声共同支持“单纯输尿管结石”，且提供了两个可接受鉴别诊断。",
+        "红旗排除矩阵覆盖confusion、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均明确为absent；生命体征也记录为稳定。",
+        "量表结构一致：must-ask事实均存在，必需与不必要检查分类完整，要求的两个鉴别诊断与概念ID匹配，推荐回合数也已定义。",
+        "回归覆盖存在成功、失败、安全中断和未知信息轨迹，但c19.unknown的提问同时涉及既往同样发作和相关接触/诱因，expectedFactIds仅列fact.prior_episode，遗漏已被直接询问的fact.relevant_exposure，导致轨迹期望与事实匹配器不一致。",
+        "教学备注等隐藏字段未暴露于playerVisible或安全轨迹，目标诊断仅位于内部答案与评分数据中，未发现隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.afb5151e-645b-4897-b87b-8cedc19db593",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:04:12.392Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发右侧腰腹绞痛向腹股沟放射，且超声示右侧输尿管小结石、无明显积水，与单纯输尿管结石相符；但检查报告中的“增强CT”与测试名称“胸部CT”存在命名不一致，建议统一。",
+        "诊断可解性通过：症状模式、关键伴随症状和针对性超声结果足以支持目标诊断，诊断粒度为“单纯输尿管结石”也与答案键一致。",
+        "红旗排除通过：矩阵覆盖意识改变、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均有对应事实且状态为 absent。",
+        "Rubric一致性通过：must-ask事实、2个可接受鉴别诊断、必需/不必要检查分类及成功轨迹总体一致。",
+        "回归覆盖不通过：unknown轨迹的提问同时涉及既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；应补充该事实或修改提问。其余成功、失败和安全轨迹基本匹配预期。",
+        "隐藏真值安全通过：目标诊断、教学字段及内部评分信息未出现在playerVisible病例内容中；安全轨迹也未要求调用病例诊断或写入医疗回合。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体一致：典型右侧输尿管绞痛，生命体征稳定，超声见小结石且无明显积水，未见感染性梗阻等急症征象；胸部CT被正确标为非初始必需检查。",
+    "诊断可求解：病史模式、生命体征和针对性超声共同支持“单纯输尿管结石”，且提供了两个可接受鉴别诊断。",
+    "红旗排除矩阵覆盖confusion、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均明确为absent；生命体征也记录为稳定。",
+    "量表结构一致：must-ask事实均存在，必需与不必要检查分类完整，要求的两个鉴别诊断与概念ID匹配，推荐回合数也已定义。",
+    "回归覆盖存在成功、失败、安全中断和未知信息轨迹，但c19.unknown的提问同时涉及既往同样发作和相关接触/诱因，expectedFactIds仅列fact.prior_episode，遗漏已被直接询问的fact.relevant_exposure，导致轨迹期望与事实匹配器不一致。",
+    "教学备注等隐藏字段未暴露于playerVisible或安全轨迹，目标诊断仅位于内部答案与评分数据中，未发现隐藏真相泄露。",
+    "临床一致性通过：突发右侧腰腹绞痛向腹股沟放射，且超声示右侧输尿管小结石、无明显积水，与单纯输尿管结石相符；但检查报告中的“增强CT”与测试名称“胸部CT”存在命名不一致，建议统一。",
+    "诊断可解性通过：症状模式、关键伴随症状和针对性超声结果足以支持目标诊断，诊断粒度为“单纯输尿管结石”也与答案键一致。",
+    "红旗排除通过：矩阵覆盖意识改变、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均有对应事实且状态为 absent。",
+    "Rubric一致性通过：must-ask事实、2个可接受鉴别诊断、必需/不必要检查分类及成功轨迹总体一致。",
+    "回归覆盖不通过：unknown轨迹的提问同时涉及既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；应补充该事实或修改提问。其余成功、失败和安全轨迹基本匹配预期。",
+    "隐藏真值安全通过：目标诊断、教学字段及内部评分信息未出现在playerVisible病例内容中；安全轨迹也未要求调用病例诊断或写入医疗回合。"
+  ]
+}

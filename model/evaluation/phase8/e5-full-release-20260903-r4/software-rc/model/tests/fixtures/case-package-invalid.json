@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "case-package-v1-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "invalid_case",
+  "publicCaseId": "invalid_diagnosis",
+  "caseVersion": "1.0.0",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "patientDisplayName": "测试患者",
+    "chiefComplaint": "测试主诉"
+  },
+  "patientPersona": { "languageStyle": "口语" },
+  "patientFacts": {},
+  "medicalTests": {},
+  "answerKey": {
+    "targetConceptId": "",
+    "targetDiagnosis": "diagnosis",
+    "acceptedSynonyms": [],
+    "diagnosisConcepts": []
+  },
+  "rubric": {
+    "mustAskFactIds": [],
+    "acceptableDifferentialConceptIds": [],
+    "requiredDifferentialCount": 1,
+    "testClassifications": {},
+    "recommendedTurnLimit": 21,
+    "communicationRubricVersion": "",
+    "communicationCriterionIds": []
+  },
+  "review": { "status": "pending", "author": "" },
+  "provenance": {
+    "sourceType": "synthetic",
+    "sourceCitation": "",
+    "license": "",
+    "createdAt": "",
+    "contentHash": "not-a-content-hash"
+  }
+}

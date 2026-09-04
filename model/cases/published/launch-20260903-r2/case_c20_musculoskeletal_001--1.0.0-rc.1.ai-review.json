@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:3e0eb7f5ac530747b274645ddfa0ee96c5058a236e50b036f056324584adac0b",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6cd84049-b66c-434b-99a7-fa5da8bd7eb3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:04:29.891Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显检查标识错误：test.chest_ct 的名称和别名指向胸部CT，但报告内容却讨论腰椎MRI，易造成检查结果与临床推理混淆。",
+        "机械性腰痛的起病、机械性疼痛模式、神经症状、病程、生命体征和基础神经检查足以支持目标诊断，鉴别诊断及数量要求也可完成。",
+        "红旗矩阵列出马尾综合征、重大创伤、肌肉骨骼感染、恶性肿瘤警示和进行性神经功能缺损等项目，但必问事实和成功回归轨迹未覆盖这些项目，危险征象排除不完整。",
+        "rubric.mustAskFactIds 与 redFlagExclusionMatrix 的覆盖范围不一致；矩阵要求9类红旗均为阴性，而量表仅要求其中部分事实，存在评分与安全要求脱节。",
+        "回归轨迹虽覆盖成功、错误诊断、安全中断和未知事实分支，但未验证完整红旗筛查、异常红旗下的安全退出或检查标识一致性，因此关键安全回归覆盖不足。",
+        "安全轨迹明确要求立即中断、零服务端调用、零原始文本写入和零医疗回合；隐藏教学字段及仅可通过检查读取的生命体征未被轨迹暴露，隐藏真相保护通过。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.61e46609-cb42-4a37-89d4-16b613db26c0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:06:51.502Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：test.chest_ct 的显示名称为“胸部CT”，但报告内容讨论“腰椎MRI”，检查对象与报告不一致，易造成错误解释。",
+        "诊断可解性通过：起病诱因、机械性活动相关疼痛、无神经缺损及无主要红旗表现支持“机械性腰痛”；目标诊断和可接受同义词定义清楚。",
+        "红旗排除不通过：redFlagExclusionMatrix列出9项红旗，但rubric.mustAsk及成功轨迹仅覆盖其中4项，未明确要求询问马尾综合征、重大创伤、感染、恶性肿瘤警示及进行性神经功能缺损等事实。",
+        "rubric一致性不通过：成功轨迹的红旗事实覆盖范围与矩阵及病例事实不一致；此外test.chest_ct虽被标为unnecessary，但其检查名称和报告错配，影响测试选择评分的语义稳定性。",
+        "回归覆盖不通过：unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹也未覆盖矩阵中的全部红旗事实。",
+        "隐藏真值安全通过：teaching_note为hidden，生命体征通过test_only读取；安全中断轨迹未要求读取病例事实，且声明了providerCalls、rawTextWrites和medicalTurns均为0。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显检查标识错误：test.chest_ct 的名称和别名指向胸部CT，但报告内容却讨论腰椎MRI，易造成检查结果与临床推理混淆。",
+    "机械性腰痛的起病、机械性疼痛模式、神经症状、病程、生命体征和基础神经检查足以支持目标诊断，鉴别诊断及数量要求也可完成。",
+    "红旗矩阵列出马尾综合征、重大创伤、肌肉骨骼感染、恶性肿瘤警示和进行性神经功能缺损等项目，但必问事实和成功回归轨迹未覆盖这些项目，危险征象排除不完整。",
+    "rubric.mustAskFactIds 与 redFlagExclusionMatrix 的覆盖范围不一致；矩阵要求9类红旗均为阴性，而量表仅要求其中部分事实，存在评分与安全要求脱节。",
+    "回归轨迹虽覆盖成功、错误诊断、安全中断和未知事实分支，但未验证完整红旗筛查、异常红旗下的安全退出或检查标识一致性，因此关键安全回归覆盖不足。",
+    "安全轨迹明确要求立即中断、零服务端调用、零原始文本写入和零医疗回合；隐藏教学字段及仅可通过检查读取的生命体征未被轨迹暴露，隐藏真相保护通过。",
+    "临床一致性不通过：test.chest_ct 的显示名称为“胸部CT”，但报告内容讨论“腰椎MRI”，检查对象与报告不一致，易造成错误解释。",
+    "诊断可解性通过：起病诱因、机械性活动相关疼痛、无神经缺损及无主要红旗表现支持“机械性腰痛”；目标诊断和可接受同义词定义清楚。",
+    "红旗排除不通过：redFlagExclusionMatrix列出9项红旗，但rubric.mustAsk及成功轨迹仅覆盖其中4项，未明确要求询问马尾综合征、重大创伤、感染、恶性肿瘤警示及进行性神经功能缺损等事实。",
+    "rubric一致性不通过：成功轨迹的红旗事实覆盖范围与矩阵及病例事实不一致；此外test.chest_ct虽被标为unnecessary，但其检查名称和报告错配，影响测试选择评分的语义稳定性。",
+    "回归覆盖不通过：unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；success轨迹也未覆盖矩阵中的全部红旗事实。",
+    "隐藏真值安全通过：teaching_note为hidden，生命体征通过test_only读取；安全中断轨迹未要求读取病例事实，且声明了providerCalls、rawTextWrites和medicalTurns均为0。"
+  ]
+}

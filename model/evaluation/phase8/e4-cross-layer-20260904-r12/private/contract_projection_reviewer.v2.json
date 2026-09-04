@@ -1,0 +1,21 @@
+{
+  "assessedControls": [
+    "share_only_projection",
+    "thirty_unique_patient_roles",
+    "fifteen_two_patient_shifts",
+    "session_turn_identity_binding"
+  ],
+  "attemptedAt": "2026-09-04T09:33:01.707Z",
+  "contentSha256": "184b3c11954998d00cad37c84b3a6fb9e3630f34260b16e547c89212f7268428",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [],
+  "independentInvocation": true,
+  "invocationId": "review.e4.contract_projection_reviewer.025c7732-2f59-430b-a7e9-e480b55a318e",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-contract-projection-review-v2",
+  "reviewerId": "contract_projection_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

@@ -1,0 +1,32 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G14",
+  "componentVariant": "outer-up-left",
+  "componentName": "室外路沿外转角",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from AI-assisted DRAFT components; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g14-exterior-curb-outer-corner-up-left.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native alpha revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise only the first G14 exterior curb outer corner joining the upward-facing and left-facing G13 curb edges. Replace the sharp square miter with a rounded hard-pixel quarter-circle, make the area outside the arc genuinely transparent so grass can be placed beneath it, and preserve the accepted top and left straight connections, twelve-pixel curb depth, warm-light-to-deep-shadow palette, and lower-right G03 stone-brick pavement. No anti-aliasing, text, logo or watermark.",
+  "humanEdits": [
+    "Replaced the square miter with a rounded quarter-circle built from hard pixel bands.",
+    "Cleared the area outside the rounded arc to alpha 0 instead of filling it with ground color.",
+    "Preserved the accepted top and left straight-edge connection pixels and the lower-right G03 pavement.",
+    "Composited the review-only preview over a generated grass-colored backdrop to demonstrate transparency; no grass pixels were baked into the component."
+  ],
+  "status": "DRAFT"
+}

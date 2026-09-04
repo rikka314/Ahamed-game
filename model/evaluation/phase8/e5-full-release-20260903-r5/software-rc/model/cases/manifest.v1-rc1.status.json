@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "case-manifest-status-v1",
+  "artifactPath": "manifest.v1-rc1.json",
+  "artifactSha256": "f61fe924814696978d0e2f47d37f1846ba40e1b5a29da1d73aa43a8ffb8d2df9",
+  "status": "superseded",
+  "supersededAt": "2026-08-28T00:00:00.000Z",
+  "replacementCandidatePath": "manifest.dialogue-candidate.v1-rc1.json",
+  "replacementCandidateStatus": "structurally_ready_pending_dual_ai_validation",
+  "releaseUseAllowed": false,
+  "reason": "Dialogue persona and safe-case metadata changed canonical case content; C7 revalidation and a new release manifest are required."
+}

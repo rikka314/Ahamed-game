@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8bef6b50b4bc3d25c0ff03e187c1132c990a7a6bd8c060f677a2d5a54ce98ae8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.d7e7463c-39f2-4795-89ef-6f3eabf00c81",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:59:43.232Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写为“腹部CT”，需统一检查部位及报告内容。",
+        "症状具有典型饭后及平卧位反流、烧心模式，且已有针对性评估和稳定生命体征，胃食管反流病可被合理推导。",
+        "病例事实和红旗矩阵均明确记录九项危险征象为 absent，生命体征稳定；当前未见急症退出缺口。",
+        "评分规则、必问事实、鉴别诊断数量及检查分类与成功轨迹基本一致；胸部/腹部CT的命名冲突不改变既定评分分类。",
+        "成功回归轨迹仅显式覆盖四项红旗事实，未覆盖矩阵中的消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿体重下降等红旗，也未验证这些事实的安全退出路径。",
+        "隐藏教学字段、评审元数据和评分摘要未泄露给患者；安全轨迹明确要求中断、零医疗回合及零原文写入，保护措施充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.5c962ab1-2194-4004-93e1-7c7b28fd4b43",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:00:00.963Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事总体支持胃食管反流病，但“胸部CT”的检查名称、别名与报告中的“腹部CT”相互矛盾，需统一检查部位。",
+        "饭后及躺下时反酸烧心、无主要报警表现，且目标诊断粒度为明确疾病概念“胃食管反流病”，病例可解。",
+        "红旗矩阵列出9项需排除的危险表现，但病例的mustAsk和成功轨迹仅覆盖其中4项；其余胃肠道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降缺乏一致的询问/回归覆盖。",
+        "rubric的mustAskFactIds与redFlagExclusionMatrix不一致；同时test.chest_ct虽标为unnecessary，却存在部位错配报告，可能造成检查选择与临床证据解释歧义。",
+        "unknown轨迹的问题同时询问既往同样发作和相关接触，却只期望fact.prior_episode，遗漏fact.relevant_exposure；四类轨迹也未覆盖全部红旗排除资产。",
+        "teaching_note等hidden字段未出现在患者可见内容或回归期望中；安全轨迹预期中断且providerCalls、rawTextWrites均为0，未见隐藏真值泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写为“腹部CT”，需统一检查部位及报告内容。",
+    "症状具有典型饭后及平卧位反流、烧心模式，且已有针对性评估和稳定生命体征，胃食管反流病可被合理推导。",
+    "病例事实和红旗矩阵均明确记录九项危险征象为 absent，生命体征稳定；当前未见急症退出缺口。",
+    "评分规则、必问事实、鉴别诊断数量及检查分类与成功轨迹基本一致；胸部/腹部CT的命名冲突不改变既定评分分类。",
+    "成功回归轨迹仅显式覆盖四项红旗事实，未覆盖矩阵中的消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿体重下降等红旗，也未验证这些事实的安全退出路径。",
+    "隐藏教学字段、评审元数据和评分摘要未泄露给患者；安全轨迹明确要求中断、零医疗回合及零原文写入，保护措施充分。",
+    "临床叙事总体支持胃食管反流病，但“胸部CT”的检查名称、别名与报告中的“腹部CT”相互矛盾，需统一检查部位。",
+    "饭后及躺下时反酸烧心、无主要报警表现，且目标诊断粒度为明确疾病概念“胃食管反流病”，病例可解。",
+    "红旗矩阵列出9项需排除的危险表现，但病例的mustAsk和成功轨迹仅覆盖其中4项；其余胃肠道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降缺乏一致的询问/回归覆盖。",
+    "rubric的mustAskFactIds与redFlagExclusionMatrix不一致；同时test.chest_ct虽标为unnecessary，却存在部位错配报告，可能造成检查选择与临床证据解释歧义。",
+    "unknown轨迹的问题同时询问既往同样发作和相关接触，却只期望fact.prior_episode，遗漏fact.relevant_exposure；四类轨迹也未覆盖全部红旗排除资产。",
+    "teaching_note等hidden字段未出现在患者可见内容或回归期望中；安全轨迹预期中断且providerCalls、rawTextWrites均为0，未见隐藏真值泄露。"
+  ]
+}

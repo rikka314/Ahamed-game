@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:3e0eb7f5ac530747b274645ddfa0ee96c5058a236e50b036f056324584adac0b",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.d5dbd12f-499d-4902-88e0-8bd54cbbace0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:05:31.260Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：test.chest_ct 的检查名称及别名指向胸部CT，但报告内容却是“腰椎MRI不作为无红旗急性腰痛的初始必需检查”，存在检查项目与报告错配。",
+        "诊断可解性通过：搬重物后起病、活动相关腰痛、无神经功能缺损且生命体征稳定，支持机械性/非特异性腰痛；鉴别诊断数量和概念也足够。",
+        "危险征象排除不通过：红旗矩阵要求排除9类危险征象，但成功回归轨迹仅显式覆盖confusion、hypotension、inability oral intake、high risk population，其他如马尾综合征、重大创伤、感染、恶性肿瘤警示和进行性神经缺损未在轨迹中明确验证。",
+        "量表一致性不通过：rubric将test.chest_ct定义为不必要检查，但其报告实际讨论腰椎MRI；测试ID、显示名称、别名和报告需统一，否则评分与临床解释可能不一致。",
+        "回归覆盖不通过：缺少针对全部红旗排除、危险腰痛分支及检查项目/报告一致性的回归断言；现有成功轨迹无法充分保护红旗安全边界。",
+        "隐藏真相保护通过：教学字段为hidden，生命体征限定通过检查读取，安全中断轨迹明确要求零医疗回合、零提供者调用和零原文写入，未见明显隐藏字段泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6df1af9d-19c7-4a17-8efa-63d26694c91a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:05:49.018Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的名称、别名均指向胸部CT，但报告内容却讨论腰椎MRI，检查标识与结果不一致。",
+        "诊断可解性通过：起病、动作相关疼痛、无神经系统症状及进展情况支持“机械性腰痛”，且诊断粒度与 acceptedSynonyms 一致。",
+        "红旗排除失败：redFlagExclusionMatrix 要求排除9类红旗，但 rubric.mustAskFactIds 及成功回归轨迹只覆盖其中4类，未覆盖马尾综合征、重大创伤、感染、恶性肿瘤警示和进行性神经功能缺损。",
+        "rubric一致性失败：矩阵、mustAskFactIds 与 regression success 的 expectedFactIds 对红旗事实覆盖范围不一致；此外将 test.chest_ct 标为 unnecessary，但其报告实际描述的是腰椎MRI，无法稳定对应评分语义。",
+        "回归覆盖失败：unknown轨迹的问题同时询问既往发作和相关接触，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；success轨迹也未验证全部矩阵要求的红旗排除。",
+        "隐藏真值与安全轨迹通过：teaching_note 等隐藏字段未暴露；胸痛伴呼吸困难的安全输入预期中断且不触发医疗回合，未见与隐藏字段泄露相关的不一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性不通过：test.chest_ct 的检查名称及别名指向胸部CT，但报告内容却是“腰椎MRI不作为无红旗急性腰痛的初始必需检查”，存在检查项目与报告错配。",
+    "诊断可解性通过：搬重物后起病、活动相关腰痛、无神经功能缺损且生命体征稳定，支持机械性/非特异性腰痛；鉴别诊断数量和概念也足够。",
+    "危险征象排除不通过：红旗矩阵要求排除9类危险征象，但成功回归轨迹仅显式覆盖confusion、hypotension、inability oral intake、high risk population，其他如马尾综合征、重大创伤、感染、恶性肿瘤警示和进行性神经缺损未在轨迹中明确验证。",
+    "量表一致性不通过：rubric将test.chest_ct定义为不必要检查，但其报告实际讨论腰椎MRI；测试ID、显示名称、别名和报告需统一，否则评分与临床解释可能不一致。",
+    "回归覆盖不通过：缺少针对全部红旗排除、危险腰痛分支及检查项目/报告一致性的回归断言；现有成功轨迹无法充分保护红旗安全边界。",
+    "隐藏真相保护通过：教学字段为hidden，生命体征限定通过检查读取，安全中断轨迹明确要求零医疗回合、零提供者调用和零原文写入，未见明显隐藏字段泄露。",
+    "临床一致性失败：test.chest_ct 的名称、别名均指向胸部CT，但报告内容却讨论腰椎MRI，检查标识与结果不一致。",
+    "诊断可解性通过：起病、动作相关疼痛、无神经系统症状及进展情况支持“机械性腰痛”，且诊断粒度与 acceptedSynonyms 一致。",
+    "红旗排除失败：redFlagExclusionMatrix 要求排除9类红旗，但 rubric.mustAskFactIds 及成功回归轨迹只覆盖其中4类，未覆盖马尾综合征、重大创伤、感染、恶性肿瘤警示和进行性神经功能缺损。",
+    "rubric一致性失败：矩阵、mustAskFactIds 与 regression success 的 expectedFactIds 对红旗事实覆盖范围不一致；此外将 test.chest_ct 标为 unnecessary，但其报告实际描述的是腰椎MRI，无法稳定对应评分语义。",
+    "回归覆盖失败：unknown轨迹的问题同时询问既往发作和相关接触，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；success轨迹也未验证全部矩阵要求的红旗排除。",
+    "隐藏真值与安全轨迹通过：teaching_note 等隐藏字段未暴露；胸痛伴呼吸困难的安全输入预期中断且不触发医疗回合，未见与隐藏字段泄露相关的不一致。"
+  ]
+}

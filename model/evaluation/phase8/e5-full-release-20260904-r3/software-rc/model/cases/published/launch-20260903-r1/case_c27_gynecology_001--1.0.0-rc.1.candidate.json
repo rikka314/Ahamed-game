@@ -1,0 +1,504 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c27_gynecology_001",
+  "publicCaseId": "case_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.1",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "月经来潮时下腹痛半年"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c27",
+    "patientDisplayName": "患者27号",
+    "ageBand": "18–25岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "大学生",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "accommodating_minimizing",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "态度随和",
+      "可能淡化主观困扰但不改变事实"
+    ],
+    "modifiers": {
+      "healthLiteracy": "low",
+      "recallReliability": "typical",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "月经来潮时下腹痛半年",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "半年前开始反复出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "每次月经开始时下腹痉挛痛，通常两天内减轻",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "月经周期规律，无异常大量出血或晕厥",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.pregnancy": {
+      "status": "absent",
+      "value": "未出现pregnancy相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hemodynamically_significant_bleeding": {
+      "status": "absent",
+      "value": "未出现hemodynamically significant bleeding相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.acute_pelvic_pain": {
+      "status": "absent",
+      "value": "未出现acute pelvic pain相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.gynecologic_fever": {
+      "status": "absent",
+      "value": "未出现gynecologic fever相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.mucosal_or_upper_tract_involvement": {
+      "status": "absent",
+      "value": "未出现mucosal or upper tract involvement相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.pelvic_assessment": {
+      "status": "completed",
+      "displayName": "针对性检查",
+      "aliases": [
+        "针对性检查",
+        "基础检查"
+      ],
+      "report": "基础妇科评估未发现器质性异常或妊娠证据。"
+    },
+    "test.chest_ct": {
+      "status": "completed",
+      "displayName": "胸部CT",
+      "aliases": [
+        "胸部CT",
+        "CT",
+        "做CT",
+        "胸部影像"
+      ],
+      "report": "盆腔CT不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.primary_dysmenorrhea",
+    "targetDiagnosis": "原发性痛经",
+    "acceptedSynonyms": [
+      "原发性痛经"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.primary_dysmenorrhea",
+        "preferredTerm": "原发性痛经",
+        "acceptedSynonyms": [
+          "原发性痛经"
+        ]
+      },
+      {
+        "conceptId": "concept.endometriosis",
+        "preferredTerm": "子宫内膜异位症",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.pelvic_inflammatory_disease",
+        "preferredTerm": "盆腔炎",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.endometriosis",
+      "concept.pelvic_inflammatory_disease"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.pelvic_assessment": "required",
+      "test.chest_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B5病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:bad955f81f9057ff6dfa11bc8df442cfb463a1e45e6af9514fc4641dd7a458c5",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.gynecology",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c27_gynecology_001",
+    "caseVersion": "1.0.0-rc.1",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.pregnancy",
+        "canonicalName": "pregnancy",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.pregnancy"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemodynamically_significant_bleeding",
+        "canonicalName": "hemodynamically significant bleeding",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemodynamically_significant_bleeding"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.acute_pelvic_pain",
+        "canonicalName": "acute pelvic pain",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.acute_pelvic_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.gynecologic_fever",
+        "canonicalName": "gynecologic fever",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.gynecologic_fever"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.mucosal_or_upper_tract_involvement",
+        "canonicalName": "mucosal or upper tract involvement",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.mucosal_or_upper_tract_involvement"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.gynecology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  }
+}

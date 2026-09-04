@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:45bec0bbac2b129483717a301ea031cdfd992e0c1d1bb9bbb44f11495d029fce",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.99613d3c-202d-4789-8659-1bbb1ad1c1e0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:08:00.494Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、症状模式、生命体征及X线结果相互一致，支持膝骨关节炎；无明显矛盾或急症线索。",
+        "病例信息足以独立完成诊断：起病、机械性疼痛特点、短暂晨僵、无发热或明显红肿及影像结果均已定义。",
+        "红旗排除项均明确为 absent，生命体征稳定；回归轨迹包含安全中断场景，胸痛伴呼吸困难时要求停止常规诊疗流程，未进行医疗推断。",
+        "评分量表、必问事实、鉴别诊断数量及检查分类彼此一致；膝MRI被明确标为初始不必要检查。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知事实查询，覆盖主要行为边界。",
+        "隐藏教学字段、仅检查可读取的生命体征以及服务端评分信息未被设计为患者可直接披露，未见隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ca35ac76-dbaa-4375-9ba9-29a537ce1b4f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:08:11.258Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线基本一致：慢性活动痛、短暂晨僵、无明显炎症表现，X线轻度间隙变窄和骨赘均支持膝骨关节炎；但将意识障碍、低血压、不能口服、马尾综合征及进行性神经功能缺损等全部标记为本膝关节病例的适用红旗，疾病域不匹配。",
+        "诊断可解性通过：症状模式、病程和X线结果足以支持“膝骨关节炎”，并可与类风湿关节炎、半月板损伤进行区分。",
+        "红旗排除矩阵将多项与慢性膝痛不相关或低相关的全身/脊髓红旗统一设为applicable=true，且仅依赖模板化的absent事实；应按疾病域限定适用红旗，否则会造成不必要询问并削弱安全排除的临床意义。",
+        "rubric与病例边界不完全一致：mustAskFacts强制要求13项事实，其中包含多项不适用于本病例的红旗；同时将生命体征列为required，虽不构成诊断矛盾，但与稳定的慢性门诊膝痛场景及其余检查策略不协调。",
+        "四类回归轨迹覆盖完整且内部基本一致：成功、失败、不安全输入中断、unknown路径均有示例；成功路径的诊断、鉴别诊断和检查选择与rubric一致。",
+        "未发现明显隐藏真相泄露：安全轨迹预期中断且不调用provider、不写入原始文本，unknown轨迹也未把未知既往史强行解析为阳性或阴性。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床叙事、症状模式、生命体征及X线结果相互一致，支持膝骨关节炎；无明显矛盾或急症线索。",
+    "病例信息足以独立完成诊断：起病、机械性疼痛特点、短暂晨僵、无发热或明显红肿及影像结果均已定义。",
+    "红旗排除项均明确为 absent，生命体征稳定；回归轨迹包含安全中断场景，胸痛伴呼吸困难时要求停止常规诊疗流程，未进行医疗推断。",
+    "评分量表、必问事实、鉴别诊断数量及检查分类彼此一致；膝MRI被明确标为初始不必要检查。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知事实查询，覆盖主要行为边界。",
+    "隐藏教学字段、仅检查可读取的生命体征以及服务端评分信息未被设计为患者可直接披露，未见隐藏真相泄露风险。",
+    "临床主线基本一致：慢性活动痛、短暂晨僵、无明显炎症表现，X线轻度间隙变窄和骨赘均支持膝骨关节炎；但将意识障碍、低血压、不能口服、马尾综合征及进行性神经功能缺损等全部标记为本膝关节病例的适用红旗，疾病域不匹配。",
+    "诊断可解性通过：症状模式、病程和X线结果足以支持“膝骨关节炎”，并可与类风湿关节炎、半月板损伤进行区分。",
+    "红旗排除矩阵将多项与慢性膝痛不相关或低相关的全身/脊髓红旗统一设为applicable=true，且仅依赖模板化的absent事实；应按疾病域限定适用红旗，否则会造成不必要询问并削弱安全排除的临床意义。",
+    "rubric与病例边界不完全一致：mustAskFacts强制要求13项事实，其中包含多项不适用于本病例的红旗；同时将生命体征列为required，虽不构成诊断矛盾，但与稳定的慢性门诊膝痛场景及其余检查策略不协调。",
+    "四类回归轨迹覆盖完整且内部基本一致：成功、失败、不安全输入中断、unknown路径均有示例；成功路径的诊断、鉴别诊断和检查选择与rubric一致。",
+    "未发现明显隐藏真相泄露：安全轨迹预期中断且不调用provider、不写入原始文本，unknown轨迹也未把未知既往史强行解析为阳性或阴性。"
+  ]
+}

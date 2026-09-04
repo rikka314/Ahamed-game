@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.4",
+  "contentHash": "sha256:b182d70b71fb742d1a90c46dd645734eeb7074d054078f853abbe7a1dbcab38a",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.d313bfca-7ecb-4995-987c-8bb75240a3cc",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:34:06.948Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：症状持续8天、无高热或呼吸困难，生命体征稳定，胸部查体为咳嗽后减轻的散在鼾音且无局灶性湿啰音，影像无实变，支持急性支气管炎。",
+        "诊断可解性通过：病例信息足以支持急性支气管炎，并可合理鉴别轻症社区获得性肺炎和咳嗽变异性哮喘。",
+        "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有事实或生命体征支持排除；安全轨迹对胸痛伴喘不过气的输入可中断且不调用服务。",
+        "量表一致性通过：成功轨迹覆盖全部must-ask事实，包含2个允许鉴别诊断，完成必需生命体征和胸部查体；失败轨迹使用不必要的胸部CT并给出错误诊断，符合预期。",
+        "回归覆盖通过：成功、失败、安全中断及未知事实轨迹均有明确预期，未发现与病例事实、测试状态或评分策略冲突。",
+        "隐藏真相安全通过：教学字段保持hidden，未将服务端教学信息暴露给患者；病例中的内部ID、评分摘要和审计元数据不影响患者可见诊疗路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.3c9305b7-c2d2-4e56-bccb-d7d2cad74988",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:34:25.133Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与急性支气管炎一致：上呼吸道症状后出现咳嗽、无高热或呼吸困难，查体无局灶性湿啰音，影像无实变；黄痰不构成细菌感染或肺炎的充分证据。",
+        "诊断可解性良好。急性支气管炎为目标诊断，轻症社区获得性肺炎和咳嗽变异性哮喘作为两个可接受鉴别，且已有症状、查体和影像支持排界。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有缺失证据；生命体征与红旗矩阵中的数值相互支持。",
+        "must-ask 共14项，成功轨迹分四轮完整覆盖；required 检查与轨迹一致，胸片定位为有用，胸部CT和痰培养定位为不必要，8回合上限未被突破。",
+        "成功、失败、安全中断和未知信息四类回归轨迹均存在，诊断、非必要检查、安全码、零调用及未知事实回合预期彼此一致。",
+        "隐藏目标、接受同义词、鉴别诊断概念和评分规则未见冲突。轻微注意：高风险人群事实将妊娠、免疫抑制、哮喘及重要心肺病史合并为一项，实际交互中最好确保询问“怀孕”能触发完整高风险信息；当前冻结匹配器与回归轨迹仍保持一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：症状持续8天、无高热或呼吸困难，生命体征稳定，胸部查体为咳嗽后减轻的散在鼾音且无局灶性湿啰音，影像无实变，支持急性支气管炎。",
+    "诊断可解性通过：病例信息足以支持急性支气管炎，并可合理鉴别轻症社区获得性肺炎和咳嗽变异性哮喘。",
+    "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有事实或生命体征支持排除；安全轨迹对胸痛伴喘不过气的输入可中断且不调用服务。",
+    "量表一致性通过：成功轨迹覆盖全部must-ask事实，包含2个允许鉴别诊断，完成必需生命体征和胸部查体；失败轨迹使用不必要的胸部CT并给出错误诊断，符合预期。",
+    "回归覆盖通过：成功、失败、安全中断及未知事实轨迹均有明确预期，未发现与病例事实、测试状态或评分策略冲突。",
+    "隐藏真相安全通过：教学字段保持hidden，未将服务端教学信息暴露给患者；病例中的内部ID、评分摘要和审计元数据不影响患者可见诊疗路径。",
+    "临床叙事与急性支气管炎一致：上呼吸道症状后出现咳嗽、无高热或呼吸困难，查体无局灶性湿啰音，影像无实变；黄痰不构成细菌感染或肺炎的充分证据。",
+    "诊断可解性良好。急性支气管炎为目标诊断，轻症社区获得性肺炎和咳嗽变异性哮喘作为两个可接受鉴别，且已有症状、查体和影像支持排界。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有缺失证据；生命体征与红旗矩阵中的数值相互支持。",
+    "must-ask 共14项，成功轨迹分四轮完整覆盖；required 检查与轨迹一致，胸片定位为有用，胸部CT和痰培养定位为不必要，8回合上限未被突破。",
+    "成功、失败、安全中断和未知信息四类回归轨迹均存在，诊断、非必要检查、安全码、零调用及未知事实回合预期彼此一致。",
+    "隐藏目标、接受同义词、鉴别诊断概念和评分规则未见冲突。轻微注意：高风险人群事实将妊娠、免疫抑制、哮喘及重要心肺病史合并为一项，实际交互中最好确保询问“怀孕”能触发完整高风险信息；当前冻结匹配器与回归轨迹仍保持一致。"
+  ]
+}

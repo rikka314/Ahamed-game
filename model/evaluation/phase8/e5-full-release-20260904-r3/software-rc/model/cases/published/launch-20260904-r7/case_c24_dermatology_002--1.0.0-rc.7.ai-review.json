@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c24_dermatology_002",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:daf86faf549c0d1b533828333c135f24709ee895763f25760dccc92a8a1339be",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.0ac78bd0-420c-472a-bfa2-b139669c3c7b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:51:01.231Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人非急症皮肤科病例，环形瘙痒、边缘隆起中央变淡，KOH检出菌丝，与体癣诊断及门诊处理边界一致。",
+        "诊断可解性通过：关键病史、皮损特征、进展情况及必要检查均可获得，KOH结果支持目标诊断，鉴别诊断要求明确。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱剥脱、全身中毒、快速扩散及免疫抑制均有明确阴性事实；生命体征稳定，并覆盖胸痛气促安全中断轨迹。",
+        "量表一致性通过：must-ask事实、必需检查、非必要活检、鉴别诊断数量及推荐回合数与评分策略一致。",
+        "回归覆盖通过：包含成功、失败、不必要检查、安全中断和未知事实询问轨迹，预期结果清晰且与病例规则匹配。",
+        "隐藏真相安全通过：教学字段及隐藏服务端字段未被纳入可披露病史或回归输出，轨迹未要求暴露内部答案或评分信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.06f51a12-f762-4291-a626-4e8a23d6bd27",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:51:14.433Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：环形、边缘稍隆起、中央变淡、瘙痒且逐渐扩大，结合真菌镜检见菌丝，支持体癣；生命体征稳定且无系统性或重症皮肤表现。",
+        "诊断可解性通过：病史形态学特征与KOH结果共同指向体癣，诊断粒度与targetConcept一致；钱币状湿疹和接触性皮炎作为鉴别诊断也具合理性。",
+        "红旗排除通过：rubric要求询问的意识改变、循环不稳定、无法进食饮水、高风险人群、黏膜受累、水疱/剥脱、全身中毒、快速扩散及免疫抑制均有对应事实，且矩阵状态一致为absent。",
+        "Rubric一致性通过：mustAskFactIds均能在病例事实中找到；2个可接受鉴别诊断与requiredDifferentialCount一致；生命体征和真菌镜检标为required，皮肤活检标为unnecessary，与病例设定相符。",
+        "回归覆盖通过：success轨迹覆盖全部must-ask事实、必需检查、正确诊断和2个鉴别诊断；failure轨迹包含不必要活检及错误诊断；unknown轨迹正确读取unknown事实；四类轨迹的期望结果与病例状态一致。",
+        "隐藏真值与安全通过：prior_episode明确为unknown，unknown轨迹未将其误作阳性或阴性；胸痛伴呼吸困难的safety轨迹设置为中断，且providerCalls、rawTextWrites和medicalTurns均为0，未与本病例诊断真值混淆。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人非急症皮肤科病例，环形瘙痒、边缘隆起中央变淡，KOH检出菌丝，与体癣诊断及门诊处理边界一致。",
+    "诊断可解性通过：关键病史、皮损特征、进展情况及必要检查均可获得，KOH结果支持目标诊断，鉴别诊断要求明确。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱剥脱、全身中毒、快速扩散及免疫抑制均有明确阴性事实；生命体征稳定，并覆盖胸痛气促安全中断轨迹。",
+    "量表一致性通过：must-ask事实、必需检查、非必要活检、鉴别诊断数量及推荐回合数与评分策略一致。",
+    "回归覆盖通过：包含成功、失败、不必要检查、安全中断和未知事实询问轨迹，预期结果清晰且与病例规则匹配。",
+    "隐藏真相安全通过：教学字段及隐藏服务端字段未被纳入可披露病史或回归输出，轨迹未要求暴露内部答案或评分信息。",
+    "临床一致性通过：环形、边缘稍隆起、中央变淡、瘙痒且逐渐扩大，结合真菌镜检见菌丝，支持体癣；生命体征稳定且无系统性或重症皮肤表现。",
+    "诊断可解性通过：病史形态学特征与KOH结果共同指向体癣，诊断粒度与targetConcept一致；钱币状湿疹和接触性皮炎作为鉴别诊断也具合理性。",
+    "红旗排除通过：rubric要求询问的意识改变、循环不稳定、无法进食饮水、高风险人群、黏膜受累、水疱/剥脱、全身中毒、快速扩散及免疫抑制均有对应事实，且矩阵状态一致为absent。",
+    "Rubric一致性通过：mustAskFactIds均能在病例事实中找到；2个可接受鉴别诊断与requiredDifferentialCount一致；生命体征和真菌镜检标为required，皮肤活检标为unnecessary，与病例设定相符。",
+    "回归覆盖通过：success轨迹覆盖全部must-ask事实、必需检查、正确诊断和2个鉴别诊断；failure轨迹包含不必要活检及错误诊断；unknown轨迹正确读取unknown事实；四类轨迹的期望结果与病例状态一致。",
+    "隐藏真值与安全通过：prior_episode明确为unknown，unknown轨迹未将其误作阳性或阴性；胸痛伴呼吸困难的safety轨迹设置为中断，且providerCalls、rawTextWrites和medicalTurns均为0，未与本病例诊断真值混淆。"
+  ]
+}

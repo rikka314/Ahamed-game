@@ -1,0 +1,78 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "W04",
+  "candidatePurpose": "Review the first outer-wall corner orientation before adding W04 to the active DRAFT component set.",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "license": "Project-original AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": [
+    "Sharp 0.35.3 deterministic native-pixel composition and validation"
+  ],
+  "generatedAt": "2026-09-02",
+  "candidates": [
+    {
+      "prospectiveNumber": 35,
+      "componentId": "W04",
+      "variant": "up-left",
+      "name": "rounded-white-cap-outer-corner",
+      "file": "w04-outer-corner-up-left-rounded-candidate.png",
+      "derivedFrom": [
+        "../../components/w03-inner-corner-up-left.png",
+        "../../components/w01-horizontal-wall-upper.png",
+        "../../components/w02-vertical-wall-left.png"
+      ],
+      "humanEdits": [
+        "Converted the exposed outer nose from a square step into a restrained five-step rounded silhouette.",
+        "Kept the right connector pixel-identical to W01 upper and the bottom connector pixel-identical to W02 left.",
+        "Kept all unused pixels genuinely transparent for floor or grass underlay."
+      ],
+      "status": "DRAFT",
+      "ownerDisposition": "selected by owner for active DRAFT on 2026-09-02"
+    },
+    {
+      "prospectiveNumber": 36,
+      "componentId": "W04",
+      "variant": "up-right",
+      "name": "rounded-white-cap-outer-corner-mirrored",
+      "file": "w04-outer-corner-up-right-rounded-candidate.png",
+      "derivedFrom": [
+        "../../components/w04-outer-corner-up-left.png",
+        "../../components/w01-horizontal-wall-upper.png",
+        "../../components/w02-vertical-wall-right.png"
+      ],
+      "humanEdits": [
+        "Derived the right-up orientation by an exact horizontal mirror of the owner-confirmed left-up corner.",
+        "Kept the left connector pixel-identical to W01 upper and the bottom connector pixel-identical to W02 right.",
+        "Kept all unused pixels genuinely transparent for floor or grass underlay."
+      ],
+      "status": "DRAFT",
+      "ownerDisposition": "selected by owner for active DRAFT on 2026-09-02"
+    },
+    {
+      "prospectiveNumber": 37,
+      "componentId": "W04",
+      "variant": "down-right",
+      "name": "rounded-sage-exterior-outer-corner",
+      "file": "w04-outer-corner-down-right-rounded-candidate.png",
+      "derivedFrom": [
+        "../../components/w03-inner-corner-down-right.png",
+        "../../components/w04-outer-corner-up-left.png",
+        "../../components/w01-horizontal-wall-lower.png",
+        "../../components/w02-vertical-wall-right.png"
+      ],
+      "humanEdits": [
+        "Transferred the owner-confirmed five-step outer-corner silhouette to the lower-right orientation while retaining the dusty-sage exterior wall face.",
+        "Kept the left connector pixel-identical to W01 lower and the top connector pixel-identical to W02 right.",
+        "Kept all unused pixels genuinely transparent for floor or grass underlay."
+      ],
+      "status": "DRAFT",
+      "ownerDisposition": "pending review"
+    }
+  ],
+  "activeAssetAdded": true,
+  "staticApproval": "owner-confirmed up-left and up-right candidates for active DRAFT on 2026-09-02; down-right remains pending review",
+  "inGameApproval": "pending",
+  "status": "DRAFT"
+}

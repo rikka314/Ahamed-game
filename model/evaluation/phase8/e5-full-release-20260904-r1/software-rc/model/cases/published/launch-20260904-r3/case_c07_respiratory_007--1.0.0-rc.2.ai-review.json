@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:b33bb1ab3bec30e42dd227e45d65c7d0593b55441e940170dcd31ae7b62e1b94",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.49cd1b8a-a253-4061-baca-cad094cf7c7a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:32:04.502Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：夜间及运动后干咳、肺功能提示轻度可逆性气流受限、胸部CT无局灶异常，支持咳嗽变异性哮喘；生命体征稳定，门诊非急症边界合理。",
+        "诊断可解性通过：目标诊断与症状模式及肺功能结果匹配，且提供了两个可接受鉴别诊断。",
+        "危险征象排除通过：红旗矩阵中的9项均明确为 absent，生命体征稳定，安全中断轨迹也正确要求在急性胸痛伴呼吸困难时停止常规诊疗。",
+        "量表一致性不通过：红旗矩阵列出9项适用危险征象，但 mustAskFactIds 和成功轨迹仅覆盖其中4项（confusion、hypotension、inability oral intake、high risk population），未覆盖 dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia，导致安全要求与评分/成功路径不一致。",
+        "回归覆盖不通过：成功回归轨迹未验证全部适用红旗的询问或披露，无法回归测试上述5项危险征象的安全排除；应补充对应事实并更新评分量表或明确聚合提问的覆盖映射。",
+        "隐藏真相保护通过：教学字段为 hidden，生命体征需通过检查读取，轨迹未将服务端教学字段或未经询问的隐藏事实泄露给玩家。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0f015b27-b92b-490b-a08b-a24965d20f09",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:32:25.186Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为夜间及运动后干咳，肺功能提示轻度可逆性气流受限、胸部CT无局灶异常，与咳嗽变异性哮喘一致。",
+        "目标诊断粒度明确，症状与关键检查足以支持精确诊断；上气道咳嗽综合征和胃食管反流病作为两个鉴别诊断也符合设定。",
+        "九项红旗均有明确的患者事实记录为 absent，且生命体征稳定；矩阵中的证据字段与病例事实一致。",
+        "mustAsk、鉴别诊断数量、必需/不必要检查分类及推荐回合数彼此一致，未发现评分规则与病例目标冲突。",
+        "回归轨迹存在覆盖缺口：success 轨迹的危险表现提问仅期望四项 must-ask 红旗，未覆盖矩阵中的 dyspnea、chest_pain、hemoptysis、tachypnea、hypoxemia；unknown 轨迹同时询问既往发作和相关接触，却只期望 fact.prior_episode，遗漏 fact.relevant_exposure。",
+        "安全轨迹能在用户报告胸痛和呼吸困难时中断，且未泄露 hidden teaching 字段或内部诊断真值。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：夜间及运动后干咳、肺功能提示轻度可逆性气流受限、胸部CT无局灶异常，支持咳嗽变异性哮喘；生命体征稳定，门诊非急症边界合理。",
+    "诊断可解性通过：目标诊断与症状模式及肺功能结果匹配，且提供了两个可接受鉴别诊断。",
+    "危险征象排除通过：红旗矩阵中的9项均明确为 absent，生命体征稳定，安全中断轨迹也正确要求在急性胸痛伴呼吸困难时停止常规诊疗。",
+    "量表一致性不通过：红旗矩阵列出9项适用危险征象，但 mustAskFactIds 和成功轨迹仅覆盖其中4项（confusion、hypotension、inability oral intake、high risk population），未覆盖 dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia，导致安全要求与评分/成功路径不一致。",
+    "回归覆盖不通过：成功回归轨迹未验证全部适用红旗的询问或披露，无法回归测试上述5项危险征象的安全排除；应补充对应事实并更新评分量表或明确聚合提问的覆盖映射。",
+    "隐藏真相保护通过：教学字段为 hidden，生命体征需通过检查读取，轨迹未将服务端教学字段或未经询问的隐藏事实泄露给玩家。",
+    "临床表现为夜间及运动后干咳，肺功能提示轻度可逆性气流受限、胸部CT无局灶异常，与咳嗽变异性哮喘一致。",
+    "目标诊断粒度明确，症状与关键检查足以支持精确诊断；上气道咳嗽综合征和胃食管反流病作为两个鉴别诊断也符合设定。",
+    "九项红旗均有明确的患者事实记录为 absent，且生命体征稳定；矩阵中的证据字段与病例事实一致。",
+    "mustAsk、鉴别诊断数量、必需/不必要检查分类及推荐回合数彼此一致，未发现评分规则与病例目标冲突。",
+    "回归轨迹存在覆盖缺口：success 轨迹的危险表现提问仅期望四项 must-ask 红旗，未覆盖矩阵中的 dyspnea、chest_pain、hemoptysis、tachypnea、hypoxemia；unknown 轨迹同时询问既往发作和相关接触，却只期望 fact.prior_episode，遗漏 fact.relevant_exposure。",
+    "安全轨迹能在用户报告胸痛和呼吸困难时中断，且未泄露 hidden teaching 字段或内部诊断真值。"
+  ]
+}

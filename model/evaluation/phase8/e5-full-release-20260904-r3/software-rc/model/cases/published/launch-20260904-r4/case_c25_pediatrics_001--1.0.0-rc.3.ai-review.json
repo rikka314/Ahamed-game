@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:107f6927a1390f9d0190eff6597bb92a8b2694a1b4da0002ac5ccbd959d5c5a0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ca03dd73-cc07-4ba2-a99a-1eaed101c03e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:10:47.815Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：8–12岁儿童感冒后出现耳痛、听力发闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；生命体征稳定，颞骨CT列为无并发症病例初始不必要检查合理。",
+        "诊断可解性充分：主诉、起病、症状模式及耳镜结果支持目标诊断，并提供外耳道炎和咽鼓管功能障碍作为可区分的鉴别诊断。",
+        "红旗排除完整：意识改变、低血压、无法口服、高风险人群、年龄范围外、儿科嗜睡、呼吸窘迫、脱水及乳突肿胀均明确为不存在；儿科适用性已按病例年龄带处理。",
+        "评分规则与病例内容一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制均有对应定义，未见互相矛盾的要求。",
+        "回归覆盖充分：包含成功、错误诊断及不必要检查、安全中断、未知既往史处理等轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+        "隐藏真相保护通过：教学字段和内部元数据标记为隐藏；回归输入未要求向患者暴露答案键、评分策略或内部病例标识。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ea63cdd0-7362-4c7e-906f-ba00236a9e52",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:11:01.896Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与耳镜所见（感冒后耳痛、听力发闷、鼓膜充血膨隆及活动度降低）一致支持学龄儿童急性中耳炎；颞骨CT列为无并发症病例的非初始必需检查，前后一致。",
+        "目标诊断粒度明确，耳镜检查后可解；外耳道炎和咽鼓管功能障碍作为两个鉴别诊断适当，且与评分词表一致。",
+        "红旗事实均明确标记为缺如，并在病例事实、必问清单及排除矩阵之间具有对应关系；生命体征通过检查读取的设定也与轨迹一致。",
+        "must-ask事实、两个鉴别诊断、检查分类和推荐回合数与rubric及冻结评分策略一致；成功轨迹覆盖必需问诊、必需检查和精确诊断。",
+        "supportingArtifacts包含success、failure、safety、unknown四类回归轨迹；成功、错误检查、跨域安全中断及未知既往史场景均有预期结果，未见明显覆盖缺口。",
+        "未发现将教学字段、内部评分信息或回归判定泄露到playerVisible内容的情况；review.status及各reviewDecision为兼容元数据，不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：8–12岁儿童感冒后出现耳痛、听力发闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；生命体征稳定，颞骨CT列为无并发症病例初始不必要检查合理。",
+    "诊断可解性充分：主诉、起病、症状模式及耳镜结果支持目标诊断，并提供外耳道炎和咽鼓管功能障碍作为可区分的鉴别诊断。",
+    "红旗排除完整：意识改变、低血压、无法口服、高风险人群、年龄范围外、儿科嗜睡、呼吸窘迫、脱水及乳突肿胀均明确为不存在；儿科适用性已按病例年龄带处理。",
+    "评分规则与病例内容一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制均有对应定义，未见互相矛盾的要求。",
+    "回归覆盖充分：包含成功、错误诊断及不必要检查、安全中断、未知既往史处理等轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+    "隐藏真相保护通过：教学字段和内部元数据标记为隐藏；回归输入未要求向患者暴露答案键、评分策略或内部病例标识。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成阻塞。",
+    "临床表现与耳镜所见（感冒后耳痛、听力发闷、鼓膜充血膨隆及活动度降低）一致支持学龄儿童急性中耳炎；颞骨CT列为无并发症病例的非初始必需检查，前后一致。",
+    "目标诊断粒度明确，耳镜检查后可解；外耳道炎和咽鼓管功能障碍作为两个鉴别诊断适当，且与评分词表一致。",
+    "红旗事实均明确标记为缺如，并在病例事实、必问清单及排除矩阵之间具有对应关系；生命体征通过检查读取的设定也与轨迹一致。",
+    "must-ask事实、两个鉴别诊断、检查分类和推荐回合数与rubric及冻结评分策略一致；成功轨迹覆盖必需问诊、必需检查和精确诊断。",
+    "supportingArtifacts包含success、failure、safety、unknown四类回归轨迹；成功、错误检查、跨域安全中断及未知既往史场景均有预期结果，未见明显覆盖缺口。",
+    "未发现将教学字段、内部评分信息或回归判定泄露到playerVisible内容的情况；review.status及各reviewDecision为兼容元数据，不构成阻塞。"
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.6",
+  "trajectories": [
+    {
+      "trajectoryId": "c05.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、多久、起病、发热、发烧、体温、咳嗽、频繁、咳痰、痰颜色、痰量。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.fever",
+            "fact.cough",
+            "fact.sputum"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：呼吸困难、喘、气短、意识、神志、糊涂、胸痛、胸闷、吸气痛、喝水、进食、吞不下。",
+          "expectedFactIds": [
+            "fact.dyspnea",
+            "fact.confusion",
+            "fact.chest_pain",
+            "fact.inability_oral_intake"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：咳血、痰中带血、低血压、晕厥、四肢湿冷、呼吸快、呼吸频率、缺氧、口唇发紫、血氧。",
+          "expectedFactIds": [
+            "fact.hemoptysis",
+            "fact.hypotension",
+            "fact.tachypnea",
+            "fact.hypoxemia"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：怀孕、基础病、免疫、高风险。",
+          "expectedFactIds": [
+            "fact.high_risk_population"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.chest_xray"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "轻症社区获得性肺炎",
+          "differentials": [
+            "急性支气管炎",
+            "流行性感冒"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 4
+      }
+    },
+    {
+      "trajectoryId": "c05.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.chest_ct"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.chest_ct"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c05.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c05.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "关于接触史这一点，您能确认吗？",
+          "expectedFactIds": [
+            "fact.exposure"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

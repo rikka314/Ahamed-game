@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.6",
+  "contentHash": "sha256:f1338f000703e1d94356cfd116e1df5efaab708c66ab2c8b6f86bee198a5efdd",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b27f6aca-cfc5-4464-b625-39dfff0a51db",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:38:18.449Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发发热、干咳、肌痛和头痛，Influenza A核酸阳性，生命体征稳定，胸部影像无实变，支持流行性感冒且无明显肺炎证据。",
+        "诊断可解性通过：首发症状、起病、发热、伴随症状及关键危险征象均有可询问事实；生命体征为必需检查，并可支持目标诊断。",
+        "危险征象排除通过：呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均明确为阴性或被稳定生命体征支持。",
+        "评分量表一致性通过：目标诊断、两个可接受鉴别诊断、必需及有用检查分类与成功轨迹一致；胸片和胸部CT列为非必要检查也与病例状态相符。",
+        "回归覆盖通过：包含成功、错误诊断/非必要检查、安全中断及未知接触史路径，能够覆盖诊断、检查选择、红旗安全退出和未知事实处理。",
+        "隐藏真相安全通过：教学字段、答案键及评分内部信息未设计为患者可见内容；安全轨迹明确要求中断且不产生医疗回合、服务端调用或原始文本写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.4dadd61c-0fcb-4276-a111-d8af4a04b07c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:38:31.481Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为急性高热、干咳、肌痛和头痛，且甲型流感病毒RNA阳性，支持流行性感冒；生命体征稳定，胸部影像无肺炎证据，整体一致。",
+        "目标诊断粒度适当，检测结果为明确的甲型流感感染，能够稳定映射至“流行性感冒/流感”。",
+        "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据，且与生命体征相符。",
+        "必须询问项、可接受鉴别诊断数量及检查分类与病例内容一致；成功轨迹覆盖全部要求，差异诊断为普通感冒和轻症社区获得性肺炎。",
+        "成功、失败、安全中断和未知信息四类回归轨迹均存在，预期诊断、必要/不必要检查、回合数及安全中断行为与病例配置一致。",
+        "隐藏教学字段未暴露；安全轨迹对胸痛伴呼吸困难的请求采取中断且不产生医疗调用或文本写入，未与诊断流程混淆。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：突发发热、干咳、肌痛和头痛，Influenza A核酸阳性，生命体征稳定，胸部影像无实变，支持流行性感冒且无明显肺炎证据。",
+    "诊断可解性通过：首发症状、起病、发热、伴随症状及关键危险征象均有可询问事实；生命体征为必需检查，并可支持目标诊断。",
+    "危险征象排除通过：呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均明确为阴性或被稳定生命体征支持。",
+    "评分量表一致性通过：目标诊断、两个可接受鉴别诊断、必需及有用检查分类与成功轨迹一致；胸片和胸部CT列为非必要检查也与病例状态相符。",
+    "回归覆盖通过：包含成功、错误诊断/非必要检查、安全中断及未知接触史路径，能够覆盖诊断、检查选择、红旗安全退出和未知事实处理。",
+    "隐藏真相安全通过：教学字段、答案键及评分内部信息未设计为患者可见内容；安全轨迹明确要求中断且不产生医疗回合、服务端调用或原始文本写入。",
+    "临床表现为急性高热、干咳、肌痛和头痛，且甲型流感病毒RNA阳性，支持流行性感冒；生命体征稳定，胸部影像无肺炎证据，整体一致。",
+    "目标诊断粒度适当，检测结果为明确的甲型流感感染，能够稳定映射至“流行性感冒/流感”。",
+    "呼吸困难、意识改变、持续胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据，且与生命体征相符。",
+    "必须询问项、可接受鉴别诊断数量及检查分类与病例内容一致；成功轨迹覆盖全部要求，差异诊断为普通感冒和轻症社区获得性肺炎。",
+    "成功、失败、安全中断和未知信息四类回归轨迹均存在，预期诊断、必要/不必要检查、回合数及安全中断行为与病例配置一致。",
+    "隐藏教学字段未暴露；安全轨迹对胸痛伴呼吸困难的请求采取中断且不产生医疗调用或文本写入，未与诊断流程混淆。"
+  ]
+}

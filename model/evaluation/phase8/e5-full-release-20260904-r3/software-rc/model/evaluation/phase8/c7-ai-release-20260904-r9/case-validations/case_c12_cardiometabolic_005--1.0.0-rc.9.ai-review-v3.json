@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:78171ef4303098639e5011768e176d9c25b38b974e1a2713dd72a2509e82a4f6",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.3b5f0128-30da-4afc-b9b6-ad4903798c82",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:45:11.561Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：成人无明显症状的体检血脂异常病例，病史、生命体征与检查报告相互一致；冠状动脉CT列为初始非必需检查合理。",
+        "诊断可解性：目标诊断“血脂异常（体检发现）”有血脂检查支持，且鉴别诊断甲状腺功能减退、糖尿病可由病例策略覆盖。",
+        "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实，并纳入必问项。",
+        "量表一致性：must-ask事实、鉴别诊断数量、必需/不必要检查分类、推荐回合数及沟通指标与病例内容相互匹配。",
+        "回归覆盖：成功、失败、不必要检查、安全中断及未知事实轨迹均已覆盖；生命体征和血脂检查由轨迹提交，不因模板status=completed而构成重复检查。",
+        "隐藏真相安全：教学字段、答案键及内部病例信息未进入患者可见内容；安全中断轨迹要求无医疗回合、无提供方调用和无原始文本写入，保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.c78de70e-5a72-4c87-9cf7-134d18eedb8a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:45:25.813Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：无症状体检发现胆固醇升高、体重增加及运动减少，与血脂检查报告及“血脂异常（体检发现）”诊断相符；冠状动脉CT列为初始不必要检查也合理。",
+        "诊断可解性通过：主诉、补充病史及血脂检查共同支持目标诊断，诊断粒度明确；“高脂血症”为可接受同义词。",
+        "红旗排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实且设为缺失。",
+        "Rubric一致性通过：必问事实、2个鉴别诊断、检查分类及10回合建议与病例目标和成功轨迹一致；甲减与糖尿病作为鉴别诊断粒度适当。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、失败、不安全输入及未知既往史场景的期望结果可判定，completed检查定义不会与新会话轨迹中的test动作冲突。",
+        "隐藏真值安全通过：安全轨迹对胸痛伴呼吸困难输入设定为中断，且要求无provider调用、无原始文本写入、无医疗回合；未暴露隐藏教学字段或内部真值。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：成人无明显症状的体检血脂异常病例，病史、生命体征与检查报告相互一致；冠状动脉CT列为初始非必需检查合理。",
+    "诊断可解性：目标诊断“血脂异常（体检发现）”有血脂检查支持，且鉴别诊断甲状腺功能减退、糖尿病可由病例策略覆盖。",
+    "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实，并纳入必问项。",
+    "量表一致性：must-ask事实、鉴别诊断数量、必需/不必要检查分类、推荐回合数及沟通指标与病例内容相互匹配。",
+    "回归覆盖：成功、失败、不必要检查、安全中断及未知事实轨迹均已覆盖；生命体征和血脂检查由轨迹提交，不因模板status=completed而构成重复检查。",
+    "隐藏真相安全：教学字段、答案键及内部病例信息未进入患者可见内容；安全中断轨迹要求无医疗回合、无提供方调用和无原始文本写入，保护充分。",
+    "临床一致性通过：无症状体检发现胆固醇升高、体重增加及运动减少，与血脂检查报告及“血脂异常（体检发现）”诊断相符；冠状动脉CT列为初始不必要检查也合理。",
+    "诊断可解性通过：主诉、补充病史及血脂检查共同支持目标诊断，诊断粒度明确；“高脂血症”为可接受同义词。",
+    "红旗排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实且设为缺失。",
+    "Rubric一致性通过：必问事实、2个鉴别诊断、检查分类及10回合建议与病例目标和成功轨迹一致；甲减与糖尿病作为鉴别诊断粒度适当。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、失败、不安全输入及未知既往史场景的期望结果可判定，completed检查定义不会与新会话轨迹中的test动作冲突。",
+    "隐藏真值安全通过：安全轨迹对胸痛伴呼吸困难输入设定为中断，且要求无provider调用、无原始文本写入、无医疗回合；未暴露隐藏教学字段或内部真值。"
+  ]
+}

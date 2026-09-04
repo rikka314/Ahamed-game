@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "e4-runtime-surface-scan-v2",
+  "generatedAt": "2026-09-03T17:31:34.873Z",
+  "status": "pass",
+  "observations": [
+    {
+      "surface": "console",
+      "availability": "observed",
+      "valueCount": 7,
+      "utf8Bytes": 1466,
+      "valueDigests": [
+        {
+          "valueIndex": 0,
+          "sha256": "1cbeba69ff2f6e1bfa9b1f14427ff265152968ad27f8db7cd3adc4adae165d72",
+          "utf8Bytes": 126
+        },
+        {
+          "valueIndex": 1,
+          "sha256": "b24e2d99160ab42ceb6ddfe3b7682e12b21c8c1e0186c62ea0a5bfeef16e4468",
+          "utf8Bytes": 19
+        },
+        {
+          "valueIndex": 2,
+          "sha256": "c8c0694c010f9608ff075f9b43f165124eb25e657fd879ca7df595425b3fdfac",
+          "utf8Bytes": 792
+        },
+        {
+          "valueIndex": 3,
+          "sha256": "02ef8c2dea3b0e4f13d0fdb92c1d83f2253d16b09ced50408e8e9d8941e515b9",
+          "utf8Bytes": 123
+        },
+        {
+          "valueIndex": 4,
+          "sha256": "02ef8c2dea3b0e4f13d0fdb92c1d83f2253d16b09ced50408e8e9d8941e515b9",
+          "utf8Bytes": 123
+        },
+        {
+          "valueIndex": 5,
+          "sha256": "02ef8c2dea3b0e4f13d0fdb92c1d83f2253d16b09ced50408e8e9d8941e515b9",
+          "utf8Bytes": 123
+        },
+        {
+          "valueIndex": 6,
+          "sha256": "d1d8c5a8797bfa60f0f35bec64a25bbd84cbc7583cfdd4466fe68eb543370341",
+          "utf8Bytes": 160
+        }
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "indexedDB",
+      "availability": "observed",
+      "valueCount": 2,
+      "utf8Bytes": 8579,
+      "valueDigests": [
+        {
+          "valueIndex": 0,
+          "sha256": "38bae9aa290cd27e6b0cf35bebc0a8610bb14336c74561b64d4f064d4a1aa44f",
+          "utf8Bytes": 43
+        },
+        {
+          "valueIndex": 1,
+          "sha256": "3491af9c8c27fac0da2342de4ade643874b62a5265983a3a869e0bd9bc583fb8",
+          "utf8Bytes": 8536
+        }
+      ],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "localStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "sessionStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "cacheStorage",
+      "availability": "observed",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": []
+    },
+    {
+      "surface": "saveExport",
+      "availability": "not_available",
+      "valueCount": 0,
+      "utf8Bytes": 0,
+      "valueDigests": [],
+      "sensitiveMatches": [],
+      "reason": "The current game shell does not expose a save-export surface"
+    }
+  ],
+  "metrics": {
+    "observedSurfaces": 5,
+    "unavailableSurfaces": 1,
+    "failedSurfaces": 0,
+    "sensitiveMatches": 0
+  }
+}

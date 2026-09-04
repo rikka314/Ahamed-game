@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:b6d4b981f2ba8818799b0a4f19caade8bb25ee893ca4b829809d283daed4f537",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8645df2f-6cc5-4d49-b710-93464091949d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:06:58.446Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主诉、起病和关节检查结果整体支持急性痛风性关节炎，且感染性关节炎、假性痛风作为鉴别诊断合理；但“胸部CT”的检查名称与报告内容却描述为“足部MRI不是本例初始必需检查”，存在检查对象与报告不一致，可能造成错误理解。",
+        "目标诊断明确，急性单关节炎表现、稳定生命体征及针对性检查足以支持痛风性关节炎；虽缺少关节液或尿酸等进一步证据，但不妨碍本合成病例完成诊断。",
+        "红旗矩阵逐项明确为absent，且回归成功轨迹覆盖意识改变、低血压、不能口服及高风险人群等要求；安全轨迹对胸痛伴呼吸困难正确中断并禁止医疗回合，排除设计充分。",
+        "rubric要求胸部CT为unnecessary，但对应检查对象和报告写成足部MRI，导致测试分类、显示名称与报告语义不一致；应统一检查ID、显示名称和报告内容后再发布。",
+        "成功轨迹覆盖核心病史、必要生命体征、关节评估、主要诊断及两个鉴别诊断；失败、安全和unknown轨迹也有覆盖，回归范围充分。",
+        "教学字段保持hidden，生命体征仅可通过检查读取，安全轨迹未写入原始医疗文本或调用医疗回合，未见隐藏答案或服务端字段泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.c06f0a5f-fe6a-4ba2-9499-635b815f8be0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:07:15.921Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：胸部CT的报告却写成“足部MRI不是本例初始必需检查”，检查名称与报告内容不匹配，且“针对性检查”仅支持晶体性关节炎，未明确支持痛风而非假性痛风。",
+        "诊断可解性：病例表现符合急性第一跖趾关节晶体性关节炎，但现有事实和检查未提供尿酸、关节液晶体或其他足以区分痛风与假性痛风的证据；要求精确命中“痛风性关节炎”偏于证据不足。",
+        "红旗排除：红旗矩阵将confusion、cauda equina、major trauma、恶性肿瘤及进行性神经功能缺损等全部标为适用且要求阴性，但mustAsk及成功轨迹只覆盖其中四项，矩阵、问诊要求和回归轨迹不一致；部分红旗也与本例局限性急性第一跖趾关节主诉缺乏明确适用性说明。",
+        "Rubric一致性：must-ask、两个鉴别诊断、required/unnecessary检查分类及沟通标准的内部配置总体一致，未发现阻塞性rubric冲突。",
+        "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，按病例匹配应披露fact.prior_episode与fact.relevant_exposure，但expectedFactIds仅列前者，存在回归期望遗漏；四类轨迹虽齐全，但该不一致会导致未知事实分支误判。",
+        "隐藏真相安全：teaching_note等隐藏字段未被成功、失败、安全或unknown轨迹直接暴露，安全轨迹也明确要求中断且不产生医疗回合，未见隐藏答案泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床主诉、起病和关节检查结果整体支持急性痛风性关节炎，且感染性关节炎、假性痛风作为鉴别诊断合理；但“胸部CT”的检查名称与报告内容却描述为“足部MRI不是本例初始必需检查”，存在检查对象与报告不一致，可能造成错误理解。",
+    "目标诊断明确，急性单关节炎表现、稳定生命体征及针对性检查足以支持痛风性关节炎；虽缺少关节液或尿酸等进一步证据，但不妨碍本合成病例完成诊断。",
+    "红旗矩阵逐项明确为absent，且回归成功轨迹覆盖意识改变、低血压、不能口服及高风险人群等要求；安全轨迹对胸痛伴呼吸困难正确中断并禁止医疗回合，排除设计充分。",
+    "rubric要求胸部CT为unnecessary，但对应检查对象和报告写成足部MRI，导致测试分类、显示名称与报告语义不一致；应统一检查ID、显示名称和报告内容后再发布。",
+    "成功轨迹覆盖核心病史、必要生命体征、关节评估、主要诊断及两个鉴别诊断；失败、安全和unknown轨迹也有覆盖，回归范围充分。",
+    "教学字段保持hidden，生命体征仅可通过检查读取，安全轨迹未写入原始医疗文本或调用医疗回合，未见隐藏答案或服务端字段泄露。",
+    "临床一致性：胸部CT的报告却写成“足部MRI不是本例初始必需检查”，检查名称与报告内容不匹配，且“针对性检查”仅支持晶体性关节炎，未明确支持痛风而非假性痛风。",
+    "诊断可解性：病例表现符合急性第一跖趾关节晶体性关节炎，但现有事实和检查未提供尿酸、关节液晶体或其他足以区分痛风与假性痛风的证据；要求精确命中“痛风性关节炎”偏于证据不足。",
+    "红旗排除：红旗矩阵将confusion、cauda equina、major trauma、恶性肿瘤及进行性神经功能缺损等全部标为适用且要求阴性，但mustAsk及成功轨迹只覆盖其中四项，矩阵、问诊要求和回归轨迹不一致；部分红旗也与本例局限性急性第一跖趾关节主诉缺乏明确适用性说明。",
+    "Rubric一致性：must-ask、两个鉴别诊断、required/unnecessary检查分类及沟通标准的内部配置总体一致，未发现阻塞性rubric冲突。",
+    "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，按病例匹配应披露fact.prior_episode与fact.relevant_exposure，但expectedFactIds仅列前者，存在回归期望遗漏；四类轨迹虽齐全，但该不一致会导致未知事实分支误判。",
+    "隐藏真相安全：teaching_note等隐藏字段未被成功、失败、安全或unknown轨迹直接暴露，安全轨迹也明确要求中断且不产生医疗回合，未见隐藏答案泄漏。"
+  ]
+}

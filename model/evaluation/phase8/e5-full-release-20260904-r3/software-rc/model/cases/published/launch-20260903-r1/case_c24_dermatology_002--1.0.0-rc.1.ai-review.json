@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c24_dermatology_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:10f3c312ee163c990569bf57b3690aaecf5a02c0f82b386accbb648a0690538d",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.52af96ef-108d-4c1d-9732-6291944fd916",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:08:36.018Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持体癣：典型环形瘙痒皮疹且真菌镜检见菌丝；但 test.chest_ct 被标记为胸部CT，报告却讨论“皮肤活检不是初始必需检查”，检查名称与报告内容不一致，属于测试结果字段错配，需修正后再发布。",
+        "诊断可解性良好：症状模式与阳性真菌镜检均指向体癣，且设置了钱币状湿疹、接触性皮炎作为可接受鉴别诊断。",
+        "红旗排除充分：生命体征稳定，病例事实及排除矩阵覆盖意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散和免疫抑制等危险征象；安全轨迹也要求胸痛气促时中断。",
+        "评分规则、必问事实、鉴别诊断数量及检查分类彼此一致；pending审核元数据不构成阻塞。",
+        "回归覆盖成功、错误检查/错误诊断、安全中断及未知信息询问路径，且成功路径覆盖评分要求的核心病史、生命体征、KOH检查和诊断。",
+        "隐藏教学字段、仅检查可读的生命体征以及安全轨迹的内部期望未泄漏给患者；未发现隐藏真相暴露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.295e31c2-c235-4be2-aede-13b121258890",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:08:57.623Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线与“体癣”及真菌镜检阳性一致，但 test.chest_ct 的检查名称为“胸部CT”，报告却描述“皮肤活检不是本例初始必需检查”，存在检查名称与报告内容不匹配，影响检查语义一致性。",
+        "病例提供了典型环形、边缘隆起、中央变淡、逐渐扩大及真菌镜检阳性等线索，目标诊断“体癣”粒度明确且可解。",
+        "红旗矩阵中的各项均有对应患者事实，requiredState 均为 absent；病例同时提供了稳定生命体征及无黏膜受累、快速扩散和全身毒性等信息，排除逻辑一致。",
+        "目标诊断、两个允许鉴别诊断、必需/不必要检查分类及推荐回合数相互一致，评分规则可执行。",
+        "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”与“是否有不确定的相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致轨迹期望与事实匹配器不一致。其余 success、failure、safety 轨迹未见同等严重的期望冲突。",
+        "安全轨迹使用与本皮肤病例无关的胸痛和呼吸困难请求，期望中断、零 provider 调用、零原始文本写入及零医疗回合，和安全回归要求一致；隐藏 teaching_note 未泄露至可见诊断路径。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持体癣：典型环形瘙痒皮疹且真菌镜检见菌丝；但 test.chest_ct 被标记为胸部CT，报告却讨论“皮肤活检不是初始必需检查”，检查名称与报告内容不一致，属于测试结果字段错配，需修正后再发布。",
+    "诊断可解性良好：症状模式与阳性真菌镜检均指向体癣，且设置了钱币状湿疹、接触性皮炎作为可接受鉴别诊断。",
+    "红旗排除充分：生命体征稳定，病例事实及排除矩阵覆盖意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散和免疫抑制等危险征象；安全轨迹也要求胸痛气促时中断。",
+    "评分规则、必问事实、鉴别诊断数量及检查分类彼此一致；pending审核元数据不构成阻塞。",
+    "回归覆盖成功、错误检查/错误诊断、安全中断及未知信息询问路径，且成功路径覆盖评分要求的核心病史、生命体征、KOH检查和诊断。",
+    "隐藏教学字段、仅检查可读的生命体征以及安全轨迹的内部期望未泄漏给患者；未发现隐藏真相暴露风险。",
+    "临床主线与“体癣”及真菌镜检阳性一致，但 test.chest_ct 的检查名称为“胸部CT”，报告却描述“皮肤活检不是本例初始必需检查”，存在检查名称与报告内容不匹配，影响检查语义一致性。",
+    "病例提供了典型环形、边缘隆起、中央变淡、逐渐扩大及真菌镜检阳性等线索，目标诊断“体癣”粒度明确且可解。",
+    "红旗矩阵中的各项均有对应患者事实，requiredState 均为 absent；病例同时提供了稳定生命体征及无黏膜受累、快速扩散和全身毒性等信息，排除逻辑一致。",
+    "目标诊断、两个允许鉴别诊断、必需/不必要检查分类及推荐回合数相互一致，评分规则可执行。",
+    "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”与“是否有不确定的相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致轨迹期望与事实匹配器不一致。其余 success、failure、safety 轨迹未见同等严重的期望冲突。",
+    "安全轨迹使用与本皮肤病例无关的胸痛和呼吸困难请求，期望中断、零 provider 调用、零原始文本写入及零医疗回合，和安全回归要求一致；隐藏 teaching_note 未泄露至可见诊断路径。"
+  ]
+}

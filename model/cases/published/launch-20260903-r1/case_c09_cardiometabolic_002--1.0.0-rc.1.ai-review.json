@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:3e0a4d1e701ad6fc474618609e7112ca28f467fa6a121906978a59894df632a8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.2cd791ef-5fe1-4a59-a2ef-e0796c5aa29e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:57:09.497Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：test.chest_ct 的显示名称为“胸部CT”，但报告写为“腹部CT”，检查部位与结果不匹配，需统一。",
+        "糖化血红蛋白达到糖尿病诊断范围，结合口渴、夜尿和体重下降，目标诊断及两个鉴别诊断具有可解性。",
+        "红旗矩阵列出的各项均有对应患者事实且状态为 absent，生命体征稳定，未见急症征象；但应确认“high risk population”等条目的定义与证据充分。",
+        "量表要求询问的红旗事实仅覆盖 confusion、hypotension、inability oral intake、high risk population，未覆盖矩阵中另外六项适用红旗；同时胸部CT/腹部CT字段冲突会影响检查选择评分的一致性。",
+        "成功回归轨迹未验证 chest pain、syncope、focal neurologic deficit、severe hypoglycemia、ketoacidosis、hypertensive emergency 等矩阵红旗，也未覆盖检查分类和沟通评分证据，回归覆盖不足。",
+        "teaching_note 为 hidden，生命体征为 test_only；安全轨迹要求 SAFETY_INTERRUPTED 且禁止医疗回合、provider 调用和原文写入，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.61799ae4-11d1-4d03-88ef-09946ccc8f64",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:57:38.124Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床内容存在检查命名与报告不一致：test.chest_ct 的显示名为胸部CT，但报告写为“腹部CT未见异常”。此外，单凭糖化血红蛋白达到糖尿病诊断范围，尚不足以可靠区分 2 型糖尿病与其他糖尿病类型。",
+        "目标诊断粒度偏细且证据不足：病例仅提供成人、慢性口渴多尿、体重略降及异常HbA1c，缺少血糖确认、既往史或分类依据，难以唯一求解“2 型糖尿病”。",
+        "红旗事实均明确标记为 absent，且具有对应问诊事实、矩阵证据和稳定生命体征支持；未发现红旗遗漏或状态冲突。",
+        "rubric 将“2 型糖尿病”设为唯一 exact 目标，但病例证据更稳妥地支持“糖尿病”这一较高层级诊断；同时 chest_ct 的测试元数据与报告不一致，削弱测试选择评分的一致性。",
+        "success、failure、safety、unknown 四类回归轨迹均覆盖了相应的问诊、检查、诊断、拦截和未知事实路径，轨迹引用的事实/测试ID存在且预期基本匹配。",
+        "未见教学字段或隐藏事实向玩家路径泄露；safety 轨迹定义了中断、零 provider 调用、零原始文本写入和零医疗回合，符合安全回归约束。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：test.chest_ct 的显示名称为“胸部CT”，但报告写为“腹部CT”，检查部位与结果不匹配，需统一。",
+    "糖化血红蛋白达到糖尿病诊断范围，结合口渴、夜尿和体重下降，目标诊断及两个鉴别诊断具有可解性。",
+    "红旗矩阵列出的各项均有对应患者事实且状态为 absent，生命体征稳定，未见急症征象；但应确认“high risk population”等条目的定义与证据充分。",
+    "量表要求询问的红旗事实仅覆盖 confusion、hypotension、inability oral intake、high risk population，未覆盖矩阵中另外六项适用红旗；同时胸部CT/腹部CT字段冲突会影响检查选择评分的一致性。",
+    "成功回归轨迹未验证 chest pain、syncope、focal neurologic deficit、severe hypoglycemia、ketoacidosis、hypertensive emergency 等矩阵红旗，也未覆盖检查分类和沟通评分证据，回归覆盖不足。",
+    "teaching_note 为 hidden，生命体征为 test_only；安全轨迹要求 SAFETY_INTERRUPTED 且禁止医疗回合、provider 调用和原文写入，隐藏真相保护充分。",
+    "临床内容存在检查命名与报告不一致：test.chest_ct 的显示名为胸部CT，但报告写为“腹部CT未见异常”。此外，单凭糖化血红蛋白达到糖尿病诊断范围，尚不足以可靠区分 2 型糖尿病与其他糖尿病类型。",
+    "目标诊断粒度偏细且证据不足：病例仅提供成人、慢性口渴多尿、体重略降及异常HbA1c，缺少血糖确认、既往史或分类依据，难以唯一求解“2 型糖尿病”。",
+    "红旗事实均明确标记为 absent，且具有对应问诊事实、矩阵证据和稳定生命体征支持；未发现红旗遗漏或状态冲突。",
+    "rubric 将“2 型糖尿病”设为唯一 exact 目标，但病例证据更稳妥地支持“糖尿病”这一较高层级诊断；同时 chest_ct 的测试元数据与报告不一致，削弱测试选择评分的一致性。",
+    "success、failure、safety、unknown 四类回归轨迹均覆盖了相应的问诊、检查、诊断、拦截和未知事实路径，轨迹引用的事实/测试ID存在且预期基本匹配。",
+    "未见教学字段或隐藏事实向玩家路径泄露；safety 轨迹定义了中断、零 provider 调用、零原始文本写入和零医疗回合，符合安全回归约束。"
+  ]
+}

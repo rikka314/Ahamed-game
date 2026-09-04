@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.9",
+  "trajectories": [
+    {
+      "trajectoryId": "c21.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、多久、起病、具体症状、有什么特点、什么时候明显、还伴有什么、其他症状、严重吗、加重、变化、影响生活。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：严重外伤、无法负重、摔伤撞伤、发热寒战、关节感染、近期关节操作、肿瘤病史、夜间进行性疼痛、无法解释的体重下降。",
+          "expectedFactIds": [
+            "fact.major_trauma",
+            "fact.musculoskeletal_infection",
+            "fact.malignancy_warning"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.knee_xray"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "膝骨关节炎",
+          "differentials": [
+            "类风湿关节炎",
+            "半月板损伤"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 2
+      }
+    },
+    {
+      "trajectoryId": "c21.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.knee_mri"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.knee_mri"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c21.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c21.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

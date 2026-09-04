@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:9a90e64980ad607985b3dca1a93adf9dd238ded4a851a7247f7af48ea91df85d",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.faa5b00b-9d61-45ff-bbb8-9af039aa45ab",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:54:21.923Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例事实、生命体征与轻症社区获得性肺炎相符：发热、咳嗽咳痰及右下肺局灶性实变，血压、血氧和整体状态稳定，未见明显急症矛盾。",
+        "通过病史、生命体征和胸部X线可合理锁定目标诊断；急性支气管炎和流感作为鉴别诊断也有可评估性。",
+        "呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有事实排除依据；静息血氧97%、血压118/72 mmHg、呼吸频率20次/分支持非急症边界。",
+        "量表的必问病史、鉴别诊断数量及检查分类与病例事实和目标任务一致；生命体征及胸片为必要检查，CT和咽拭子列为非必要，血常规列为有用，内部逻辑一致。",
+        "回归轨迹覆盖成功、错误诊断、安全中断和未知接触史场景；安全轨迹明确要求中断、零医疗回合及零服务端写入，覆盖充分。",
+        "教学备注、答案键及测试专属事实未置于玩家可见叙事；胸部影像通过检查获取，未发现隐藏真相向玩家泄露的结构性风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.795ce6c0-17fb-40ca-88f8-47f426648f00",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T12:54:40.005Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、生命体征及右下肺局灶性实变支持轻症社区获得性肺炎；稳定成人且无明显急危重症信号，病例内部一致。",
+        "起病、发热、咳嗽咳痰、红旗症状和胸部影像均可通过病例流程获得，目标诊断粒度明确，且与急性支气管炎、流感形成可评分鉴别。",
+        "呼吸困难、意识改变、严重胸痛、咯血、低血压、明显呼吸频率增快、低氧、无法进食饮水及高风险人群均有排除证据；呼吸频率20次/分与其余稳定生命体征不构成明显矛盾。",
+        "must-ask事实、2项可接受鉴别、测试必需/有用/不必要分类及8回合建议均与答案键和病例事实一致。",
+        "success、failure、safety、unknown四类回归轨迹均覆盖，成功路径命中目标诊断，失败路径明确错误，安全路径中断并禁止调用/写入，unknown路径对应未知接触史。",
+        "hidden teaching note、答案键及评分字段未被患者可见内容直接泄露；现有 supportingArtifacts 未发现会让隐藏真值被常规交互无条件暴露的矛盾。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例事实、生命体征与轻症社区获得性肺炎相符：发热、咳嗽咳痰及右下肺局灶性实变，血压、血氧和整体状态稳定，未见明显急症矛盾。",
+    "通过病史、生命体征和胸部X线可合理锁定目标诊断；急性支气管炎和流感作为鉴别诊断也有可评估性。",
+    "呼吸困难、意识改变、严重胸痛、咯血、低血压、呼吸频率增快、低氧、无法进食饮水及高风险人群均有事实排除依据；静息血氧97%、血压118/72 mmHg、呼吸频率20次/分支持非急症边界。",
+    "量表的必问病史、鉴别诊断数量及检查分类与病例事实和目标任务一致；生命体征及胸片为必要检查，CT和咽拭子列为非必要，血常规列为有用，内部逻辑一致。",
+    "回归轨迹覆盖成功、错误诊断、安全中断和未知接触史场景；安全轨迹明确要求中断、零医疗回合及零服务端写入，覆盖充分。",
+    "教学备注、答案键及测试专属事实未置于玩家可见叙事；胸部影像通过检查获取，未发现隐藏真相向玩家泄露的结构性风险。",
+    "临床表现、生命体征及右下肺局灶性实变支持轻症社区获得性肺炎；稳定成人且无明显急危重症信号，病例内部一致。",
+    "起病、发热、咳嗽咳痰、红旗症状和胸部影像均可通过病例流程获得，目标诊断粒度明确，且与急性支气管炎、流感形成可评分鉴别。",
+    "呼吸困难、意识改变、严重胸痛、咯血、低血压、明显呼吸频率增快、低氧、无法进食饮水及高风险人群均有排除证据；呼吸频率20次/分与其余稳定生命体征不构成明显矛盾。",
+    "must-ask事实、2项可接受鉴别、测试必需/有用/不必要分类及8回合建议均与答案键和病例事实一致。",
+    "success、failure、safety、unknown四类回归轨迹均覆盖，成功路径命中目标诊断，失败路径明确错误，安全路径中断并禁止调用/写入，unknown路径对应未知接触史。",
+    "hidden teaching note、答案键及评分字段未被患者可见内容直接泄露；现有 supportingArtifacts 未发现会让隐藏真值被常规交互无条件暴露的矛盾。"
+  ]
+}

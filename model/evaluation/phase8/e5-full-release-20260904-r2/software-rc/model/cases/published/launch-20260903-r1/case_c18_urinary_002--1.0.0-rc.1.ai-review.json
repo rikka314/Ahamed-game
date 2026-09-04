@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c18_urinary_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:cba4512044bdfd0eb65e7da2ac8e01001bc9f7967a04a6e00f61b78e7ffebff5",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8fb86ebf-09f1-4145-8b01-311c197250ca",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:04:00.282Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显命名矛盾：test.chest_ct显示为“胸部CT”，但报告内容为“泌尿系CT未见梗阻性积水”；该检查既可能被误解为胸部检查，也与其作为无关检查的设定不一致。",
+        "目标诊断与症状、前列腺评估结果基本一致，且前列腺癌和膀胱过度活动症作为鉴别诊断，病例具有可解性。",
+        "生命体征稳定，患者事实明确排除了无尿、肉眼血尿、发热伴腰痛、感染性梗阻、单肾等危险征象；红旗排除证据完整。",
+        "量表的mustAsk仅列出4项危险/病史事实，而redFlagExclusionMatrix列出9项均适用的红旗，未明确说明其余红旗可由associated_pattern或其他事实覆盖，存在评分口径不一致风险。",
+        "回归失败轨迹将test.chest_ct定义为与病例无关，但其实际报告是泌尿系CT且提供梗阻信息，不能稳定支持“无关检查”分类，失败轨迹与病例测试定义冲突。",
+        "安全中断轨迹对胸痛伴呼吸困难设定了SAFETY_INTERRUPTED，并要求无医疗回合、无提供者调用和无原始文本写入，安全退出条件明确。隐藏教学字段及生命体征的test-only披露未泄漏隐藏真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.521f2bc4-dc8c-43cd-ab05-3686d051ee3d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:04:21.832Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：test.chest_ct 的显示名与别名指向胸部CT，但报告内容为“泌尿系CT未见梗阻性积水”，检查名称、别名和报告存在明显语义不一致。",
+        "诊断可解性：男性、渐进性夜尿/尿线变细/排尿等待，且针对性检查提示对称性前列腺增大、无明显硬结，足以支持“良性前列腺增生”；两个鉴别诊断也有明确概念映射。",
+        "红旗排除：矩阵列出的9项红旗均有对应patientFact，均为absent，requiredState与observedValue一致，未见缺失或冲突。",
+        "Rubric一致性：must-ask事实、2项可接受鉴别诊断、required/ unnecessary检查分类及推荐回合上限彼此一致；成功轨迹满足既定诊断和鉴别诊断要求。",
+        "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏了被明确询问的fact.relevant_exposure，导致轨迹期望与事实抽取不一致。",
+        "隐藏真值安全性：目标诊断、诊断概念、红旗事实和回归轨迹未见将hidden teaching字段泄露给玩家或把安全轨迹误纳入普通医学回合的迹象。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显命名矛盾：test.chest_ct显示为“胸部CT”，但报告内容为“泌尿系CT未见梗阻性积水”；该检查既可能被误解为胸部检查，也与其作为无关检查的设定不一致。",
+    "目标诊断与症状、前列腺评估结果基本一致，且前列腺癌和膀胱过度活动症作为鉴别诊断，病例具有可解性。",
+    "生命体征稳定，患者事实明确排除了无尿、肉眼血尿、发热伴腰痛、感染性梗阻、单肾等危险征象；红旗排除证据完整。",
+    "量表的mustAsk仅列出4项危险/病史事实，而redFlagExclusionMatrix列出9项均适用的红旗，未明确说明其余红旗可由associated_pattern或其他事实覆盖，存在评分口径不一致风险。",
+    "回归失败轨迹将test.chest_ct定义为与病例无关，但其实际报告是泌尿系CT且提供梗阻信息，不能稳定支持“无关检查”分类，失败轨迹与病例测试定义冲突。",
+    "安全中断轨迹对胸痛伴呼吸困难设定了SAFETY_INTERRUPTED，并要求无医疗回合、无提供者调用和无原始文本写入，安全退出条件明确。隐藏教学字段及生命体征的test-only披露未泄漏隐藏真相。",
+    "临床一致性：test.chest_ct 的显示名与别名指向胸部CT，但报告内容为“泌尿系CT未见梗阻性积水”，检查名称、别名和报告存在明显语义不一致。",
+    "诊断可解性：男性、渐进性夜尿/尿线变细/排尿等待，且针对性检查提示对称性前列腺增大、无明显硬结，足以支持“良性前列腺增生”；两个鉴别诊断也有明确概念映射。",
+    "红旗排除：矩阵列出的9项红旗均有对应patientFact，均为absent，requiredState与observedValue一致，未见缺失或冲突。",
+    "Rubric一致性：must-ask事实、2项可接受鉴别诊断、required/ unnecessary检查分类及推荐回合上限彼此一致；成功轨迹满足既定诊断和鉴别诊断要求。",
+    "回归覆盖：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏了被明确询问的fact.relevant_exposure，导致轨迹期望与事实抽取不一致。",
+    "隐藏真值安全性：目标诊断、诊断概念、红旗事实和回归轨迹未见将hidden teaching字段泄露给玩家或把安全轨迹误纳入普通医学回合的迹象。"
+  ]
+}

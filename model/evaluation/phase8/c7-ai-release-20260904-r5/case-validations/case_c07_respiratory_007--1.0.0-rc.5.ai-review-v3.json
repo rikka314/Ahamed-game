@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:6d869f0a9d985673cebf691efd695dcbba3d9439b71e644f6c4ed37eee17601b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.7655de68-ced1-403b-84e8-88f209e2b3bc",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:38:28.293Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "成人非急症呼吸道病例的人群、症状、肺功能与胸部CT结果相互一致；咳嗽变异性哮喘作为目标诊断具有合理支持。",
+        "病史、生命体征、肺功能及鉴别诊断要求足以完成诊断，且胸部CT被明确标为非必要检查。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均有明确排除证据；生命体征稳定。",
+        "评分量表的必问事实、必需检查、非必要检查、鉴别诊断数量及回合限制与成功/失败轨迹一致；男性病例询问高风险人群虽包含妊娠项，但不构成安全或评分矛盾。",
+        "回归轨迹覆盖成功、错误诊断与非必要检查、安全中断及未知事实场景；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+        "教学字段、生命体征测试专属信息及答案键均未向患者公开；pending审核元数据不影响事实性判定，未见隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ded63baf-7037-4aee-9ef7-5bef18d7ffa0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:38:41.266Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：夜间及运动后阵发性干咳、无感染性或明显危险症状，肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常且列为非必要检查基本合理。",
+        "诊断可解性通过：症状模式结合肺功能结果能够达到目标诊断粒度；目标诊断、接受同义词及鉴别诊断概念定义清晰。",
+        "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均有对应事实，且矩阵要求状态与病例事实一致。",
+        "rubric一致性通过：must-ask事实共13项，成功轨迹分四轮完整覆盖；两个可接受鉴别诊断、必需检查及胸部CT不必要检查的配置与轨迹一致。",
+        "回归覆盖通过：success、failure、safety和unknown四类轨迹均存在；成功/失败诊断、非必要检查、未知事实披露及安全中断的预期结果彼此一致。",
+        "隐藏真值安全通过：目标诊断和教学字段未出现在playerVisible或可见患者叙事中；答案、评分和回归资产位于内部病例结构，未发现面向玩家的真值泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "成人非急症呼吸道病例的人群、症状、肺功能与胸部CT结果相互一致；咳嗽变异性哮喘作为目标诊断具有合理支持。",
+    "病史、生命体征、肺功能及鉴别诊断要求足以完成诊断，且胸部CT被明确标为非必要检查。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均有明确排除证据；生命体征稳定。",
+    "评分量表的必问事实、必需检查、非必要检查、鉴别诊断数量及回合限制与成功/失败轨迹一致；男性病例询问高风险人群虽包含妊娠项，但不构成安全或评分矛盾。",
+    "回归轨迹覆盖成功、错误诊断与非必要检查、安全中断及未知事实场景；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+    "教学字段、生命体征测试专属信息及答案键均未向患者公开；pending审核元数据不影响事实性判定，未见隐藏真相泄露风险。",
+    "临床一致性通过：夜间及运动后阵发性干咳、无感染性或明显危险症状，肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常且列为非必要检查基本合理。",
+    "诊断可解性通过：症状模式结合肺功能结果能够达到目标诊断粒度；目标诊断、接受同义词及鉴别诊断概念定义清晰。",
+    "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均有对应事实，且矩阵要求状态与病例事实一致。",
+    "rubric一致性通过：must-ask事实共13项，成功轨迹分四轮完整覆盖；两个可接受鉴别诊断、必需检查及胸部CT不必要检查的配置与轨迹一致。",
+    "回归覆盖通过：success、failure、safety和unknown四类轨迹均存在；成功/失败诊断、非必要检查、未知事实披露及安全中断的预期结果彼此一致。",
+    "隐藏真值安全通过：目标诊断和教学字段未出现在playerVisible或可见患者叙事中；答案、评分和回归资产位于内部病例结构，未发现面向玩家的真值泄漏。"
+  ]
+}

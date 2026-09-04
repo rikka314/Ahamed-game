@@ -1,6 +1,6 @@
 # 模型层独立项目边界
 
-> 当前基线（2026-08-29）：可玩问诊只使用真实 OpenAI-compatible Patient Agent v0.4；每轮传入完整已提交对话历史。患者显示名仅是场景称呼或姓氏提示；医疗事实与显式年龄/性别锚点服从病例，未提供的姓名、家庭、住址和普通日常经历由 AI 合理补全并跨轮保持一致。患者不得用“病例没有说明”“资料未提供”等幕后话术回避。本地不使用固定问答、关键词路由、病例诊断词表或患者话术重渲染。Patient AI 在同一次调用中判断玩家是否已明确提交唯一主诊断：肯定的单一主诊断或清晰的“主诊断 + 鉴别诊断”会启动服务端评分，多病并列无主次、疑问和不确定讨论继续对话。AI 只提取玩家本轮原话中的诊断意图，不判断正确性；本地门禁校验提取词确实来自原话，最终正确性仍由确定性评分器判断。模型层全量测试 331/331，覆盖率门全部通过；真实 `gpt-5.6-sol` 已验证三条诊断分支和非医疗角色历史一致性。旧 C6/C7 runtime manifest 与 Software RC 早于本次纠偏，仅作历史证据，需按当前源码重新生成后才能恢复发布资格。
+> 当前基线（2026-09-04）：可玩问诊只使用真实 OpenAI-compatible Patient Agent v0.5.0；每轮传入完整已提交对话历史。患者显示名仅是场景称呼或姓氏提示；医疗事实与显式年龄/性别锚点服从病例，未提供的姓名、家庭、住址和普通日常经历由 AI 合理补全并跨轮保持一致。患者不得用“病例没有说明”“资料未提供”等幕后话术回避。本地不使用固定问答、关键词路由、病例诊断词表或患者话术重渲染。Patient AI 在同一次调用中判断玩家是否已明确提交唯一主诊断：肯定的单一主诊断或清晰的“主诊断 + 鉴别诊断”会启动服务端评分，多病并列无主次、疑问和不确定讨论继续对话。AI 只提取玩家本轮原话中的诊断意图，不判断正确性；本地门禁校验提取词确实来自原话，最终正确性仍由确定性评分器判断。M0 与 B1–B5 已形成 30 例、120 条轨迹、300 条黄金向量、600 条问诊样本及 60 次病例 AI 审核的完整内容集。当前 r9 病例发布证据对 30 例完成 60/60 次独立审核和 360/360 项检查，30/30 病例均获批准且 findings 为 0；Web runtime 已切换到该 30 例清单。E3 r4 已记录六人格 84 个真实锚点轮，C7 dialogue r4 已覆盖 30 例和 360 个真实发布对话轮，E4 r12/r10 的 30 例跨层闭环、运行时存储扫描和两个隔离 AI 审核均完成。当前完整候选 `evaluation/phase8/e5-full-release-20260904-r3/` 已通过 24/24 技术门并封装 2068 个制品；decision 为 `reported_with_failures`，非阻塞保留 E3/C7 对话质量与来源许可 AI 未运行等风险。
 
 ## 定位
 
@@ -58,7 +58,7 @@ model/
 │  ├─ patient/                  受控患者提示词版本
 │  └─ evaluator/                结构化评分提示词版本
 ├─ src/
-│  ├─ adapters/                 内部结果到 share v1-rc1 的显式映射
+│  ├─ adapters/                 内部结果到 share v1-rc2 的显式映射
 │  ├─ application/              会话、问诊、检查、诊断编排
 │  ├─ cli/                      中文内部评测 CLI、配置和命令解析
 │  ├─ domain/                   服务端病例结构与稳定错误
@@ -75,7 +75,7 @@ model/
 └─ tsconfig.json
 ```
 
-`src/application/` 承担基线文档中的 orchestration 职责。`share/` 已发布 `@ahamed/doctor-game-share@1.0.0-rc.1`，模型 package 通过本地 package dependency 运行共同的 Schema/hidden-field contract gate。Phase 3 已在 `adapters/` 中完成 CLI/public DTO 显式映射；application DTO 仍是内部形状，游戏层不能直接 import 这里的内部类型。
+`src/application/` 承担基线文档中的 orchestration 职责。`share/` 已发布 `@ahamed/doctor-game-share@1.0.0-rc.2`，模型 package 通过本地 package dependency 运行共同的 Schema/hidden-field contract gate。Phase 3 已在 `adapters/` 中完成 CLI/public DTO 显式映射；E4 进一步将病例 `patientRoleId` allowlist 投影到 `CaseSummaryV1`。application DTO 仍是内部形状，游戏层不能直接 import 这里的内部类型。
 
 ## 开发命令
 
@@ -98,6 +98,8 @@ npm run ops:recover -- --help
 ```
 
 CLI 默认将 SQLite 写入 `model/var/model-cli.sqlite`，也可用 `--database` 或 `AHAMED_MODEL_DATABASE_PATH` 指定。交互式 CLI 只接受 `openai` provider，并从 `OPENAI_API_KEY` 或成对的 `MODEL_BASE_URL + MODEL_API_KEY` 创建真实 Responses-compatible Patient Agent；必须显式提供模型 ID。`deterministic` 只保留为自动化测试替身，不能通过 CLI 进入可玩对话。会话中途不会自动切换 Provider。
+
+网页 BFF 使用 package 公开的 `createWebModelRuntime`，当前固定载入 `cases/manifest.launch-release-20260904-r9.json`，并接纳其中 `published + approved` 的 30 例。生产环境必须提供私有可写卷上的绝对 `AHAMED_WEB_MODEL_DATABASE_PATH`；过期会话在 TTL 之后再按 `AHAMED_WEB_EXPIRED_SESSION_RETENTION_HOURS`（默认 168 小时）保留，随后由启用 `secure_delete` 与 WAL truncate 的 Web runtime 周期清理。
 
 任何使用 SQLite 的 CLI/服务或 `ops:recover` 启动都必须由运行环境注入至少 32 字符的 `SAFETY_AUDIT_HMAC_KEY`。该密钥必须跨重启保持稳定，用于安全退出与 turn 幂等 fingerprint、待 Patient Agent 处理文本的 AES-256-GCM 域分离密钥，以及 `response_validated` buffer 的服务端 HMAC 完整性标签；不得提交到仓库。`ModelPersistence.requiresStableIntegrityKey` 会阻止公开低级构造方式绕过该要求。现阶段如需轮换密钥，必须先完成显式数据迁移或清理对应开发数据库，不能在已有持久化数据上静默更换。
 
@@ -180,7 +182,7 @@ npm run ops:recover -- --database ./var/model.sqlite --operation <operation-id> 
 - `src/cli/command-parser.ts` 只解析 `/cases`、`/start`、`/resume`、`/status`、问诊、检查、鉴别诊断、诊断、结果、取消、帮助和退出命令，不再读取病例诊断词表判断自然语言。普通输入统一进入 Patient Agent；其经过门禁的 `diagnosisIntent` 若确认玩家已明确唯一主诊断，CLI 才调用 `submitDiagnosis`，否则继续展示患者回复。结构化 `requestedTestId` 仍可在同一回合触发确定性检查。
 - `src/cli/config.ts` 解析模拟 `userId`、provider、model 与 SQLite 路径；provider/model 不匹配时启动即失败。
 - CLI 复用 `createSqliteModelService`，退出后保留会话；`/resume` 同时校验 SQLite 中固定的模拟 userId，不向其他用户暴露会话是否存在。
-- `src/adapters/share-v1-adapter.ts` 将创建、投影、问诊、检查、评分、取消和错误映射为 share v1-rc1 类型，并在 opaque ID 边界重新验证公共 ID。
+- `src/adapters/share-v1-adapter.ts` 将创建、投影、问诊、检查、评分、取消和错误映射为 share v1-rc2 类型，并在 opaque ID 边界重新验证公共 ID；创建会话摘要必填 `patientRoleId`。
 - `/cases` 只输出公开入口，`/tests` 输出所有已加载病例的公共检查 ID 并不显示病例内分类；病例真相、rubric、hidden/test-only fact 和内部 ID 不进入 CLI。
 - `cases/draft/c01-reference-draft.json` 只用于 deterministic 工程纵切，本身不可发布；正式 C01 由 Phase 6 双 AI 交叉验证流程物化为 published 病例。
 - `tests/cli.test.ts` 覆盖完整 C01 闭环、share 映射、重启恢复、模拟用户隔离、取消终态、中文帮助/错误，以及 OpenAI/Claude 的阶段门。
@@ -207,24 +209,24 @@ npm run ops:recover -- --database ./var/model.sqlite --operation <operation-id> 
 
 ## Phase 6 病例生产
 
-- `cases/draft/` 已提供 C01–C05 五个中文、成人、非急症的纯合成 `CasePackage v1-rc1` 草稿；每例至少含 1 个 spontaneous、10 个 if_asked、present/absent/unknown 三态、test_only、hidden、评分输入和九项红旗排除证据。
-- `cases/regression/` 为每例固定 success、failure、safety、unknown 四类轨迹；`npm run cases:validate` 验证病例/轨迹交叉引用、版本、泄露门与 canonical 内容 hash。
+- C01–C05 已迁移为 `CasePackage v2-rc1`，C06–C30 已按 M0/B1–B5 生产为 v2；当前活动清单 `cases/manifest.phase6-compat.v2-rc9.json` 精确绑定 30 个病例版本、content hash、人格、身份、provenance、红旗矩阵、回归和评测语料。
+- `cases/regression-v2/` 与 `cases/regression-v3/` 共同提供每例 success、failure、safety、unknown 四类冻结轨迹；活动集合共 120 条，`npm run cases:validate` 验证病例/轨迹交叉引用、版本、泄露门与 canonical 内容 hash。
 - `src/cases/phase6-case-production.ts` 实现双 AI 交叉验证门和不可覆盖发布写入。它要求临床安全与诊断质量两个角色使用不同 validator ID，记录模型/提示版本和验证时间，六项检查全部通过，并与 `internalCaseId + caseVersion + contentHash` 精确绑定；同一病例版本通过独占发布锁和唯一 staging 文件防止并发 package/sidecar 交叉配对，人工审核资格和签字不参与发布判定。
-- 历史 C01–C05 published 病例与 manifest 已被 C0 标记为 `superseded`。当前对话候选 5/5 structurally ready、0 published；新 hash 记录在 `cases/manifest.dialogue-candidate.v1-rc1.json`，`npm run cases:validate:dialogue` 是 C1 工程门，旧 `npm run cases:validate` 因历史 AI sidecar 漂移而预期 fail closed。
+- 历史 C01–C05 v1 published 病例与 manifest 已被 C0 标记为 `superseded`。当前 30 例候选/发布状态保存在 `cases/manifest.launch-release-20260904-r9.json` 与 `cases/published/launch-20260904-r9/`，30/30 病例均为 `approved`；`npm run cases:validate:dialogue` 和 `npm run cases:validate` 均按 v2 活动清单验证，不以 AI 审核结论充当技术阻塞门。
 
 ## Phase 7 评分、安全与离线评测
 
-- `diagnosis-matcher.ts` 与 `scoring-policy-v1.ts` 是唯一诊断匹配和确定性评分实现；30 个黄金向量冻结六分项、证据 ID、舍入和沟通 0/50/100 三档。沟通 100 分至少需要两个不同的审核 criterion；沟通评估不可用时不会生成最终 `total`。
+- `diagnosis-matcher.ts` 与 `scoring-policy-v1.ts` 是唯一诊断匹配和确定性评分实现；活动首发集合包含 300 个黄金向量，冻结六分项、证据 ID、舍入和沟通 0/50/100 三档。沟通 100 分至少需要两个不同的审核 criterion；沟通评估不可用时不会生成最终 `total`。
 - `patient-output-gate.ts` 与 `evaluation-output-gate.ts` 对 Provider 输出执行精确字段白名单、事实 allowlist、诊断/检查结果泄露、证据引用和本地重算门禁；Provider prose 不能覆盖确定性评分。最终复盘与诊断说明使用版本化固定中文模板，避免未经独立医疗建议/泄露门禁的 Provider 自由文本进入结果。
 - 私有 ScoringPolicy evidence 只留在模型层审计；`public-evaluation-projection.ts` 在 Review Provider 与 `share` 两个出口分别重建安全投影。公开结果固定为 `criterion.diagnosis/history/differential/test_selection/efficiency/communication` 六项和通用中文解释，只携带当前会话可公开的 turn/已完成 test 引用，不透传 fact、诊断 concept、required/unnecessary 分类或 rubric 结构。
 - `MedicalSafetyPolicy v1` 在 operation journal、Provider 调用、回合增加和原文持久化之前执行，固定优先级为自伤危机、急症红旗、超出范围、普通现实健康、保守失败和游戏放行。所有退出响应来自版本化中文模板；审计只保存 HMAC、长度、rule IDs、policy/template 版本等脱敏元数据。
 - 同一稳定 HMAC 密钥下，本地安全退出可在 SQLite 重启后以同一幂等键重放且不重复调用 Provider/写事件；`response_validated` 的 turn/evaluation 缓冲同时验证 checksum、服务端 HMAC、不可变原请求、当前病例事实和本地评分，任何重算普通 hash、改写 validatedAt、替换问诊文本或评分内容的篡改都会 fail closed。现实健康、危机与提示注入在 Patient Agent 前由本地策略拒绝，在线链路不会调用 Controller。
-- 离线 corpus 包含五例各 20 条中文问法、32 条注入/索要答案/角色覆盖/伪造检查对抗输入，以及按 `40/30/55/10/10/20` 冻结的 165 条中文安全语料。每条病例问法绑定冻结病例的真实 askable fact allowlist；语料中既有 `pending_medical_review` 是兼容性元数据，不再构成发布阻塞。
-- 100 条病例问法已逐条穿过真实 `ModelService` 安全前置门并进入 Patient Agent；32 条对抗输入已逐条经真实 `ModelService.askPatient` 本地拒绝，均为 0 Provider 调用、0 operation、0 回合和 0 原文事件写入。
+- 活动离线 corpus 包含 30 例共 600 条中文问法、40 条新增疾病域专项安全样本，以及既有按 `40/30/55/10/10/20` 冻结的 165 条中文安全语料。每条病例问法绑定冻结病例的真实 askable fact allowlist；语料中的审核元数据不构成发布阻塞。
+- 600 条病例问法具备可执行记录；本地安全对抗输入继续在 Provider 调用、operation、回合和原文事件写入前拒绝。
 - `npm run eval:phase7:offline` 只运行本地策略与结构校验，输出计数、冻结集失配和发布门状态，不调用 Provider，也不输出 fact ID、病例真相、答案或 rubric。完整候选门实际加载 manifest 指向的 package 和 validation sidecar，重算 canonical hash，并按 `publicCaseId + caseVersion + contentHash + packageStatus=published + releaseValidationMethod=ai_cross_validation` 核对三方绑定；缺失文件、路径逃逸、内容篡改或 sidecar 漂移均 fail closed。当前结果为 165/165 决策和模板一致，急症与自伤冻结集假阴性均为 0；`validatedSamples=165` 只表示本地策略逐条执行，不表示 165 条语料已经完成独立 AI 验证，也不是临床分诊有效性结论。
-- 旧 manifest 中 5 个 AI 交叉验证的 published 病例只属于 superseded 版本。新 dialogue candidate manifest 为 0 published；完整候选 benchmark 必须等 C7 重新物化并绑定五个新病例后才能恢复 ready。
-- 进入 Phase 8 前必须完成 P8-PRE-01–P8-PRE-05：两个病例验证角色使用不同角色 promptVersion 和 validationRunId 并重新生成 5 个 sidecar；新增 published-only 五病例候选 runner；为 165 条语料生成绑定 corpus/policy/template hash 的独立 AI 验证产物并保持 33 条 holdout 冻结；冻结当前批准 Provider/model；生成不可变 runtime-release manifest。人工医学签字不属于其中任何门。
-- 165 条语料仍保留 `reviewStatus: pending_medical_review`、`reviewerId: null` 的旧元数据，但这些字段不阻塞发布。33 条 `holdout` 当前只冻结切分；P8-PRE-03 完成前不得写成“已完成独立 AI 盲测”。
+- 当前 C7 病例证据位于 `evaluation/phase8/c7-ai-release-20260904-r9/`：30 例、60/60 次独立 reviewer 调用和 360/360 项检查均完成，失败或跳过调用为 0，实际模型为 `gpt-5.6-sol`；30/30 病例均为 `approved`，review findings 为 0。165 条安全语料也由 `safety_label_auditor` 与 `adversarial_expression_auditor` 共同批准。evidence index SHA-256 为 `6d758809e9fc1d98c990d88b9de6f1631bc784f3008a24db4a095cec8adef3e6`，源清单与发布清单 SHA-256 分别为 `33178d860cd6273d45c78a11ca5a54be16df40427157ed02812448a9546f33ca`、`cc30922dd330d1fbb3535725703d18d487abd6908b9522c8a524b962a01897b2`。
+- 当前 C7 对话证据位于 `evaluation/phase8/c7-dialogue-live-20260904-r4/`：30 例、360 个已提交轮，Patient 回复率 100%、人格一致率 99.72%、上下文跟进率 91.67%、自然语言检查动作正确率 100%，诊断与未完成检查结果泄漏均为 0；独立审计为 `rejected`，记录 24 个严重事实错误，Provider/model approval 为 `revision_recommended`，不能宣称对话质量通过。报告 SHA-256 为 `7e29f30a56146412823e862d0d71309d7981ef8316c2963f5167fce6c01b0be6`。
+- 既有 165 条安全语料与 33 条 holdout 继续冻结；人工医学签字不属于技术发布门，来源许可 AI 评估未运行时必须在 E5 findings 中显式保留。
 - `npm run test:coverage` 要求全局 line/function/branch 均至少 80%，并对会话状态机、评分/输出门和安全核心分别要求至少 90%。`ModelService` 当前仍是约 3,300 行的兼容 façade；在进入合并/Software RC 前应以现有恢复矩阵锁定行为，再拆分 turn/evaluation coordinator、recovery reconciler 与 safety journal/redaction，避免在本轮 Phase 7 收尾中进行高风险大重构。
 
 ## Phase 1 私有规范
@@ -262,7 +264,7 @@ npm run ops:recover -- --database ./var/model.sqlite --operation <operation-id> 
 - Phase 0 独立运行时已选择 TypeScript；这不决定最终部署必须是独立 Node 服务。
 - MVP 仍建议由 Next Route Handlers/BFF 承载；是否拆分 FastAPI：**待项目审核**。
 - 模型供应商、模型名称、推理参数、预算和部署地区：**待项目审核**。
-- 公共 `share v1-rc1`、私有 `CasePackage v1-rc1` 与 `ScoringPolicy v1` 已冻结，并已建立 model → share 单向 package 依赖和契约测试。
+- 公共 `share v1-rc2`、私有 `CasePackage v1-rc1/v2-rc1` 与 `ScoringPolicy v1` 已建立版本化边界，并已建立 model → share 单向 package 依赖和契约测试；旧 `share v1-rc1` manifest 继续只读保留。
 - Phase 2 的 SQLite 持久化、幂等、固定 TTL、同会话串行、操作日志、重启恢复和显式 ops recovery 已实现并通过恢复矩阵测试。
 - Phase 3 中文 CLI、配置解析、share v1-rc1 adapter、C01 reference draft 与 CLI integration tests 已实现；headless runner 保持可用。
 - 对话重构 C3–C5 已实现 Patient Agent 检查请求/确认循环、同回合 `effects`、一次定向再生成、SQLite v6 迁移与历史恢复；聊天触发检查和 `/test` 共用同一确定性引擎。
@@ -270,8 +272,10 @@ npm run ops:recover -- --database ./var/model.sqlite --operation <operation-id> 
 - Phase 5 Claude Messages adapter、Provider-specific 映射、协议隔离、mock HTTP/provider contract tests、固定 C01 mock 纵切和 live-eval 命令已经实现。按当前修订范围，Phase 5 工程实施完成；真实 Claude C01 与双 Provider 预评测由项目决定延期，不阻塞继续 Phase 6，但不得宣称 Claude 已真实验证。
 - 当前运行 Provider 只使用既有第三方 OpenAI-compatible `MODEL_BASE_URL + MODEL_API_KEY`；Claude Key 不配置，Claude adapter 不接入 session，也不存在自动 failover。
 - 历史 Phase 7、P8-PRE-01–P8-PRE-05 和 Phase 8-A：**已完成但已 superseded**。旧证据与 zip 只读保留在 `evaluation/phase8/`，不得作为当前版本发布依据。
-- Phase 8 命令：`phase8:ai-validate`、`eval:phase8:candidate`、`phase8:manifest`、`phase8:verify`、`eval:phase8:release`、`phase8:patient-audit`、`security:scan`。所有证据目录均不可覆盖；大样本审核若仅发生结构化返回漂移，可用 `phase8:patient-audit` 对已落盘私有样本追加审核，不重放病例会话。
+- Phase 8 / E3 / E5 命令：`phase8:ai-validate`、`eval:phase8:candidate`、`phase8:manifest`、`phase8:verify`、`eval:phase8:release`、`phase8:patient-audit`、`eval:e3:persona-live`、`eval:e3:persona-verify`、`e5:release`、`security:scan`。所有证据目录均不可覆盖；E5 使用 `npm run e5:release -- --output <model 内相对目录>` 生成 acceptance、runtime manifest、Software RC tar 和 `SHA256SUMS.json`。大样本审核若仅发生结构化返回漂移，可用 `phase8:patient-audit` 对已落盘私有样本追加审核，不重放病例会话。
+- E3 六人格专项 benchmark 已实现 72 条规则断言、固定 C01 医学锚点的六人格真实 runner、逐问题不变量检查、虚构病例安全预检、两个隔离 AI 审阅角色和完整 hash 绑定。当前 `evaluation/phase8/e3-persona-live-20260904-r4/` 保存 84 个已提交轮和六份 journey，每人格均达到 14 轮；Patient 回复率和人格一致率均为 100%，各类泄漏为 0。医学事实 reviewer 对 `e3-run-02.turn-7` 判定 1/84 严重事实错误，审核为 `rejected`；报告 SHA-256 为 `79b59e61a8f3b661d81fd1d9dfbefdf1e040deeb5606ad12695e0efdf96323b7`。E5 另观测到后来源码变化导致 1 项 reuse binding 陈旧；两项均非阻塞，但不得把该记录解释为六人格质量全部通过。
+- E5 发布证据工程及 M0/B1–B5 内容生产已完成。当前 `evaluation/phase8/e5-full-release-20260904-r3/` 基于病例 r9、E3 r4、C7 dialogue r4 与 E4 r10 完整重建：24/24 技术门通过，源码与 staged RC 均复验 2068 个制品，staged 密钥/隐藏字段扫描为 0，四个顶层制品 hash/size 全部通过。tar.gz SHA-256 为 `b38444f2f55ad29d5d25ad66c723f5f298b9435d18716cffd8e77d1261407ab2`。最终 decision 为 `reported_with_failures`，9 条非阻塞 finding 保留 E3/C7 对话质量与 60 项来源许可 AI 未运行；25 例病例拒绝已由 r9 的 30/30 批准证据取代。旧 E5 r1/r2 仅作历史候选。
 - 当前批准范围只有第三方 OpenAI-compatible Provider + `gpt-5.6-sol`；Claude 真实验证延期且非阻塞，不存在自动 failover。
-- 当前对话实现已完成 AI 主导/完整历史/诊断意图纠偏并通过 331/331 测试、全部覆盖率门与真实模型本地 smoke；AI 已验证可合理补全姓名、父母姓名、住址和昨日行程并保持一致，也已验证明确单诊断直接评分、清晰主诊断加鉴别诊断评分、多病无主次继续对话。旧 C6 r6、C7 runtime r10、dialogue-live r5、runtime manifest r11 和 Software RC r9 只作历史证据；当前发布包必须按纠偏后的源码重新生成。
+- 当前对话实现已完成 AI 主导/完整历史/诊断意图纠偏并通过 459/459 测试与全部覆盖率门；v0.5.0 的当前真实对话依据为 E3 r4 与 30 例 C7 dialogue r4，病例质量依据为 C7 AI release r9。当前完整发布候选为 E5 r3；旧 C6、旧 C7 runtime/dialogue、旧 runtime manifest、旧 Software RC 和 E5 r1/r2 只作历史证据。
 
 详细模型基线见 [`../docx/baseknowledge/开源资源与技术方案.md`](../docx/baseknowledge/开源资源与技术方案.md)，跨层规则见 [`../docx/baseknowledge/共享层基本内容.md`](../docx/baseknowledge/共享层基本内容.md)。

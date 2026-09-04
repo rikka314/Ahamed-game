@@ -1,0 +1,6 @@
+{
+  "contractVersion": "1",
+  "release": "v1-rc1",
+  "files": ["public-fixtures.json"],
+  "policy": "Every schema definition listed by schema-manifest has one positive and one negative public fixture. Fixtures are synthetic and contain no private case truth."
+}

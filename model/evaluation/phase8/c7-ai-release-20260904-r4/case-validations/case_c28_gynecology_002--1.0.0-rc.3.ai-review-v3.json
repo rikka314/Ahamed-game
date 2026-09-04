@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c28_gynecology_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:1810577a40f0f40d7050e405a7820a3b02bb66a02399d0db05cdd3c293b48e82",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.25008971-1d8f-4f74-8c58-189b2bde3591",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:12:28.748Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为稳定的妇科非急症表现：外阴瘙痒、白色稠厚分泌物与镜检见芽生孢子和假菌丝相互一致；盆腔CT标记为初始不必要检查，不构成事实矛盾。",
+        "生命体征稳定，且已明确排除意识改变、低血压、不能进食、妊娠、显著出血、急性盆腔痛、妇科发热及黏膜或上生殖道受累等适用危险征象。",
+        "病史、体征检查和阴道分泌物镜检足以支持外阴阴道念珠菌病；鉴别诊断要求的细菌性阴道病和滴虫性阴道炎均已纳入。",
+        "必问事实、检查分类、推荐回合数、诊断及鉴别诊断要求彼此一致；成功、失败、安全中断和未知事实回归轨迹均有覆盖。",
+        "安全轨迹可在胸痛伴呼吸困难输入时中断，且要求零医疗回合、零提供者调用和零原始文本写入，符合安全退出要求。",
+        "教学字段及评分策略摘要保持隐藏/服务端属性；回归输入未要求向患者泄露隐藏真相，review.pending等兼容元数据不影响本次事实审核。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.151a389c-ad24-4a0b-8f7f-c0800b22d1fb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:12:41.234Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现（外阴瘙痒、白色稠厚分泌物）与镜检见芽生孢子及假菌丝一致，支持外阴阴道念珠菌病；生命体征稳定且无相关急症表现。",
+        "目标诊断粒度适当，症状和关键检查结果足以稳定求解；“霉菌性阴道炎”作为接受同义词也一致。",
+        "红旗矩阵中的九项均有对应患者事实且状态为absent；病例未隐藏会改变门诊处置边界的危险信息。",
+        "rubric要求的病史事实、2项鉴别诊断及检查分类均与病例内容和答案键一致；生命体征与阴道分泌物镜检为必要检查，盆腔CT为不必要检查。",
+        "success、failure、safety和unknown四条回归轨迹均引用有效事实或检查ID，成功轨迹的诊断、鉴别诊断和medicalTurns设定与评分规则相容，失败及未知分支也能覆盖预期行为。",
+        "隐藏事实、test_only生命体征、红旗事实及安全中断轨迹之间无明显泄漏或矛盾；pending审核元数据不影响本次独立判定。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为稳定的妇科非急症表现：外阴瘙痒、白色稠厚分泌物与镜检见芽生孢子和假菌丝相互一致；盆腔CT标记为初始不必要检查，不构成事实矛盾。",
+    "生命体征稳定，且已明确排除意识改变、低血压、不能进食、妊娠、显著出血、急性盆腔痛、妇科发热及黏膜或上生殖道受累等适用危险征象。",
+    "病史、体征检查和阴道分泌物镜检足以支持外阴阴道念珠菌病；鉴别诊断要求的细菌性阴道病和滴虫性阴道炎均已纳入。",
+    "必问事实、检查分类、推荐回合数、诊断及鉴别诊断要求彼此一致；成功、失败、安全中断和未知事实回归轨迹均有覆盖。",
+    "安全轨迹可在胸痛伴呼吸困难输入时中断，且要求零医疗回合、零提供者调用和零原始文本写入，符合安全退出要求。",
+    "教学字段及评分策略摘要保持隐藏/服务端属性；回归输入未要求向患者泄露隐藏真相，review.pending等兼容元数据不影响本次事实审核。",
+    "临床表现（外阴瘙痒、白色稠厚分泌物）与镜检见芽生孢子及假菌丝一致，支持外阴阴道念珠菌病；生命体征稳定且无相关急症表现。",
+    "目标诊断粒度适当，症状和关键检查结果足以稳定求解；“霉菌性阴道炎”作为接受同义词也一致。",
+    "红旗矩阵中的九项均有对应患者事实且状态为absent；病例未隐藏会改变门诊处置边界的危险信息。",
+    "rubric要求的病史事实、2项鉴别诊断及检查分类均与病例内容和答案键一致；生命体征与阴道分泌物镜检为必要检查，盆腔CT为不必要检查。",
+    "success、failure、safety和unknown四条回归轨迹均引用有效事实或检查ID，成功轨迹的诊断、鉴别诊断和medicalTurns设定与评分规则相容，失败及未知分支也能覆盖预期行为。",
+    "隐藏事实、test_only生命体征、红旗事实及安全中断轨迹之间无明显泄漏或矛盾；pending审核元数据不影响本次独立判定。"
+  ]
+}

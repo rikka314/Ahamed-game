@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c22_musculoskeletal_003",
+  "publicCaseId": "case_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.3",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "第一跖趾关节突发红肿痛一天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c22",
+    "patientDisplayName": "患者22号",
+    "ageBand": "36–45岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "餐饮店主",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "guarded_questioning",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会询问提问或检查目的",
+      "说明理由后配合"
+    ],
+    "modifiers": {
+      "healthLiteracy": "high",
+      "recallReliability": "high",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "第一跖趾关节突发红肿痛一天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "一天前夜间突然发作",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "大脚趾根部突然剧痛、红肿，触碰明显疼",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "无发热、寒战或其他系统不适",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.cauda_equina": {
+      "status": "absent",
+      "value": "未出现cauda equina相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.major_trauma": {
+      "status": "absent",
+      "value": "未出现major trauma相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.musculoskeletal_infection": {
+      "status": "absent",
+      "value": "未出现musculoskeletal infection相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.malignancy_warning": {
+      "status": "absent",
+      "value": "未出现malignancy warning相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.progressive_neurologic_deficit": {
+      "status": "absent",
+      "value": "未出现progressive neurologic deficit相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.joint_assessment": {
+      "status": "completed",
+      "displayName": "关节评估",
+      "aliases": [
+        "关节评估",
+        "做关节评估",
+        "test.joint_assessment"
+      ],
+      "report": "关节评估符合晶体性关节炎表现，未见全身感染证据。"
+    },
+    "test.foot_mri": {
+      "status": "completed",
+      "displayName": "足部MRI",
+      "aliases": [
+        "足部MRI",
+        "做足部MRI",
+        "test.foot_mri"
+      ],
+      "report": "足部MRI不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.gouty_arthritis",
+    "targetDiagnosis": "痛风性关节炎",
+    "acceptedSynonyms": [
+      "急性痛风"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.gouty_arthritis",
+        "preferredTerm": "痛风性关节炎",
+        "acceptedSynonyms": [
+          "急性痛风"
+        ]
+      },
+      {
+        "conceptId": "concept.septic_arthritis",
+        "preferredTerm": "感染性关节炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.pseudogout",
+        "preferredTerm": "假性痛风",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.cauda_equina",
+      "fact.major_trauma",
+      "fact.musculoskeletal_infection",
+      "fact.malignancy_warning",
+      "fact.progressive_neurologic_deficit"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.septic_arthritis",
+      "concept.pseudogout"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.joint_assessment": "required",
+      "test.foot_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B4病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:a101616a02254a3be6a97d4fb73318c82d01d96eb7b8c243094d630f71120b43",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.musculoskeletal",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c22_musculoskeletal_003",
+    "caseVersion": "1.0.0-rc.3",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.cauda_equina",
+        "canonicalName": "cauda equina",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.cauda_equina"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.major_trauma",
+        "canonicalName": "major trauma",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.major_trauma"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.musculoskeletal_infection",
+        "canonicalName": "musculoskeletal infection",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.musculoskeletal_infection"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.malignancy_warning",
+        "canonicalName": "malignancy warning",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.malignancy_warning"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.progressive_neurologic_deficit",
+        "canonicalName": "progressive neurologic deficit",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.progressive_neurologic_deficit"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  }
+}

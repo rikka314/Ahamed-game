@@ -1,0 +1,51 @@
+{
+  "name": "@ahamed/doctor-game",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "predev": "npm --prefix ../share run build && npm run maps:publish:all",
+    "dev": "next dev --port 3020",
+    "prebuild": "npm --prefix ../share run build && npm run maps:publish:all",
+    "build": "next build",
+    "start": "next start --port 3020",
+    "lint": "eslint .",
+    "pretypecheck": "npm --prefix ../share run build",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm --prefix ../share run build",
+    "test": "vitest run",
+    "test:contract": "npm --prefix ../share run test:contract && npm run typecheck && vitest run tests/unit/patient-identity.test.ts",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "preevidence:s2": "npm run maps:publish",
+    "evidence:s2": "node scripts/capture-s2-evidence.mjs",
+    "preevidence:h3": "npm run maps:publish:all",
+    "evidence:h3": "node scripts/capture-h3-evidence.mjs",
+    "assets:generate:h3": "node scripts/generate-h3-tilesets.mjs",
+    "maps:publish": "node scripts/publish-graybox-map.mjs",
+    "maps:source:h3": "node scripts/publish-h3-clinic-candidates.mjs --regenerate-source",
+    "maps:publish:h3": "node scripts/publish-h3-clinic-candidates.mjs",
+    "maps:publish:all": "npm run maps:publish && npm run maps:publish:h3"
+  },
+  "dependencies": {
+    "@ahamed/doctor-game-share": "file:../share",
+    "idb": "8.0.3",
+    "next": "16.3.2",
+    "phaser": "4.2.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.13.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

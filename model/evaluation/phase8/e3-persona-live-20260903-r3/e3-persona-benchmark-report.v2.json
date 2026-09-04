@@ -1,0 +1,429 @@
+{
+  "schemaVersion": "e3-persona-benchmark-report-v2",
+  "generatedAt": "2026-09-02T16:24:17.216Z",
+  "reviewPolicy": "non_blocking",
+  "status": "reported",
+  "decision": "not_run",
+  "coverage": {
+    "ruleAssertions": 72,
+    "rulePersonas": 6,
+    "ruleScenarios": 12,
+    "realPersonas": 0,
+    "committedTurns": 5,
+    "minimumTurnsPerPersona": 0
+  },
+  "metrics": {
+    "patientGeneratedReplyRate": 1,
+    "personaConsistencyRate": 0,
+    "seriousFactErrors": 0,
+    "diagnosisLeaks": 0,
+    "uncompletedTestResultLeaks": 0,
+    "unknownAsAbsentErrors": 0
+  },
+  "audit": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "promptVersion": "e3-persona-consistency-review-v1",
+      "validationRunId": "run.persona_consistency_reviewer.56582958-6de5-4be7-a130-403675cabe27",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "The model provider is unavailable. [OPENAI_CONNECTION]"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "promptVersion": "e3-medical-fact-boundary-review-v1",
+      "validationRunId": "run.medical_fact_boundary_reviewer.330fa839-56cc-428a-a074-f01e2aa9a492",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "The model provider is unavailable. [OPENAI_CONNECTION]"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "code": "REAL_PERSONA_COVERAGE_MISMATCH",
+      "message": "E3 live evidence does not contain exactly one completed run for each persona",
+      "expected": 6,
+      "actual": 0
+    },
+    {
+      "code": "COMMITTED_TURNS_BELOW_TARGET",
+      "message": "E3 live evidence is below 12 committed turns per persona or 72 total turns",
+      "expected": "12 per persona and 72 total",
+      "actual": "0 per persona and 5 total"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "greeting:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "chief_complaint:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "onset:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "multiple_questions:1"
+    },
+    {
+      "code": "CROSS_PERSONA_MEDICAL_REFERENCE_DRIFT",
+      "message": "the same question referenced different medical facts or test states across personas",
+      "scope": "repeated_question:1"
+    },
+    {
+      "code": "PERSONA_CONSISTENCY_BELOW_TARGET",
+      "message": "AI-audited persona consistency is below 95%",
+      "expected": 0.95,
+      "actual": 0
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "gentle_cooperative"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "anxious_reassurance_seeking"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "impatient_direct"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "talkative_digressive"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "accommodating_minimizing"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "guarded_questioning"
+    },
+    {
+      "code": "AUDIT_DECISION_NON_APPROVED",
+      "message": "an independent E3 audit role returned a non-approved decision",
+      "scope": "persona_consistency_reviewer",
+      "expected": "approved",
+      "actual": "not_run"
+    },
+    {
+      "code": "AUDIT_REPORTED_FINDINGS",
+      "message": "an independent E3 audit role reported one or more findings",
+      "scope": "persona_consistency_reviewer",
+      "expected": 0,
+      "actual": 1
+    },
+    {
+      "code": "AUDIT_DECISION_NON_APPROVED",
+      "message": "an independent E3 audit role returned a non-approved decision",
+      "scope": "medical_fact_boundary_reviewer",
+      "expected": "approved",
+      "actual": "not_run"
+    },
+    {
+      "code": "AUDIT_REPORTED_FINDINGS",
+      "message": "an independent E3 audit role reported one or more findings",
+      "scope": "medical_fact_boundary_reviewer",
+      "expected": 0,
+      "actual": 1
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "persona_consistency_reviewer"
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "medical_fact_boundary_reviewer"
+    },
+    {
+      "code": "PERSONA_RUN_FAILED",
+      "message": "one or more live persona runs did not complete"
+    }
+  ],
+  "runs": [
+    {
+      "runId": "e3-run-01",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:cd30f669c1bf05a0eec39a127cfa0c824f6bb1a8ecd8b9c8a3ee71d1ddb21fff",
+      "committedTurns": 5,
+      "fullHistoryTurns": 5,
+      "patientGeneratedReplies": 5,
+      "patientProviderCalls": 7,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "questionOrdinal": 1,
+          "factIds": [],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.chief_complaint"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "onset",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.cough",
+            "fact.high_fever",
+            "fact.nasal_discharge",
+            "fact.sore_throat"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        },
+        {
+          "scenarioId": "repeated_question",
+          "questionOrdinal": 1,
+          "factIds": [
+            "fact.onset"
+          ],
+          "testStates": [
+            "test.chest_ct:not_completed",
+            "test.chest_xray:not_completed",
+            "test.complete_blood_count:not_completed",
+            "test.vital_signs:not_completed"
+          ]
+        }
+      ],
+      "failureCode": "The model provider is unavailable. [OPENAI_CONNECTION]"
+    },
+    {
+      "runId": "e3-run-02",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:39ab77398e4a24952207fd5483e2e238c72d4b2d14bf59cfa4f49b5c99578d85",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [],
+      "failureCode": "The model provider is unavailable. [OPENAI_CONNECTION]"
+    },
+    {
+      "runId": "e3-run-03",
+      "personaTemplateId": "impatient_direct",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:634e79695d441f3f639abc4ffce7989008343b32f48abf3dff03b775f7c32869",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [],
+      "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_CONNECTION]"
+    },
+    {
+      "runId": "e3-run-04",
+      "personaTemplateId": "talkative_digressive",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:f6f32e6e03551b09602f0c1c6f92c90004a3ad0187915428c8f00a9e57727862",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [],
+      "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_CONNECTION]"
+    },
+    {
+      "runId": "e3-run-05",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:f2a1ab6796ed966bf5a164327736e51c6cff6406d54a5d19e53311bb6cb70922",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [],
+      "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_CONNECTION]"
+    },
+    {
+      "runId": "e3-run-06",
+      "personaTemplateId": "guarded_questioning",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:3d22abe2250b2f8112d5de43e0732037b4c47ea31ec242958d22d4ad05231115",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [],
+      "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_CONNECTION]"
+    }
+  ],
+  "evidenceStatus": "live_provider_observation",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelIds": [
+      "gpt-5.6-sol"
+    ],
+    "promptVersion": "v0.5.0+set.0aac708b202d7b18"
+  },
+  "bindings": {
+    "anchorCasePath": "cases/draft/c01-common-cold-v1.json",
+    "anchorCaseSha256": "5daa0ff35a04ea58cfb1cddfab848c47bd729bbdc847eff8b7453a56b416f1d1",
+    "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+    "variantContentHashes": [
+      "sha256:cd30f669c1bf05a0eec39a127cfa0c824f6bb1a8ecd8b9c8a3ee71d1ddb21fff",
+      "sha256:39ab77398e4a24952207fd5483e2e238c72d4b2d14bf59cfa4f49b5c99578d85",
+      "sha256:634e79695d441f3f639abc4ffce7989008343b32f48abf3dff03b775f7c32869",
+      "sha256:f6f32e6e03551b09602f0c1c6f92c90004a3ad0187915428c8f00a9e57727862",
+      "sha256:f2a1ab6796ed966bf5a164327736e51c6cff6406d54a5d19e53311bb6cb70922",
+      "sha256:3d22abe2250b2f8112d5de43e0732037b4c47ea31ec242958d22d4ad05231115"
+    ],
+    "ruleCorpusSha256": "b27b4792722b6f79ef95c6b10c10742e5c1057835564b82e59619f512068c098",
+    "patientPromptSha256": "a5ebfe47ed2f5a2656f033ee85b66c77634a6ede7c01cf24660504e6c44f9233",
+    "sampleSetSha256": "67c8f2a14777e7895abdd5dba420d1f2bb3858cdf8d76121119efe9a50f29e5f",
+    "auditSha256": "24a85eac5e97781d641aba7c03a71944c8764d3b7c6dd253f9e684f59f1cc81f",
+    "journeyArtifacts": [
+      {
+        "path": "private/journeys/e3-run-01.json",
+        "sizeBytes": 4334,
+        "sha256": "1c39938ecd1a80cc7bbd186a7b70b30c60e15d5f5f898e82f90ad61369bfee91"
+      },
+      {
+        "path": "private/journeys/e3-run-02.json",
+        "sizeBytes": 346,
+        "sha256": "a9105797c2963859960f92eeef2d98db4b9d9d81198f9b14c6dd6c41c8f030e3"
+      },
+      {
+        "path": "private/journeys/e3-run-03.json",
+        "sizeBytes": 383,
+        "sha256": "b251c3974c3fda1e9b9950c24362d73528647da66b5d6026735f1c38d2d9866c"
+      },
+      {
+        "path": "private/journeys/e3-run-04.json",
+        "sizeBytes": 387,
+        "sha256": "35940df536630c59267ed2ad1465481851d9164af678c0c5278ac32a3de664c9"
+      },
+      {
+        "path": "private/journeys/e3-run-05.json",
+        "sizeBytes": 391,
+        "sha256": "a5a81e6fb694a8980a3fc584450de7a1ca30da63e84d0fbbee6ab635deafb8a1"
+      },
+      {
+        "path": "private/journeys/e3-run-06.json",
+        "sizeBytes": 386,
+        "sha256": "e00483671edddd89afa26e1b00f3a5f094d5466be03e43d4c2e790cdfcffc836"
+      }
+    ]
+  }
+}

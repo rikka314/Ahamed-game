@@ -1,0 +1,19 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G01",
+  "componentName": "诊所室内地面基础款",
+  "revision": 4,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v3.png",
+  "generator": "Codex palette revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Keep the G01 revision-3 micro-terrazzo pixel layout unchanged. Lighten the cream base, subtle material shading and grout by one restrained step, and slightly lighten the colored mineral flecks so they remain low contrast. Preserve native 32x32 hard pixel edges with no anti-aliasing.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

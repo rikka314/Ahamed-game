@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c20_musculoskeletal_001",
+  "publicCaseId": "case_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.8",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "搬重物后腰痛三天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c20",
+    "patientDisplayName": "患者20号",
+    "ageBand": "36–45岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "仓库管理员",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "accommodating_minimizing",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "态度随和",
+      "可能淡化主观困扰但不改变事实"
+    ],
+    "modifiers": {
+      "healthLiteracy": "low",
+      "recallReliability": "typical",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "搬重物后腰痛三天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "三天前搬箱子后出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "弯腰和转身时腰部疼痛加重",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "无下肢无力、会阴麻木或大小便障碍",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.cauda_equina": {
+      "status": "absent",
+      "value": "没有会阴麻木、尿潴留或大小便失禁。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "会阴麻木",
+        "尿潴留",
+        "大小便失禁"
+      ]
+    },
+    "fact.major_trauma": {
+      "status": "absent",
+      "value": "没有近期严重外伤或无法负重。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "严重外伤",
+        "无法负重",
+        "摔伤撞伤"
+      ]
+    },
+    "fact.musculoskeletal_infection": {
+      "status": "absent",
+      "value": "没有发热寒战、破溃伤口、近期关节操作或全身感染表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热寒战",
+        "关节感染",
+        "近期关节操作"
+      ]
+    },
+    "fact.malignancy_warning": {
+      "status": "absent",
+      "value": "没有肿瘤病史、夜间进行性疼痛或无法解释的体重下降。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "肿瘤病史",
+        "夜间进行性疼痛",
+        "无法解释的体重下降"
+      ]
+    },
+    "fact.progressive_neurologic_deficit": {
+      "status": "absent",
+      "value": "没有进行性肢体无力、感觉缺失或步态恶化。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "进行性无力",
+        "感觉缺失",
+        "步态恶化"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.neurologic_exam": {
+      "status": "completed",
+      "displayName": "神经系统查体",
+      "aliases": [
+        "神经系统查体",
+        "做神经系统查体",
+        "test.neurologic_exam"
+      ],
+      "report": "下肢肌力、感觉及反射未见异常。"
+    },
+    "test.lumbar_mri": {
+      "status": "completed",
+      "displayName": "腰椎MRI",
+      "aliases": [
+        "腰椎MRI",
+        "做腰椎MRI",
+        "test.lumbar_mri"
+      ],
+      "report": "腰椎MRI不作为无红旗急性腰痛的初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.mechanical_low_back_pain",
+    "targetDiagnosis": "机械性腰痛",
+    "acceptedSynonyms": [
+      "非特异性腰痛"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.mechanical_low_back_pain",
+        "preferredTerm": "机械性腰痛",
+        "acceptedSynonyms": [
+          "非特异性腰痛"
+        ]
+      },
+      {
+        "conceptId": "concept.lumbar_disc_herniation",
+        "preferredTerm": "腰椎间盘突出",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.renal_colic",
+        "preferredTerm": "肾绞痛",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.cauda_equina",
+      "fact.major_trauma",
+      "fact.musculoskeletal_infection",
+      "fact.malignancy_warning",
+      "fact.progressive_neurologic_deficit"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.lumbar_disc_herniation",
+      "concept.renal_colic"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.neurologic_exam": "required",
+      "test.lumbar_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B3病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:788ac9f24cf019403f3b3cac2df4e7ea70bef4b9dc0cefdabd58d49382c70d11",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.musculoskeletal",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c20_musculoskeletal_001",
+    "caseVersion": "1.0.0-rc.8",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.cauda_equina",
+        "canonicalName": "马尾综合征表现",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.cauda_equina"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.major_trauma",
+        "canonicalName": "严重外伤",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.major_trauma"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.musculoskeletal_infection",
+        "canonicalName": "骨关节感染征象",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.musculoskeletal_infection"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.malignancy_warning",
+        "canonicalName": "恶性肿瘤警示",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.malignancy_warning"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.progressive_neurologic_deficit",
+        "canonicalName": "进行性神经功能缺损",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.progressive_neurologic_deficit"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.musculoskeletal",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c20_musculoskeletal_001",
+    "caseVersion": "1.0.0-rc.8",
+    "contentHash": "sha256:788ac9f24cf019403f3b3cac2df4e7ea70bef4b9dc0cefdabd58d49382c70d11",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.12c3ad97-f025-4e9b-bd3b-f664ab88de90",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:19:04.157Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：搬重物后起病、活动诱发的急性腰痛，神经查体正常且无感染、肿瘤、严重外伤或马尾综合征征象，与机械性腰痛相符。",
+          "诊断可解性通过：病史、生命体征和神经系统查体足以支持目标诊断，并设置了合理的鉴别诊断；腰椎MRI明确标为初始不必要检查。",
+          "危险征象排除通过：病例事实及排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经缺损；生命体征与神经查体均有安全退出依据。",
+          "量表一致性通过：must-ask事实、必需与不必要检查、鉴别诊断数量及推荐回合限制相互一致；成功轨迹覆盖要求，失败轨迹覆盖错误诊断和不必要检查。",
+          "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，安全轨迹明确要求不调用服务端、不写入原始文本且不计医疗回合。",
+          "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，回归与评分摘要未要求向患者暴露内部字段或评分逻辑。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.68df2022-fd3a-49b4-af6a-6c2ce9ca3fde",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:19:18.700Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床叙事一致：搬重物后起病、活动诱发/加重、无神经缺损及红旗表现，支持机械性腰痛；生命体征和神经系统查体结果相互吻合。",
+          "诊断可解且粒度适当：目标诊断为“机械性腰痛”，并接受“非特异性腰痛”；现有病史足以与腰椎间盘突出、肾绞痛进行区分。",
+          "红旗排除项覆盖完整，矩阵中的九项红旗均有对应患者事实且状态为absent；神经系统查体和生命体征检查也与安全排除逻辑一致。",
+          "rubric与答案键一致：必问事实均可通过匹配问题获得，两个鉴别诊断均在允许集合内，要求数量为2；生命体征和神经系统查体为required，腰椎MRI为unnecessary，与病例设定相符。",
+          "四类回归轨迹内部一致：success覆盖病史、必要检查、目标诊断和两个鉴别诊断；failure验证不必要MRI及错误诊断；safety轨迹为独立胸痛气促输入并要求中断；unknown轨迹正确覆盖既往发作事实。",
+          "未见隐藏真值泄漏：教学字段隐藏，生命体征仅可通过检查读取；病例状态、review.status和pending元数据不影响内容审计结论。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床一致性通过：搬重物后起病、活动诱发的急性腰痛，神经查体正常且无感染、肿瘤、严重外伤或马尾综合征征象，与机械性腰痛相符。",
+      "诊断可解性通过：病史、生命体征和神经系统查体足以支持目标诊断，并设置了合理的鉴别诊断；腰椎MRI明确标为初始不必要检查。",
+      "危险征象排除通过：病例事实及排除矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤和进行性神经缺损；生命体征与神经查体均有安全退出依据。",
+      "量表一致性通过：must-ask事实、必需与不必要检查、鉴别诊断数量及推荐回合限制相互一致；成功轨迹覆盖要求，失败轨迹覆盖错误诊断和不必要检查。",
+      "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，安全轨迹明确要求不调用服务端、不写入原始文本且不计医疗回合。",
+      "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏，回归与评分摘要未要求向患者暴露内部字段或评分逻辑。",
+      "临床叙事一致：搬重物后起病、活动诱发/加重、无神经缺损及红旗表现，支持机械性腰痛；生命体征和神经系统查体结果相互吻合。",
+      "诊断可解且粒度适当：目标诊断为“机械性腰痛”，并接受“非特异性腰痛”；现有病史足以与腰椎间盘突出、肾绞痛进行区分。",
+      "红旗排除项覆盖完整，矩阵中的九项红旗均有对应患者事实且状态为absent；神经系统查体和生命体征检查也与安全排除逻辑一致。",
+      "rubric与答案键一致：必问事实均可通过匹配问题获得，两个鉴别诊断均在允许集合内，要求数量为2；生命体征和神经系统查体为required，腰椎MRI为unnecessary，与病例设定相符。",
+      "四类回归轨迹内部一致：success覆盖病史、必要检查、目标诊断和两个鉴别诊断；failure验证不必要MRI及错误诊断；safety轨迹为独立胸痛气促输入并要求中断；unknown轨迹正确覆盖既往发作事实。",
+      "未见隐藏真值泄漏：教学字段隐藏，生命体征仅可通过检查读取；病例状态、review.status和pending元数据不影响内容审计结论。"
+    ]
+  }
+}

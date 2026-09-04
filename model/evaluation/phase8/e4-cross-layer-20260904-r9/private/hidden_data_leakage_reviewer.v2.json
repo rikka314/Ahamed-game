@@ -1,0 +1,47 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-04T08:09:33.708Z",
+  "contentSha256": "747d998178ab09a7ebc45bea8f93eed6dac2a73131d78c56ebfbd6a6807bae57",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "save_export_not_available",
+      "message": "The saveExport surface is explicitly recorded as not_available because the current game shell does not expose a save-export surface. This is not treated as a failure; no sensitive matches were reported on the available surfaces.",
+      "severity": "warning"
+    },
+    {
+      "code": "public_artifact_allowlist_verified",
+      "message": "The recorded build/public-asset leakage scan reports no personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis, or patientFacts tokens in .next static/server output or public assets. The public journey contains only projected patient-facing fields and reports sensitiveMatches: 0.",
+      "severity": "info"
+    },
+    {
+      "code": "browser_storage_surfaces_verified",
+      "message": "IndexedDB, localStorage, and sessionStorage were observed and reported with sensitiveMatches: 0.",
+      "severity": "info"
+    },
+    {
+      "code": "console_and_cache_surfaces_verified",
+      "message": "Console and CacheStorage were observed and reported with sensitiveMatches: 0; failedSurfaces is 0.",
+      "severity": "info"
+    },
+    {
+      "code": "private_evidence_separation_verified",
+      "message": "Public and private journey artifacts are separately identified by path, visibility, byte count, and SHA-256 digest; the supplied evidence does not show private evidence embedded in the public artifact.",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.f4445205-b0e6-4bc8-beb4-7af6f28498c2",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v3",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

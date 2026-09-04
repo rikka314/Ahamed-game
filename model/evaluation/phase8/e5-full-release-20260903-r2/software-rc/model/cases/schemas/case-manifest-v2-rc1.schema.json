@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/case-manifest-v2-rc1.schema.json",
+  "title": "Manifest-driven case release policy v2-rc1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "casePackageSchemaVersion",
+    "allowedCasePackageSchemaVersions",
+    "provenanceSchemaVersion",
+    "aiReviewSchemaVersion",
+    "reviewPolicy",
+    "releasePolicy",
+    "aiReviewPolicy",
+    "reviewSummary",
+    "redFlagPolicyVersion",
+    "patientPromptVersion",
+    "evaluationPolicyVersion",
+    "contentHashPolicyVersion",
+    "cases"
+  ],
+  "properties": {
+    "manifestVersion": { "const": "case-manifest-v2-rc1" },
+    "casePackageSchemaVersion": { "const": "case-package-v2-rc1" },
+    "allowedCasePackageSchemaVersions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["case-package-v1-rc1", "case-package-v2-rc1"] }
+    },
+    "provenanceSchemaVersion": { "const": "provenance-record-v2" },
+    "aiReviewSchemaVersion": { "const": "ai-case-cross-review-v3" },
+    "reviewPolicy": { "const": "non_blocking" },
+    "releasePolicy": { "$ref": "#/$defs/releasePolicy" },
+    "aiReviewPolicy": { "$ref": "#/$defs/aiReviewPolicy" },
+    "reviewSummary": { "$ref": "#/$defs/reviewSummary" },
+    "redFlagPolicyVersion": { "$ref": "#/$defs/id" },
+    "patientPromptVersion": { "$ref": "#/$defs/versionLabel" },
+    "evaluationPolicyVersion": { "$ref": "#/$defs/id" },
+    "contentHashPolicyVersion": { "$ref": "#/$defs/id" },
+    "cases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/caseEntry" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "versionLabel": { "type": "string", "minLength": 1 },
+    "nonNegativeInteger": { "type": "integer", "minimum": 0 },
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "caseVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "artifactPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+"
+    },
+    "personaQuota": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["personaTemplateId", "count", "minimumDiseaseDomains"],
+      "properties": {
+        "personaTemplateId": { "$ref": "#/$defs/id" },
+        "count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "minimumDiseaseDomains": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "domainQuota": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["diseaseDomainId", "count"],
+      "properties": {
+        "diseaseDomainId": { "$ref": "#/$defs/id" },
+        "count": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "qualityThresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patientGeneratedReplyRate",
+        "maximumControllerProviderCalls",
+        "maximumLocalFakeReplies",
+        "maximumDiagnosisLeaks",
+        "maximumUncompletedTestResultLeaks",
+        "minimumPersonaConsistencyRate",
+        "minimumContextFollowupAccuracy",
+        "minimumTestActionAccuracy",
+        "maximumSeriousFactErrors"
+      ],
+      "properties": {
+        "patientGeneratedReplyRate": { "$ref": "#/$defs/rate" },
+        "maximumControllerProviderCalls": { "$ref": "#/$defs/nonNegativeInteger" },
+        "maximumLocalFakeReplies": { "$ref": "#/$defs/nonNegativeInteger" },
+        "maximumDiagnosisLeaks": { "$ref": "#/$defs/nonNegativeInteger" },
+        "maximumUncompletedTestResultLeaks": { "$ref": "#/$defs/nonNegativeInteger" },
+        "minimumPersonaConsistencyRate": { "$ref": "#/$defs/rate" },
+        "minimumContextFollowupAccuracy": { "$ref": "#/$defs/rate" },
+        "minimumTestActionAccuracy": { "$ref": "#/$defs/rate" },
+        "maximumSeriousFactErrors": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "releasePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policyVersion",
+        "expectedCaseCount",
+        "requiredPersonas",
+        "diseaseDomainQuotas",
+        "difficultyQuotas",
+        "minimumRegressionTrajectoriesPerCase",
+        "minimumRealDialogueTurnsPerCase",
+        "requiredTestStates",
+        "qualityThresholds"
+      ],
+      "properties": {
+        "policyVersion": { "$ref": "#/$defs/id" },
+        "expectedCaseCount": { "type": "integer", "minimum": 1 },
+        "requiredPersonas": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/personaQuota" }
+        },
+        "diseaseDomainQuotas": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/domainQuota" }
+        },
+        "difficultyQuotas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["basic", "advanced"],
+          "properties": {
+            "basic": { "$ref": "#/$defs/nonNegativeInteger" },
+            "advanced": { "$ref": "#/$defs/nonNegativeInteger" }
+          }
+        },
+        "minimumRegressionTrajectoriesPerCase": { "type": "integer", "minimum": 1 },
+        "minimumRealDialogueTurnsPerCase": { "type": "integer", "minimum": 1 },
+        "requiredTestStates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["not_completed", "pending_confirmation", "completed"] }
+        },
+        "qualityThresholds": { "$ref": "#/$defs/qualityThresholds" }
+      }
+    },
+    "aiReviewPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersions",
+        "requiredRoles",
+        "independentInvocation",
+        "counterpartOutputVisible"
+      ],
+      "properties": {
+        "schemaVersions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "requiredRoles": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "enum": ["clinical_safety", "diagnostic_quality"] }
+        },
+        "independentInvocation": { "const": true },
+        "counterpartOutputVisible": { "const": false }
+      }
+    },
+    "reviewSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "findingsCount", "staleCount", "notRunCount"],
+      "properties": {
+        "status": {
+          "enum": ["approved", "revision_recommended", "rejected", "not_run", "missing", "stale"]
+        },
+        "findingsCount": { "$ref": "#/$defs/nonNegativeInteger" },
+        "staleCount": { "$ref": "#/$defs/nonNegativeInteger" },
+        "notRunCount": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "caseEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publicCaseId",
+        "patientRoleId",
+        "caseVersion",
+        "casePackageSchemaVersion",
+        "path",
+        "regressionPath",
+        "evaluationCorpusPath",
+        "contentHash",
+        "packageStatus",
+        "reviewStatus",
+        "diseaseDomainId",
+        "difficulty",
+        "personaTemplateId"
+      ],
+      "properties": {
+        "publicCaseId": { "$ref": "#/$defs/id" },
+        "patientRoleId": { "$ref": "#/$defs/id" },
+        "caseVersion": { "$ref": "#/$defs/caseVersion" },
+        "casePackageSchemaVersion": {
+          "enum": ["case-package-v1-rc1", "case-package-v2-rc1"]
+        },
+        "path": { "$ref": "#/$defs/artifactPath" },
+        "regressionPath": { "$ref": "#/$defs/artifactPath" },
+        "evaluationCorpusPath": { "$ref": "#/$defs/artifactPath" },
+        "contentHash": { "$ref": "#/$defs/contentHash" },
+        "packageStatus": { "enum": ["fixture", "draft", "published", "withdrawn"] },
+        "reviewStatus": {
+          "enum": ["approved", "revision_recommended", "rejected", "not_run", "missing", "stale"]
+        },
+        "reviewRecordPath": { "$ref": "#/$defs/artifactPath" },
+        "diseaseDomainId": { "$ref": "#/$defs/id" },
+        "difficulty": { "enum": ["basic", "advanced"] },
+        "personaTemplateId": { "$ref": "#/$defs/id" }
+      },
+      "if": {
+        "properties": { "reviewStatus": { "const": "missing" } }
+      },
+      "then": {
+        "properties": { "reviewRecordPath": { "enum": [] } }
+      }
+    }
+  }
+}

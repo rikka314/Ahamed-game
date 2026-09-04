@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.7",
+  "trajectories": [
+    {
+      "trajectoryId": "c03.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、多久、起病、咽痛、嗓子、吞咽、发热、发烧、体温、咳嗽、咳痰。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.sore_throat",
+            "fact.fever",
+            "fact.cough"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：流鼻涕、鼻塞、淋巴结、脖子疼、颈部包块、呼吸困难、喘、气短、喝水、进食、吞不下、流口水。",
+          "expectedFactIds": [
+            "fact.rhinorrhea",
+            "fact.neck_nodes",
+            "fact.dyspnea",
+            "fact.inability_oral_intake"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：意识、神志、糊涂、胸痛、胸闷、咳血、痰中带血、低血压、晕厥。",
+          "expectedFactIds": [
+            "fact.confusion",
+            "fact.chest_pain",
+            "fact.hemoptysis",
+            "fact.hypotension"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：呼吸快、呼吸频率、缺氧、口唇发紫、血氧、怀孕、基础病、免疫、高风险。",
+          "expectedFactIds": [
+            "fact.tachypnea",
+            "fact.hypoxemia",
+            "fact.high_risk_population"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：喉鸣、上气道危险表现、声音含糊、张口受限、单侧咽旁或颈部肿胀。",
+          "expectedFactIds": [
+            "fact.stridor",
+            "fact.muffled_voice",
+            "fact.trismus",
+            "fact.unilateral_neck_swelling"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.throat_exam"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "急性咽炎",
+          "differentials": [
+            "链球菌性咽峡炎",
+            "流行性感冒"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 5
+      }
+    },
+    {
+      "trajectoryId": "c03.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.chest_xray"
+        },
+        {
+          "action": "test",
+          "testId": "test.chest_ct"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.chest_xray",
+          "test.chest_ct"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c03.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c03.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "关于接触史这一点，您能确认吗？",
+          "expectedFactIds": [
+            "fact.exposure"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

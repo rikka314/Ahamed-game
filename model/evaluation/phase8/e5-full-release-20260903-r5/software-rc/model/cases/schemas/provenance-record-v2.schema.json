@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/provenance-record-v2.schema.json",
+  "title": "Private case provenance record v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "createdAt", "contentHash", "sources"],
+  "properties": {
+    "schemaVersion": { "const": "provenance-record-v2" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "contentHash": { "$ref": "#/$defs/contentHash" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceId",
+          "sourceRole",
+          "title",
+          "authorsOrOrganization",
+          "versionOrPublicationDate",
+          "license",
+          "attributionRequirements",
+          "adaptationAllowed",
+          "commercialUseAllowed",
+          "retrievedAt",
+          "projectUsage",
+          "includesVerbatimExcerpt",
+          "verifiedCaseFields",
+          "licenseAssessment",
+          "riskNotes"
+        ],
+        "properties": {
+          "sourceId": { "$ref": "#/$defs/id" },
+          "sourceRole": { "enum": ["topic_selection", "clinical_fact", "terminology", "synthetic_structure"] },
+          "title": { "$ref": "#/$defs/nonEmpty" },
+          "authorsOrOrganization": { "$ref": "#/$defs/nonEmpty" },
+          "url": { "type": "string", "format": "uri" },
+          "versionOrPublicationDate": { "$ref": "#/$defs/nonEmpty" },
+          "license": { "$ref": "#/$defs/nonEmpty" },
+          "attributionRequirements": { "$ref": "#/$defs/nonEmpty" },
+          "adaptationAllowed": { "anyOf": [{ "type": "boolean" }, { "type": "null" }] },
+          "commercialUseAllowed": { "anyOf": [{ "type": "boolean" }, { "type": "null" }] },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "projectUsage": { "$ref": "#/$defs/nonEmpty" },
+          "includesVerbatimExcerpt": { "type": "boolean" },
+          "verifiedCaseFields": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/nonEmpty" }
+          },
+          "licenseAssessment": { "enum": ["cleared", "restricted", "uncertain", "not_run"] },
+          "riskNotes": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

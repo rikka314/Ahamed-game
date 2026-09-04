@@ -1,0 +1,42 @@
+{
+  "assessedControls": [
+    "share_only_projection",
+    "thirty_unique_patient_roles",
+    "fifteen_two_patient_shifts",
+    "session_turn_identity_binding"
+  ],
+  "attemptedAt": "2026-09-04T08:08:31.248Z",
+  "contentSha256": "747d998178ab09a7ebc45bea8f93eed6dac2a73131d78c56ebfbd6a6807bae57",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "CPR-SHARE-001",
+      "message": "Share projection evidence passes: CaseSummaryV1 includes patientRoleId, the allowlist projector removes persona/answer/rubric/hidden-fact fields, and public/runtime leakage scans report zero sensitive matches.",
+      "severity": "info"
+    },
+    {
+      "code": "CPR-IDENTITY-001",
+      "message": "Thirty unique patient roles are evidenced by patient-role.public-c01 through patient-role.public-c30; the catalog check reports 30/30 unique and resolvable patientRoleId, appearance IDs, and launch tints.",
+      "severity": "info"
+    },
+    {
+      "code": "CPR-ROTATION-001",
+      "message": "The public journey reports 30 cases across 15 shifts with exactly two actor slots, npc.patient.graybox-01 and npc.patient.graybox-02, and the evidence shows paired case assignments per shift.",
+      "severity": "info"
+    },
+    {
+      "code": "CPR-BINDING-001",
+      "message": "Session/turn identity binding passes: each evidenced case binds patientRoleId, patientNpcId, sessionId, and turn sessionId; the journey reports 30 createSession calls and 30 completed turns, while duplicate or mismatched bindings are reported to fail explicitly.",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.contract_projection_reviewer.d32bbc66-742b-40c1-a4e7-15eee213104b",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-contract-projection-review-v2",
+  "reviewerId": "contract_projection_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

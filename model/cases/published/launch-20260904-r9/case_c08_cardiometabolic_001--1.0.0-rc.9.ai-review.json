@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:4f594cc5a4145838b0f1ae5933a2941c98692968e807615beae2617a243168c1",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.1bc0a522-7907-4913-96f6-04ae2bcc1a95",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:42:54.564Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：成人男性反复规范血压升高，动态血压及基础评估支持高血压，未见继发性病因或急性靶器官损害线索；诊断为原发性高血压与病例事实相符。",
+        "诊断可解性：已提供起病、血压模式、伴随症状、进展、继发性病因线索及必要检查结果，并配置了可达成标准诊断和鉴别诊断的成功轨迹。",
+        "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实或相应询问；生命体征报告亦显示稳定。",
+        "量表一致性：must-ask事实均被覆盖；生命体征和动态血压/基础评估列为必要检查，头颅CT列为不必要检查；鉴别诊断数量及内容符合量表要求。",
+        "回归覆盖：包含成功、失败、不必要检查、安全中断及未知事实轨迹，成功路径覆盖诊断、鉴别、检查和安全询问；安全轨迹明确要求中断且无医疗调用或文本写入。",
+        "隐藏真相安全：教学字段、答案及评分依据未被设计为患者可直接披露的事实；回归轨迹中的期望值属于测试元数据，不构成患者侧泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.b21b05f7-e7f1-40f6-bec4-95ffd849538b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:43:13.862Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、重复血压值、动态血压及基础实验室结果相互一致，支持原发性高血压；继发性高血压和白大衣高血压作为鉴别诊断设置合理。",
+        "目标诊断粒度明确，患者问诊事实与检查报告足以在不依赖隐藏字段的情况下完成诊断。",
+        "红旗矩阵均有对应的患者事实，且高血压急症、胸痛、局灶神经缺损等关键排除项覆盖充分。",
+        "rubric 的必问事实、2项鉴别诊断、必需/不必要检查分类与病例内容及成功轨迹一致。",
+        "成功、失败、安全和未知四类回归轨迹均具有明确且内部一致的预期；轨迹中的检查动作不应因 medicalTests 的 completed 状态被视为重复检查。",
+        "安全轨迹针对胸痛伴呼吸困难正确设置中断、零 provider calls、零 raw-text writes 和零 medical turns，未发现隐藏真相泄露风险。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：成人男性反复规范血压升高，动态血压及基础评估支持高血压，未见继发性病因或急性靶器官损害线索；诊断为原发性高血压与病例事实相符。",
+    "诊断可解性：已提供起病、血压模式、伴随症状、进展、继发性病因线索及必要检查结果，并配置了可达成标准诊断和鉴别诊断的成功轨迹。",
+    "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实或相应询问；生命体征报告亦显示稳定。",
+    "量表一致性：must-ask事实均被覆盖；生命体征和动态血压/基础评估列为必要检查，头颅CT列为不必要检查；鉴别诊断数量及内容符合量表要求。",
+    "回归覆盖：包含成功、失败、不必要检查、安全中断及未知事实轨迹，成功路径覆盖诊断、鉴别、检查和安全询问；安全轨迹明确要求中断且无医疗调用或文本写入。",
+    "隐藏真相安全：教学字段、答案及评分依据未被设计为患者可直接披露的事实；回归轨迹中的期望值属于测试元数据，不构成患者侧泄露。",
+    "病例叙事、重复血压值、动态血压及基础实验室结果相互一致，支持原发性高血压；继发性高血压和白大衣高血压作为鉴别诊断设置合理。",
+    "目标诊断粒度明确，患者问诊事实与检查报告足以在不依赖隐藏字段的情况下完成诊断。",
+    "红旗矩阵均有对应的患者事实，且高血压急症、胸痛、局灶神经缺损等关键排除项覆盖充分。",
+    "rubric 的必问事实、2项鉴别诊断、必需/不必要检查分类与病例内容及成功轨迹一致。",
+    "成功、失败、安全和未知四类回归轨迹均具有明确且内部一致的预期；轨迹中的检查动作不应因 medicalTests 的 completed 状态被视为重复检查。",
+    "安全轨迹针对胸痛伴呼吸困难正确设置中断、零 provider calls、零 raw-text writes 和零 medical turns，未发现隐藏真相泄露风险。"
+  ]
+}

@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c27_gynecology_001",
+  "publicCaseId": "case_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.8",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "月经来潮时下腹痛半年"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c27",
+    "patientDisplayName": "患者27号",
+    "ageBand": "18–25岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "大学生",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "accommodating_minimizing",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "态度随和",
+      "可能淡化主观困扰但不改变事实"
+    ],
+    "modifiers": {
+      "healthLiteracy": "low",
+      "recallReliability": "typical",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "月经来潮时下腹痛半年",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "半年前开始反复出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "每次月经开始时下腹痉挛痛，通常两天内减轻",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "月经周期规律，无异常大量出血或晕厥",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.pregnancy": {
+      "status": "absent",
+      "value": "病史和适当检测均不支持当前妊娠。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠可能",
+        "末次月经",
+        "妊娠检测"
+      ]
+    },
+    "fact.hemodynamically_significant_bleeding": {
+      "status": "absent",
+      "value": "没有大量阴道出血、晕厥或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "大量阴道出血",
+        "出血伴晕厥",
+        "循环不稳定"
+      ]
+    },
+    "fact.acute_pelvic_pain": {
+      "status": "absent",
+      "value": "没有突发或持续加重的剧烈盆腔疼痛。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "急性剧烈盆腔痛",
+        "突发下腹痛"
+      ]
+    },
+    "fact.gynecologic_fever": {
+      "status": "absent",
+      "value": "没有发热寒战或提示上生殖道感染的全身表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妇科感染伴发热",
+        "发热寒战",
+        "上生殖道感染"
+      ]
+    },
+    "fact.mucosal_or_upper_tract_involvement": {
+      "status": "absent",
+      "value": "没有黏膜广泛损伤或上生殖道受累表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "黏膜受累",
+        "上生殖道受累"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.pelvic_assessment": {
+      "status": "completed",
+      "displayName": "妇科评估",
+      "aliases": [
+        "妇科评估",
+        "做妇科评估",
+        "test.pelvic_assessment"
+      ],
+      "report": "基础妇科评估未发现压痛、包块或其他器质性异常。"
+    },
+    "test.pelvic_ct": {
+      "status": "completed",
+      "displayName": "盆腔CT",
+      "aliases": [
+        "盆腔CT",
+        "做盆腔CT",
+        "test.pelvic_ct"
+      ],
+      "report": "盆腔CT不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.primary_dysmenorrhea",
+    "targetDiagnosis": "原发性痛经",
+    "acceptedSynonyms": [
+      "原发性痛经"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.primary_dysmenorrhea",
+        "preferredTerm": "原发性痛经",
+        "acceptedSynonyms": [
+          "原发性痛经"
+        ]
+      },
+      {
+        "conceptId": "concept.endometriosis",
+        "preferredTerm": "子宫内膜异位症",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.pelvic_inflammatory_disease",
+        "preferredTerm": "盆腔炎",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.pregnancy",
+      "fact.hemodynamically_significant_bleeding",
+      "fact.acute_pelvic_pain",
+      "fact.gynecologic_fever",
+      "fact.mucosal_or_upper_tract_involvement"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.endometriosis",
+      "concept.pelvic_inflammatory_disease"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.pelvic_assessment": "required",
+      "test.pelvic_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B5病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:db868b9a2d2cbdbc302e1f0a231c726588cdc1a1c2da6a460a0d22253f90f435",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.gynecology",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c27_gynecology_001",
+    "caseVersion": "1.0.0-rc.8",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.pregnancy",
+        "canonicalName": "妊娠可能",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.pregnancy"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemodynamically_significant_bleeding",
+        "canonicalName": "影响循环的大量出血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemodynamically_significant_bleeding"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.acute_pelvic_pain",
+        "canonicalName": "急性剧烈盆腔痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.acute_pelvic_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.gynecologic_fever",
+        "canonicalName": "妇科感染伴发热",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.gynecologic_fever"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.mucosal_or_upper_tract_involvement",
+        "canonicalName": "黏膜或上生殖道受累",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.mucosal_or_upper_tract_involvement"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.gynecology",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c27_gynecology_001",
+    "caseVersion": "1.0.0-rc.8",
+    "contentHash": "sha256:db868b9a2d2cbdbc302e1f0a231c726588cdc1a1c2da6a460a0d22253f90f435",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.b1c4c91f-fe29-432a-86b4-4b78dfefc83c",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:24:51.337Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "病例为18–25岁非急症妇科患者，周期规律、经期痉挛性下腹痛且两天内缓解，无异常大量出血、晕厥、发热或器质性异常，原发性痛经的事实基础一致。",
+          "已提供起病、症状模式、伴随症状、进展及关键鉴别诊断线索；要求鉴别子宫内膜异位症和盆腔炎，目标诊断可由病例信息和检查结果合理求解。",
+          "生命体征稳定，并对意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠、大量出血、急性剧烈盆腔痛、妇科感染发热及黏膜或上生殖道受累均设有明确的阴性事实；成功轨迹覆盖相应询问和必要检查，安全中断轨迹也已覆盖。",
+          "rubric中的必问事实与成功回归轨迹基本逐项对应；生命体征和基础妇科评估标为必要，盆腔CT标为不必要，与病例边界及评分摘要一致。",
+          "成功、失败、安全中断和未知事实轨迹均有明确期望结果，包含诊断、鉴别诊断、不必要检查、医疗回合数及安全代码，能够覆盖主要评分和回归路径。",
+          "教学字段、评分字段及内部元数据保持隐藏；成功轨迹只要求患者事实和公开诊疗行为，不要求披露隐藏真相，未见隐藏信息泄露路径。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.f770aafe-5aa3-4b9d-8fdc-7ea30d87736e",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:25:07.513Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "症状呈规律经期起始、痉挛性疼痛且通常两天内缓解，伴无异常大量出血、发热或急性加重；妇科评估无明显器质性异常，与原发性痛经相符。",
+          "病例已提供起病、疼痛模式、伴随症状、进展及关键危险信号，原发性痛经为可解的目标诊断；子宫内膜异位症和盆腔炎作为鉴别诊断粒度适当。",
+          "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险、妊娠、大量出血、急性盆腔痛、发热感染及上生殖道或黏膜受累，均有对应事实且状态一致。",
+          "must-ask事实、两个可接受鉴别诊断、必需检查与不必要盆腔CT的rubric定义彼此一致；检查报告也与分类一致。",
+          "success、failure、safety、unknown四类回归轨迹的事实覆盖、诊断结果、无必要检查、急症中断及未知事实读取均与病例和评分预期一致。",
+          "隐藏教学字段及服务端字段未改变临床真相，也未向可见病例引入矛盾或不安全诱导。"
+        ]
+      }
+    ],
+    "findings": [
+      "病例为18–25岁非急症妇科患者，周期规律、经期痉挛性下腹痛且两天内缓解，无异常大量出血、晕厥、发热或器质性异常，原发性痛经的事实基础一致。",
+      "已提供起病、症状模式、伴随症状、进展及关键鉴别诊断线索；要求鉴别子宫内膜异位症和盆腔炎，目标诊断可由病例信息和检查结果合理求解。",
+      "生命体征稳定，并对意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠、大量出血、急性剧烈盆腔痛、妇科感染发热及黏膜或上生殖道受累均设有明确的阴性事实；成功轨迹覆盖相应询问和必要检查，安全中断轨迹也已覆盖。",
+      "rubric中的必问事实与成功回归轨迹基本逐项对应；生命体征和基础妇科评估标为必要，盆腔CT标为不必要，与病例边界及评分摘要一致。",
+      "成功、失败、安全中断和未知事实轨迹均有明确期望结果，包含诊断、鉴别诊断、不必要检查、医疗回合数及安全代码，能够覆盖主要评分和回归路径。",
+      "教学字段、评分字段及内部元数据保持隐藏；成功轨迹只要求患者事实和公开诊疗行为，不要求披露隐藏真相，未见隐藏信息泄露路径。",
+      "症状呈规律经期起始、痉挛性疼痛且通常两天内缓解，伴无异常大量出血、发热或急性加重；妇科评估无明显器质性异常，与原发性痛经相符。",
+      "病例已提供起病、疼痛模式、伴随症状、进展及关键危险信号，原发性痛经为可解的目标诊断；子宫内膜异位症和盆腔炎作为鉴别诊断粒度适当。",
+      "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险、妊娠、大量出血、急性盆腔痛、发热感染及上生殖道或黏膜受累，均有对应事实且状态一致。",
+      "must-ask事实、两个可接受鉴别诊断、必需检查与不必要盆腔CT的rubric定义彼此一致；检查报告也与分类一致。",
+      "success、failure、safety、unknown四类回归轨迹的事实覆盖、诊断结果、无必要检查、急症中断及未知事实读取均与病例和评分预期一致。",
+      "隐藏教学字段及服务端字段未改变临床真相，也未向可见病例引入矛盾或不安全诱导。"
+    ]
+  }
+}

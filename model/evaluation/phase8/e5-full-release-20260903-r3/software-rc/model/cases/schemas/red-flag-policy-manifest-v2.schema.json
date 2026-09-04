@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/red-flag-policy-manifest-v2.schema.json",
+  "title": "Red-flag policy manifest v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "policyVersion", "commonRedFlagIds", "domains"],
+  "properties": {
+    "schemaVersion": { "const": "red-flag-policy-manifest-v2" },
+    "policyVersion": { "const": "red-flag-policy-manifest-v2" },
+    "commonRedFlagIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["diseaseDomainId", "displayName", "requiredRedFlagIds"],
+        "properties": {
+          "diseaseDomainId": { "$ref": "#/$defs/id" },
+          "displayName": { "type": "string", "minLength": 1 },
+          "requiredRedFlagIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/id" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    }
+  }
+}

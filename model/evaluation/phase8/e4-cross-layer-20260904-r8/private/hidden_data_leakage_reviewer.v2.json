@@ -1,0 +1,47 @@
+{
+  "assessedControls": [
+    "public_artifact_allowlist",
+    "browser_storage_surfaces",
+    "console_and_cache_surfaces",
+    "private_evidence_separation"
+  ],
+  "attemptedAt": "2026-09-04T08:03:26.088Z",
+  "contentSha256": "92986e7833dbe497de3602b4dddc27072503cc7e734c19fb3b101e810dc726a7",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "public_artifact_allowlist_verified",
+      "message": "证据记录公共合同投影会移除 persona、answer、rubric、hidden-fact 等字段，且构建产物与 public assets 扫描未发现 personaTemplateId、behaviorInstructions、answerKey、rubric、targetDiagnosis 或 patientFacts。基于所提供证据，未发现公共制品泄漏。",
+      "severity": "info"
+    },
+    {
+      "code": "browser_storage_surfaces_verified",
+      "message": "IndexedDB、localStorage、sessionStorage 和 CacheStorage 均标记为 observed；扫描结果 sensitiveMatches 均为空，未发现敏感数据。",
+      "severity": "info"
+    },
+    {
+      "code": "console_and_cache_surfaces_verified",
+      "message": "console、IndexedDB、localStorage、sessionStorage、CacheStorage 的运行时扫描均完成且 failedSurfaces 为 0、sensitiveMatches 为 0；未发现 console 或缓存类 surface 泄漏。",
+      "severity": "info"
+    },
+    {
+      "code": "save_export_not_available",
+      "message": "saveExport 明确记录为 not_available，原因是当前游戏 shell 未提供 save-export surface。该 surface 未被扫描，但产品证据如实记录其不存在，因此不据此判定失败；若后续加入保存或导出功能，应补充对应扫描。",
+      "severity": "warning"
+    },
+    {
+      "code": "private_evidence_separation_verified",
+      "message": "evidenceSeparation 同时列出 public/e4-cross-layer-journey.v1.json（visibility: public）与 private/e4-cross-layer-journey.v1.json（visibility: private），且公共 journey 记录为投影后的字段并报告 sensitiveMatches 为 0；未发现私有证据进入公共制品的证据。",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.hidden_data_leakage_reviewer.def33907-d3b1-420b-8426-9c85f86fc420",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-hidden-data-leakage-review-v3",
+  "reviewerId": "hidden_data_leakage_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

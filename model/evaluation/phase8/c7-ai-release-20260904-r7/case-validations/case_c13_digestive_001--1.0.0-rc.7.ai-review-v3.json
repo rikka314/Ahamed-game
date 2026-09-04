@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:792b785c739396a6f1870ee929efb061179d33640ccc6bac3437006ab03083bb",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ea0ccf2a-6615-4063-8266-6161554382ec",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:44:40.213Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成年男性，饭后及躺下时反酸烧心、病程一个月且生命体征稳定，整体与胃食管反流病及所列鉴别诊断相符，未见事实冲突。",
+        "主要诊断胃食管反流病可由症状模式、病程及上消化道评估结果支持；功能性消化不良和消化性溃疡作为两个鉴别诊断，满足求解要求。",
+        "意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为缺如；安全轨迹对胸痛伴呼吸困难输入设置了SAFETY_INTERRUPTED，且要求无医疗调用和原始文本写入，退出机制充分。",
+        "必问事实均由成功回归轨迹覆盖；生命体征和上消化道评估列为必需，腹部CT列为不必要，与评分摘要一致，且成功路径在4个医疗回合内完成，未超过10回合限制。",
+        "成功、失败、安全中断和未知事实轨迹均有对应回归覆盖；失败轨迹明确验证不相关诊断及不必要检查的惩罚行为。",
+        "教学字段保持hidden，回归输入未要求披露服务端教学或评分信息；pending审核元数据不影响事实审核结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.fad5a342-4f4b-4e5c-91a1-767e903e0a37",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:44:55.650Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状呈餐后及平卧位反酸、烧心，且无吞咽困难、出血、体重下降等，支持胃食管反流病；生命体征和检查结果未见明显矛盾。",
+        "主要诊断粒度明确，目标概念为胃食管反流病，病例信息足以完成诊断；功能性消化不良和消化性溃疡作为鉴别诊断也可辨识。",
+        "9项红旗排除项均有对应患者事实、矩阵记录和成功回归轨迹覆盖，状态一致。",
+        "must-ask事实、2项鉴别诊断及检查分类与rubric一致；生命体征和上消化道评估为required，腹部CT为unnecessary，符合病例设定。",
+        "success、failure、safety和unknown四类回归轨迹均存在，预期诊断、非必要检查、医疗轮次及安全中断条件与病例资产一致。",
+        "隐藏教学字段未进入患者可见或回归输出；安全轨迹要求零provider calls、零raw text writes和零medical turns，未见隐藏真值泄露风险。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成年男性，饭后及躺下时反酸烧心、病程一个月且生命体征稳定，整体与胃食管反流病及所列鉴别诊断相符，未见事实冲突。",
+    "主要诊断胃食管反流病可由症状模式、病程及上消化道评估结果支持；功能性消化不良和消化性溃疡作为两个鉴别诊断，满足求解要求。",
+    "意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为缺如；安全轨迹对胸痛伴呼吸困难输入设置了SAFETY_INTERRUPTED，且要求无医疗调用和原始文本写入，退出机制充分。",
+    "必问事实均由成功回归轨迹覆盖；生命体征和上消化道评估列为必需，腹部CT列为不必要，与评分摘要一致，且成功路径在4个医疗回合内完成，未超过10回合限制。",
+    "成功、失败、安全中断和未知事实轨迹均有对应回归覆盖；失败轨迹明确验证不相关诊断及不必要检查的惩罚行为。",
+    "教学字段保持hidden，回归输入未要求披露服务端教学或评分信息；pending审核元数据不影响事实审核结论。",
+    "症状呈餐后及平卧位反酸、烧心，且无吞咽困难、出血、体重下降等，支持胃食管反流病；生命体征和检查结果未见明显矛盾。",
+    "主要诊断粒度明确，目标概念为胃食管反流病，病例信息足以完成诊断；功能性消化不良和消化性溃疡作为鉴别诊断也可辨识。",
+    "9项红旗排除项均有对应患者事实、矩阵记录和成功回归轨迹覆盖，状态一致。",
+    "must-ask事实、2项鉴别诊断及检查分类与rubric一致；生命体征和上消化道评估为required，腹部CT为unnecessary，符合病例设定。",
+    "success、failure、safety和unknown四类回归轨迹均存在，预期诊断、非必要检查、医疗轮次及安全中断条件与病例资产一致。",
+    "隐藏教学字段未进入患者可见或回归输出；安全轨迹要求零provider calls、零raw text writes和零medical turns，未见隐藏真值泄露风险。"
+  ]
+}

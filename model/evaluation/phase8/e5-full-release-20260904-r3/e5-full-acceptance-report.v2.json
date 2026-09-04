@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "e5-full-acceptance-report-v2",
+  "generatedAt": "2026-09-04T09:56:03.727Z",
+  "reviewPolicy": "non_blocking",
+  "decision": "reported_with_failures",
+  "targetCounts": {
+    "cases": 30,
+    "trajectories": 120,
+    "goldenVectors": 180,
+    "dialogueSamples": 600,
+    "newDomainSafetySamples": 36,
+    "caseAiReviewCalls": 60,
+    "personaRuleAssertions": 72,
+    "personaLiveTurns": 72,
+    "releaseDialogueTurns": 360,
+    "patientRoles": 30
+  },
+  "observedCounts": {
+    "cases": 30,
+    "trajectories": 120,
+    "goldenVectors": 300,
+    "dialogueSamples": 600,
+    "newDomainSafetySamples": 40,
+    "caseAiReviewCalls": 60,
+    "personaRuleAssertions": 72,
+    "personaLiveTurns": 84,
+    "releaseDialogueTurns": 360,
+    "patientRoles": 30
+  },
+  "localCommandReports": [
+    {
+      "name": "share.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "bbb0d18e85173e7dc0abe0144345a3866dc5abbf1aebb2a627c977f90eaa2407",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 1623
+    },
+    {
+      "name": "share.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "a3712b8467d93a0f661e68724d7278a8c85b41d5a8df1052a62c7947eeb040ea",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 1015
+    },
+    {
+      "name": "share.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "b29ba210e660d1af987cfd1ca55f373e7b7c0e0b58afe432b2acc4f7a0ea1b97",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2246
+    },
+    {
+      "name": "share.test:coverage",
+      "command": "npm run test:coverage",
+      "exitCode": 0,
+      "stdoutSha256": "d345675881f17e38e7451b45037cc14910922dcf9330455ae9bda3eb5650ccb8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2326
+    },
+    {
+      "name": "model.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "3b2c540ff7a8b7d6648df930b48dcf02a31d77432487623df5d2fabe23ade08b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5432
+    },
+    {
+      "name": "model.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "59e4e6d5f179488b7cf736b562ea01d107e21589f3f973772d88bf182926fcab",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 4109
+    },
+    {
+      "name": "model.test",
+      "command": "npm run test",
+      "exitCode": 0,
+      "stdoutSha256": "88783b5008e2de97f821df2493802daf63fb9bbcfb8890d3606fa3c1ab01c8b0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 23032
+    },
+    {
+      "name": "model.test:coverage",
+      "command": "npm run test:coverage",
+      "exitCode": 0,
+      "stdoutSha256": "ae8127ea98dab59bb1f4e932de9e278b6834bb39ac4754be4840c181517f83ab",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 82176
+    },
+    {
+      "name": "model.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "27b57cb5e3a3b90a216227f3843611150922cc3b8e9b02bfa136d011784ed488",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 8204
+    },
+    {
+      "name": "model.cases:validate:launch-policy",
+      "command": "npm run cases:validate:launch-policy",
+      "exitCode": 0,
+      "stdoutSha256": "f933b8e8927ebbaddc43e72493992695c541449a353818b67986a0c0a05b5a8e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6009
+    },
+    {
+      "name": "model.cases:validate:manifest",
+      "command": "npm run cases:validate:manifest",
+      "exitCode": 0,
+      "stdoutSha256": "4a631c0b925acf05c8130243a028f33fc872e2393a19cc52fd12fcd7e6fae094",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6017
+    },
+    {
+      "name": "model.cases:validate",
+      "command": "npm run cases:validate",
+      "exitCode": 0,
+      "stdoutSha256": "72bf351e008f8fb0355fca7cdec67e031f607ecbaaed8b4324710c0f52903e44",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6157
+    },
+    {
+      "name": "model.cases:validate:dialogue",
+      "command": "npm run cases:validate:dialogue",
+      "exitCode": 0,
+      "stdoutSha256": "26580f8b1a33bfc4107fd3026be381b8a5d85ad114b8cd6e0fa9f038a62f6c60",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6063
+    },
+    {
+      "name": "model.eval:phase7:offline",
+      "command": "npm run eval:phase7:offline",
+      "exitCode": 0,
+      "stdoutSha256": "f951f23f41411ab4d0c4c36f46999088d591367d36706cd1d201d02c2c76cd78",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6029
+    },
+    {
+      "name": "model.eval:case-ai-verify",
+      "command": "npm run eval:case-ai-verify -- --evidence evaluation/phase8/c7-ai-release-20260904-r9",
+      "exitCode": 0,
+      "stdoutSha256": "0cd3c2c615c9f948d3cd9799eddea575c0d398ca6e216aa11e7927b95fe56f54",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6363
+    },
+    {
+      "name": "model.eval:c7-dialogue-verify",
+      "command": "npm run eval:c7-dialogue-verify -- --evidence evaluation/phase8/c7-dialogue-live-20260904-r4 --ai-evidence evaluation/phase8/c7-ai-release-20260904-r9",
+      "exitCode": 0,
+      "stdoutSha256": "15edc59f002e89c000a8380d6d7989d97948b6c28e669eac1df38842af3fb073",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6575
+    },
+    {
+      "name": "model.eval:e3:persona-verify",
+      "command": "npm run eval:e3:persona-verify -- --evidence evaluation/phase8/e3-persona-live-20260904-r4",
+      "exitCode": 0,
+      "stdoutSha256": "3a1aa2b66a4dff00b326c46ccf1420ae03cce886ce9b42bcd6e72debd95e2a65",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5904
+    },
+    {
+      "name": "model.eval:e4-closure-verify",
+      "command": "npm run eval:e4-closure-verify -- --closure share/versions/e4-patient-identity-e5-closure.20260904-r10.json",
+      "exitCode": 0,
+      "stdoutSha256": "b4cca4750a458ed6be043845bd58630d54f679d46160f377c7764bb84ef12902",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6268
+    },
+    {
+      "name": "game.lint",
+      "command": "npm run lint",
+      "exitCode": 0,
+      "stdoutSha256": "1c7b5076c689b003c558009750ca1fba4926c3040705b646f930c0a8e2dc4e63",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 3411
+    },
+    {
+      "name": "game.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "1a8d95c06c25a98b8b940c8bd498af29a5e7eddcee88159caed0bab6319e800d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 9290
+    },
+    {
+      "name": "game.test",
+      "command": "npm run test",
+      "exitCode": 0,
+      "stdoutSha256": "d14e9d4c30eba1b386060e2009956113d764ec280e62b848f7d38cec8a415e1b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 11413
+    },
+    {
+      "name": "game.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "a15df27cb68aa58f911bdcfa375bfd0ff7837b1afefef67cf0abcc52dd8e10ca",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 14195
+    },
+    {
+      "name": "game.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "d638cc4aa216e72a449636fe95e92ad625193bcf43217fc5e4a088cc19942db4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 16603
+    },
+    {
+      "name": "game.test:e2e",
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "stdoutSha256": "bfa32085b74601504371bd5cb3cb3651bcafc564e86e3d95c2aadfc4d248f5c6",
+      "stderrSha256": "e1134747898ed30f10b6c371ab197ba5429a51887eb1d36e4ca8311f4522d96e",
+      "durationMs": 384628
+    }
+  ],
+  "provider": "failed",
+  "e3": {
+    "status": "failed",
+    "metrics": {
+      "ruleAssertions": 72,
+      "committedTurns": 84,
+      "completedAiReviews": 2,
+      "currentCaseAiReviews": 60,
+      "caseAiReviewChecks": 360,
+      "e3BindingDrift": 1,
+      "safetyCorpusSamples": 205,
+      "launchPolicyCases": 30
+    }
+  },
+  "e4": {
+    "live": "passed",
+    "storage": "passed",
+    "aiReviews": [
+      "passed",
+      "passed"
+    ]
+  },
+  "staticClientScan": {
+    "status": "passed",
+    "scannedFiles": 42,
+    "sensitiveMatches": 0,
+    "matches": []
+  },
+  "evidenceBindings": [
+    {
+      "name": "launch-content-policy",
+      "path": "model/cases/policy/launch-content-policy-v1.json",
+      "sha256": "64a3529f3b9792e1f08991fd6b724466f996a0a1bb68d4be247f9f5dc4f6b14d",
+      "status": "current"
+    },
+    {
+      "name": "current-case-manifest",
+      "path": "model/cases/manifest.launch-release-20260904-r9.json",
+      "sha256": "cc30922dd330d1fbb3535725703d18d487abd6908b9522c8a524b962a01897b2",
+      "status": "current"
+    },
+    {
+      "name": "scoring-golden-vector-set",
+      "path": "model/cases/evaluation/launch-scoring-golden-vectors-v11.json",
+      "sha256": "a5b5241303b8073d60d21cd88ac959245a4613dd9ee48ded32c4d9938e42f02c",
+      "status": "current"
+    },
+    {
+      "name": "new-domain-safety-corpus",
+      "path": "model/cases/evaluation/phase7-new-domain-safety-v11.json",
+      "sha256": "ea9f16d70476881558fe1a94864052cac48fee2ba79f4299bbc15b02e5186021",
+      "status": "current"
+    },
+    {
+      "name": "e3-persona-report",
+      "path": "model/evaluation/phase8/e3-persona-live-20260904-r4/e3-persona-benchmark-report.v2.json",
+      "sha256": "79b59e61a8f3b661d81fd1d9dfbefdf1e040deeb5606ad12695e0efdf96323b7",
+      "status": "stale"
+    },
+    {
+      "name": "case-ai-review-set",
+      "path": "model/evaluation/phase8/c7-ai-release-20260904-r9/ai-evidence-index.json",
+      "sha256": "6d758809e9fc1d98c990d88b9de6f1631bc784f3008a24db4a095cec8adef3e6",
+      "status": "current"
+    },
+    {
+      "name": "c7-dialogue-report",
+      "path": "model/evaluation/phase8/c7-dialogue-live-20260904-r4/c7-dialogue-architecture-report.json",
+      "sha256": "7e29f30a56146412823e862d0d71309d7981ef8316c2963f5167fce6c01b0be6",
+      "status": "current"
+    },
+    {
+      "name": "e4-patient-identity-closure",
+      "path": "share/versions/e4-patient-identity-e5-closure.20260904-r10.json",
+      "sha256": "8aebd370a1825f55db576cd3da1d3e30a949c7cdf885e2a9c72ec5e576b6a3c5",
+      "status": "current"
+    }
+  ],
+  "observedQualityFindings": [
+    {
+      "code": "E5_DIALOGUE_CONTEXT_FOLLOWUP_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "context follow-up accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ],
+  "findings": [
+    {
+      "code": "E5_PROVIDER_FAILED",
+      "status": "failed",
+      "scope": "provider",
+      "message": "provider reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_E3_FAILED",
+      "status": "failed",
+      "scope": "e3",
+      "message": "e3 reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_EVIDENCE_BINDING_STALE",
+      "status": "stale",
+      "scope": "evidence:e3-persona-report",
+      "message": "e3-persona-report evidence binding is stale.",
+      "expected": "current",
+      "actual": "stale"
+    },
+    {
+      "code": "E5_DIALOGUE_CONTEXT_FOLLOWUP_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "context follow-up accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ]
+}

@@ -1,0 +1,589 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c07_respiratory_007",
+  "publicCaseId": "case_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.5",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "夜间和运动后干咳一个月"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c07",
+    "patientDisplayName": "患者07号",
+    "ageBand": "26–35岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "软件工程师",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "guarded_questioning",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会询问提问或检查目的",
+      "说明理由后配合"
+    ],
+    "modifiers": {
+      "healthLiteracy": "high",
+      "recallReliability": "high",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "夜间和运动后干咳一个月",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "约一个月前开始，近两周更频繁",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "夜间及快走后阵发性干咳",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "没有发热、咳痰或胸痛",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.dyspnea": {
+      "status": "absent",
+      "value": "没有呼吸困难、气短或喘不过气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸困难",
+        "气短",
+        "喘不过气"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "没有持续胸痛或明显胸闷。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "持续胸痛",
+        "胸闷",
+        "胸部不适"
+      ]
+    },
+    "fact.hemoptysis": {
+      "status": "absent",
+      "value": "没有咯血或痰中带血。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咯血",
+        "痰中带血"
+      ]
+    },
+    "fact.tachypnea": {
+      "status": "absent",
+      "value": "安静状态下没有呼吸急促。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸急促",
+        "呼吸频率"
+      ]
+    },
+    "fact.hypoxemia": {
+      "status": "absent",
+      "value": "没有口唇发紫或静息低氧表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低氧",
+        "口唇发紫",
+        "血氧"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.spirometry": {
+      "status": "completed",
+      "displayName": "肺功能检查",
+      "aliases": [
+        "肺功能检查",
+        "做肺功能检查",
+        "test.spirometry"
+      ],
+      "report": "肺功能提示轻度可逆性气流受限。"
+    },
+    "test.chest_ct": {
+      "status": "completed",
+      "displayName": "胸部CT",
+      "aliases": [
+        "胸部CT",
+        "做胸部CT",
+        "test.chest_ct"
+      ],
+      "report": "胸部CT未见局灶异常。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.cough_variant_asthma",
+    "targetDiagnosis": "咳嗽变异性哮喘",
+    "acceptedSynonyms": [
+      "咳嗽型哮喘"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.cough_variant_asthma",
+        "preferredTerm": "咳嗽变异性哮喘",
+        "acceptedSynonyms": [
+          "咳嗽型哮喘"
+        ]
+      },
+      {
+        "conceptId": "concept.upper_airway_cough_syndrome",
+        "preferredTerm": "上气道咳嗽综合征",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.gastroesophageal_reflux",
+        "preferredTerm": "胃食管反流病",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.dyspnea",
+      "fact.chest_pain",
+      "fact.hemoptysis",
+      "fact.tachypnea",
+      "fact.hypoxemia"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.upper_airway_cough_syndrome",
+      "concept.gastroesophageal_reflux"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.spirometry": "required",
+      "test.chest_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 12,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B2病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:6d869f0a9d985673cebf691efd695dcbba3d9439b71e644f6c4ed37eee17601b",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.cdc.outpatient",
+        "sourceRole": "clinical_fact",
+        "title": "Outpatient Clinical Care for Adults",
+        "authorsOrOrganization": "US Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c07_respiratory_007",
+    "caseVersion": "1.0.0-rc.5",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.dyspnea",
+        "canonicalName": "呼吸困难",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.dyspnea"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "持续胸痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemoptysis",
+        "canonicalName": "咯血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemoptysis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.tachypnea",
+        "canonicalName": "呼吸急促",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.tachypnea"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypoxemia",
+        "canonicalName": "低氧表现",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypoxemia"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.respiratory",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c07_respiratory_007",
+    "caseVersion": "1.0.0-rc.5",
+    "contentHash": "sha256:6d869f0a9d985673cebf691efd695dcbba3d9439b71e644f6c4ed37eee17601b",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.7655de68-ced1-403b-84e8-88f209e2b3bc",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:38:28.293Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "成人非急症呼吸道病例的人群、症状、肺功能与胸部CT结果相互一致；咳嗽变异性哮喘作为目标诊断具有合理支持。",
+          "病史、生命体征、肺功能及鉴别诊断要求足以完成诊断，且胸部CT被明确标为非必要检查。",
+          "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均有明确排除证据；生命体征稳定。",
+          "评分量表的必问事实、必需检查、非必要检查、鉴别诊断数量及回合限制与成功/失败轨迹一致；男性病例询问高风险人群虽包含妊娠项，但不构成安全或评分矛盾。",
+          "回归轨迹覆盖成功、错误诊断与非必要检查、安全中断及未知事实场景；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+          "教学字段、生命体征测试专属信息及答案键均未向患者公开；pending审核元数据不影响事实性判定，未见隐藏真相泄露风险。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.ded63baf-7037-4aee-9ef7-5bef18d7ffa0",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:38:41.266Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：夜间及运动后阵发性干咳、无感染性或明显危险症状，肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常且列为非必要检查基本合理。",
+          "诊断可解性通过：症状模式结合肺功能结果能够达到目标诊断粒度；目标诊断、接受同义词及鉴别诊断概念定义清晰。",
+          "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均有对应事实，且矩阵要求状态与病例事实一致。",
+          "rubric一致性通过：must-ask事实共13项，成功轨迹分四轮完整覆盖；两个可接受鉴别诊断、必需检查及胸部CT不必要检查的配置与轨迹一致。",
+          "回归覆盖通过：success、failure、safety和unknown四类轨迹均存在；成功/失败诊断、非必要检查、未知事实披露及安全中断的预期结果彼此一致。",
+          "隐藏真值安全通过：目标诊断和教学字段未出现在playerVisible或可见患者叙事中；答案、评分和回归资产位于内部病例结构，未发现面向玩家的真值泄漏。"
+        ]
+      }
+    ],
+    "findings": [
+      "成人非急症呼吸道病例的人群、症状、肺功能与胸部CT结果相互一致；咳嗽变异性哮喘作为目标诊断具有合理支持。",
+      "病史、生命体征、肺功能及鉴别诊断要求足以完成诊断，且胸部CT被明确标为非必要检查。",
+      "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧等危险征象均有明确排除证据；生命体征稳定。",
+      "评分量表的必问事实、必需检查、非必要检查、鉴别诊断数量及回合限制与成功/失败轨迹一致；男性病例询问高风险人群虽包含妊娠项，但不构成安全或评分矛盾。",
+      "回归轨迹覆盖成功、错误诊断与非必要检查、安全中断及未知事实场景；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+      "教学字段、生命体征测试专属信息及答案键均未向患者公开；pending审核元数据不影响事实性判定，未见隐藏真相泄露风险。",
+      "临床一致性通过：夜间及运动后阵发性干咳、无感染性或明显危险症状，肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常且列为非必要检查基本合理。",
+      "诊断可解性通过：症状模式结合肺功能结果能够达到目标诊断粒度；目标诊断、接受同义词及鉴别诊断概念定义清晰。",
+      "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、呼吸困难、胸痛、咯血、呼吸急促和低氧均有对应事实，且矩阵要求状态与病例事实一致。",
+      "rubric一致性通过：must-ask事实共13项，成功轨迹分四轮完整覆盖；两个可接受鉴别诊断、必需检查及胸部CT不必要检查的配置与轨迹一致。",
+      "回归覆盖通过：success、failure、safety和unknown四类轨迹均存在；成功/失败诊断、非必要检查、未知事实披露及安全中断的预期结果彼此一致。",
+      "隐藏真值安全通过：目标诊断和教学字段未出现在playerVisible或可见患者叙事中；答案、评分和回归资产位于内部病例结构，未发现面向玩家的真值泄漏。"
+    ]
+  }
+}

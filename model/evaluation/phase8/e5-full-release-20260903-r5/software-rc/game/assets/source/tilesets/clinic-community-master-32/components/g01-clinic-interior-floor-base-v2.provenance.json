@@ -1,0 +1,18 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G01",
+  "componentName": "诊所室内地面基础款",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": "Codex pixel-native raster design rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Redraw G01 as a refined native 32x32 warm community-clinic floor tile with a cream base, narrow hard-edged grout, restrained clean terrazzo-like material flecks, low contrast, no dirt, no text, no logo, no watermark, no anti-aliasing.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

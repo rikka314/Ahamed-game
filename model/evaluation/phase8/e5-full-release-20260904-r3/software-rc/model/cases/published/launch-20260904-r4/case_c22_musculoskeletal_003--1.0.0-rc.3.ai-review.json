@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:a101616a02254a3be6a97d4fb73318c82d01d96eb7b8c243094d630f71120b43",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.89da98bd-fb99-4abd-847c-6e7d27526a3a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:08:40.275Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性，突发第一跖趾关节红肿痛，生命体征稳定，关节评估支持晶体性关节炎，整体临床叙事一致。",
+        "目标诊断痛风性关节炎具有足够线索；感染性关节炎和假性痛风作为鉴别诊断纳入，诊断任务可解。",
+        "已配置意识改变、低血压、不能口服、高风险人群、感染、外伤、恶性肿瘤警示及进行性神经功能缺损等危险征象排除，并有胸痛伴呼吸困难的安全中断轨迹。",
+        "必问事实、必需检查、非必要足部MRI、鉴别诊断数量及推荐回合数与评分规则相互一致；虽部分红旗对本部位并不典型，但不构成安全冲突。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史分支，能够验证主要评分和安全行为。",
+        "教学字段、评分摘要和答案键未被设计为患者可见内容；回归安全轨迹要求零医疗回合、零提供方调用和零原始文本写入，满足隐藏真相保护。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.775adfb7-52a5-4075-a2f1-c369b1e4f395",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:09:03.870Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主诊断“痛风性关节炎”与突发第一跖趾关节红肿痛、关节评估支持晶体性关节炎基本一致，诊断粒度也可解；但病例将足部急性单关节炎与马尾综合征、恶性肿瘤警示、进行性神经功能缺损等脊柱/神经肌肉骨骼红旗并列为适用项目，造成疾病域与病例表现不一致。",
+        "现有起病模式、典型部位及关节评估足以支持痛风性关节炎，但未提供关节液晶体检查、血尿酸或明确既往发作等信息，因此应将其表述为临床最可能诊断，并明确感染性关节炎仍需排除；当前内容尚可达到预期诊断可解性。",
+        "红旗矩阵把confusion、hypotension、inability oral intake、cauda equina、major trauma、malignancy warning及progressive neurologic deficit等均标记为本例适用且必须阴性，明显过宽；其中部分项目与急性第一跖趾单关节炎无直接关系，且“无发热”不能单独可靠排除感染性关节炎。",
+        "rubric的mustAskFactIds强制询问九项以上与本病例无关或低相关的红旗，可能奖励机械式问诊并损害效率；同时requiredDifferentialCount=2虽与成功轨迹中的感染性关节炎、假性痛风一致，但应明确这是除外诊断集合而非要求证明已排除。",
+        "四类回归轨迹均存在且与病例资产基本对应：成功轨迹覆盖核心病史、必需检查和两项鉴别，失败轨迹覆盖不必要MRI及错误诊断，安全轨迹定义中断，unknown轨迹覆盖既往发作事实；未见明显轨迹字段冲突。",
+        "教学字段为hidden，四条回归轨迹未要求披露teaching_note或其他隐藏事实，隐藏真相安全性通过。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性，突发第一跖趾关节红肿痛，生命体征稳定，关节评估支持晶体性关节炎，整体临床叙事一致。",
+    "目标诊断痛风性关节炎具有足够线索；感染性关节炎和假性痛风作为鉴别诊断纳入，诊断任务可解。",
+    "已配置意识改变、低血压、不能口服、高风险人群、感染、外伤、恶性肿瘤警示及进行性神经功能缺损等危险征象排除，并有胸痛伴呼吸困难的安全中断轨迹。",
+    "必问事实、必需检查、非必要足部MRI、鉴别诊断数量及推荐回合数与评分规则相互一致；虽部分红旗对本部位并不典型，但不构成安全冲突。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史分支，能够验证主要评分和安全行为。",
+    "教学字段、评分摘要和答案键未被设计为患者可见内容；回归安全轨迹要求零医疗回合、零提供方调用和零原始文本写入，满足隐藏真相保护。",
+    "临床主诊断“痛风性关节炎”与突发第一跖趾关节红肿痛、关节评估支持晶体性关节炎基本一致，诊断粒度也可解；但病例将足部急性单关节炎与马尾综合征、恶性肿瘤警示、进行性神经功能缺损等脊柱/神经肌肉骨骼红旗并列为适用项目，造成疾病域与病例表现不一致。",
+    "现有起病模式、典型部位及关节评估足以支持痛风性关节炎，但未提供关节液晶体检查、血尿酸或明确既往发作等信息，因此应将其表述为临床最可能诊断，并明确感染性关节炎仍需排除；当前内容尚可达到预期诊断可解性。",
+    "红旗矩阵把confusion、hypotension、inability oral intake、cauda equina、major trauma、malignancy warning及progressive neurologic deficit等均标记为本例适用且必须阴性，明显过宽；其中部分项目与急性第一跖趾单关节炎无直接关系，且“无发热”不能单独可靠排除感染性关节炎。",
+    "rubric的mustAskFactIds强制询问九项以上与本病例无关或低相关的红旗，可能奖励机械式问诊并损害效率；同时requiredDifferentialCount=2虽与成功轨迹中的感染性关节炎、假性痛风一致，但应明确这是除外诊断集合而非要求证明已排除。",
+    "四类回归轨迹均存在且与病例资产基本对应：成功轨迹覆盖核心病史、必需检查和两项鉴别，失败轨迹覆盖不必要MRI及错误诊断，安全轨迹定义中断，unknown轨迹覆盖既往发作事实；未见明显轨迹字段冲突。",
+    "教学字段为hidden，四条回归轨迹未要求披露teaching_note或其他隐藏事实，隐藏真相安全性通过。"
+  ]
+}

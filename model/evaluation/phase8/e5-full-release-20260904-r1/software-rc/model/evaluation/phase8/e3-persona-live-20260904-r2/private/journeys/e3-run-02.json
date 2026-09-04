@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "e3-private-persona-journey-v1",
+  "runId": "e3-run-02",
+  "personaTemplateId": "anxious_reassurance_seeking",
+  "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+  "status": "failed",
+  "failureCode": "Patient output failed the reply grounding gate.",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "scenarioId": "greeting",
+      "question": "你好，我们先简单认识一下。",
+      "reply": "你好医生，我叫林悦，是一名在读大学生，平时住校。您叫我小林就好。请问我该怎么称呼您呀？",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 0,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 2,
+      "scenarioId": "chief_complaint",
+      "question": "你今天最主要哪里不舒服？",
+      "reply": "我主要就是鼻子堵、一直流清鼻涕，嗓子也有点不舒服。应该不是什么严重的问题吧？",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 1,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 3,
+      "scenarioId": "onset",
+      "question": "这些不舒服是什么时候开始的？",
+      "reply": "大概是两天前慢慢开始的。医生，这种情况一般不会很严重吧？",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 2,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 4,
+      "scenarioId": "multiple_questions",
+      "question": "鼻涕是什么样的，嗓子和咳嗽怎么样，有没有发烧？",
+      "reply": "鼻涕主要是清的，两边鼻子都有点堵。嗓子有点干、发痒，不过吞咽不受影响；咳嗽不多，偶尔干咳几声。没有明显发烧或高热。医生，这样应该不算严重吧？",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.nasal_discharge",
+        "fact.nasal_congestion",
+        "fact.sore_throat",
+        "fact.cough",
+        "fact.high_fever"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 3,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 5,
+      "scenarioId": "repeated_question",
+      "question": "我再确认一次，具体是什么时候开始的？",
+      "reply": "大约是两天前开始的，不是一下子很严重，是慢慢出现这些不舒服的。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.onset"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 4,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 6,
+      "scenarioId": "ambiguous_reference",
+      "question": "刚才说的那个现在还明显吗？",
+      "reply": "您是指刚才说的鼻塞、流清鼻涕这些不舒服吗？现在还有一些，主要是两边鼻子堵和清鼻涕，嗓子也有点干痒；咳嗽只是偶尔几声。您是想问哪一项现在最明显吗？",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.nasal_congestion",
+        "fact.nasal_discharge",
+        "fact.sore_throat",
+        "fact.cough"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 5,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 7,
+      "scenarioId": "consecutive_off_topic",
+      "question": "我们先聊聊学校生活吧。",
+      "reply": "可以呀。我是林悦，现在在读大学，平时住校，最近课程安排都挺正常的。没课的时候我一般会听听音乐，或者在校园里散散步。医生，您想聊我的课程、宿舍生活，还是平时的兴趣呀？",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation",
+        "persona.daily_life",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 6,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 8,
+      "scenarioId": "consecutive_off_topic",
+      "question": "你最近听了什么音乐？",
+      "reply": "最近比较常听一些轻松的流行歌，晚上写作业或者散步时会放着听。聊这些确实挺放松的，不过我还是有点担心鼻子和嗓子的问题，医生我们还是继续看看病情吧？",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 7,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 9,
+      "scenarioId": "consecutive_off_topic",
+      "question": "先别说病情，散步时一般去哪里？",
+      "reply": "我一般就在校园操场边或者宿舍附近的小路走走，有时戴着耳机听音乐。不过医生，我还是有点担心鼻子和嗓子的不舒服，我们接着看病情好吗？",
+      "interactionKind": "social_chat",
+      "disclosedFactIds": [],
+      "personaFactIdsUsed": [
+        "persona.daily_life",
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 8,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    },
+    {
+      "turnNumber": 10,
+      "scenarioId": "reassurance_and_emotion",
+      "question": "在这个虚构病例里，听起来这两天让你挺难受的，我会慢慢了解。",
+      "reply": "嗯，谢谢医生。我就是有点担心，怕会越来越严重……您慢慢问吧。现在主要还是鼻子堵、流清鼻涕，嗓子干痒，偶尔咳几声。",
+      "interactionKind": "medical_chat",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.nasal_congestion",
+        "fact.nasal_discharge",
+        "fact.sore_throat",
+        "fact.cough"
+      ],
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "priorHistoryTurns": 9,
+      "testStatesBeforeTurn": [
+        "test.vital_signs:not_completed",
+        "test.complete_blood_count:not_completed",
+        "test.chest_xray:not_completed",
+        "test.chest_ct:not_completed"
+      ]
+    }
+  ]
+}

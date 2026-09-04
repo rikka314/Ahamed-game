@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:fc3b103d389955297a69a683652396f79e6ba39f6f5bab0823fb1b6edeaf4872",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6dea9479-da19-4d55-8642-d768e8469161",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:00:55.444Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写为“腹部CT未见异常”，应统一检查名称与报告内容。",
+        "病例的慢性腹痛、排便相关且便次和性状反复变化、无体重下降或夜间痛、基础检查无异常，足以支持肠易激综合征的可解性；鉴别诊断及必要检查也已定义。",
+        "红旗矩阵列出9项需排除的危险征象，但成功回归轨迹及must-ask仅明确覆盖其中部分；胃肠道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降未作为独立必问项目充分验证，存在安全排除覆盖不足。",
+        "rubric中的必问事实、两个鉴别诊断、必需/不必要检查及推荐回合数与答案键和成功轨迹总体一致。",
+        "成功、失败、安全中断及未知事实轨迹均有覆盖；安全轨迹明确要求中断、零提供方调用、零原文写入和零医疗回合。",
+        "教学字段、生命体征的test_only字段及内部评分信息未进入患者可见事实，未发现隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.e2bb84dd-f874-4b28-9f6f-23c1c93c2fd8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:01:13.128Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名称、别名均指向胸部CT，但报告写成“腹部CT未见异常”，检查名称与结果不一致，应统一检查部位。",
+        "诊断可解性通过：半年病程、腹痛与排便相关、便次和性状反复变化，且缺乏主要红旗表现，足以支持肠易激综合征；鉴别诊断也有明确候选。",
+        "红旗排除通过：红旗矩阵中的9项均有对应患者事实，状态均为absent，证据ID映射完整；当前must-ask集合虽未覆盖全部矩阵项目，但不构成矩阵内部矛盾。",
+        "rubric一致性通过：must-ask事实、2个可接受鉴别诊断、必需检查及不必要检查均与成功轨迹和答案键基本对齐，推荐回合数也未冲突。",
+        "回归覆盖失败：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；应拆分问题或补充预期事实ID。另需修正胸部CT/腹部CT标签冲突以避免回归结果歧义。",
+        "隐藏真值安全通过：teaching_note及答案、评分字段未进入playerVisible患者内容； supportingArtifacts中的真值暴露属于内部审核资产，不构成患者侧泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：检查名称为“胸部CT”，但报告写为“腹部CT未见异常”，应统一检查名称与报告内容。",
+    "病例的慢性腹痛、排便相关且便次和性状反复变化、无体重下降或夜间痛、基础检查无异常，足以支持肠易激综合征的可解性；鉴别诊断及必要检查也已定义。",
+    "红旗矩阵列出9项需排除的危险征象，但成功回归轨迹及must-ask仅明确覆盖其中部分；胃肠道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降未作为独立必问项目充分验证，存在安全排除覆盖不足。",
+    "rubric中的必问事实、两个鉴别诊断、必需/不必要检查及推荐回合数与答案键和成功轨迹总体一致。",
+    "成功、失败、安全中断及未知事实轨迹均有覆盖；安全轨迹明确要求中断、零提供方调用、零原文写入和零医疗回合。",
+    "教学字段、生命体征的test_only字段及内部评分信息未进入患者可见事实，未发现隐藏真相泄露。",
+    "临床一致性失败：test.chest_ct 的显示名称、别名均指向胸部CT，但报告写成“腹部CT未见异常”，检查名称与结果不一致，应统一检查部位。",
+    "诊断可解性通过：半年病程、腹痛与排便相关、便次和性状反复变化，且缺乏主要红旗表现，足以支持肠易激综合征；鉴别诊断也有明确候选。",
+    "红旗排除通过：红旗矩阵中的9项均有对应患者事实，状态均为absent，证据ID映射完整；当前must-ask集合虽未覆盖全部矩阵项目，但不构成矩阵内部矛盾。",
+    "rubric一致性通过：must-ask事实、2个可接受鉴别诊断、必需检查及不必要检查均与成功轨迹和答案键基本对齐，推荐回合数也未冲突。",
+    "回归覆盖失败：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；应拆分问题或补充预期事实ID。另需修正胸部CT/腹部CT标签冲突以避免回归结果歧义。",
+    "隐藏真值安全通过：teaching_note及答案、评分字段未进入playerVisible患者内容； supportingArtifacts中的真值暴露属于内部审核资产，不构成患者侧泄露。"
+  ]
+}

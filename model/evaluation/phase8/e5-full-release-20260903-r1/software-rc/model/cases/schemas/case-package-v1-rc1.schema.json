@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/case-package-v1-rc1.schema.json",
+  "title": "Private CasePackage v1-rc1",
+  "description": "Server-only schema containing hidden facts, answer key, rubric, review, and provenance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "evaluationVersion", "packageStatus", "internalCaseId", "publicCaseId", "caseVersion", "locale", "playerVisible", "patientPersona", "patientFacts", "medicalTests", "answerKey", "rubric", "review", "provenance", "redFlagExclusionMatrix"],
+  "properties": {
+    "schemaVersion": { "const": "case-package-v1-rc1" },
+    "evaluationVersion": { "const": "scoring-policy-v1" },
+    "packageStatus": { "enum": ["fixture", "draft", "published", "withdrawn"] },
+    "internalCaseId": { "$ref": "#/$defs/id" },
+    "publicCaseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/caseVersion" },
+    "locale": { "$ref": "#/$defs/nonEmpty" },
+    "playerVisible": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["patientDisplayName", "chiefComplaint"],
+      "properties": {
+        "patientDisplayName": { "$ref": "#/$defs/nonEmpty" },
+        "chiefComplaint": { "$ref": "#/$defs/nonEmpty" },
+        "ageBand": { "type": "string" },
+        "genderDisplay": { "type": "string" }
+      }
+    },
+    "patientPersona": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["languageStyle"],
+      "properties": {
+        "languageStyle": { "$ref": "#/$defs/nonEmpty" },
+        "personaTemplateId": { "enum": ["gentle_cooperative", "anxious_reassurance_seeking", "impatient_direct"] },
+        "personaTemplateVersion": { "const": "patient-persona-templates-v1" },
+        "educationOrOccupation": { "$ref": "#/$defs/nonEmpty" },
+        "dailyLife": { "$ref": "#/$defs/nonEmpty" },
+        "interests": { "type": "array", "maxItems": 3, "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } },
+        "communicationTraits": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } }
+      }
+    },
+    "patientFacts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "value", "disclosure", "questionMatchers"],
+        "properties": {
+          "status": { "enum": ["present", "absent", "unknown"] },
+          "value": { "$ref": "#/$defs/nonEmpty" },
+          "disclosure": { "enum": ["spontaneous", "if_asked", "test_only", "hidden"] },
+          "questionMatchers": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+        }
+      }
+    },
+    "medicalTests": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status"],
+        "properties": {
+          "status": { "enum": ["unavailable", "completed"] },
+          "displayName": { "$ref": "#/$defs/nonEmpty" },
+          "aliases": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } },
+          "report": { "$ref": "#/$defs/nonEmpty" },
+          "assetId": { "type": "string" },
+          "reasonCode": { "type": "string" }
+        },
+        "allOf": [{ "if": { "properties": { "status": { "const": "completed" } } }, "then": { "required": ["report"] } }]
+      }
+    },
+    "answerKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targetConceptId", "targetDiagnosis", "acceptedSynonyms", "diagnosisConcepts"],
+      "properties": {
+        "targetConceptId": { "$ref": "#/$defs/id" },
+        "targetDiagnosis": { "$ref": "#/$defs/nonEmpty" },
+        "acceptedSynonyms": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } },
+        "diagnosisConcepts": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["conceptId", "preferredTerm", "acceptedSynonyms"],
+            "properties": {
+              "conceptId": { "$ref": "#/$defs/id" },
+              "preferredTerm": { "$ref": "#/$defs/nonEmpty" },
+              "acceptedSynonyms": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+            }
+          }
+        }
+      }
+    },
+    "rubric": { "$ref": "rubric-v1.schema.json" },
+    "review": { "$ref": "review-record-v1.schema.json" },
+    "releaseValidation": { "$ref": "ai-case-cross-validation-v1.schema.json" },
+    "provenance": { "$ref": "provenance-record-v1.schema.json" },
+    "redFlagExclusionMatrix": { "$ref": "red-flag-exclusion-matrix-v1.schema.json" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "packageStatus": { "const": "published" } } },
+      "then": {
+        "required": ["releaseValidation"],
+        "properties": {
+          "releaseValidation": {
+            "properties": { "decision": { "const": "approved" } }
+          },
+          "provenance": { "required": ["contentHash"] },
+          "redFlagExclusionMatrix": {}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "caseVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" }
+  }
+}

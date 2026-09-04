@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:9fe343dee2f2d0f9dfc15a280951adcceade013e431103f8ceaefb408180ec6c",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.77b04d65-4734-4afd-93cf-ab13fcd5abe1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:39:59.593Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：18–25岁成人，咽痛、低热、咽部充血及轻度渗出与急性咽炎相符；生命体征稳定，检查结果前后一致，无明显矛盾。",
+        "诊断可解性通过：病例事实支持急性咽炎，且已提供足以区分链球菌性咽峡炎、流感及肺炎的病史、查体和检查路径；目标诊断及同义词明确。",
+        "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水、高风险人群及上气道危险表现均有明确阴性证据；生命体征亦稳定，并覆盖安全中断轨迹。",
+        "量表一致性通过：must-ask事实、必需/有用/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；胸片和胸部CT在本例中被正确标为不必要。",
+        "回归覆盖通过：包含成功、失败、不安全输入中断及未知事实询问轨迹；测试动作按新会话执行语义处理，不因medicalTests的completed状态误判为重复检查。",
+        "隐藏真相安全通过：教学字段保持hidden，咽部查体事实限定为test_only；回归轨迹未泄露隐藏字段或服务端评分信息，兼容性的pending审核元数据未被错误当作阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.2cfdbd8b-8c9a-4c89-84c2-cdaa2b369324",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:40:15.705Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、生命体征与咽部查体相互一致，支持急性咽炎；低热、轻度渗出及阴性链球菌快检未造成诊断冲突。",
+        "目标诊断粒度明确为“急性咽炎”，患者事实、咽部检查和鉴别诊断足以支持求解；接受同义词定义清晰。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食、高风险人群及上气道危险表现均有相应排除证据，未见关键红旗缺口。",
+        "mustAskFactIds与成功轨迹的五次问诊完整对应；必需检查、鉴别诊断数量、推荐回合数及诊断结果均与rubric一致。",
+        "success、failure、safety、unknown四类回归轨迹均存在且预期行为清楚：成功路径覆盖核心信息，失败路径标记不必要检查，安全路径正确中断，未知接触史路径可正常获取unknown事实。",
+        "未发现教学字段、test_only事实或其他隐藏真相通过患者可见路径泄露；medicalTests中的completed仅提供可执行检查的报告模板，不构成轨迹重复检查问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：18–25岁成人，咽痛、低热、咽部充血及轻度渗出与急性咽炎相符；生命体征稳定，检查结果前后一致，无明显矛盾。",
+    "诊断可解性通过：病例事实支持急性咽炎，且已提供足以区分链球菌性咽峡炎、流感及肺炎的病史、查体和检查路径；目标诊断及同义词明确。",
+    "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水、高风险人群及上气道危险表现均有明确阴性证据；生命体征亦稳定，并覆盖安全中断轨迹。",
+    "量表一致性通过：must-ask事实、必需/有用/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；胸片和胸部CT在本例中被正确标为不必要。",
+    "回归覆盖通过：包含成功、失败、不安全输入中断及未知事实询问轨迹；测试动作按新会话执行语义处理，不因medicalTests的completed状态误判为重复检查。",
+    "隐藏真相安全通过：教学字段保持hidden，咽部查体事实限定为test_only；回归轨迹未泄露隐藏字段或服务端评分信息，兼容性的pending审核元数据未被错误当作阻塞。",
+    "临床表现、生命体征与咽部查体相互一致，支持急性咽炎；低热、轻度渗出及阴性链球菌快检未造成诊断冲突。",
+    "目标诊断粒度明确为“急性咽炎”，患者事实、咽部检查和鉴别诊断足以支持求解；接受同义词定义清晰。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食、高风险人群及上气道危险表现均有相应排除证据，未见关键红旗缺口。",
+    "mustAskFactIds与成功轨迹的五次问诊完整对应；必需检查、鉴别诊断数量、推荐回合数及诊断结果均与rubric一致。",
+    "success、failure、safety、unknown四类回归轨迹均存在且预期行为清楚：成功路径覆盖核心信息，失败路径标记不必要检查，安全路径正确中断，未知接触史路径可正常获取unknown事实。",
+    "未发现教学字段、test_only事实或其他隐藏真相通过患者可见路径泄露；medicalTests中的completed仅提供可执行检查的报告模板，不构成轨迹重复检查问题。"
+  ]
+}

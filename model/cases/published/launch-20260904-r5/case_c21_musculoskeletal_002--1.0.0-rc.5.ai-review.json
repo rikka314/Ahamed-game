@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:e558f972396ca7d9d4720a439d0e08bd0952d403bf5d0963aef84b8654eb3f2f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.5df841b1-0c85-473d-ab9d-d4a161a1da93",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:52:13.116Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、症状模式、病程及X线轻度退变表现与膝骨关节炎一致，且未见明显事实冲突。",
+        "病例为56–65岁成人，信息足以支持膝骨关节炎为目标诊断，并允许类风湿关节炎和半月板损伤作为鉴别诊断，诊断可解。",
+        "严重外伤、骨关节感染征象和恶性肿瘤警示均明确为缺如；生命体征稳定，未达到疾病域急症阈值，安全退出边界清楚。",
+        "必问病史、鉴别诊断数量、X线必需性、MRI非必要性及回合限制彼此一致；有用的生命体征检查未被错误计分。",
+        "回归轨迹覆盖成功、失败、急症安全中断和未知事实披露场景，且预期结果与病例规则一致。",
+        "教学字段、评分摘要及内部元数据未进入患者可见事实；安全轨迹要求胸痛伴呼吸困难时中断且不写入医疗回合，符合隐藏真相与安全保护要求。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.8e7b46ee-0a2b-4421-a4f7-803a08b1a8ad",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:52:23.129Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为中老年女性、慢性活动痛、短暂晨僵、无明显炎症表现，结合X线轻度关节间隙变窄和骨赘，与膝骨关节炎一致；MRI标注为初始非必需，前后一致。",
+        "核心病史、红旗排除、X线检查及目标诊断均足以支持膝骨关节炎，诊断粒度与answerKey一致；类风湿关节炎和半月板损伤作为两个鉴别诊断符合rubric。",
+        "严重外伤、骨关节感染征象和恶性肿瘤警示均有对应患者事实，且与redFlagExclusionMatrix的适用性、状态和证据ID一致。",
+        "must-ask事实、两个鉴别诊断、required/useful/unnecessary检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖MRI不必要和错误诊断。",
+        "success、failure、safety、unknown四类回归轨迹均存在且语义一致：安全轨迹明确要求中断、零provider调用、零医疗回合；unknown轨迹正确读取prior_episode。",
+        "隐藏字段仅含教学和评分元数据，test-only生命体征未被患者事实误用；pending审核状态属于兼容元数据，不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床叙事、症状模式、病程及X线轻度退变表现与膝骨关节炎一致，且未见明显事实冲突。",
+    "病例为56–65岁成人，信息足以支持膝骨关节炎为目标诊断，并允许类风湿关节炎和半月板损伤作为鉴别诊断，诊断可解。",
+    "严重外伤、骨关节感染征象和恶性肿瘤警示均明确为缺如；生命体征稳定，未达到疾病域急症阈值，安全退出边界清楚。",
+    "必问病史、鉴别诊断数量、X线必需性、MRI非必要性及回合限制彼此一致；有用的生命体征检查未被错误计分。",
+    "回归轨迹覆盖成功、失败、急症安全中断和未知事实披露场景，且预期结果与病例规则一致。",
+    "教学字段、评分摘要及内部元数据未进入患者可见事实；安全轨迹要求胸痛伴呼吸困难时中断且不写入医疗回合，符合隐藏真相与安全保护要求。",
+    "临床表现为中老年女性、慢性活动痛、短暂晨僵、无明显炎症表现，结合X线轻度关节间隙变窄和骨赘，与膝骨关节炎一致；MRI标注为初始非必需，前后一致。",
+    "核心病史、红旗排除、X线检查及目标诊断均足以支持膝骨关节炎，诊断粒度与answerKey一致；类风湿关节炎和半月板损伤作为两个鉴别诊断符合rubric。",
+    "严重外伤、骨关节感染征象和恶性肿瘤警示均有对应患者事实，且与redFlagExclusionMatrix的适用性、状态和证据ID一致。",
+    "must-ask事实、两个鉴别诊断、required/useful/unnecessary检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖MRI不必要和错误诊断。",
+    "success、failure、safety、unknown四类回归轨迹均存在且语义一致：安全轨迹明确要求中断、零provider调用、零医疗回合；unknown轨迹正确读取prior_episode。",
+    "隐藏字段仅含教学和评分元数据，test-only生命体征未被患者事实误用；pending审核状态属于兼容元数据，不构成阻塞。"
+  ]
+}

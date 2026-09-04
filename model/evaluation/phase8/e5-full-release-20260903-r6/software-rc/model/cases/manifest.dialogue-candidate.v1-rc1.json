@@ -1,0 +1,29 @@
+{
+  "manifestVersion": "case-manifest-v1-rc1",
+  "casePackageSchemaVersion": "case-package-v1-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "rubricSchema": "schemas/rubric-v1.schema.json",
+  "casePackageSchema": "schemas/case-package-v1-rc1.schema.json",
+  "reviewRecordSchema": "schemas/review-record-v1.schema.json",
+  "aiCrossValidationSchema": "schemas/ai-case-cross-validation-v1.schema.json",
+  "provenanceRecordSchema": "schemas/provenance-record-v1.schema.json",
+  "redFlagExclusionMatrixSchema": "schemas/red-flag-exclusion-matrix-v1.schema.json",
+  "regressionTrajectoriesSchema": "schemas/case-regression-trajectories-v1.schema.json",
+  "contentHashPolicyVersion": "case-content-hash-v1",
+  "directories": {
+    "draft": "draft",
+    "review": "review",
+    "published": "published",
+    "provenance": "provenance",
+    "regression": "regression",
+    "fixtures": "fixtures"
+  },
+  "draftCases": [
+    { "publicCaseId": "case_c01_respiratory_001", "caseVersion": "1.0.0-draft.1", "path": "draft/c01-common-cold-v1.json", "contentHash": "sha256:6e9d7a96441a21c18fa796c80d08cca15e3d9daab1709fdebbfd5bc46984f1c8" },
+    { "publicCaseId": "case_c02_respiratory_002", "caseVersion": "1.0.0-draft.1", "path": "draft/c02-influenza-v1.json", "contentHash": "sha256:b4061c868a8109615377523931adb7a5c9d0be79b235c841f4636ac943dc9419" },
+    { "publicCaseId": "case_c03_respiratory_003", "caseVersion": "1.0.0-draft.1", "path": "draft/c03-acute-pharyngitis-v1.json", "contentHash": "sha256:01460a11835aec4e0ca1d508560d12c5ff664dae1711b5e94acc392e4540a3f5" },
+    { "publicCaseId": "case_c04_respiratory_004", "caseVersion": "1.0.0-draft.1", "path": "draft/c04-acute-bronchitis-v1.json", "contentHash": "sha256:f1abb7a306af28239dd55f68d6a644aed6a279a565a27fef02fa6ee64d70f90e" },
+    { "publicCaseId": "case_c05_respiratory_005", "caseVersion": "1.0.0-draft.1", "path": "draft/c05-mild-cap-v1.json", "contentHash": "sha256:96360ed1884438660eb4dcf0826a0bbc40903adbf03cd5f4e4e5851735aa316f" }
+  ],
+  "publishedCases": []
+}

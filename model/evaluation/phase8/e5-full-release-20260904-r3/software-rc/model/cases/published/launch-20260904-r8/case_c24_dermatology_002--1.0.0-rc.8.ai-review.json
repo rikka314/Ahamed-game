@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c24_dermatology_002",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:ca8235604308e9a4164a4cf6133770e96b8fb448cd6ef39bc5313b0b0b2a7c60",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b5f13ef6-38db-4a88-a416-6d2c5d47fd8f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:21:09.987Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：患者为稳定的18–25岁成人，环形瘙痒、边缘隆起且中央变淡，真菌镜检见菌丝，与体癣诊断一致；活检标记为初始非必需也合理。",
+        "诊断可解性通过：病例提供了关键皮损形态、病程、进展、伴随症状及KOH结果，足以支持体癣，并允许钱币状湿疹和接触性皮炎作为鉴别诊断。",
+        "危险征象排除通过：生命体征稳定，且意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散和免疫抑制均明确为不存在；未见需要急诊升级的信号。",
+        "量表一致性通过：must-ask事实与红旗矩阵及疾病域要求一致；必需检查、非必需活检、鉴别诊断数量和推荐回合上限相互吻合。",
+        "回归覆盖通过：成功轨迹覆盖全部must-ask事实、生命体征、KOH和目标诊断；失败、急症中断及未知既往史轨迹均有相应覆盖。",
+        "隐藏真相安全通过：教学字段保持隐藏，诊断答案未被作为患者可见事实提前泄露；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，边界明确。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.82694c18-a14f-4edf-8a9c-3743c032f116",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:21:24.552Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现（环形、边缘稍隆起、中央较淡、瘙痒、逐渐扩大）与体癣一致，真菌镜检见菌丝提供了明确确证支持；无明显内部矛盾。",
+        "病例可解性良好：关键病史、皮疹模式及KOH镜检均可获得，诊断粒度与answerKey的“体癣”一致，不要求不必要的亚型或病原体分型。",
+        "鉴别诊断限定为钱币状湿疹和接触性皮炎，数量要求为2，成功轨迹与rubric一致；失败轨迹使用无关诊断并包含不必要的皮肤活检，符合负向回归预期。",
+        "生命体征和真菌镜检均标记为required，皮肤活检标记为unnecessary，与病例复杂度和轨迹选择一致。",
+        "九项红旗均有对应patientFact、requiredState和证据ID，且成功轨迹覆盖全部must-ask事实；无明显遗漏或不可验证的红旗条件。",
+        "四类回归轨迹均具备：成功、失败、安全中断和未知事实路径；未知事实可通过提问获得，安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合和零provider/raw-text写入，未暴露隐藏教学字段。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：患者为稳定的18–25岁成人，环形瘙痒、边缘隆起且中央变淡，真菌镜检见菌丝，与体癣诊断一致；活检标记为初始非必需也合理。",
+    "诊断可解性通过：病例提供了关键皮损形态、病程、进展、伴随症状及KOH结果，足以支持体癣，并允许钱币状湿疹和接触性皮炎作为鉴别诊断。",
+    "危险征象排除通过：生命体征稳定，且意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散和免疫抑制均明确为不存在；未见需要急诊升级的信号。",
+    "量表一致性通过：must-ask事实与红旗矩阵及疾病域要求一致；必需检查、非必需活检、鉴别诊断数量和推荐回合上限相互吻合。",
+    "回归覆盖通过：成功轨迹覆盖全部must-ask事实、生命体征、KOH和目标诊断；失败、急症中断及未知既往史轨迹均有相应覆盖。",
+    "隐藏真相安全通过：教学字段保持隐藏，诊断答案未被作为患者可见事实提前泄露；安全中断轨迹要求零医疗回合、零提供方调用和零原文写入，边界明确。",
+    "临床表现（环形、边缘稍隆起、中央较淡、瘙痒、逐渐扩大）与体癣一致，真菌镜检见菌丝提供了明确确证支持；无明显内部矛盾。",
+    "病例可解性良好：关键病史、皮疹模式及KOH镜检均可获得，诊断粒度与answerKey的“体癣”一致，不要求不必要的亚型或病原体分型。",
+    "鉴别诊断限定为钱币状湿疹和接触性皮炎，数量要求为2，成功轨迹与rubric一致；失败轨迹使用无关诊断并包含不必要的皮肤活检，符合负向回归预期。",
+    "生命体征和真菌镜检均标记为required，皮肤活检标记为unnecessary，与病例复杂度和轨迹选择一致。",
+    "九项红旗均有对应patientFact、requiredState和证据ID，且成功轨迹覆盖全部must-ask事实；无明显遗漏或不可验证的红旗条件。",
+    "四类回归轨迹均具备：成功、失败、安全中断和未知事实路径；未知事实可通过提问获得，安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合和零provider/raw-text写入，未暴露隐藏教学字段。"
+  ]
+}

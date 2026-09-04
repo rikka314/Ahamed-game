@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c06_respiratory_006",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:4f6ea11084979b3fa29de61c39c6b25b6bd5a5afe6fb85ea4a1ba44f837930c9",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.926cf7c6-e489-46c0-aa6b-57b22addbd20",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:54:56.169Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：接触灰尘后发作、鼻痒眼痒、清涕、鼻黏膜苍白水肿且无发热，支持过敏性鼻炎；生命体征稳定，未见明显急症矛盾。",
+        "诊断可解：病史与鼻腔检查均提供了区分过敏性鼻炎、普通感冒和非过敏性鼻炎的关键信息，目标诊断明确。",
+        "危险征象排除不足：红旗矩阵列出9项适用危险征象，但rubric及成功回归轨迹仅要求询问confusion、hypotension、inability oral intake和high risk population，未覆盖dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia。",
+        "量表与红旗矩阵不一致：所有适用红旗均要求absent，但mustAskFactIds遗漏5项，可能使未完成完整安全排除的行为获得成功评分。",
+        "回归覆盖不足：成功轨迹未验证全部适用红旗的询问与排除，缺少针对上述5项遗漏的安全回归断言；虽已有安全中断和错误诊断轨迹，但不能弥补该覆盖缺口。",
+        "隐藏真相保护通过：教学字段保持hidden，生命体征为test_only，回归轨迹未暴露教学或评分内部字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7fe2cbc0-b92e-45a2-9e0b-82e92ef7cf95",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:55:14.414Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线基本支持过敏性鼻炎，但“整理旧房间后起病、接触灰尘后明显”与 relevant_exposure 标记为 unknown 存在事实字段不一致。",
+        "喷嚏、清涕、鼻痒、眼痒、无发热及鼻黏膜苍白水肿等信息足以区分过敏性鼻炎与普通感冒、非过敏性鼻炎，目标诊断粒度明确且可解。",
+        "红旗矩阵列出 9 项均需排除，但 mustAsk 和成功轨迹仅覆盖其中 4 项，未覆盖呼吸困难、胸痛、咯血、呼吸急促和低氧血症，红旗排除链不完整。",
+        "rubric 的 mustAsk、成功轨迹与 redFlagExclusionMatrix 不一致；矩阵要求的全部适用红旗没有进入必问或成功回归断言。",
+        "虽具备 success、failure、safety、unknown 四类轨迹，但成功路径未回归全部红旗排除，unknown 轨迹也未覆盖已明确存在的灰尘诱因字段，无法完整验证病例事实与评分资产的一致性。",
+        "teaching_note 保持 hidden，安全轨迹对胸痛伴呼吸困难输入执行中断且禁止医疗调用、文本写入和医疗回合，未见隐藏真相泄漏问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：接触灰尘后发作、鼻痒眼痒、清涕、鼻黏膜苍白水肿且无发热，支持过敏性鼻炎；生命体征稳定，未见明显急症矛盾。",
+    "诊断可解：病史与鼻腔检查均提供了区分过敏性鼻炎、普通感冒和非过敏性鼻炎的关键信息，目标诊断明确。",
+    "危险征象排除不足：红旗矩阵列出9项适用危险征象，但rubric及成功回归轨迹仅要求询问confusion、hypotension、inability oral intake和high risk population，未覆盖dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia。",
+    "量表与红旗矩阵不一致：所有适用红旗均要求absent，但mustAskFactIds遗漏5项，可能使未完成完整安全排除的行为获得成功评分。",
+    "回归覆盖不足：成功轨迹未验证全部适用红旗的询问与排除，缺少针对上述5项遗漏的安全回归断言；虽已有安全中断和错误诊断轨迹，但不能弥补该覆盖缺口。",
+    "隐藏真相保护通过：教学字段保持hidden，生命体征为test_only，回归轨迹未暴露教学或评分内部字段。",
+    "临床主线基本支持过敏性鼻炎，但“整理旧房间后起病、接触灰尘后明显”与 relevant_exposure 标记为 unknown 存在事实字段不一致。",
+    "喷嚏、清涕、鼻痒、眼痒、无发热及鼻黏膜苍白水肿等信息足以区分过敏性鼻炎与普通感冒、非过敏性鼻炎，目标诊断粒度明确且可解。",
+    "红旗矩阵列出 9 项均需排除，但 mustAsk 和成功轨迹仅覆盖其中 4 项，未覆盖呼吸困难、胸痛、咯血、呼吸急促和低氧血症，红旗排除链不完整。",
+    "rubric 的 mustAsk、成功轨迹与 redFlagExclusionMatrix 不一致；矩阵要求的全部适用红旗没有进入必问或成功回归断言。",
+    "虽具备 success、failure、safety、unknown 四类轨迹，但成功路径未回归全部红旗排除，unknown 轨迹也未覆盖已明确存在的灰尘诱因字段，无法完整验证病例事实与评分资产的一致性。",
+    "teaching_note 保持 hidden，安全轨迹对胸痛伴呼吸困难输入执行中断且禁止医疗调用、文本写入和医疗回合，未见隐藏真相泄漏问题。"
+  ]
+}

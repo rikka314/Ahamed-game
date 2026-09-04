@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:339379ff5dff111b43db90fd757795e598042d5a6cae17fad70c08aa395c823b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4d8d046c-3c2b-4a68-8dc4-db639536b253",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:54:04.800Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人非急症焦虑病例，病程半年、广泛且难以控制的担心及伴随症状相互一致；生命体征稳定，精神状态评估无危机表现，检查设置无明显矛盾。",
+        "诊断可解性通过：核心病史足以支持广泛性焦虑障碍，甲状腺功能亢进和抑郁发作作为可接受鉴别诊断，目标诊断术语及同义词映射明确。",
+        "危险征象排除通过：已覆盖意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断及无法自理；并设置生命体征和精神状态检查。",
+        "量表一致性通过：必问事实、鉴别诊断数量、必要与不必要检查分类及推荐回合数与病例内容和评分策略一致。",
+        "回归覆盖通过：成功、失败、不必要检查、安全中断及未知既往史轨迹均有覆盖；安全轨迹明确要求中断、零医疗回合、零提供方调用和零原文写入。",
+        "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏；回归输入未要求向玩家泄露答案键或内部病例标识。review.pending及draft元数据不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6e632b35-e975-42e6-864e-f02077a2a932",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:54:17.746Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：半年以上多方面难以控制的担心，伴典型焦虑相关症状，且躁狂、精神病性症状、物质因素及甲状腺异常均有排除或否定证据，支持广泛性焦虑障碍。",
+        "诊断可解性通过：主诉、病程、核心症状、伴随症状及排除信息足以达到目标诊断粒度；目标为“广泛性焦虑障碍”，与答案键及接受同义词一致。",
+        "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断、无法自理均有对应事实，且矩阵状态统一为 absent。",
+        "rubric一致性通过：must-ask事实均可通过问题匹配器获取；两个可接受鉴别诊断与requiredDifferentialCount=2一致；必需检查、非必要MRI及沟通标准均有明确配置。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，成功轨迹覆盖全部必问信息、必需检查、正确诊断和两个鉴别诊断，失败轨迹验证错误诊断及不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知既往史读取。",
+        "隐藏真值安全通过：教学字段未进入可见问答或回归期望；生命体征维持test_only；未发现将隐藏评分字段或仅服务端字段泄露给患者的轨迹或答案配置。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人非急症焦虑病例，病程半年、广泛且难以控制的担心及伴随症状相互一致；生命体征稳定，精神状态评估无危机表现，检查设置无明显矛盾。",
+    "诊断可解性通过：核心病史足以支持广泛性焦虑障碍，甲状腺功能亢进和抑郁发作作为可接受鉴别诊断，目标诊断术语及同义词映射明确。",
+    "危险征象排除通过：已覆盖意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断及无法自理；并设置生命体征和精神状态检查。",
+    "量表一致性通过：必问事实、鉴别诊断数量、必要与不必要检查分类及推荐回合数与病例内容和评分策略一致。",
+    "回归覆盖通过：成功、失败、不必要检查、安全中断及未知既往史轨迹均有覆盖；安全轨迹明确要求中断、零医疗回合、零提供方调用和零原文写入。",
+    "隐藏真相安全通过：教学字段及服务端评分信息标记为隐藏；回归输入未要求向玩家泄露答案键或内部病例标识。review.pending及draft元数据不构成阻塞。",
+    "临床一致性通过：半年以上多方面难以控制的担心，伴典型焦虑相关症状，且躁狂、精神病性症状、物质因素及甲状腺异常均有排除或否定证据，支持广泛性焦虑障碍。",
+    "诊断可解性通过：主诉、病程、核心症状、伴随症状及排除信息足以达到目标诊断粒度；目标为“广泛性焦虑障碍”，与答案键及接受同义词一致。",
+    "红旗排除通过：意识改变、循环不稳定、无法进食饮水、高风险人群、自伤风险、精神病性症状、躁狂、物质中毒或戒断、无法自理均有对应事实，且矩阵状态统一为 absent。",
+    "rubric一致性通过：must-ask事实均可通过问题匹配器获取；两个可接受鉴别诊断与requiredDifferentialCount=2一致；必需检查、非必要MRI及沟通标准均有明确配置。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，成功轨迹覆盖全部必问信息、必需检查、正确诊断和两个鉴别诊断，失败轨迹验证错误诊断及不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知既往史读取。",
+    "隐藏真值安全通过：教学字段未进入可见问答或回归期望；生命体征维持test_only；未发现将隐藏评分字段或仅服务端字段泄露给患者的轨迹或答案配置。"
+  ]
+}

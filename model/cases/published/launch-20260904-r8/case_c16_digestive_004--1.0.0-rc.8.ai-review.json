@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:8912b4cda3049525da6e0dd5f8196f78be536da5e42cbc2d77dc055032a14789",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.78b4aa41-2f6b-4c4d-8cca-9297533931fc",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:16:41.654Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：病程短、症状轻、可饮水、生命体征稳定，符合轻症急性胃肠炎；无明显事实冲突。腹部CT明确标为不必要检查，亦与病例严重度一致。",
+        "诊断可解性通过：起病、症状模式、伴随症状和进展均可通过提问获得，目标诊断及两个可接受鉴别诊断定义清晰。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有明确排除依据；生命体征和脱水评估可通过对应检查读取。",
+        "评分与病例规则一致：must-ask事实、必需检查、不必要检查、鉴别诊断数量及推荐回合上限彼此匹配，成功轨迹覆盖要求。",
+        "回归覆盖通过：包含成功、失败、不必要检查、安全中断及未知事实轨迹；安全中断要求无医疗回合、无提供方调用和原始文本写入，边界明确。",
+        "隐藏真相安全通过：教学字段保持隐藏，未知既往发作仅在询问后披露；病例未将服务端字段或隐藏诊断暴露给玩家。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.78714ec0-9328-4b80-8c4a-d809a940da53",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:17:00.107Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与“轻症急性胃肠炎”一致：急性起病、腹泻伴恶心、可饮水、无血便高热持续呕吐，且生命体征和脱水评估稳定。",
+        "诊断可解：起病时间、症状模式、伴随症状和病情进展均有可询问事实，目标诊断粒度明确，两个鉴别诊断也已定义。",
+        "红旗排除项覆盖意识改变、循环不稳定、无法口服、高风险人群、出血、腹膜刺激征、持续呕吐、黄疸及体重下降，事实状态与矩阵一致。",
+        "rubric与病例内容一致：必问事实均可由患者或检查获得，生命体征和脱水评估为必要检查，腹部CT明确标记为不必要，鉴别诊断数量要求与可接受集合匹配。",
+        "四类回归轨迹与病例和评分预期一致：成功、失败、安全中断及未知事实路径均有明确输入、期望事实和结果，turn计数与测试选择也不见矛盾。",
+        "未发现将hidden字段误作为问诊事实、将人工review元数据作为阻塞条件，或使安全轨迹泄露/写入临床文本的设计问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：病程短、症状轻、可饮水、生命体征稳定，符合轻症急性胃肠炎；无明显事实冲突。腹部CT明确标为不必要检查，亦与病例严重度一致。",
+    "诊断可解性通过：起病、症状模式、伴随症状和进展均可通过提问获得，目标诊断及两个可接受鉴别诊断定义清晰。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有明确排除依据；生命体征和脱水评估可通过对应检查读取。",
+    "评分与病例规则一致：must-ask事实、必需检查、不必要检查、鉴别诊断数量及推荐回合上限彼此匹配，成功轨迹覆盖要求。",
+    "回归覆盖通过：包含成功、失败、不必要检查、安全中断及未知事实轨迹；安全中断要求无医疗回合、无提供方调用和原始文本写入，边界明确。",
+    "隐藏真相安全通过：教学字段保持隐藏，未知既往发作仅在询问后披露；病例未将服务端字段或隐藏诊断暴露给玩家。",
+    "临床叙事与“轻症急性胃肠炎”一致：急性起病、腹泻伴恶心、可饮水、无血便高热持续呕吐，且生命体征和脱水评估稳定。",
+    "诊断可解：起病时间、症状模式、伴随症状和病情进展均有可询问事实，目标诊断粒度明确，两个鉴别诊断也已定义。",
+    "红旗排除项覆盖意识改变、循环不稳定、无法口服、高风险人群、出血、腹膜刺激征、持续呕吐、黄疸及体重下降，事实状态与矩阵一致。",
+    "rubric与病例内容一致：必问事实均可由患者或检查获得，生命体征和脱水评估为必要检查，腹部CT明确标记为不必要，鉴别诊断数量要求与可接受集合匹配。",
+    "四类回归轨迹与病例和评分预期一致：成功、失败、安全中断及未知事实路径均有明确输入、期望事实和结果，turn计数与测试选择也不见矛盾。",
+    "未发现将hidden字段误作为问诊事实、将人工review元数据作为阻塞条件，或使安全轨迹泄露/写入临床文本的设计问题。"
+  ]
+}

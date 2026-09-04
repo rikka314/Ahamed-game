@@ -1,0 +1,20 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G02",
+  "componentVariant": "01",
+  "componentName": "室内地面细微变体",
+  "revision": 2,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.png",
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise G02 interior-floor subtle variant 01 so it differs clearly from G01 at normal review scale. Redistribute the complete interior light, shade and colored mineral-fleck layout while preserving the exact G01 revision-4 palette, color counts, pale base, grout border and hard 32x32 pixel edges. Add no dirt, wear or new material motif.",
+  "humanEdits": [],
+  "status": "DRAFT"
+}

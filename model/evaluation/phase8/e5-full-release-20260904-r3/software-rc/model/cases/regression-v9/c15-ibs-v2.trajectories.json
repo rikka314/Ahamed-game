@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.8",
+  "trajectories": [
+    {
+      "trajectoryId": "c15.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、多久、起病、具体症状、有什么特点、什么时候明显、还伴有什么、其他症状、严重吗、加重、变化、影响生活。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：意识状态、神志、反应异常、低血压、晕厥、站立不稳、能否饮水、能否进食、无法口服、妊娠、免疫抑制、重要基础病。",
+          "expectedFactIds": [
+            "fact.confusion",
+            "fact.hypotension",
+            "fact.inability_oral_intake",
+            "fact.high_risk_population"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：呕血、黑便、便血、持续剧烈腹痛、腹部僵硬、反跳痛、持续呕吐、反复呕吐、黄疸、眼白发黄、皮肤发黄。",
+          "expectedFactIds": [
+            "fact.gastrointestinal_bleeding",
+            "fact.peritoneal_signs",
+            "fact.persistent_vomiting",
+            "fact.jaundice"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：非意愿性体重下降、消瘦、体重减轻。",
+          "expectedFactIds": [
+            "fact.unintentional_weight_loss"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.basic_gi_screen"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "肠易激综合征",
+          "differentials": [
+            "炎症性肠病",
+            "功能性便秘"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 4
+      }
+    },
+    {
+      "trajectoryId": "c15.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.abdominal_ct"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.abdominal_ct"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c15.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c15.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

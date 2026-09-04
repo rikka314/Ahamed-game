@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:4ac9198011ed451b4e8b08dc8760881712626c8135283c5225f4701ef0619cbf",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.95fe5864-2f42-438f-a987-b0651f437882",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:04:32.978Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成年男性，半年腹痛伴排便习惯反复改变，缺乏便血、夜间痛醒、体重下降及急症表现；生命体征、基础消化系统筛查和腹部CT结果与非急症门诊场景一致。",
+        "诊断可解性通过：症状模式及检查结果支持肠易激综合征，且明确提供了两个可接受的鉴别诊断；成功轨迹要求的主诊断与病例事实匹配。",
+        "危险征象排除通过：意识改变、低血压、不能口服、危重高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有明确缺如状态，并纳入必问项。",
+        "量表一致性通过：必问事实、必需检查、不必要的腹部CT、鉴别诊断数量及推荐回合上限均与成功和失败轨迹一致；CT被标记为不必要不会造成临床逻辑冲突。",
+        "回归覆盖通过：包含成功、错误检查/错误诊断、安全中断及未知既往史分支，覆盖诊断、检查选择、安全退出、事实披露和回合计数。",
+        "隐藏真相安全通过：教学字段、评分字段及内部事实未放入患者可见内容；回归轨迹未要求暴露隐藏字段，且安全中断明确要求零医疗回合、零提供方调用和零原始文本写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.9c266405-6da4-4c42-bf52-72488aa787d3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:04:45.758Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙述、检查结果与肠易激综合征目标诊断总体一致；症状为慢性、与排便相关且伴排便频率和性状变化，无明显进展或急症表现。",
+        "诊断粒度适当，现有病史及基础筛查足以支持肠易激综合征；目标诊断、可接受同义词和鉴别诊断概念映射清晰。",
+        "九项红旗均在patientFacts及redFlagExclusionMatrix中明确标记为absent，且成功轨迹覆盖全部必问红旗；生命体征检查结果亦与无急症表现一致。",
+        "mustAskFactIds、成功轨迹中的问诊覆盖、两项可接受鉴别诊断、检查分类及推荐回合限制相互一致；腹部CT被正确标为不必要检查。",
+        "success、failure、safety、unknown四类回归轨迹均有定义，期望事实、诊断结果、非必要检查、安全中断及未知事实读取行为与病例资产一致。",
+        "未见将hidden教学字段或其他服务端字段暴露给玩家的轨迹；安全轨迹明确要求无provider调用、无原始文本写入和无医疗回合。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成年男性，半年腹痛伴排便习惯反复改变，缺乏便血、夜间痛醒、体重下降及急症表现；生命体征、基础消化系统筛查和腹部CT结果与非急症门诊场景一致。",
+    "诊断可解性通过：症状模式及检查结果支持肠易激综合征，且明确提供了两个可接受的鉴别诊断；成功轨迹要求的主诊断与病例事实匹配。",
+    "危险征象排除通过：意识改变、低血压、不能口服、危重高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有明确缺如状态，并纳入必问项。",
+    "量表一致性通过：必问事实、必需检查、不必要的腹部CT、鉴别诊断数量及推荐回合上限均与成功和失败轨迹一致；CT被标记为不必要不会造成临床逻辑冲突。",
+    "回归覆盖通过：包含成功、错误检查/错误诊断、安全中断及未知既往史分支，覆盖诊断、检查选择、安全退出、事实披露和回合计数。",
+    "隐藏真相安全通过：教学字段、评分字段及内部事实未放入患者可见内容；回归轨迹未要求暴露隐藏字段，且安全中断明确要求零医疗回合、零提供方调用和零原始文本写入。",
+    "病例叙述、检查结果与肠易激综合征目标诊断总体一致；症状为慢性、与排便相关且伴排便频率和性状变化，无明显进展或急症表现。",
+    "诊断粒度适当，现有病史及基础筛查足以支持肠易激综合征；目标诊断、可接受同义词和鉴别诊断概念映射清晰。",
+    "九项红旗均在patientFacts及redFlagExclusionMatrix中明确标记为absent，且成功轨迹覆盖全部必问红旗；生命体征检查结果亦与无急症表现一致。",
+    "mustAskFactIds、成功轨迹中的问诊覆盖、两项可接受鉴别诊断、检查分类及推荐回合限制相互一致；腹部CT被正确标为不必要检查。",
+    "success、failure、safety、unknown四类回归轨迹均有定义，期望事实、诊断结果、非必要检查、安全中断及未知事实读取行为与病例资产一致。",
+    "未见将hidden教学字段或其他服务端字段暴露给玩家的轨迹；安全轨迹明确要求无provider调用、无原始文本写入和无医疗回合。"
+  ]
+}

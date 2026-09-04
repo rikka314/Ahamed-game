@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:5e9b81ab6624f71962c866a2d86f5f11bd76d534f562197b1a3036565b4147d5",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.76f5019c-0a72-45bf-9838-6f42aaad3e04",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:17:15.962Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：症状、尿常规阳性、生命体征稳定及CT无结石/梗阻与急性单纯性膀胱炎相符，未见明显事实矛盾。",
+        "诊断可解性通过：核心症状和关键鉴别信息可通过询问获得，必要检查结果明确，目标诊断及两个可接受鉴别诊断定义清楚。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均有对应排除事实；生命体征检查也已完成。",
+        "量表一致性通过：must-ask事实、两个鉴别诊断、必需与不必要检查、推荐回合数及沟通标准彼此一致；既往发作等非必需事实未被错误纳入要求。",
+        "回归覆盖通过：包含成功、失败、不必要检查、安全中断及未知事实轨迹，能够覆盖诊断、检查选择、红旗安全退出和未知事实处理。",
+        "隐藏真相安全通过：教学字段、答案键及评分摘要未被设为患者可见事实或可询问内容；pending审核元数据不影响事实安全判断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.df451b48-ad8a-480c-ac1c-a72f96ad83b6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:17:32.430Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、尿常规结果及红旗排除与急性单纯性膀胱炎相互一致；泌尿系CT作为失败轨迹中的不必要检查也符合病例设定。",
+        "症状模式、尿常规阳性及肾盂肾炎和尿道炎的鉴别信息足以支持目标诊断，并能达到“急性单纯性”粒度。",
+        "红旗矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目，证据事实与要求状态一致。",
+        "must-ask事实、2项鉴别诊断、必需/不必要检查分类及沟通标准与病例目标一致；目标诊断同义词粒度无明显冲突。",
+        "success、failure、safety、unknown四类回归轨迹均有明确预期，成功轨迹覆盖必问事实和必需检查，失败轨迹覆盖错误诊断及不必要CT，安全中断和未知事实轨迹的期望也清晰。",
+        "教学字段和答案字段未作为患者可直接披露的事实；红旗和诊断相关隐藏信息通过规定问法或检查获得，未见会导致答案泄漏或安全轨迹失真的设计。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：症状、尿常规阳性、生命体征稳定及CT无结石/梗阻与急性单纯性膀胱炎相符，未见明显事实矛盾。",
+    "诊断可解性通过：核心症状和关键鉴别信息可通过询问获得，必要检查结果明确，目标诊断及两个可接受鉴别诊断定义清楚。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均有对应排除事实；生命体征检查也已完成。",
+    "量表一致性通过：must-ask事实、两个鉴别诊断、必需与不必要检查、推荐回合数及沟通标准彼此一致；既往发作等非必需事实未被错误纳入要求。",
+    "回归覆盖通过：包含成功、失败、不必要检查、安全中断及未知事实轨迹，能够覆盖诊断、检查选择、红旗安全退出和未知事实处理。",
+    "隐藏真相安全通过：教学字段、答案键及评分摘要未被设为患者可见事实或可询问内容；pending审核元数据不影响事实安全判断。",
+    "临床叙事、尿常规结果及红旗排除与急性单纯性膀胱炎相互一致；泌尿系CT作为失败轨迹中的不必要检查也符合病例设定。",
+    "症状模式、尿常规阳性及肾盂肾炎和尿道炎的鉴别信息足以支持目标诊断，并能达到“急性单纯性”粒度。",
+    "红旗矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目，证据事实与要求状态一致。",
+    "must-ask事实、2项鉴别诊断、必需/不必要检查分类及沟通标准与病例目标一致；目标诊断同义词粒度无明显冲突。",
+    "success、failure、safety、unknown四类回归轨迹均有明确预期，成功轨迹覆盖必问事实和必需检查，失败轨迹覆盖错误诊断及不必要CT，安全中断和未知事实轨迹的期望也清晰。",
+    "教学字段和答案字段未作为患者可直接披露的事实；红旗和诊断相关隐藏信息通过规定问法或检查获得，未见会导致答案泄漏或安全轨迹失真的设计。"
+  ]
+}

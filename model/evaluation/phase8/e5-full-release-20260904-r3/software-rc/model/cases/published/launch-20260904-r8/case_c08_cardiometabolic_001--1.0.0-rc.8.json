@@ -1,0 +1,641 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c08_cardiometabolic_001",
+  "publicCaseId": "case_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.8",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "体检多次发现血压偏高"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c08",
+    "patientDisplayName": "患者08号",
+    "ageBand": "36–45岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "物流主管",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "guarded_questioning",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会询问提问或检查目的",
+      "说明理由后配合"
+    ],
+    "modifiers": {
+      "healthLiteracy": "high",
+      "recallReliability": "high",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "体检多次发现血压偏高",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "三个月前体检首次发现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "三次不同日期规范测量分别约146/92、148/94和144/90mmHg",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "目前无胸痛、气促、局灶神经症状或其他急性靶器官损害表现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.secondary_cause_features": {
+      "status": "absent",
+      "value": "没有已知肾脏病、阵发性头痛心悸出汗、明显肌无力或其他提示内分泌继发病因的症状。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "肾脏病史",
+        "阵发头痛心悸出汗",
+        "肌无力",
+        "内分泌症状"
+      ]
+    },
+    "fact.bp_raising_medications": {
+      "status": "absent",
+      "value": "近期没有使用糖皮质激素、兴奋剂、减充血剂或其他可能升高血压的药物。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "糖皮质激素",
+        "兴奋剂",
+        "减充血剂",
+        "升高血压的药物"
+      ]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流和反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识状态",
+        "神志",
+        "反应异常"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥、站立不稳或循环不稳定表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥",
+        "站立不稳"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能够正常饮水并进食，没有完全无法口服。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "能否饮水",
+        "能否进食",
+        "无法口服"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "不属于妊娠、免疫抑制或存在重要失代偿基础病的高风险人群。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "妊娠",
+        "免疫抑制",
+        "重要基础病"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "没有持续胸痛或明显胸闷。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "持续胸痛",
+        "胸闷",
+        "胸部不适"
+      ]
+    },
+    "fact.syncope": {
+      "status": "absent",
+      "value": "没有晕厥或接近晕厥。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "晕厥",
+        "眼前发黑",
+        "差点晕倒"
+      ]
+    },
+    "fact.focal_neurologic_deficit": {
+      "status": "absent",
+      "value": "没有单侧无力、言语不清或其他局灶神经功能异常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "单侧无力",
+        "言语不清",
+        "局灶神经症状"
+      ]
+    },
+    "fact.severe_hypoglycemia": {
+      "status": "absent",
+      "value": "没有低血糖导致的意识或行为异常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "严重低血糖",
+        "低血糖昏迷",
+        "低血糖行为异常"
+      ]
+    },
+    "fact.ketoacidosis": {
+      "status": "absent",
+      "value": "没有持续呕吐、深大呼吸或酮症相关意识异常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "酮症",
+        "持续呕吐",
+        "深大呼吸"
+      ]
+    },
+    "fact.hypertensive_emergency": {
+      "status": "absent",
+      "value": "没有伴随严重血压升高的胸痛、神经功能异常或急性器官损害表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "高血压急症",
+        "严重血压升高",
+        "急性器官损害"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.hypertension_assessment": {
+      "status": "completed",
+      "displayName": "动态血压与高血压基础评估",
+      "aliases": [
+        "动态血压与高血压基础评估",
+        "做动态血压与高血压基础评估",
+        "test.hypertension_assessment"
+      ],
+      "report": "24小时动态血压平均138/86mmHg、日间142/89mmHg、夜间124/74mmHg，夜间血压正常下降；血肌酐、电解质和尿常规未见提示肾脏或内分泌继发病因的异常。"
+    },
+    "test.head_ct": {
+      "status": "completed",
+      "displayName": "头颅CT",
+      "aliases": [
+        "头颅CT",
+        "做头颅CT",
+        "test.head_ct"
+      ],
+      "report": "头颅CT未见急性异常。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.primary_hypertension",
+    "targetDiagnosis": "原发性高血压",
+    "acceptedSynonyms": [
+      "原发性高血压"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.primary_hypertension",
+        "preferredTerm": "原发性高血压",
+        "acceptedSynonyms": [
+          "原发性高血压"
+        ]
+      },
+      {
+        "conceptId": "concept.white_coat_hypertension",
+        "preferredTerm": "白大衣高血压",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.secondary_hypertension",
+        "preferredTerm": "继发性高血压",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.secondary_cause_features",
+      "fact.bp_raising_medications",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.chest_pain",
+      "fact.syncope",
+      "fact.focal_neurologic_deficit",
+      "fact.severe_hypoglycemia",
+      "fact.ketoacidosis",
+      "fact.hypertensive_emergency"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.white_coat_hypertension",
+      "concept.secondary_hypertension"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.hypertension_assessment": "required",
+      "test.head_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B1病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:0eb90e9e9e14bdd9c27976ecb2f9dbbdd5efbcb2b8d43c74df516e6ddc5b795f",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.cardiometabolic",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c08_cardiometabolic_001",
+    "caseVersion": "1.0.0-rc.8",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "持续胸痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.syncope",
+        "canonicalName": "晕厥",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.syncope"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.focal_neurologic_deficit",
+        "canonicalName": "局灶性神经功能缺损",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.focal_neurologic_deficit"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.severe_hypoglycemia",
+        "canonicalName": "严重低血糖",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.severe_hypoglycemia"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.ketoacidosis",
+        "canonicalName": "糖尿病酮症酸中毒",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.ketoacidosis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypertensive_emergency",
+        "canonicalName": "高血压急症",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypertensive_emergency"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.cardiometabolic",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c08_cardiometabolic_001",
+    "caseVersion": "1.0.0-rc.8",
+    "contentHash": "sha256:0eb90e9e9e14bdd9c27976ecb2f9dbbdd5efbcb2b8d43c74df516e6ddc5b795f",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.bf04934d-a1ea-4c4b-817a-dc6cc040e5f0",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:09:55.383Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床事实一致：多次规范诊室血压升高，动态血压平均值及日间值仍升高，支持原发性高血压；继发性病因线索及急性靶器官损害证据不足，生命体征稳定。",
+          "诊断可解：病史、动态血压与基础评估足以区分目标诊断，并保留白大衣高血压和继发性高血压作为合理鉴别；头颅CT被明确标为不必要检查。",
+          "危险征象排除完整：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应阴性事实，且已完成生命体征检查。",
+          "量表一致：must-ask事实均被成功轨迹覆盖，必需检查、鉴别诊断数量、推荐回合数及不必要检查分类与轨迹和评分策略相符。",
+          "回归覆盖充分：成功、失败、安全中断及未知事实轨迹均具备；安全轨迹要求零医疗回合、零提供方调用和零原始文本写入，符合安全退出要求。",
+          "隐藏真相保护通过：教学字段与答案字段标记为隐藏/服务端使用，未被玩家可见内容泄露；review.pending及人工审核元数据不构成阻塞。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.0dea0b54-3272-47c8-8ecc-17e42a85c2f1",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:10:10.837Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性：多次规范诊室血压升高，动态血压平均值及日间值达到高血压评估范围，继发性病因线索和急性靶器官损害证据不足，原发性高血压设定相符；生命体征及头颅CT结果无明显矛盾。",
+          "诊断可解性：病史、动态血压和基础评估足以支持“原发性高血压”；白大衣高血压和继发性高血压作为两个鉴别诊断，粒度与答案概念一致。",
+          "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实，状态统一为 absent，且与病情叙述一致。",
+          "Rubric一致性：must-ask事实均存在且可通过匹配问题披露；鉴别诊断数量和概念ID一致；生命体征与高血压基础评估为必需检查，头颅CT标为不必要，和病例目标相符。",
+          "回归覆盖：success轨迹覆盖全部必问事实、必需检查、正确主诊断及两个鉴别诊断；failure覆盖错误诊断和不必要检查；safety、unknown轨迹的预期行为分别与安全中断和未知既往发作事实一致。",
+          "隐藏真值安全：隐藏教学字段、review pending及人工审核元数据不影响可解性；主诊断、鉴别诊断、红旗状态和回归期望之间无发现会泄露或冲突隐藏真值的矛盾。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床事实一致：多次规范诊室血压升高，动态血压平均值及日间值仍升高，支持原发性高血压；继发性病因线索及急性靶器官损害证据不足，生命体征稳定。",
+      "诊断可解：病史、动态血压与基础评估足以区分目标诊断，并保留白大衣高血压和继发性高血压作为合理鉴别；头颅CT被明确标为不必要检查。",
+      "危险征象排除完整：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应阴性事实，且已完成生命体征检查。",
+      "量表一致：must-ask事实均被成功轨迹覆盖，必需检查、鉴别诊断数量、推荐回合数及不必要检查分类与轨迹和评分策略相符。",
+      "回归覆盖充分：成功、失败、安全中断及未知事实轨迹均具备；安全轨迹要求零医疗回合、零提供方调用和零原始文本写入，符合安全退出要求。",
+      "隐藏真相保护通过：教学字段与答案字段标记为隐藏/服务端使用，未被玩家可见内容泄露；review.pending及人工审核元数据不构成阻塞。",
+      "临床一致性：多次规范诊室血压升高，动态血压平均值及日间值达到高血压评估范围，继发性病因线索和急性靶器官损害证据不足，原发性高血压设定相符；生命体征及头颅CT结果无明显矛盾。",
+      "诊断可解性：病史、动态血压和基础评估足以支持“原发性高血压”；白大衣高血压和继发性高血压作为两个鉴别诊断，粒度与答案概念一致。",
+      "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实，状态统一为 absent，且与病情叙述一致。",
+      "Rubric一致性：must-ask事实均存在且可通过匹配问题披露；鉴别诊断数量和概念ID一致；生命体征与高血压基础评估为必需检查，头颅CT标为不必要，和病例目标相符。",
+      "回归覆盖：success轨迹覆盖全部必问事实、必需检查、正确主诊断及两个鉴别诊断；failure覆盖错误诊断和不必要检查；safety、unknown轨迹的预期行为分别与安全中断和未知既往发作事实一致。",
+      "隐藏真值安全：隐藏教学字段、review pending及人工审核元数据不影响可解性；主诊断、鉴别诊断、红旗状态和回归期望之间无发现会泄露或冲突隐藏真值的矛盾。"
+    ]
+  }
+}

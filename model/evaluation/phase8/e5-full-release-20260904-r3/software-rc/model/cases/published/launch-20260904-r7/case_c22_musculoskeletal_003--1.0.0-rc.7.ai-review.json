@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:3073379a8804d7e1fdfe067d71df7d201c1379744561a8f9f04755921e184b5f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.44415f37-d7cc-47c3-b6ff-b85031f79e86",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:49:55.066Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁成人急性单关节炎表现，突发第一跖趾关节红肿痛、海鲜及饮酒诱因、针状强负双折射结晶与痛风性关节炎相互一致。",
+        "生命体征稳定，已纳入发热寒战、近期关节操作、破溃伤口、人工关节、免疫抑制等感染风险排查；关节液革兰染色未见细菌，并保留感染风险改变时重新评估的安全边界。",
+        "首发策略可通过规定病史、生命体征和关节评估获得诊断，且感染性关节炎和假性痛风作为鉴别诊断，诊断可解性充分。",
+        "评分规则、必问事实、鉴别诊断数量及检查分类与成功回归轨迹一致；足部MRI被正确标记为初始非必要检查。",
+        "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知事实询问场景，安全中断明确要求无医疗回合、无提供方调用和无原始文本写入。",
+        "隐藏教学字段未暴露于玩家可见内容或回归输入，未发现通过提示、评分摘要或轨迹泄露隐藏真相的风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7bccb0b3-fc1d-4768-948f-b47d26ca3f0b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:50:10.462Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例表现与急性痛风性关节炎一致：第一跖趾关节突发红肿痛、海鲜饮酒诱因及针状强负双折射结晶相互支持；感染性关节炎仍被合理保留为鉴别诊断。",
+        "诊断粒度明确，目标概念为痛风性关节炎，接受“急性痛风”；现有病史与关节评估足以完成可解诊断。",
+        "感染相关红旗有患者事实、危险因素询问及关节液革兰染色支持；病例同时明确提示若感染风险改变需重新评估，未将阴性革兰染色作为绝对排除依据。",
+        "must-ask事实、可接受鉴别诊断数量、必需/不必要检查分类及目标诊断与rubric一致；成功轨迹覆盖全部要求。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期诊断、检查惩罚、医疗回合数及未知事实读取与病例资产相符。",
+        "隐藏教学字段、unknown事实和安全中断轨迹未被错误暴露或用于诊断；胸痛伴呼吸困难输入明确要求安全中断且不产生医疗调用或写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁成人急性单关节炎表现，突发第一跖趾关节红肿痛、海鲜及饮酒诱因、针状强负双折射结晶与痛风性关节炎相互一致。",
+    "生命体征稳定，已纳入发热寒战、近期关节操作、破溃伤口、人工关节、免疫抑制等感染风险排查；关节液革兰染色未见细菌，并保留感染风险改变时重新评估的安全边界。",
+    "首发策略可通过规定病史、生命体征和关节评估获得诊断，且感染性关节炎和假性痛风作为鉴别诊断，诊断可解性充分。",
+    "评分规则、必问事实、鉴别诊断数量及检查分类与成功回归轨迹一致；足部MRI被正确标记为初始非必要检查。",
+    "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知事实询问场景，安全中断明确要求无医疗回合、无提供方调用和无原始文本写入。",
+    "隐藏教学字段未暴露于玩家可见内容或回归输入，未发现通过提示、评分摘要或轨迹泄露隐藏真相的风险。",
+    "病例表现与急性痛风性关节炎一致：第一跖趾关节突发红肿痛、海鲜饮酒诱因及针状强负双折射结晶相互支持；感染性关节炎仍被合理保留为鉴别诊断。",
+    "诊断粒度明确，目标概念为痛风性关节炎，接受“急性痛风”；现有病史与关节评估足以完成可解诊断。",
+    "感染相关红旗有患者事实、危险因素询问及关节液革兰染色支持；病例同时明确提示若感染风险改变需重新评估，未将阴性革兰染色作为绝对排除依据。",
+    "must-ask事实、可接受鉴别诊断数量、必需/不必要检查分类及目标诊断与rubric一致；成功轨迹覆盖全部要求。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期诊断、检查惩罚、医疗回合数及未知事实读取与病例资产相符。",
+    "隐藏教学字段、unknown事实和安全中断轨迹未被错误暴露或用于诊断；胸痛伴呼吸困难输入明确要求安全中断且不产生医疗调用或写入。"
+  ]
+}

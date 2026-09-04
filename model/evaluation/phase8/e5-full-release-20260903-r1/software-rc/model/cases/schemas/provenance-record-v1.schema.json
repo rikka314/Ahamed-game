@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/provenance-record-v1.schema.json",
+  "title": "Private case provenance record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sourceType", "sourceCitation", "license", "createdAt"],
+  "properties": {
+    "sourceType": { "enum": ["synthetic", "licensed"] },
+    "sourceCitation": { "type": "string", "minLength": 1 },
+    "license": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

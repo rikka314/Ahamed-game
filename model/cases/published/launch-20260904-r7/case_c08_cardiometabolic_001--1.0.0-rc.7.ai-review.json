@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:1f11bae6495aafa08623923e5224913437feba5ed52b45d552655d42c4f3cfb9",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.82d60829-c78c-4561-a4cb-345e0fd46c9a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:41:42.227Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成年男性，反复中度血压升高，动态血压支持高血压；继发性病因线索及急性靶器官损害表现均被合理排除，检查结果与原发性高血压相符。",
+        "诊断可解性通过：目标诊断明确为原发性高血压，白大衣高血压和继发性高血压作为可接受鉴别诊断，现有病史与检查足以支持区分。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实；生命体征稳定且未达急症阈值。",
+        "量表一致性通过：must-ask事实均有对应询问轨迹，所需2项鉴别诊断、必需检查及不必要的头颅CT均与评分策略一致。",
+        "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹，覆盖诊断、检查选择、急症安全和未知事实处理。",
+        "隐藏真相安全通过：教学字段和内部事实未纳入患者可见内容；安全轨迹要求中断且禁止服务端调用和原始文本写入，未发现泄露隐藏答案的回归路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.e6384d8b-5a05-4baf-8bcb-7db01bdd1976",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:41:54.560Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与检查结果一致：多次诊室血压升高，动态血压平均值及日间值仍升高，支持原发性高血压；基础肾脏、尿液及电解质评估未提示明确继发病因。",
+        "诊断可解性良好；原发性高血压为合理目标诊断，白大衣高血压和继发性高血压作为两个鉴别诊断，粒度适当。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，均有对应患者事实，且与病例稳定状态一致。",
+        "rubric存在轨迹与事实映射不一致：成功轨迹第二次提问已包含“晕厥”，但expectedFactIds未包含fact.syncope；第三次又重复询问晕厥，导致must-ask事实的首次披露和重复计分边界不清。",
+        "四类回归轨迹中，成功轨迹的提问覆盖虽基本完整，但对fact.syncope存在漏标与重复提问；应明确将其归入第二步或第三步，并同步修订expectedFactIds及效率/重复计分预期。失败轨迹的头颅CT及错误诊断、未知事实轨迹基本一致；安全轨迹的中断预期也与其显式急症输入一致。",
+        "未发现将hidden teaching字段、答案键或内部病例标识泄露到患者可见内容或回归输入中的问题；人工review状态为pending不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成年男性，反复中度血压升高，动态血压支持高血压；继发性病因线索及急性靶器官损害表现均被合理排除，检查结果与原发性高血压相符。",
+    "诊断可解性通过：目标诊断明确为原发性高血压，白大衣高血压和继发性高血压作为可接受鉴别诊断，现有病史与检查足以支持区分。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实；生命体征稳定且未达急症阈值。",
+    "量表一致性通过：must-ask事实均有对应询问轨迹，所需2项鉴别诊断、必需检查及不必要的头颅CT均与评分策略一致。",
+    "回归覆盖通过：包含成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹，覆盖诊断、检查选择、急症安全和未知事实处理。",
+    "隐藏真相安全通过：教学字段和内部事实未纳入患者可见内容；安全轨迹要求中断且禁止服务端调用和原始文本写入，未发现泄露隐藏答案的回归路径。",
+    "临床叙事与检查结果一致：多次诊室血压升高，动态血压平均值及日间值仍升高，支持原发性高血压；基础肾脏、尿液及电解质评估未提示明确继发病因。",
+    "诊断可解性良好；原发性高血压为合理目标诊断，白大衣高血压和继发性高血压作为两个鉴别诊断，粒度适当。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，均有对应患者事实，且与病例稳定状态一致。",
+    "rubric存在轨迹与事实映射不一致：成功轨迹第二次提问已包含“晕厥”，但expectedFactIds未包含fact.syncope；第三次又重复询问晕厥，导致must-ask事实的首次披露和重复计分边界不清。",
+    "四类回归轨迹中，成功轨迹的提问覆盖虽基本完整，但对fact.syncope存在漏标与重复提问；应明确将其归入第二步或第三步，并同步修订expectedFactIds及效率/重复计分预期。失败轨迹的头颅CT及错误诊断、未知事实轨迹基本一致；安全轨迹的中断预期也与其显式急症输入一致。",
+    "未发现将hidden teaching字段、答案键或内部病例标识泄露到患者可见内容或回归输入中的问题；人工review状态为pending不构成阻塞。"
+  ]
+}

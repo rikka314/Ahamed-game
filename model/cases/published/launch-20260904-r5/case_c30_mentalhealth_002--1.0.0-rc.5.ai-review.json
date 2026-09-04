@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:375f11756310dcf7106b4fafd67ab90d2f70751e0110531bc15ffd1302898bde",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ea25e873-e0fd-4c78-b70c-038e4eb259e3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:57:35.967Z",
+      "runStatus": "failed_to_run",
+      "decision": "not_run",
+      "findings": [
+        "OpenAI request failed."
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.43c25a74-2f86-4992-babe-dbecd6ac1657",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:58:18.588Z",
+      "runStatus": "failed_to_run",
+      "decision": "not_run",
+      "findings": [
+        "OpenAI request failed."
+      ]
+    }
+  ],
+  "findings": [
+    "OpenAI request failed.",
+    "OpenAI request failed."
+  ]
+}

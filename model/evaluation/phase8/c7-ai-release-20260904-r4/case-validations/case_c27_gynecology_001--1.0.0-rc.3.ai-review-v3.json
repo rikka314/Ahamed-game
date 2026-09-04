@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:c63a28bf6d6a836d089ded65d322c4129c440ea42edcba4b79f6f0b9c172dcde",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4c5b68a3-59cf-42d9-9c5a-45fced74b5cb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:11:53.576Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例与18–25岁女性的原发性痛经表型一致：经期起始痉挛痛、通常两天内缓解、周期规律、无异常大量出血或晕厥，且妇科评估未见器质性异常或妊娠证据；将子宫内膜异位症和盆腔炎列为鉴别诊断也合理。",
+        "现有病史、稳定生命体征和妇科评估足以支持原发性痛经的可解性；盆腔CT被明确标记为初始不必要检查，符合病例边界。",
+        "九项妇科相关危险征象均设为无，生命体征稳定且未达到急症阈值；回归轨迹包含安全中断场景，具备安全退出路径。",
+        "必问事实、必需检查、不必要检查、鉴别诊断数量、回合限制及沟通标准之间相互一致；成功轨迹覆盖全部核心要求。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史等关键路径，评分摘要与轨迹预期相符。",
+        "教学字段保持hidden，目标诊断及评分内部信息未置于playerVisible内容；pending状态、draft状态和人工审核元数据不构成事实安全阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.9af94eee-6a9f-4309-8c5e-a20b83e5ea06",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:12:08.758Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状模式支持原发性痛经，但“妇科评估”报告称可排除妊娠证据；单纯基础妇科评估通常不能替代妊娠检测，检查表述存在过度推断。",
+        "诊断可解性：起病、经期相关痉挛痛、持续时间、周期规律、无异常大量出血及功能影响等信息足以支持原发性痛经；内异症和盆腔炎作为鉴别也具备明确概念。",
+        "红旗排除：红旗矩阵的适用项、requiredState、证据事实和观察值均一致，病例明确设定相关危险表现为缺失。",
+        "rubric一致性：rubric将盆腔评估列为required，但病例中该检查报告同时承担了“无妊娠证据”的结论，造成检查能力与评分要求不完全匹配；建议明确妊娠检测是否必需，或修改报告措辞。",
+        "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，成功/失败诊断、非必要CT、安全中断和未知既往史路径与病例资产基本一致。",
+        "隐藏真值安全：hidden teaching note、评分字段和回归期望未进入患者可见叙事；未发现将目标诊断直接泄露给玩家的问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例与18–25岁女性的原发性痛经表型一致：经期起始痉挛痛、通常两天内缓解、周期规律、无异常大量出血或晕厥，且妇科评估未见器质性异常或妊娠证据；将子宫内膜异位症和盆腔炎列为鉴别诊断也合理。",
+    "现有病史、稳定生命体征和妇科评估足以支持原发性痛经的可解性；盆腔CT被明确标记为初始不必要检查，符合病例边界。",
+    "九项妇科相关危险征象均设为无，生命体征稳定且未达到急症阈值；回归轨迹包含安全中断场景，具备安全退出路径。",
+    "必问事实、必需检查、不必要检查、鉴别诊断数量、回合限制及沟通标准之间相互一致；成功轨迹覆盖全部核心要求。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史等关键路径，评分摘要与轨迹预期相符。",
+    "教学字段保持hidden，目标诊断及评分内部信息未置于playerVisible内容；pending状态、draft状态和人工审核元数据不构成事实安全阻塞。",
+    "临床一致性：症状模式支持原发性痛经，但“妇科评估”报告称可排除妊娠证据；单纯基础妇科评估通常不能替代妊娠检测，检查表述存在过度推断。",
+    "诊断可解性：起病、经期相关痉挛痛、持续时间、周期规律、无异常大量出血及功能影响等信息足以支持原发性痛经；内异症和盆腔炎作为鉴别也具备明确概念。",
+    "红旗排除：红旗矩阵的适用项、requiredState、证据事实和观察值均一致，病例明确设定相关危险表现为缺失。",
+    "rubric一致性：rubric将盆腔评估列为required，但病例中该检查报告同时承担了“无妊娠证据”的结论，造成检查能力与评分要求不完全匹配；建议明确妊娠检测是否必需，或修改报告措辞。",
+    "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，成功/失败诊断、非必要CT、安全中断和未知既往史路径与病例资产基本一致。",
+    "隐藏真值安全：hidden teaching note、评分字段和回归期望未进入患者可见叙事；未发现将目标诊断直接泄露给玩家的问题。"
+  ]
+}

@@ -1,0 +1,787 @@
+{
+  "schemaVersion": "c7-dialogue-architecture-report-v2",
+  "generatedAt": "2026-09-04T08:00:05.226Z",
+  "releasePolicyVersion": "model-release-policy-v1",
+  "reviewPolicy": "non_blocking",
+  "status": "reported",
+  "coverage": {
+    "caseCount": 30,
+    "personaCount": 6,
+    "personaCounts": [
+      {
+        "personaTemplateId": "gentle_cooperative",
+        "count": 5
+      },
+      {
+        "personaTemplateId": "anxious_reassurance_seeking",
+        "count": 5
+      },
+      {
+        "personaTemplateId": "impatient_direct",
+        "count": 5
+      },
+      {
+        "personaTemplateId": "talkative_digressive",
+        "count": 5
+      },
+      {
+        "personaTemplateId": "accommodating_minimizing",
+        "count": 5
+      },
+      {
+        "personaTemplateId": "guarded_questioning",
+        "count": 5
+      }
+    ],
+    "minimumTurnsPerRun": 11,
+    "observedTestStates": [
+      "completed",
+      "not_completed",
+      "pending_confirmation"
+    ]
+  },
+  "metrics": {
+    "patientGeneratedReplyRate": 1,
+    "controllerProviderCalls": 0,
+    "localFakeReplies": 0,
+    "diagnosisLeaks": 0,
+    "uncompletedTestResultLeaks": 0,
+    "personaConsistencyRate": 0,
+    "contextFollowupAccuracy": 0.9666666666666667,
+    "naturalLanguageTestActionAccuracy": 1,
+    "seriousFactErrors": 0
+  },
+  "auditDecision": "not_run",
+  "findings": [
+    {
+      "code": "MINIMUM_TURNS_PER_RUN_NOT_MET",
+      "message": "minimum committed turns per case is below release policy",
+      "expected": 12,
+      "actual": 11
+    },
+    {
+      "code": "PERSONA_CONSISTENCY_BELOW_TARGET",
+      "message": "persona consistency is below release policy"
+    },
+    {
+      "code": "INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "DIALOGUE_RUN_FAILED",
+      "message": "one or more dialogue runs did not complete"
+    }
+  ],
+  "runs": [
+    {
+      "publicCaseId": "case_c01_respiratory_001",
+      "caseVersion": "1.1.0-rc.8",
+      "contentHash": "sha256:a85b3f3c0095da762461065f8b8fe6ef00be3decb33c11335778ef7f3c754c0c",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c02_respiratory_002",
+      "caseVersion": "1.1.0-rc.8",
+      "contentHash": "sha256:f81c1e86e57a918da13b8b9638cd1e593231da4a9fd50a0ba866c7e3b2cddcfd",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "failed",
+      "committedTurns": 11,
+      "patientGeneratedReplies": 11,
+      "patientProviderCalls": 14,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 3,
+      "testActionsCorrect": 3,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "failureCode": "MODEL_OUTPUT_REJECTED"
+    },
+    {
+      "publicCaseId": "case_c03_respiratory_003",
+      "caseVersion": "1.1.0-rc.8",
+      "contentHash": "sha256:9fe343dee2f2d0f9dfc15a280951adcceade013e431103f8ceaefb408180ec6c",
+      "personaTemplateId": "impatient_direct",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c04_respiratory_004",
+      "caseVersion": "1.1.0-rc.8",
+      "contentHash": "sha256:ed133dfd0ba511320003c9a09258e2d8fd180ddd66b0c677ff7270a312ba716c",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c05_respiratory_005",
+      "caseVersion": "1.1.0-rc.8",
+      "contentHash": "sha256:97c72502e67cf762009f1274364ad9ad369b0a8ee408d95b2f8b06cb38d5b61f",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c06_respiratory_006",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:920520da458858501e1f9b7b115af019d02b7752f598fe7ac11dc50e731137de",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c07_respiratory_007",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:dda3c8b080c3eee44f009ec02eb689de2e60703656e99e4a164324112e5e75bf",
+      "personaTemplateId": "guarded_questioning",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c08_cardiometabolic_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:4f594cc5a4145838b0f1ae5933a2941c98692968e807615beae2617a243168c1",
+      "personaTemplateId": "guarded_questioning",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c09_cardiometabolic_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:67ad6e742c872f204fa66b61b1292dfb4f299d208a871c9d8f8eb42594a1adce",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c10_cardiometabolic_003",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:796bfed87ed45901f092f9fa06db470ff6892331f38baeeab9820dd5369ceb4a",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c11_cardiometabolic_004",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:dbe25c98cc6c32133fe41a25e318ab145b218f3c0404f91118036973e373cfad",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c12_cardiometabolic_005",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:78171ef4303098639e5011768e176d9c25b38b974e1a2713dd72a2509e82a4f6",
+      "personaTemplateId": "impatient_direct",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c13_digestive_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:659905de9c508346653bbf63aa452e78a494407921102e6d5577b5b16fa0fdcd",
+      "personaTemplateId": "impatient_direct",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c14_digestive_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:cd6d3080175096c7aaaf74731f3f2c084dd43f72930856614749b7557dc66eef",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c15_digestive_003",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:7f24aeb412d3a2cbc6025739993a7b60a50b713b1fc5eb63e84a5fcba908251b",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c16_digestive_004",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:b8cad9749f214ff9283416d3f1dc0e74ace889655147d422352232d0ed0064c9",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c17_urinary_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:3ee67dc8329e29f32a2edbcc10acdd4715f1462610e3b9e39dbb4f98c326b0cc",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c18_urinary_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:62d0d71e009af6ec8aa53076c921af8273c591aee82720b7b1ff9f3d50c1855e",
+      "personaTemplateId": "guarded_questioning",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c19_urinary_003",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:8e603ee4b7d0334a70ed0fd64f8ff29b2824b51c2eb7907d270e944b404dfc6b",
+      "personaTemplateId": "impatient_direct",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 1,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c20_musculoskeletal_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:072194a6d13c40ee337ed6eaba33a90efb4e697414a6aa61cb6152a03f88f847",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c21_musculoskeletal_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:50afa9c8896fcea2a84580ed53b13b0daf15864cf2ac642ba33fbc4b04fabac4",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c22_musculoskeletal_003",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:12758169914d4d88d3c9d56d7067c606c4255fe4dd219c4441661e0102ad37f8",
+      "personaTemplateId": "guarded_questioning",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 1,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c23_dermatology_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:d268f64eb07a0d95c43f222ffcf1ae2e4e1e9ed0180de45802d41892cf5fa603",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c24_dermatology_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:15c473c46bbdaa369b39364e373b5ade06e5cbdf0a8ee2e12c0e42e9589cb8e4",
+      "personaTemplateId": "impatient_direct",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c25_pediatrics_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:efc06a2e7237aef94610a6a35278634633cdc8a3477beaf80643d54dcdb98642",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c26_pediatrics_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:2db47360675a0273b2b4911934fe1aea18c8cb4703aaab137f260218f0e5a943",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c27_gynecology_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:051c287f9942138935ae6621d00f48ed4e75e79f5b6dde7dc06babb3f4f5abb3",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c28_gynecology_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:1bda54eb06a6c1a0f4a58d59c4c2406963585afc2d328d5782abc5e152b85910",
+      "personaTemplateId": "guarded_questioning",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c29_mentalhealth_001",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:c9ccdcb30ffb50f40f2ac8511791a26993a0c31b088257f51d27d96e1d7c2c20",
+      "personaTemplateId": "talkative_digressive",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    },
+    {
+      "publicCaseId": "case_c30_mentalhealth_002",
+      "caseVersion": "1.0.0-rc.9",
+      "contentHash": "sha256:c033847ff2cb3e2802efbc111a966c6f01f87ae68f0d64d6cd2154734fc24b26",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "completed",
+      "committedTurns": 12,
+      "patientGeneratedReplies": 12,
+      "patientProviderCalls": 12,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "contextFollowupsEvaluated": 2,
+      "contextFollowupsCorrect": 2,
+      "testActionsEvaluated": 4,
+      "testActionsCorrect": 4,
+      "observedTestStates": [
+        "not_completed",
+        "pending_confirmation",
+        "completed"
+      ],
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0
+    }
+  ],
+  "evidenceStatus": "live_provider_evidence",
+  "runSetSha256": "16d9b367e26d19daa7400ff5725a06c1d16f2fc5586b1b201ef89d51c2922576",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol",
+    "promptVersion": "v0.5.0+set.0aac708b202d7b18"
+  },
+  "bindings": {
+    "aiEvidenceIndexSha256": "6d758809e9fc1d98c990d88b9de6f1631bc784f3008a24db4a095cec8adef3e6",
+    "caseManifestSha256": "cc30922dd330d1fbb3535725703d18d487abd6908b9522c8a524b962a01897b2",
+    "caseValidationSetSha256": "7a1459bf96b7de6c9968a91c8871e3ab36e20987a4e606bba890b2bfa35b2b41",
+    "patientPromptSha256": "a5ebfe47ed2f5a2656f033ee85b66c77634a6ede7c01cf24660504e6c44f9233",
+    "shareContractSha256": "6a05303bbb79101d382ac821bc2ffe2f19d4772bd755b224b660a6cfa9346299",
+    "dialogueAuditSha256": "41e8a4ff20f32828b443f82357aa61e4695f7c0cda2f5f2d99bd1dd620a9192d"
+  },
+  "upstreamReviewPolicy": "non_blocking",
+  "upstreamReviewFindings": []
+}

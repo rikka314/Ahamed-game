@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:482a65765001028435025b3fe4c6d46e6aa8b39a7c61c7b3c3c2644f13921ace",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.73a25242-8577-4630-84a2-72be7d31565e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:18:30.231Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实、生命体征、超声结果与稳定性及非急症定位一致，支持单纯输尿管结石。",
+        "症状模式、检查结果和答案键足以稳定求解目标诊断，并提供了合理鉴别诊断。",
+        "意识改变、循环不稳定、无法口服、特殊高风险人群、感染性梗阻、无尿、肉眼血尿及孤立肾等危险征象均有明确排除；生命体征通过检查读取且结果稳定。",
+        "必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制彼此一致，未见评分规则冲突。",
+        "回归轨迹覆盖成功、失败、不相关急症安全中断和未知事实分支，预期结果与病例规则相符。",
+        "隐藏教学字段未暴露于玩家可见内容；pending审核元数据、草稿状态及人工reviewer信息不影响事实安全判断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a9fbf52f-ae5b-4d85-a05c-9230e6b65172",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:18:45.891Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "主诉、典型放射性绞痛、生命体征稳定及超声所见共同支持单纯输尿管结石，未见与目标诊断冲突的病例事实。",
+        "目标诊断粒度明确，超声结果可直接支持诊断；急性肾盂肾炎和急性阑尾炎作为鉴别诊断数量及概念ID均与rubric一致。",
+        "九项红旗均有对应患者事实，且均记录为absent；红旗矩阵的证据ID、状态和病例事实一致。",
+        "must-ask事实、必需及不必要检查、鉴别诊断数量和推荐回合数彼此一致；增强CT被明确标记为初始不必要检查。",
+        "success、failure、safety和unknown四条回归轨迹均有明确预期，所引用的事实、检查、诊断及安全中断结果可在病例资产中追溯。",
+        "轨迹未请求或暴露hidden教学字段，未知既往发作史仍按unknown事实处理；pending审核元数据不影响本次独立判定。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实、生命体征、超声结果与稳定性及非急症定位一致，支持单纯输尿管结石。",
+    "症状模式、检查结果和答案键足以稳定求解目标诊断，并提供了合理鉴别诊断。",
+    "意识改变、循环不稳定、无法口服、特殊高风险人群、感染性梗阻、无尿、肉眼血尿及孤立肾等危险征象均有明确排除；生命体征通过检查读取且结果稳定。",
+    "必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制彼此一致，未见评分规则冲突。",
+    "回归轨迹覆盖成功、失败、不相关急症安全中断和未知事实分支，预期结果与病例规则相符。",
+    "隐藏教学字段未暴露于玩家可见内容；pending审核元数据、草稿状态及人工reviewer信息不影响事实安全判断。",
+    "主诉、典型放射性绞痛、生命体征稳定及超声所见共同支持单纯输尿管结石，未见与目标诊断冲突的病例事实。",
+    "目标诊断粒度明确，超声结果可直接支持诊断；急性肾盂肾炎和急性阑尾炎作为鉴别诊断数量及概念ID均与rubric一致。",
+    "九项红旗均有对应患者事实，且均记录为absent；红旗矩阵的证据ID、状态和病例事实一致。",
+    "must-ask事实、必需及不必要检查、鉴别诊断数量和推荐回合数彼此一致；增强CT被明确标记为初始不必要检查。",
+    "success、failure、safety和unknown四条回归轨迹均有明确预期，所引用的事实、检查、诊断及安全中断结果可在病例资产中追溯。",
+    "轨迹未请求或暴露hidden教学字段，未知既往发作史仍按unknown事实处理；pending审核元数据不影响本次独立判定。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8038336c4ae7ffbed27c87c888f6916b9672e48baecba5bd53518713ff3aa999",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a4a4198d-e28f-4be9-bcc1-129d7dc02c9e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:07:10.226Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显错配：test.chest_ct标注为“胸部CT”，但报告内容却称“膝关节MRI不是本例初始必需检查”，与检查名称及检查部位不一致，应修正检查名称或报告。",
+        "症状模式为慢性负重痛、短暂晨僵、无发热及明显红肿，且膝关节X线提示轻度关节间隙变窄和骨赘，支持膝骨关节炎；目标诊断、可接受鉴别诊断和必需检查均足以完成诊断。",
+        "红旗事实均明确标记为absent，生命体征稳定且无急症阈值表现；安全轨迹对胸痛伴呼吸困难能够中断并禁止医疗回合，安全退出设置充分。",
+        "rubric中的必问事实、鉴别诊断数量和检查分类与成功回归轨迹及评分摘要一致；胸部CT作为unnecessary检查的分类也与病例目标一致。",
+        "回归轨迹覆盖成功、错误诊断与无关检查、安全中断及unknown事实询问，覆盖主要评分和安全路径。",
+        "教学字段和隐藏事实未暴露给患者；安全轨迹要求零provider调用、零原文写入和零医疗回合，隐藏真相保护通过。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2f73d9f2-fb15-45a2-a8fd-71b504225829",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:07:26.893Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名、别名指向胸部CT，但报告内容却为“膝关节MRI不是本例初始必需检查”，检查对象与报告不一致，易造成错误检查解读。",
+        "诊断可解性通过：渐进性膝痛、活动及上下楼加重、短暂晨僵、无明显红肿发热，以及X线轻度间隙变窄和骨赘，能够支持“膝骨关节炎”；目标诊断粒度与接受同义词明确。",
+        "红旗排除通过：红旗矩阵中的requiredState、observedValue与对应patientFacts均一致，未发现将已存在红旗误标为absent的矛盾。",
+        "rubric一致性失败：rubric将test.chest_ct定义为不必要检查，但该检查的报告没有明确说明胸部CT结果或其与病例无关，仅以膝MRI为比较对象，无法稳定支持该测试分类和评分解释。",
+        "回归覆盖失败：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏同一问题明确触发的fact.relevant_exposure，导致问句与期望事实集合不一致；此外失败轨迹依赖test.chest_ct，其错配报告会污染测试选择回归。",
+        "隐藏真相安全性通过：safety轨迹预期中断、零provider调用、零原始文本写入及零医疗回合，未见与病例隐藏事实或普通问诊轨迹混淆的要求。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显错配：test.chest_ct标注为“胸部CT”，但报告内容却称“膝关节MRI不是本例初始必需检查”，与检查名称及检查部位不一致，应修正检查名称或报告。",
+    "症状模式为慢性负重痛、短暂晨僵、无发热及明显红肿，且膝关节X线提示轻度关节间隙变窄和骨赘，支持膝骨关节炎；目标诊断、可接受鉴别诊断和必需检查均足以完成诊断。",
+    "红旗事实均明确标记为absent，生命体征稳定且无急症阈值表现；安全轨迹对胸痛伴呼吸困难能够中断并禁止医疗回合，安全退出设置充分。",
+    "rubric中的必问事实、鉴别诊断数量和检查分类与成功回归轨迹及评分摘要一致；胸部CT作为unnecessary检查的分类也与病例目标一致。",
+    "回归轨迹覆盖成功、错误诊断与无关检查、安全中断及unknown事实询问，覆盖主要评分和安全路径。",
+    "教学字段和隐藏事实未暴露给患者；安全轨迹要求零provider调用、零原文写入和零医疗回合，隐藏真相保护通过。",
+    "临床一致性失败：test.chest_ct 的显示名、别名指向胸部CT，但报告内容却为“膝关节MRI不是本例初始必需检查”，检查对象与报告不一致，易造成错误检查解读。",
+    "诊断可解性通过：渐进性膝痛、活动及上下楼加重、短暂晨僵、无明显红肿发热，以及X线轻度间隙变窄和骨赘，能够支持“膝骨关节炎”；目标诊断粒度与接受同义词明确。",
+    "红旗排除通过：红旗矩阵中的requiredState、observedValue与对应patientFacts均一致，未发现将已存在红旗误标为absent的矛盾。",
+    "rubric一致性失败：rubric将test.chest_ct定义为不必要检查，但该检查的报告没有明确说明胸部CT结果或其与病例无关，仅以膝MRI为比较对象，无法稳定支持该测试分类和评分解释。",
+    "回归覆盖失败：unknown轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但expectedFactIds仅包含fact.prior_episode，遗漏同一问题明确触发的fact.relevant_exposure，导致问句与期望事实集合不一致；此外失败轨迹依赖test.chest_ct，其错配报告会污染测试选择回归。",
+    "隐藏真相安全性通过：safety轨迹预期中断、零provider调用、零原始文本写入及零医疗回合，未见与病例隐藏事实或普通问诊轨迹混淆的要求。"
+  ]
+}

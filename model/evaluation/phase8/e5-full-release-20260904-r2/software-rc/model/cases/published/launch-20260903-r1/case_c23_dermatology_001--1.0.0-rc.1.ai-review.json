@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8a89db471b5c74b8ad44b10f3c5de18773ea432d00d4dfcd3712ec6a7536b028",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.60854df5-92f2-4039-b799-6e1b502cc372",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:07:49.657Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持局限于新腕带接触区域的接触性皮炎，生命体征稳定，病例可用于非急症场景。",
+        "主要一致性问题是 test.chest_ct 的检查报告写成“皮肤活检不是本例初始必需检查”，与胸部CT检查名称和内容不匹配，可能造成测试结果误读；此外“相关接触暴露未知”与已记录的更换新腕带后起病存在轻度表述张力，建议统一。",
+        "起病时间、接触部位分布、瘙痒红疹及局限性皮肤检查结果足以支持过敏性接触性皮炎，并允许刺激性接触性皮炎和体癣作为鉴别诊断。",
+        "红旗矩阵覆盖意识改变、低血压、口服摄入障碍、高风险人群、黏膜受累、水疱、全身毒性、快速进展及免疫抑制，均记录为不存在；生命体征亦稳定，急症排除基本充分。",
+        "量表中的必问事实、鉴别诊断数量、必需及不必要检查分类与成功轨迹一致。",
+        "回归轨迹覆盖成功、错误诊断、不安全急症插入和未知既往史路径；安全轨迹明确中断且无医疗调用、文本写入或医疗回合。未见教学字段或答案关键向玩家泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.08c9a5e6-a3c4-4837-96b2-0bde9f4df872",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:08:11.809Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "主要诊断与局限于新腕带接触区域的瘙痒性红疹相符，病例总体可解；但 test.chest_ct 的检查报告写成“皮肤活检不是本例初始必需检查”，与胸部CT检查名称及其应有结果不一致，属于检查资产内容错误。",
+        "目标诊断“过敏性接触性皮炎”粒度适当，且与“接触性湿疹”同义词及两个可接受鉴别诊断配置相容；现有病史和皮肤检查足以支持作答。",
+        "红旗排除矩阵列出的九项均有对应事实且状态为 absent，未见病例内红旗阳性或与门诊严重程度冲突。",
+        "rubric 的 mustAskFactIds 只覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，未覆盖矩阵中的 mucosal_involvement、skin_blistering、systemic_toxicity、rapidly_spreading_rash、immunosuppression；与“需要排除危险表现”的成功轨迹表述及完整红旗矩阵不一致。",
+        "成功轨迹的 expectedFactIds 同样遗漏上述五项红旗事实，导致成功路径不能覆盖病例声明的全部红旗排除要求。",
+        "unknown 回合的问题同时询问既往相同发作和不确定相关接触，但 expectedFactIds 仅包含 fact.prior_episode；若系统按问题命中事实，应同时覆盖 fact.relevant_exposure，或将问题拆分/明确只询问既往发作。该回归轨迹存在事实覆盖不一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持局限于新腕带接触区域的接触性皮炎，生命体征稳定，病例可用于非急症场景。",
+    "主要一致性问题是 test.chest_ct 的检查报告写成“皮肤活检不是本例初始必需检查”，与胸部CT检查名称和内容不匹配，可能造成测试结果误读；此外“相关接触暴露未知”与已记录的更换新腕带后起病存在轻度表述张力，建议统一。",
+    "起病时间、接触部位分布、瘙痒红疹及局限性皮肤检查结果足以支持过敏性接触性皮炎，并允许刺激性接触性皮炎和体癣作为鉴别诊断。",
+    "红旗矩阵覆盖意识改变、低血压、口服摄入障碍、高风险人群、黏膜受累、水疱、全身毒性、快速进展及免疫抑制，均记录为不存在；生命体征亦稳定，急症排除基本充分。",
+    "量表中的必问事实、鉴别诊断数量、必需及不必要检查分类与成功轨迹一致。",
+    "回归轨迹覆盖成功、错误诊断、不安全急症插入和未知既往史路径；安全轨迹明确中断且无医疗调用、文本写入或医疗回合。未见教学字段或答案关键向玩家泄露。",
+    "主要诊断与局限于新腕带接触区域的瘙痒性红疹相符，病例总体可解；但 test.chest_ct 的检查报告写成“皮肤活检不是本例初始必需检查”，与胸部CT检查名称及其应有结果不一致，属于检查资产内容错误。",
+    "目标诊断“过敏性接触性皮炎”粒度适当，且与“接触性湿疹”同义词及两个可接受鉴别诊断配置相容；现有病史和皮肤检查足以支持作答。",
+    "红旗排除矩阵列出的九项均有对应事实且状态为 absent，未见病例内红旗阳性或与门诊严重程度冲突。",
+    "rubric 的 mustAskFactIds 只覆盖 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，未覆盖矩阵中的 mucosal_involvement、skin_blistering、systemic_toxicity、rapidly_spreading_rash、immunosuppression；与“需要排除危险表现”的成功轨迹表述及完整红旗矩阵不一致。",
+    "成功轨迹的 expectedFactIds 同样遗漏上述五项红旗事实，导致成功路径不能覆盖病例声明的全部红旗排除要求。",
+    "unknown 回合的问题同时询问既往相同发作和不确定相关接触，但 expectedFactIds 仅包含 fact.prior_episode；若系统按问题命中事实，应同时覆盖 fact.relevant_exposure，或将问题拆分/明确只询问既往发作。该回归轨迹存在事实覆盖不一致。"
+  ]
+}

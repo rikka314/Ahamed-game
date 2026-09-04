@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.2",
+  "contentHash": "sha256:774a9f76c37e0ca67a4e269f8d52d469bc31823d3c7956ae86e7e4c521957c46",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b7c28e9c-80fe-4c5b-a09e-afa11d001786",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:54:12.989Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成年男性，咳嗽8天、低热缺如、生命体征稳定，胸部查体无局灶性湿啰音，影像无实变，整体与急性支气管炎及所列鉴别诊断一致。",
+        "起病、咳嗽特征、痰液、发热、喘鸣、呼吸困难、胸痛、咯血、意识、循环、呼吸频率、低氧、进食能力及高风险人群等关键事实均可通过追问或检查获得，足以支持诊断。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；生命体征为体温37.4℃、呼吸频率18次/分、血压120/74mmHg、室内空气血氧98%，未见急症红旗。",
+        "评分量表的必问事实、必需检查、可选鉴别诊断数量及推荐回合限制彼此一致；胸部CT和痰培养被正确标为不必要，胸片被标为有用。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知信息追问四类情形；安全轨迹明确要求无医疗回合、无服务端调用和无原始文本写入。",
+        "教学字段及服务端评分字段标记为hidden，未进入玩家可见内容；未发现通过回归轨迹或病例叙事泄露隐藏真相的路径。建议发布前继续保持CT/痰培养仅作为已定义报告或失败轨迹测试，避免在正常首发策略中暗示其常规必要性。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f59f472a-89e7-4b64-8bac-0c216c313643",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:54:44.620Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状、查体及影像结果与急性支气管炎相符：咳嗽持续8天、散在鼾音咳嗽后减轻，且无局灶性肺炎证据；黄色痰不构成矛盾。",
+        "目标诊断粒度适当，正常生命体征和胸片/CT阴性结果支持排除明显肺炎；轻症社区获得性肺炎及咳嗽变异性哮喘作为鉴别诊断具有合理性。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有对应事实或生命体征证据，红旗排除链条完整。",
+        "must-ask事实、要求的2个鉴别诊断及检查分类与答案键一致；生命体征和胸部查体为必需，胸片有用，CT和痰培养列为不必要，内部无冲突。",
+        "success、failure、safety、unknown四类轨迹均存在且与评分预期一致；成功路径覆盖全部必问事实和目标诊断，失败路径包含不必要CT，安全路径正确要求中断且不产生医疗输出，unknown路径覆盖喘鸣事实。",
+        "未发现将test_only或hidden事实泄露给患者的配置。需注意回归轨迹未单独演示有用胸片及不必要痰培养分支，但不影响现有四类轨迹的内部一致性。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁成年男性，咳嗽8天、低热缺如、生命体征稳定，胸部查体无局灶性湿啰音，影像无实变，整体与急性支气管炎及所列鉴别诊断一致。",
+    "起病、咳嗽特征、痰液、发热、喘鸣、呼吸困难、胸痛、咯血、意识、循环、呼吸频率、低氧、进食能力及高风险人群等关键事实均可通过追问或检查获得，足以支持诊断。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；生命体征为体温37.4℃、呼吸频率18次/分、血压120/74mmHg、室内空气血氧98%，未见急症红旗。",
+    "评分量表的必问事实、必需检查、可选鉴别诊断数量及推荐回合限制彼此一致；胸部CT和痰培养被正确标为不必要，胸片被标为有用。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知信息追问四类情形；安全轨迹明确要求无医疗回合、无服务端调用和无原始文本写入。",
+    "教学字段及服务端评分字段标记为hidden，未进入玩家可见内容；未发现通过回归轨迹或病例叙事泄露隐藏真相的路径。建议发布前继续保持CT/痰培养仅作为已定义报告或失败轨迹测试，避免在正常首发策略中暗示其常规必要性。",
+    "病例症状、查体及影像结果与急性支气管炎相符：咳嗽持续8天、散在鼾音咳嗽后减轻，且无局灶性肺炎证据；黄色痰不构成矛盾。",
+    "目标诊断粒度适当，正常生命体征和胸片/CT阴性结果支持排除明显肺炎；轻症社区获得性肺炎及咳嗽变异性哮喘作为鉴别诊断具有合理性。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有对应事实或生命体征证据，红旗排除链条完整。",
+    "must-ask事实、要求的2个鉴别诊断及检查分类与答案键一致；生命体征和胸部查体为必需，胸片有用，CT和痰培养列为不必要，内部无冲突。",
+    "success、failure、safety、unknown四类轨迹均存在且与评分预期一致；成功路径覆盖全部必问事实和目标诊断，失败路径包含不必要CT，安全路径正确要求中断且不产生医疗输出，unknown路径覆盖喘鸣事实。",
+    "未发现将test_only或hidden事实泄露给患者的配置。需注意回归轨迹未单独演示有用胸片及不必要痰培养分支，但不影响现有四类轨迹的内部一致性。"
+  ]
+}

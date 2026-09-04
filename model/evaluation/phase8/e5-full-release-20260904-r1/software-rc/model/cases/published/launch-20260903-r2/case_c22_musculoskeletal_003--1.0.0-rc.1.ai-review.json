@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:b6d4b981f2ba8818799b0a4f19caade8bb25ee893ca4b829809d283daed4f537",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a1396379-fd02-4f46-9026-d678998480d4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:07:49.656Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：胸部CT的检查报告却描述“足部MRI不是本例初始必需检查”，检查名称、报告内容和病例部位不一致，易造成测试结果语义混乱。",
+        "诊断可解性通过：突发第一跖趾关节红肿剧痛、无全身感染表现，且关节评估支持晶体性关节炎；目标诊断及两个可接受鉴别诊断明确。",
+        "危险征象排除不通过：红旗矩阵将9项均标记为适用，但mustAsk和成功轨迹只要求询问其中4项，未覆盖主要创伤、肌肉骨骼感染、恶性肿瘤警示及进行性神经功能缺损等项目；矩阵适用性与评分/回归要求不一致，安全退出证据不足。",
+        "量表一致性通过：mustAsk、鉴别诊断数量、必需/不必要检查分类及推荐回合数与成功轨迹和评分策略相符。",
+        "回归覆盖通过：包含成功、错误检查/错误诊断、安全中断和未知信息轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原文写入。",
+        "隐藏真相保护通过：教学字段为hidden，生命体征为test_only，且回归轨迹未要求泄露隐藏字段；pending审核元数据不影响本判断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.05df412d-5b0a-4435-9e51-3ac809163ef6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:08:11.785Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "fail"
+      },
+      "findings": [
+        "临床表现与痛风性关节炎基本一致，但已完成的“胸部CT”报告内容却描述足部MRI，检查名称与报告明显错配，削弱病例内部一致性。",
+        "病例提供了典型第一跖趾关节急性炎症表现、关键伴随症状及针对性检查结果，目标诊断和两个鉴别诊断总体可解。",
+        "红旗矩阵将cauda equina、恶性肿瘤警示、进行性神经功能缺损等非本例核心红旗全部标为适用，但must-ask和成功轨迹只覆盖其中四项；矩阵、提问要求与回归路径不一致。",
+        "目标诊断、两个可接受鉴别诊断、数量要求及检查分类彼此一致；成功轨迹也按要求完成必要检查并给出正确诊断。",
+        "unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；安全轨迹和成功轨迹对红旗覆盖范围也不完整。",
+        "多个隐藏红旗事实虽标记为absent，但没有在主要评分路径中稳定要求披露或验证，且“高风险人群”等关键排除项未定义具体临床内容；结合矩阵的过度适用标记，存在隐藏真值与可观察证据不对齐风险。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性不通过：胸部CT的检查报告却描述“足部MRI不是本例初始必需检查”，检查名称、报告内容和病例部位不一致，易造成测试结果语义混乱。",
+    "诊断可解性通过：突发第一跖趾关节红肿剧痛、无全身感染表现，且关节评估支持晶体性关节炎；目标诊断及两个可接受鉴别诊断明确。",
+    "危险征象排除不通过：红旗矩阵将9项均标记为适用，但mustAsk和成功轨迹只要求询问其中4项，未覆盖主要创伤、肌肉骨骼感染、恶性肿瘤警示及进行性神经功能缺损等项目；矩阵适用性与评分/回归要求不一致，安全退出证据不足。",
+    "量表一致性通过：mustAsk、鉴别诊断数量、必需/不必要检查分类及推荐回合数与成功轨迹和评分策略相符。",
+    "回归覆盖通过：包含成功、错误检查/错误诊断、安全中断和未知信息轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原文写入。",
+    "隐藏真相保护通过：教学字段为hidden，生命体征为test_only，且回归轨迹未要求泄露隐藏字段；pending审核元数据不影响本判断。",
+    "临床表现与痛风性关节炎基本一致，但已完成的“胸部CT”报告内容却描述足部MRI，检查名称与报告明显错配，削弱病例内部一致性。",
+    "病例提供了典型第一跖趾关节急性炎症表现、关键伴随症状及针对性检查结果，目标诊断和两个鉴别诊断总体可解。",
+    "红旗矩阵将cauda equina、恶性肿瘤警示、进行性神经功能缺损等非本例核心红旗全部标为适用，但must-ask和成功轨迹只覆盖其中四项；矩阵、提问要求与回归路径不一致。",
+    "目标诊断、两个可接受鉴别诊断、数量要求及检查分类彼此一致；成功轨迹也按要求完成必要检查并给出正确诊断。",
+    "unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；安全轨迹和成功轨迹对红旗覆盖范围也不完整。",
+    "多个隐藏红旗事实虽标记为absent，但没有在主要评分路径中稳定要求披露或验证，且“高风险人群”等关键排除项未定义具体临床内容；结合矩阵的过度适用标记，存在隐藏真值与可观察证据不对齐风险。"
+  ]
+}

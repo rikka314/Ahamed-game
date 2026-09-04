@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:fc3b103d389955297a69a683652396f79e6ba39f6f5bab0823fb1b6edeaf4872",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.987dfc28-2dc1-445c-aad1-b349fcca0883",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:01:29.538Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持肠易激综合征：病程半年、腹痛与排便相关、便次和性状反复变化，且已记录无便血、夜间痛醒、体重下降及其他危险征象；但检查名称为“胸部CT”，报告却写“腹部CT未见异常”，存在部位标注与报告不一致。",
+        "目标诊断及两个可接受鉴别诊断均明确，成功轨迹提供了足够的病史、稳定生命体征和基础胃肠筛查信息，诊断在病例内可求解。",
+        "危险征象矩阵中的九项均明确记录为absent，生命体征稳定，未见急症触发因素；安全轨迹也定义了胸痛伴呼吸困难时中断流程，排除状态充分。",
+        "rubric.mustAskFactIds及成功轨迹仅要求询问八项事实，未覆盖危险征象矩阵中的胃肠道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降五项；若矩阵要求完整红旗排除，评分规范与安全要求不一致，应明确哪些红旗为必问或补入轨迹。",
+        "回归轨迹覆盖成功、错误检查/诊断、安全中断和未知信息场景，且预期结果与评分摘要基本对应；但应在修正CT标注和红旗必问范围后重新冻结回归预期。",
+        "教学注记保持hidden，未知既往发作和暴露信息按询问后披露，未见将隐藏评分字段或答案泄露给患者的风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0c6ecaaf-5a28-42a4-a4f1-4c7ae5987b83",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:01:51.021Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名和别名指向胸部CT，但报告却写成“腹部CT未见异常”，检查名称与结果不一致，需统一检查部位。",
+        "诊断可解性通过：半年病程、腹痛与排便相关、便次及性状反复变化且缺乏主要红旗表现，能够支持肠易激综合征这一目标粒度；炎症性肠病和功能性便秘作为鉴别也可识别。",
+        "红旗排除通过：矩阵列出的9项红旗均有对应 patientFact，状态一致为 absent，证据链完整。",
+        "rubric一致性通过：must-ask事实、2项可接受鉴别诊断、required/unnecessary检查分类与成功及失败轨迹的目标基本一致。",
+        "回归覆盖失败：c15.unknown 的提问同时涉及既往发作和相关接触，但 expectedFactIds 仅包含 fact.prior_episode，遗漏应由“接触”匹配的 fact.relevant_exposure，导致未知事实轨迹预期与事实匹配器不一致。",
+        "隐藏真相与安全轨迹通过：胸痛伴呼吸困难的越界提问预期为中断，且要求零 provider calls、零 raw text writes、零 medical turns，未暴露病例隐藏事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持肠易激综合征：病程半年、腹痛与排便相关、便次和性状反复变化，且已记录无便血、夜间痛醒、体重下降及其他危险征象；但检查名称为“胸部CT”，报告却写“腹部CT未见异常”，存在部位标注与报告不一致。",
+    "目标诊断及两个可接受鉴别诊断均明确，成功轨迹提供了足够的病史、稳定生命体征和基础胃肠筛查信息，诊断在病例内可求解。",
+    "危险征象矩阵中的九项均明确记录为absent，生命体征稳定，未见急症触发因素；安全轨迹也定义了胸痛伴呼吸困难时中断流程，排除状态充分。",
+    "rubric.mustAskFactIds及成功轨迹仅要求询问八项事实，未覆盖危险征象矩阵中的胃肠道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降五项；若矩阵要求完整红旗排除，评分规范与安全要求不一致，应明确哪些红旗为必问或补入轨迹。",
+    "回归轨迹覆盖成功、错误检查/诊断、安全中断和未知信息场景，且预期结果与评分摘要基本对应；但应在修正CT标注和红旗必问范围后重新冻结回归预期。",
+    "教学注记保持hidden，未知既往发作和暴露信息按询问后披露，未见将隐藏评分字段或答案泄露给患者的风险。",
+    "临床一致性失败：test.chest_ct 的显示名和别名指向胸部CT，但报告却写成“腹部CT未见异常”，检查名称与结果不一致，需统一检查部位。",
+    "诊断可解性通过：半年病程、腹痛与排便相关、便次及性状反复变化且缺乏主要红旗表现，能够支持肠易激综合征这一目标粒度；炎症性肠病和功能性便秘作为鉴别也可识别。",
+    "红旗排除通过：矩阵列出的9项红旗均有对应 patientFact，状态一致为 absent，证据链完整。",
+    "rubric一致性通过：must-ask事实、2项可接受鉴别诊断、required/unnecessary检查分类与成功及失败轨迹的目标基本一致。",
+    "回归覆盖失败：c15.unknown 的提问同时涉及既往发作和相关接触，但 expectedFactIds 仅包含 fact.prior_episode，遗漏应由“接触”匹配的 fact.relevant_exposure，导致未知事实轨迹预期与事实匹配器不一致。",
+    "隐藏真相与安全轨迹通过：胸痛伴呼吸困难的越界提问预期为中断，且要求零 provider calls、零 raw text writes、零 medical turns，未暴露病例隐藏事实。"
+  ]
+}

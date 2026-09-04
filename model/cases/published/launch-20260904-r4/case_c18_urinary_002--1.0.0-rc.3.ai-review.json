@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c18_urinary_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:6a09c31218c815a44d28802bb026461b8d7ff27e04fa93d05bd16e60b21fa655",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8f924e6a-d0a9-4180-8a0b-f8c6b9b2c25e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:06:16.997Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：56–65岁男性，渐进性夜尿、排尿等待和尿线变细，前列腺对称性增大且无明显硬结，符合良性前列腺增生；CT未见梗阻性积水，未发现明显内部矛盾。",
+        "诊断可解性：症状模式、前列腺评估和危险征象信息足以支持良性前列腺增生，并可形成前列腺癌及膀胱过度活动症鉴别。",
+        "红旗排除：生命体征稳定；意识改变、低血压、无法口服、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确为 absent 的事实记录；安全轨迹覆盖胸痛伴呼吸困难时的中断退出。",
+        "量表一致性：must-ask 事实、必需检查、非必要泌尿系CT、鉴别诊断数量及沟通标准与病例内容和评分策略相互一致。",
+        "回归覆盖：成功、失败、急性安全中断及未知既往史轨迹均存在；成功轨迹覆盖核心问诊、必需检查、目标诊断和两项鉴别诊断，失败轨迹覆盖非必要检查，未见明显缺口。",
+        "隐藏真相安全：教学字段、评分字段和内部病例元数据标记为隐藏，轨迹及可见病例内容未向患者泄露隐藏真相；pending审核元数据不影响事实判断。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.93500c15-b119-429a-bce8-fa4fb7536797",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:06:29.187Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状为渐进性夜尿、尿线变细和排尿等待，前列腺评估显示对称性增大且无明显硬结，与良性前列腺增生一致；生命体征稳定、无梗阻性积水，病例内部临床逻辑连贯。",
+        "目标诊断粒度适当，支持信息足以在门诊情境下判断良性前列腺增生；前列腺癌和膀胱过度活动症作为两个鉴别诊断，数量及概念均与rubric一致。",
+        "九项红旗均有对应patient fact、requiredState和matrix证据，且病例叙述未引入相互矛盾的急症表现；当前排除轨迹完整。",
+        "mustAsk事实、差异诊断数量、必需/不必要检查分类及推荐回合限制彼此一致；成功轨迹覆盖病史、生命体征、前列腺评估和诊断，CT被正确标为不必要。",
+        "success、failure、safety和unknown四类回归轨迹均存在，期望结果与病例状态一致；安全中断轨迹明确要求无provider调用、无文本写入和无医疗回合。",
+        "玩家可见内容未泄露answerKey或隐藏教学字段；隐藏事实仅在相应提问或检查时披露，回归资产未发现将内部真值错误暴露给患者的路径。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：56–65岁男性，渐进性夜尿、排尿等待和尿线变细，前列腺对称性增大且无明显硬结，符合良性前列腺增生；CT未见梗阻性积水，未发现明显内部矛盾。",
+    "诊断可解性：症状模式、前列腺评估和危险征象信息足以支持良性前列腺增生，并可形成前列腺癌及膀胱过度活动症鉴别。",
+    "红旗排除：生命体征稳定；意识改变、低血压、无法口服、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确为 absent 的事实记录；安全轨迹覆盖胸痛伴呼吸困难时的中断退出。",
+    "量表一致性：must-ask 事实、必需检查、非必要泌尿系CT、鉴别诊断数量及沟通标准与病例内容和评分策略相互一致。",
+    "回归覆盖：成功、失败、急性安全中断及未知既往史轨迹均存在；成功轨迹覆盖核心问诊、必需检查、目标诊断和两项鉴别诊断，失败轨迹覆盖非必要检查，未见明显缺口。",
+    "隐藏真相安全：教学字段、评分字段和内部病例元数据标记为隐藏，轨迹及可见病例内容未向患者泄露隐藏真相；pending审核元数据不影响事实判断。",
+    "症状为渐进性夜尿、尿线变细和排尿等待，前列腺评估显示对称性增大且无明显硬结，与良性前列腺增生一致；生命体征稳定、无梗阻性积水，病例内部临床逻辑连贯。",
+    "目标诊断粒度适当，支持信息足以在门诊情境下判断良性前列腺增生；前列腺癌和膀胱过度活动症作为两个鉴别诊断，数量及概念均与rubric一致。",
+    "九项红旗均有对应patient fact、requiredState和matrix证据，且病例叙述未引入相互矛盾的急症表现；当前排除轨迹完整。",
+    "mustAsk事实、差异诊断数量、必需/不必要检查分类及推荐回合限制彼此一致；成功轨迹覆盖病史、生命体征、前列腺评估和诊断，CT被正确标为不必要。",
+    "success、failure、safety和unknown四类回归轨迹均存在，期望结果与病例状态一致；安全中断轨迹明确要求无provider调用、无文本写入和无医疗回合。",
+    "玩家可见内容未泄露answerKey或隐藏教学字段；隐藏事实仅在相应提问或检查时披露，回归资产未发现将内部真值错误暴露给患者的路径。"
+  ]
+}

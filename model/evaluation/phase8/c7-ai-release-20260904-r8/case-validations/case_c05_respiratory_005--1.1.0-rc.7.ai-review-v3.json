@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c05_respiratory_005",
+  "caseVersion": "1.1.0-rc.7",
+  "contentHash": "sha256:035c95524821ed31c2670e10ee227e757ae27196c1001a1ea08122d229280edd",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.55129ba1-bab1-449d-b9de-0c5ff1438645",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:08:11.793Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：症状、生命体征及影像均支持稳定的轻症社区获得性肺炎；无明显急症或住院级危险表现。",
+        "诊断可解性通过：右下肺局灶性实变、发热咳嗽咳痰及轻度炎症指标升高共同支持目标诊断，鉴别诊断也有明确候选。",
+        "危险征象排除通过：呼吸困难、意识改变、严重胸痛、咯血、低血压、明显呼吸过速、低氧、无法进食饮水及高风险人群均有事实或生命体征支持排除。",
+        "量表与病例一致性通过：必问病史、所需检查、可接受鉴别诊断数量及推荐轮次彼此匹配；胸部CT和咽拭子列为不必要检查合理。",
+        "回归覆盖通过：成功、失败、安全中断及未知信息轨迹均覆盖关键诊断、检查选择、红旗中断和未知事实处理路径。",
+        "隐藏真相保护通过：教学字段及服务端评分信息标记为隐藏，回归轨迹未要求向患者暴露隐藏字段或内部真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.d930a2e1-0ed4-4d23-8ea4-b918a1d6b928",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:08:23.676Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：症状、体征及右下肺局灶性实变一致支持轻症社区获得性肺炎；生命体征稳定，呼吸频率20次/分与“无呼吸增快”不构成明显冲突。",
+        "diagnosisSolvability：起病、发热、咳嗽咳痰、严重度相关信息及胸部X线结果均可通过规定询问和检查获得，目标诊断粒度“轻症社区获得性肺炎”可明确求解。",
+        "redFlagExclusions：呼吸困难、意识改变、严重胸痛、咯血、低血压、低氧、无法进食饮水及高风险人群均有对应阴性事实或生命体征证据，未见阻断门诊病例的红旗遗漏。",
+        "rubricConsistency：目标诊断、接受同义词、两个可接受鉴别诊断、必需/有用/不必要检查及8回合限制彼此一致；CT和咽拭子在失败轨迹中被正确标记为不必要。",
+        "regressionCoverage：success、failure、safety、unknown四类轨迹均有覆盖，成功轨迹的事实、检查、诊断和回合数与病例及评分规则相符，安全轨迹也明确要求中断且无调用和写入。",
+        "hiddenTruthSafety：教学字段、test_only影像事实及未知接触史均未被玩家初始信息直接泄露；支持性轨迹中的诊断和期望事实属于回归资产，不构成病例玩家侧泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：症状、生命体征及影像均支持稳定的轻症社区获得性肺炎；无明显急症或住院级危险表现。",
+    "诊断可解性通过：右下肺局灶性实变、发热咳嗽咳痰及轻度炎症指标升高共同支持目标诊断，鉴别诊断也有明确候选。",
+    "危险征象排除通过：呼吸困难、意识改变、严重胸痛、咯血、低血压、明显呼吸过速、低氧、无法进食饮水及高风险人群均有事实或生命体征支持排除。",
+    "量表与病例一致性通过：必问病史、所需检查、可接受鉴别诊断数量及推荐轮次彼此匹配；胸部CT和咽拭子列为不必要检查合理。",
+    "回归覆盖通过：成功、失败、安全中断及未知信息轨迹均覆盖关键诊断、检查选择、红旗中断和未知事实处理路径。",
+    "隐藏真相保护通过：教学字段及服务端评分信息标记为隐藏，回归轨迹未要求向患者暴露隐藏字段或内部真相。",
+    "clinicalConsistency：症状、体征及右下肺局灶性实变一致支持轻症社区获得性肺炎；生命体征稳定，呼吸频率20次/分与“无呼吸增快”不构成明显冲突。",
+    "diagnosisSolvability：起病、发热、咳嗽咳痰、严重度相关信息及胸部X线结果均可通过规定询问和检查获得，目标诊断粒度“轻症社区获得性肺炎”可明确求解。",
+    "redFlagExclusions：呼吸困难、意识改变、严重胸痛、咯血、低血压、低氧、无法进食饮水及高风险人群均有对应阴性事实或生命体征证据，未见阻断门诊病例的红旗遗漏。",
+    "rubricConsistency：目标诊断、接受同义词、两个可接受鉴别诊断、必需/有用/不必要检查及8回合限制彼此一致；CT和咽拭子在失败轨迹中被正确标记为不必要。",
+    "regressionCoverage：success、failure、safety、unknown四类轨迹均有覆盖，成功轨迹的事实、检查、诊断和回合数与病例及评分规则相符，安全轨迹也明确要求中断且无调用和写入。",
+    "hiddenTruthSafety：教学字段、test_only影像事实及未知接触史均未被玩家初始信息直接泄露；支持性轨迹中的诊断和期望事实属于回归资产，不构成病例玩家侧泄露。"
+  ]
+}

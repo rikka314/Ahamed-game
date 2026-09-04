@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:cd6d3080175096c7aaaf74731f3f2c084dd43f72930856614749b7557dc66eef",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.39926ce3-cec4-4c48-859d-b421e1ad85dc",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:46:32.353Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：26–35岁女性，持续半年上腹胀和早饱，近三个月符合症状模式，且无消瘦、出血、进行性吞咽困难、持续呕吐等危险征象；基础评估阴性后以功能性消化不良为目标诊断，临床叙事连贯。",
+        "诊断可解性：成功轨迹覆盖起病、症状模式、伴随症状、进展、全部安全相关事实，并执行生命体征和消化不良基础评估，随后给出目标诊断及两项允许的鉴别诊断。",
+        "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降和进行性吞咽困难均明确为不存在，且有对应询问路径；胸痛伴呼吸困难的安全轨迹要求中断并无医疗调用，退出策略充分。",
+        "量表一致性：must-ask事实、必需检查、鉴别诊断数量、腹部CT不必要分类及推荐回合数均与回归成功轨迹一致；失败轨迹也正确标记了不必要检查和错误诊断。",
+        "回归覆盖：同时覆盖成功、失败、不必要检查、安全中断和未知事实询问场景，能检验诊断、检查选择、回合计数及安全行为。medicalTests中的completed状态未被错误解释为会话开始前已执行。",
+        "隐藏真相安全：教学字段、内部病例标识和答案键未进入患者可见内容；评审pending、draft状态及人工审核元数据不构成事实阻塞，病例包未暴露不应由会话推断的隐藏信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.937abf2c-2fb4-472d-814c-4acad8dd33ca",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:46:49.093Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：半年上腹胀、早饱，持续至少三个月，且无消瘦、出血、进行性吞咽困难等警讯；基础评估未发现器质性病变，与功能性消化不良相符。",
+        "诊断可解性通过：症状模式、红旗排除和消化不良基础评估共同支持“功能性消化不良”；目标诊断粒度明确，接受同义词设置合理，两个鉴别诊断也可由病例信息支持。",
+        "红旗排除通过：mustAskFactIds 覆盖意识改变、循环不稳定、无法进食、特殊高风险人群、出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难，且与矩阵中的证据事实一致。",
+        "Rubric 一致性通过：必问事实、鉴别诊断数量及概念、必需/不必要检查分类与答案键一致；腹部 CT 被正确标为不必要，生命体征和消化不良基础评估被标为必需。",
+        "回归覆盖通过：success、failure、safety、unknown 四类轨迹均存在，成功轨迹可完成完整问诊、检查及精确诊断，失败轨迹验证不必要检查和错误诊断，安全轨迹验证中断，unknown 轨迹验证未知既往史披露。medicalTests 的 completed 状态未被错误视为会话前已执行。",
+        "隐藏真值安全通过：教学字段保持 hidden，未在患者可见内容或轨迹输入中泄露；安全轨迹的胸痛伴呼吸困难请求被设定为中断且不产生临床调用或原文写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：26–35岁女性，持续半年上腹胀和早饱，近三个月符合症状模式，且无消瘦、出血、进行性吞咽困难、持续呕吐等危险征象；基础评估阴性后以功能性消化不良为目标诊断，临床叙事连贯。",
+    "诊断可解性：成功轨迹覆盖起病、症状模式、伴随症状、进展、全部安全相关事实，并执行生命体征和消化不良基础评估，随后给出目标诊断及两项允许的鉴别诊断。",
+    "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、非意愿性体重下降和进行性吞咽困难均明确为不存在，且有对应询问路径；胸痛伴呼吸困难的安全轨迹要求中断并无医疗调用，退出策略充分。",
+    "量表一致性：must-ask事实、必需检查、鉴别诊断数量、腹部CT不必要分类及推荐回合数均与回归成功轨迹一致；失败轨迹也正确标记了不必要检查和错误诊断。",
+    "回归覆盖：同时覆盖成功、失败、不必要检查、安全中断和未知事实询问场景，能检验诊断、检查选择、回合计数及安全行为。medicalTests中的completed状态未被错误解释为会话开始前已执行。",
+    "隐藏真相安全：教学字段、内部病例标识和答案键未进入患者可见内容；评审pending、draft状态及人工审核元数据不构成事实阻塞，病例包未暴露不应由会话推断的隐藏信息。",
+    "临床一致性通过：半年上腹胀、早饱，持续至少三个月，且无消瘦、出血、进行性吞咽困难等警讯；基础评估未发现器质性病变，与功能性消化不良相符。",
+    "诊断可解性通过：症状模式、红旗排除和消化不良基础评估共同支持“功能性消化不良”；目标诊断粒度明确，接受同义词设置合理，两个鉴别诊断也可由病例信息支持。",
+    "红旗排除通过：mustAskFactIds 覆盖意识改变、循环不稳定、无法进食、特殊高风险人群、出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难，且与矩阵中的证据事实一致。",
+    "Rubric 一致性通过：必问事实、鉴别诊断数量及概念、必需/不必要检查分类与答案键一致；腹部 CT 被正确标为不必要，生命体征和消化不良基础评估被标为必需。",
+    "回归覆盖通过：success、failure、safety、unknown 四类轨迹均存在，成功轨迹可完成完整问诊、检查及精确诊断，失败轨迹验证不必要检查和错误诊断，安全轨迹验证中断，unknown 轨迹验证未知既往史披露。medicalTests 的 completed 状态未被错误视为会话前已执行。",
+    "隐藏真值安全通过：教学字段保持 hidden，未在患者可见内容或轨迹输入中泄露；安全轨迹的胸痛伴呼吸困难请求被设定为中断且不产生临床调用或原文写入。"
+  ]
+}

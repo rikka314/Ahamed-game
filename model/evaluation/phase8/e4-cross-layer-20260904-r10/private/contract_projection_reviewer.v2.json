@@ -1,0 +1,42 @@
+{
+  "assessedControls": [
+    "share_only_projection",
+    "thirty_unique_patient_roles",
+    "fifteen_two_patient_shifts",
+    "session_turn_identity_binding"
+  ],
+  "attemptedAt": "2026-09-04T08:15:07.681Z",
+  "contentSha256": "2eb347d47d61d6850502f70678ee82cbea417b37585a1b66c609ec52a84b31e9",
+  "counterpartOutputVisible": false,
+  "decision": "passed",
+  "findings": [
+    {
+      "code": "PROJECTION-VERIFIED",
+      "message": "证据显示公共 CaseSummaryV1 投影包含 patientRoleId，并由 allowlist projector 移除 persona、answer、rubric 与 hidden-fact 字段；构建产物、公共资源及运行时观测面的敏感字段扫描均为 0。",
+      "severity": "info"
+    },
+    {
+      "code": "IDENTITY-30-UNIQUE",
+      "message": "证据声明 30/30 patientRoleId、appearance ID 与 launch tint 唯一且可解析；公共 journey 进一步列出 case_c01 至 case_c30 及对应唯一 patient-role.public-c01 至 patient-role.public-c30。",
+      "severity": "info"
+    },
+    {
+      "code": "SHIFT-15X2-VERIFIED",
+      "message": "公共 journey 显示 15 个 shift，每个 shift 包含 2 个病例，并在两个 npc.patient.graybox-01/02 槽位间轮换；指标为 actorSlotCount=2、shiftCount=15、caseCount=30。",
+      "severity": "info"
+    },
+    {
+      "code": "SESSION-TURN-BINDING-VERIFIED",
+      "message": "每个公共病例摘要绑定 patientRoleId、patientNpcId 与 sessionId；对应 turn 使用相同 sessionId，且 journey 指标显示 30 次 createSession、30 次 askPatient 与 30 个 completedTurns。",
+      "severity": "info"
+    }
+  ],
+  "independentInvocation": true,
+  "invocationId": "review.e4.contract_projection_reviewer.a8b2e2f0-745e-4c9b-b94a-fa57e84e40e5",
+  "modelId": "gpt-5.6-sol",
+  "promptVersion": "e4-contract-projection-review-v2",
+  "reviewerId": "contract_projection_reviewer",
+  "reviewPolicy": "non_blocking",
+  "runStatus": "completed",
+  "schemaVersion": "e4-independent-ai-review-v2"
+}

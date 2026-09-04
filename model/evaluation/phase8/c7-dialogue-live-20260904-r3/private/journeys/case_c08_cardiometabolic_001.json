@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "c7-private-dialogue-journey-v1",
+  "caseId": "case_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:4f594cc5a4145838b0f1ae5933a2941c98692968e807615beae2617a243168c1",
+  "personaTemplateId": "guarded_questioning",
+  "runStatus": "completed",
+  "turns": [
+    {
+      "turnNumber": 1,
+      "question": "你好",
+      "reply": "您好。我是体检时发现血压偏高，过来想看看具体是什么情况。您想先了解哪一方面？",
+      "disclosedFactIds": [
+        "fact.chief_complaint"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 2,
+      "question": "请问有什么症状么",
+      "reply": "我目前没有明显不舒服，主要是体检时多次发现血压偏高。没有持续胸痛、明显胸闷、气促，也没有单侧无力、说话不清这类情况。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.associated_pattern",
+        "fact.chest_pain",
+        "fact.focal_neurologic_deficit"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 3,
+      "question": "现在还这样么",
+      "reply": "您是问血压偏高这个情况，还是刚才说的那些不舒服？目前我还是没有明显不适，主要就是体检时发现血压偏高。",
+      "disclosedFactIds": [
+        "fact.chief_complaint",
+        "fact.associated_pattern"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 4,
+      "question": "今天天气不错",
+      "reply": "是，今天确实挺舒服的。不过我们还是先继续看看血压的情况吧，您想问哪一方面？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 5,
+      "question": "你平时喜欢做什么",
+      "reply": "平时我喜欢散散步、听听音乐，工作忙的时候就当放松一下。您问这个，是想了解我的生活习惯吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.interest.1",
+        "persona.interest.2"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 6,
+      "question": "我们先聊会儿别的吧",
+      "reply": "可以聊，不过我们已经绕开血压聊了几句了。您是想了解我的生活习惯，还是有具体的问诊方向？如果是为了判断血压原因，您可以直接告诉我接下来想问哪方面。",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 7,
+      "question": "最近忙不忙",
+      "reply": "平时还挺忙的，我做物流管理，事情比较杂，尤其是赶上货运高峰的时候会忙一些。不过您突然问这个，是想了解我的工作作息和血压有没有关系吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "social_chat",
+      "personaFactIdsUsed": [
+        "persona.education_or_occupation"
+      ],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 8,
+      "question": "现在还是有这样的症状么",
+      "reply": "如果您是问刚才提到的胸痛、胸闷、气促或单侧无力这些不适，目前还是没有。血压偏高这个情况倒是仍然存在，最近测量还是偏高。",
+      "disclosedFactIds": [
+        "fact.associated_pattern",
+        "fact.chief_complaint",
+        "fact.progression"
+      ],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 9,
+      "question": "量一下体温",
+      "reply": "可以量。不过我主要是体检发现血压偏高，您量体温是想排除发热之类的情况吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": []
+      }
+    },
+    {
+      "turnNumber": 10,
+      "question": "你的动态血压与高血压基础评估结果怎么样",
+      "reply": "这个动态血压和高血压基础评估目前还没有做，所以暂时没有结果。您是想先安排这项检查吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_query",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 11,
+      "question": "好，那去做吧",
+      "reply": "好，那就做这个检查吧。具体是动态监测血压，再配合基础评估，对吗？",
+      "disclosedFactIds": [],
+      "interactionKind": "test_order",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [],
+      "effects": [
+        {
+          "type": "test_completed",
+          "result": {
+            "testId": "test.hypertension_assessment",
+            "status": "completed",
+            "report": "24小时动态血压平均138/86mmHg、日间142/89mmHg、夜间124/74mmHg，夜间血压正常下降；血肌酐、电解质和尿常规未见提示肾脏或内分泌继发病因的异常。"
+          }
+        }
+      ],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "pendingTestSuggestionId": "test.hypertension_assessment",
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          }
+        ]
+      }
+    },
+    {
+      "turnNumber": 12,
+      "question": "动态血压与高血压基础评估现在是什么结果",
+      "reply": "结果出来了：24小时动态血压平均是138/86mmHg，日间平均142/89mmHg，夜间平均124/74mmHg，夜间血压能正常下降。血肌酐、电解质和尿常规也没有发现提示肾脏或内分泌继发原因的异常。",
+      "disclosedFactIds": [],
+      "interactionKind": "medical_chat",
+      "personaFactIdsUsed": [],
+      "completedTestIdsUsed": [
+        "test.hypertension_assessment"
+      ],
+      "effects": [],
+      "patientProviderCalls": 1,
+      "controllerProviderCalls": 0,
+      "sessionSnapshotBeforeTurn": {
+        "completedTests": [
+          {
+            "testId": "test.vital_signs",
+            "status": "completed",
+            "report": "生命体征稳定，未达到本疾病域急症阈值。"
+          },
+          {
+            "testId": "test.hypertension_assessment",
+            "status": "completed",
+            "report": "24小时动态血压平均138/86mmHg、日间142/89mmHg、夜间124/74mmHg，夜间血压正常下降；血肌酐、电解质和尿常规未见提示肾脏或内分泌继发病因的异常。"
+          }
+        ]
+      }
+    }
+  ]
+}

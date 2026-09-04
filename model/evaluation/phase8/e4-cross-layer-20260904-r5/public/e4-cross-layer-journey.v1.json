@@ -1,0 +1,1176 @@
+{
+  "generatedAt": "2026-09-04T07:15:21.147Z",
+  "manifest": {
+    "caseCount": 30,
+    "path": "cases/manifest.phase6-compat.v2-rc9.json",
+    "sha256": "33178d860cd6273d45c78a11ca5a54be16df40427157ed02812448a9546f33ca"
+  },
+  "metrics": {
+    "actorSlotCount": 2,
+    "askPatientCalls": 30,
+    "caseCount": 30,
+    "completedTurns": 30,
+    "createSessionCalls": 30,
+    "sensitiveMatches": 0,
+    "shiftCount": 15
+  },
+  "reviewPolicy": "non_blocking",
+  "schemaVersion": "e4-cross-layer-journey-v1",
+  "shifts": [
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 1,
+          "shiftId": "shift.e4.01",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c01_respiratory_001",
+            "caseVersion": "1.1.0-rc.8",
+            "chiefComplaint": "鼻塞、流清涕伴咽部不适2天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "林同学",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c01",
+            "sessionId": "session.e4.0001",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "鼻子堵、流清鼻涕，嗓子也有点不舒服。",
+            "sessionId": "session.e4.0001",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0007",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 2,
+          "shiftId": "shift.e4.01",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c02_respiratory_002",
+            "caseVersion": "1.1.0-rc.8",
+            "chiefComplaint": "突发发热、干咳和全身酸痛1天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "周同学",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c02",
+            "sessionId": "session.e4.0010",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "昨天突然发热，干咳，全身也很酸。",
+            "sessionId": "session.e4.0010",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0016",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.01"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 3,
+          "shiftId": "shift.e4.02",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c03_respiratory_003",
+            "caseVersion": "1.1.0-rc.8",
+            "chiefComplaint": "咽痛伴低热2天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "陈同学",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c03",
+            "sessionId": "session.e4.0019",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "嗓子疼了两天，还有一点低热。",
+            "sessionId": "session.e4.0019",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0025",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 4,
+          "shiftId": "shift.e4.02",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c04_respiratory_004",
+            "caseVersion": "1.1.0-rc.8",
+            "chiefComplaint": "咳嗽伴少量咳痰8天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "王同学",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c04",
+            "sessionId": "session.e4.0028",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "咳嗽八天了，偶尔会咳出一点痰。",
+            "sessionId": "session.e4.0028",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0034",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.02"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 5,
+          "shiftId": "shift.e4.03",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c05_respiratory_005",
+            "caseVersion": "1.1.0-rc.8",
+            "chiefComplaint": "发热、咳嗽伴黄痰3天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "赵同学",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c05",
+            "sessionId": "session.e4.0037",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "发热咳嗽三天了，这两天有些黄痰。",
+            "sessionId": "session.e4.0037",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0043",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 6,
+          "shiftId": "shift.e4.03",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c06_respiratory_006",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "反复打喷嚏、流清鼻涕一周",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者06号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c06",
+            "sessionId": "session.e4.0046",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "反复打喷嚏、流清鼻涕一周",
+            "sessionId": "session.e4.0046",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0052",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.03"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 7,
+          "shiftId": "shift.e4.04",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c07_respiratory_007",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "夜间和运动后干咳一个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者07号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c07",
+            "sessionId": "session.e4.0055",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "夜间和运动后干咳一个月",
+            "sessionId": "session.e4.0055",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0061",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 8,
+          "shiftId": "shift.e4.04",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c08_cardiometabolic_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "体检多次发现血压偏高",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "36–45岁",
+              "displayName": "患者08号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c08",
+            "sessionId": "session.e4.0064",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "体检多次发现血压偏高",
+            "sessionId": "session.e4.0064",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0070",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.04"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 9,
+          "shiftId": "shift.e4.05",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c09_cardiometabolic_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "口渴、夜尿增多两个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "46–55岁",
+              "displayName": "患者09号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c09",
+            "sessionId": "session.e4.0073",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "口渴、夜尿增多两个月",
+            "sessionId": "session.e4.0073",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0079",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 10,
+          "shiftId": "shift.e4.05",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c10_cardiometabolic_003",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "心慌、怕热和体重下降六周",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者10号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c10",
+            "sessionId": "session.e4.0082",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "心慌、怕热和体重下降六周",
+            "sessionId": "session.e4.0082",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0088",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.05"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 11,
+          "shiftId": "shift.e4.06",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c11_cardiometabolic_004",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "乏力、怕冷和反应变慢三个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "36–45岁",
+              "displayName": "患者11号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c11",
+            "sessionId": "session.e4.0091",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "乏力、怕冷和反应变慢三个月",
+            "sessionId": "session.e4.0091",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0097",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 12,
+          "shiftId": "shift.e4.06",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c12_cardiometabolic_005",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "体检发现胆固醇偏高",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "36–45岁",
+              "displayName": "患者12号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c12",
+            "sessionId": "session.e4.0100",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "体检发现胆固醇偏高",
+            "sessionId": "session.e4.0100",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0106",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.06"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 13,
+          "shiftId": "shift.e4.07",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c13_digestive_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "饭后反酸、胸口烧灼一个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者13号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c13",
+            "sessionId": "session.e4.0109",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "饭后反酸、胸口烧灼一个月",
+            "sessionId": "session.e4.0109",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0115",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 14,
+          "shiftId": "shift.e4.07",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c14_digestive_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "上腹胀和早饱半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者14号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c14",
+            "sessionId": "session.e4.0118",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "上腹胀和早饱半年",
+            "sessionId": "session.e4.0118",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0124",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.07"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 15,
+          "shiftId": "shift.e4.08",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c15_digestive_003",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "腹痛伴排便习惯改变半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者15号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c15",
+            "sessionId": "session.e4.0127",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "腹痛伴排便习惯改变半年",
+            "sessionId": "session.e4.0127",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0133",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 16,
+          "shiftId": "shift.e4.08",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c16_digestive_004",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "腹泻伴轻度恶心两天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "患者16号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c16",
+            "sessionId": "session.e4.0136",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "腹泻伴轻度恶心两天",
+            "sessionId": "session.e4.0136",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0142",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.08"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 17,
+          "shiftId": "shift.e4.09",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c17_urinary_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "尿频、尿急和排尿痛两天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者17号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c17",
+            "sessionId": "session.e4.0145",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "尿频、尿急和排尿痛两天",
+            "sessionId": "session.e4.0145",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0151",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 18,
+          "shiftId": "shift.e4.09",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c18_urinary_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "夜尿和排尿等待半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "56–65岁",
+              "displayName": "患者18号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c18",
+            "sessionId": "session.e4.0154",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "夜尿和排尿等待半年",
+            "sessionId": "session.e4.0154",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0160",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.09"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 19,
+          "shiftId": "shift.e4.10",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c19_urinary_003",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "突发右侧腰腹绞痛半天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者19号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c19",
+            "sessionId": "session.e4.0163",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "突发右侧腰腹绞痛半天",
+            "sessionId": "session.e4.0163",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0169",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 20,
+          "shiftId": "shift.e4.10",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c20_musculoskeletal_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "搬重物后腰痛三天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "36–45岁",
+              "displayName": "患者20号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c20",
+            "sessionId": "session.e4.0172",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "搬重物后腰痛三天",
+            "sessionId": "session.e4.0172",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0178",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.10"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 21,
+          "shiftId": "shift.e4.11",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c21_musculoskeletal_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "右膝活动痛半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "56–65岁",
+              "displayName": "患者21号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c21",
+            "sessionId": "session.e4.0181",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "右膝活动痛半年",
+            "sessionId": "session.e4.0181",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0187",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 22,
+          "shiftId": "shift.e4.11",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c22_musculoskeletal_003",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "第一跖趾关节突发红肿痛一天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "36–45岁",
+              "displayName": "患者22号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c22",
+            "sessionId": "session.e4.0190",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "第一跖趾关节突发红肿痛一天",
+            "sessionId": "session.e4.0190",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0196",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.11"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 23,
+          "shiftId": "shift.e4.12",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c23_dermatology_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "手腕瘙痒红疹四天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者23号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c23",
+            "sessionId": "session.e4.0199",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "手腕瘙痒红疹四天",
+            "sessionId": "session.e4.0199",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0205",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 24,
+          "shiftId": "shift.e4.12",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c24_dermatology_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "前臂环形瘙痒皮疹两周",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "患者24号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c24",
+            "sessionId": "session.e4.0208",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "前臂环形瘙痒皮疹两周",
+            "sessionId": "session.e4.0208",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0214",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.12"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 25,
+          "shiftId": "shift.e4.13",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c25_pediatrics_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "耳痛伴听声音发闷两天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "8–12岁",
+              "displayName": "患者25号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c25",
+            "sessionId": "session.e4.0217",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "耳痛伴听声音发闷两天",
+            "sessionId": "session.e4.0217",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0223",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 26,
+          "shiftId": "shift.e4.13",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c26_pediatrics_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "反复肚子痛三个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "8–12岁",
+              "displayName": "患者26号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c26",
+            "sessionId": "session.e4.0226",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "反复肚子痛三个月",
+            "sessionId": "session.e4.0226",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0232",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.13"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 27,
+          "shiftId": "shift.e4.14",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c27_gynecology_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "月经来潮时下腹痛半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "18–25岁",
+              "displayName": "患者27号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c27",
+            "sessionId": "session.e4.0235",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "月经来潮时下腹痛半年",
+            "sessionId": "session.e4.0235",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0241",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 28,
+          "shiftId": "shift.e4.14",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c28_gynecology_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "外阴瘙痒伴白色分泌物三天",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者28号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c28",
+            "sessionId": "session.e4.0244",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "外阴瘙痒伴白色分泌物三天",
+            "sessionId": "session.e4.0244",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0250",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.14"
+    },
+    {
+      "cases": [
+        {
+          "actorSlotId": "npc.patient.graybox-01",
+          "ordinal": 29,
+          "shiftId": "shift.e4.15",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c29_mentalhealth_001",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "长期担心、紧张和睡不好半年",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者29号",
+              "genderDisplay": "女"
+            },
+            "patientNpcId": "npc.patient.graybox-01",
+            "patientRoleId": "patient-role.public-c29",
+            "sessionId": "session.e4.0253",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "长期担心、紧张和睡不好半年",
+            "sessionId": "session.e4.0253",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0259",
+            "turnNumber": 1
+          }
+        },
+        {
+          "actorSlotId": "npc.patient.graybox-02",
+          "ordinal": 30,
+          "shiftId": "shift.e4.15",
+          "summary": {
+            "allowedActions": [
+              "ask_patient",
+              "order_test",
+              "submit_diagnosis"
+            ],
+            "caseId": "case_c30_mentalhealth_002",
+            "caseVersion": "1.0.0-rc.9",
+            "chiefComplaint": "情绪低落、乏力并反复诉说身体不适一个月",
+            "contractVersion": "1",
+            "patientDisplay": {
+              "ageBand": "26–35岁",
+              "displayName": "患者30号",
+              "genderDisplay": "男"
+            },
+            "patientNpcId": "npc.patient.graybox-02",
+            "patientRoleId": "patient-role.public-c30",
+            "sessionId": "session.e4.0262",
+            "sessionPhase": "active"
+          },
+          "turn": {
+            "disclosedFactIds": [
+              "fact.chief_complaint"
+            ],
+            "effects": [],
+            "reply": "情绪低落、乏力并反复诉说身体不适一个月",
+            "sessionId": "session.e4.0262",
+            "sessionPhase": "active",
+            "turnId": "turn.e4.0268",
+            "turnNumber": 1
+          }
+        }
+      ],
+      "shiftId": "shift.e4.15"
+    }
+  ]
+}

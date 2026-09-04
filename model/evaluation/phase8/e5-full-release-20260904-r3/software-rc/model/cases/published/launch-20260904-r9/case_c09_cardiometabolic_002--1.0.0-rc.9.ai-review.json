@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:67ad6e742c872f204fa66b61b1292dfb4f299d208a871c9d8f8eb42594a1adce",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.19df23bc-e245-45d1-a669-ab6de1e5e23c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:43:34.221Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人女性以渐进性口渴、尿频/夜尿和轻度非意愿性体重下降就诊；分型检查结果与2型糖尿病相符，腹部CT作为非必要检查设置合理。",
+        "诊断可解性通过：糖化血红蛋白达到诊断范围，且分型结果、起病速度、体重及家族史支持2型糖尿病；尿崩症和甲亢作为鉴别诊断设置明确。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均有事实依据排除；生命体征检查报告稳定。",
+        "量表一致性通过：must-ask事实、2项鉴别诊断、必需/不必要检查分类及推荐回合限制彼此一致；requiredDifferentialCount为2且与轨迹匹配。",
+        "回归覆盖通过：成功轨迹覆盖全部15项must-ask事实、必需检查、正确诊断和两项鉴别诊断；失败、不必要检查、安全中断及unknown轨迹均有对应预期。medicalTests中的completed状态未被错误当作会话前已执行。",
+        "隐藏真相安全通过：教学字段及服务端评分字段标记为hidden，答案键和内部病例标识未纳入患者可见内容；安全中断轨迹明确要求零医疗回合、零提供方调用和零原文写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.81846106-d06d-4ba9-9b2a-7d792d6fa59c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:43:51.236Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状、体型、起病速度、家族史、无酮症表现与2型糖尿病相符；糖代谢及分型检查结果支持目标诊断，腹部CT作为不必要检查的设定也一致。",
+        "诊断可解性：通过病史补充和糖代谢与糖尿病分型评估可明确达到诊断范围并支持2型糖尿病，诊断粒度与答案键一致；尿崩症和甲状腺功能亢进构成合理鉴别。",
+        "红旗排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实和提问路径，且状态均为排除。",
+        "Rubric一致性：must-ask事实均可通过匹配问题获取；要求的2项鉴别诊断、必需/不必要检查分类、推荐回合数与成功及失败轨迹相互一致。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均有覆盖；成功轨迹完成必要提问、检查和正确诊断，失败轨迹验证不必要检查及错误诊断，安全轨迹符合中断且不产生调用，unknown轨迹覆盖未知既往发作史。medicalTests中的completed状态未被错误当作会话开始前已执行。",
+        "隐藏真值安全：教学字段、评分字段及其他隐藏事实未被设计为患者可直接泄露；回归轨迹使用事实ID和预期结果，不构成答案泄露或内部字段暴露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人女性以渐进性口渴、尿频/夜尿和轻度非意愿性体重下降就诊；分型检查结果与2型糖尿病相符，腹部CT作为非必要检查设置合理。",
+    "诊断可解性通过：糖化血红蛋白达到诊断范围，且分型结果、起病速度、体重及家族史支持2型糖尿病；尿崩症和甲亢作为鉴别诊断设置明确。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均有事实依据排除；生命体征检查报告稳定。",
+    "量表一致性通过：must-ask事实、2项鉴别诊断、必需/不必要检查分类及推荐回合限制彼此一致；requiredDifferentialCount为2且与轨迹匹配。",
+    "回归覆盖通过：成功轨迹覆盖全部15项must-ask事实、必需检查、正确诊断和两项鉴别诊断；失败、不必要检查、安全中断及unknown轨迹均有对应预期。medicalTests中的completed状态未被错误当作会话前已执行。",
+    "隐藏真相安全通过：教学字段及服务端评分字段标记为hidden，答案键和内部病例标识未纳入患者可见内容；安全中断轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+    "临床一致性：症状、体型、起病速度、家族史、无酮症表现与2型糖尿病相符；糖代谢及分型检查结果支持目标诊断，腹部CT作为不必要检查的设定也一致。",
+    "诊断可解性：通过病史补充和糖代谢与糖尿病分型评估可明确达到诊断范围并支持2型糖尿病，诊断粒度与答案键一致；尿崩症和甲状腺功能亢进构成合理鉴别。",
+    "红旗排除：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有对应事实和提问路径，且状态均为排除。",
+    "Rubric一致性：must-ask事实均可通过匹配问题获取；要求的2项鉴别诊断、必需/不必要检查分类、推荐回合数与成功及失败轨迹相互一致。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均有覆盖；成功轨迹完成必要提问、检查和正确诊断，失败轨迹验证不必要检查及错误诊断，安全轨迹符合中断且不产生调用，unknown轨迹覆盖未知既往发作史。medicalTests中的completed状态未被错误当作会话开始前已执行。",
+    "隐藏真值安全：教学字段、评分字段及其他隐藏事实未被设计为患者可直接泄露；回归轨迹使用事实ID和预期结果，不构成答案泄露或内部字段暴露。"
+  ]
+}

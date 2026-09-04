@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:277187302419ab0463082724a3f079ed2e1bf33430ddc453ba8714cc41b0ca63",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.fb3ada1f-45bd-4590-a937-c3471876aad3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:41:15.399Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、病程及X线轻度关节间隙变窄和骨赘与膝骨关节炎基本一致；病例可在非急症门诊范围内求解。",
+        "主要诊断具有足够线索，类风湿关节炎和半月板损伤作为鉴别诊断也有明确词表映射，诊断可判定。",
+        "红旗矩阵要求9项危险征象均为absent，但成功轨迹及mustAskFactIds仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population，遗漏cauda equina、major trauma、musculoskeletal infection、malignancy warning和progressive neurologic deficit；安全退出前的危险征象排除证据不完整。",
+        "rubric的mustAskFactIds与redFlagExclusionMatrix的适用项目不一致，未将矩阵中另外5项必需排除的危险征象纳入评分要求，导致安全审核标准不闭合。",
+        "回归成功轨迹未覆盖全部红旗事实，未提供针对遗漏红旗的成功或失败回归用例；因此不能充分验证危险征象排除和安全退出逻辑。",
+        "胸痛伴呼吸困难的安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零provider调用和零原文写入，且未见将隐藏教学字段或内部真相泄露给患者的回归路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.9aa69174-5cab-4a33-b1eb-cf98a1b51593",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:41:32.320Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为中年女性、慢性负重活动痛、短暂晨僵且无明显炎症表现，结合膝关节X线轻度间隙变窄及骨赘，支持膝骨关节炎；目标诊断粒度明确，所列类风湿关节炎和半月板损伤可作为鉴别。",
+        "病例信息足以在询问起病、疼痛模式、伴随症状、病程及指定危险表现并完成生命体征和膝关节X线后得出目标诊断；MRI被明确标为初始不必要，诊断可解。",
+        "红旗矩阵的9项均有对应患者事实且观察值均为absent，成功轨迹覆盖的4项与mustAskFactIds一致；虽部分红旗（如马尾综合征）对膝痛场景较宽泛，但资产内部状态一致。",
+        "answerKey、rubric、测试分类及成功轨迹在目标诊断、2个鉴别诊断、必需检查和MRI不必要性方面一致；turn limit与成功轨迹的medicalTurns=1也无明显冲突。",
+        "unknown轨迹的提问同时询问了既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应被触发的fact.relevant_exposure，导致未知信息回归轨迹与患者事实及匹配器不一致。",
+        "安全轨迹识别胸痛伴呼吸困难这一病例外急症请求，并要求SAFETY_INTERRUPTED、零provider调用、零写入和零医疗回合；未暴露隐藏教学字段或内部真值。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床表现、病程及X线轻度关节间隙变窄和骨赘与膝骨关节炎基本一致；病例可在非急症门诊范围内求解。",
+    "主要诊断具有足够线索，类风湿关节炎和半月板损伤作为鉴别诊断也有明确词表映射，诊断可判定。",
+    "红旗矩阵要求9项危险征象均为absent，但成功轨迹及mustAskFactIds仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population，遗漏cauda equina、major trauma、musculoskeletal infection、malignancy warning和progressive neurologic deficit；安全退出前的危险征象排除证据不完整。",
+    "rubric的mustAskFactIds与redFlagExclusionMatrix的适用项目不一致，未将矩阵中另外5项必需排除的危险征象纳入评分要求，导致安全审核标准不闭合。",
+    "回归成功轨迹未覆盖全部红旗事实，未提供针对遗漏红旗的成功或失败回归用例；因此不能充分验证危险征象排除和安全退出逻辑。",
+    "胸痛伴呼吸困难的安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零provider调用和零原文写入，且未见将隐藏教学字段或内部真相泄露给患者的回归路径。",
+    "临床表现为中年女性、慢性负重活动痛、短暂晨僵且无明显炎症表现，结合膝关节X线轻度间隙变窄及骨赘，支持膝骨关节炎；目标诊断粒度明确，所列类风湿关节炎和半月板损伤可作为鉴别。",
+    "病例信息足以在询问起病、疼痛模式、伴随症状、病程及指定危险表现并完成生命体征和膝关节X线后得出目标诊断；MRI被明确标为初始不必要，诊断可解。",
+    "红旗矩阵的9项均有对应患者事实且观察值均为absent，成功轨迹覆盖的4项与mustAskFactIds一致；虽部分红旗（如马尾综合征）对膝痛场景较宽泛，但资产内部状态一致。",
+    "answerKey、rubric、测试分类及成功轨迹在目标诊断、2个鉴别诊断、必需检查和MRI不必要性方面一致；turn limit与成功轨迹的medicalTurns=1也无明显冲突。",
+    "unknown轨迹的提问同时询问了既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应被触发的fact.relevant_exposure，导致未知信息回归轨迹与患者事实及匹配器不一致。",
+    "安全轨迹识别胸痛伴呼吸困难这一病例外急症请求，并要求SAFETY_INTERRUPTED、零provider调用、零写入和零医疗回合；未暴露隐藏教学字段或内部真值。"
+  ]
+}

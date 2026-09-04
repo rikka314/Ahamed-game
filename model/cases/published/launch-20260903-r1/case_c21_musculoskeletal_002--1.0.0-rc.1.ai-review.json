@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8038336c4ae7ffbed27c87c888f6916b9672e48baecba5bd53518713ff3aa999",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.74c6ede0-ec1a-4b00-af14-f4351cc317f2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:06:07.481Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：test.chest_ct 的检查名称为胸部CT，但报告却写成“膝关节MRI不是本例初始必需检查”，检查与报告不匹配，需修正。",
+        "诊断可解性通过：渐进性膝负重痛、短暂晨僵、无明显炎症表现及X线轻度间隙变窄和骨赘，能够支持膝骨关节炎；两个鉴别诊断也已定义。",
+        "危险征象排除不通过：红旗矩阵将马尾综合征、进行性神经功能缺损等设为本膝关节病例的适用项目，但病例未在必问项或成功回归轨迹中覆盖；同时感染、恶性肿瘤和重大创伤虽在事实矩阵中存在，也未纳入必问安全退出要求，存在排除覆盖不足或矩阵过度标记的问题。",
+        "量表一致性不通过：redFlagExclusionMatrix 中9项均标记 applicable=true，但rubric.mustAskFactIds仅要求其中4项，且成功轨迹只验证这4项；矩阵、必问规则和回归预期不一致，需统一适用红旗集合及评分要求。",
+        "回归覆盖通过：成功、失败、安全中断和未知事实轨迹均有覆盖，且安全轨迹明确要求中断、零医疗回合和零原文写入。",
+        "隐藏真相安全通过：生命体征设置为仅可通过检查读取，教学字段为hidden；轨迹未要求暴露教学字段或内部评分信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.37cd6ef9-4743-4c60-a7b6-20177bfd189d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:06:29.107Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主诉、病程、活动后痛、短暂晨僵及X线轻度退变总体支持膝骨关节炎，诊断粒度也合适；但test.chest_ct的检查报告实际描述“膝关节MRI不是初始必需检查”，与胸部CT项目不匹配，检查结果字段存在临床语义错误。",
+        "目标诊断明确，病例信息足以区分膝骨关节炎与类风湿关节炎、半月板损伤；允许的两个鉴别诊断和目标概念均有清晰映射，因此诊断可解。",
+        "红旗矩阵将9项红旗均标记为applicable且要求absent，但rubric.mustAskFactIds及成功轨迹仅覆盖其中4项，遗漏cauda equina、major trauma、musculoskeletal infection、malignancy warning和progressive neurologic deficit，红旗排除要求前后不一致；其中部分红旗对孤立膝痛病例的适用性也未作域内限定。",
+        "rubric与回归资产未完全一致：红旗must-ask集合与矩阵不一致；同时communicationCriterionIds要求尊重清晰及总结过渡证据，但四条轨迹没有显式的沟通证据或labeled fixture reviewer，无法按评分政策稳定计算沟通分。",
+        "四类回归轨迹均有条目，但success轨迹没有覆盖矩阵声明的全部必排红旗，且其成功断言无法验证完整红旗覆盖；failure、safety、unknown轨迹本身方向基本合理，但不足以弥补成功路径与rubric的覆盖缺口。",
+        "未发现teaching_note等隐藏事实被患者可见内容或回归输入泄露；test_only生命体征也通过检查读取，隐藏真值安全性可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性不通过：test.chest_ct 的检查名称为胸部CT，但报告却写成“膝关节MRI不是本例初始必需检查”，检查与报告不匹配，需修正。",
+    "诊断可解性通过：渐进性膝负重痛、短暂晨僵、无明显炎症表现及X线轻度间隙变窄和骨赘，能够支持膝骨关节炎；两个鉴别诊断也已定义。",
+    "危险征象排除不通过：红旗矩阵将马尾综合征、进行性神经功能缺损等设为本膝关节病例的适用项目，但病例未在必问项或成功回归轨迹中覆盖；同时感染、恶性肿瘤和重大创伤虽在事实矩阵中存在，也未纳入必问安全退出要求，存在排除覆盖不足或矩阵过度标记的问题。",
+    "量表一致性不通过：redFlagExclusionMatrix 中9项均标记 applicable=true，但rubric.mustAskFactIds仅要求其中4项，且成功轨迹只验证这4项；矩阵、必问规则和回归预期不一致，需统一适用红旗集合及评分要求。",
+    "回归覆盖通过：成功、失败、安全中断和未知事实轨迹均有覆盖，且安全轨迹明确要求中断、零医疗回合和零原文写入。",
+    "隐藏真相安全通过：生命体征设置为仅可通过检查读取，教学字段为hidden；轨迹未要求暴露教学字段或内部评分信息。",
+    "临床主诉、病程、活动后痛、短暂晨僵及X线轻度退变总体支持膝骨关节炎，诊断粒度也合适；但test.chest_ct的检查报告实际描述“膝关节MRI不是初始必需检查”，与胸部CT项目不匹配，检查结果字段存在临床语义错误。",
+    "目标诊断明确，病例信息足以区分膝骨关节炎与类风湿关节炎、半月板损伤；允许的两个鉴别诊断和目标概念均有清晰映射，因此诊断可解。",
+    "红旗矩阵将9项红旗均标记为applicable且要求absent，但rubric.mustAskFactIds及成功轨迹仅覆盖其中4项，遗漏cauda equina、major trauma、musculoskeletal infection、malignancy warning和progressive neurologic deficit，红旗排除要求前后不一致；其中部分红旗对孤立膝痛病例的适用性也未作域内限定。",
+    "rubric与回归资产未完全一致：红旗must-ask集合与矩阵不一致；同时communicationCriterionIds要求尊重清晰及总结过渡证据，但四条轨迹没有显式的沟通证据或labeled fixture reviewer，无法按评分政策稳定计算沟通分。",
+    "四类回归轨迹均有条目，但success轨迹没有覆盖矩阵声明的全部必排红旗，且其成功断言无法验证完整红旗覆盖；failure、safety、unknown轨迹本身方向基本合理，但不足以弥补成功路径与rubric的覆盖缺口。",
+    "未发现teaching_note等隐藏事实被患者可见内容或回归输入泄露；test_only生命体征也通过检查读取，隐藏真值安全性可接受。"
+  ]
+}

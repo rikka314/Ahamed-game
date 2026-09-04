@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:a942554e7a0c2ff9a6cd2cd7b30875d3ee19dc13a719c83b18c1b8dfbfb1a5cd",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.bbfd2ef4-7f00-4cf6-b2c0-9eefd34cbe46",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:09:28.334Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在检查名称与报告不一致：test.chest_ct 的显示名称和别名均为“胸部CT”，但报告却写成“颞骨CT不是无并发症病例的初始必需检查”，应统一检查部位，否则会造成测试结果解释和失败轨迹含义歧义。",
+        "耳镜所示鼓膜充血、膨隆及活动度降低与学龄儿童急性中耳炎相符；病程、症状和年龄范围足以支持目标诊断，诊断可解。",
+        "病例已明确排除意识改变、低血压、不能口服、高风险人群、年龄超范围、嗜睡、呼吸窘迫、脱水及乳突肿胀等红旗；生命体征检查结果稳定，安全边界清楚。",
+        "必问病史、鉴别诊断数量、必需检查与不必要检查的评分规则彼此一致；待审核状态及人工审核元数据不构成阻塞。",
+        "回归轨迹覆盖成功、错误检查/错误诊断、安全中断及未知信息分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+        "生命体征为仅检查可读，教学字段为隐藏字段；未见通过患者可见内容泄露教学或评分真相的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.3d0f78a1-132f-434d-9e00-fb10280b3472",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:09:50.277Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线可支持急性中耳炎：感冒后耳痛、听闷，且耳镜显示鼓膜充血膨隆、活动度降低；但 test.chest_ct 的显示名为“胸部CT”，报告却描述“颞骨CT”，检查名称与结果不一致。",
+        "目标诊断粒度合适，现有病史与耳镜结果足以解出“学龄儿童急性中耳炎”；两个鉴别诊断也有明确概念ID。",
+        "红旗矩阵中的各项均有对应事实，且观察值均为 absent；未发现红旗状态与病例叙述冲突。",
+        "mustAskFactIds、鉴别诊断数量、检查分类及目标诊断均与病例内容和评分规则一致；requiredDifferentialCount=2 与两个可接受鉴别诊断匹配。",
+        "unknown 回归轨迹的问题同时询问了既往同样发作和相关接触/诱因，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致回归期望与事实披露不一致。另需修正 chest CT/颞骨 CT 的测试命名一致性。",
+        "回归资产未暴露 teaching_note 或其他隐藏评分真值；安全轨迹预期中断、零医疗调用和零原始文本写入，与其安全场景设定一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在检查名称与报告不一致：test.chest_ct 的显示名称和别名均为“胸部CT”，但报告却写成“颞骨CT不是无并发症病例的初始必需检查”，应统一检查部位，否则会造成测试结果解释和失败轨迹含义歧义。",
+    "耳镜所示鼓膜充血、膨隆及活动度降低与学龄儿童急性中耳炎相符；病程、症状和年龄范围足以支持目标诊断，诊断可解。",
+    "病例已明确排除意识改变、低血压、不能口服、高风险人群、年龄超范围、嗜睡、呼吸窘迫、脱水及乳突肿胀等红旗；生命体征检查结果稳定，安全边界清楚。",
+    "必问病史、鉴别诊断数量、必需检查与不必要检查的评分规则彼此一致；待审核状态及人工审核元数据不构成阻塞。",
+    "回归轨迹覆盖成功、错误检查/错误诊断、安全中断及未知信息分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+    "生命体征为仅检查可读，教学字段为隐藏字段；未见通过患者可见内容泄露教学或评分真相的问题。",
+    "临床主线可支持急性中耳炎：感冒后耳痛、听闷，且耳镜显示鼓膜充血膨隆、活动度降低；但 test.chest_ct 的显示名为“胸部CT”，报告却描述“颞骨CT”，检查名称与结果不一致。",
+    "目标诊断粒度合适，现有病史与耳镜结果足以解出“学龄儿童急性中耳炎”；两个鉴别诊断也有明确概念ID。",
+    "红旗矩阵中的各项均有对应事实，且观察值均为 absent；未发现红旗状态与病例叙述冲突。",
+    "mustAskFactIds、鉴别诊断数量、检查分类及目标诊断均与病例内容和评分规则一致；requiredDifferentialCount=2 与两个可接受鉴别诊断匹配。",
+    "unknown 回归轨迹的问题同时询问了既往同样发作和相关接触/诱因，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致回归期望与事实披露不一致。另需修正 chest CT/颞骨 CT 的测试命名一致性。",
+    "回归资产未暴露 teaching_note 或其他隐藏评分真值；安全轨迹预期中断、零医疗调用和零原始文本写入，与其安全场景设定一致。"
+  ]
+}

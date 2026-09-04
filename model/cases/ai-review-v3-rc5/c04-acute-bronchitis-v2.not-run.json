@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.4",
+  "contentHash": "sha256:b182d70b71fb742d1a90c46dd645734eeb7074d054078f853abbe7a1dbcab38a",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.pending.1",
+      "role": "clinical_safety",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c04_respiratory_004.1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    },
+    {
+      "validatorId": "validator.pending.2",
+      "role": "diagnostic_quality",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c04_respiratory_004.2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例结构已生成，但两项真实 AI 交叉审核尚未运行。"
+  ]
+}

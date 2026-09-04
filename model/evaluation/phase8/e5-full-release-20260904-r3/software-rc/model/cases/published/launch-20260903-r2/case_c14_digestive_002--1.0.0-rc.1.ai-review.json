@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:05a066936d8a5b39cbe82166371df4fb08453d0d39457f640a27d43cf7311166",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b01496d8-e0e5-4ab7-86f0-b894fda7c094",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:00:18.187Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致性不通过：检查项目标为“胸部CT”，但报告写成“腹部CT未见异常”，项目名称、别名和报告相互矛盾；应统一检查名称及报告内容。",
+        "诊断可解性通过：症状模式、病程、无报警征象及基础评估支持功能性消化不良，且设定了胃食管反流病和消化性溃疡作为可接受鉴别诊断。",
+        "危险征象排除通过：矩阵中的九项危险征象均明确为 absent，生命体征稳定；回归轨迹包含安全中断场景。",
+        "评分量表一致性通过：必问事实、必需及不必要检查、鉴别诊断数量和推荐回合数均有对应设定。",
+        "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，且期望结果与病例设定相符。",
+        "隐藏真相保护通过：教学字段保持 hidden，生命体征为 test-only；安全中断轨迹要求零医疗回合、零提供者调用和零原始文本写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b3b27d00-73a3-4916-a7ac-78680d7cbf95",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:00:31.839Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不通过：症状仅持续2个月，却直接锁定功能性消化不良；按常用诊断标准，病程与诊断时长要求可能不足。另有test.chest_ct的显示名称为“胸部CT”，报告却写“腹部CT”，检查部位自相矛盾。",
+        "诊断可解性不通过：现有资料支持“消化不良样症状、暂未见报警征象”，但不足以稳健排除器质性病因或满足功能性消化不良的时间标准，目标诊断粒度偏高。",
+        "红旗排除通过：红旗矩阵中的9项均有对应patient fact，状态均为absent，证据类型和requiredState一致；病例中未引入与之冲突的危险表现。",
+        "rubric一致性通过：mustAskFactIds均存在且与成功轨迹的预期事实一致；两个可接受鉴别诊断、requiredDifferentialCount=2及检查分类均能相互对应。",
+        "回归覆盖不通过：成功和失败轨迹均引用test.chest_ct，但该检查的显示部位与报告部位不一致，会使测试选择及失败路径的回归断言不稳定；同时成功轨迹的目标诊断建立在病程不足这一病例缺陷上。",
+        "隐藏真值安全通过：teaching_note保持hidden，服务端评分字段未进入患者可见叙事；safety轨迹预期中断、零provider调用和零raw text写入，未发现将隐藏答案泄露给玩家的路径。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致性不通过：检查项目标为“胸部CT”，但报告写成“腹部CT未见异常”，项目名称、别名和报告相互矛盾；应统一检查名称及报告内容。",
+    "诊断可解性通过：症状模式、病程、无报警征象及基础评估支持功能性消化不良，且设定了胃食管反流病和消化性溃疡作为可接受鉴别诊断。",
+    "危险征象排除通过：矩阵中的九项危险征象均明确为 absent，生命体征稳定；回归轨迹包含安全中断场景。",
+    "评分量表一致性通过：必问事实、必需及不必要检查、鉴别诊断数量和推荐回合数均有对应设定。",
+    "回归覆盖通过：包含成功、失败、安全中断及未知事实轨迹，且期望结果与病例设定相符。",
+    "隐藏真相保护通过：教学字段保持 hidden，生命体征为 test-only；安全中断轨迹要求零医疗回合、零提供者调用和零原始文本写入。",
+    "临床一致性不通过：症状仅持续2个月，却直接锁定功能性消化不良；按常用诊断标准，病程与诊断时长要求可能不足。另有test.chest_ct的显示名称为“胸部CT”，报告却写“腹部CT”，检查部位自相矛盾。",
+    "诊断可解性不通过：现有资料支持“消化不良样症状、暂未见报警征象”，但不足以稳健排除器质性病因或满足功能性消化不良的时间标准，目标诊断粒度偏高。",
+    "红旗排除通过：红旗矩阵中的9项均有对应patient fact，状态均为absent，证据类型和requiredState一致；病例中未引入与之冲突的危险表现。",
+    "rubric一致性通过：mustAskFactIds均存在且与成功轨迹的预期事实一致；两个可接受鉴别诊断、requiredDifferentialCount=2及检查分类均能相互对应。",
+    "回归覆盖不通过：成功和失败轨迹均引用test.chest_ct，但该检查的显示部位与报告部位不一致，会使测试选择及失败路径的回归断言不稳定；同时成功轨迹的目标诊断建立在病程不足这一病例缺陷上。",
+    "隐藏真值安全通过：teaching_note保持hidden，服务端评分字段未进入患者可见叙事；safety轨迹预期中断、零provider调用和零raw text写入，未发现将隐藏答案泄露给玩家的路径。"
+  ]
+}

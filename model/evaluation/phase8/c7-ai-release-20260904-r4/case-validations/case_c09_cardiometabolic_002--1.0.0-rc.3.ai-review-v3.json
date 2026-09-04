@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:91b287de0352fbd47ec773f5d35feb9d22be0e706c7787198218a514b587f31b",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8a0bac06-a0d5-4706-8c7d-6defd0901bf5",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:58:39.972Z",
+      "runStatus": "failed_to_run",
+      "decision": "not_run",
+      "findings": [
+        "OpenAI request failed."
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.25cbf46b-8b55-4325-8c49-6137e759ed77",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:00:56.614Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：口渴、夜尿、体重偏高及缓慢起病与2型糖尿病相符；糖化血红蛋白达到诊断范围，C肽保留且自身抗体阴性支持成人起病的非自身免疫性类型；腹部CT作为不必要检查已明确标注。",
+        "诊断可解性：核心症状、病程、代谢表型及关键检查结果能够支持目标诊断“2型糖尿病”，诊断粒度与answerKey一致；尿崩症和甲状腺功能亢进作为鉴别诊断可区分。",
+        "红旗排除：红旗矩阵中的10项均有对应patientFact，状态统一为absent，且生命体征显示未达到急症阈值；未发现病例事实、矩阵或检查结果之间的矛盾。",
+        "rubric一致性：must-ask事实均有可提取的questionMatchers；必需检查、不必要检查、鉴别诊断数量及目标术语均与评分规则一致，推荐回合数可满足成功轨迹。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均存在；成功轨迹覆盖核心问诊、必需检查、目标诊断及两项鉴别，失败轨迹覆盖不必要检查，安全轨迹明确要求中断，unknown轨迹覆盖未知既往史。",
+        "隐藏真相安全：教学字段为hidden且未进入患者可见叙事；回归轨迹未引用隐藏教学字段或内部答案以外的不当泄漏信息，安全轨迹还明确要求providerCalls、rawTextWrites和medicalTurns均为零。"
+      ]
+    }
+  ],
+  "findings": [
+    "OpenAI request failed.",
+    "临床一致性：口渴、夜尿、体重偏高及缓慢起病与2型糖尿病相符；糖化血红蛋白达到诊断范围，C肽保留且自身抗体阴性支持成人起病的非自身免疫性类型；腹部CT作为不必要检查已明确标注。",
+    "诊断可解性：核心症状、病程、代谢表型及关键检查结果能够支持目标诊断“2型糖尿病”，诊断粒度与answerKey一致；尿崩症和甲状腺功能亢进作为鉴别诊断可区分。",
+    "红旗排除：红旗矩阵中的10项均有对应patientFact，状态统一为absent，且生命体征显示未达到急症阈值；未发现病例事实、矩阵或检查结果之间的矛盾。",
+    "rubric一致性：must-ask事实均有可提取的questionMatchers；必需检查、不必要检查、鉴别诊断数量及目标术语均与评分规则一致，推荐回合数可满足成功轨迹。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均存在；成功轨迹覆盖核心问诊、必需检查、目标诊断及两项鉴别，失败轨迹覆盖不必要检查，安全轨迹明确要求中断，unknown轨迹覆盖未知既往史。",
+    "隐藏真相安全：教学字段为hidden且未进入患者可见叙事；回归轨迹未引用隐藏教学字段或内部答案以外的不当泄漏信息，安全轨迹还明确要求providerCalls、rawTextWrites和medicalTurns均为零。",
+    "1 counterpart review call(s) completed but the isolated pair was incomplete."
+  ]
+}

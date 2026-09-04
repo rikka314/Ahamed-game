@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.5",
+  "trajectories": [
+    {
+      "trajectoryId": "c22.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、具体症状、还伴有什么、加重。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：海鲜、关节操作、发热寒战。",
+          "expectedFactIds": [
+            "fact.gout_trigger",
+            "fact.septic_joint_risk",
+            "fact.musculoskeletal_infection"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.joint_assessment"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "痛风性关节炎",
+          "differentials": [
+            "感染性关节炎",
+            "假性痛风"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 2
+      }
+    },
+    {
+      "trajectoryId": "c22.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.foot_mri"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.foot_mri"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c22.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c22.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

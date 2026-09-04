@@ -1,0 +1,28 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G01",
+  "componentName": "诊所室内地面基础款",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 3,
+  "sourceType": "derived-ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-64/review/g01-clinic-interior-floor-base-imagegen-concept-v2.png",
+    "game/assets/source/tilesets/clinic-community-master-64/components/g01-clinic-interior-floor-base-v2.png"
+  ],
+  "generator": "OpenAI built-in image generation tool plus deterministic pixel cleanup rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Refine G01 on the actual 64x64 pixel grid. Preserve the pale warm seamless base, then add sparse irregular mineral pores, embedded sage, pale-blue, warm-tan and restrained coral aggregate chips with per-cluster highlight and shadow pixels, plus short non-directional wear clusters. Keep the ground low contrast and fully opaque with no text, logo, watermark, border, grout, blur or anti-aliasing.",
+  "humanEdits": [
+    "Added eighteen deliberately placed irregular aggregate clusters at native one- and two-pixel scale.",
+    "Added sparse warm mineral pores and four short non-directional wear clusters.",
+    "Preserved the seamless base and fully opaque sRGB output.",
+    "Generated a single-tile and 5x5 repeat review image."
+  ],
+  "status": "DRAFT"
+}

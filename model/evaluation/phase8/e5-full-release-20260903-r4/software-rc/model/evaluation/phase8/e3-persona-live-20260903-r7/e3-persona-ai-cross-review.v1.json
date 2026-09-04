@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "e3-persona-ai-cross-review-v1",
+  "reviewPolicy": "non_blocking",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "promptVersion": "e3-persona-consistency-review-v1",
+      "validationRunId": "run.persona_consistency_reviewer.8dd01026-ef6b-41b9-9f39-499f729c132f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "The model provider is unavailable. [OPENAI_TRANSIENT]"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "promptVersion": "e3-medical-fact-boundary-review-v1",
+      "validationRunId": "run.medical_fact_boundary_reviewer.76aeb0cb-e19c-4cf3-a1ff-8bbe64ff4eeb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "The model provider is unavailable. [OPENAI_TRANSIENT]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:286d3e3ef646e19fee21956a4b6c04e81a798d182d55697c0ec7559a253ff5c5",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ee502ec2-cc90-4a13-82e8-fa0cc0beec38",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:39:57.291Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实相互一致：突发右侧腰腹绞痛并向腹股沟放射，生命体征稳定，超声提示右侧输尿管小结石且无明显积水，支持单纯输尿管结石；增强CT被正确标记为初始非必需检查。",
+        "目标诊断可由症状模式及泌尿系超声明确求解，且急性肾盂肾炎、急性阑尾炎作为鉴别诊断具有合理性。",
+        "已明确排除意识改变、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等危险征象；生命体征检查结果稳定。",
+        "必问事实、鉴别诊断数量、检查分类、推荐回合数及沟通标准与评分策略一致，未见明显内部冲突。",
+        "成功、失败、安全中断和未知信息轨迹均有覆盖；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+        "隐藏教学字段、仅检查可读取的生命体征及其他服务端评分字段未被玩家可直接获取，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.681406c3-ab15-47a2-9a0e-159d0c452150",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:40:12.569Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、生命体征、超声结果与“单纯输尿管结石”及无明显梗阻/感染表现相互一致，诊断粒度也合适。",
+        "病例具备突发绞痛、向腹股沟放射、相关症状及超声证据，目标诊断可解。",
+        "红旗矩阵列出9项均需排除，但mustAskFactIds和成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population；发热伴腰痛、无尿、肉眼血尿、感染性梗阻、孤立肾等未被成功路径明确覆盖，矩阵与排除要求不一致。",
+        "rubric的红旗必问集合与redFlagExclusionMatrix不一致，导致评分对完整红旗排除的要求不明确；应统一矩阵、mustAskFactIds及成功轨迹的expectedFactIds。",
+        "unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；四类回归资产中的轨迹期望与问题内容不一致。",
+        "安全轨迹明确使用病例外胸痛伴呼吸困难请求，期望SAFETY_INTERRUPTED且不产生医疗回合，未见隐藏教学字段或答案泄漏问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实相互一致：突发右侧腰腹绞痛并向腹股沟放射，生命体征稳定，超声提示右侧输尿管小结石且无明显积水，支持单纯输尿管结石；增强CT被正确标记为初始非必需检查。",
+    "目标诊断可由症状模式及泌尿系超声明确求解，且急性肾盂肾炎、急性阑尾炎作为鉴别诊断具有合理性。",
+    "已明确排除意识改变、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等危险征象；生命体征检查结果稳定。",
+    "必问事实、鉴别诊断数量、检查分类、推荐回合数及沟通标准与评分策略一致，未见明显内部冲突。",
+    "成功、失败、安全中断和未知信息轨迹均有覆盖；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+    "隐藏教学字段、仅检查可读取的生命体征及其他服务端评分字段未被玩家可直接获取，隐藏真相保护充分。",
+    "临床叙事、生命体征、超声结果与“单纯输尿管结石”及无明显梗阻/感染表现相互一致，诊断粒度也合适。",
+    "病例具备突发绞痛、向腹股沟放射、相关症状及超声证据，目标诊断可解。",
+    "红旗矩阵列出9项均需排除，但mustAskFactIds和成功轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population；发热伴腰痛、无尿、肉眼血尿、感染性梗阻、孤立肾等未被成功路径明确覆盖，矩阵与排除要求不一致。",
+    "rubric的红旗必问集合与redFlagExclusionMatrix不一致，导致评分对完整红旗排除的要求不明确；应统一矩阵、mustAskFactIds及成功轨迹的expectedFactIds。",
+    "unknown轨迹的问题同时询问既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure；四类回归资产中的轨迹期望与问题内容不一致。",
+    "安全轨迹明确使用病例外胸痛伴呼吸困难请求，期望SAFETY_INTERRUPTED且不产生医疗回合，未见隐藏教学字段或答案泄漏问题。"
+  ]
+}

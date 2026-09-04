@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:aee63d846368b786c125a5dc928178cd023cae52b4b88c982ac3ed3c45b5c83e",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.pending.1",
+      "role": "clinical_safety",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c21_musculoskeletal_002.1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    },
+    {
+      "validatorId": "validator.pending.2",
+      "role": "diagnostic_quality",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c21_musculoskeletal_002.2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例结构已生成，但两项真实 AI 交叉审核尚未运行。"
+  ]
+}

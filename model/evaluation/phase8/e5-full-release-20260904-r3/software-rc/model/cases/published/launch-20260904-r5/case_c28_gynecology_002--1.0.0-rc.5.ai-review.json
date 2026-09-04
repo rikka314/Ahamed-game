@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c28_gynecology_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:a2b78b13dd5dc7ef307fc3b5938c9782e65da75f4ebb04e3a11a518db1995739",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.974fb3f5-dc48-47dd-a823-ae8fa37aa980",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:56:30.678Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实整体一致：症状、阴道镜检芽生孢子及假菌丝均支持外阴阴道念珠菌病，生命体征稳定，盆腔CT列为非初始必需检查合理。",
+        "诊断可解：典型瘙痒、白色稠厚分泌物与镜检结果共同支持目标诊断，且设置了两个可接受鉴别诊断。",
+        "红旗排除存在覆盖缺口：成功轨迹第二步询问“妊娠”，却将其映射为fact.high_risk_population，未明确询问免疫抑制或重要失代偿基础病，不能可靠完成特殊高风险人群排除。",
+        "量表与轨迹不一致：mustAsk要求fact.high_risk_population，但对应轨迹输入未包含该事实的明确问题；同时“妊娠”与“特殊高风险人群”被错误混用。",
+        "回归覆盖不足：success轨迹未正确覆盖全部must-ask事实，导致安全成功路径及相关评分回归不能证明红旗排除完整。其余失败、急症中断和未知事实轨迹未能弥补该缺口。",
+        "隐藏真相保护通过：教学字段标记为hidden，回归轨迹未要求泄露教学或服务端评分字段，安全中断轨迹也明确要求零医疗回合、零提供者调用及零原始文本写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.64f3418f-3d2c-4dcf-b84a-ffdd0d64ee9c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:56:47.588Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现（外阴瘙痒、白色稠厚分泌物）及镜检见芽生孢子和假菌丝与外阴阴道念珠菌病一致，目标诊断粒度适当。",
+        "现有病史和镜检结果足以支持目标诊断，且细菌性阴道病、滴虫性阴道炎作为两个鉴别诊断符合rubric要求。",
+        "红旗事实均有对应patientFacts及redFlagExclusionMatrix证据，状态均为absent；生命体征稳定，未见与目标病例冲突的急症信号。",
+        "success轨迹第二步提问“妊娠”却将其映射为expectedFactId“fact.high_risk_population”；高风险人群与妊娠可能是不同事实，导致rubric所要求的事实覆盖映射错误。",
+        "回归轨迹的success路径未可靠覆盖全部mustAsk事实：fact.high_risk_population没有被准确提问，且后续才单独提问妊娠，故成功轨迹与mustAsk及计分预期不一致；应修正提问文本或expectedFactIds。",
+        "未发现将teaching_note、评分字段或其他隐藏真值暴露给玩家的内容；unknown、failure及safety轨迹的预期也未显示明显隐藏真值泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实整体一致：症状、阴道镜检芽生孢子及假菌丝均支持外阴阴道念珠菌病，生命体征稳定，盆腔CT列为非初始必需检查合理。",
+    "诊断可解：典型瘙痒、白色稠厚分泌物与镜检结果共同支持目标诊断，且设置了两个可接受鉴别诊断。",
+    "红旗排除存在覆盖缺口：成功轨迹第二步询问“妊娠”，却将其映射为fact.high_risk_population，未明确询问免疫抑制或重要失代偿基础病，不能可靠完成特殊高风险人群排除。",
+    "量表与轨迹不一致：mustAsk要求fact.high_risk_population，但对应轨迹输入未包含该事实的明确问题；同时“妊娠”与“特殊高风险人群”被错误混用。",
+    "回归覆盖不足：success轨迹未正确覆盖全部must-ask事实，导致安全成功路径及相关评分回归不能证明红旗排除完整。其余失败、急症中断和未知事实轨迹未能弥补该缺口。",
+    "隐藏真相保护通过：教学字段标记为hidden，回归轨迹未要求泄露教学或服务端评分字段，安全中断轨迹也明确要求零医疗回合、零提供者调用及零原始文本写入。",
+    "临床表现（外阴瘙痒、白色稠厚分泌物）及镜检见芽生孢子和假菌丝与外阴阴道念珠菌病一致，目标诊断粒度适当。",
+    "现有病史和镜检结果足以支持目标诊断，且细菌性阴道病、滴虫性阴道炎作为两个鉴别诊断符合rubric要求。",
+    "红旗事实均有对应patientFacts及redFlagExclusionMatrix证据，状态均为absent；生命体征稳定，未见与目标病例冲突的急症信号。",
+    "success轨迹第二步提问“妊娠”却将其映射为expectedFactId“fact.high_risk_population”；高风险人群与妊娠可能是不同事实，导致rubric所要求的事实覆盖映射错误。",
+    "回归轨迹的success路径未可靠覆盖全部mustAsk事实：fact.high_risk_population没有被准确提问，且后续才单独提问妊娠，故成功轨迹与mustAsk及计分预期不一致；应修正提问文本或expectedFactIds。",
+    "未发现将teaching_note、评分字段或其他隐藏真值暴露给玩家的内容；unknown、failure及safety轨迹的预期也未显示明显隐藏真值泄漏。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:db3048891be7ee0345599bee42e7a095201663265b32b1b6533578ff12efb923",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.98a64393-2dc0-4282-b281-6cdb3bbbf088",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:44:08.496Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性、无明显症状的体检血脂异常，生命体征稳定，初始血脂检查和门诊评估路径总体一致；冠状动脉CT被正确标为非初始必需检查。",
+        "目标诊断“血脂异常（体检发现）”明确，且甲状腺功能减退、糖尿病作为两个可接受鉴别诊断，病例信息足以支持作答。",
+        "红旗矩阵中的意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症均有明确排除证据；安全轨迹也正确中断并禁止提供方调用和原文写入。",
+        "评分量表要求询问“特殊高风险人群”，其事实定义包括妊娠、免疫抑制或重要失代偿基础病，但成功回归轨迹仅询问“妊娠”，且患者为男性；该提问不能充分覆盖免疫抑制及重要失代偿基础病，导致must-ask覆盖与回归预期不一致。",
+        "成功、失败、安全中断及未知信息轨迹均有覆盖，未发现回归轨迹缺失。",
+        "教学字段保持hidden，未将服务端教学或评分内容暴露给患者；答案键和鉴别诊断设置未泄露隐藏真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2aad5973-876c-44eb-a9fb-36bf68fe466c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:44:34.984Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、检查结果与目标诊断“血脂异常（体检发现）”一致；冠状动脉CT设为初始非必需检查无明显冲突。",
+        "患者无明显症状但血脂复查异常，结合血脂检查可稳定求解目标诊断；甲状腺功能减退和糖尿病作为鉴别诊断粒度适当。",
+        "10项红旗均有对应患者事实，状态均为absent，且生命体征稳定，未见急症排除字段缺失或相互矛盾。",
+        "must-ask事实、2项可接受鉴别诊断、必需/非必需检查分类及推荐回合数与rubric一致；成功轨迹覆盖全部必问事实并命中诊断。",
+        "success、failure、safety、unknown四类回归轨迹均与病例事实、检查分类和评分预期一致；success的4个医疗问诊回合与expected相符。",
+        "未发现教学字段、隐藏事实或服务端评分信息被患者可见内容或回归轨迹不当泄露；安全轨迹正确预期中断且无provider调用和原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性、无明显症状的体检血脂异常，生命体征稳定，初始血脂检查和门诊评估路径总体一致；冠状动脉CT被正确标为非初始必需检查。",
+    "目标诊断“血脂异常（体检发现）”明确，且甲状腺功能减退、糖尿病作为两个可接受鉴别诊断，病例信息足以支持作答。",
+    "红旗矩阵中的意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症均有明确排除证据；安全轨迹也正确中断并禁止提供方调用和原文写入。",
+    "评分量表要求询问“特殊高风险人群”，其事实定义包括妊娠、免疫抑制或重要失代偿基础病，但成功回归轨迹仅询问“妊娠”，且患者为男性；该提问不能充分覆盖免疫抑制及重要失代偿基础病，导致must-ask覆盖与回归预期不一致。",
+    "成功、失败、安全中断及未知信息轨迹均有覆盖，未发现回归轨迹缺失。",
+    "教学字段保持hidden，未将服务端教学或评分内容暴露给患者；答案键和鉴别诊断设置未泄露隐藏真相。",
+    "病例叙事、检查结果与目标诊断“血脂异常（体检发现）”一致；冠状动脉CT设为初始非必需检查无明显冲突。",
+    "患者无明显症状但血脂复查异常，结合血脂检查可稳定求解目标诊断；甲状腺功能减退和糖尿病作为鉴别诊断粒度适当。",
+    "10项红旗均有对应患者事实，状态均为absent，且生命体征稳定，未见急症排除字段缺失或相互矛盾。",
+    "must-ask事实、2项可接受鉴别诊断、必需/非必需检查分类及推荐回合数与rubric一致；成功轨迹覆盖全部必问事实并命中诊断。",
+    "success、failure、safety、unknown四类回归轨迹均与病例事实、检查分类和评分预期一致；success的4个医疗问诊回合与expected相符。",
+    "未发现教学字段、隐藏事实或服务端评分信息被患者可见内容或回归轨迹不当泄露；安全轨迹正确预期中断且无provider调用和原始文本写入。"
+  ]
+}

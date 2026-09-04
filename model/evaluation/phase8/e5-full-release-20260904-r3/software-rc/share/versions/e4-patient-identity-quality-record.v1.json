@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "e4-patient-identity-quality-record-v1",
+  "contractRelease": "v1-rc2",
+  "recordedAt": "2026-09-03",
+  "engineeringStatus": "passed",
+  "reviewPolicy": "non_blocking",
+  "reuseBindings": {
+    "schemaVersion": "e4-reuse-bindings-v1",
+    "files": [
+      {
+        "path": "share/versions/contract-v1-rc2.json",
+        "sha256": "6a05303bbb79101d382ac821bc2ffe2f19d4772bd755b224b660a6cfa9346299"
+      },
+      {
+        "path": "share/contracts/v1-rc2/cases.ts",
+        "sha256": "ebf2dab247e8d099dd81e310d99c4f6953596fcbc1beded8afc20b1468bef8c0"
+      },
+      {
+        "path": "share/contracts/v1-rc2/index.ts",
+        "sha256": "c3b0308113a9038687d2281cc49e134e5c2c7c854f7f2d63f161d10c56e39ea4"
+      },
+      {
+        "path": "share/schemas/v1-rc2/public-contracts.schema.json",
+        "sha256": "dd8e28ed10dd37d46cc7066902598ad8bf5cd032a23885bb58a0010cab1e54d3"
+      },
+      {
+        "path": "share/schemas/v1-rc2/schema-manifest.json",
+        "sha256": "62c70005a50366c0b80fd3dfab3c966a3090f1fc7ecc7742c9b48a9d580a52aa"
+      },
+      {
+        "path": "share/fixtures/v1-rc2/fixture-manifest.json",
+        "sha256": "2ef7853c336c747ff2530ef3c4c55a9ff70947afaaada1a25dc0011d222cd686"
+      },
+      {
+        "path": "share/fixtures/v1-rc2/public-fixtures.json",
+        "sha256": "d6dc5d4973cf7a8ca69a0ec082c217edf6cfb5bb95d7a4909b1672e32252cf7f"
+      },
+      {
+        "path": "share/tests/contract/contracts.test.ts",
+        "sha256": "2023306b3706d1e345fe2e4bbb5715717c6bf6754fb072a96a4f439408998ce9"
+      },
+      {
+        "path": "share/tests/contract/hidden-fields.test.ts",
+        "sha256": "fa838f01e9632ecaf4efc3dec6c8d8e8d3f611d25cc87d6ef955e482c4efae85"
+      },
+      {
+        "path": "share/tests/contract/schema-fixtures.test.ts",
+        "sha256": "20bb0775375a955d3b496f1d39ca758c1762b0fc175cf40377f06290fdffb0e2"
+      },
+      {
+        "path": "share/tests/helpers.ts",
+        "sha256": "45b667cea12a9a6384e8fbbbbeba548f64abba8553ab1effc5bee5f8370fcd78"
+      },
+      {
+        "path": "model/src/adapters/share-v1-adapter.ts",
+        "sha256": "2d3d17c22dc3bb242ea274a7e09197ea955d3745e3a3f6bf3e3f5a33ce2a914b"
+      },
+      {
+        "path": "game/src/game/domain/patients/publicPatientIdentityCatalog.ts",
+        "sha256": "d0bf9206d4c997251d53539df91170296b4fb7a6058313cf4e70c2987d9c3d40"
+      },
+      {
+        "path": "game/src/game/domain/patients/patientSessionBinding.ts",
+        "sha256": "46360691c66edf5a96e75145a1e8e35c74e10bdb2542d69b85eba85a96e698f1"
+      },
+      {
+        "path": "game/tests/unit/patient-identity.test.ts",
+        "sha256": "3181901150e91534a10b5cb1334ec0d06e498a53130a9e4d62d533cccfe2b14d"
+      },
+      {
+        "path": "game/components/GameCanvas.tsx",
+        "sha256": "a03240e5aca92da2aa7e9b521b5bf84b00343184885d65bd9feb594edb662ba9"
+      },
+      {
+        "path": "game/src/game/bridge/gameBridge.ts",
+        "sha256": "6e71821e7019a7684723483b9169fb844286c26bf5ab423979799ea28e5fa64a"
+      },
+      {
+        "path": "game/src/game/domain/clinic-flow/clinicFlow.ts",
+        "sha256": "d7b610563a3ab2839e184d4f5573ce218835263b0bfaeef6aff379100c4f52e6"
+      },
+      {
+        "path": "game/src/game/domain/clinic-flow/grayboxClinicContent.ts",
+        "sha256": "a0c4c246f790ba1d8769d778c2820dc937ddc6cf1952f527c5f31e1da0b55711"
+      },
+      {
+        "path": "game/src/game/scenes/WorldScene.ts",
+        "sha256": "9d3625269d702ef2903e82716a8a647b4a2a987d0a3fbe6927bd5706dab49717"
+      },
+      {
+        "path": "game/tests/unit/clinic-flow.test.ts",
+        "sha256": "36976e510c1418a221e18d1f064bae9cbdc3cf05fa8e0aaba795009832661b6f"
+      },
+      {
+        "path": "game/tests/unit/gameBridge.test.ts",
+        "sha256": "3eacff1f8bbd94162f166e3592e35c4220f75a7c37ef79d6710275af107b319e"
+      }
+    ]
+  },
+  "metrics": {
+    "publicPatientRoles": 30,
+    "uniqueAppearanceIds": 30,
+    "reusableNpcSlots": 2,
+    "runtimeAdapterSessionBindings": 30
+  },
+  "checks": [
+    {
+      "checkId": "public_contract_projection",
+      "status": "pass",
+      "details": "CaseSummaryV1 requires patientRoleId and the allowlist projector removes persona, answer, rubric and hidden-fact fields."
+    },
+    {
+      "checkId": "release_artifact_isolation",
+      "status": "pass",
+      "details": "The frozen rc1 entrypoint, Schema and fixtures remain under v1 paths while rc2 publishes independent v1-rc2 artifacts."
+    },
+    {
+      "checkId": "identity_catalog_uniqueness",
+      "status": "pass",
+      "details": "30/30 patientRoleId values, appearance IDs and launch tints are unique and resolvable."
+    },
+    {
+      "checkId": "reusable_npc_slot_rotation",
+      "status": "pass",
+      "details": "30 share CaseSummary bindings enter one persistent clinic flow through the runtime queue adapter, rotate through two npcId slots and complete by sessionId and patientRoleId."
+    },
+    {
+      "checkId": "mapping_failure_modes",
+      "status": "pass",
+      "details": "Missing roles or assets, duplicate session/role bindings, npc slot mismatch and portrait mismatch fail explicitly."
+    },
+    {
+      "checkId": "production_build",
+      "status": "pass",
+      "details": "Next.js 16.3.2 Turbopack production build completed successfully."
+    },
+    {
+      "checkId": "build_and_public_asset_leakage_scan",
+      "status": "pass",
+      "details": "No personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis or patientFacts tokens were found in .next static/server output or public assets."
+    },
+    {
+      "checkId": "thirty_case_live_cross_layer_journey",
+      "status": "not_run",
+      "details": "Deferred to E5 after M0 and B1-B5 freeze the 30 production case packages."
+    },
+    {
+      "checkId": "runtime_storage_and_log_leakage_scan",
+      "status": "not_run",
+      "details": "IndexedDB, runtime logs and saves require the E5 browser journey and were not fabricated from static evidence."
+    }
+  ],
+  "aiCrossReview": {
+    "status": "not_run",
+    "roles": [
+      "contract_projection_reviewer",
+      "hidden_data_leakage_reviewer"
+    ],
+    "reviews": [
+      {
+        "reviewerId": "contract_projection_reviewer",
+        "status": "not_run",
+        "independentInvocation": true,
+        "counterpartOutputVisible": false,
+        "findings": []
+      },
+      {
+        "reviewerId": "hidden_data_leakage_reviewer",
+        "status": "not_run",
+        "independentInvocation": true,
+        "counterpartOutputVisible": false,
+        "findings": []
+      }
+    ],
+    "findingsCount": 0,
+    "details": "Both isolated reviews remain scheduled for E5 and do not block E4 engineering completion."
+  },
+  "verification": {
+    "shareTests": "87/87 passed",
+    "modelTests": "397/397 passed",
+    "gameTests": "35/35 passed",
+    "contractGate": "82/82 passed",
+    "shareCoverage": "lines 100%, functions 100%, branches 86.21%",
+    "gameLint": "passed",
+    "gameTypecheck": "passed",
+    "gameProductionBuild": "passed"
+  }
+}

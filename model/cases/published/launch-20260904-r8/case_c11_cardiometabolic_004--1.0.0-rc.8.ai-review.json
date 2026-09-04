@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c11_cardiometabolic_004",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:922e40689d3406c868058f869cbbf7aa661e578c6a191c5320c3d30a7f0ac897",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.04955d1c-b0b6-4272-b462-7a9af9a07d21",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:11:53.665Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：渐进性乏力、怕冷、反应变慢、皮肤干燥和便秘与甲状腺功能减退相符，甲状腺功能结果支持目标诊断，生命体征稳定且无明显矛盾。",
+        "诊断可解性通过：关键症状、病程和鉴别线索可通过问诊获得，甲状腺功能检查可明确支持目标诊断；无须依赖头颅MRI。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实，且生命体征稳定。",
+        "量表一致性通过：必问事实覆盖病程、症状模式、进展及全部列明红旗；检查分类、鉴别诊断数量和推荐回合限制与评分策略一致。",
+        "回归覆盖通过：成功、失败/不必要检查、安全中断及未知事实轨迹均有覆盖，且成功轨迹包含必要问诊、检查和正确诊断流程。",
+        "隐藏真相安全通过：教学字段和服务端评分字段标记为隐藏；回归输入未要求向患者泄露内部字段，人工审核状态等兼容元数据不影响病例决策。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b559693f-97dd-4a2a-a88f-01ec1da43c6c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:12:08.657Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现（乏力、怕冷、反应变慢、皮肤干燥、便秘）与甲状腺功能减退一致，甲状腺功能检查结果提供了充分且明确的诊断依据；诊断粒度适当。",
+        "目标诊断可由病例中的甲状腺功能检查直接求解，抑郁发作和贫血作为鉴别诊断合理；头颅MRI结果正常且被标记为非必要检查，与失败轨迹一致。",
+        "全部14项must-ask事实均有对应患者事实，10项红旗均明确记录为缺失，并由redFlagExclusionMatrix逐项映射，未见关键排除信息缺失。",
+        "rubric中的必问事实、2项鉴别诊断、必需/非必要检查分类与成功及失败轨迹一致；目标诊断和接受同义词映射明确。",
+        "success、failure、safety、unknown四类回归轨迹均覆盖，成功轨迹的4个问诊回合可获得全部必问事实，安全轨迹明确要求中断且无provider调用、原文写入或医疗回合。",
+        "回归轨迹未暴露answerKey、teaching_note或其他隐藏评分字段；pending审核元数据不影响病例本身的独立可审计性。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：渐进性乏力、怕冷、反应变慢、皮肤干燥和便秘与甲状腺功能减退相符，甲状腺功能结果支持目标诊断，生命体征稳定且无明显矛盾。",
+    "诊断可解性通过：关键症状、病程和鉴别线索可通过问诊获得，甲状腺功能检查可明确支持目标诊断；无须依赖头颅MRI。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确阴性事实，且生命体征稳定。",
+    "量表一致性通过：必问事实覆盖病程、症状模式、进展及全部列明红旗；检查分类、鉴别诊断数量和推荐回合限制与评分策略一致。",
+    "回归覆盖通过：成功、失败/不必要检查、安全中断及未知事实轨迹均有覆盖，且成功轨迹包含必要问诊、检查和正确诊断流程。",
+    "隐藏真相安全通过：教学字段和服务端评分字段标记为隐藏；回归输入未要求向患者泄露内部字段，人工审核状态等兼容元数据不影响病例决策。",
+    "临床表现（乏力、怕冷、反应变慢、皮肤干燥、便秘）与甲状腺功能减退一致，甲状腺功能检查结果提供了充分且明确的诊断依据；诊断粒度适当。",
+    "目标诊断可由病例中的甲状腺功能检查直接求解，抑郁发作和贫血作为鉴别诊断合理；头颅MRI结果正常且被标记为非必要检查，与失败轨迹一致。",
+    "全部14项must-ask事实均有对应患者事实，10项红旗均明确记录为缺失，并由redFlagExclusionMatrix逐项映射，未见关键排除信息缺失。",
+    "rubric中的必问事实、2项鉴别诊断、必需/非必要检查分类与成功及失败轨迹一致；目标诊断和接受同义词映射明确。",
+    "success、failure、safety、unknown四类回归轨迹均覆盖，成功轨迹的4个问诊回合可获得全部必问事实，安全轨迹明确要求中断且无provider调用、原文写入或医疗回合。",
+    "回归轨迹未暴露answerKey、teaching_note或其他隐藏评分字段；pending审核元数据不影响病例本身的独立可审计性。"
+  ]
+}

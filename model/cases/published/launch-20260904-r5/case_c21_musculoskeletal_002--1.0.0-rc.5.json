@@ -1,0 +1,514 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c21_musculoskeletal_002",
+  "publicCaseId": "case_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.5",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "右膝活动痛半年"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c21",
+    "patientDisplayName": "患者21号",
+    "ageBand": "56–65岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "社区志愿者",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "gentle_cooperative",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "语气温和礼貌",
+      "按问题逐项回答"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "high",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "右膝活动痛半年",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "半年以来逐渐出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "走路和上下楼时右膝疼痛，休息后减轻",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "晨僵时间短，无发热或关节明显红肿",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.major_trauma": {
+      "status": "absent",
+      "value": "没有近期严重外伤或无法负重。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "严重外伤",
+        "无法负重",
+        "摔伤撞伤"
+      ]
+    },
+    "fact.musculoskeletal_infection": {
+      "status": "absent",
+      "value": "没有发热寒战、破溃伤口、近期关节操作或全身感染表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热寒战",
+        "关节感染",
+        "近期关节操作"
+      ]
+    },
+    "fact.malignancy_warning": {
+      "status": "absent",
+      "value": "没有肿瘤病史、夜间进行性疼痛或无法解释的体重下降。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "肿瘤病史",
+        "夜间进行性疼痛",
+        "无法解释的体重下降"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.knee_xray": {
+      "status": "completed",
+      "displayName": "膝关节X线",
+      "aliases": [
+        "膝关节X线",
+        "做膝关节X线",
+        "test.knee_xray"
+      ],
+      "report": "膝关节X线提示轻度关节间隙变窄和骨赘。"
+    },
+    "test.knee_mri": {
+      "status": "completed",
+      "displayName": "膝关节MRI",
+      "aliases": [
+        "膝关节MRI",
+        "做膝关节MRI",
+        "test.knee_mri"
+      ],
+      "report": "膝关节MRI不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.knee_osteoarthritis",
+    "targetDiagnosis": "膝骨关节炎",
+    "acceptedSynonyms": [
+      "膝关节骨性关节炎"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.knee_osteoarthritis",
+        "preferredTerm": "膝骨关节炎",
+        "acceptedSynonyms": [
+          "膝关节骨性关节炎"
+        ]
+      },
+      {
+        "conceptId": "concept.rheumatoid_arthritis",
+        "preferredTerm": "类风湿关节炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.meniscal_injury",
+        "preferredTerm": "半月板损伤",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.major_trauma",
+      "fact.musculoskeletal_infection",
+      "fact.malignancy_warning"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.rheumatoid_arthritis",
+      "concept.meniscal_injury"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "useful",
+      "test.knee_xray": "required",
+      "test.knee_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B2病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:e558f972396ca7d9d4720a439d0e08bd0952d403bf5d0963aef84b8654eb3f2f",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.musculoskeletal",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c21_musculoskeletal_002",
+    "caseVersion": "1.0.0-rc.5",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.cauda_equina",
+        "canonicalName": "马尾综合征表现",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.major_trauma",
+        "canonicalName": "严重外伤",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.major_trauma"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.musculoskeletal_infection",
+        "canonicalName": "骨关节感染征象",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.musculoskeletal_infection"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.malignancy_warning",
+        "canonicalName": "恶性肿瘤警示",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.malignancy_warning"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.progressive_neurologic_deficit",
+        "canonicalName": "进行性神经功能缺损",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c21_musculoskeletal_002",
+    "caseVersion": "1.0.0-rc.5",
+    "contentHash": "sha256:e558f972396ca7d9d4720a439d0e08bd0952d403bf5d0963aef84b8654eb3f2f",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.5df841b1-0c85-473d-ab9d-d4a161a1da93",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:52:13.116Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床叙事、症状模式、病程及X线轻度退变表现与膝骨关节炎一致，且未见明显事实冲突。",
+          "病例为56–65岁成人，信息足以支持膝骨关节炎为目标诊断，并允许类风湿关节炎和半月板损伤作为鉴别诊断，诊断可解。",
+          "严重外伤、骨关节感染征象和恶性肿瘤警示均明确为缺如；生命体征稳定，未达到疾病域急症阈值，安全退出边界清楚。",
+          "必问病史、鉴别诊断数量、X线必需性、MRI非必要性及回合限制彼此一致；有用的生命体征检查未被错误计分。",
+          "回归轨迹覆盖成功、失败、急症安全中断和未知事实披露场景，且预期结果与病例规则一致。",
+          "教学字段、评分摘要及内部元数据未进入患者可见事实；安全轨迹要求胸痛伴呼吸困难时中断且不写入医疗回合，符合隐藏真相与安全保护要求。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.8e7b46ee-0a2b-4421-a4f7-803a08b1a8ad",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:52:23.129Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现为中老年女性、慢性活动痛、短暂晨僵、无明显炎症表现，结合X线轻度关节间隙变窄和骨赘，与膝骨关节炎一致；MRI标注为初始非必需，前后一致。",
+          "核心病史、红旗排除、X线检查及目标诊断均足以支持膝骨关节炎，诊断粒度与answerKey一致；类风湿关节炎和半月板损伤作为两个鉴别诊断符合rubric。",
+          "严重外伤、骨关节感染征象和恶性肿瘤警示均有对应患者事实，且与redFlagExclusionMatrix的适用性、状态和证据ID一致。",
+          "must-ask事实、两个鉴别诊断、required/useful/unnecessary检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖MRI不必要和错误诊断。",
+          "success、failure、safety、unknown四类回归轨迹均存在且语义一致：安全轨迹明确要求中断、零provider调用、零医疗回合；unknown轨迹正确读取prior_episode。",
+          "隐藏字段仅含教学和评分元数据，test-only生命体征未被患者事实误用；pending审核状态属于兼容元数据，不构成阻塞。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床叙事、症状模式、病程及X线轻度退变表现与膝骨关节炎一致，且未见明显事实冲突。",
+      "病例为56–65岁成人，信息足以支持膝骨关节炎为目标诊断，并允许类风湿关节炎和半月板损伤作为鉴别诊断，诊断可解。",
+      "严重外伤、骨关节感染征象和恶性肿瘤警示均明确为缺如；生命体征稳定，未达到疾病域急症阈值，安全退出边界清楚。",
+      "必问病史、鉴别诊断数量、X线必需性、MRI非必要性及回合限制彼此一致；有用的生命体征检查未被错误计分。",
+      "回归轨迹覆盖成功、失败、急症安全中断和未知事实披露场景，且预期结果与病例规则一致。",
+      "教学字段、评分摘要及内部元数据未进入患者可见事实；安全轨迹要求胸痛伴呼吸困难时中断且不写入医疗回合，符合隐藏真相与安全保护要求。",
+      "临床表现为中老年女性、慢性活动痛、短暂晨僵、无明显炎症表现，结合X线轻度关节间隙变窄和骨赘，与膝骨关节炎一致；MRI标注为初始非必需，前后一致。",
+      "核心病史、红旗排除、X线检查及目标诊断均足以支持膝骨关节炎，诊断粒度与answerKey一致；类风湿关节炎和半月板损伤作为两个鉴别诊断符合rubric。",
+      "严重外伤、骨关节感染征象和恶性肿瘤警示均有对应患者事实，且与redFlagExclusionMatrix的适用性、状态和证据ID一致。",
+      "must-ask事实、两个鉴别诊断、required/useful/unnecessary检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖MRI不必要和错误诊断。",
+      "success、failure、safety、unknown四类回归轨迹均存在且语义一致：安全轨迹明确要求中断、零provider调用、零医疗回合；unknown轨迹正确读取prior_episode。",
+      "隐藏字段仅含教学和评分元数据，test-only生命体征未被患者事实误用；pending审核状态属于兼容元数据，不构成阻塞。"
+    ]
+  }
+}

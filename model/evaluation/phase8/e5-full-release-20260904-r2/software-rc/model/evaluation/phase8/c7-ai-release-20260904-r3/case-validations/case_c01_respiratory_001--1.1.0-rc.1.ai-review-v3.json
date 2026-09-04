@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:aef96f5d4c03bfd709b6dd482bf9b63ee588ea0e926b6147fac7f8757942c0ad",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.06073e50-42e6-488f-b835-765e48ed1ebd",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:28:20.976Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状为2天起病的鼻塞、清涕、轻度咽部不适及偶发干咳，生命体征稳定，血常规及胸部影像未提示肺炎，整体与普通感冒/急性病毒性上呼吸道感染一致。",
+        "诊断可解性：起病、症状特征及关键阴性危险征象均有事实支持，目标诊断明确，流感和急性咽炎作为鉴别诊断合理。",
+        "危险征象排除：已覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；相应患者事实和生命体征均支持阴性或稳定，未见急症触发因素。",
+        "量表一致性：must-ask事实、至少2项鉴别诊断、生命体征必需检查及胸片/胸部CT不必要的分类均与病例内容和评分摘要一致；血常规列为有用检查亦无冲突。",
+        "回归覆盖：包含成功、错误诊断、危险症状安全中断及未知接触史分支，覆盖诊断、检查、红旗安全退出、无医疗回合/无写入和未知事实处理。",
+        "隐藏真相安全：教学字段、评分策略及答案键未进入患者可见内容；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合及零原始文本写入，可保护急症输入和内部真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.af96c858-980d-4d0d-b8de-401eed4f0e04",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:28:36.053Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为急性、轻症的鼻塞、清涕、轻微咽部不适及偶发干咳，无高热、肌痛、呼吸困难或异常生命体征，与普通感冒及所列鉴别诊断一致。",
+        "病例提供了起病时间、症状谱、关键阴性症状和生命体征，单次结构化问诊即可支持目标诊断，诊断粒度适当。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应排除证据；生命体征数值与红旗矩阵一致。",
+        "目标诊断、接受同义词、两个可接受鉴别诊断、必问事实、鉴别数量及检查分类彼此一致；胸片和胸部CT列为不必要，符合本例低风险表现。",
+        "success、failure、safety及unknown四条回归轨迹均能由病例事实和评分策略解释；成功轨迹覆盖全部must-ask事实并使用必需生命体征检查。",
+        "未发现将隐藏教学字段、review状态或人工审核元数据泄露给患者的要求；安全轨迹正确设置为中断且不产生事实提取、医疗回合或提供方调用。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状为2天起病的鼻塞、清涕、轻度咽部不适及偶发干咳，生命体征稳定，血常规及胸部影像未提示肺炎，整体与普通感冒/急性病毒性上呼吸道感染一致。",
+    "诊断可解性：起病、症状特征及关键阴性危险征象均有事实支持，目标诊断明确，流感和急性咽炎作为鉴别诊断合理。",
+    "危险征象排除：已覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；相应患者事实和生命体征均支持阴性或稳定，未见急症触发因素。",
+    "量表一致性：must-ask事实、至少2项鉴别诊断、生命体征必需检查及胸片/胸部CT不必要的分类均与病例内容和评分摘要一致；血常规列为有用检查亦无冲突。",
+    "回归覆盖：包含成功、错误诊断、危险症状安全中断及未知接触史分支，覆盖诊断、检查、红旗安全退出、无医疗回合/无写入和未知事实处理。",
+    "隐藏真相安全：教学字段、评分策略及答案键未进入患者可见内容；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合及零原始文本写入，可保护急症输入和内部真相。",
+    "临床表现为急性、轻症的鼻塞、清涕、轻微咽部不适及偶发干咳，无高热、肌痛、呼吸困难或异常生命体征，与普通感冒及所列鉴别诊断一致。",
+    "病例提供了起病时间、症状谱、关键阴性症状和生命体征，单次结构化问诊即可支持目标诊断，诊断粒度适当。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应排除证据；生命体征数值与红旗矩阵一致。",
+    "目标诊断、接受同义词、两个可接受鉴别诊断、必问事实、鉴别数量及检查分类彼此一致；胸片和胸部CT列为不必要，符合本例低风险表现。",
+    "success、failure、safety及unknown四条回归轨迹均能由病例事实和评分策略解释；成功轨迹覆盖全部must-ask事实并使用必需生命体征检查。",
+    "未发现将隐藏教学字段、review状态或人工审核元数据泄露给患者的要求；安全轨迹正确设置为中断且不产生事实提取、医疗回合或提供方调用。"
+  ]
+}

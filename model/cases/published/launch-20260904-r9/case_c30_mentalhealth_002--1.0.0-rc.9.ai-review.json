@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:c033847ff2cb3e2802efbc111a966c6f01f87ae68f0d64d6cd2154734fc24b26",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.9849b279-fddc-4298-9200-3589e04d101b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:55:50.906Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成人非急性精神心理主诉，症状持续约一个月，情绪低落、兴趣减少、乏力及躯体化表达与目标诊断一致，且无明显事实矛盾。",
+        "目标诊断可由现有病史、精神状态评估及安全筛查求解；两个鉴别诊断均已在量表中明确，诊断轨迹覆盖主诊断和鉴别诊断要求。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断及无法自理等危险征象均有对应排除事实；胸痛伴呼吸困难的安全中断轨迹也已配置。",
+        "量表、必需检查与不必要检查的分类相互一致；生命体征和精神状态评估为必需，头颅MRI明确为初始不必要检查。",
+        "成功回归轨迹覆盖全部must-ask事实、必需检查、正确诊断及两个鉴别诊断；失败、危险输入和未知既往史轨迹均有相应覆盖，且测试动作不构成会话开始前的重复检查。",
+        "隐藏教学字段、仅可通过检查读取的生命体征及其他非直接披露事实未被回归输入或可见叙事提前泄露，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.bd6756a6-a21f-4cc1-a38c-c176a0c49215",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:56:03.650Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与轻度抑郁发作伴躯体化表达一致：病程约1个月，存在情绪低落、兴趣减少和乏力，仍保留基本功能，且无躁狂、精神病性症状或自伤风险。",
+        "目标诊断粒度明确，病例已提供足以支持诊断的核心症状、病程和严重度信息；广泛性焦虑障碍及甲状腺功能减退作为两个可接受鉴别诊断，数量与rubric一致。",
+        "9项红旗排除项均有对应patient fact，状态均为absent；成功轨迹覆盖全部红旗询问及必要病史。",
+        "rubric要求的14项must-ask事实均在成功轨迹中覆盖；生命体征和精神状态评估列为required，头颅MRI列为unnecessary，测试选择与病例设定一致。",
+        "四类回归轨迹逻辑一致：success诊断与鉴别诊断正确，failure包含不必要MRI及错误诊断，safety应中断且无provider调用，unknown正确覆盖既往发作史；medicalTests中的completed状态不构成轨迹内重复检查。",
+        "病例未暴露teaching note等隐藏字段，回归期望未依赖隐藏真值；review.pending及来源审核待定属于兼容元数据，不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成人非急性精神心理主诉，症状持续约一个月，情绪低落、兴趣减少、乏力及躯体化表达与目标诊断一致，且无明显事实矛盾。",
+    "目标诊断可由现有病史、精神状态评估及安全筛查求解；两个鉴别诊断均已在量表中明确，诊断轨迹覆盖主诊断和鉴别诊断要求。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断及无法自理等危险征象均有对应排除事实；胸痛伴呼吸困难的安全中断轨迹也已配置。",
+    "量表、必需检查与不必要检查的分类相互一致；生命体征和精神状态评估为必需，头颅MRI明确为初始不必要检查。",
+    "成功回归轨迹覆盖全部must-ask事实、必需检查、正确诊断及两个鉴别诊断；失败、危险输入和未知既往史轨迹均有相应覆盖，且测试动作不构成会话开始前的重复检查。",
+    "隐藏教学字段、仅可通过检查读取的生命体征及其他非直接披露事实未被回归输入或可见叙事提前泄露，隐藏真相保护充分。",
+    "临床叙事与轻度抑郁发作伴躯体化表达一致：病程约1个月，存在情绪低落、兴趣减少和乏力，仍保留基本功能，且无躁狂、精神病性症状或自伤风险。",
+    "目标诊断粒度明确，病例已提供足以支持诊断的核心症状、病程和严重度信息；广泛性焦虑障碍及甲状腺功能减退作为两个可接受鉴别诊断，数量与rubric一致。",
+    "9项红旗排除项均有对应patient fact，状态均为absent；成功轨迹覆盖全部红旗询问及必要病史。",
+    "rubric要求的14项must-ask事实均在成功轨迹中覆盖；生命体征和精神状态评估列为required，头颅MRI列为unnecessary，测试选择与病例设定一致。",
+    "四类回归轨迹逻辑一致：success诊断与鉴别诊断正确，failure包含不必要MRI及错误诊断，safety应中断且无provider调用，unknown正确覆盖既往发作史；medicalTests中的completed状态不构成轨迹内重复检查。",
+    "病例未暴露teaching note等隐藏字段，回归期望未依赖隐藏真值；review.pending及来源审核待定属于兼容元数据，不构成阻塞。"
+  ]
+}

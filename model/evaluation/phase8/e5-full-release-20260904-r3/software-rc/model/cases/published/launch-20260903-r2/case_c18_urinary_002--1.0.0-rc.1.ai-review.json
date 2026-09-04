@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c18_urinary_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:cba4512044bdfd0eb65e7da2ac8e01001bc9f7967a04a6e00f61b78e7ffebff5",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.cbf79fbf-2cf8-49f7-9d2f-0a6104b22202",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:03:02.364Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、年龄和前列腺评估总体支持良性前列腺增生；但 test.chest_ct 的显示名称及别名为“胸部CT”，报告却写为“泌尿系CT”，存在检查标签与报告内容矛盾，可能造成错误检查选择或结果解释。",
+        "夜尿、尿线变细、排尿等待及对称性前列腺增大使良性前列腺增生可解，且设置了前列腺癌和膀胱过度活动症作为鉴别诊断，诊断可解性通过。",
+        "红旗矩阵列出9项均需排除，但成功轨迹和mustAsk仅覆盖confusion、hypotension、inability oral intake、high risk population；未覆盖发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，不能证明完整安全排除。",
+        "rubric的mustAsk列表与红旗排除矩阵不一致，矩阵要求的5项红旗未纳入必问内容；同时“胸部CT”虽被标为不必要检查，但其报告实际描述泌尿系CT，测试定义不一致。",
+        "回归成功路径未覆盖全部适用红旗，且未检测检查名称—报告错配；失败路径只验证错误诊断，不能弥补安全覆盖缺口，因此回归覆盖不足。",
+        "教学字段标记为hidden，生命体征为test_only，安全轨迹明确要求中断且不产生医疗回合、提供方调用或原始文本写入；未发现隐藏真相向患者侧泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ed376e89-5b36-4a26-938e-a8d545e00f65",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:03:26.372Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名与别名指向胸部CT，但报告内容却为“泌尿系CT未见梗阻性积水”，检查名称、别名和报告不一致，可能造成检查选择及结果解释歧义。",
+        "诊断可解性通过：渐进性夜尿、尿线变细、排尿等待，结合针对性检查提示前列腺对称性增大且无明显硬结，能够支持“良性前列腺增生”；鉴别诊断也具有可解释性。",
+        "红旗排除通过：病例事实、红旗矩阵和requiredState均将九项红旗一致设为absent，且未发现矩阵证据ID错配。",
+        "rubric一致性通过：must-ask事实均有病例字段和匹配问题，两个允许鉴别诊断与requiredDifferentialCount=2一致，必需及不必要检查分类与成功/失败轨迹总体相符。",
+        "回归覆盖失败：c18.unknown 的提问同时涉及既往发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致轨迹期望与问题语义不一致；此外失败轨迹使用的chest_ct本身受检查名称/报告错配影响。",
+        "隐藏真值安全通过：教学字段为hidden，生命体征标记为test_only，安全中断轨迹不要求读取或暴露隐藏临床真值；未见将target diagnosis直接暴露给患者的字段。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床表现、年龄和前列腺评估总体支持良性前列腺增生；但 test.chest_ct 的显示名称及别名为“胸部CT”，报告却写为“泌尿系CT”，存在检查标签与报告内容矛盾，可能造成错误检查选择或结果解释。",
+    "夜尿、尿线变细、排尿等待及对称性前列腺增大使良性前列腺增生可解，且设置了前列腺癌和膀胱过度活动症作为鉴别诊断，诊断可解性通过。",
+    "红旗矩阵列出9项均需排除，但成功轨迹和mustAsk仅覆盖confusion、hypotension、inability oral intake、high risk population；未覆盖发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，不能证明完整安全排除。",
+    "rubric的mustAsk列表与红旗排除矩阵不一致，矩阵要求的5项红旗未纳入必问内容；同时“胸部CT”虽被标为不必要检查，但其报告实际描述泌尿系CT，测试定义不一致。",
+    "回归成功路径未覆盖全部适用红旗，且未检测检查名称—报告错配；失败路径只验证错误诊断，不能弥补安全覆盖缺口，因此回归覆盖不足。",
+    "教学字段标记为hidden，生命体征为test_only，安全轨迹明确要求中断且不产生医疗回合、提供方调用或原始文本写入；未发现隐藏真相向患者侧泄漏。",
+    "临床一致性失败：test.chest_ct 的显示名与别名指向胸部CT，但报告内容却为“泌尿系CT未见梗阻性积水”，检查名称、别名和报告不一致，可能造成检查选择及结果解释歧义。",
+    "诊断可解性通过：渐进性夜尿、尿线变细、排尿等待，结合针对性检查提示前列腺对称性增大且无明显硬结，能够支持“良性前列腺增生”；鉴别诊断也具有可解释性。",
+    "红旗排除通过：病例事实、红旗矩阵和requiredState均将九项红旗一致设为absent，且未发现矩阵证据ID错配。",
+    "rubric一致性通过：must-ask事实均有病例字段和匹配问题，两个允许鉴别诊断与requiredDifferentialCount=2一致，必需及不必要检查分类与成功/失败轨迹总体相符。",
+    "回归覆盖失败：c18.unknown 的提问同时涉及既往发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致轨迹期望与问题语义不一致；此外失败轨迹使用的chest_ct本身受检查名称/报告错配影响。",
+    "隐藏真值安全通过：教学字段为hidden，生命体征标记为test_only，安全中断轨迹不要求读取或暴露隐藏临床真值；未见将target diagnosis直接暴露给患者的字段。"
+  ]
+}

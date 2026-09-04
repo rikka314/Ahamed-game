@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "c7-provider-model-approval-v1",
+  "decision": "revision_recommended",
+  "decisionRef": "c7.dialogue-architecture.2026-08-28",
+  "decidedAt": "2026-09-04T09:13:10.570Z",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol",
+    "promptVersion": "v0.5.0+set.0aac708b202d7b18"
+  },
+  "report": {
+    "path": "evaluation/phase8/c7-dialogue-live-20260904-r4/c7-dialogue-architecture-report.json",
+    "sha256": "7e29f30a56146412823e862d0d71309d7981ef8316c2963f5167fce6c01b0be6"
+  },
+  "audit": {
+    "path": "evaluation/phase8/c7-dialogue-live-20260904-r4/dialogue-sample-ai-validation.json",
+    "sha256": "ab4b51444b706426d41b306ca9c79706565f92b0c49d57d75f4f140717984fbd"
+  }
+}

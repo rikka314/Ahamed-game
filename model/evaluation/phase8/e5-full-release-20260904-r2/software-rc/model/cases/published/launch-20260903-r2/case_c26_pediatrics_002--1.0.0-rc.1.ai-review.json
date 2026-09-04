@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:ba23ac455aa75c1e509e3a6e8f159c146db34e678024fc01a5b2dba6c30b4b7a",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.99360e22-1f06-4785-a987-1b8de6bda6b3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:10:31.526Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：病例明确为8–12岁儿童，且内部标识为pediatrics；不符合本审核仅接受合成成人非急症病例的范围。",
+        "诊断可解性：反复脐周腹痛、无夜间痛醒或便血、进食和生长正常，且检查显示生长稳定、腹部无压痛或包块，能够支持“学龄儿童功能性腹痛”，鉴别诊断也有足够事实基础。",
+        "危险征象排除：年龄为8–12岁却将“age outside launch scope”记录为absent，与成人审核范围及病例实际年龄矛盾；年龄相关安全退出条件未被正确标记，存在范围外病例误放行风险。",
+        "量表一致性：病例为儿科病例但审核契约限定成人；同时rubric和红旗矩阵未反映该范围冲突，尤其年龄范围判定与病例事实不一致。",
+        "回归覆盖：成功、失败、不确定信息、安全中断轨迹均有覆盖；成功轨迹涵盖必问病史、必要检查和诊断，安全轨迹要求中断且无医疗调用，覆盖充分。",
+        "隐藏真相安全：教学字段、答案及评分内容未置于playerVisible；生命体征仍限定为检查读取，未见通过患者对话泄露隐藏事实或诊断答案。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b88063f2-4d56-4fcd-8496-c3b7654c8af3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:10:48.183Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线与“学龄儿童功能性腹痛”基本一致：病程慢、脐周痛、休息缓解、生长和进食正常且无明显红旗；但 test.chest_ct 的报告却写成“腹部CT不是……初始必需检查”，检查名称与报告内容不一致，影响检查语义一致性。",
+        "现有病史、查体和阴性红旗信息足以支持目标诊断，并可与便秘、乳糜泻形成可解的鉴别诊断。",
+        "红旗排除矩阵中的各项均有对应 patient_fact，requiredState 与 observedValue 均为 absent，且病例没有与之冲突的阳性表现。",
+        "mustAskFactIds 与成功轨迹中的一次集中询问、两项必需检查、目标诊断及两项鉴别诊断相互匹配；差异诊断数量和检查分类也符合 rubric。",
+        "回归覆盖存在不一致：c26.unknown 的输入同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏同样被直接询问且已有定义的 fact.relevant_exposure；此外 failure 轨迹使用 test.chest_ct，但其报告实际描述腹部CT，可能造成检查选择回归语义偏差。",
+        "成功、失败、未知和安全轨迹均未引用 hidden teaching_note 或 test-only 生命体征原始值；安全轨迹也明确要求中断且无医疗调用，未见隐藏真值泄漏。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：病例明确为8–12岁儿童，且内部标识为pediatrics；不符合本审核仅接受合成成人非急症病例的范围。",
+    "诊断可解性：反复脐周腹痛、无夜间痛醒或便血、进食和生长正常，且检查显示生长稳定、腹部无压痛或包块，能够支持“学龄儿童功能性腹痛”，鉴别诊断也有足够事实基础。",
+    "危险征象排除：年龄为8–12岁却将“age outside launch scope”记录为absent，与成人审核范围及病例实际年龄矛盾；年龄相关安全退出条件未被正确标记，存在范围外病例误放行风险。",
+    "量表一致性：病例为儿科病例但审核契约限定成人；同时rubric和红旗矩阵未反映该范围冲突，尤其年龄范围判定与病例事实不一致。",
+    "回归覆盖：成功、失败、不确定信息、安全中断轨迹均有覆盖；成功轨迹涵盖必问病史、必要检查和诊断，安全轨迹要求中断且无医疗调用，覆盖充分。",
+    "隐藏真相安全：教学字段、答案及评分内容未置于playerVisible；生命体征仍限定为检查读取，未见通过患者对话泄露隐藏事实或诊断答案。",
+    "临床主线与“学龄儿童功能性腹痛”基本一致：病程慢、脐周痛、休息缓解、生长和进食正常且无明显红旗；但 test.chest_ct 的报告却写成“腹部CT不是……初始必需检查”，检查名称与报告内容不一致，影响检查语义一致性。",
+    "现有病史、查体和阴性红旗信息足以支持目标诊断，并可与便秘、乳糜泻形成可解的鉴别诊断。",
+    "红旗排除矩阵中的各项均有对应 patient_fact，requiredState 与 observedValue 均为 absent，且病例没有与之冲突的阳性表现。",
+    "mustAskFactIds 与成功轨迹中的一次集中询问、两项必需检查、目标诊断及两项鉴别诊断相互匹配；差异诊断数量和检查分类也符合 rubric。",
+    "回归覆盖存在不一致：c26.unknown 的输入同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏同样被直接询问且已有定义的 fact.relevant_exposure；此外 failure 轨迹使用 test.chest_ct，但其报告实际描述腹部CT，可能造成检查选择回归语义偏差。",
+    "成功、失败、未知和安全轨迹均未引用 hidden teaching_note 或 test-only 生命体征原始值；安全轨迹也明确要求中断且无医疗调用，未见隐藏真值泄漏。"
+  ]
+}

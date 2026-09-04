@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:8145431d3662fd36fdca174b89058669198a267bc534850d9898f30ee7c55275",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.cf0eb8e6-5d7a-43fd-b870-416894db32e1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:36:01.731Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状呈饭后及躺下时反酸、烧心，病程一个月且进展缓慢，符合胃食管反流病的合成病例设定；生命体征稳定，检查结果与非急症边界一致。腹部CT标为不必要检查，但已在量表中明确，不构成病例事实矛盾。",
+        "诊断可解性：起病、症状模式、伴随症状、进展及关键危险表现均可通过询问获得；标准轨迹提供必要检查、目标诊断及两个鉴别诊断，足以支持唯一目标概念。",
+        "危险征象排除：矩阵列出的意识改变、低血压、无法进食、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确为缺如；生命体征稳定且上消化道评估未见报警征象，安全退出条件充分。",
+        "量表一致性：must-ask事实、目标诊断、两个鉴别诊断及检查分类与成功轨迹和评分摘要相互匹配；腹部CT作为不必要检查的惩罚项定义清楚。",
+        "回归覆盖：包含成功、失败、安全中断和未知信息轨迹，覆盖诊断匹配、错误诊断、危险输入零调用退出及不确定事实处理；预期结果明确。",
+        "隐藏真相安全：教学字段、答案键及评分信息未被设计为患者可见内容；安全轨迹要求中断并禁止医疗回合、服务端写入和提供者调用，未见通过患者对话泄露隐藏真相的路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.c670be5d-e256-400b-ba4b-e4c2f6c6ca22",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:36:17.364Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现符合胃食管反流病：饭后及躺下时反酸、烧心，病程一个月且无已报告的活动性胸痛、黑便或吞咽困难；生命体征及上消化道评估未见报警征象，腹部CT虽属不必要检查但不造成临床逻辑矛盾。",
+        "目标诊断粒度明确，胃食管反流病与胃食管反流可稳定映射至concept.gerd；现有病史和检查足以支持该诊断，两个鉴别诊断也已明确。",
+        "红旗排除矩阵将9项红旗均标为适用且要求缺失，但mustAskFactIds及成功轨迹仅覆盖其中4项；消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降未被成功路径要求询问，导致安全排除覆盖不足。",
+        "rubric与冻结矩阵不一致：rubric的必问红旗集合不是矩阵的完整适用集合。其余方面（2个鉴别诊断、生命体征和上消化道评估为必需、腹部CT为不必要）与回归轨迹基本一致。",
+        "unknown轨迹的问题同时询问了既往相同发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应被命中的fact.relevant_exposure，造成轨迹期望与事实匹配器不一致。",
+        "安全轨迹对‘胸痛又喘不过气’触发SAFETY_INTERRUPTED，并要求无服务端调用、无原始文本写入和无医疗回合；该隐藏安全分支与病例的正常门诊路径不冲突。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状呈饭后及躺下时反酸、烧心，病程一个月且进展缓慢，符合胃食管反流病的合成病例设定；生命体征稳定，检查结果与非急症边界一致。腹部CT标为不必要检查，但已在量表中明确，不构成病例事实矛盾。",
+    "诊断可解性：起病、症状模式、伴随症状、进展及关键危险表现均可通过询问获得；标准轨迹提供必要检查、目标诊断及两个鉴别诊断，足以支持唯一目标概念。",
+    "危险征象排除：矩阵列出的意识改变、低血压、无法进食、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确为缺如；生命体征稳定且上消化道评估未见报警征象，安全退出条件充分。",
+    "量表一致性：must-ask事实、目标诊断、两个鉴别诊断及检查分类与成功轨迹和评分摘要相互匹配；腹部CT作为不必要检查的惩罚项定义清楚。",
+    "回归覆盖：包含成功、失败、安全中断和未知信息轨迹，覆盖诊断匹配、错误诊断、危险输入零调用退出及不确定事实处理；预期结果明确。",
+    "隐藏真相安全：教学字段、答案键及评分信息未被设计为患者可见内容；安全轨迹要求中断并禁止医疗回合、服务端写入和提供者调用，未见通过患者对话泄露隐藏真相的路径。",
+    "临床表现符合胃食管反流病：饭后及躺下时反酸、烧心，病程一个月且无已报告的活动性胸痛、黑便或吞咽困难；生命体征及上消化道评估未见报警征象，腹部CT虽属不必要检查但不造成临床逻辑矛盾。",
+    "目标诊断粒度明确，胃食管反流病与胃食管反流可稳定映射至concept.gerd；现有病史和检查足以支持该诊断，两个鉴别诊断也已明确。",
+    "红旗排除矩阵将9项红旗均标为适用且要求缺失，但mustAskFactIds及成功轨迹仅覆盖其中4项；消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降未被成功路径要求询问，导致安全排除覆盖不足。",
+    "rubric与冻结矩阵不一致：rubric的必问红旗集合不是矩阵的完整适用集合。其余方面（2个鉴别诊断、生命体征和上消化道评估为必需、腹部CT为不必要）与回归轨迹基本一致。",
+    "unknown轨迹的问题同时询问了既往相同发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应被命中的fact.relevant_exposure，造成轨迹期望与事实匹配器不一致。",
+    "安全轨迹对‘胸痛又喘不过气’触发SAFETY_INTERRUPTED，并要求无服务端调用、无原始文本写入和无医疗回合；该隐藏安全分支与病例的正常门诊路径不冲突。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:48b31916a7e5b70fbcb301daa3be3942a0a2a3a44a966e5bf7271c9b7dc372d7",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.51f3f0e9-ad0e-4a89-9cb0-95dd9857f182",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:13:59.468Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性、无明显不适且生命体征稳定的体检血脂异常场景，症状进展、检查结果与目标诊断相互一致，未见急症叙事冲突。",
+        "目标诊断“血脂异常（体检发现）”由血脂检查结果直接支持，且设置甲状腺功能减退和糖尿病作为可辨识的鉴别诊断，诊断任务可解。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均明确为缺如；生命体征检查用于安全确认，安全退出轨迹已覆盖自报胸痛伴呼吸困难的急性场景。",
+        "rubric中的必问病史、两个鉴别诊断、必需检查及不必要的冠状动脉CT与病例事实和评分策略一致；男性身份下妊娠相关询问虽非核心，但未造成临床或评分矛盾。",
+        "成功、失败、安全中断和未知事实轨迹均有覆盖；成功轨迹包含全部必问事实、生命体征、血脂检查及正确诊断，失败轨迹验证不必要检查，安全轨迹要求零医疗回合和零写入。",
+        "教学字段保持隐藏，安全轨迹明确要求providerCalls、rawTextWrites和medicalTurns均为0；未发现通过患者可见内容泄露隐藏真相或内部评分信息的路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a18fea13-7341-40c3-b107-c82f7df29d9a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:14:12.215Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：无症状体检发现血脂异常与病史、血脂检查结果一致；生命体征检查合理，冠状动脉CT明确标为初始非必需检查。",
+        "diagnosisSolvability：血脂检查直接支持“血脂异常（体检发现）”，目标诊断粒度明确；“高脂血症”为可接受同义词，两个鉴别诊断均有对应概念。",
+        "redFlagExclusions：矩阵中的10项红旗均有对应患者事实，状态一致为 absent，且安全轨迹对急性胸痛伴呼吸困难执行中断。",
+        "rubricConsistency：must-ask事实、鉴别诊断数量及检查分类均与病例内容和答案键一致；推荐回合上限也未被成功轨迹超出。",
+        "regressionCoverage：success、failure、safety、unknown四类回归轨迹齐全；成功轨迹覆盖全部must-ask事实及必需检查，失败轨迹覆盖错误诊断和不必要检查，未知事实轨迹也与unknown状态一致。",
+        "hiddenTruthSafety：教学字段及服务端字段未出现在患者可见问答或回归输入中，未发现隐藏答案泄漏或通过回合存在性推断沟通评分的情形。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性、无明显不适且生命体征稳定的体检血脂异常场景，症状进展、检查结果与目标诊断相互一致，未见急症叙事冲突。",
+    "目标诊断“血脂异常（体检发现）”由血脂检查结果直接支持，且设置甲状腺功能减退和糖尿病作为可辨识的鉴别诊断，诊断任务可解。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症均明确为缺如；生命体征检查用于安全确认，安全退出轨迹已覆盖自报胸痛伴呼吸困难的急性场景。",
+    "rubric中的必问病史、两个鉴别诊断、必需检查及不必要的冠状动脉CT与病例事实和评分策略一致；男性身份下妊娠相关询问虽非核心，但未造成临床或评分矛盾。",
+    "成功、失败、安全中断和未知事实轨迹均有覆盖；成功轨迹包含全部必问事实、生命体征、血脂检查及正确诊断，失败轨迹验证不必要检查，安全轨迹要求零医疗回合和零写入。",
+    "教学字段保持隐藏，安全轨迹明确要求providerCalls、rawTextWrites和medicalTurns均为0；未发现通过患者可见内容泄露隐藏真相或内部评分信息的路径。",
+    "clinicalConsistency：无症状体检发现血脂异常与病史、血脂检查结果一致；生命体征检查合理，冠状动脉CT明确标为初始非必需检查。",
+    "diagnosisSolvability：血脂检查直接支持“血脂异常（体检发现）”，目标诊断粒度明确；“高脂血症”为可接受同义词，两个鉴别诊断均有对应概念。",
+    "redFlagExclusions：矩阵中的10项红旗均有对应患者事实，状态一致为 absent，且安全轨迹对急性胸痛伴呼吸困难执行中断。",
+    "rubricConsistency：must-ask事实、鉴别诊断数量及检查分类均与病例内容和答案键一致；推荐回合上限也未被成功轨迹超出。",
+    "regressionCoverage：success、failure、safety、unknown四类回归轨迹齐全；成功轨迹覆盖全部must-ask事实及必需检查，失败轨迹覆盖错误诊断和不必要检查，未知事实轨迹也与unknown状态一致。",
+    "hiddenTruthSafety：教学字段及服务端字段未出现在患者可见问答或回归输入中，未发现隐藏答案泄漏或通过回合存在性推断沟通评分的情形。"
+  ]
+}

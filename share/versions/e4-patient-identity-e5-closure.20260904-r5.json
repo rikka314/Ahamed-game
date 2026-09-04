@@ -1,0 +1,118 @@
+{
+  "aiCrossReview": {
+    "reviews": [
+      {
+        "attemptedAt": "2026-09-04T07:25:13.090Z",
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260904-r7/private/contract_projection_reviewer.v2.json",
+        "evidenceSha256": "f3bcc82f9f980d0e54824b0b5cc2e8f46fce32a6ba0430a90c83d1e580898cdf",
+        "findings": [],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-contract-projection-review-v2",
+        "reviewerId": "contract_projection_reviewer",
+        "status": "pass"
+      },
+      {
+        "attemptedAt": "2026-09-04T07:25:13.096Z",
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260904-r7/private/hidden_data_leakage_reviewer.v2.json",
+        "evidenceSha256": "c5a0f45fc543991381cf6b97209f9ec9d1f38e95132dd874e5965b7c37f4cf0d",
+        "findings": [
+          {
+            "code": "save_export_not_available",
+            "message": "The saveExport surface was not available in the current game shell, and the evidence records this explicitly rather than claiming it was scanned. No failure is assigned.",
+            "severity": "warning"
+          }
+        ],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-hidden-data-leakage-review-v3",
+        "reviewerId": "hidden_data_leakage_reviewer",
+        "status": "pass"
+      }
+    ],
+    "status": "pass"
+  },
+  "bindings": {
+    "aiReviews": [
+      {
+        "bytes": 750,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/private/contract_projection_reviewer.v2.json",
+        "sha256": "f3bcc82f9f980d0e54824b0b5cc2e8f46fce32a6ba0430a90c83d1e580898cdf"
+      },
+      {
+        "bytes": 1025,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/private/hidden_data_leakage_reviewer.v2.json",
+        "sha256": "c5a0f45fc543991381cf6b97209f9ec9d1f38e95132dd874e5965b7c37f4cf0d"
+      }
+    ],
+    "baseQualityRecord": {
+      "bytes": 7025,
+      "path": "share/versions/e4-patient-identity-quality-record.v1.json",
+      "sha256": "6af69b7478d3c6eaefc37f8a148f308c8c816a413ed4c4b6439dd7d96aa6924a"
+    },
+    "journeyIndex": {
+      "bytes": 781,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/e4-cross-layer-evidence-index.v1.json",
+      "sha256": "b35e091bbe8f8bb18b00c8fa60a82fd5df53cc6d6c02c316605b0297e5190304"
+    },
+    "publicJourney": {
+      "bytes": 37814,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/public/e4-cross-layer-journey.v1.json",
+      "sha256": "e619af571407de5945497ed6ef1405ca3b0126b28dd81ccccced21de29364bdf"
+    },
+    "reviewTarget": {
+      "bytes": 113362,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/private/e4-closure-review-target.v4.json",
+      "sha256": "66446a24552ccf93fe011f3d359c0339f6e70d593b7b2cafe9984cbce1419792"
+    },
+    "runtimeSurfaceScan": {
+      "bytes": 62253,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r7/public/e4-runtime-surface-scan.v4.json",
+      "sha256": "8c2cbeca9f3c171ef9eeccc0fc94ff55c5886d704d17c48deb3757a970d35140"
+    },
+    "scannerImplementation": {
+      "bytes": 22054,
+      "path": "game/tests/e2e/e4-patient-identity-closure.spec.ts",
+      "sha256": "70f1052c12baa2bd2d6410e3c92f4dba445bf60058213232a9080d7bf6066965"
+    }
+  },
+  "checks": [
+    {
+      "checkId": "thirty_case_live_cross_layer_journey",
+      "details": "30 CasePackage v2 records completed ModelService create-session and ask-patient calls in 15 two-slot shifts.",
+      "status": "pass"
+    },
+    {
+      "checkId": "runtime_storage_and_log_leakage_scan",
+      "details": "5 browser surfaces observed; 1 unavailable surfaces recorded without fabrication; 0 surface scans failed; 0 sensitive matches.",
+      "status": "pass"
+    },
+    {
+      "checkId": "independent_ai_cross_review",
+      "details": "2 of 2 isolated Contract Projection / Hidden-data Leakage AI reviews completed.",
+      "status": "pass"
+    }
+  ],
+  "decision": "passed",
+  "generatedAt": "2026-09-04T07:25:31.793Z",
+  "metrics": {
+    "askPatientCalls": 30,
+    "completedAiReviews": 2,
+    "completedTurns": 30,
+    "createSessionCalls": 30,
+    "crossLayerCases": 30,
+    "failedRuntimeSurfaces": 0,
+    "observedRuntimeSurfaces": 5,
+    "publicPatientRoles": 30,
+    "reusableNpcSlots": 2,
+    "sensitiveMatches": 0,
+    "shifts": 15,
+    "unavailableRuntimeSurfaces": 1
+  },
+  "reviewPolicy": "non_blocking",
+  "schemaVersion": "e4-patient-identity-e5-closure-v4"
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:5f80a6a088826821a91a41c78bfcae6865f0032ceef012024480299a984ee9bc",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.574aa730-3ebc-4efc-b693-e1cb37d9ad38",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:22:10.804Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、暴露史、局限性皮疹分布及斑贴试验结果相互一致，支持过敏性接触性皮炎；生命体征稳定，病例边界为非急症门诊场景。",
+        "目标诊断可由病史、皮肤检查和斑贴试验求解；接受同义词“接触性湿疹”，鉴别诊断设置与目标概念不重复。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散及免疫抑制等危险征象均有明确排除事实；生命体征按检查读取，安全轨迹也包含中断策略。",
+        "must-ask事实、必需检查、无需检查项、两项鉴别诊断及推荐回合数与成功轨迹和评分摘要一致；皮肤活检被正确标为初始不必要检查。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史分支，预期结果与病例事实和评分策略相符。",
+        "隐藏教学字段未进入可询问事实，生命体征保持test-only，安全中断轨迹要求无provider调用和原始文本写入；未见隐藏真相或内部评分信息向患者泄漏的路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.3b32d74b-c16b-4c51-99b9-461b7c19f883",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:22:22.645Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、接触暴露、皮损分布、斑贴试验及目标诊断相互一致，诊断粒度适当。",
+        "核心事实可通过规定问诊和皮肤检查获得；目标诊断、接受同义词及两项鉴别诊断定义清晰。",
+        "红旗排除项均有对应事实、问法和矩阵条目，未见与病例表现冲突的急症信号。",
+        "must-ask事实、鉴别诊断数量、检查分类、回合限制及沟通标准彼此一致。",
+        "success、failure、safety、unknown 四类回归轨迹与病例事实及评分预期一致；成功轨迹覆盖全部必问事实并使用必要检查，失败轨迹使用不必要活检，安全轨迹不产生临床调用或写入。",
+        "隐藏字段、test-only生命体征和教学字段未泄漏到患者可见叙事或回归输入中，未发现隐藏真相安全问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床叙事、暴露史、局限性皮疹分布及斑贴试验结果相互一致，支持过敏性接触性皮炎；生命体征稳定，病例边界为非急症门诊场景。",
+    "目标诊断可由病史、皮肤检查和斑贴试验求解；接受同义词“接触性湿疹”，鉴别诊断设置与目标概念不重复。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、黏膜受累、水疱或剥脱、全身中毒、快速扩散及免疫抑制等危险征象均有明确排除事实；生命体征按检查读取，安全轨迹也包含中断策略。",
+    "must-ask事实、必需检查、无需检查项、两项鉴别诊断及推荐回合数与成功轨迹和评分摘要一致；皮肤活检被正确标为初始不必要检查。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知既往史分支，预期结果与病例事实和评分策略相符。",
+    "隐藏教学字段未进入可询问事实，生命体征保持test-only，安全中断轨迹要求无provider调用和原始文本写入；未见隐藏真相或内部评分信息向患者泄漏的路径。",
+    "病例叙事、接触暴露、皮损分布、斑贴试验及目标诊断相互一致，诊断粒度适当。",
+    "核心事实可通过规定问诊和皮肤检查获得；目标诊断、接受同义词及两项鉴别诊断定义清晰。",
+    "红旗排除项均有对应事实、问法和矩阵条目，未见与病例表现冲突的急症信号。",
+    "must-ask事实、鉴别诊断数量、检查分类、回合限制及沟通标准彼此一致。",
+    "success、failure、safety、unknown 四类回归轨迹与病例事实及评分预期一致；成功轨迹覆盖全部必问事实并使用必要检查，失败轨迹使用不必要活检，安全轨迹不产生临床调用或写入。",
+    "隐藏字段、test-only生命体征和教学字段未泄漏到患者可见叙事或回归输入中，未发现隐藏真相安全问题。"
+  ]
+}

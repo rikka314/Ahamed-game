@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:dd3b4aedb439a7450a9c270fdb38aed1d6031b5bd8944f527e205fc872a43bc3",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.8ea59140-78fe-42dc-a6e3-592cba92b71a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:46:31.698Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙述、生命体征、精神状态评估及广泛性焦虑障碍答案之间基本一致，符合成人非急症门诊场景。",
+        "起病持续时间、广泛性难以控制的担心、伴随症状和功能变化均可支持目标诊断，且预设鉴别诊断与检查要求清晰，诊断可解。",
+        "红旗矩阵列出9项适用且要求排除的危险征象，但成功轨迹和mustAsk仅覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖self harm risk、psychosis、mania、substance intoxication及inability to care for self；精神科病例存在安全排除不完整问题。",
+        "rubric.mustAskFactIds与redFlagExclusionMatrix的适用项目不一致，导致评分标准未要求覆盖全部安全关键事实。",
+        "回归成功轨迹未验证全部红旗事实，安全轨迹仅验证外部急性胸痛/呼吸困难中断，未覆盖病例内精神科红旗询问及安全退出，因此回归覆盖不足。",
+        "教学字段、答案键及内部评分信息未进入患者可见内容；失败轨迹也未显示隐藏真相泄露，隐藏真相保护通过。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f9247380-aee9-4792-8f70-d3378569c57f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:46:46.048Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不充分：病例明确给出的广泛性焦虑相关症状主要是肌肉紧张和睡眠不稳，尚未达到通常所需的足够伴随症状覆盖；且相关医学、物质或其他诱因信息仍为未知。",
+        "诊断可解性不足：虽有半年、多方面担心及难以控制等核心线索，但缺少足够的诊断标准级症状证据，不能稳定地区分广泛性焦虑障碍与其他焦虑或躯体原因。",
+        "红旗排除矩阵内部一致：9项适用红旗均有对应 patient fact，且 observedValue 与 requiredState 均为 absent；生命体征和精神状态检查结果也未提示危机。",
+        "rubric不一致：rubric仅要求询问 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，但矩阵另列 self_harm_risk、psychosis、mania、substance_intoxication、inability_to_care_for_self 五项同样适用的红旗，成功轨迹也未覆盖它们。",
+        "回归轨迹覆盖不足：unknown轨迹的问题同时询问既往发作和相关接触/诱因，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；success轨迹的宽泛危险表现提问也未覆盖矩阵中的全部适用红旗。",
+        "隐藏真值安全性尚可：安全轨迹明确要求 SAFETY_INTERRUPTED、零 provider calls、零 raw text writes 和零 medical turns，且未将隐藏教学字段或未询问事实泄露给患者。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例叙述、生命体征、精神状态评估及广泛性焦虑障碍答案之间基本一致，符合成人非急症门诊场景。",
+    "起病持续时间、广泛性难以控制的担心、伴随症状和功能变化均可支持目标诊断，且预设鉴别诊断与检查要求清晰，诊断可解。",
+    "红旗矩阵列出9项适用且要求排除的危险征象，但成功轨迹和mustAsk仅覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖self harm risk、psychosis、mania、substance intoxication及inability to care for self；精神科病例存在安全排除不完整问题。",
+    "rubric.mustAskFactIds与redFlagExclusionMatrix的适用项目不一致，导致评分标准未要求覆盖全部安全关键事实。",
+    "回归成功轨迹未验证全部红旗事实，安全轨迹仅验证外部急性胸痛/呼吸困难中断，未覆盖病例内精神科红旗询问及安全退出，因此回归覆盖不足。",
+    "教学字段、答案键及内部评分信息未进入患者可见内容；失败轨迹也未显示隐藏真相泄露，隐藏真相保护通过。",
+    "临床一致性不充分：病例明确给出的广泛性焦虑相关症状主要是肌肉紧张和睡眠不稳，尚未达到通常所需的足够伴随症状覆盖；且相关医学、物质或其他诱因信息仍为未知。",
+    "诊断可解性不足：虽有半年、多方面担心及难以控制等核心线索，但缺少足够的诊断标准级症状证据，不能稳定地区分广泛性焦虑障碍与其他焦虑或躯体原因。",
+    "红旗排除矩阵内部一致：9项适用红旗均有对应 patient fact，且 observedValue 与 requiredState 均为 absent；生命体征和精神状态检查结果也未提示危机。",
+    "rubric不一致：rubric仅要求询问 confusion、hypotension、inability_oral_intake、high_risk_population 四项红旗，但矩阵另列 self_harm_risk、psychosis、mania、substance_intoxication、inability_to_care_for_self 五项同样适用的红旗，成功轨迹也未覆盖它们。",
+    "回归轨迹覆盖不足：unknown轨迹的问题同时询问既往发作和相关接触/诱因，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；success轨迹的宽泛危险表现提问也未覆盖矩阵中的全部适用红旗。",
+    "隐藏真值安全性尚可：安全轨迹明确要求 SAFETY_INTERRUPTED、零 provider calls、零 raw text writes 和零 medical turns，且未将隐藏教学字段或未询问事实泄露给患者。"
+  ]
+}

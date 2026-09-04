@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "e5-software-rc-index-v1",
+  "generatedAt": "2026-09-03T21:51:11.611Z",
+  "reviewPolicy": "non_blocking",
+  "acceptance": {
+    "path": "e5-full-acceptance-report.v2.json",
+    "sha256": "31d144b725fb96d60162c99a74ecde30986e103d10c47ee963139611e85a291f",
+    "size": 24558,
+    "decision": "reported_with_failures"
+  },
+  "runtimeManifest": {
+    "path": "e5-runtime-release-manifest.v2.json",
+    "sha256": "6a156988eb96003a95b53e490ae7ad05a98d053562478b21914224207bbd5f21",
+    "size": 206576,
+    "manifestSha256": "e82617aa418d3ee2a38ffca186daaa97a89038cf51190fa46ed8e86dbed03643"
+  },
+  "artifactCount": 959,
+  "sourceState": {
+    "headCommit": "c70acd707ce16a45913489ce46088d2afdfacb18",
+    "dirty": true,
+    "statusSha256": "ab9748874bba0a2f927fd2490187887b60dd7724bd0119da9ec888ae0bbdcc4d",
+    "trackedChanges": 106,
+    "untrackedChanges": 4717
+  },
+  "providerObservation": {
+    "status": "observed",
+    "qualityStatus": "failed",
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol",
+    "findings": [
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c03_respiratory_003",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c04_respiratory_004",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c06_respiratory_006",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c07_respiratory_007",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c08_cardiometabolic_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c09_cardiometabolic_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c10_cardiometabolic_003",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c12_cardiometabolic_005",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c13_digestive_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c14_digestive_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c15_digestive_003",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c16_digestive_004",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c17_urinary_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c18_urinary_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c19_urinary_003",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c20_musculoskeletal_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c21_musculoskeletal_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c23_dermatology_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c24_dermatology_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c25_pediatrics_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c26_pediatrics_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c27_gynecology_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c28_gynecology_002",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c29_mentalhealth_001",
+      "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED: case-ai:case_c30_mentalhealth_002",
+      "E5_DIALOGUE_TEST_ACTION_ACCURACY_BELOW_TARGET: c7-dialogue",
+      "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO: c7-dialogue",
+      "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED: c7-dialogue",
+      "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED: c7-dialogue-audit",
+      "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED: c7-provider-model-approval",
+      "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN: case-provenance"
+    ]
+  },
+  "stagedSecurityScan": {
+    "status": "passed",
+    "scannedTextFiles": 853,
+    "scannedPublicEvidenceFiles": 7,
+    "secretFindings": [],
+    "hiddenFieldFindings": []
+  },
+  "findings": [
+    {
+      "code": "E5_PERSONA_LIVE_TURNS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:personaLiveTurns",
+      "message": "personaLiveTurns coverage is below the E5 target.",
+      "expected": 72,
+      "actual": 63
+    },
+    {
+      "code": "E5_PROVIDER_FAILED",
+      "status": "failed",
+      "scope": "provider",
+      "message": "provider reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_E3_NOT_RUN",
+      "status": "not_run",
+      "scope": "e3",
+      "message": "e3 was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c03_respiratory_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c04_respiratory_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c06_respiratory_006",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c07_respiratory_007",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c08_cardiometabolic_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c09_cardiometabolic_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c10_cardiometabolic_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c12_cardiometabolic_005",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c13_digestive_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c14_digestive_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c15_digestive_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c16_digestive_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c17_urinary_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c18_urinary_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c19_urinary_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c20_musculoskeletal_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c21_musculoskeletal_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c23_dermatology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c24_dermatology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c25_pediatrics_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c26_pediatrics_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c27_gynecology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c28_gynecology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c29_mentalhealth_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c30_mentalhealth_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_TEST_ACTION_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "natural-language test action accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ]
+}

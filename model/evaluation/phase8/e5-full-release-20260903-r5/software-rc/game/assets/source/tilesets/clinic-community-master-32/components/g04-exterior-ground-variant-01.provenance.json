@@ -1,0 +1,27 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "01",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native material variation rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create only G04 exterior ground variant 1 of 2 from the accepted G03 stone-brick pavement. Preserve every mortar line, border pixel, staggered brick layout, scale and seamless connection. Change only a restrained selection of brick-face tones using the existing muted sage-gray palette, keeping the result low contrast and free of dirt, stains, cracks, text, logos and watermarks.",
+  "humanEdits": [
+    "Adjusted four selected brick faces with existing G03 palette colors to break repetition.",
+    "Preserved all mortar pixels, edge pixels, mineral flecks and staggered brick geometry.",
+    "Created a mixed G03/G04 review patch to check low-contrast tiling continuity."
+  ],
+  "status": "DRAFT"
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:7e51764c68220ba7ba37a55234e6f819d8953b659035515f9ae34db5d14541b0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.80dc71fa-d53d-44ab-8f1b-6ef1f3ad0c77",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:52:37.747Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实与急性第一跖趾关节炎表现、海鲜饮酒诱因及晶体检查结果一致；革兰染色阴性不能单独排除感染，但病例已保留感染性关节炎鉴别，并注明风险变化时需重新评估。",
+        "起病、症状特点、伴随症状、病程、诱因及感染风险均可通过提问获得，生命体征和关节评估可支持痛风性关节炎的可解性。",
+        "已记录生命体征稳定，且无发热寒战、伤口、近期关节操作、人工关节或免疫抑制等感染高风险信息；相关关节评估已完成，并保留感染恶化时的安全退出路径。",
+        "成功轨迹覆盖全部必问事实、两个必需检查、目标诊断及两项可接受鉴别诊断；足部MRI被正确标记为初始非必需，沟通要求与轨迹设置一致。",
+        "成功、失败、安全中断和未知信息回归轨迹均存在，预期结果分别覆盖正确诊断、非必要检查、安全中断及未知既往史处理。",
+        "隐藏教学字段未暴露；胸痛伴呼吸困难的安全轨迹明确中断且不产生医疗回合、提供者调用或原始文本写入，符合隐藏真相与安全隔离要求。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.dab772cc-d7cc-44c7-8eef-902a1f84b6af",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:53:00.449Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为突发第一跖趾关节红肿痛，诱因及偏振光显微镜下针状强负双折射结晶均与痛风性关节炎一致；感染性关节炎仍作为需鉴别的安全诊断，整体无明显临床矛盾。",
+        "目标诊断粒度明确为“痛风性关节炎”，病例事实、检查结果和答案键足以支持精确作答，接受同义词范围合理。",
+        "已覆盖骨关节感染相关病史及系统症状，矩阵中适用红旗有事实证据支持为 absent；关节液革兰染色阴性也与当前教学设定一致。",
+        "must-ask 病史、2项必需检查、MRI不必要分类及2项鉴别诊断要求相互一致；鉴别诊断数量和概念ID均与答案键匹配。",
+        "success、failure、safety、unknown 四类回归轨迹均有覆盖，预期结果与病例规则、检查分类及诊断评分逻辑一致。",
+        "隐藏教学字段、诱因和安全相关事实均未被错误暴露；unknown 轨迹仅读取既往发作事实，safety 轨迹预期中断且不产生医疗回合，符合安全与隐藏真值约束。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实与急性第一跖趾关节炎表现、海鲜饮酒诱因及晶体检查结果一致；革兰染色阴性不能单独排除感染，但病例已保留感染性关节炎鉴别，并注明风险变化时需重新评估。",
+    "起病、症状特点、伴随症状、病程、诱因及感染风险均可通过提问获得，生命体征和关节评估可支持痛风性关节炎的可解性。",
+    "已记录生命体征稳定，且无发热寒战、伤口、近期关节操作、人工关节或免疫抑制等感染高风险信息；相关关节评估已完成，并保留感染恶化时的安全退出路径。",
+    "成功轨迹覆盖全部必问事实、两个必需检查、目标诊断及两项可接受鉴别诊断；足部MRI被正确标记为初始非必需，沟通要求与轨迹设置一致。",
+    "成功、失败、安全中断和未知信息回归轨迹均存在，预期结果分别覆盖正确诊断、非必要检查、安全中断及未知既往史处理。",
+    "隐藏教学字段未暴露；胸痛伴呼吸困难的安全轨迹明确中断且不产生医疗回合、提供者调用或原始文本写入，符合隐藏真相与安全隔离要求。",
+    "临床表现为突发第一跖趾关节红肿痛，诱因及偏振光显微镜下针状强负双折射结晶均与痛风性关节炎一致；感染性关节炎仍作为需鉴别的安全诊断，整体无明显临床矛盾。",
+    "目标诊断粒度明确为“痛风性关节炎”，病例事实、检查结果和答案键足以支持精确作答，接受同义词范围合理。",
+    "已覆盖骨关节感染相关病史及系统症状，矩阵中适用红旗有事实证据支持为 absent；关节液革兰染色阴性也与当前教学设定一致。",
+    "must-ask 病史、2项必需检查、MRI不必要分类及2项鉴别诊断要求相互一致；鉴别诊断数量和概念ID均与答案键匹配。",
+    "success、failure、safety、unknown 四类回归轨迹均有覆盖，预期结果与病例规则、检查分类及诊断评分逻辑一致。",
+    "隐藏教学字段、诱因和安全相关事实均未被错误暴露；unknown 轨迹仅读取既往发作事实，safety 轨迹预期中断且不产生医疗回合，符合安全与隐藏真值约束。"
+  ]
+}

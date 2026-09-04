@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:842f006207a5e271fff66b2cabc72401d5dd1a18df679f9fd021aae571c5b916",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.da2a3d82-c26d-4035-9899-5c83730fedf2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:15:33.535Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：26–35岁女性，慢性上腹胀、早饱且无进展性吞咽困难、出血、消瘦等危险征象；生命体征稳定，基础评估未见器质性病变，功能性消化不良作为目标诊断合理。",
+        "诊断可解性：病史模式、危险征象、生命体征及消化不良基础评估足以支持目标诊断；胃食管反流病和消化性溃疡作为鉴别诊断可区分。",
+        "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难均有明确排除事实，并有生命体征检查与门诊安全边界。",
+        "量表一致性：must-ask事实、必需/不必要检查、鉴别诊断数量、推荐回合数及沟通标准相互一致；腹部CT标记为不必要与病例设计相符。",
+        "回归覆盖：成功、失败、不必要检查、安全中断及未知事实轨迹均已覆盖；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原文写入。",
+        "隐藏真相安全：答案键、教学字段及评分内部信息未混入患者可见叙事或回归输入；pending审核元数据不影响事实审计结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f414911d-98c7-480d-b9fc-90695297a887",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:15:49.021Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状模式为持续至少3个月的餐后上腹饱胀和早饱，且内镜及基础实验室评估未发现器质性病变，支持“功能性消化不良”；诊断粒度与target concept一致。",
+        "鉴别诊断胃食管反流病和消化性溃疡均为可接受且概念不重复的相关鉴别，requiredDifferentialCount与成功轨迹一致。",
+        "10项红旗均有对应patientFact，状态均为absent，redFlagExclusionMatrix的证据ID、观察值和病例事实相互一致。",
+        "mustAskFactIds共14项，成功轨迹分4轮完整覆盖；生命体征和消化不良基础评估列为required，腹部CT列为unnecessary，与测试报告及失败轨迹一致。",
+        "成功、失败、未知和安全四类回归轨迹的预期均与病例资产一致；未知事实prior_episode被正确保留为unknown，未被错误推断。",
+        "未见隐藏教学字段、review.pending元数据或人工审核字段影响病例可解性和评分；安全轨迹对胸痛伴呼吸困难请求执行中断且不产生医疗回合，符合预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：26–35岁女性，慢性上腹胀、早饱且无进展性吞咽困难、出血、消瘦等危险征象；生命体征稳定，基础评估未见器质性病变，功能性消化不良作为目标诊断合理。",
+    "诊断可解性：病史模式、危险征象、生命体征及消化不良基础评估足以支持目标诊断；胃食管反流病和消化性溃疡作为鉴别诊断可区分。",
+    "危险征象排除：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸、体重下降和进行性吞咽困难均有明确排除事实，并有生命体征检查与门诊安全边界。",
+    "量表一致性：must-ask事实、必需/不必要检查、鉴别诊断数量、推荐回合数及沟通标准相互一致；腹部CT标记为不必要与病例设计相符。",
+    "回归覆盖：成功、失败、不必要检查、安全中断及未知事实轨迹均已覆盖；安全轨迹明确要求中断、零医疗回合、零提供者调用和零原文写入。",
+    "隐藏真相安全：答案键、教学字段及评分内部信息未混入患者可见叙事或回归输入；pending审核元数据不影响事实审计结论。",
+    "症状模式为持续至少3个月的餐后上腹饱胀和早饱，且内镜及基础实验室评估未发现器质性病变，支持“功能性消化不良”；诊断粒度与target concept一致。",
+    "鉴别诊断胃食管反流病和消化性溃疡均为可接受且概念不重复的相关鉴别，requiredDifferentialCount与成功轨迹一致。",
+    "10项红旗均有对应patientFact，状态均为absent，redFlagExclusionMatrix的证据ID、观察值和病例事实相互一致。",
+    "mustAskFactIds共14项，成功轨迹分4轮完整覆盖；生命体征和消化不良基础评估列为required，腹部CT列为unnecessary，与测试报告及失败轨迹一致。",
+    "成功、失败、未知和安全四类回归轨迹的预期均与病例资产一致；未知事实prior_episode被正确保留为unknown，未被错误推断。",
+    "未见隐藏教学字段、review.pending元数据或人工审核字段影响病例可解性和评分；安全轨迹对胸痛伴呼吸困难请求执行中断且不产生医疗回合，符合预期。"
+  ]
+}

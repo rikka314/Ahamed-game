@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c06_respiratory_006",
+  "caseVersion": "1.0.0-rc.1",
+  "trajectories": [
+    {
+      "trajectoryId": "c06.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请说明起病、主要表现、伴随症状、变化以及需要排除的危险表现。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression",
+            "fact.confusion",
+            "fact.hypotension",
+            "fact.inability_oral_intake",
+            "fact.high_risk_population"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.nasal_exam"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "过敏性鼻炎",
+          "differentials": [
+            "普通感冒",
+            "非过敏性鼻炎"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 1
+      }
+    },
+    {
+      "trajectoryId": "c06.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.chest_ct"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect"
+      }
+    },
+    {
+      "trajectoryId": "c06.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c06.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况，或者有不确定的相关接触？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

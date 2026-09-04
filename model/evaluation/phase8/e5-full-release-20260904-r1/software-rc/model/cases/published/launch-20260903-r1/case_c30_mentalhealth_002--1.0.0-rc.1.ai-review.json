@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:b9c6463c0c1b8c2277140e3ffe5c59df9dd3cd2005e29ab73a17ac44400e52d3",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b36af573-a802-4388-a217-5736cd64ebf2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:14:10.177Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：病例总体为稳定、非急症的抑郁表现，但 test.chest_ct 的检查名称为“胸部CT”，报告却写成“头颅MRI不是本例初始必需检查”，检查项目与报告明显不一致；且“伴躯体化表达”在可见症状中缺乏明确支持。",
+        "diagnosisSolvability：起病持续一个月、情绪低落、兴趣减少、乏力、睡眠差且危机筛查阴性，足以支持轻度抑郁发作；广泛性焦虑障碍和甲状腺功能减退也被明确列为可接受鉴别诊断。",
+        "redFlagExclusions：生命体征稳定，且意识改变、低血压、不能口服、特殊高危人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗均有明确阴性状态；安全轨迹也正确中断急症输入。",
+        "rubricConsistency：必问事实、两个鉴别诊断、生命体征及精神状态检查与评分规则基本一致；但 chest CT 的测试定义、报告内容和“不必要检查”分类未对齐，降低了测试评价的事实一致性。",
+        "regressionCoverage：成功、错误路径、安全中断及未知信息路径均有回归轨迹，覆盖诊断、检查选择、急症退出和未知事实处理。",
+        "hiddenTruthSafety：生命体征保持为仅检查可读，教学字段保持隐藏；回归轨迹未要求暴露服务端教学或评分字段，未见隐藏真相泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6cd788cd-91d8-4cdb-8942-cb04652ba25b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:14:26.516Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：病例支持抑郁症状群，但未明确提供足够的躯体化症状证据；同时胸部CT已完成却报告“头颅MRI不是初始必需检查”，检查名称与报告内容不一致。",
+        "诊断可解性失败：轻度抑郁发作基本可推断，但目标诊断中的“伴躯体化表达”缺乏对应事实，导致目标诊断粒度超出病例证据。",
+        "红旗排除失败：红旗矩阵要求排除9类危险表现，但mustAsk及成功轨迹仅覆盖其中4类；自伤风险、精神病性症状、躁狂等虽在事实中预置为阴性，却未被纳入必问覆盖。",
+        "Rubric一致性失败：mustAsk、红旗矩阵和成功回归轨迹的覆盖集合不一致；rubric要求的危险表现排除范围明显大于轨迹实际提问范围，且检查报告与test分类的语义不完全匹配。",
+        "回归覆盖失败：success轨迹未覆盖全部必问红旗；unknown轨迹输入同时询问既往发作和相关接触，但expectedFactIds仅包含prior_episode，遗漏fact.relevant_exposure，存在轨迹断言不一致。",
+        "隐藏真值安全通过：未发现将hidden教学字段或服务端评分字段暴露给患者/模型交互的证据。"
+      ]
+    }
+  ],
+  "findings": [
+    "clinicalConsistency：病例总体为稳定、非急症的抑郁表现，但 test.chest_ct 的检查名称为“胸部CT”，报告却写成“头颅MRI不是本例初始必需检查”，检查项目与报告明显不一致；且“伴躯体化表达”在可见症状中缺乏明确支持。",
+    "diagnosisSolvability：起病持续一个月、情绪低落、兴趣减少、乏力、睡眠差且危机筛查阴性，足以支持轻度抑郁发作；广泛性焦虑障碍和甲状腺功能减退也被明确列为可接受鉴别诊断。",
+    "redFlagExclusions：生命体征稳定，且意识改变、低血压、不能口服、特殊高危人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗均有明确阴性状态；安全轨迹也正确中断急症输入。",
+    "rubricConsistency：必问事实、两个鉴别诊断、生命体征及精神状态检查与评分规则基本一致；但 chest CT 的测试定义、报告内容和“不必要检查”分类未对齐，降低了测试评价的事实一致性。",
+    "regressionCoverage：成功、错误路径、安全中断及未知信息路径均有回归轨迹，覆盖诊断、检查选择、急症退出和未知事实处理。",
+    "hiddenTruthSafety：生命体征保持为仅检查可读，教学字段保持隐藏；回归轨迹未要求暴露服务端教学或评分字段，未见隐藏真相泄漏。",
+    "临床一致性失败：病例支持抑郁症状群，但未明确提供足够的躯体化症状证据；同时胸部CT已完成却报告“头颅MRI不是初始必需检查”，检查名称与报告内容不一致。",
+    "诊断可解性失败：轻度抑郁发作基本可推断，但目标诊断中的“伴躯体化表达”缺乏对应事实，导致目标诊断粒度超出病例证据。",
+    "红旗排除失败：红旗矩阵要求排除9类危险表现，但mustAsk及成功轨迹仅覆盖其中4类；自伤风险、精神病性症状、躁狂等虽在事实中预置为阴性，却未被纳入必问覆盖。",
+    "Rubric一致性失败：mustAsk、红旗矩阵和成功回归轨迹的覆盖集合不一致；rubric要求的危险表现排除范围明显大于轨迹实际提问范围，且检查报告与test分类的语义不完全匹配。",
+    "回归覆盖失败：success轨迹未覆盖全部必问红旗；unknown轨迹输入同时询问既往发作和相关接触，但expectedFactIds仅包含prior_episode，遗漏fact.relevant_exposure，存在轨迹断言不一致。",
+    "隐藏真值安全通过：未发现将hidden教学字段或服务端评分字段暴露给患者/模型交互的证据。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c09_cardiometabolic_002",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:1e43a64d7575f82f90af9f7b85e94b7149a4528e4d706019efc02220c67b036b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.533b092a-17f9-4215-a016-2f6346d05934",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:12:32.986Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：46–55岁女性，缓慢出现口渴和多尿，体重偏高、家族史阳性、无酮症或意识异常；糖化血红蛋白达到诊断范围，整体与2型糖尿病相符。腹部CT设为不必要检查亦与病例域一致。",
+        "诊断可解性通过：症状模式、危险征象排除、生命体征和糖化血红蛋白检查共同支持目标诊断；尿崩症和甲状腺功能亢进作为鉴别诊断也已纳入评分规则。",
+        "危险征象排除通过：已覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，且病例状态均为已排除；另有胸痛伴呼吸困难输入的安全中断轨迹。",
+        "评分规则一致性通过：must-ask事实与成功轨迹覆盖相符；必需检查、非必要检查、鉴别诊断数量及推荐回合限制均有明确且可执行的规则。",
+        "回归覆盖通过：同时包含成功、失败/不必要检查、安全中断和未知事实轨迹，能够覆盖诊断、检查选择、红旗安全和未知状态处理。",
+        "隐藏真相安全通过：教学字段、评分字段及内部病例信息标记为隐藏，玩家可见内容未暴露目标诊断或评分策略；安全轨迹明确要求零医疗回合、零提供商调用和零原文写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.57585330-1b35-4dd3-b87a-2a942076afa8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:12:52.085Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状、起病速度、体重及家族史与成人起病2型糖尿病一致；生命体征稳定，未见与红旗字段冲突的临床事实。",
+        "口渴、尿频及代谢表型可支持糖尿病方向；糖化血红蛋白达到诊断范围，并提供C肽及自身抗体信息，足以支持2型糖尿病的诊断粒度。",
+        "目标诊断为明确的“2型糖尿病”，与targetConceptId及接受同义词一致；尿崩症和甲亢作为两个可接受鉴别诊断，数量要求匹配。",
+        "mustAskFactIds均可在成功轨迹中被覆盖；意识改变、低血压、无法口服及酮症等红旗均有对应阴性事实和询问路径。",
+        "生命体征和糖化血红蛋白被标为必需，腹部CT被标为不必要，成功及失败轨迹与测试选择rubric一致。",
+        "成功、失败、安全中断和unknown四类回归轨迹的预期结果分别与病例资产一致；unknown轨迹正确保留prior_episode的未知状态，安全轨迹未与病例事实混淆。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：46–55岁女性，缓慢出现口渴和多尿，体重偏高、家族史阳性、无酮症或意识异常；糖化血红蛋白达到诊断范围，整体与2型糖尿病相符。腹部CT设为不必要检查亦与病例域一致。",
+    "诊断可解性通过：症状模式、危险征象排除、生命体征和糖化血红蛋白检查共同支持目标诊断；尿崩症和甲状腺功能亢进作为鉴别诊断也已纳入评分规则。",
+    "危险征象排除通过：已覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症，且病例状态均为已排除；另有胸痛伴呼吸困难输入的安全中断轨迹。",
+    "评分规则一致性通过：must-ask事实与成功轨迹覆盖相符；必需检查、非必要检查、鉴别诊断数量及推荐回合限制均有明确且可执行的规则。",
+    "回归覆盖通过：同时包含成功、失败/不必要检查、安全中断和未知事实轨迹，能够覆盖诊断、检查选择、红旗安全和未知状态处理。",
+    "隐藏真相安全通过：教学字段、评分字段及内部病例信息标记为隐藏，玩家可见内容未暴露目标诊断或评分策略；安全轨迹明确要求零医疗回合、零提供商调用和零原文写入。",
+    "病例症状、起病速度、体重及家族史与成人起病2型糖尿病一致；生命体征稳定，未见与红旗字段冲突的临床事实。",
+    "口渴、尿频及代谢表型可支持糖尿病方向；糖化血红蛋白达到诊断范围，并提供C肽及自身抗体信息，足以支持2型糖尿病的诊断粒度。",
+    "目标诊断为明确的“2型糖尿病”，与targetConceptId及接受同义词一致；尿崩症和甲亢作为两个可接受鉴别诊断，数量要求匹配。",
+    "mustAskFactIds均可在成功轨迹中被覆盖；意识改变、低血压、无法口服及酮症等红旗均有对应阴性事实和询问路径。",
+    "生命体征和糖化血红蛋白被标为必需，腹部CT被标为不必要，成功及失败轨迹与测试选择rubric一致。",
+    "成功、失败、安全中断和unknown四类回归轨迹的预期结果分别与病例资产一致；unknown轨迹正确保留prior_episode的未知状态，安全轨迹未与病例事实混淆。"
+  ]
+}

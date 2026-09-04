@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.5",
+  "contentHash": "sha256:e3bed6b11cb2803fdf2273414cffd1d03588f9ad84b8e9a63e49f00c446088d0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.229eb170-b191-4299-920a-8f5f18aadea2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:08:31.703Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成年女性，症状、生命体征及咽部查体相互一致，支持急性咽炎；胸片和胸部CT虽已列入测试结果，但评分中正确标为不必要检查，不构成病例事实矛盾。",
+        "诊断目标明确，病史、咽部查体和A组链球菌快速抗原阴性结果足以支持急性咽炎，并允许链球菌性咽峡炎和流感作为鉴别诊断。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及上气道危险征象均有明确排除证据；生命体征稳定，未见需要急诊升级的红旗表现。",
+        "必问病史覆盖完整，必需检查包括生命体征和咽部查体；鉴别诊断数量、检查分类和推荐回合数与量表一致。",
+        "成功、失败、安全中断及未知信息轨迹均已覆盖；安全轨迹明确要求中断、零提供方调用、零原始文本写入和零医疗回合。",
+        "教学字段、答案键和评分相关服务端字段标记为隐藏，未见将隐藏真相暴露给玩家的回归路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.50ab2887-62a4-40a3-8911-d9fcdc3e7788",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:08:44.078Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状、咽部查体、生命体征及阴性A组链球菌快检与“急性咽炎”目标诊断相符；链球菌性咽峡炎和流感作为鉴别诊断合理。",
+        "目标诊断粒度适中，现有病史和咽部查体足以支持急性咽炎，不要求不必要的病原学确证。",
+        "19项must-ask事实均被成功轨迹覆盖，5个问诊回合低于推荐上限8回合；未知接触史轨迹也与对应事实一致。",
+        "呼吸困难、意识改变、胸痛、咯血、循环不稳定、低氧、无法进食及上气道危险表现均有排除证据，矩阵与病例事实、生命体征相互支持。",
+        "rubric中的required、useful和unnecessary检查分类与成功/失败轨迹一致；成功轨迹命中2个允许鉴别诊断，失败轨迹使用胸片并标记为不必要。",
+        "安全轨迹明确中断且不写入事实或产生医疗回合；教学字段为hidden，咽部查体为test_only，未见隐藏真值向玩家泄露。医疗测试列表全部标记completed与“不必要检查”语义存在轻微表述张力，但不构成当前冻结回归资产的阻塞性矛盾。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁成年女性，症状、生命体征及咽部查体相互一致，支持急性咽炎；胸片和胸部CT虽已列入测试结果，但评分中正确标为不必要检查，不构成病例事实矛盾。",
+    "诊断目标明确，病史、咽部查体和A组链球菌快速抗原阴性结果足以支持急性咽炎，并允许链球菌性咽峡炎和流感作为鉴别诊断。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及上气道危险征象均有明确排除证据；生命体征稳定，未见需要急诊升级的红旗表现。",
+    "必问病史覆盖完整，必需检查包括生命体征和咽部查体；鉴别诊断数量、检查分类和推荐回合数与量表一致。",
+    "成功、失败、安全中断及未知信息轨迹均已覆盖；安全轨迹明确要求中断、零提供方调用、零原始文本写入和零医疗回合。",
+    "教学字段、答案键和评分相关服务端字段标记为隐藏，未见将隐藏真相暴露给玩家的回归路径。",
+    "病例症状、咽部查体、生命体征及阴性A组链球菌快检与“急性咽炎”目标诊断相符；链球菌性咽峡炎和流感作为鉴别诊断合理。",
+    "目标诊断粒度适中，现有病史和咽部查体足以支持急性咽炎，不要求不必要的病原学确证。",
+    "19项must-ask事实均被成功轨迹覆盖，5个问诊回合低于推荐上限8回合；未知接触史轨迹也与对应事实一致。",
+    "呼吸困难、意识改变、胸痛、咯血、循环不稳定、低氧、无法进食及上气道危险表现均有排除证据，矩阵与病例事实、生命体征相互支持。",
+    "rubric中的required、useful和unnecessary检查分类与成功/失败轨迹一致；成功轨迹命中2个允许鉴别诊断，失败轨迹使用胸片并标记为不必要。",
+    "安全轨迹明确中断且不写入事实或产生医疗回合；教学字段为hidden，咽部查体为test_only，未见隐藏真值向玩家泄露。医疗测试列表全部标记completed与“不必要检查”语义存在轻微表述张力，但不构成当前冻结回归资产的阻塞性矛盾。"
+  ]
+}

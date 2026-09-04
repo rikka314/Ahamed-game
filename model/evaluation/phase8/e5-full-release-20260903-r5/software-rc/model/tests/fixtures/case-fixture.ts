@@ -1,0 +1,130 @@
+import type { CasePackage } from "../../src/domain/case-package.js";
+
+export function createCaseFixture(): CasePackage {
+  return {
+    schemaVersion: "case-package-v1-rc1",
+    evaluationVersion: "scoring-policy-v1",
+    packageStatus: "fixture",
+    internalCaseId: "internal_fixture_syndrome_001",
+    publicCaseId: "case_fixture_001",
+    caseVersion: "1.0.0",
+    locale: "en-US",
+    playerVisible: {
+      patientDisplayName: "Test Patient",
+      chiefComplaint: "Persistent fatigue",
+    },
+    patientPersona: {
+      languageStyle: "plain",
+      personaTemplateId: "gentle_cooperative",
+      personaTemplateVersion: "patient-persona-templates-v1",
+      educationOrOccupation: "Synthetic fixture researcher",
+      dailyLife: "Works with deterministic test data only.",
+      interests: ["fixture puzzles"],
+      communicationTraits: ["brief and cooperative"],
+    },
+    patientFacts: {
+      "fact.onset": {
+        status: "present",
+        value: "It started about two weeks ago.",
+        disclosure: "if_asked",
+        questionMatchers: ["when", "start", "onset"],
+      },
+      "fact.rash": {
+        status: "absent",
+        value: "I have not noticed a rash.",
+        disclosure: "if_asked",
+        questionMatchers: ["rash"],
+      },
+      "fact.family_history": {
+        status: "unknown",
+        value: "I do not know my extended family history.",
+        disclosure: "if_asked",
+        questionMatchers: ["family"],
+      },
+      "fact.hidden_clue": {
+        status: "present",
+        value: "server-only-hidden-clue",
+        disclosure: "hidden",
+        questionMatchers: ["hidden"],
+      },
+    },
+    medicalTests: {
+      "test.basic_panel": {
+        status: "completed",
+        displayName: "Basic panel",
+        aliases: ["panel", "basic test"],
+        report: "A stable, fixture-only result.",
+      },
+    },
+    answerKey: {
+      targetConceptId: "concept.fixture_syndrome",
+      targetDiagnosis: "Fixture Syndrome",
+      acceptedSynonyms: ["Synthetic Fixture Syndrome"],
+      diagnosisConcepts: [
+        {
+          conceptId: "concept.fixture_syndrome",
+          preferredTerm: "Fixture Syndrome",
+          acceptedSynonyms: ["Synthetic Fixture Syndrome"],
+        },
+        {
+          conceptId: "concept.example_condition",
+          preferredTerm: "Example Condition",
+          acceptedSynonyms: ["Example Differential"],
+        },
+        {
+          conceptId: "concept.alternate_condition",
+          preferredTerm: "Alternate Condition",
+          acceptedSynonyms: ["Alternate Differential"],
+        },
+      ],
+    },
+    rubric: {
+      mustAskFactIds: ["fact.onset", "fact.rash"],
+      acceptableDifferentialConceptIds: [
+        "concept.example_condition",
+        "concept.alternate_condition",
+      ],
+      requiredDifferentialCount: 2,
+      testClassifications: {
+        "test.basic_panel": "required",
+      },
+      recommendedTurnLimit: 4,
+      communicationRubricVersion: "communication-rubric-v1",
+      communicationCriterionIds: [
+        "communication.respectful_clear",
+        "communication.summary_transition",
+      ],
+    },
+    review: {
+      status: "fixture",
+      author: "model-test-suite",
+    },
+    provenance: {
+      sourceType: "synthetic",
+      sourceCitation: "Synthetic test data; not a real patient case.",
+      license: "internal-test-fixture",
+      createdAt: "2026-08-25T00:00:00.000Z",
+    },
+    redFlagExclusionMatrix: {
+      matrixVersion: "red-flag-exclusion-matrix-v1",
+      caseId: "internal_fixture_syndrome_001",
+      caseVersion: "1.0.0",
+      policyVersion: "medical-safety-policy-v1",
+      entries: [
+        {
+          redFlagId: "redflag.fixture_rash",
+          canonicalName: "Fixture-only negative finding",
+          applicable: true,
+          requiredState: "absent",
+          evidenceFactIds: ["fact.rash"],
+          evidenceType: "patient_fact",
+          observedValue: "absent",
+          criterionSourceId: "source.fixture_safety",
+          criterionSourceVersion: "1",
+          reviewDecision: "pending",
+        },
+      ],
+      review: { status: "fixture" },
+    },
+  };
+}

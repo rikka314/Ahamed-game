@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "e5-software-rc-index-v1",
+  "generatedAt": "2026-09-04T09:56:03.727Z",
+  "reviewPolicy": "non_blocking",
+  "acceptance": {
+    "path": "e5-full-acceptance-report.v2.json",
+    "sha256": "22c7b05eb09b944e0376b6517d80f82283a193f414ab62f3d25f400c532c0ee1",
+    "size": 14548,
+    "decision": "reported_with_failures"
+  },
+  "runtimeManifest": {
+    "path": "e5-runtime-release-manifest.v2.json",
+    "sha256": "9336a3691a0e105c4e47296a059fda581adf870563c673c1ed21255d4a014990",
+    "size": 424616,
+    "manifestSha256": "9f135c5f4a8ffd00702af67fba8095cb6573762f475eb68ebe07926fef7d3102"
+  },
+  "artifactCount": 2068,
+  "sourceState": {
+    "headCommit": "c70acd707ce16a45913489ce46088d2afdfacb18",
+    "dirty": true,
+    "statusSha256": "d4a2f6fa85d8016f155cc6b1c88dc96b27a8bcf6513a98132dd51fdba54e242c",
+    "trackedChanges": 121,
+    "untrackedChanges": 7143
+  },
+  "providerObservation": {
+    "status": "observed",
+    "qualityStatus": "failed",
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelId": "gpt-5.6-sol",
+    "findings": [
+      "E5_DIALOGUE_CONTEXT_FOLLOWUP_ACCURACY_BELOW_TARGET: c7-dialogue",
+      "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO: c7-dialogue",
+      "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED: c7-dialogue",
+      "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED: c7-dialogue-audit",
+      "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED: c7-provider-model-approval",
+      "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN: case-provenance"
+    ]
+  },
+  "stagedSecurityScan": {
+    "status": "passed",
+    "scannedTextFiles": 1959,
+    "scannedPublicEvidenceFiles": 7,
+    "secretFindings": [],
+    "hiddenFieldFindings": []
+  },
+  "findings": [
+    {
+      "code": "E5_PROVIDER_FAILED",
+      "status": "failed",
+      "scope": "provider",
+      "message": "provider reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_E3_FAILED",
+      "status": "failed",
+      "scope": "e3",
+      "message": "e3 reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_EVIDENCE_BINDING_STALE",
+      "status": "stale",
+      "scope": "evidence:e3-persona-report",
+      "message": "e3-persona-report evidence binding is stale.",
+      "expected": "current",
+      "actual": "stale"
+    },
+    {
+      "code": "E5_DIALOGUE_CONTEXT_FOLLOWUP_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "context follow-up accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ]
+}

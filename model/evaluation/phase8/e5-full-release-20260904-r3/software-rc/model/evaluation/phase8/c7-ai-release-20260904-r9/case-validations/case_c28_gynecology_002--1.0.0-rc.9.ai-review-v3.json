@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c28_gynecology_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:1bda54eb06a6c1a0f4a58d59c4c2406963585afc2d328d5782abc5e152b85910",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.6901d54f-2001-4012-b3bf-462a1c469bb3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:54:54.773Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：通过。症状、阴道分泌物镜检芽生孢子及假菌丝与外阴阴道念珠菌病一致；生命体征稳定，且无发热、急性剧烈盆腔痛、大量出血、妊娠或上生殖道受累等非急症边界冲突。",
+        "诊断可解性：通过。成功轨迹覆盖起病、症状模式、伴随症状、进展及相关高风险信息，并完成生命体征和阴道分泌物镜检；目标诊断和两个鉴别诊断均与答案键一致。",
+        "危险征象排除：通过。轨迹明确询问意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠、大量出血、急性剧烈盆腔痛、妇科发热及黏膜或上生殖道受累；安全轨迹也定义了急症中断行为。",
+        "量表一致性：通过。must-ask事实、必需/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹和评分策略一致；盆腔CT被正确标记为初始不必要检查。",
+        "回归覆盖：通过。包含成功、失败、不必要检查、安全中断及未知事实分支；测试动作按新会话执行，不因medicalTests中的completed状态被错误判定为重复检查。",
+        "隐藏真相安全：通过。教学字段和服务端评分信息保持隐藏，回归轨迹未要求向患者泄露内部事实；安全轨迹要求providerCalls和rawTextWrites为零，保护了急症越界场景。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.efb75b6f-7eaf-4e82-bce1-fa288263bfbd",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:55:10.564Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、症状模式与阴道分泌物镜检结果一致，支持外阴阴道念珠菌病；盆腔CT被正确标为初始不必要检查。",
+        "病例提供了足够的病史、红旗排除信息和必要检查结果，目标诊断及两个鉴别诊断均具备可解性，诊断粒度明确。",
+        "红旗排除矩阵中的各项均有对应患者事实且状态为absent，生命体征稳定，与门诊病例边界一致。",
+        "rubric要求的病史、鉴别诊断数量、检查分类及目标诊断均与病例内容和成功轨迹一致；medicalTests中的completed状态不构成轨迹重复检查问题。",
+        "成功、失败、安全中断和未知事实四类回归轨迹均存在，预期结果分别覆盖正确诊断、不必要检查、安全中断及未知事实读取。",
+        "隐藏教学字段及服务端评分信息未泄漏到患者可见内容；目标诊断通过询问与镜检结果可正常推导。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：通过。症状、阴道分泌物镜检芽生孢子及假菌丝与外阴阴道念珠菌病一致；生命体征稳定，且无发热、急性剧烈盆腔痛、大量出血、妊娠或上生殖道受累等非急症边界冲突。",
+    "诊断可解性：通过。成功轨迹覆盖起病、症状模式、伴随症状、进展及相关高风险信息，并完成生命体征和阴道分泌物镜检；目标诊断和两个鉴别诊断均与答案键一致。",
+    "危险征象排除：通过。轨迹明确询问意识改变、循环不稳定、无法进食饮水、特殊高风险人群、妊娠、大量出血、急性剧烈盆腔痛、妇科发热及黏膜或上生殖道受累；安全轨迹也定义了急症中断行为。",
+    "量表一致性：通过。must-ask事实、必需/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹和评分策略一致；盆腔CT被正确标记为初始不必要检查。",
+    "回归覆盖：通过。包含成功、失败、不必要检查、安全中断及未知事实分支；测试动作按新会话执行，不因medicalTests中的completed状态被错误判定为重复检查。",
+    "隐藏真相安全：通过。教学字段和服务端评分信息保持隐藏，回归轨迹未要求向患者泄露内部事实；安全轨迹要求providerCalls和rawTextWrites为零，保护了急症越界场景。",
+    "临床叙事、症状模式与阴道分泌物镜检结果一致，支持外阴阴道念珠菌病；盆腔CT被正确标为初始不必要检查。",
+    "病例提供了足够的病史、红旗排除信息和必要检查结果，目标诊断及两个鉴别诊断均具备可解性，诊断粒度明确。",
+    "红旗排除矩阵中的各项均有对应患者事实且状态为absent，生命体征稳定，与门诊病例边界一致。",
+    "rubric要求的病史、鉴别诊断数量、检查分类及目标诊断均与病例内容和成功轨迹一致；medicalTests中的completed状态不构成轨迹重复检查问题。",
+    "成功、失败、安全中断和未知事实四类回归轨迹均存在，预期结果分别覆盖正确诊断、不必要检查、安全中断及未知事实读取。",
+    "隐藏教学字段及服务端评分信息未泄漏到患者可见内容；目标诊断通过询问与镜检结果可正常推导。"
+  ]
+}

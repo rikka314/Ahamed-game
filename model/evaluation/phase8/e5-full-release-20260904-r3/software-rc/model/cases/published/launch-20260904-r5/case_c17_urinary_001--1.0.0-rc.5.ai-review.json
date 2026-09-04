@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:c0f040de955e0349ea50029615d6d805b50e6822a83ddc92fd85cadc29d5bb0e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.7e841047-40c0-4ebb-b804-53b0f718c907",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:49:08.333Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁非妊娠女性，尿频、尿急、排尿痛，尿常规支持感染，且无发热、腰痛、梗阻或其他高风险特征，急性单纯性膀胱炎与事实一致。",
+        "生命体征检查已提供且稳定；意识改变、循环不稳定、无法口服、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确排除依据，具备安全门诊退出条件。",
+        "病例可通过规定病史、生命体征和尿常规完成诊断；急性肾盂肾炎和尿道炎作为两个可接受鉴别诊断，数量及内容符合量表。",
+        "必需询问项、检查分类、推荐回合数和诊断目标彼此一致；泌尿系CT被正确标为非必要，并在失败回归轨迹中覆盖。",
+        "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知既往史场景；安全中断明确要求无医疗回合、无提供者调用和无原始文本写入。",
+        "教学字段、评分摘要和内部答案属于服务端/支持性内容，未被设置为患者可披露事实；未发现会诱导患者泄露隐藏真相的病例设计问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.afba72d5-8878-4567-9eb8-105c883083c6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:49:19.429Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状模式、尿常规结果及排除发热腰痛、阴道分泌物、结石梗阻等信息支持急性单纯性膀胱炎，目标诊断粒度适当。",
+        "主诊断可由病例事实求解；接受同义词“急性膀胱炎”，并设置急性肾盂肾炎和尿道炎作为两个可接受鉴别诊断，数量与rubric一致。",
+        "生命体征、尿常规为必要检查，泌尿系CT标记为非必要；成功与失败轨迹均与该检查策略一致。",
+        "所有列出的红旗均有对应患者事实且为absent，矩阵、must-ask字段及成功轨迹覆盖一致。",
+        "success、failure、safety、unknown四类回归轨迹的预期结果与病例状态、评分策略及测试分类一致。",
+        "隐藏教学字段、答案键和内部审查元数据未混入患者可见内容；review.status及各项pending状态不构成阻塞。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁非妊娠女性，尿频、尿急、排尿痛，尿常规支持感染，且无发热、腰痛、梗阻或其他高风险特征，急性单纯性膀胱炎与事实一致。",
+    "生命体征检查已提供且稳定；意识改变、循环不稳定、无法口服、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等红旗均有明确排除依据，具备安全门诊退出条件。",
+    "病例可通过规定病史、生命体征和尿常规完成诊断；急性肾盂肾炎和尿道炎作为两个可接受鉴别诊断，数量及内容符合量表。",
+    "必需询问项、检查分类、推荐回合数和诊断目标彼此一致；泌尿系CT被正确标为非必要，并在失败回归轨迹中覆盖。",
+    "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知既往史场景；安全中断明确要求无医疗回合、无提供者调用和无原始文本写入。",
+    "教学字段、评分摘要和内部答案属于服务端/支持性内容，未被设置为患者可披露事实；未发现会诱导患者泄露隐藏真相的病例设计问题。",
+    "症状模式、尿常规结果及排除发热腰痛、阴道分泌物、结石梗阻等信息支持急性单纯性膀胱炎，目标诊断粒度适当。",
+    "主诊断可由病例事实求解；接受同义词“急性膀胱炎”，并设置急性肾盂肾炎和尿道炎作为两个可接受鉴别诊断，数量与rubric一致。",
+    "生命体征、尿常规为必要检查，泌尿系CT标记为非必要；成功与失败轨迹均与该检查策略一致。",
+    "所有列出的红旗均有对应患者事实且为absent，矩阵、must-ask字段及成功轨迹覆盖一致。",
+    "success、failure、safety、unknown四类回归轨迹的预期结果与病例状态、评分策略及测试分类一致。",
+    "隐藏教学字段、答案键和内部审查元数据未混入患者可见内容；review.status及各项pending状态不构成阻塞。"
+  ]
+}

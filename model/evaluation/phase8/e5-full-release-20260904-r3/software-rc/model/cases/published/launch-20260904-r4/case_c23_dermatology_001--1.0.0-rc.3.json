@@ -1,0 +1,595 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c23_dermatology_001",
+  "publicCaseId": "case_c23_dermatology_001",
+  "caseVersion": "1.0.0-rc.3",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "手腕瘙痒红疹四天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c23",
+    "patientDisplayName": "患者23号",
+    "ageBand": "26–35岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "花艺师",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "accommodating_minimizing",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "态度随和",
+      "可能淡化主观困扰但不改变事实"
+    ],
+    "modifiers": {
+      "healthLiteracy": "low",
+      "recallReliability": "typical",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "手腕瘙痒红疹四天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "四天前更换腕带后开始",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "接触新腕带金属扣的部位出现边界清楚的瘙痒红疹",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "停戴后未再扩大，无黏膜受累、水疱或全身不适",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "present",
+      "value": "四天前换了带金属扣的新腕带，皮疹正好出现在接触区域，停戴后没有继续扩大。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "腕带",
+        "金属",
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.mucosal_involvement": {
+      "status": "absent",
+      "value": "未出现mucosal involvement相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.skin_blistering": {
+      "status": "absent",
+      "value": "未出现skin blistering相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.systemic_toxicity": {
+      "status": "absent",
+      "value": "未出现systemic toxicity相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.rapidly_spreading_rash": {
+      "status": "absent",
+      "value": "未出现rapidly spreading rash相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.immunosuppression": {
+      "status": "absent",
+      "value": "未出现immunosuppression相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.skin_exam": {
+      "status": "completed",
+      "displayName": "皮肤检查",
+      "aliases": [
+        "皮肤检查",
+        "做皮肤检查",
+        "test.skin_exam"
+      ],
+      "report": "皮肤检查见局限性红斑丘疹，与腕带金属扣接触区域吻合；斑贴试验对镍呈阳性。"
+    },
+    "test.skin_biopsy": {
+      "status": "completed",
+      "displayName": "皮肤活检",
+      "aliases": [
+        "皮肤活检",
+        "做皮肤活检",
+        "test.skin_biopsy"
+      ],
+      "report": "皮肤活检不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.allergic_contact_dermatitis",
+    "targetDiagnosis": "过敏性接触性皮炎",
+    "acceptedSynonyms": [
+      "接触性湿疹"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.allergic_contact_dermatitis",
+        "preferredTerm": "过敏性接触性皮炎",
+        "acceptedSynonyms": [
+          "接触性湿疹"
+        ]
+      },
+      {
+        "conceptId": "concept.irritant_contact_dermatitis",
+        "preferredTerm": "刺激性接触性皮炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.tinea_corporis",
+        "preferredTerm": "体癣",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.relevant_exposure",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.mucosal_involvement",
+      "fact.skin_blistering",
+      "fact.systemic_toxicity",
+      "fact.rapidly_spreading_rash",
+      "fact.immunosuppression"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.irritant_contact_dermatitis",
+      "concept.tinea_corporis"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.skin_exam": "required",
+      "test.skin_biopsy": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B1病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:6f8fd24314352bd3628286a15d239a8c4a0e3e1bb4b1748b98354b8caae0f66e",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.dermatology",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c23_dermatology_001",
+    "caseVersion": "1.0.0-rc.3",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.mucosal_involvement",
+        "canonicalName": "mucosal involvement",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.mucosal_involvement"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.skin_blistering",
+        "canonicalName": "skin blistering",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.skin_blistering"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.systemic_toxicity",
+        "canonicalName": "systemic toxicity",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.systemic_toxicity"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.rapidly_spreading_rash",
+        "canonicalName": "rapidly spreading rash",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.rapidly_spreading_rash"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.immunosuppression",
+        "canonicalName": "immunosuppression",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.immunosuppression"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.dermatology",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c23_dermatology_001",
+    "caseVersion": "1.0.0-rc.3",
+    "contentHash": "sha256:6f8fd24314352bd3628286a15d239a8c4a0e3e1bb4b1748b98354b8caae0f66e",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.9a37f4dc-f3cf-4dd4-b97c-f57c41bcb746",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:09:32.295Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "病例为26–35岁成人局限性腕带接触区域皮疹，起病、暴露、分布、停戴后不扩散及检查结果相互一致，符合过敏性接触性皮炎。",
+          "病史、皮肤检查及镍斑贴试验足以支持目标诊断；刺激性接触性皮炎和体癣作为两个可接受鉴别诊断，设置合理。",
+          "生命体征稳定，且意识改变、低血压、不能进食、高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等危险征象均明确排除；无急症表现。",
+          "必问事实、检查分类、鉴别诊断数量及推荐回合数与成功轨迹和评分摘要一致；皮肤活检标为初始不必要检查，亦有失败回归覆盖。",
+          "回归轨迹覆盖成功、错误诊疗、不相关急症安全中断及未知既往史分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+          "教学字段、评分字段及答案关键内容标记为隐藏，安全中断轨迹不产生医疗输出；review 状态和各项 pending 元数据不构成阻塞。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.19e1693c-efe5-4173-818b-475cd655bbfe",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:09:47.940Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：起病与更换金属腕带时间相关，皮疹局限于接触区域，斑贴试验镍阳性，支持过敏性接触性皮炎；体癣和刺激性接触性皮炎作为鉴别诊断合理。",
+          "诊断可解性通过：病史、暴露史、皮损分布及检查结果共同支持目标诊断，且目标诊断粒度与答案键一致；接受“接触性湿疹”作为同义表述合理。",
+          "红旗排除通过：意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制均有明确缺失状态和对应询问路径。",
+          "Rubric一致性通过：must-ask事实、2项鉴别诊断、必需检查、非必要活检及10回合限制与病例内容和回归轨迹相互匹配。",
+          "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、错误检查、安全中断及未知既往史场景的预期结果与病例状态一致。",
+          "隐藏真值安全通过：教学字段保持hidden，生命体征设置为仅可通过检查读取；回归轨迹未要求直接暴露隐藏字段，也未将人工pending元数据作为病例阻塞。"
+        ]
+      }
+    ],
+    "findings": [
+      "病例为26–35岁成人局限性腕带接触区域皮疹，起病、暴露、分布、停戴后不扩散及检查结果相互一致，符合过敏性接触性皮炎。",
+      "病史、皮肤检查及镍斑贴试验足以支持目标诊断；刺激性接触性皮炎和体癣作为两个可接受鉴别诊断，设置合理。",
+      "生命体征稳定，且意识改变、低血压、不能进食、高风险人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制等危险征象均明确排除；无急症表现。",
+      "必问事实、检查分类、鉴别诊断数量及推荐回合数与成功轨迹和评分摘要一致；皮肤活检标为初始不必要检查，亦有失败回归覆盖。",
+      "回归轨迹覆盖成功、错误诊疗、不相关急症安全中断及未知既往史分支；安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+      "教学字段、评分字段及答案关键内容标记为隐藏，安全中断轨迹不产生医疗输出；review 状态和各项 pending 元数据不构成阻塞。",
+      "临床一致性通过：起病与更换金属腕带时间相关，皮疹局限于接触区域，斑贴试验镍阳性，支持过敏性接触性皮炎；体癣和刺激性接触性皮炎作为鉴别诊断合理。",
+      "诊断可解性通过：病史、暴露史、皮损分布及检查结果共同支持目标诊断，且目标诊断粒度与答案键一致；接受“接触性湿疹”作为同义表述合理。",
+      "红旗排除通过：意识改变、低血压、不能进食、高危人群、黏膜受累、水疱、全身毒性、快速扩散及免疫抑制均有明确缺失状态和对应询问路径。",
+      "Rubric一致性通过：must-ask事实、2项鉴别诊断、必需检查、非必要活检及10回合限制与病例内容和回归轨迹相互匹配。",
+      "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在；成功、错误检查、安全中断及未知既往史场景的预期结果与病例状态一致。",
+      "隐藏真值安全通过：教学字段保持hidden，生命体征设置为仅可通过检查读取；回归轨迹未要求直接暴露隐藏字段，也未将人工pending元数据作为病例阻塞。"
+    ]
+  }
+}

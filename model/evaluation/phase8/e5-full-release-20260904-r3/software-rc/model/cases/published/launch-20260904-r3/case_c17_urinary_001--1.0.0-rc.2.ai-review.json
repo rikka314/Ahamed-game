@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:77760e84eba205446b3f3e51119cb57c8af4c3f3f952b3959a75a35f7b27576c",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.78cfb326-c330-47f6-b339-3ca932b2da47",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:38:46.403Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛、梗阻或结石，符合急性单纯性膀胱炎；生命体征稳定。",
+        "诊断可解性通过：症状模式、危险征象排除及尿常规结果足以支持目标诊断，并可合理区分肾盂肾炎和尿道炎。",
+        "红旗排除通过：意识改变、低血压、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及单肾均明确标记为 absent，且生命体征稳定；安全轨迹覆盖非本病例胸痛伴呼吸困难输入并正确中断。",
+        "量表一致性通过：must-ask 事实、必需检查、不必要的泌尿系CT、两个鉴别诊断及沟通标准与病例内容和评分摘要一致。",
+        "回归覆盖通过：包含成功、错误诊断/不当检查、安全中断及未知既往史场景，覆盖主要评分和安全路径。",
+        "隐藏真相保护通过：教学字段隐藏，生命体征仅可通过检查读取，未见服务端评分字段或隐藏事实向患者侧泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.1b8e2420-3f82-4958-b90e-8913e17d56be",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:38:59.862Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现（尿频、尿急、排尿痛、尿常规白细胞及白细胞酯酶阳性、无发热或腰痛）支持急性单纯性膀胱炎，泌尿系CT排除结石和梗阻，整体一致。",
+        "目标诊断粒度明确，现有病史与检查足以区分急性单纯性膀胱炎，并设置了急性肾盂肾炎和尿道炎两个合理鉴别诊断。",
+        "红旗矩阵中的九项危险因素均标记为适用且应为 absent，均有对应患者事实支撑，且生命体征结果与非急症边界一致。",
+        "mustAskFactIds 与成功轨迹中的八项 expectedFactIds 完全对应；鉴别诊断数量、测试必需性/非必要性和推荐回合限制未见内部冲突。",
+        "unknown 回合的输入同时询问了既往同样发作和相关接触/诱因，分别可匹配 fact.prior_episode 与 fact.relevant_exposure，但 expectedFactIds 仅包含 fact.prior_episode，导致未知信息轨迹覆盖不完整、回归预期与问句不一致。",
+        "安全轨迹要求对胸痛和呼吸困难请求立即中断，且不写入事实、不产生医疗回合；该轨迹未暴露隐藏教学字段或内部答案，隐藏真值安全性可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛、梗阻或结石，符合急性单纯性膀胱炎；生命体征稳定。",
+    "诊断可解性通过：症状模式、危险征象排除及尿常规结果足以支持目标诊断，并可合理区分肾盂肾炎和尿道炎。",
+    "红旗排除通过：意识改变、低血压、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及单肾均明确标记为 absent，且生命体征稳定；安全轨迹覆盖非本病例胸痛伴呼吸困难输入并正确中断。",
+    "量表一致性通过：must-ask 事实、必需检查、不必要的泌尿系CT、两个鉴别诊断及沟通标准与病例内容和评分摘要一致。",
+    "回归覆盖通过：包含成功、错误诊断/不当检查、安全中断及未知既往史场景，覆盖主要评分和安全路径。",
+    "隐藏真相保护通过：教学字段隐藏，生命体征仅可通过检查读取，未见服务端评分字段或隐藏事实向患者侧泄漏。",
+    "临床表现（尿频、尿急、排尿痛、尿常规白细胞及白细胞酯酶阳性、无发热或腰痛）支持急性单纯性膀胱炎，泌尿系CT排除结石和梗阻，整体一致。",
+    "目标诊断粒度明确，现有病史与检查足以区分急性单纯性膀胱炎，并设置了急性肾盂肾炎和尿道炎两个合理鉴别诊断。",
+    "红旗矩阵中的九项危险因素均标记为适用且应为 absent，均有对应患者事实支撑，且生命体征结果与非急症边界一致。",
+    "mustAskFactIds 与成功轨迹中的八项 expectedFactIds 完全对应；鉴别诊断数量、测试必需性/非必要性和推荐回合限制未见内部冲突。",
+    "unknown 回合的输入同时询问了既往同样发作和相关接触/诱因，分别可匹配 fact.prior_episode 与 fact.relevant_exposure，但 expectedFactIds 仅包含 fact.prior_episode，导致未知信息轨迹覆盖不完整、回归预期与问句不一致。",
+    "安全轨迹要求对胸痛和呼吸困难请求立即中断，且不写入事实、不产生医疗回合；该轨迹未暴露隐藏教学字段或内部答案，隐藏真值安全性可接受。"
+  ]
+}

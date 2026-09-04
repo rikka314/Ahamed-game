@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:8e603ee4b7d0334a70ed0fd64f8ff29b2824b51c2eb7907d270e944b404dfc6b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.d7440246-1c18-4cfc-8b2b-c2597bf7beb4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:49:45.846Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：通过。成人男性突发典型肾绞痛，病程、伴随症状、红旗事实与“单纯输尿管结石”及超声结果一致；生命体征稳定且无感染性梗阻、无尿等急症线索。",
+        "diagnosisSolvability：通过。首要诊断有明确症状模式和泌尿系超声支持，且配置了急性肾盂肾炎、急性阑尾炎两个可接受鉴别诊断，病例可在安全范围内求解。",
+        "redFlagExclusions：通过。意识改变、循环不稳定、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性尿路梗阻及孤立肾等红旗均有对应事实并设为 absent；生命体征通过轨迹中的检查读取。",
+        "rubricConsistency：通过。mustAskFactIds、鉴别诊断数量、必需/不必要检查分类、推荐回合上限与评分策略相互一致；增强CT被正确标为本例初始不必要检查。",
+        "regressionCoverage：通过。成功轨迹覆盖全部必问事实、生命体征和泌尿系超声，并提交正确诊断及两项鉴别；失败轨迹覆盖不必要检查和错误诊断；安全中断、未知既往史分支亦有回归覆盖。medicalTests 的 completed 状态仅代表可返回报告模板，未被错误当作会话开始前已执行。",
+        "hiddenTruthSafety：通过。教学字段、服务端评分信息及隐藏事实未要求向患者暴露；安全轨迹明确胸痛伴呼吸困难时中断医疗流程，且预期无 provider 调用、无原始文本写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.dfad7aa7-11d5-4f25-8fc1-c81099631a59",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:50:01.190Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发右侧腰腹绞痛向腹股沟放射，伴无发热及无尿，符合输尿管结石；泌尿系超声结果与目标诊断一致。",
+        "诊断可解性通过：病史事实、必要检查及超声报告共同支持“单纯输尿管结石”，诊断粒度与答案键一致。",
+        "红旗排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均有对应事实和矩阵条目。",
+        "rubric一致性通过：must-ask事实均可由成功轨迹覆盖，鉴别诊断恰为急性肾盂肾炎和急性阑尾炎两项，必要及不必要检查分类一致。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均有明确动作、期望结果和评分断言；medicalTests的completed状态未被误作会话前已执行。",
+        "隐藏真值安全通过：教学字段未泄露至可见交互；胸痛伴呼吸困难轨迹明确要求安全中断、零 provider 调用及零原始文本写入，未知既往发作轨迹也有独立覆盖。"
+      ]
+    }
+  ],
+  "findings": [
+    "clinicalConsistency：通过。成人男性突发典型肾绞痛，病程、伴随症状、红旗事实与“单纯输尿管结石”及超声结果一致；生命体征稳定且无感染性梗阻、无尿等急症线索。",
+    "diagnosisSolvability：通过。首要诊断有明确症状模式和泌尿系超声支持，且配置了急性肾盂肾炎、急性阑尾炎两个可接受鉴别诊断，病例可在安全范围内求解。",
+    "redFlagExclusions：通过。意识改变、循环不稳定、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性尿路梗阻及孤立肾等红旗均有对应事实并设为 absent；生命体征通过轨迹中的检查读取。",
+    "rubricConsistency：通过。mustAskFactIds、鉴别诊断数量、必需/不必要检查分类、推荐回合上限与评分策略相互一致；增强CT被正确标为本例初始不必要检查。",
+    "regressionCoverage：通过。成功轨迹覆盖全部必问事实、生命体征和泌尿系超声，并提交正确诊断及两项鉴别；失败轨迹覆盖不必要检查和错误诊断；安全中断、未知既往史分支亦有回归覆盖。medicalTests 的 completed 状态仅代表可返回报告模板，未被错误当作会话开始前已执行。",
+    "hiddenTruthSafety：通过。教学字段、服务端评分信息及隐藏事实未要求向患者暴露；安全轨迹明确胸痛伴呼吸困难时中断医疗流程，且预期无 provider 调用、无原始文本写入。",
+    "临床一致性通过：突发右侧腰腹绞痛向腹股沟放射，伴无发热及无尿，符合输尿管结石；泌尿系超声结果与目标诊断一致。",
+    "诊断可解性通过：病史事实、必要检查及超声报告共同支持“单纯输尿管结石”，诊断粒度与答案键一致。",
+    "红旗排除通过：意识改变、循环不稳定、无法口服、特殊高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均有对应事实和矩阵条目。",
+    "rubric一致性通过：must-ask事实均可由成功轨迹覆盖，鉴别诊断恰为急性肾盂肾炎和急性阑尾炎两项，必要及不必要检查分类一致。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均有明确动作、期望结果和评分断言；medicalTests的completed状态未被误作会话前已执行。",
+    "隐藏真值安全通过：教学字段未泄露至可见交互；胸痛伴呼吸困难轨迹明确要求安全中断、零 provider 调用及零原始文本写入，未知既往发作轨迹也有独立覆盖。"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:1b6c9dfb04093effea42e406ca9815e46d6bb5fb43df9603c00afccdc8146d26",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.5e880600-0c77-4a77-a9ba-a96ada6e4887",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:19:00.226Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁女性，尿频、尿急、排尿痛，尿常规支持感染，生命体征稳定，且无发热伴腰痛、梗阻、无尿等表现，符合急性单纯性膀胱炎。",
+        "首发策略覆盖起病、症状模式、伴随症状、进展及主要高危/危险征象，并要求生命体征和尿常规；诊断及两个鉴别诊断具有可解性。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目；另有胸痛伴呼吸困难时的安全中断轨迹。",
+        "评分摘要、必问事实、测试分类、鉴别诊断数量与成功/失败回归轨迹相互一致；CT被明确标为不必要检查，失败轨迹也能验证该规则。",
+        "教学字段、服务端字段及答案关键事实未设置为患者可直接披露内容，未见隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.92a2faf4-5b55-4242-8f66-7fd22a32fca4",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:19:14.643Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、尿常规结果、症状模式及红旗阴性信息共同支持急性单纯性膀胱炎；泌尿系CT虽不必要，但结果未与病例矛盾。",
+        "诊断可解：急性起病、尿频尿急尿痛、尿白细胞及白细胞酯酶阳性，且无发热腰痛或高危因素，足以支持目标诊断并区分肾盂肾炎和尿道炎。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目，证据状态均为阴性且与病例事实一致。",
+        "rubric将fact.high_risk_population与fact.single_kidney拆成两个必问事实，但两者在问题匹配词和事实内容上高度重叠，均包含“孤立肾”和“泌尿系结构异常”，导致事实覆盖边界不清、可能重复计分。",
+        "success轨迹第二个提问已包含“孤立肾、泌尿系结构异常”，按现有questionMatchers可能同时命中fact.high_risk_population和fact.single_kidney，但expectedFactIds只声明high_risk_population；随后第四步又单独期待single_kidney，存在回归轨迹预期与匹配逻辑不一致。failure、safety及unknown轨迹本身与预期基本一致，但不足以抵消success轨迹的问题。",
+        "答案键、评分规则及轨迹未直接暴露teaching_note等隐藏教学字段；success/failure目标也未泄露内部答案以外的不当隐藏事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁女性，尿频、尿急、排尿痛，尿常规支持感染，生命体征稳定，且无发热伴腰痛、梗阻、无尿等表现，符合急性单纯性膀胱炎。",
+    "首发策略覆盖起病、症状模式、伴随症状、进展及主要高危/危险征象，并要求生命体征和尿常规；诊断及两个鉴别诊断具有可解性。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目；另有胸痛伴呼吸困难时的安全中断轨迹。",
+    "评分摘要、必问事实、测试分类、鉴别诊断数量与成功/失败回归轨迹相互一致；CT被明确标为不必要检查，失败轨迹也能验证该规则。",
+    "教学字段、服务端字段及答案关键事实未设置为患者可直接披露内容，未见隐藏真相泄露风险。",
+    "临床叙事、尿常规结果、症状模式及红旗阴性信息共同支持急性单纯性膀胱炎；泌尿系CT虽不必要，但结果未与病例矛盾。",
+    "诊断可解：急性起病、尿频尿急尿痛、尿白细胞及白细胞酯酶阳性，且无发热腰痛或高危因素，足以支持目标诊断并区分肾盂肾炎和尿道炎。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等项目，证据状态均为阴性且与病例事实一致。",
+    "rubric将fact.high_risk_population与fact.single_kidney拆成两个必问事实，但两者在问题匹配词和事实内容上高度重叠，均包含“孤立肾”和“泌尿系结构异常”，导致事实覆盖边界不清、可能重复计分。",
+    "success轨迹第二个提问已包含“孤立肾、泌尿系结构异常”，按现有questionMatchers可能同时命中fact.high_risk_population和fact.single_kidney，但expectedFactIds只声明high_risk_population；随后第四步又单独期待single_kidney，存在回归轨迹预期与匹配逻辑不一致。failure、safety及unknown轨迹本身与预期基本一致，但不足以抵消success轨迹的问题。",
+    "答案键、评分规则及轨迹未直接暴露teaching_note等隐藏教学字段；success/failure目标也未泄露内部答案以外的不当隐藏事实。"
+  ]
+}

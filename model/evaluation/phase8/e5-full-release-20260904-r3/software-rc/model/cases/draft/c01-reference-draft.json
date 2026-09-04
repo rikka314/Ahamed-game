@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "case-package-v1-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "draft",
+  "internalCaseId": "internal_c01_common_cold_reference",
+  "publicCaseId": "case_c01_reference",
+  "caseVersion": "0.1.0-reference",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "patientDisplayName": "林同学",
+    "chiefComplaint": "鼻塞、流涕伴咽部不适2天",
+    "ageBand": "18–25岁",
+    "genderDisplay": "女"
+  },
+  "patientPersona": {
+    "languageStyle": "colloquial_zh",
+    "personaTemplateId": "gentle_cooperative",
+    "personaTemplateVersion": "patient-persona-templates-v1",
+    "educationOrOccupation": "在读大学生",
+    "dailyLife": "平时住校，最近课程安排正常。",
+    "interests": ["听音乐", "散步"],
+    "communicationTraits": ["礼貌称呼医生", "用简短口语回答"]
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "我主要是鼻塞、流涕伴咽部不适2天。",
+      "disclosure": "spontaneous",
+      "questionMatchers": ["哪里不舒服", "怎么了", "症状"]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "大约两天前开始的。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["什么时候", "多久", "起病", "开始"]
+    },
+    "fact.nasal_discharge": {
+      "status": "present",
+      "value": "主要是清鼻涕，鼻子也有些堵。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["鼻涕", "鼻塞", "鼻子"]
+    },
+    "fact.sore_throat": {
+      "status": "present",
+      "value": "嗓子有点不舒服，但还能正常喝水。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["咽痛", "嗓子", "吞咽"]
+    },
+    "fact.high_fever": {
+      "status": "absent",
+      "value": "没有明显高热。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["高热", "发烧", "体温"]
+    },
+    "fact.dyspnea": {
+      "status": "absent",
+      "value": "没有呼吸困难。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["呼吸困难", "喘", "气短"]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "神志一直很清楚。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["意识", "神志", "糊涂"]
+    },
+    "fact.chronic_condition": {
+      "status": "unknown",
+      "value": "我不太清楚家里有没有相关慢性病史。",
+      "disclosure": "if_asked",
+      "questionMatchers": ["慢性病", "家族史", "基础病"]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征记录仅可通过对应检查获得。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "仅供服务端评分的教学标记。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": ["体温", "量体温", "测体温", "血压", "心率", "血氧"],
+      "report": "体温37.3℃，呼吸频率16次/分，静息状态稳定。"
+    },
+    "test.complete_blood_count": {
+      "status": "completed",
+      "displayName": "血常规",
+      "aliases": ["查血常规", "全血细胞计数", "抽血"],
+      "report": "开发期合成参考结果：未见需要立即中止病例模拟的异常。"
+    },
+    "test.chest_xray": {
+      "status": "completed",
+      "displayName": "胸部X线",
+      "aliases": ["胸片", "拍胸片", "胸部X光", "X线"],
+      "report": "开发期合成参考结果：未见局灶性肺部实变影。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.common_cold",
+    "targetDiagnosis": "普通感冒",
+    "acceptedSynonyms": ["急性病毒性上呼吸道感染"],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.common_cold",
+        "preferredTerm": "普通感冒",
+        "acceptedSynonyms": ["急性病毒性上呼吸道感染"]
+      },
+      {
+        "conceptId": "concept.influenza",
+        "preferredTerm": "流行性感冒",
+        "acceptedSynonyms": ["流感"]
+      },
+      {
+        "conceptId": "concept.acute_pharyngitis",
+        "preferredTerm": "急性咽炎",
+        "acceptedSynonyms": ["急性咽部炎症"]
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.nasal_discharge",
+      "fact.sore_throat",
+      "fact.high_fever",
+      "fact.dyspnea"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.influenza",
+      "concept.acute_pharyngitis"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.complete_blood_count": "useful",
+      "test.chest_xray": "unnecessary"
+    },
+    "recommendedTurnLimit": 8,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "model-engineering-reference",
+    "notes": "仅用于 Phase 3 deterministic CLI 工程纵切；未经医学审核，不得发布。"
+  },
+  "provenance": {
+    "sourceType": "synthetic",
+    "sourceCitation": "工程团队为 Phase 3 CLI 测试编写的纯合成参考草稿；不含真实患者信息。",
+    "license": "internal-development-reference",
+    "createdAt": "2026-08-27T00:00:00.000Z"
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c01_common_cold_reference",
+    "caseVersion": "0.1.0-reference",
+    "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      {
+        "redFlagId": "redflag.dyspnea",
+        "canonicalName": "呼吸困难",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": ["fact.dyspnea"],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.phase3.reference",
+        "criterionSourceVersion": "1",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": ["fact.confusion"],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.phase3.reference",
+        "criterionSourceVersion": "1",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  }
+}

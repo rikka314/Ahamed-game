@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/case-regression-trajectories-v1.schema.json",
+  "title": "Case regression trajectories v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "caseId", "caseVersion", "trajectories"],
+  "properties": {
+    "schemaVersion": { "const": "case-regression-trajectories-v1" },
+    "caseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/nonEmpty" },
+    "trajectories": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["trajectoryId", "kind", "steps", "expected"],
+        "properties": {
+          "trajectoryId": { "$ref": "#/$defs/id" },
+          "kind": { "enum": ["success", "failure", "safety", "unknown"] },
+          "steps": { "type": "array", "minItems": 1 },
+          "expected": { "type": "object" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" }
+  }
+}

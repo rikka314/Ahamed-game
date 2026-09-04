@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/ai-case-cross-review-v3.schema.json",
+  "title": "Non-blocking AI case cross-review v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "caseId", "caseVersion", "contentHash", "decision", "validations", "findings"],
+  "properties": {
+    "schemaVersion": { "const": "ai-case-cross-review-v3" },
+    "caseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/nonEmpty" },
+    "contentHash": { "$ref": "#/$defs/contentHash" },
+    "decision": { "$ref": "#/$defs/decision" },
+    "validations": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "validatorId",
+          "role",
+          "modelId",
+          "promptVersion",
+          "validationRunId",
+          "isolation",
+          "runStatus",
+          "decision",
+          "validatedAt",
+          "findings"
+        ],
+        "properties": {
+          "validatorId": { "$ref": "#/$defs/id" },
+          "role": { "enum": ["clinical_safety", "diagnostic_quality"] },
+          "modelId": { "$ref": "#/$defs/nonEmpty" },
+          "promptVersion": { "$ref": "#/$defs/nonEmpty" },
+          "validationRunId": { "$ref": "#/$defs/id" },
+          "isolation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["independentInvocation", "counterpartOutputVisible"],
+            "properties": {
+              "independentInvocation": { "const": true },
+              "counterpartOutputVisible": { "const": false }
+            }
+          },
+          "runStatus": { "enum": ["completed", "failed_to_run", "skipped"] },
+          "decision": { "$ref": "#/$defs/decision" },
+          "validatedAt": { "type": "string", "format": "date-time" },
+          "checks": { "$ref": "#/$defs/checks" },
+          "findings": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "runStatus": { "const": "completed" } },
+              "required": ["runStatus"]
+            },
+            "then": {
+              "required": ["checks"],
+              "properties": {
+                "decision": { "enum": ["approved", "revision_recommended", "rejected"] }
+              }
+            },
+            "else": {
+              "properties": {
+                "decision": { "const": "not_run" },
+                "checks": { "enum": [] }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "decision": { "const": "not_run" } },
+        "required": ["decision"]
+      },
+      "then": {
+        "properties": {
+          "validations": {
+            "items": {
+              "properties": {
+                "runStatus": { "enum": ["failed_to_run", "skipped"] },
+                "decision": { "const": "not_run" },
+                "checks": { "enum": [] }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "validations": {
+            "minItems": 1,
+            "items": {
+              "properties": {
+                "runStatus": { "const": "completed" },
+                "decision": { "enum": ["approved", "revision_recommended", "rejected"] }
+              },
+              "required": ["checks"]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "decision": { "const": "approved" } },
+        "required": ["decision"]
+      },
+      "then": {
+        "properties": {
+          "validations": {
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "properties": {
+                "runStatus": { "const": "completed" },
+                "decision": { "const": "approved" },
+                "checks": { "$ref": "#/$defs/passingChecks" }
+              },
+              "required": ["checks"]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" },
+    "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "decision": { "enum": ["approved", "revision_recommended", "rejected", "not_run"] },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clinicalConsistency",
+        "diagnosisSolvability",
+        "redFlagExclusions",
+        "rubricConsistency",
+        "regressionCoverage",
+        "hiddenTruthSafety"
+      ],
+      "properties": {
+        "clinicalConsistency": { "enum": ["pass", "fail"] },
+        "diagnosisSolvability": { "enum": ["pass", "fail"] },
+        "redFlagExclusions": { "enum": ["pass", "fail"] },
+        "rubricConsistency": { "enum": ["pass", "fail"] },
+        "regressionCoverage": { "enum": ["pass", "fail"] },
+        "hiddenTruthSafety": { "enum": ["pass", "fail"] }
+      }
+    },
+    "passingChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clinicalConsistency",
+        "diagnosisSolvability",
+        "redFlagExclusions",
+        "rubricConsistency",
+        "regressionCoverage",
+        "hiddenTruthSafety"
+      ],
+      "properties": {
+        "clinicalConsistency": { "const": "pass" },
+        "diagnosisSolvability": { "const": "pass" },
+        "redFlagExclusions": { "const": "pass" },
+        "rubricConsistency": { "const": "pass" },
+        "regressionCoverage": { "const": "pass" },
+        "hiddenTruthSafety": { "const": "pass" }
+      }
+    }
+  }
+}

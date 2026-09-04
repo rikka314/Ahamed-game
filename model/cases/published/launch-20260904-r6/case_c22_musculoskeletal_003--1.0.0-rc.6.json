@@ -1,0 +1,511 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c22_musculoskeletal_003",
+  "publicCaseId": "case_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.6",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "第一跖趾关节突发红肿痛一天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c22",
+    "patientDisplayName": "患者22号",
+    "ageBand": "36–45岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "餐饮店主",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "guarded_questioning",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会询问提问或检查目的",
+      "说明理由后配合"
+    ],
+    "modifiers": {
+      "healthLiteracy": "high",
+      "recallReliability": "high",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "第一跖趾关节突发红肿痛一天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "一天前夜间突然发作",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "大脚趾根部突然剧痛、红肿，触碰明显疼",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "无发热、寒战或其他系统不适",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.gout_trigger": {
+      "status": "present",
+      "value": "发作前一晚吃了较多海鲜并饮酒。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "海鲜",
+        "饮酒",
+        "发作诱因"
+      ]
+    },
+    "fact.septic_joint_risk": {
+      "status": "absent",
+      "value": "近期没有关节注射或手术、破溃伤口、人工关节，也没有免疫抑制。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "关节操作",
+        "破溃伤口",
+        "人工关节",
+        "免疫抑制"
+      ]
+    },
+    "fact.musculoskeletal_infection": {
+      "status": "absent",
+      "value": "没有发热寒战、破溃伤口、近期关节操作或全身感染表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热寒战",
+        "关节感染",
+        "近期关节操作"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.joint_assessment": {
+      "status": "completed",
+      "displayName": "关节评估",
+      "aliases": [
+        "关节评估",
+        "做关节评估",
+        "test.joint_assessment"
+      ],
+      "report": "关节液偏振光显微镜见针状强负双折射结晶，革兰染色未见细菌；结合临床表现支持晶体性关节炎，但若感染风险改变仍需重新评估。"
+    },
+    "test.foot_mri": {
+      "status": "completed",
+      "displayName": "足部MRI",
+      "aliases": [
+        "足部MRI",
+        "做足部MRI",
+        "test.foot_mri"
+      ],
+      "report": "足部MRI不是本例初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.gouty_arthritis",
+    "targetDiagnosis": "痛风性关节炎",
+    "acceptedSynonyms": [
+      "急性痛风"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.gouty_arthritis",
+        "preferredTerm": "痛风性关节炎",
+        "acceptedSynonyms": [
+          "急性痛风"
+        ]
+      },
+      {
+        "conceptId": "concept.septic_arthritis",
+        "preferredTerm": "感染性关节炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.pseudogout",
+        "preferredTerm": "假性痛风",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.gout_trigger",
+      "fact.septic_joint_risk",
+      "fact.musculoskeletal_infection"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.septic_arthritis",
+      "concept.pseudogout"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.joint_assessment": "required",
+      "test.foot_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B4病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:4db455b29fcbf0679cf89ddead33290dae347dee7fe062bf0891b1caf5752440",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.musculoskeletal",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c22_musculoskeletal_003",
+    "caseVersion": "1.0.0-rc.6",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压或循环不稳定",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "特殊高风险人群",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.cauda_equina",
+        "canonicalName": "马尾综合征表现",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.major_trauma",
+        "canonicalName": "严重外伤",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.musculoskeletal_infection",
+        "canonicalName": "骨关节感染征象",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.musculoskeletal_infection"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.malignancy_warning",
+        "canonicalName": "恶性肿瘤警示",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.progressive_neurologic_deficit",
+        "canonicalName": "进行性神经功能缺损",
+        "applicable": false,
+        "requiredState": "absent",
+        "evidenceFactIds": [],
+        "evidenceType": "not_applicable",
+        "observedValue": "not_applicable",
+        "criterionSourceId": "source.policy.musculoskeletal",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c22_musculoskeletal_003",
+    "caseVersion": "1.0.0-rc.6",
+    "contentHash": "sha256:4db455b29fcbf0679cf89ddead33290dae347dee7fe062bf0891b1caf5752440",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.275379d0-82e9-4c37-a485-957ede4ef896",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T04:21:44.898Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：突发第一跖趾关节红肿痛、海鲜及饮酒诱因、生命体征稳定，关节液针状强负双折射结晶与痛风性关节炎相符；同时保留感染性关节炎需结合风险变化重新评估的安全提示。",
+          "诊断可解性通过：核心症状、起病时间、进展、诱因及感染风险均可通过询问获得，关节评估结果足以支持目标诊断。",
+          "危险征象排除通过：骨关节感染相关事实明确为无，且有生命体征检查；病例未设置与本疾病域不适用的成人或急症红旗，退出边界清楚。",
+          "评分规则一致性通过：must-ask事实、必需检查、无必要的足部MRI及两个可接受鉴别诊断均与评分策略和答案键一致。",
+          "回归覆盖通过：成功、错误检查与错误诊断、安全中断、未知既往史等轨迹均有覆盖，且成功轨迹在建议回合数内完成。",
+          "隐藏真相保护通过：教学字段保持隐藏，痛风诱因和感染风险等事实按提问条件披露，未将服务端评分信息暴露给患者。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.aab1ac21-0e5d-43d1-9b74-176cf59359e7",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T04:21:56.180Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现、海鲜饮酒诱因及关节液针状强负双折射结晶与痛风性关节炎一致；革兰染色阴性未被过度解释为绝对排除感染。",
+          "病例提供了起病、局部特征、伴随症状、病程、诱因及感染风险信息，并有针对性的关节评估，足以支持目标诊断。",
+          "感染性关节炎相关风险和肌肉骨骼感染征象均有明确阴性事实；生命体征稳定，红旗矩阵与病例内容一致。",
+          "目标诊断粒度明确，接受同义词与诊断概念一致；两个鉴别诊断均在允许集合内，必问事实和检查分类与评分规则一致。",
+          "success、failure、safety、unknown 四类轨迹均覆盖，成功路径包含必要问诊、必要检查、目标诊断及两个鉴别诊断；失败路径包含不必要MRI和错误诊断；未知事实路径可单独读取既往发作史。",
+          "隐藏教学字段未被回归轨迹或患者可见事实意外暴露；安全轨迹对胸痛伴呼吸困难请求按中断处理，并要求零医疗回合、零提供方调用和零原文写入，逻辑一致。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床一致性通过：突发第一跖趾关节红肿痛、海鲜及饮酒诱因、生命体征稳定，关节液针状强负双折射结晶与痛风性关节炎相符；同时保留感染性关节炎需结合风险变化重新评估的安全提示。",
+      "诊断可解性通过：核心症状、起病时间、进展、诱因及感染风险均可通过询问获得，关节评估结果足以支持目标诊断。",
+      "危险征象排除通过：骨关节感染相关事实明确为无，且有生命体征检查；病例未设置与本疾病域不适用的成人或急症红旗，退出边界清楚。",
+      "评分规则一致性通过：must-ask事实、必需检查、无必要的足部MRI及两个可接受鉴别诊断均与评分策略和答案键一致。",
+      "回归覆盖通过：成功、错误检查与错误诊断、安全中断、未知既往史等轨迹均有覆盖，且成功轨迹在建议回合数内完成。",
+      "隐藏真相保护通过：教学字段保持隐藏，痛风诱因和感染风险等事实按提问条件披露，未将服务端评分信息暴露给患者。",
+      "临床表现、海鲜饮酒诱因及关节液针状强负双折射结晶与痛风性关节炎一致；革兰染色阴性未被过度解释为绝对排除感染。",
+      "病例提供了起病、局部特征、伴随症状、病程、诱因及感染风险信息，并有针对性的关节评估，足以支持目标诊断。",
+      "感染性关节炎相关风险和肌肉骨骼感染征象均有明确阴性事实；生命体征稳定，红旗矩阵与病例内容一致。",
+      "目标诊断粒度明确，接受同义词与诊断概念一致；两个鉴别诊断均在允许集合内，必问事实和检查分类与评分规则一致。",
+      "success、failure、safety、unknown 四类轨迹均覆盖，成功路径包含必要问诊、必要检查、目标诊断及两个鉴别诊断；失败路径包含不必要MRI和错误诊断；未知事实路径可单独读取既往发作史。",
+      "隐藏教学字段未被回归轨迹或患者可见事实意外暴露；安全轨迹对胸痛伴呼吸困难请求按中断处理，并要求零医疗回合、零提供方调用和零原文写入，逻辑一致。"
+    ]
+  }
+}

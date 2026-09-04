@@ -1,0 +1,30 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "01",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 7,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise only G04 exterior ground variant 1 of 2. Remove every long or tile-spanning diagonal moss path. Redistribute moss as compact, disconnected fragments at unrelated positions across different bricks, using five muted olive and sage values. Preserve the accepted pale stone-brick geometry, every outer border pixel, 32x32 hard edges and seamless tiling. Use an uneven 5x5 mixed preview with zero, one or two moss tiles per row so the review layout does not manufacture a diagonal pattern.",
+  "humanEdits": [
+    "Removed the previous continuous lower-left to upper-right growth direction.",
+    "Rebuilt the moss as eleven disconnected compact fragments of unequal size.",
+    "Limited all growth to short local clusters and isolated veil flecks rather than long strokes.",
+    "Preserved every outer border pixel for seamless mixing with G03.",
+    "Replaced the one-per-row mixed preview arrangement with an uneven five-by-five placement."
+  ],
+  "status": "DRAFT"
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c10_cardiometabolic_003",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:40a716cb249246e861b3d20cdf0350fcf02e6f925a3304d2d9707cb4a08ecae8",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.3da0e70d-00b8-44ee-a54e-a1db54bc4197",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:57:35.699Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：心慌、怕热、出汗增多、食量增加但体重下降与甲状腺功能亢进相符；生命体征稳定，未达到急症阈值，胸部CT正常可作为非必要检查。",
+        "诊断可解性通过：针对性检查显示促甲状腺激素降低、游离甲状腺激素升高，足以支持“甲状腺功能亢进/甲亢”，且鉴别诊断已明确。",
+        "危险征象排除通过：生命体征稳定，病例事实中列出的意识改变、低血压、不能进食、高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症均明确为不存在。",
+        "量表一致性不通过：redFlagExclusionMatrix 将10项危险征象均标记为适用且要求排除，但 rubric.mustAskFacts 及成功回归轨迹仅覆盖其中4项，未覆盖胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症，导致安全要求与评分要求不一致。",
+        "回归覆盖不通过：成功轨迹未验证完整危险征象集合，且未覆盖矩阵中其余6项红旗的询问/排除路径；安全中断轨迹本身正确，但不足以弥补常规病例安全回归覆盖缺口。",
+        "隐藏真相安全通过：教学字段保持hidden；安全轨迹对“当前胸痛又喘不过气”的输入按SAFETY_INTERRUPTED处理，预期无医疗回合、无提供者调用和无原始文本写入，未泄露病例诊断或隐藏字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.647ffe60-6138-4b4f-ab2b-910412f30a5e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:57:53.336Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：心慌、怕热、多汗、食量增加伴体重下降，且促甲状腺激素降低、游离甲状腺激素升高，支持甲状腺功能亢进；胸部CT设为不必要检查也合理。",
+        "诊断可解性通过：目标诊断与检查结果匹配，且“甲状腺功能亢进/甲亢”均有明确词汇映射；焦虑障碍和贫血作为两个鉴别诊断可被评分。",
+        "红旗排除通过：红旗矩阵中的10项均有对应患者事实且状态为absent，未发现矩阵内证据与病例内容冲突。",
+        "rubric一致性失败：redFlagExclusionMatrix将胸痛、晕厥、局灶性神经功能缺损、严重低血糖、酮症酸中毒和高血压急症等均标记为适用并要求排除，但mustAskFactIds及成功轨迹仅覆盖其中4项，矩阵、问诊评分要求和成功轨迹不一致。",
+        "回归覆盖失败：unknown轨迹的提问同时涉及既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致输入与期望事实集合不一致。",
+        "隐藏真值安全通过：生命体征保持test_only，教学字段为hidden；安全轨迹设置为中断且不产生医疗回合、provider调用或原文写入，未见隐藏字段泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：心慌、怕热、出汗增多、食量增加但体重下降与甲状腺功能亢进相符；生命体征稳定，未达到急症阈值，胸部CT正常可作为非必要检查。",
+    "诊断可解性通过：针对性检查显示促甲状腺激素降低、游离甲状腺激素升高，足以支持“甲状腺功能亢进/甲亢”，且鉴别诊断已明确。",
+    "危险征象排除通过：生命体征稳定，病例事实中列出的意识改变、低血压、不能进食、高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症均明确为不存在。",
+    "量表一致性不通过：redFlagExclusionMatrix 将10项危险征象均标记为适用且要求排除，但 rubric.mustAskFacts 及成功回归轨迹仅覆盖其中4项，未覆盖胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症，导致安全要求与评分要求不一致。",
+    "回归覆盖不通过：成功轨迹未验证完整危险征象集合，且未覆盖矩阵中其余6项红旗的询问/排除路径；安全中断轨迹本身正确，但不足以弥补常规病例安全回归覆盖缺口。",
+    "隐藏真相安全通过：教学字段保持hidden；安全轨迹对“当前胸痛又喘不过气”的输入按SAFETY_INTERRUPTED处理，预期无医疗回合、无提供者调用和无原始文本写入，未泄露病例诊断或隐藏字段。",
+    "临床一致性通过：心慌、怕热、多汗、食量增加伴体重下降，且促甲状腺激素降低、游离甲状腺激素升高，支持甲状腺功能亢进；胸部CT设为不必要检查也合理。",
+    "诊断可解性通过：目标诊断与检查结果匹配，且“甲状腺功能亢进/甲亢”均有明确词汇映射；焦虑障碍和贫血作为两个鉴别诊断可被评分。",
+    "红旗排除通过：红旗矩阵中的10项均有对应患者事实且状态为absent，未发现矩阵内证据与病例内容冲突。",
+    "rubric一致性失败：redFlagExclusionMatrix将胸痛、晕厥、局灶性神经功能缺损、严重低血糖、酮症酸中毒和高血压急症等均标记为适用并要求排除，但mustAskFactIds及成功轨迹仅覆盖其中4项，矩阵、问诊评分要求和成功轨迹不一致。",
+    "回归覆盖失败：unknown轨迹的提问同时涉及既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致输入与期望事实集合不一致。",
+    "隐藏真值安全通过：生命体征保持test_only，教学字段为hidden；安全轨迹设置为中断且不产生医疗回合、provider调用或原文写入，未见隐藏字段泄露。"
+  ]
+}

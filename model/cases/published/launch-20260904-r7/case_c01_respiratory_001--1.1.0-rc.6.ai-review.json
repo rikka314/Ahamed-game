@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.1.0-rc.6",
+  "contentHash": "sha256:1b1fdc2b30140ec01cd1e70cfa7aa67139460c695f201b14530a592fd3f524d9",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.02bce590-6f98-4364-b353-05b951c4e640",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:37:43.436Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：18–25岁成年女性，鼻塞、清涕、轻微咽部不适及偶发干咳，伴正常生命体征，整体符合普通感冒/急性病毒性上呼吸道感染；未见病例事实之间的明显矛盾。",
+        "诊断可解性通过：起病、症状谱、关键阴性症状、高风险人群和生命体征均可通过问诊或检查获得，足以支持目标诊断并完成规定鉴别诊断。",
+        "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据；生命体征为体温37.3℃、呼吸频率16次/分、血压116/72mmHg、血氧98%。",
+        "量表一致性通过：must-ask事实与成功轨迹覆盖一致，要求2项鉴别诊断且轨迹提供流感和急性咽炎；生命体征为必需检查，血常规可选，胸片和胸部CT列为不必要检查，内部逻辑一致。",
+        "回归覆盖通过：成功、失败、不安全中断及未知信息轨迹均已提供；成功路径覆盖诊断、鉴别、红旗和生命体征，失败路径覆盖不必要检查与错误诊断，安全路径要求中断且不产生医疗调用或文本写入。",
+        "隐藏真相安全通过：教学字段、答案键、评分规则及内部标识未进入患者可见内容；病例不依赖向玩家泄露隐藏字段。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成本次安全审核阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0f3033d1-ce55-4edf-807c-f356bbf97657",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:38:01.087Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现为短程鼻塞、清涕、轻度咽部不适及偶发干咳，无高热、呼吸困难或低氧，支持普通感冒；生命体征与该判断一致，胸部影像设为非必要检查合理。",
+        "病史事实覆盖起病、症状、危险信号及高风险人群，结合生命体征足以区分普通感冒与主要鉴别诊断，目标诊断粒度明确。",
+        "红旗排除矩阵覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群，证据事实或生命体征可追溯且状态一致。",
+        "must-ask事实共15项，成功轨迹完整覆盖；可接受鉴别诊断为流感和急性咽炎，要求2项与成功轨迹一致；检查分类与轨迹中的生命体征、胸片失败路径相符。",
+        "success、failure、safety、unknown四类回归轨迹的预期结果与病例事实、评分规则及交互步骤一致；success的4个问诊回合覆盖全部must-ask事实。",
+        "未见将hidden教学字段或内部审核元数据暴露给患者的轨迹；安全轨迹要求中断、零医疗回合及零provider/raw-text写入，与高危自述场景一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：18–25岁成年女性，鼻塞、清涕、轻微咽部不适及偶发干咳，伴正常生命体征，整体符合普通感冒/急性病毒性上呼吸道感染；未见病例事实之间的明显矛盾。",
+    "诊断可解性通过：起病、症状谱、关键阴性症状、高风险人群和生命体征均可通过问诊或检查获得，足以支持目标诊断并完成规定鉴别诊断。",
+    "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除证据；生命体征为体温37.3℃、呼吸频率16次/分、血压116/72mmHg、血氧98%。",
+    "量表一致性通过：must-ask事实与成功轨迹覆盖一致，要求2项鉴别诊断且轨迹提供流感和急性咽炎；生命体征为必需检查，血常规可选，胸片和胸部CT列为不必要检查，内部逻辑一致。",
+    "回归覆盖通过：成功、失败、不安全中断及未知信息轨迹均已提供；成功路径覆盖诊断、鉴别、红旗和生命体征，失败路径覆盖不必要检查与错误诊断，安全路径要求中断且不产生医疗调用或文本写入。",
+    "隐藏真相安全通过：教学字段、答案键、评分规则及内部标识未进入患者可见内容；病例不依赖向玩家泄露隐藏字段。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成本次安全审核阻塞。",
+    "临床表现为短程鼻塞、清涕、轻度咽部不适及偶发干咳，无高热、呼吸困难或低氧，支持普通感冒；生命体征与该判断一致，胸部影像设为非必要检查合理。",
+    "病史事实覆盖起病、症状、危险信号及高风险人群，结合生命体征足以区分普通感冒与主要鉴别诊断，目标诊断粒度明确。",
+    "红旗排除矩阵覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群，证据事实或生命体征可追溯且状态一致。",
+    "must-ask事实共15项，成功轨迹完整覆盖；可接受鉴别诊断为流感和急性咽炎，要求2项与成功轨迹一致；检查分类与轨迹中的生命体征、胸片失败路径相符。",
+    "success、failure、safety、unknown四类回归轨迹的预期结果与病例事实、评分规则及交互步骤一致；success的4个问诊回合覆盖全部must-ask事实。",
+    "未见将hidden教学字段或内部审核元数据暴露给患者的轨迹；安全轨迹要求中断、零医疗回合及零provider/raw-text写入，与高危自述场景一致。"
+  ]
+}

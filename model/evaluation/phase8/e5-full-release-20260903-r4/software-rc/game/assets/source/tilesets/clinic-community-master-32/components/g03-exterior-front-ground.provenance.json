@@ -1,0 +1,24 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G03",
+  "componentName": "左侧室外/门前地面",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel cleanup from an AI-assisted DRAFT concept; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-imagegen-concept.png",
+  "styleReference": "game/assets/source/tilesets/clinic-community-master-32/components/g01-clinic-interior-floor-base-v4.png",
+  "generator": "Codex pixel-native redraw rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Redraw G03 as a native 32x32 outdoor/front-door Ground tile. Use a muted cool sage-gray concrete base, larger restrained stone aggregate clusters and a clean darker grout edge so it is clearly distinct from the pale cream indoor terrazzo. Preserve hard pixel edges and low visual noise; add no dirt, cracks, wear, text, logo or watermark.",
+  "humanEdits": [
+    "Rebuilt the generated direction as a native 32x32 hard-pixel tile.",
+    "Reduced the concept to a controlled 13-color sRGB palette.",
+    "Recomposed aggregate clusters and grout for repeatable grid use."
+  ],
+  "status": "DRAFT"
+}

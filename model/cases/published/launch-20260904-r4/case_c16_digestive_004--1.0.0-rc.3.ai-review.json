@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:624864af7ea67edd5de93a597db0c725661fd1d0007878c870f5a08bdd1e34c4",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.d9c00851-9e0c-41f8-92dc-3398d75d03fb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:05:02.480Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：18–25岁女性，聚餐后急性腹泻伴轻度恶心，能饮水、无血便高热或持续呕吐，生命体征及脱水评估稳定，符合轻症急性胃肠炎；腹部CT虽列为已完成，但明确标注为不必要检查，不影响病例事实一致性。",
+        "诊断可解性：起病、症状模式、伴随症状、病程变化及关键危险征象均有可获取事实；目标诊断明确，且提供两个可接受鉴别诊断，能够支持确定性作答。",
+        "危险征象排除：意识改变、低血压、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为不存在；生命体征稳定且无明显脱水，安全门槛充分。",
+        "量表一致性：must-ask事实、必需检查、非必要检查、鉴别诊断数量及推荐回合限制与成功/失败轨迹和评分策略相互一致。",
+        "回归覆盖：包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖诊断、检查选择、安全退出、事实查询和评分关键路径。",
+        "隐藏真相安全：教学字段保持hidden；安全轨迹要求SAFETY_INTERRUPTED、零服务端调用和零原始文本写入，未见通过患者交互泄露内部评分或教学字段的路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7f7a28d0-47fd-48db-b17b-259697d72a62",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:05:16.441Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与轻症急性胃肠炎基本一致：急性起病、腹泻伴恶心、可饮水、无血便高热或持续呕吐，且生命体征和脱水评估支持非急症。",
+        "目标诊断采用急性综合征粒度，现有病史、体格/检查结果及允许鉴别诊断足以完成评分；食物不耐受和肠易激综合征作为鉴别项也已明确。",
+        "九项红旗均有对应patientFacts，状态统一为absent；可饮水、生命体征稳定、无出血及腹膜刺激征等信息相互支持排除急症。",
+        "rubric与事实提取规则存在不一致：success轨迹使用“需要排除的危险表现”，但各红旗fact的questionMatchers仅列“危险症状/严重表现/红旗”等，未明确覆盖该措辞，可能导致期望的九项红旗事实无法被触发。",
+        "四类回归轨迹均已提供，但success轨迹依赖上述不匹配的红旗提问，可能无法达到expectedFactIds；因此回归资产不能稳定复现声明的成功路径。建议补充同义问法匹配，或修改success输入为明确包含“危险症状/严重表现/红旗”。",
+        "CT被标为unnecessary且失败轨迹相应验证，生命体征和脱水评估标为required并在成功轨迹使用，测试选择规则总体一致；review.status、pending元数据未作为阻塞依据。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：18–25岁女性，聚餐后急性腹泻伴轻度恶心，能饮水、无血便高热或持续呕吐，生命体征及脱水评估稳定，符合轻症急性胃肠炎；腹部CT虽列为已完成，但明确标注为不必要检查，不影响病例事实一致性。",
+    "诊断可解性：起病、症状模式、伴随症状、病程变化及关键危险征象均有可获取事实；目标诊断明确，且提供两个可接受鉴别诊断，能够支持确定性作答。",
+    "危险征象排除：意识改变、低血压、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均明确为不存在；生命体征稳定且无明显脱水，安全门槛充分。",
+    "量表一致性：must-ask事实、必需检查、非必要检查、鉴别诊断数量及推荐回合限制与成功/失败轨迹和评分策略相互一致。",
+    "回归覆盖：包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖诊断、检查选择、安全退出、事实查询和评分关键路径。",
+    "隐藏真相安全：教学字段保持hidden；安全轨迹要求SAFETY_INTERRUPTED、零服务端调用和零原始文本写入，未见通过患者交互泄露内部评分或教学字段的路径。",
+    "临床叙事与轻症急性胃肠炎基本一致：急性起病、腹泻伴恶心、可饮水、无血便高热或持续呕吐，且生命体征和脱水评估支持非急症。",
+    "目标诊断采用急性综合征粒度，现有病史、体格/检查结果及允许鉴别诊断足以完成评分；食物不耐受和肠易激综合征作为鉴别项也已明确。",
+    "九项红旗均有对应patientFacts，状态统一为absent；可饮水、生命体征稳定、无出血及腹膜刺激征等信息相互支持排除急症。",
+    "rubric与事实提取规则存在不一致：success轨迹使用“需要排除的危险表现”，但各红旗fact的questionMatchers仅列“危险症状/严重表现/红旗”等，未明确覆盖该措辞，可能导致期望的九项红旗事实无法被触发。",
+    "四类回归轨迹均已提供，但success轨迹依赖上述不匹配的红旗提问，可能无法达到expectedFactIds；因此回归资产不能稳定复现声明的成功路径。建议补充同义问法匹配，或修改success输入为明确包含“危险症状/严重表现/红旗”。",
+    "CT被标为unnecessary且失败轨迹相应验证，生命体征和脱水评估标为required并在成功轨迹使用，测试选择规则总体一致；review.status、pending元数据未作为阻塞依据。"
+  ]
+}

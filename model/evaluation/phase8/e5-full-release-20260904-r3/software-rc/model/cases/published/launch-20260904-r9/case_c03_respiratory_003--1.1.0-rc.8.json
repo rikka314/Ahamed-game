@@ -1,0 +1,733 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c03_respiratory_003",
+  "publicCaseId": "case_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.8",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "咽痛伴低热2天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c03",
+    "patientDisplayName": "陈同学",
+    "ageBand": "18–25岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "在读大学生",
+    "dailyLife": "平时住校，最近正准备课程考试。",
+    "interests": [
+      "跑步",
+      "玩桌游"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "impatient_direct",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "回答简短直接",
+      "不喜欢重复说明"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "moderate"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "嗓子疼了两天，还有一点低热。",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "怎么了",
+        "主要症状"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "两天前开始，今天疼痛比昨天明显。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.sore_throat": {
+      "status": "present",
+      "value": "吞咽时嗓子疼，但还能喝水吃饭。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咽痛",
+        "嗓子",
+        "吞咽"
+      ]
+    },
+    "fact.fever": {
+      "status": "present",
+      "value": "最高量到38.1℃。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热",
+        "发烧",
+        "体温"
+      ]
+    },
+    "fact.cough": {
+      "status": "absent",
+      "value": "基本不咳嗽。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳嗽",
+        "咳痰"
+      ]
+    },
+    "fact.rhinorrhea": {
+      "status": "absent",
+      "value": "没有明显流鼻涕或鼻塞。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "流鼻涕",
+        "鼻塞"
+      ]
+    },
+    "fact.neck_nodes": {
+      "status": "present",
+      "value": "下颌角附近按压有点疼。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "淋巴结",
+        "脖子疼",
+        "颈部包块"
+      ]
+    },
+    "fact.dyspnea": {
+      "status": "absent",
+      "value": "呼吸顺畅，没有喘不过气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸困难",
+        "喘",
+        "气短"
+      ]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，交流正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识",
+        "神志",
+        "糊涂"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "没有胸痛或胸闷。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "胸痛",
+        "胸闷"
+      ]
+    },
+    "fact.hemoptysis": {
+      "status": "absent",
+      "value": "没有咳血。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳血",
+        "痰中带血"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥或站立不稳。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥"
+      ]
+    },
+    "fact.tachypnea": {
+      "status": "absent",
+      "value": "安静时呼吸不快。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸快",
+        "呼吸频率"
+      ]
+    },
+    "fact.hypoxemia": {
+      "status": "absent",
+      "value": "没有口唇发紫或明显憋气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "缺氧",
+        "口唇发紫",
+        "血氧"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "能喝水和进食，没有流口水。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "喝水",
+        "进食",
+        "吞不下",
+        "流口水"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "是成年人，未怀孕，也没有免疫抑制或重要基础病。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "怀孕",
+        "基础病",
+        "免疫",
+        "高风险"
+      ]
+    },
+    "fact.exposure": {
+      "status": "unknown",
+      "value": "不清楚最近是否接触过有类似咽部症状的人。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触史",
+        "身边有人"
+      ]
+    },
+    "fact.throat_exam": {
+      "status": "present",
+      "value": "咽部检查结果只能通过对应检查获得。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.stridor": {
+      "status": "absent",
+      "value": "没有吸气性喉鸣。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "喉鸣",
+        "上气道危险表现"
+      ]
+    },
+    "fact.muffled_voice": {
+      "status": "absent",
+      "value": "说话声音没有含糊或含着东西的感觉。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "声音含糊",
+        "上气道危险表现"
+      ]
+    },
+    "fact.trismus": {
+      "status": "absent",
+      "value": "可以正常张口，没有张口受限。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "张口受限",
+        "上气道危险表现"
+      ]
+    },
+    "fact.unilateral_neck_swelling": {
+      "status": "absent",
+      "value": "没有单侧咽旁或颈部肿胀。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "单侧咽旁或颈部肿胀",
+        "上气道危险表现"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "体温",
+        "量体温",
+        "测体温",
+        "血压",
+        "心率",
+        "血氧"
+      ],
+      "report": "体温38.0℃，心率86次/分，呼吸频率16次/分，血压114/70mmHg，静息血氧饱和度98%。"
+    },
+    "test.throat_exam": {
+      "status": "completed",
+      "displayName": "咽部查体",
+      "aliases": [
+        "看看嗓子",
+        "检查咽部",
+        "咽喉检查",
+        "扁桃体检查"
+      ],
+      "report": "咽部充血，扁桃体轻度肿大，可见少量点状渗出物，无悬雍垂偏移。"
+    },
+    "test.rapid_antigen": {
+      "status": "completed",
+      "displayName": "A组链球菌快速抗原",
+      "aliases": [
+        "链球菌快检",
+        "快速抗原",
+        "咽拭子快检"
+      ],
+      "report": "A组链球菌快速抗原检测阴性。"
+    },
+    "test.chest_xray": {
+      "status": "completed",
+      "displayName": "胸部X线",
+      "aliases": [
+        "胸片",
+        "拍胸片",
+        "胸部X光",
+        "X线"
+      ],
+      "report": "双肺未见局灶性实变影。"
+    },
+    "test.chest_ct": {
+      "status": "completed",
+      "displayName": "胸部CT",
+      "aliases": [
+        "CT",
+        "胸部CT",
+        "胸部CT检查",
+        "做CT"
+      ],
+      "report": "双肺未见局灶性实变、结节或胸腔积液。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.acute_pharyngitis",
+    "targetDiagnosis": "急性咽炎",
+    "acceptedSynonyms": [
+      "急性咽部炎症"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.acute_pharyngitis",
+        "preferredTerm": "急性咽炎",
+        "acceptedSynonyms": [
+          "急性咽部炎症"
+        ]
+      },
+      {
+        "conceptId": "concept.common_cold",
+        "preferredTerm": "普通感冒",
+        "acceptedSynonyms": [
+          "急性病毒性上呼吸道感染"
+        ]
+      },
+      {
+        "conceptId": "concept.influenza",
+        "preferredTerm": "流行性感冒",
+        "acceptedSynonyms": [
+          "流感"
+        ]
+      },
+      {
+        "conceptId": "concept.streptococcal_sore_throat",
+        "preferredTerm": "链球菌性咽峡炎",
+        "acceptedSynonyms": [
+          "A组链球菌性咽部感染"
+        ]
+      },
+      {
+        "conceptId": "concept.mild_cap",
+        "preferredTerm": "轻症社区获得性肺炎",
+        "acceptedSynonyms": [
+          "社区获得性肺部感染"
+        ]
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.sore_throat",
+      "fact.fever",
+      "fact.cough",
+      "fact.rhinorrhea",
+      "fact.neck_nodes",
+      "fact.dyspnea",
+      "fact.inability_oral_intake",
+      "fact.confusion",
+      "fact.chest_pain",
+      "fact.hemoptysis",
+      "fact.hypotension",
+      "fact.tachypnea",
+      "fact.hypoxemia",
+      "fact.high_risk_population",
+      "fact.stridor",
+      "fact.muffled_voice",
+      "fact.trismus",
+      "fact.unilateral_neck_swelling"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.streptococcal_sore_throat",
+      "concept.influenza"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.throat_exam": "required",
+      "test.rapid_antigen": "useful",
+      "test.chest_xray": "unnecessary",
+      "test.chest_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 8,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "medical-author-a",
+    "notes": "纯合成病例；病因粒度与可接受诊断由双 AI 交叉验证后冻结，人工反馈非阻塞。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-08-27T00:00:00.000Z",
+    "contentHash": "sha256:9fe343dee2f2d0f9dfc15a280951adcceade013e431103f8ceaefb408180ec6c",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.cdc.outpatient",
+        "sourceRole": "clinical_fact",
+        "title": "Outpatient Clinical Care for Adults",
+        "authorsOrOrganization": "US Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c03_respiratory_003",
+    "caseVersion": "1.1.0-rc.8",
+    "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      {
+        "redFlagId": "redflag.dyspnea",
+        "canonicalName": "呼吸困难",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.dyspnea"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "胸痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemoptysis",
+        "canonicalName": "咯血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemoptysis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 114,
+        "unit": "mmHg systolic",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.tachypnea",
+        "canonicalName": "呼吸频率增快",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.tachypnea"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 16,
+        "unit": "breaths/min",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypoxemia",
+        "canonicalName": "低氧表现",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypoxemia"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 98,
+        "unit": "% SpO2 room air",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "MVP排除的高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.stridor",
+        "canonicalName": "喉鸣",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.stridor"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.muffled_voice",
+        "canonicalName": "声音含糊",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.muffled_voice"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.trismus",
+        "canonicalName": "张口受限",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.trismus"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.unilateral_neck_swelling",
+        "canonicalName": "单侧咽旁或颈部肿胀",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.unilateral_neck_swelling"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.outpatient",
+        "criterionSourceVersion": "retrieved-2026-09-03",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c03_respiratory_003",
+    "caseVersion": "1.1.0-rc.8",
+    "contentHash": "sha256:9fe343dee2f2d0f9dfc15a280951adcceade013e431103f8ceaefb408180ec6c",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v3",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v3",
+        "validationRunId": "run.clinical_safety.77b04d65-4734-4afd-93cf-ab13fcd5abe1",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:39:59.593Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：18–25岁成人，咽痛、低热、咽部充血及轻度渗出与急性咽炎相符；生命体征稳定，检查结果前后一致，无明显矛盾。",
+          "诊断可解性通过：病例事实支持急性咽炎，且已提供足以区分链球菌性咽峡炎、流感及肺炎的病史、查体和检查路径；目标诊断及同义词明确。",
+          "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水、高风险人群及上气道危险表现均有明确阴性证据；生命体征亦稳定，并覆盖安全中断轨迹。",
+          "量表一致性通过：must-ask事实、必需/有用/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；胸片和胸部CT在本例中被正确标为不必要。",
+          "回归覆盖通过：包含成功、失败、不安全输入中断及未知事实询问轨迹；测试动作按新会话执行语义处理，不因medicalTests的completed状态误判为重复检查。",
+          "隐藏真相安全通过：教学字段保持hidden，咽部查体事实限定为test_only；回归轨迹未泄露隐藏字段或服务端评分信息，兼容性的pending审核元数据未被错误当作阻塞。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v3",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v3",
+        "validationRunId": "run.diagnostic_quality.2cfdbd8b-8c9a-4c89-84c2-cdaa2b369324",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T05:40:15.705Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现、生命体征与咽部查体相互一致，支持急性咽炎；低热、轻度渗出及阴性链球菌快检未造成诊断冲突。",
+          "目标诊断粒度明确为“急性咽炎”，患者事实、咽部检查和鉴别诊断足以支持求解；接受同义词定义清晰。",
+          "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食、高风险人群及上气道危险表现均有相应排除证据，未见关键红旗缺口。",
+          "mustAskFactIds与成功轨迹的五次问诊完整对应；必需检查、鉴别诊断数量、推荐回合数及诊断结果均与rubric一致。",
+          "success、failure、safety、unknown四类回归轨迹均存在且预期行为清楚：成功路径覆盖核心信息，失败路径标记不必要检查，安全路径正确中断，未知接触史路径可正常获取unknown事实。",
+          "未发现教学字段、test_only事实或其他隐藏真相通过患者可见路径泄露；medicalTests中的completed仅提供可执行检查的报告模板，不构成轨迹重复检查问题。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床一致性通过：18–25岁成人，咽痛、低热、咽部充血及轻度渗出与急性咽炎相符；生命体征稳定，检查结果前后一致，无明显矛盾。",
+      "诊断可解性通过：病例事实支持急性咽炎，且已提供足以区分链球菌性咽峡炎、流感及肺炎的病史、查体和检查路径；目标诊断及同义词明确。",
+      "危险征象排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水、高风险人群及上气道危险表现均有明确阴性证据；生命体征亦稳定，并覆盖安全中断轨迹。",
+      "量表一致性通过：must-ask事实、必需/有用/不必要检查、鉴别诊断数量及推荐回合数与成功轨迹一致；胸片和胸部CT在本例中被正确标为不必要。",
+      "回归覆盖通过：包含成功、失败、不安全输入中断及未知事实询问轨迹；测试动作按新会话执行语义处理，不因medicalTests的completed状态误判为重复检查。",
+      "隐藏真相安全通过：教学字段保持hidden，咽部查体事实限定为test_only；回归轨迹未泄露隐藏字段或服务端评分信息，兼容性的pending审核元数据未被错误当作阻塞。",
+      "临床表现、生命体征与咽部查体相互一致，支持急性咽炎；低热、轻度渗出及阴性链球菌快检未造成诊断冲突。",
+      "目标诊断粒度明确为“急性咽炎”，患者事实、咽部检查和鉴别诊断足以支持求解；接受同义词定义清晰。",
+      "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食、高风险人群及上气道危险表现均有相应排除证据，未见关键红旗缺口。",
+      "mustAskFactIds与成功轨迹的五次问诊完整对应；必需检查、鉴别诊断数量、推荐回合数及诊断结果均与rubric一致。",
+      "success、failure、safety、unknown四类回归轨迹均存在且预期行为清楚：成功路径覆盖核心信息，失败路径标记不必要检查，安全路径正确中断，未知接触史路径可正常获取unknown事实。",
+      "未发现教学字段、test_only事实或其他隐藏真相通过患者可见路径泄露；medicalTests中的completed仅提供可执行检查的报告模板，不构成轨迹重复检查问题。"
+    ]
+  }
+}

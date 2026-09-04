@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:55ca009c5d253b0d8904c62c8b9f77c71cd834d04c6d159fc82fc44b0424f1c2",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1f86affe-2fc1-4403-8e77-5bfa611744e3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:55:41.690Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实基本一致：夜间及运动后干咳、胸部CT无局灶异常、肺功能提示轻度可逆性气流受限，能够支持咳嗽变异性哮喘，且病例整体符合非急症边界。",
+        "诊断可解性通过：症状模式与肺功能检查共同提供了足够线索，目标诊断明确，两个鉴别诊断也有定义。",
+        "危险征象排除不完整：红旗矩阵列出9项适用红旗，但mustAsk及成功轨迹仅明确覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia；不能仅依据服务端事实已标记absent视为患者流程中已安全排除。",
+        "评分规则与病例核心配置总体一致：生命体征和肺功能为required，胸部CT为unnecessary；鉴别诊断数量及推荐回合数也相容。",
+        "回归覆盖存在缺口：成功轨迹未验证全部红旗排除；unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，未覆盖fact.relevant_exposure，导致轨迹期望与问题内容不一致。",
+        "隐藏真相保护通过：教学字段保持hidden，生命体征仅可通过检查读取，且安全中断轨迹要求无provider调用、无原始文本写入和无医疗回合，未见隐藏字段泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.75aba853-1b38-4201-bf5a-a9f9633cc531",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:56:00.818Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、肺功能结果、胸部CT及目标诊断基本一致；症状与轻度可逆性气流受限足以支持咳嗽变异性哮喘。",
+        "诊断可解：病史模式加针对性肺功能检查可导向目标诊断，两个鉴别诊断也已明确列入。",
+        "红旗排除矩阵包含9项适用红旗且均有对应缺失事实，状态与病例内容一致；未发现红旗阳性与门诊病例设定冲突。",
+        "rubric仅将4项红旗事实列为mustAsk，但矩阵另列5项同样适用的呼吸系统红旗；成功轨迹的提问措辞覆盖“危险表现”却未覆盖这些事实，造成红旗要求与评分口径不完全一致。",
+        "回归轨迹存在覆盖不一致：unknown轨迹的问题同时询问既往同样发作和相关接触，却只期望fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的泛化危险表现提问也未覆盖矩阵中的全部适用红旗。",
+        "未见隐藏教学字段、test_only生命体征或服务端字段泄露到患者可见内容；安全轨迹的中断、零调用和零写入预期彼此一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实基本一致：夜间及运动后干咳、胸部CT无局灶异常、肺功能提示轻度可逆性气流受限，能够支持咳嗽变异性哮喘，且病例整体符合非急症边界。",
+    "诊断可解性通过：症状模式与肺功能检查共同提供了足够线索，目标诊断明确，两个鉴别诊断也有定义。",
+    "危险征象排除不完整：红旗矩阵列出9项适用红旗，但mustAsk及成功轨迹仅明确覆盖confusion、hypotension、inability oral intake、high risk population，未覆盖dyspnea、chest pain、hemoptysis、tachypnea、hypoxemia；不能仅依据服务端事实已标记absent视为患者流程中已安全排除。",
+    "评分规则与病例核心配置总体一致：生命体征和肺功能为required，胸部CT为unnecessary；鉴别诊断数量及推荐回合数也相容。",
+    "回归覆盖存在缺口：成功轨迹未验证全部红旗排除；unknown轨迹的问题同时询问既往同样发作和相关接触，但expectedFactIds仅包含fact.prior_episode，未覆盖fact.relevant_exposure，导致轨迹期望与问题内容不一致。",
+    "隐藏真相保护通过：教学字段保持hidden，生命体征仅可通过检查读取，且安全中断轨迹要求无provider调用、无原始文本写入和无医疗回合，未见隐藏字段泄露。",
+    "临床叙事、肺功能结果、胸部CT及目标诊断基本一致；症状与轻度可逆性气流受限足以支持咳嗽变异性哮喘。",
+    "诊断可解：病史模式加针对性肺功能检查可导向目标诊断，两个鉴别诊断也已明确列入。",
+    "红旗排除矩阵包含9项适用红旗且均有对应缺失事实，状态与病例内容一致；未发现红旗阳性与门诊病例设定冲突。",
+    "rubric仅将4项红旗事实列为mustAsk，但矩阵另列5项同样适用的呼吸系统红旗；成功轨迹的提问措辞覆盖“危险表现”却未覆盖这些事实，造成红旗要求与评分口径不完全一致。",
+    "回归轨迹存在覆盖不一致：unknown轨迹的问题同时询问既往同样发作和相关接触，却只期望fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的泛化危险表现提问也未覆盖矩阵中的全部适用红旗。",
+    "未见隐藏教学字段、test_only生命体征或服务端字段泄露到患者可见内容；安全轨迹的中断、零调用和零写入预期彼此一致。"
+  ]
+}

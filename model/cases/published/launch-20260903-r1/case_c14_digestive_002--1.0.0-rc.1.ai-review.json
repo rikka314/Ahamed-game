@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:05a066936d8a5b39cbe82166371df4fb08453d0d39457f640a27d43cf7311166",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.9b34d002-d808-4164-a85b-305e4dc7b239",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:00:39.406Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显命名不一致：检查ID和显示名称为“胸部CT”，但报告写为“腹部CT未见异常”，应统一检查部位，避免造成错误检查记录或临床解释。",
+        "症状为渐进性上腹胀、早饱两个月，且已提供无消瘦、消化道出血、进行性吞咽困难等信息，结合稳定生命体征和基础评估结果，目标诊断功能性消化不良具有足够可解性。",
+        "红旗排除矩阵覆盖九项危险征象，均标记为absent；生命体征检查结果稳定，未见急症阈值触发，安全退出条件基本充分。",
+        "必问病史、鉴别诊断数量及检查选择与评分摘要和成功轨迹一致；生命体征及针对性检查为必需，胸部CT列为不必要检查，规则内部无明显冲突。",
+        "成功、失败、安全中断和未知信息轨迹均已提供，覆盖诊断、检查选择、安全中断及未知事实处理；但应在修正检查名称后重新回归验证。",
+        "教学字段、答案键和评分摘要均标为服务端或内部内容，未见将隐藏真相直接暴露给患者的字段；安全轨迹预期中断且无医疗回合、无原文写入，符合保护要求。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.de8401f5-e6f5-41d3-8e11-6456c37037ed",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:01:00.761Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：主诉与功能性消化不良方向基本相符，但“胸部CT”的检查名称、别名与“腹部CT未见异常”的报告互相矛盾，且基础检查报告过于笼统，无法明确支持已排除哪些器质性病变。",
+        "diagnosisSolvability：病例仅有症状持续2个月，且缺少明确的上腹痛或烧灼感及充分的器质性排除信息；若按功能性消化不良的标准诊断粒度，现有资料不足以稳定支持唯一目标诊断。",
+        "redFlagExclusions：redFlagExclusionMatrix列出9项必须为absent的红旗，但rubric.mustAskFactIds及成功轨迹只覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，未覆盖消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降。",
+        "rubricConsistency：rubric要求与红旗矩阵的完整适用范围不一致；同时test.chest_ct标记为unnecessary，但其报告写成腹部CT，检查类别和证据含义未统一。",
+        "regressionCoverage：unknown轨迹的问题同时询问既往发作和相关接触/诱因，却只期望fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的危险表现问题也未覆盖矩阵中的全部红旗。failure轨迹进一步复用了名称为胸部CT、报告却为腹部CT的矛盾检查资产。",
+        "hiddenTruthSafety：未发现teaching_note或其他hidden字段被纳入患者可见回答、期望诊断或回归输出，隐藏真值隔离总体可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显命名不一致：检查ID和显示名称为“胸部CT”，但报告写为“腹部CT未见异常”，应统一检查部位，避免造成错误检查记录或临床解释。",
+    "症状为渐进性上腹胀、早饱两个月，且已提供无消瘦、消化道出血、进行性吞咽困难等信息，结合稳定生命体征和基础评估结果，目标诊断功能性消化不良具有足够可解性。",
+    "红旗排除矩阵覆盖九项危险征象，均标记为absent；生命体征检查结果稳定，未见急症阈值触发，安全退出条件基本充分。",
+    "必问病史、鉴别诊断数量及检查选择与评分摘要和成功轨迹一致；生命体征及针对性检查为必需，胸部CT列为不必要检查，规则内部无明显冲突。",
+    "成功、失败、安全中断和未知信息轨迹均已提供，覆盖诊断、检查选择、安全中断及未知事实处理；但应在修正检查名称后重新回归验证。",
+    "教学字段、答案键和评分摘要均标为服务端或内部内容，未见将隐藏真相直接暴露给患者的字段；安全轨迹预期中断且无医疗回合、无原文写入，符合保护要求。",
+    "clinicalConsistency：主诉与功能性消化不良方向基本相符，但“胸部CT”的检查名称、别名与“腹部CT未见异常”的报告互相矛盾，且基础检查报告过于笼统，无法明确支持已排除哪些器质性病变。",
+    "diagnosisSolvability：病例仅有症状持续2个月，且缺少明确的上腹痛或烧灼感及充分的器质性排除信息；若按功能性消化不良的标准诊断粒度，现有资料不足以稳定支持唯一目标诊断。",
+    "redFlagExclusions：redFlagExclusionMatrix列出9项必须为absent的红旗，但rubric.mustAskFactIds及成功轨迹只覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，未覆盖消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降。",
+    "rubricConsistency：rubric要求与红旗矩阵的完整适用范围不一致；同时test.chest_ct标记为unnecessary，但其报告写成腹部CT，检查类别和证据含义未统一。",
+    "regressionCoverage：unknown轨迹的问题同时询问既往发作和相关接触/诱因，却只期望fact.prior_episode，遗漏fact.relevant_exposure；success轨迹的危险表现问题也未覆盖矩阵中的全部红旗。failure轨迹进一步复用了名称为胸部CT、报告却为腹部CT的矛盾检查资产。",
+    "hiddenTruthSafety：未发现teaching_note或其他hidden字段被纳入患者可见回答、期望诊断或回归输出，隐藏真值隔离总体可接受。"
+  ]
+}

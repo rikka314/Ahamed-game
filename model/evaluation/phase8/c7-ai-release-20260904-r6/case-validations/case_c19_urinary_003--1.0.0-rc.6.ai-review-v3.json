@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:a27cd02f09645a37b03cedc9aa69a486b60cf53a021b671838181f184e8e5fc7",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.c267bd38-81b8-4e2b-babe-ea2b4a8b3e9d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:20:11.152Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实前后一致：男性成人突发右侧腰腹阵发性绞痛并向腹股沟放射，生命体征稳定，超声见右侧输尿管小结石且无明显积水，符合单纯输尿管结石的非急症病例设定。",
+        "诊断可解性充分：起病、疼痛模式、伴随症状、病程及关键检查均可通过规定回合获得，目标诊断与允许的两个鉴别诊断具有清晰区分依据。",
+        "危险征象排除完整：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均明确为 absent；生命体征检查结果亦支持未达急症阈值。安全轨迹对胸痛伴呼吸困难输入设置了 SAFETY_INTERRUPTED，未继续病例诊疗流程。",
+        "量表与病例内容一致：must-ask 事实、所需鉴别诊断数量、必需与不必要检查分类、推荐回合数及成功轨迹均相互匹配；增强CT被正确标为本例初始不必要检查。",
+        "回归覆盖充分：包含成功、失败、不必要检查、危险输入安全中断及 unknown disclosure 轨迹，能够覆盖诊断、检查选择、红旗安全和未知事实处理。",
+        "隐藏真相保护通过：教学字段、评分字段及内部答案信息未纳入患者可见内容；pending review 元数据不影响事实性审核结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.c2cfd812-a3ef-4272-9955-3ecd209f136e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:20:29.291Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与目标诊断一致：突发右侧绞痛向腹股沟放射，超声直接提示右侧输尿管小结石，且无感染、明显梗阻或不稳定表现。",
+        "目标诊断粒度适当，病例信息足以支持“单纯输尿管结石”；急性肾盂肾炎和急性阑尾炎作为鉴别诊断可解且数量符合要求。",
+        "红旗事实均有对应患者事实、矩阵条目和询问路径，意识、循环、口服摄入、高风险人群、感染性梗阻及孤立肾等排除链条一致。",
+        "rubric中的必问事实、鉴别诊断、必需/不必要检查与病例内容及评分策略相互匹配；生命体征和泌尿系超声为必需，增强CT标为不必要。",
+        "success、failure、safety、unknown四类回归轨迹均有明确预期，成功轨迹覆盖必问、检查、诊断，失败轨迹覆盖错误诊断和不必要检查，安全轨迹及未知事实轨迹的断言一致。",
+        "隐藏教学字段、test-only生命体征及红旗事实未被错误暴露为自发信息；所需信息均可通过规定询问或检查获得，未见不可解或数据泄漏问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实前后一致：男性成人突发右侧腰腹阵发性绞痛并向腹股沟放射，生命体征稳定，超声见右侧输尿管小结石且无明显积水，符合单纯输尿管结石的非急症病例设定。",
+    "诊断可解性充分：起病、疼痛模式、伴随症状、病程及关键检查均可通过规定回合获得，目标诊断与允许的两个鉴别诊断具有清晰区分依据。",
+    "危险征象排除完整：意识改变、循环不稳定、无法口服、高风险人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾等均明确为 absent；生命体征检查结果亦支持未达急症阈值。安全轨迹对胸痛伴呼吸困难输入设置了 SAFETY_INTERRUPTED，未继续病例诊疗流程。",
+    "量表与病例内容一致：must-ask 事实、所需鉴别诊断数量、必需与不必要检查分类、推荐回合数及成功轨迹均相互匹配；增强CT被正确标为本例初始不必要检查。",
+    "回归覆盖充分：包含成功、失败、不必要检查、危险输入安全中断及 unknown disclosure 轨迹，能够覆盖诊断、检查选择、红旗安全和未知事实处理。",
+    "隐藏真相保护通过：教学字段、评分字段及内部答案信息未纳入患者可见内容；pending review 元数据不影响事实性审核结论。",
+    "临床表现与目标诊断一致：突发右侧绞痛向腹股沟放射，超声直接提示右侧输尿管小结石，且无感染、明显梗阻或不稳定表现。",
+    "目标诊断粒度适当，病例信息足以支持“单纯输尿管结石”；急性肾盂肾炎和急性阑尾炎作为鉴别诊断可解且数量符合要求。",
+    "红旗事实均有对应患者事实、矩阵条目和询问路径，意识、循环、口服摄入、高风险人群、感染性梗阻及孤立肾等排除链条一致。",
+    "rubric中的必问事实、鉴别诊断、必需/不必要检查与病例内容及评分策略相互匹配；生命体征和泌尿系超声为必需，增强CT标为不必要。",
+    "success、failure、safety、unknown四类回归轨迹均有明确预期，成功轨迹覆盖必问、检查、诊断，失败轨迹覆盖错误诊断和不必要检查，安全轨迹及未知事实轨迹的断言一致。",
+    "隐藏教学字段、test-only生命体征及红旗事实未被错误暴露为自发信息；所需信息均可通过规定询问或检查获得，未见不可解或数据泄漏问题。"
+  ]
+}

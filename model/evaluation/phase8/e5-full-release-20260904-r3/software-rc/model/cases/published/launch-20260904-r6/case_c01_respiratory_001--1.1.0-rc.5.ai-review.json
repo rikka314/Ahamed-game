@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.1.0-rc.5",
+  "contentHash": "sha256:12fc4d01a0154e941548b76b6d73d355798c92a182ab42c637ad5577087d6704",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.f8876830-8959-41d6-9b18-74426f410555",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:07:07.080Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成年非高风险人群，症状持续2天、以鼻塞和清涕为主，咽部轻度不适，生命体征稳定，支持普通感冒/急性病毒性上呼吸道感染；未见事实矛盾。",
+        "首发策略覆盖起病、症状谱、主要鉴别相关表现及高风险因素，并要求生命体征检查；普通感冒及两个可接受鉴别诊断均可由病例信息支持。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；静息血氧98%、呼吸频率16次/分、血压116/72mmHg，未见需升级处理的红旗。",
+        "量表中的必问事实共15项，成功轨迹逐项覆盖；生命体征列为必需，血常规为可选有用检查，胸片和胸部CT列为不必要检查，诊断与鉴别数量要求一致。",
+        "回归轨迹覆盖成功、错误检查/错误诊断、安全中断和未知信息场景；安全轨迹明确要求SAFETY_INTERRUPTED、无医疗回合、无提供方调用及原始文本写入。",
+        "隐藏教学字段未进入患者可见内容或回归期望；review.status、pending状态及人工审核元数据不影响本次事实审计结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a5053a9f-8e2a-4a3b-81d0-a8d30a0fcd5e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:07:26.491Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状起病急、以鼻塞和清涕为主，伴轻微咽部不适及偶发干咳，生命体征稳定，普通感冒/急性病毒性上呼吸道感染作为目标诊断，临床叙事一致。",
+        "病例已覆盖目标诊断所需的起病、症状、流感特征及主要危险信号；成功轨迹可在4个问诊回合内完成全部must-ask事实，并命中2个允许鉴别诊断，诊断具有可解性。",
+        "红旗事实本身与患者事实及生命体征一致，但redFlagExclusionMatrix引用的source.nice.ng237、source.nice.ng250、source.project.mvp_scope均未出现在provenance.sources中，导致红旗判定标准无法在冻结病例资产内完成来源追溯；应补齐来源记录或修正引用。",
+        "rubric与answerKey、成功轨迹及测试分类一致：目标诊断明确，允许鉴别诊断为流感和急性咽炎，生命体征必需，血常规有用，胸片和胸部CT不必要。",
+        "success、failure、safety、unknown四类回归轨迹均存在，且预期诊断、非必要检查、安全中断、未知事实查询与病例状态基本一致。",
+        "未见将hidden或test_only事实直接暴露给患者的轨迹；生命体征通过检查获得，教学字段未被调用。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成年非高风险人群，症状持续2天、以鼻塞和清涕为主，咽部轻度不适，生命体征稳定，支持普通感冒/急性病毒性上呼吸道感染；未见事实矛盾。",
+    "首发策略覆盖起病、症状谱、主要鉴别相关表现及高风险因素，并要求生命体征检查；普通感冒及两个可接受鉴别诊断均可由病例信息支持。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；静息血氧98%、呼吸频率16次/分、血压116/72mmHg，未见需升级处理的红旗。",
+    "量表中的必问事实共15项，成功轨迹逐项覆盖；生命体征列为必需，血常规为可选有用检查，胸片和胸部CT列为不必要检查，诊断与鉴别数量要求一致。",
+    "回归轨迹覆盖成功、错误检查/错误诊断、安全中断和未知信息场景；安全轨迹明确要求SAFETY_INTERRUPTED、无医疗回合、无提供方调用及原始文本写入。",
+    "隐藏教学字段未进入患者可见内容或回归期望；review.status、pending状态及人工审核元数据不影响本次事实审计结论。",
+    "症状起病急、以鼻塞和清涕为主，伴轻微咽部不适及偶发干咳，生命体征稳定，普通感冒/急性病毒性上呼吸道感染作为目标诊断，临床叙事一致。",
+    "病例已覆盖目标诊断所需的起病、症状、流感特征及主要危险信号；成功轨迹可在4个问诊回合内完成全部must-ask事实，并命中2个允许鉴别诊断，诊断具有可解性。",
+    "红旗事实本身与患者事实及生命体征一致，但redFlagExclusionMatrix引用的source.nice.ng237、source.nice.ng250、source.project.mvp_scope均未出现在provenance.sources中，导致红旗判定标准无法在冻结病例资产内完成来源追溯；应补齐来源记录或修正引用。",
+    "rubric与answerKey、成功轨迹及测试分类一致：目标诊断明确，允许鉴别诊断为流感和急性咽炎，生命体征必需，血常规有用，胸片和胸部CT不必要。",
+    "success、failure、safety、unknown四类回归轨迹均存在，且预期诊断、非必要检查、安全中断、未知事实查询与病例状态基本一致。",
+    "未见将hidden或test_only事实直接暴露给患者的轨迹；生命体征通过检查获得，教学字段未被调用。"
+  ]
+}

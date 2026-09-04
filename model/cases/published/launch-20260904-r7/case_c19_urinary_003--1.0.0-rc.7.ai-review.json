@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c19_urinary_003",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:5d50c0aab6f677bb143ea99ae53a8d0e8df0cd041b50be3f980fc11998c137a6",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.0136dffd-d02e-486b-b62b-09fe53bc497e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:48:17.566Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为稳定成年男性，症状模式、超声结果与单纯输尿管小结石一致；未见发热寒战、无尿、循环不稳定、意识改变、无法口服或特殊高风险人群等内部矛盾。",
+        "首发症状、病程、伴随症状、进展及关键危险征象均可通过既定询问获得，超声结果能够支持目标诊断，诊断可解。",
+        "红旗排除矩阵覆盖意识状态、循环稳定性、口服耐受、特殊人群、感染性梗阻、无尿、孤立肾等相关风险；生命体征检查已完成且报告为稳定。",
+        "评分量表要求的必问事实、两个鉴别诊断、必需及非必要检查，与成功和失败轨迹及评分策略一致。",
+        "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知既往史等路径；安全轨迹明确要求不调用服务、不写入原始文本且无医疗回合。",
+        "教学字段保持hidden，答案键及内部评分信息未作为患者可见内容暴露；review.status、pending元数据不影响事实审核结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.5e7e2628-093b-4935-932f-cf232cfaac79",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:48:33.992Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、超声结果、稳定生命体征及红旗阴性事实共同支持单纯输尿管结石；增强CT被明确标为初始非必需，前后一致。",
+        "主诉结合追问事实和泌尿系超声足以定位至目标诊断粒度；答案键、同义词及两个鉴别诊断概念定义清楚。",
+        "九项红旗均有对应患者事实、矩阵条目和成功轨迹追问，所需状态均为 absent，证据链一致。",
+        "must-ask事实、鉴别诊断数量、必需/非必需检查分类、回合限制与成功轨迹相互匹配；失败轨迹正确覆盖错误诊断及不必要检查。",
+        "success、failure、safety、unknown 四类回归轨迹均存在，且预期结果分别与病例事实和评分策略一致；unknown 对 prior_episode 的未知状态处理合理。",
+        "未发现依赖隐藏教学字段、review.pending 元数据或人工审核结论才能作答的情形；安全中断轨迹明确要求零 provider 调用、零原文写入和零医疗回合。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为稳定成年男性，症状模式、超声结果与单纯输尿管小结石一致；未见发热寒战、无尿、循环不稳定、意识改变、无法口服或特殊高风险人群等内部矛盾。",
+    "首发症状、病程、伴随症状、进展及关键危险征象均可通过既定询问获得，超声结果能够支持目标诊断，诊断可解。",
+    "红旗排除矩阵覆盖意识状态、循环稳定性、口服耐受、特殊人群、感染性梗阻、无尿、孤立肾等相关风险；生命体征检查已完成且报告为稳定。",
+    "评分量表要求的必问事实、两个鉴别诊断、必需及非必要检查，与成功和失败轨迹及评分策略一致。",
+    "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知既往史等路径；安全轨迹明确要求不调用服务、不写入原始文本且无医疗回合。",
+    "教学字段保持hidden，答案键及内部评分信息未作为患者可见内容暴露；review.status、pending元数据不影响事实审核结论。",
+    "临床表现、超声结果、稳定生命体征及红旗阴性事实共同支持单纯输尿管结石；增强CT被明确标为初始非必需，前后一致。",
+    "主诉结合追问事实和泌尿系超声足以定位至目标诊断粒度；答案键、同义词及两个鉴别诊断概念定义清楚。",
+    "九项红旗均有对应患者事实、矩阵条目和成功轨迹追问，所需状态均为 absent，证据链一致。",
+    "must-ask事实、鉴别诊断数量、必需/非必需检查分类、回合限制与成功轨迹相互匹配；失败轨迹正确覆盖错误诊断及不必要检查。",
+    "success、failure、safety、unknown 四类回归轨迹均存在，且预期结果分别与病例事实和评分策略一致；unknown 对 prior_episode 的未知状态处理合理。",
+    "未发现依赖隐藏教学字段、review.pending 元数据或人工审核结论才能作答的情形；安全中断轨迹明确要求零 provider 调用、零原文写入和零医疗回合。"
+  ]
+}

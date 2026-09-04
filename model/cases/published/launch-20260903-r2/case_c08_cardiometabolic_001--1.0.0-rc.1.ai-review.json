@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:44a6a7432e488c206efab28a68dfa244545af33a91e82b9f3dc98af0a410fc0b",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.d728e959-8bcd-4a10-b06b-46c7b8e6e120",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:56:18.746Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明确不一致：test.chest_ct 的显示名称及别名指向胸部CT，但报告内容写为“头颅CT未见急性异常”，应统一检查名称与报告。",
+        "动态血压平均值持续高于正常范围且昼夜节律存在，结合不同日期诊室血压偏高，原发性高血压作为目标诊断具有可解性；白大衣高血压和继发性高血压作为鉴别诊断也符合量表要求。",
+        "危险征象矩阵列出的相关红旗均有明确 absent 状态，生命体征稳定且未达到急症阈值；安全轨迹对胸痛伴呼吸困难请求直接中断，并规定无医疗回合、无提供方调用和无原始文本写入，安全退出充分。",
+        "量表中的必问事实、所需检查、不必要检查、鉴别诊断数量及推荐回合数与成功/失败轨迹总体一致。",
+        "回归轨迹覆盖成功、错误检查/错误诊断、安全中断和未知信息询问四类场景，预期结果明确，覆盖充分。",
+        "隐藏教学字段未通过患者事实披露；回归与评分摘要作为内部支持材料存在，但未显示会被患者角色直接暴露，隐藏真相保护通过。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.3714ef86-e092-4f4d-b468-d9ddc806175e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:56:35.241Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床检查内容不一致：test.chest_ct 的显示名和别名指向胸部CT，但报告写成“头颅CT未见急性异常”，应统一检查部位及报告。",
+        "诊断粒度偏细且证据不足：动态血压可支持高血压，但病例未提供排查继发性高血压的病史、体检或实验室依据，直接要求“原发性高血压”存在可解性不足；建议补充排除继发性原因的证据，或将目标诊断放宽为高血压。",
+        "rubric 与诊断概念、成功轨迹及检查分类基本一致：目标诊断、两个鉴别诊断、必需检查和不必要检查均能相互对应。",
+        "红旗排除矩阵的条目、证据事实及 observedValue 均一致；pending 元数据不构成阻塞，且病例明确记录相关红旗为 absent。",
+        "四类回归轨迹并非完全一致：unknown 轨迹的问题同时询问“以前是否发生过同样情况”及“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；应拆分问题或补齐期望事实。",
+        "success、failure 与 safety 轨迹的主诊断、检查选择及安全中断期望总体可解释；safety 轨迹不应写入医疗回合，当前期望与策略一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明确不一致：test.chest_ct 的显示名称及别名指向胸部CT，但报告内容写为“头颅CT未见急性异常”，应统一检查名称与报告。",
+    "动态血压平均值持续高于正常范围且昼夜节律存在，结合不同日期诊室血压偏高，原发性高血压作为目标诊断具有可解性；白大衣高血压和继发性高血压作为鉴别诊断也符合量表要求。",
+    "危险征象矩阵列出的相关红旗均有明确 absent 状态，生命体征稳定且未达到急症阈值；安全轨迹对胸痛伴呼吸困难请求直接中断，并规定无医疗回合、无提供方调用和无原始文本写入，安全退出充分。",
+    "量表中的必问事实、所需检查、不必要检查、鉴别诊断数量及推荐回合数与成功/失败轨迹总体一致。",
+    "回归轨迹覆盖成功、错误检查/错误诊断、安全中断和未知信息询问四类场景，预期结果明确，覆盖充分。",
+    "隐藏教学字段未通过患者事实披露；回归与评分摘要作为内部支持材料存在，但未显示会被患者角色直接暴露，隐藏真相保护通过。",
+    "临床检查内容不一致：test.chest_ct 的显示名和别名指向胸部CT，但报告写成“头颅CT未见急性异常”，应统一检查部位及报告。",
+    "诊断粒度偏细且证据不足：动态血压可支持高血压，但病例未提供排查继发性高血压的病史、体检或实验室依据，直接要求“原发性高血压”存在可解性不足；建议补充排除继发性原因的证据，或将目标诊断放宽为高血压。",
+    "rubric 与诊断概念、成功轨迹及检查分类基本一致：目标诊断、两个鉴别诊断、必需检查和不必要检查均能相互对应。",
+    "红旗排除矩阵的条目、证据事实及 observedValue 均一致；pending 元数据不构成阻塞，且病例明确记录相关红旗为 absent。",
+    "四类回归轨迹并非完全一致：unknown 轨迹的问题同时询问“以前是否发生过同样情况”及“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；应拆分问题或补齐期望事实。",
+    "success、failure 与 safety 轨迹的主诊断、检查选择及安全中断期望总体可解释；safety 轨迹不应写入医疗回合，当前期望与策略一致。"
+  ]
+}

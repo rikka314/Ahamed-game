@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c30_mentalhealth_002",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:9a9a62be426760f6953ff2b18159bfd5da4545b8daed8798778827d8e4bb0e7e",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.fae67f02-9be7-4884-9a2a-a05ee2973fe5",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:13:31.466Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成人非急症心理健康场景；症状持续约一个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致，生命体征稳定，精神状态评估支持轻度抑郁表现。",
+        "病例信息足以支持目标诊断，并允许区分广泛性焦虑障碍和甲状腺功能减退；既往发作信息明确标记为未知，不影响首发判断。",
+        "混乱、低血压、无法进食、高危人群、自伤风险、精神病性症状、躁狂、物质中毒及自理不能均明确为不存在，且生命体征稳定、危机筛查阴性，具备安全退出依据。",
+        "必问事实、鉴别诊断数量及检查分类与病例目标一致；生命体征和精神状态评估为必要，头颅MRI明确为初始非必要检查。",
+        "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知信息询问，能够验证主要评分与安全行为。",
+        "隐藏教学字段、答案键和服务端评分信息未被设计为患者自然披露内容；安全轨迹要求中断且不产生医疗回合、调用或原始文本写入，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.245fe9c7-9b89-4f76-b102-2ae5563b6d90",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:13:43.756Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例叙事、精神状态评估结果与“轻度抑郁发作伴躯体化表达”在症状、病程及功能受损程度上基本一致，鉴别诊断包含广泛性焦虑障碍和甲状腺功能减退，检查选择合理。",
+        "主要症状、伴随症状、病程、躯体化表达及关键危险表现均可通过提问获得；目标诊断粒度明确，且有可接受同义词，具有可解性。",
+        "confusion、低血压、无法口服摄入、高风险人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗均有对应事实、矩阵条目和排除状态。",
+        "must-ask事实、鉴别诊断数量、必需/不必要检查、回合限制及目标诊断与rubric一致；成功与失败轨迹符合评分策略。",
+        "success、failure、safety、unknown四类回归轨迹均覆盖预期路径：成功诊断、无关检查失败、安全中断和未知既往史查询，预期结果与病例事实一致。",
+        "隐藏教学字段、test-only生命体征、内部评审核心元数据未被患者可见内容或回归答案错误暴露；安全轨迹明确要求零医疗回合、零provider调用和零原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成人非急症心理健康场景；症状持续约一个月，情绪低落、兴趣减少、乏力及躯体化表达相互一致，生命体征稳定，精神状态评估支持轻度抑郁表现。",
+    "病例信息足以支持目标诊断，并允许区分广泛性焦虑障碍和甲状腺功能减退；既往发作信息明确标记为未知，不影响首发判断。",
+    "混乱、低血压、无法进食、高危人群、自伤风险、精神病性症状、躁狂、物质中毒及自理不能均明确为不存在，且生命体征稳定、危机筛查阴性，具备安全退出依据。",
+    "必问事实、鉴别诊断数量及检查分类与病例目标一致；生命体征和精神状态评估为必要，头颅MRI明确为初始非必要检查。",
+    "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知信息询问，能够验证主要评分与安全行为。",
+    "隐藏教学字段、答案键和服务端评分信息未被设计为患者自然披露内容；安全轨迹要求中断且不产生医疗回合、调用或原始文本写入，隐藏真相保护充分。",
+    "病例叙事、精神状态评估结果与“轻度抑郁发作伴躯体化表达”在症状、病程及功能受损程度上基本一致，鉴别诊断包含广泛性焦虑障碍和甲状腺功能减退，检查选择合理。",
+    "主要症状、伴随症状、病程、躯体化表达及关键危险表现均可通过提问获得；目标诊断粒度明确，且有可接受同义词，具有可解性。",
+    "confusion、低血压、无法口服摄入、高风险人群、自伤风险、精神病性症状、躁狂、物质中毒及无法自理等红旗均有对应事实、矩阵条目和排除状态。",
+    "must-ask事实、鉴别诊断数量、必需/不必要检查、回合限制及目标诊断与rubric一致；成功与失败轨迹符合评分策略。",
+    "success、failure、safety、unknown四类回归轨迹均覆盖预期路径：成功诊断、无关检查失败、安全中断和未知既往史查询，预期结果与病例事实一致。",
+    "隐藏教学字段、test-only生命体征、内部评审核心元数据未被患者可见内容或回归答案错误暴露；安全轨迹明确要求零医疗回合、零provider调用和零原始文本写入。"
+  ]
+}

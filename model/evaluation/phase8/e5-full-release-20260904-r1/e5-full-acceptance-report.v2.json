@@ -1,0 +1,706 @@
+{
+  "schemaVersion": "e5-full-acceptance-report-v2",
+  "generatedAt": "2026-09-03T21:41:03.599Z",
+  "reviewPolicy": "non_blocking",
+  "decision": "reported_with_failures",
+  "targetCounts": {
+    "cases": 30,
+    "trajectories": 120,
+    "goldenVectors": 180,
+    "dialogueSamples": 600,
+    "newDomainSafetySamples": 36,
+    "caseAiReviewCalls": 60,
+    "personaRuleAssertions": 72,
+    "personaLiveTurns": 72,
+    "releaseDialogueTurns": 360,
+    "patientRoles": 30
+  },
+  "observedCounts": {
+    "cases": 30,
+    "trajectories": 120,
+    "goldenVectors": 300,
+    "dialogueSamples": 600,
+    "newDomainSafetySamples": 40,
+    "caseAiReviewCalls": 60,
+    "personaRuleAssertions": 72,
+    "personaLiveTurns": 63,
+    "releaseDialogueTurns": 360,
+    "patientRoles": 30
+  },
+  "localCommandReports": [
+    {
+      "name": "share.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "bbb0d18e85173e7dc0abe0144345a3866dc5abbf1aebb2a627c977f90eaa2407",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 1459
+    },
+    {
+      "name": "share.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "a3712b8467d93a0f661e68724d7278a8c85b41d5a8df1052a62c7947eeb040ea",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 991
+    },
+    {
+      "name": "share.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "f3055356ee627ed42a21d9c93626e211a461a468b67f4623b8dc13a9fb18251c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2058
+    },
+    {
+      "name": "share.test:coverage",
+      "command": "npm run test:coverage",
+      "exitCode": 0,
+      "stdoutSha256": "a73e2afb3b21301b168bf0081cb9ac6fc77981bc218917781defdb9f2ebefc20",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2204
+    },
+    {
+      "name": "model.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "78c3098cc8600513e18f643ac7246f96eafe4a0e2ad24a38d54c774a56ed8a91",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5068
+    },
+    {
+      "name": "model.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "3c5e2728fb11a9cab9a6767a314558d14599a732ab104dce40d969f7da564d32",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 3886
+    },
+    {
+      "name": "model.test",
+      "command": "npm run test",
+      "exitCode": 0,
+      "stdoutSha256": "0da65f3f8a9eb0cc1a835ecce715b20977c64c96ce19c019e3c278eab04841db",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 22184
+    },
+    {
+      "name": "model.test:coverage",
+      "command": "npm run test:coverage",
+      "exitCode": 0,
+      "stdoutSha256": "d00b882029df7f76e91dad613aa44237de159b50b54e5a38ca35aa510401a21c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 79391
+    },
+    {
+      "name": "model.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "ee4f893138a361f189d33af864777b8c84d4b174ee2212612ab6d7fd8c7e9859",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 7636
+    },
+    {
+      "name": "model.cases:validate:launch-policy",
+      "command": "npm run cases:validate:launch-policy",
+      "exitCode": 0,
+      "stdoutSha256": "de8917788a4fe277c087516cb9f21db6a6b5768d9933178349e3f5b8465416c1",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5490
+    },
+    {
+      "name": "model.cases:validate:manifest",
+      "command": "npm run cases:validate:manifest",
+      "exitCode": 0,
+      "stdoutSha256": "6c51176b7a89796d383681d6e8089ba14b646c428b757d227bf783797b5108c4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5665
+    },
+    {
+      "name": "model.cases:validate",
+      "command": "npm run cases:validate",
+      "exitCode": 0,
+      "stdoutSha256": "32559a544dda8b845a77cc00ebf4f8194cbc5bff088d1b5299eb13eaff750324",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5675
+    },
+    {
+      "name": "model.cases:validate:dialogue",
+      "command": "npm run cases:validate:dialogue",
+      "exitCode": 0,
+      "stdoutSha256": "41d48f1c2b95d2ee71db62c11891c7b3a5b2c7ba2bc2b5849d05216725b564a0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5644
+    },
+    {
+      "name": "model.eval:phase7:offline",
+      "command": "npm run eval:phase7:offline",
+      "exitCode": 0,
+      "stdoutSha256": "16323400f9da698573671778bc9c4303d202afa17ccf10dd266c757d835cbd38",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5623
+    },
+    {
+      "name": "model.eval:case-ai-verify",
+      "command": "npm run eval:case-ai-verify -- --evidence evaluation/phase8/c7-ai-release-20260904-r3",
+      "exitCode": 0,
+      "stdoutSha256": "f51a4444fee951ed43052fef99164df07bb67dde5c730b17686e6673302e4ed2",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5869
+    },
+    {
+      "name": "model.eval:c7-dialogue-verify",
+      "command": "npm run eval:c7-dialogue-verify -- --evidence evaluation/phase8/c7-dialogue-live-20260904-r2 --ai-evidence evaluation/phase8/c7-ai-release-20260904-r3",
+      "exitCode": 0,
+      "stdoutSha256": "e2340386fb40297cc5bd985247d5197698223927aadd5e4034e6811f4832c4a9",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 6027
+    },
+    {
+      "name": "model.eval:e3:persona-verify",
+      "command": "npm run eval:e3:persona-verify -- --evidence evaluation/phase8/e3-persona-live-20260904-r2",
+      "exitCode": 0,
+      "stdoutSha256": "061da98f4f76c48c6126e832a74b94fc1cbb4fdcf339953eb21dea888a0db2df",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5651
+    },
+    {
+      "name": "model.eval:e4-closure-verify",
+      "command": "npm run eval:e4-closure-verify -- --closure share/versions/e4-patient-identity-e5-closure.20260904-r3.json",
+      "exitCode": 0,
+      "stdoutSha256": "1bc3969807adf2c2df237405dd54ad18c1db094d440ca39e16d0a71fb7c51495",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5749
+    },
+    {
+      "name": "game.lint",
+      "command": "npm run lint",
+      "exitCode": 0,
+      "stdoutSha256": "1c7b5076c689b003c558009750ca1fba4926c3040705b646f930c0a8e2dc4e63",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2830
+    },
+    {
+      "name": "game.typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "stdoutSha256": "e9ff066f116cb0f60278cda592a4a37f87e7296128682a7cfb3ca278d4308bcf",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2978
+    },
+    {
+      "name": "game.test",
+      "command": "npm run test",
+      "exitCode": 0,
+      "stdoutSha256": "75fc84be23029c9ba858c2500e784e2785e5bfd7bb828cce912de6f6ef615c7e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 2491
+    },
+    {
+      "name": "game.test:contract",
+      "command": "npm run test:contract",
+      "exitCode": 0,
+      "stdoutSha256": "a7e50647da3c481f43e4462b2a90c8587202e9fd30cad706abcd0a39ea3d0a27",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 5959
+    },
+    {
+      "name": "game.build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "stdoutSha256": "1cbba1e507a2729881597c2569b46cc3005b02e14207398ea5304f0340ab0ce1",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "durationMs": 7189
+    },
+    {
+      "name": "game.test:e2e",
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "stdoutSha256": "98979bfe847ead1b3a22264c894c77f1f004422edf65455acf26ef86f9b1a637",
+      "stderrSha256": "60acfc40db31f320d2639632f4c6d203841202f3ec6146a7312e7ba46e6e4566",
+      "durationMs": 128677
+    }
+  ],
+  "provider": "failed",
+  "e3": {
+    "status": "not_run",
+    "metrics": {
+      "ruleAssertions": 72,
+      "committedTurns": 63,
+      "completedAiReviews": 0,
+      "currentCaseAiReviews": 60,
+      "caseAiReviewChecks": 360,
+      "e3BindingDrift": 0,
+      "safetyCorpusSamples": 205,
+      "launchPolicyCases": 30
+    }
+  },
+  "e4": {
+    "live": "passed",
+    "storage": "passed",
+    "aiReviews": [
+      "passed",
+      "passed"
+    ]
+  },
+  "staticClientScan": {
+    "status": "passed",
+    "scannedFiles": 34,
+    "sensitiveMatches": 0,
+    "matches": []
+  },
+  "evidenceBindings": [
+    {
+      "name": "launch-content-policy",
+      "path": "model/cases/policy/launch-content-policy-v1.json",
+      "sha256": "64a3529f3b9792e1f08991fd6b724466f996a0a1bb68d4be247f9f5dc4f6b14d",
+      "status": "current"
+    },
+    {
+      "name": "current-case-manifest",
+      "path": "model/cases/manifest.launch-release-20260904-r3.json",
+      "sha256": "ec4da73e9ec1e998d5fd415bffdfd557a85efb3685c19385f0eb56c51b6d053d",
+      "status": "current"
+    },
+    {
+      "name": "scoring-golden-vector-set",
+      "path": "model/cases/evaluation/launch-scoring-golden-vectors-v4.json",
+      "sha256": "fadd7928c3edb55264197e4db8058d1b8557ccd21ae86559ff15bde96d7c56ba",
+      "status": "current"
+    },
+    {
+      "name": "new-domain-safety-corpus",
+      "path": "model/cases/evaluation/phase7-new-domain-safety-v5.json",
+      "sha256": "d301922d076b52ed96caef8453f4c2806af6faea4d7b7fab75e5a895d031a250",
+      "status": "current"
+    },
+    {
+      "name": "e3-persona-report",
+      "path": "model/evaluation/phase8/e3-persona-live-20260904-r2/e3-persona-benchmark-report.v2.json",
+      "sha256": "d6bad672e6c2535f094ed31d031fd5d7d6c3d388607aa379d5febf535a380d25",
+      "status": "current"
+    },
+    {
+      "name": "case-ai-review-set",
+      "path": "model/evaluation/phase8/c7-ai-release-20260904-r3/ai-evidence-index.json",
+      "sha256": "b5fc0d26e27b0368f5456b995a824cb6d43618d8cf5d52c245854b62d35af3f2",
+      "status": "current"
+    },
+    {
+      "name": "c7-dialogue-report",
+      "path": "model/evaluation/phase8/c7-dialogue-live-20260904-r2/c7-dialogue-architecture-report.json",
+      "sha256": "29ca1542bad971277a8b49d3c60d57cd2d98f0195edfa8841cadc278c41cfb40",
+      "status": "current"
+    },
+    {
+      "name": "e4-patient-identity-closure",
+      "path": "share/versions/e4-patient-identity-e5-closure.20260904-r3.json",
+      "sha256": "8eab93f7232b40deb948244c837bf4f496d9d7ec23060fc32bbdb3c714b9a110",
+      "status": "current"
+    }
+  ],
+  "observedQualityFindings": [
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c03_respiratory_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c04_respiratory_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c06_respiratory_006",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c07_respiratory_007",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c08_cardiometabolic_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c09_cardiometabolic_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c10_cardiometabolic_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c12_cardiometabolic_005",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c13_digestive_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c14_digestive_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c15_digestive_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c16_digestive_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c17_urinary_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c18_urinary_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c19_urinary_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c20_musculoskeletal_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c21_musculoskeletal_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c23_dermatology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c24_dermatology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c25_pediatrics_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c26_pediatrics_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c27_gynecology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c28_gynecology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c29_mentalhealth_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c30_mentalhealth_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_TEST_ACTION_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "natural-language test action accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ],
+  "findings": [
+    {
+      "code": "E5_PERSONA_LIVE_TURNS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:personaLiveTurns",
+      "message": "personaLiveTurns coverage is below the E5 target.",
+      "expected": 72,
+      "actual": 63
+    },
+    {
+      "code": "E5_PROVIDER_FAILED",
+      "status": "failed",
+      "scope": "provider",
+      "message": "provider reported a failure.",
+      "expected": "passed",
+      "actual": "failed"
+    },
+    {
+      "code": "E5_E3_NOT_RUN",
+      "status": "not_run",
+      "scope": "e3",
+      "message": "e3 was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c03_respiratory_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c04_respiratory_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c06_respiratory_006",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c07_respiratory_007",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c08_cardiometabolic_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c09_cardiometabolic_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c10_cardiometabolic_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c12_cardiometabolic_005",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c13_digestive_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c14_digestive_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c15_digestive_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c16_digestive_004",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c17_urinary_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c18_urinary_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c19_urinary_003",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c20_musculoskeletal_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c21_musculoskeletal_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c23_dermatology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c24_dermatology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c25_pediatrics_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c26_pediatrics_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c27_gynecology_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c28_gynecology_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c29_mentalhealth_001",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_CASE_AI_CASE_AI_REVIEW_NOT_APPROVED",
+      "status": "failed",
+      "scope": "case-ai:case_c30_mentalhealth_002",
+      "message": "Case AI review decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_TEST_ACTION_ACCURACY_BELOW_TARGET",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "natural-language test action accuracy is below release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_SERIOUS_FACT_ERRORS_NONZERO",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "serious fact errors exceed release policy"
+    },
+    {
+      "code": "E5_DIALOGUE_INDEPENDENT_DIALOGUE_AUDIT_REJECTED",
+      "status": "failed",
+      "scope": "c7-dialogue",
+      "message": "independent dialogue audit did not approve the evidence"
+    },
+    {
+      "code": "E5_DIALOGUE_AI_AUDIT_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-dialogue-audit",
+      "message": "C7 dialogue AI audit decision: rejected."
+    },
+    {
+      "code": "E5_DIALOGUE_PROVIDER_MODEL_APPROVAL_NOT_APPROVED",
+      "status": "failed",
+      "scope": "c7-provider-model-approval",
+      "message": "C7 provider/model approval decision: revision_recommended."
+    },
+    {
+      "code": "E5_PROVENANCE_LICENSE_REVIEW_NOT_RUN",
+      "status": "not_run",
+      "scope": "case-provenance",
+      "message": "60 provenance source license assessments were not run.",
+      "expected": 0,
+      "actual": 60
+    }
+  ]
+}

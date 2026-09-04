@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:fd1254b56198159dae49914b5a56c002c3942d644b7a3cf1e37853184b71dc5b",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a1292ca8-8767-46ee-817e-bf0413b2b9d8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:55:04.169Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：8–12岁儿童，慢性间歇性脐周痛，生长和进食正常、无夜间痛醒及其他红旗，符合学龄儿童功能性腹痛的病例边界。",
+        "诊断可解性通过：目标诊断明确，症状模式和生长评估支持目标概念；便秘、乳糜泻作为两个可接受鉴别诊断，满足数量要求。",
+        "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、儿童嗜睡及脱水均有事实依据排除；生命体征和生长评估可通过检查获得，儿童人群适用范围未被错误排除。",
+        "量表一致性通过：must-ask事实、必需检查及不必要的腹部CT分类与成功轨迹一致；推荐回合数和诊断/鉴别诊断要求可执行。",
+        "回归覆盖通过：包含成功、错误诊断与不必要检查、安全中断及unknown事实分支，覆盖主要评分和安全路径。",
+        "隐藏真相安全通过：教学字段保持隐藏，安全轨迹要求中断且无医疗回合、供应商调用或原始文本写入；未发现将内部答案或评分策略泄露给患者的内容。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.4b4064d4-2ff6-4e0b-aae3-6184f343649d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:55:20.182Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：病程超过三个月、脐周间歇性腹痛、休息可缓解，且生长稳定、无夜间痛醒、便血、持续呕吐或查体异常，与学龄儿童功能性腹痛相符；生命体征及生长评估检查设置合理。",
+        "诊断可解性：核心症状、病程、进展、伴随症状及关键危险排除信息均可通过询问获得，目标诊断粒度明确，能够与便秘、乳糜泻形成可操作鉴别。",
+        "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、儿童嗜睡及脱水等适用红旗均有对应事实和矩阵证据；年龄超范围及呼吸窘迫等不适用项标记一致。",
+        "Rubric一致性：must-ask事实、目标诊断、两个鉴别诊断及检查分类相互匹配；成功轨迹覆盖全部必问事实并完成两项必需检查，CT被一致标为非必要。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功/失败诊断与检查期望、未知事实读取及安全中断期望均与病例和评分策略一致。",
+        "隐藏真值安全：答案真值、教学字段及服务端评分信息未暴露于患者可见内容；安全轨迹使用无关急性胸痛气促输入并要求中断、零医疗回合及零写入，未污染本病例诊断评估。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：8–12岁儿童，慢性间歇性脐周痛，生长和进食正常、无夜间痛醒及其他红旗，符合学龄儿童功能性腹痛的病例边界。",
+    "诊断可解性通过：目标诊断明确，症状模式和生长评估支持目标概念；便秘、乳糜泻作为两个可接受鉴别诊断，满足数量要求。",
+    "危险征象排除通过：意识改变、循环不稳定、无法口服、高风险人群、儿童嗜睡及脱水均有事实依据排除；生命体征和生长评估可通过检查获得，儿童人群适用范围未被错误排除。",
+    "量表一致性通过：must-ask事实、必需检查及不必要的腹部CT分类与成功轨迹一致；推荐回合数和诊断/鉴别诊断要求可执行。",
+    "回归覆盖通过：包含成功、错误诊断与不必要检查、安全中断及unknown事实分支，覆盖主要评分和安全路径。",
+    "隐藏真相安全通过：教学字段保持隐藏，安全轨迹要求中断且无医疗回合、供应商调用或原始文本写入；未发现将内部答案或评分策略泄露给患者的内容。",
+    "临床一致性：病程超过三个月、脐周间歇性腹痛、休息可缓解，且生长稳定、无夜间痛醒、便血、持续呕吐或查体异常，与学龄儿童功能性腹痛相符；生命体征及生长评估检查设置合理。",
+    "诊断可解性：核心症状、病程、进展、伴随症状及关键危险排除信息均可通过询问获得，目标诊断粒度明确，能够与便秘、乳糜泻形成可操作鉴别。",
+    "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、儿童嗜睡及脱水等适用红旗均有对应事实和矩阵证据；年龄超范围及呼吸窘迫等不适用项标记一致。",
+    "Rubric一致性：must-ask事实、目标诊断、两个鉴别诊断及检查分类相互匹配；成功轨迹覆盖全部必问事实并完成两项必需检查，CT被一致标为非必要。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功/失败诊断与检查期望、未知事实读取及安全中断期望均与病例和评分策略一致。",
+    "隐藏真值安全：答案真值、教学字段及服务端评分信息未暴露于患者可见内容；安全轨迹使用无关急性胸痛气促输入并要求中断、零医疗回合及零写入，未污染本病例诊断评估。"
+  ]
+}

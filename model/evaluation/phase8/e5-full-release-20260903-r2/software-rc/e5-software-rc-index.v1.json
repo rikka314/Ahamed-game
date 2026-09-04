@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "e5-software-rc-index-v1",
+  "generatedAt": "2026-09-03T10:36:32.431Z",
+  "reviewPolicy": "non_blocking",
+  "acceptance": {
+    "path": "e5-full-acceptance-report.v1.json",
+    "sha256": "540ac694d2c65f3ed8e4f2cd86c8ee841ad1f16dde9b1cee40fe0abcd0100805",
+    "size": 12318,
+    "decision": "incomplete"
+  },
+  "runtimeManifest": {
+    "path": "e5-runtime-release-manifest.v1.json",
+    "sha256": "1d59f22626c9cbe1358269e6addf2751c0f5ea9649c8bfa7e45564d7582729d4",
+    "size": 97921,
+    "manifestSha256": "758253ac73fdd62825f28c26d9a1deaf04a5474812f51d67e34647ef8ea772ae"
+  },
+  "artifactCount": 478,
+  "sourceState": {
+    "headCommit": "c70acd707ce16a45913489ce46088d2afdfacb18",
+    "dirty": true,
+    "statusSha256": "aa6ce60837609e22afd4c99bf6aa1815157a8162ea1f631d1212ee497032395e",
+    "trackedChanges": 95,
+    "untrackedChanges": 689
+  },
+  "providerObservation": {
+    "status": "not_run",
+    "findings": [
+      "E5 did not invoke a real Provider and does not claim M0/B1-B5, 360 release dialogue turns, or current AI case review completion."
+    ]
+  },
+  "stagedSecurityScan": {
+    "status": "passed",
+    "scannedTextFiles": 370,
+    "scannedPublicEvidenceFiles": 1,
+    "secretFindings": [],
+    "hiddenFieldFindings": []
+  },
+  "findings": [
+    {
+      "code": "E5_CASES_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:cases",
+      "message": "cases coverage is below the E5 target.",
+      "expected": 30,
+      "actual": 5
+    },
+    {
+      "code": "E5_TRAJECTORIES_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:trajectories",
+      "message": "trajectories coverage is below the E5 target.",
+      "expected": 120,
+      "actual": 20
+    },
+    {
+      "code": "E5_GOLDEN_VECTORS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:goldenVectors",
+      "message": "goldenVectors coverage is below the E5 target.",
+      "expected": 180,
+      "actual": 30
+    },
+    {
+      "code": "E5_DIALOGUE_SAMPLES_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:dialogueSamples",
+      "message": "dialogueSamples coverage is below the E5 target.",
+      "expected": 600,
+      "actual": 100
+    },
+    {
+      "code": "E5_NEW_DOMAIN_SAFETY_SAMPLES_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:newDomainSafetySamples",
+      "message": "newDomainSafetySamples coverage is below the E5 target.",
+      "expected": 36,
+      "actual": 0
+    },
+    {
+      "code": "E5_CASE_AI_REVIEW_CALLS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:caseAiReviewCalls",
+      "message": "caseAiReviewCalls coverage is below the E5 target.",
+      "expected": 60,
+      "actual": 0
+    },
+    {
+      "code": "E5_PERSONA_LIVE_TURNS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:personaLiveTurns",
+      "message": "personaLiveTurns coverage is below the E5 target.",
+      "expected": 72,
+      "actual": 5
+    },
+    {
+      "code": "E5_RELEASE_DIALOGUE_TURNS_BELOW_TARGET",
+      "status": "incomplete",
+      "scope": "count:releaseDialogueTurns",
+      "message": "releaseDialogueTurns coverage is below the E5 target.",
+      "expected": 360,
+      "actual": 0
+    },
+    {
+      "code": "E5_E3_NOT_RUN",
+      "status": "not_run",
+      "scope": "e3",
+      "message": "e3 was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_E4_LIVE_NOT_RUN",
+      "status": "not_run",
+      "scope": "e4:live",
+      "message": "e4:live was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_E4_STORAGE_NOT_RUN",
+      "status": "not_run",
+      "scope": "e4:storage",
+      "message": "e4:storage was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_E4_AI_REVIEW_1_NOT_RUN",
+      "status": "not_run",
+      "scope": "e4:ai-review:1",
+      "message": "e4:ai-review:1 was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_E4_AI_REVIEW_2_NOT_RUN",
+      "status": "not_run",
+      "scope": "e4:ai-review:2",
+      "message": "e4:ai-review:2 was not run.",
+      "expected": "passed",
+      "actual": "not_run"
+    },
+    {
+      "code": "E5_EVIDENCE_BINDING_STALE",
+      "status": "stale",
+      "scope": "evidence:case-ai-review-set",
+      "message": "case-ai-review-set evidence binding is stale.",
+      "expected": "current",
+      "actual": "stale"
+    }
+  ]
+}

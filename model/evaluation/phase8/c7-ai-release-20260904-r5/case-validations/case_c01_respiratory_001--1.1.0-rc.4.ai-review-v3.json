@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c01_respiratory_001",
+  "caseVersion": "1.1.0-rc.4",
+  "contentHash": "sha256:be0b3b7d787d057e1ec0fc28166f895dfe55a81deb1ba949d8418d02a619629f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6feb2faf-455c-4f36-b32b-d5991bc8246f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:31:33.693Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成年女性，症状、病程、生命体征及检查结果与普通感冒/急性病毒性上呼吸道感染一致；未见明显事实冲突。",
+        "诊断目标明确，症状和鉴别诊断词表足以支持普通感冒、流感及急性咽炎的区分。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；生命体征结果与红旗矩阵一致。",
+        "病例提供了安全退出轨迹：用户描述胸痛伴喘不过气时中断常规诊疗，且预期无医疗服务端调用和原始文本写入。",
+        "rubric中的必问事实、必需生命体征、可接受鉴别诊断、检查分类及回合限制与成功轨迹一致；胸片和胸部CT虽列为已完成检查，但评分明确为不必要，不构成病例事实矛盾。",
+        "回归轨迹覆盖成功、错误诊断/不必要检查、安全中断及未知接触史场景，覆盖充分。隐藏教学字段未进入患者可见内容，答案键和评分摘要未被患者人格或交互轨迹泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.31e13fec-30ae-47bd-bbb1-391efc10908a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:31:54.542Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例的急性、轻症上呼吸道症状与普通感冒诊断一致，生命体征及红旗阴性信息未见临床矛盾。",
+        "症状时序、鼻部及咽部表现、咳嗽和全身症状足以支持目标诊断；目标诊断粒度适当，接受的同义诊断一致。",
+        "红旗排除矩阵覆盖呼吸困难、意识改变、胸痛、咯血、循环异常、呼吸增快、低氧、无法进食及高风险人群，均有对应事实或生命体征支持。",
+        "must-ask事实ID均存在且被成功轨迹覆盖；鉴别诊断数量、可接受概念及检查分类与rubric一致。",
+        "success、failure、safety、unknown四类回归轨迹均有对应覆盖，预期诊断、必要或不必要检查、未知事实和安全中断条件相互一致。",
+        "隐藏教学字段及服务端评分信息未出现在患者可见内容中；安全轨迹不会触发医疗调用或原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁成年女性，症状、病程、生命体征及检查结果与普通感冒/急性病毒性上呼吸道感染一致；未见明显事实冲突。",
+    "诊断目标明确，症状和鉴别诊断词表足以支持普通感冒、流感及急性咽炎的区分。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有排除依据；生命体征结果与红旗矩阵一致。",
+    "病例提供了安全退出轨迹：用户描述胸痛伴喘不过气时中断常规诊疗，且预期无医疗服务端调用和原始文本写入。",
+    "rubric中的必问事实、必需生命体征、可接受鉴别诊断、检查分类及回合限制与成功轨迹一致；胸片和胸部CT虽列为已完成检查，但评分明确为不必要，不构成病例事实矛盾。",
+    "回归轨迹覆盖成功、错误诊断/不必要检查、安全中断及未知接触史场景，覆盖充分。隐藏教学字段未进入患者可见内容，答案键和评分摘要未被患者人格或交互轨迹泄露。",
+    "病例的急性、轻症上呼吸道症状与普通感冒诊断一致，生命体征及红旗阴性信息未见临床矛盾。",
+    "症状时序、鼻部及咽部表现、咳嗽和全身症状足以支持目标诊断；目标诊断粒度适当，接受的同义诊断一致。",
+    "红旗排除矩阵覆盖呼吸困难、意识改变、胸痛、咯血、循环异常、呼吸增快、低氧、无法进食及高风险人群，均有对应事实或生命体征支持。",
+    "must-ask事实ID均存在且被成功轨迹覆盖；鉴别诊断数量、可接受概念及检查分类与rubric一致。",
+    "success、failure、safety、unknown四类回归轨迹均有对应覆盖，预期诊断、必要或不必要检查、未知事实和安全中断条件相互一致。",
+    "隐藏教学字段及服务端评分信息未出现在患者可见内容中；安全轨迹不会触发医疗调用或原始文本写入。"
+  ]
+}

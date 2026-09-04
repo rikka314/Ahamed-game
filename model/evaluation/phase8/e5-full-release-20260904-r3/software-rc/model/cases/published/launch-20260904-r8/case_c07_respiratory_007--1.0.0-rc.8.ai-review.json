@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c07_respiratory_007",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:b0c8c387d1fab19ba4faebda11d705b71e2808ab4c7286561d1aa0281768f2a3",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.47403438-1ade-480d-a19a-279f44f34afe",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:09:21.188Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人亚急性夜间及运动后干咳，肺功能示轻度可逆性气流受限、胸部CT无局灶异常，与咳嗽变异性哮喘相符，且无明显急症表现。",
+        "诊断可解性通过：病史模式、肺功能结果及目标诊断相互支持，并提供了两个可接受的鉴别诊断。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧均有明确阴性事实；生命体征通过检查读取。",
+        "量表一致性通过：必问病史覆盖完整，生命体征和肺功能列为必需检查，胸部CT列为不必要检查，与诊断及鉴别诊断要求一致。",
+        "回归覆盖通过：成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹均有覆盖，安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+        "隐藏真相安全通过：目标诊断、教学字段及评分字段未置于玩家可见叙事中；未发现通过患者话术或回归轨迹泄露答案的内容。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.5635ada1-4276-4b14-820a-5a50dd5f5f06",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:09:37.690Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：夜间及运动后阵发性干咳、缺乏感染或明显危险症状，且肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常与该诊断相容，检查选择无明显矛盾。",
+        "诊断可解性：症状模式与肺功能结果共同提供了足以达到目标诊断粒度的证据，目标为明确的咳嗽变异性哮喘而非过宽泛的“慢性咳嗽”或“哮喘”。",
+        "红旗排除：红旗事实均明确记录为 absent，且与 redFlagExclusionMatrix 的 applicable、requiredState、evidenceFactIds 和 observedValue 一致；生命体征检查结果亦支持非急症边界。",
+        "Rubric一致性：must-ask事实均可通过成功轨迹覆盖；两个鉴别诊断均在允许概念集合内且数量匹配；生命体征和肺功能为required，胸部CT为unnecessary，和病例及失败轨迹一致。",
+        "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，成功轨迹覆盖诊断、鉴别诊断、检查和问诊事实，失败轨迹验证错误诊断及不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知事实披露。",
+        "隐藏真相安全：teaching_note 标记为 hidden，目标诊断和评分字段未被患者事实问答或安全轨迹意外暴露；安全轨迹的自报胸痛和呼吸困难请求按 SAFETY_INTERRUPTED 处理，未误纳入病例事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人亚急性夜间及运动后干咳，肺功能示轻度可逆性气流受限、胸部CT无局灶异常，与咳嗽变异性哮喘相符，且无明显急症表现。",
+    "诊断可解性通过：病史模式、肺功能结果及目标诊断相互支持，并提供了两个可接受的鉴别诊断。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、呼吸困难、持续胸痛、咯血、呼吸急促和低氧均有明确阴性事实；生命体征通过检查读取。",
+    "量表一致性通过：必问病史覆盖完整，生命体征和肺功能列为必需检查，胸部CT列为不必要检查，与诊断及鉴别诊断要求一致。",
+    "回归覆盖通过：成功、错误诊断及不必要检查、安全中断、未知既往史等轨迹均有覆盖，安全轨迹明确要求零医疗回合、零提供方调用和零原始文本写入。",
+    "隐藏真相安全通过：目标诊断、教学字段及评分字段未置于玩家可见叙事中；未发现通过患者话术或回归轨迹泄露答案的内容。",
+    "临床一致性：夜间及运动后阵发性干咳、缺乏感染或明显危险症状，且肺功能提示轻度可逆性气流受限，支持咳嗽变异性哮喘；胸部CT正常与该诊断相容，检查选择无明显矛盾。",
+    "诊断可解性：症状模式与肺功能结果共同提供了足以达到目标诊断粒度的证据，目标为明确的咳嗽变异性哮喘而非过宽泛的“慢性咳嗽”或“哮喘”。",
+    "红旗排除：红旗事实均明确记录为 absent，且与 redFlagExclusionMatrix 的 applicable、requiredState、evidenceFactIds 和 observedValue 一致；生命体征检查结果亦支持非急症边界。",
+    "Rubric一致性：must-ask事实均可通过成功轨迹覆盖；两个鉴别诊断均在允许概念集合内且数量匹配；生命体征和肺功能为required，胸部CT为unnecessary，和病例及失败轨迹一致。",
+    "回归覆盖：success、failure、safety、unknown 四类轨迹均存在，成功轨迹覆盖诊断、鉴别诊断、检查和问诊事实，失败轨迹验证错误诊断及不必要检查，安全轨迹验证中断与零调用，unknown轨迹验证未知事实披露。",
+    "隐藏真相安全：teaching_note 标记为 hidden，目标诊断和评分字段未被患者事实问答或安全轨迹意外暴露；安全轨迹的自报胸痛和呼吸困难请求按 SAFETY_INTERRUPTED 处理，未误纳入病例事实。"
+  ]
+}

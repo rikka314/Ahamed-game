@@ -1,0 +1,617 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c11_cardiometabolic_004",
+  "publicCaseId": "case_c11_cardiometabolic_004",
+  "caseVersion": "1.0.0-rc.3",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "乏力、怕冷和反应变慢三个月"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c11",
+    "patientDisplayName": "患者11号",
+    "ageBand": "36–45岁",
+    "genderDisplay": "女",
+    "educationOrOccupation": "图书管理员",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "anxious_reassurance_seeking",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会表达担忧",
+      "希望获得解释与安抚"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "high"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "乏力、怕冷和反应变慢三个月",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "约三个月前逐渐出现",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "持续乏力、怕冷，做事比以前慢",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "伴皮肤干燥和轻度便秘",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "未出现chest pain相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.syncope": {
+      "status": "absent",
+      "value": "未出现syncope相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.focal_neurologic_deficit": {
+      "status": "absent",
+      "value": "未出现focal neurologic deficit相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.severe_hypoglycemia": {
+      "status": "absent",
+      "value": "未出现severe hypoglycemia相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.ketoacidosis": {
+      "status": "absent",
+      "value": "未出现ketoacidosis相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypertensive_emergency": {
+      "status": "absent",
+      "value": "未出现hypertensive emergency相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.thyroid_function": {
+      "status": "completed",
+      "displayName": "甲状腺功能",
+      "aliases": [
+        "甲状腺功能",
+        "做甲状腺功能",
+        "test.thyroid_function"
+      ],
+      "report": "促甲状腺激素升高，游离甲状腺素降低。"
+    },
+    "test.brain_mri": {
+      "status": "completed",
+      "displayName": "头颅MRI",
+      "aliases": [
+        "头颅MRI",
+        "做头颅MRI",
+        "test.brain_mri"
+      ],
+      "report": "头颅MRI未见异常。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.hypothyroidism",
+    "targetDiagnosis": "甲状腺功能减退",
+    "acceptedSynonyms": [
+      "甲减"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.hypothyroidism",
+        "preferredTerm": "甲状腺功能减退",
+        "acceptedSynonyms": [
+          "甲减"
+        ]
+      },
+      {
+        "conceptId": "concept.depressive_episode",
+        "preferredTerm": "抑郁发作",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.anemia",
+        "preferredTerm": "贫血",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.chest_pain",
+      "fact.syncope",
+      "fact.focal_neurologic_deficit",
+      "fact.severe_hypoglycemia",
+      "fact.ketoacidosis",
+      "fact.hypertensive_emergency"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.depressive_episode",
+      "concept.anemia"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.thyroid_function": "required",
+      "test.brain_mri": "unnecessary"
+    },
+    "recommendedTurnLimit": 12,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B4病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:11cce15fe25fc6a4b9dcbb83d9677fb5f0119aea43aaf6c24bd57e9c9bf75d5f",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.cardiometabolic",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c11_cardiometabolic_004",
+    "caseVersion": "1.0.0-rc.3",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "chest pain",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.syncope",
+        "canonicalName": "syncope",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.syncope"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.focal_neurologic_deficit",
+        "canonicalName": "focal neurologic deficit",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.focal_neurologic_deficit"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.severe_hypoglycemia",
+        "canonicalName": "severe hypoglycemia",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.severe_hypoglycemia"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.ketoacidosis",
+        "canonicalName": "ketoacidosis",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.ketoacidosis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypertensive_emergency",
+        "canonicalName": "hypertensive emergency",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypertensive_emergency"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.cardiometabolic",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c11_cardiometabolic_004",
+    "caseVersion": "1.0.0-rc.3",
+    "contentHash": "sha256:11cce15fe25fc6a4b9dcbb83d9677fb5f0119aea43aaf6c24bd57e9c9bf75d5f",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.b0fe4f6c-33ab-4b36-8274-6ab6d1888eaa",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:01:47.074Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床一致性通过：乏力、怕冷、反应变慢、皮肤干燥及轻度便秘与甲状腺功能减退相符；TSH升高、游离甲状腺素降低支持目标诊断，生命体征稳定，头颅MRI列为不必要检查亦合理。",
+          "诊断可求解性通过：病例症状、关键检查结果与答案中的“甲状腺功能减退/甲减”一致，并提供抑郁发作和贫血作为可接受鉴别诊断。",
+          "危险征象排除通过：意识混乱、低血压、无法进食、胸痛、晕厥、局灶性神经功能缺损及代谢/高血压急症相关危险表现均明确为未出现；生命体征稳定，且安全回归轨迹要求立即中断处理。",
+          "量表一致性通过：必问病史覆盖起病、症状模式、伴随症状、进展及全部列明危险征象；检查分类、鉴别诊断数量和推荐回合限制与成功轨迹一致。",
+          "回归覆盖通过：输入包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖主要诊断、鉴别诊断、检查选择、急症拦截和未知事实处理。",
+          "隐藏真相安全通过：教学字段、内部病例标识及答案键保持服务端隐藏；公开病例内容足以完成推理，未见将隐藏字段泄露给患者或评分参与者的设计。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.29ee50a9-f2b7-478c-a013-e7cc909afcf3",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:02:00.027Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现与甲状腺功能结果一致，甲状腺功能减退的诊断粒度明确；头颅MRI为非必要检查但已在测试分类中正确标记。",
+          "症状、伴随表现及检查结果足以支持目标诊断，且抑郁发作和贫血作为鉴别诊断合理，病例可解。",
+          "红旗事实均明确记录为缺如，且与红旗排除矩阵的requiredState及证据FactId一致；生命体征稳定，未提示急症。",
+          "must-ask事实、鉴别诊断数量、必需/不必要检查、回合上限及成功轨迹彼此一致，评分粒度明确。",
+          "success、failure、safety、unknown四类回归轨迹均有覆盖，动作、期望事实、诊断匹配、非必要检查及安全中断断言与病例资产一致。",
+          "安全轨迹在胸痛和呼吸困难的高风险输入下要求立即中断、零医疗调用及零原始文本写入；未知既往发作事实仅在询问后披露，未发现隐藏真值泄露。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床一致性通过：乏力、怕冷、反应变慢、皮肤干燥及轻度便秘与甲状腺功能减退相符；TSH升高、游离甲状腺素降低支持目标诊断，生命体征稳定，头颅MRI列为不必要检查亦合理。",
+      "诊断可求解性通过：病例症状、关键检查结果与答案中的“甲状腺功能减退/甲减”一致，并提供抑郁发作和贫血作为可接受鉴别诊断。",
+      "危险征象排除通过：意识混乱、低血压、无法进食、胸痛、晕厥、局灶性神经功能缺损及代谢/高血压急症相关危险表现均明确为未出现；生命体征稳定，且安全回归轨迹要求立即中断处理。",
+      "量表一致性通过：必问病史覆盖起病、症状模式、伴随症状、进展及全部列明危险征象；检查分类、鉴别诊断数量和推荐回合限制与成功轨迹一致。",
+      "回归覆盖通过：输入包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖主要诊断、鉴别诊断、检查选择、急症拦截和未知事实处理。",
+      "隐藏真相安全通过：教学字段、内部病例标识及答案键保持服务端隐藏；公开病例内容足以完成推理，未见将隐藏字段泄露给患者或评分参与者的设计。",
+      "临床表现与甲状腺功能结果一致，甲状腺功能减退的诊断粒度明确；头颅MRI为非必要检查但已在测试分类中正确标记。",
+      "症状、伴随表现及检查结果足以支持目标诊断，且抑郁发作和贫血作为鉴别诊断合理，病例可解。",
+      "红旗事实均明确记录为缺如，且与红旗排除矩阵的requiredState及证据FactId一致；生命体征稳定，未提示急症。",
+      "must-ask事实、鉴别诊断数量、必需/不必要检查、回合上限及成功轨迹彼此一致，评分粒度明确。",
+      "success、failure、safety、unknown四类回归轨迹均有覆盖，动作、期望事实、诊断匹配、非必要检查及安全中断断言与病例资产一致。",
+      "安全轨迹在胸痛和呼吸困难的高风险输入下要求立即中断、零医疗调用及零原始文本写入；未知既往发作事实仅在询问后披露，未发现隐藏真值泄露。"
+    ]
+  }
+}

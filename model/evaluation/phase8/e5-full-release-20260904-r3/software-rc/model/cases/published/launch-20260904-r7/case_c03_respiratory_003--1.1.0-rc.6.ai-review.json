@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.6",
+  "contentHash": "sha256:3ab15e6b7b58e972a41d5dc28603a3b917508a96aac6fcbb17c0b37ed87adf9d",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.e19e0846-4afe-495d-a690-8cb58e0cb044",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:38:49.068Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体一致：成年低热咽痛、咽部充血及少量渗出，生命体征稳定，且无呼吸困难、低氧、吞咽障碍或上气道危险征象；急性咽炎诊断可由现有信息支持。",
+        "诊断可解：起病、咽痛、发热、咳嗽/鼻部症状、颈部淋巴结及咽部查体均可获得，且可形成链球菌性咽峡炎和流感鉴别。",
+        "危险征象排除充分：呼吸、意识、胸痛、咯血、循环、呼吸频率、血氧、口服摄入、高风险人群及喉鸣/声音含糊/张口受限/单侧肿胀均有阴性证据，生命体征亦稳定。",
+        "量表与病例内容基本一致：必问事实、必需检查、可选鉴别诊断和不必要胸部影像的分类均有对应定义。",
+        "回归覆盖不足：量表明确将胸部CT列为不必要检查，但失败轨迹仅覆盖胸片，未覆盖胸部CT误用或同时进行胸片/CT的过度检查路径；因此不能证明该不必要检查规则在回归中稳定生效。",
+        "隐藏真相保护通过：教学字段保持hidden，咽部查体为test_only，未在患者可见事实或回归输入中泄露教学/答案字段；安全中断轨迹也要求无医疗调用和原文写入。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0a159573-9f4b-45df-946e-297683bcd1cb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:39:13.328Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、咽部查体及生命体征支持急性咽炎；链球菌快检阴性、无肺部实变及无气道危险表现，整体一致。",
+        "目标诊断粒度明确，病例信息足以支持“急性咽炎”；链球菌性咽峡炎和流行性感冒作为可接受鉴别诊断，数量与词表一致。",
+        "must-ask事实均在成功轨迹中覆盖，红旗排除项均有患者事实或生命体征证据，且未发现必需排除项缺失。",
+        "rubric中的必需检查、可用检查和不必要检查分类与成功及失败轨迹一致；胸片失败轨迹正确标记为不必要检查。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期诊断、回合数、无效检查、打断码及未知事实查询与病例资产一致。",
+        "教学字段为hidden，咽部查体为test_only；安全轨迹要求零提供方调用、零原文写入和零医疗回合，未见隐藏真相泄露或安全预期冲突。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体一致：成年低热咽痛、咽部充血及少量渗出，生命体征稳定，且无呼吸困难、低氧、吞咽障碍或上气道危险征象；急性咽炎诊断可由现有信息支持。",
+    "诊断可解：起病、咽痛、发热、咳嗽/鼻部症状、颈部淋巴结及咽部查体均可获得，且可形成链球菌性咽峡炎和流感鉴别。",
+    "危险征象排除充分：呼吸、意识、胸痛、咯血、循环、呼吸频率、血氧、口服摄入、高风险人群及喉鸣/声音含糊/张口受限/单侧肿胀均有阴性证据，生命体征亦稳定。",
+    "量表与病例内容基本一致：必问事实、必需检查、可选鉴别诊断和不必要胸部影像的分类均有对应定义。",
+    "回归覆盖不足：量表明确将胸部CT列为不必要检查，但失败轨迹仅覆盖胸片，未覆盖胸部CT误用或同时进行胸片/CT的过度检查路径；因此不能证明该不必要检查规则在回归中稳定生效。",
+    "隐藏真相保护通过：教学字段保持hidden，咽部查体为test_only，未在患者可见事实或回归输入中泄露教学/答案字段；安全中断轨迹也要求无医疗调用和原文写入。",
+    "临床表现、咽部查体及生命体征支持急性咽炎；链球菌快检阴性、无肺部实变及无气道危险表现，整体一致。",
+    "目标诊断粒度明确，病例信息足以支持“急性咽炎”；链球菌性咽峡炎和流行性感冒作为可接受鉴别诊断，数量与词表一致。",
+    "must-ask事实均在成功轨迹中覆盖，红旗排除项均有患者事实或生命体征证据，且未发现必需排除项缺失。",
+    "rubric中的必需检查、可用检查和不必要检查分类与成功及失败轨迹一致；胸片失败轨迹正确标记为不必要检查。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期诊断、回合数、无效检查、打断码及未知事实查询与病例资产一致。",
+    "教学字段为hidden，咽部查体为test_only；安全轨迹要求零提供方调用、零原文写入和零医疗回合，未见隐藏真相泄露或安全预期冲突。"
+  ]
+}

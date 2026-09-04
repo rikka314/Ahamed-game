@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:99252ea08e2216eb7fbd7f4978daaebd8e73f44b794b1a78799e591ded5a1f81",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.01330180-312f-4a79-84d7-4f751dce2b85",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:05:40.150Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、尿常规结果、稳定生命体征及无发热/腰痛相互一致，支持急性单纯性膀胱炎；泌尿系CT未见结石或梗阻。",
+        "病例提供了关键病史、必要检查、目标诊断及两个鉴别诊断，诊断任务可解。",
+        "红旗矩阵虽将各项标为 absent，但“高风险人群”缺乏可核验的具体事实（如妊娠、免疫抑制或其他复杂性尿路感染风险）；仅以“未出现相关危险表现”代替高风险状态评估，不能充分支持安全排除。",
+        "must-ask事实、检查分类、两个鉴别诊断、推荐回合数与回归轨迹总体一致。",
+        "成功、失败、安全中断及未知事实轨迹均有覆盖，安全中断明确要求无医疗回合、无提供方调用和无原始文本写入。",
+        "教学字段保持hidden，回归与评分信息未被设计为患者可见内容，未发现隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.204106ff-3573-46df-8523-bb22d0d65677",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:06:03.479Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现、尿常规结果及生命体征与急性单纯性膀胱炎一致；无发热、腰痛、梗阻或结石证据，泌尿系CT作为非必要检查的设定合理。",
+        "现有主诉、症状模式、伴随症状和尿常规足以支持目标诊断；急性肾盂肾炎和尿道炎作为鉴别诊断，粒度适当。",
+        "九项红旗均有明确的患者事实、适用性、要求状态和证据ID，且均为absent；与门诊病例边界一致。",
+        "目标概念、接受同义词、鉴别诊断数量、必问事实及检查分类彼此一致；成功轨迹中的诊断和鉴别诊断均符合rubric。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期事实、诊断、非必要检查、安全中断及未知事实覆盖与病例字段一致。",
+        "未见将test_only、hidden或教学字段错误暴露给患者的轨迹；安全轨迹明确要求中断、零provider调用、零原始文本写入和零医疗回合。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床表现、尿常规结果、稳定生命体征及无发热/腰痛相互一致，支持急性单纯性膀胱炎；泌尿系CT未见结石或梗阻。",
+    "病例提供了关键病史、必要检查、目标诊断及两个鉴别诊断，诊断任务可解。",
+    "红旗矩阵虽将各项标为 absent，但“高风险人群”缺乏可核验的具体事实（如妊娠、免疫抑制或其他复杂性尿路感染风险）；仅以“未出现相关危险表现”代替高风险状态评估，不能充分支持安全排除。",
+    "must-ask事实、检查分类、两个鉴别诊断、推荐回合数与回归轨迹总体一致。",
+    "成功、失败、安全中断及未知事实轨迹均有覆盖，安全中断明确要求无医疗回合、无提供方调用和无原始文本写入。",
+    "教学字段保持hidden，回归与评分信息未被设计为患者可见内容，未发现隐藏真相泄露。",
+    "临床表现、尿常规结果及生命体征与急性单纯性膀胱炎一致；无发热、腰痛、梗阻或结石证据，泌尿系CT作为非必要检查的设定合理。",
+    "现有主诉、症状模式、伴随症状和尿常规足以支持目标诊断；急性肾盂肾炎和尿道炎作为鉴别诊断，粒度适当。",
+    "九项红旗均有明确的患者事实、适用性、要求状态和证据ID，且均为absent；与门诊病例边界一致。",
+    "目标概念、接受同义词、鉴别诊断数量、必问事实及检查分类彼此一致；成功轨迹中的诊断和鉴别诊断均符合rubric。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期事实、诊断、非必要检查、安全中断及未知事实覆盖与病例字段一致。",
+    "未见将test_only、hidden或教学字段错误暴露给患者的轨迹；安全轨迹明确要求中断、零provider调用、零原始文本写入和零医疗回合。"
+  ]
+}

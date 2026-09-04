@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:2db47360675a0273b2b4911934fe1aea18c8cb4703aaab137f260218f0e5a943",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.169a37bb-8c59-44d9-8a00-c1421a80f1c5",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:53:36.086Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：8–12岁儿童反复脐周腹痛，病程慢、进食和生长正常且无夜间痛醒、便血、持续呕吐或查体异常，符合无红旗的学龄儿童功能性腹痛门诊病例；生命体征和生长评估设置合理。",
+        "诊断可解性通过：成功轨迹覆盖起病、腹痛模式、伴随症状、进展及必要安全事实，并完成生命体征和生长评估后给出目标诊断，且鉴别诊断命中便秘和乳糜泻。",
+        "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、儿童嗜睡/反应差及儿童脱水均明确为不存在；不适用的年龄、呼吸窘迫和乳突肿胀项目未被错误强制。安全轨迹也验证了急症输入可中断且不产生医疗调用或文本写入。",
+        "量表一致性通过：must-ask事实、必需检查、非必要腹部CT、鉴别诊断数量及推荐回合数与评分策略和回归轨迹一致；CT失败轨迹正确标记为不必要检查。",
+        "回归覆盖通过：成功、失败、安全中断和未知事实四类轨迹均存在，分别覆盖正确诊疗、错误诊疗/检查、安全退出及unknown事实读取；轨迹中的检查动作按新会话语义处理，不构成重复检查。",
+        "隐藏真相安全通过：教学字段保持hidden，病例未要求向受试者暴露内部评分、来源或隐藏字段；review.pending及人工审核兼容元数据不影响本次独立安全判定。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.d6e2866c-50af-41c2-9a99-4e5007cc791a",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:53:51.069Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与目标诊断一致：学龄儿童、病程三个月、脐周间歇性腹痛、进食和生长正常且无夜间痛醒、便血、持续呕吐或进展性功能受损，支持功能性腹痛。",
+        "目标诊断粒度明确，病例信息足以支持“学龄儿童功能性腹痛”；便秘和乳糜泻作为鉴别诊断合理，虽未提供全部鉴别所需细节，但不影响目标诊断可解性。",
+        "红旗排除矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、儿童嗜睡和脱水等适用项目；对应事实均为阴性，并被成功轨迹逐项询问。",
+        "rubric 与病例内容一致：必问事实均有匹配问法，生命体征和生长评估列为必要检查，腹部CT列为不必要检查，鉴别诊断数量和概念均与答案键一致。",
+        "四类回归轨迹内部一致：成功轨迹完成三轮问诊后执行两项必要检查并给出正确诊断；失败轨迹使用不必要CT并给出错误诊断；安全轨迹正确中断；unknown轨迹正确返回未知既往发作信息。medicalTests 中 completed 状态不构成轨迹重复检查。",
+        "未见隐藏教学字段、review pending 元数据或人工审核字段泄漏至患者可见诊断依据；安全轨迹的胸痛伴呼吸困难请求不调用医疗服务、不写入原始文本，符合预期安全行为。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：8–12岁儿童反复脐周腹痛，病程慢、进食和生长正常且无夜间痛醒、便血、持续呕吐或查体异常，符合无红旗的学龄儿童功能性腹痛门诊病例；生命体征和生长评估设置合理。",
+    "诊断可解性通过：成功轨迹覆盖起病、腹痛模式、伴随症状、进展及必要安全事实，并完成生命体征和生长评估后给出目标诊断，且鉴别诊断命中便秘和乳糜泻。",
+    "危险征象排除通过：意识改变、循环不稳定、无法进食饮水、特殊高风险人群、儿童嗜睡/反应差及儿童脱水均明确为不存在；不适用的年龄、呼吸窘迫和乳突肿胀项目未被错误强制。安全轨迹也验证了急症输入可中断且不产生医疗调用或文本写入。",
+    "量表一致性通过：must-ask事实、必需检查、非必要腹部CT、鉴别诊断数量及推荐回合数与评分策略和回归轨迹一致；CT失败轨迹正确标记为不必要检查。",
+    "回归覆盖通过：成功、失败、安全中断和未知事实四类轨迹均存在，分别覆盖正确诊疗、错误诊疗/检查、安全退出及unknown事实读取；轨迹中的检查动作按新会话语义处理，不构成重复检查。",
+    "隐藏真相安全通过：教学字段保持hidden，病例未要求向受试者暴露内部评分、来源或隐藏字段；review.pending及人工审核兼容元数据不影响本次独立安全判定。",
+    "临床叙事与目标诊断一致：学龄儿童、病程三个月、脐周间歇性腹痛、进食和生长正常且无夜间痛醒、便血、持续呕吐或进展性功能受损，支持功能性腹痛。",
+    "目标诊断粒度明确，病例信息足以支持“学龄儿童功能性腹痛”；便秘和乳糜泻作为鉴别诊断合理，虽未提供全部鉴别所需细节，但不影响目标诊断可解性。",
+    "红旗排除矩阵覆盖意识改变、循环不稳定、无法进食饮水、高风险人群、儿童嗜睡和脱水等适用项目；对应事实均为阴性，并被成功轨迹逐项询问。",
+    "rubric 与病例内容一致：必问事实均有匹配问法，生命体征和生长评估列为必要检查，腹部CT列为不必要检查，鉴别诊断数量和概念均与答案键一致。",
+    "四类回归轨迹内部一致：成功轨迹完成三轮问诊后执行两项必要检查并给出正确诊断；失败轨迹使用不必要CT并给出错误诊断；安全轨迹正确中断；unknown轨迹正确返回未知既往发作信息。medicalTests 中 completed 状态不构成轨迹重复检查。",
+    "未见隐藏教学字段、review pending 元数据或人工审核字段泄漏至患者可见诊断依据；安全轨迹的胸痛伴呼吸困难请求不调用医疗服务、不写入原始文本，符合预期安全行为。"
+  ]
+}

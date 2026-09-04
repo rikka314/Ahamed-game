@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c06_respiratory_006",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:47f452b8dfa713ca2ab0fd8658b39ed073ef1ad4ef752e4ddc38679a342a5c38",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.22ec23e3-08d4-43cd-bfaa-2ba8e0f8b083",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:56:18.527Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：成年女性以灰尘诱发的喷嚏、清涕、鼻痒和眼痒为主，鼻黏膜苍白水肿且生命体征稳定，与过敏性鼻炎一致；胸部CT虽无异常但已明确标为不必要检查。",
+        "诊断可解性：起病、诱因、典型症状和鼻腔检查共同支持目标诊断，并提供普通感冒和非过敏性鼻炎作为合理鉴别。",
+        "红旗排除：意识改变、低血压、不能进食、特殊高风险人群、呼吸困难、胸痛、咯血、呼吸急促及低氧血症均明确为不存在，且生命体征稳定，安全退出轨迹可中断处理。",
+        "量表一致性：must-ask事实、两项鉴别诊断、必需及不必要检查、推荐回合数与成功轨迹和评分策略相互一致。",
+        "回归覆盖：同时覆盖成功、错误诊断/不必要检查、安全中断和未知既往史路径，成功轨迹包含目标诊断、鉴别诊断及必需检查。",
+        "隐藏真相安全：教学字段、内部标识和测试专属生命体征未作为患者自发信息暴露；目标答案与服务端评分信息未泄露，患者可询问事实与可测试信息边界清晰。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.d4b11560-898f-46bb-997e-620b5f91b587",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:56:50.930Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性存在冲突：病例已明确记载整理旧房间后起病，且接触灰尘后症状明显，但 fact.relevant_exposure 却标为 unknown，并称未留意明确诱因；建议统一为存在相关灰尘暴露，或删除前述明确暴露信息。",
+        "症状模式、鼻腔检查和诊断目标共同支持过敏性鼻炎，普通感冒与非过敏性鼻炎作为两个鉴别诊断，诊断具有可解性。",
+        "九项红旗均有对应的 absent 患者事实，且成功轨迹要求询问并排除这些表现；未发现红旗排除证据缺失。",
+        "must-ask 事实、两个鉴别诊断、必需及不必要检查分类与成功/失败轨迹一致；生命体征和鼻腔检查作为必要检查、胸部CT作为不必要检查，粒度合理。",
+        "success、failure、safety、unknown 四类回归轨迹均有明确预期，诊断、检查、未知事实询问及安全中断行为彼此一致。",
+        "未见隐藏 teaching_note 泄露；安全轨迹要求 SAFETY_INTERRUPTED、零 provider 调用、零原文写入和零医疗回合，符合安全隔离预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：成年女性以灰尘诱发的喷嚏、清涕、鼻痒和眼痒为主，鼻黏膜苍白水肿且生命体征稳定，与过敏性鼻炎一致；胸部CT虽无异常但已明确标为不必要检查。",
+    "诊断可解性：起病、诱因、典型症状和鼻腔检查共同支持目标诊断，并提供普通感冒和非过敏性鼻炎作为合理鉴别。",
+    "红旗排除：意识改变、低血压、不能进食、特殊高风险人群、呼吸困难、胸痛、咯血、呼吸急促及低氧血症均明确为不存在，且生命体征稳定，安全退出轨迹可中断处理。",
+    "量表一致性：must-ask事实、两项鉴别诊断、必需及不必要检查、推荐回合数与成功轨迹和评分策略相互一致。",
+    "回归覆盖：同时覆盖成功、错误诊断/不必要检查、安全中断和未知既往史路径，成功轨迹包含目标诊断、鉴别诊断及必需检查。",
+    "隐藏真相安全：教学字段、内部标识和测试专属生命体征未作为患者自发信息暴露；目标答案与服务端评分信息未泄露，患者可询问事实与可测试信息边界清晰。",
+    "临床一致性存在冲突：病例已明确记载整理旧房间后起病，且接触灰尘后症状明显，但 fact.relevant_exposure 却标为 unknown，并称未留意明确诱因；建议统一为存在相关灰尘暴露，或删除前述明确暴露信息。",
+    "症状模式、鼻腔检查和诊断目标共同支持过敏性鼻炎，普通感冒与非过敏性鼻炎作为两个鉴别诊断，诊断具有可解性。",
+    "九项红旗均有对应的 absent 患者事实，且成功轨迹要求询问并排除这些表现；未发现红旗排除证据缺失。",
+    "must-ask 事实、两个鉴别诊断、必需及不必要检查分类与成功/失败轨迹一致；生命体征和鼻腔检查作为必要检查、胸部CT作为不必要检查，粒度合理。",
+    "success、failure、safety、unknown 四类回归轨迹均有明确预期，诊断、检查、未知事实询问及安全中断行为彼此一致。",
+    "未见隐藏 teaching_note 泄露；安全轨迹要求 SAFETY_INTERRUPTED、零 provider 调用、零原文写入和零医疗回合，符合安全隔离预期。"
+  ]
+}

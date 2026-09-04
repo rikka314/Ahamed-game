@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:fdf2e23134873f8ca256b09f46c2005d9707c5adf46652f8380f3903d549549d",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ae59f399-4715-4b83-9411-400e1038fcde",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:12:30.130Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持广泛性焦虑障碍：症状持续半年、多方面难以控制地担心，并伴肌肉紧张和睡眠不稳；但检查记录存在明显不一致：test.chest_ct 的报告写成“头颅MRI不是本例初始必需检查”，与检查名称“胸部CT”不匹配。",
+        "诊断可解性通过，现有核心症状和病程足以支持目标诊断，且鉴别诊断甲状腺功能亢进、抑郁发作及必需检查均有对应定义。",
+        "红旗事实矩阵中列出的意识混乱、低血压、不能口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒和无法自理均标记为 absent；生命体征稳定，精神状态评估也记载无危机表现，因此病例本身具备安全门诊边界。",
+        "量表的 mustAskFactIds 只要求前四项病史及四项一般危险表现，遗漏了红旗矩阵中同样标记为 applicable 且要求排除的自伤、精神病性症状、躁狂、物质中毒和无法自理，量表与红旗政策不一致。",
+        "回归成功轨迹未覆盖上述五项遗漏的精神健康红旗事实，未能验证完整的危险征象排除路径；虽有急症安全中断轨迹，但不能弥补覆盖不足。",
+        "隐藏教学字段、仅可通过检查读取的生命体征及内部评分信息未暴露给患者，未见隐藏真相泄漏问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.d7e1e55a-f5ec-461c-8519-79bc399e9ed9",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:12:51.487Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：核心症状、持续时间（半年）、多领域且难以控制的担心、肌肉紧张和睡眠不稳支持广泛性焦虑障碍；但 test.chest_ct 的检查名称为胸部CT，报告却描述“头颅MRI不是本例初始必需检查”，检查与报告语义不一致。",
+        "诊断可解性：主要诊断粒度明确，广泛性焦虑障碍有充分关键事实支持；两个鉴别诊断甲状腺功能亢进和抑郁发作也与题面相容，达到可解要求。",
+        "红旗排除：redFlagExclusionMatrix列出9项适用红旗并要求均为absent，但rubric.mustAskFacts及成功轨迹只覆盖其中4项红旗，遗漏自伤风险、精神病性症状、躁狂、物质中毒和自理能力受损，导致红旗排除要求未被一致地落实。",
+        "rubric一致性：rubric将胸部CT标为unnecessary，但其检查报告引用头颅MRI，无法确认该测试工件实际表达的内容；同时红旗矩阵、mustAsk列表和成功轨迹的覆盖范围不一致，评分口径存在歧义。",
+        "回归覆盖：unknown轨迹的问题同时询问既往发作和相关接触，但expected仅声明fact.prior_episode，遗漏fact.relevant_exposure；success轨迹也未覆盖矩阵中其余红旗事实，因此四类回归轨迹不能完整验证声明的事实覆盖。",
+        "隐藏真值安全：teaching_note保持hidden，生命体征通过test_only读取，回归轨迹未直接暴露隐藏教学字段或内部真值内容，未见隐藏信息泄漏问题。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持广泛性焦虑障碍：症状持续半年、多方面难以控制地担心，并伴肌肉紧张和睡眠不稳；但检查记录存在明显不一致：test.chest_ct 的报告写成“头颅MRI不是本例初始必需检查”，与检查名称“胸部CT”不匹配。",
+    "诊断可解性通过，现有核心症状和病程足以支持目标诊断，且鉴别诊断甲状腺功能亢进、抑郁发作及必需检查均有对应定义。",
+    "红旗事实矩阵中列出的意识混乱、低血压、不能口服、特殊高风险人群、自伤风险、精神病性症状、躁狂、物质中毒和无法自理均标记为 absent；生命体征稳定，精神状态评估也记载无危机表现，因此病例本身具备安全门诊边界。",
+    "量表的 mustAskFactIds 只要求前四项病史及四项一般危险表现，遗漏了红旗矩阵中同样标记为 applicable 且要求排除的自伤、精神病性症状、躁狂、物质中毒和无法自理，量表与红旗政策不一致。",
+    "回归成功轨迹未覆盖上述五项遗漏的精神健康红旗事实，未能验证完整的危险征象排除路径；虽有急症安全中断轨迹，但不能弥补覆盖不足。",
+    "隐藏教学字段、仅可通过检查读取的生命体征及内部评分信息未暴露给患者，未见隐藏真相泄漏问题。",
+    "临床一致性：核心症状、持续时间（半年）、多领域且难以控制的担心、肌肉紧张和睡眠不稳支持广泛性焦虑障碍；但 test.chest_ct 的检查名称为胸部CT，报告却描述“头颅MRI不是本例初始必需检查”，检查与报告语义不一致。",
+    "诊断可解性：主要诊断粒度明确，广泛性焦虑障碍有充分关键事实支持；两个鉴别诊断甲状腺功能亢进和抑郁发作也与题面相容，达到可解要求。",
+    "红旗排除：redFlagExclusionMatrix列出9项适用红旗并要求均为absent，但rubric.mustAskFacts及成功轨迹只覆盖其中4项红旗，遗漏自伤风险、精神病性症状、躁狂、物质中毒和自理能力受损，导致红旗排除要求未被一致地落实。",
+    "rubric一致性：rubric将胸部CT标为unnecessary，但其检查报告引用头颅MRI，无法确认该测试工件实际表达的内容；同时红旗矩阵、mustAsk列表和成功轨迹的覆盖范围不一致，评分口径存在歧义。",
+    "回归覆盖：unknown轨迹的问题同时询问既往发作和相关接触，但expected仅声明fact.prior_episode，遗漏fact.relevant_exposure；success轨迹也未覆盖矩阵中其余红旗事实，因此四类回归轨迹不能完整验证声明的事实覆盖。",
+    "隐藏真值安全：teaching_note保持hidden，生命体征通过test_only读取，回归轨迹未直接暴露隐藏教学字段或内部真值内容，未见隐藏信息泄漏问题。"
+  ]
+}

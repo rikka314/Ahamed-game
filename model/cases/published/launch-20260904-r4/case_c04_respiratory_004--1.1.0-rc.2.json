@@ -1,0 +1,626 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c04_respiratory_004",
+  "publicCaseId": "case_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.2",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "咳嗽伴少量咳痰8天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c04",
+    "patientDisplayName": "王同学",
+    "ageBand": "18–25岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "在读大学生",
+    "dailyLife": "平时住校，课余会参加社团活动。",
+    "interests": [
+      "摄影",
+      "骑行"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "gentle_cooperative",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "愿意配合追问",
+      "描述症状时较有条理"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "high",
+      "emotionalIntensity": "low"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "咳嗽八天了，偶尔会咳出一点痰。",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "怎么了",
+        "主要症状"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "八天前先有鼻塞，过两天后咳嗽变明显。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.cough": {
+      "status": "present",
+      "value": "白天和晚上都会咳，但还能正常睡觉。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳嗽",
+        "夜间"
+      ]
+    },
+    "fact.sputum": {
+      "status": "present",
+      "value": "痰量不多，颜色偏黄。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳痰",
+        "痰颜色",
+        "痰量"
+      ]
+    },
+    "fact.fever": {
+      "status": "absent",
+      "value": "没有达到38℃的发热。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "发热",
+        "发烧",
+        "体温"
+      ]
+    },
+    "fact.wheeze": {
+      "status": "unknown",
+      "value": "自己没注意有没有喘鸣声。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "喘鸣",
+        "呼吸声音"
+      ]
+    },
+    "fact.dyspnea": {
+      "status": "absent",
+      "value": "没有呼吸困难或活动后明显气短。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸困难",
+        "喘",
+        "气短"
+      ]
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "意识清楚，反应正常。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "意识",
+        "神志",
+        "糊涂"
+      ]
+    },
+    "fact.chest_pain": {
+      "status": "absent",
+      "value": "没有持续胸痛或吸气时胸痛。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "胸痛",
+        "胸闷"
+      ]
+    },
+    "fact.hemoptysis": {
+      "status": "absent",
+      "value": "痰里没有血。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "咳血",
+        "痰中带血"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "没有晕厥或站立不稳。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "低血压",
+        "晕厥"
+      ]
+    },
+    "fact.tachypnea": {
+      "status": "absent",
+      "value": "安静时呼吸不快。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "呼吸快",
+        "呼吸频率"
+      ]
+    },
+    "fact.hypoxemia": {
+      "status": "absent",
+      "value": "没有口唇发紫或明显憋气。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "缺氧",
+        "口唇发紫",
+        "血氧"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "可以正常喝水和吃饭。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "喝水",
+        "进食",
+        "吞不下"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "是成年人，没有妊娠、免疫抑制、哮喘或重要心肺基础病。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "怀孕",
+        "基础病",
+        "免疫",
+        "哮喘",
+        "高风险"
+      ]
+    },
+    "fact.exposure": {
+      "status": "unknown",
+      "value": "不清楚最近具体接触过哪位有咳嗽的人。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触史",
+        "身边有人"
+      ]
+    },
+    "fact.chest_exam": {
+      "status": "present",
+      "value": "胸部查体结果只能通过对应检查获得。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "体温",
+        "量体温",
+        "测体温",
+        "血压",
+        "心率",
+        "血氧"
+      ],
+      "report": "体温37.4℃，心率84次/分，呼吸频率18次/分，血压120/74mmHg，静息血氧饱和度98%。"
+    },
+    "test.chest_exam": {
+      "status": "completed",
+      "displayName": "胸部查体",
+      "aliases": [
+        "听诊肺部",
+        "肺部听诊",
+        "听一下胸部",
+        "胸部检查"
+      ],
+      "report": "双肺呼吸音粗，可闻散在鼾音，咳嗽后减轻；未闻局灶性湿啰音。"
+    },
+    "test.chest_xray": {
+      "status": "completed",
+      "displayName": "胸部X线",
+      "aliases": [
+        "胸片",
+        "拍胸片",
+        "胸部X光",
+        "X线"
+      ],
+      "report": "双肺未见局灶性实变影。"
+    },
+    "test.chest_ct": {
+      "status": "completed",
+      "displayName": "胸部CT",
+      "aliases": [
+        "CT",
+        "胸部CT",
+        "胸部CT检查",
+        "做CT"
+      ],
+      "report": "双肺未见局灶性实变、支气管扩张或胸腔积液。"
+    },
+    "test.sputum_culture": {
+      "status": "completed",
+      "displayName": "痰培养",
+      "aliases": [
+        "做痰培养",
+        "痰液培养",
+        "培养痰液"
+      ],
+      "report": "常规培养未见有临床意义的优势菌生长。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.acute_bronchitis",
+    "targetDiagnosis": "急性支气管炎",
+    "acceptedSynonyms": [
+      "急性气管支气管炎"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.acute_bronchitis",
+        "preferredTerm": "急性支气管炎",
+        "acceptedSynonyms": [
+          "急性气管支气管炎"
+        ]
+      },
+      {
+        "conceptId": "concept.mild_cap",
+        "preferredTerm": "轻症社区获得性肺炎",
+        "acceptedSynonyms": [
+          "社区获得性肺部感染"
+        ]
+      },
+      {
+        "conceptId": "concept.influenza",
+        "preferredTerm": "流行性感冒",
+        "acceptedSynonyms": [
+          "流感"
+        ]
+      },
+      {
+        "conceptId": "concept.common_cold",
+        "preferredTerm": "普通感冒",
+        "acceptedSynonyms": [
+          "急性病毒性上呼吸道感染"
+        ]
+      },
+      {
+        "conceptId": "concept.cough_variant_asthma",
+        "preferredTerm": "咳嗽变异性哮喘",
+        "acceptedSynonyms": [
+          "咳嗽型哮喘"
+        ]
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.cough",
+      "fact.sputum",
+      "fact.fever",
+      "fact.wheeze",
+      "fact.dyspnea",
+      "fact.chest_pain",
+      "fact.hemoptysis",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.tachypnea",
+      "fact.hypoxemia",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.mild_cap",
+      "concept.cough_variant_asthma"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.chest_exam": "required",
+      "test.chest_xray": "useful",
+      "test.chest_ct": "unnecessary",
+      "test.sputum_culture": "unnecessary"
+    },
+    "recommendedTurnLimit": 8,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "medical-author-a",
+    "notes": "纯合成病例草稿；必须独立审核其与下呼吸道其他疾病的鉴别边界。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-08-27T00:00:00.000Z",
+    "contentHash": "sha256:774a9f76c37e0ca67a4e269f8d52d469bc31823d3c7956ae86e7e4c521957c46",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.cdc.outpatient",
+        "sourceRole": "clinical_fact",
+        "title": "Outpatient Clinical Care for Adults",
+        "authorsOrOrganization": "US Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/antibiotic-use/hcp/clinical-care/adult-outpatient.html",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c04_respiratory_004",
+    "caseVersion": "1.1.0-rc.2",
+    "policyVersion": "medical-safety-policy-v1",
+    "entries": [
+      {
+        "redFlagId": "redflag.dyspnea",
+        "canonicalName": "呼吸困难",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.dyspnea"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.cdc.acute_bronchitis",
+        "criterionSourceVersion": "2025-07-02",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "意识状态改变",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.ng250",
+        "criterionSourceVersion": "2025",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.chest_pain",
+        "canonicalName": "胸痛",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.chest_pain"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.ng237",
+        "criterionSourceVersion": "2023",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hemoptysis",
+        "canonicalName": "咯血",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hemoptysis"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.ng237",
+        "criterionSourceVersion": "2023",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "低血压",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 120,
+        "unit": "mmHg systolic",
+        "criterionSourceId": "source.nice.ng250",
+        "criterionSourceVersion": "2025",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.tachypnea",
+        "canonicalName": "呼吸频率增快",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.tachypnea"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 18,
+        "unit": "breaths/min",
+        "criterionSourceId": "source.cdc.adult_outpatient",
+        "criterionSourceVersion": "2024-04-16",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypoxemia",
+        "canonicalName": "低氧表现",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypoxemia"
+        ],
+        "evidenceType": "patient_fact_and_vital_signs",
+        "observedValue": 98,
+        "unit": "% SpO2 room air",
+        "criterionSourceId": "source.nice.ng250",
+        "criterionSourceVersion": "2025",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "无法进食饮水",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.nice.ng237",
+        "criterionSourceVersion": "2023",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "MVP排除的高风险人群",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.project.mvp_scope",
+        "criterionSourceVersion": "1",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c04_respiratory_004",
+    "caseVersion": "1.1.0-rc.2",
+    "contentHash": "sha256:774a9f76c37e0ca67a4e269f8d52d469bc31823d3c7956ae86e7e4c521957c46",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.b7c28e9c-80fe-4c5b-a09e-afa11d001786",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T02:54:12.989Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "病例为18–25岁成年男性，咳嗽8天、低热缺如、生命体征稳定，胸部查体无局灶性湿啰音，影像无实变，整体与急性支气管炎及所列鉴别诊断一致。",
+          "起病、咳嗽特征、痰液、发热、喘鸣、呼吸困难、胸痛、咯血、意识、循环、呼吸频率、低氧、进食能力及高风险人群等关键事实均可通过追问或检查获得，足以支持诊断。",
+          "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；生命体征为体温37.4℃、呼吸频率18次/分、血压120/74mmHg、室内空气血氧98%，未见急症红旗。",
+          "评分量表的必问事实、必需检查、可选鉴别诊断数量及推荐回合限制彼此一致；胸部CT和痰培养被正确标为不必要，胸片被标为有用。",
+          "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知信息追问四类情形；安全轨迹明确要求无医疗回合、无服务端调用和无原始文本写入。",
+          "教学字段及服务端评分字段标记为hidden，未进入玩家可见内容；未发现通过回归轨迹或病例叙事泄露隐藏真相的路径。建议发布前继续保持CT/痰培养仅作为已定义报告或失败轨迹测试，避免在正常首发策略中暗示其常规必要性。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.f59f472a-89e7-4b64-8bac-0c216c313643",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T02:54:44.620Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "病例症状、查体及影像结果与急性支气管炎相符：咳嗽持续8天、散在鼾音咳嗽后减轻，且无局灶性肺炎证据；黄色痰不构成矛盾。",
+          "目标诊断粒度适当，正常生命体征和胸片/CT阴性结果支持排除明显肺炎；轻症社区获得性肺炎及咳嗽变异性哮喘作为鉴别诊断具有合理性。",
+          "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有对应事实或生命体征证据，红旗排除链条完整。",
+          "must-ask事实、要求的2个鉴别诊断及检查分类与答案键一致；生命体征和胸部查体为必需，胸片有用，CT和痰培养列为不必要，内部无冲突。",
+          "success、failure、safety、unknown四类轨迹均存在且与评分预期一致；成功路径覆盖全部必问事实和目标诊断，失败路径包含不必要CT，安全路径正确要求中断且不产生医疗输出，unknown路径覆盖喘鸣事实。",
+          "未发现将test_only或hidden事实泄露给患者的配置。需注意回归轨迹未单独演示有用胸片及不必要痰培养分支，但不影响现有四类轨迹的内部一致性。"
+        ]
+      }
+    ],
+    "findings": [
+      "病例为18–25岁成年男性，咳嗽8天、低热缺如、生命体征稳定，胸部查体无局灶性湿啰音，影像无实变，整体与急性支气管炎及所列鉴别诊断一致。",
+      "起病、咳嗽特征、痰液、发热、喘鸣、呼吸困难、胸痛、咯血、意识、循环、呼吸频率、低氧、进食能力及高风险人群等关键事实均可通过追问或检查获得，足以支持诊断。",
+      "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据；生命体征为体温37.4℃、呼吸频率18次/分、血压120/74mmHg、室内空气血氧98%，未见急症红旗。",
+      "评分量表的必问事实、必需检查、可选鉴别诊断数量及推荐回合限制彼此一致；胸部CT和痰培养被正确标为不必要，胸片被标为有用。",
+      "回归轨迹覆盖成功、错误诊断与不必要检查、安全中断、未知信息追问四类情形；安全轨迹明确要求无医疗回合、无服务端调用和无原始文本写入。",
+      "教学字段及服务端评分字段标记为hidden，未进入玩家可见内容；未发现通过回归轨迹或病例叙事泄露隐藏真相的路径。建议发布前继续保持CT/痰培养仅作为已定义报告或失败轨迹测试，避免在正常首发策略中暗示其常规必要性。",
+      "病例症状、查体及影像结果与急性支气管炎相符：咳嗽持续8天、散在鼾音咳嗽后减轻，且无局灶性肺炎证据；黄色痰不构成矛盾。",
+      "目标诊断粒度适当，正常生命体征和胸片/CT阴性结果支持排除明显肺炎；轻症社区获得性肺炎及咳嗽变异性哮喘作为鉴别诊断具有合理性。",
+      "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群均有对应事实或生命体征证据，红旗排除链条完整。",
+      "must-ask事实、要求的2个鉴别诊断及检查分类与答案键一致；生命体征和胸部查体为必需，胸片有用，CT和痰培养列为不必要，内部无冲突。",
+      "success、failure、safety、unknown四类轨迹均存在且与评分预期一致；成功路径覆盖全部必问事实和目标诊断，失败路径包含不必要CT，安全路径正确要求中断且不产生医疗输出，unknown路径覆盖喘鸣事实。",
+      "未发现将test_only或hidden事实泄露给患者的配置。需注意回归轨迹未单独演示有用胸片及不必要痰培养分支，但不影响现有四类轨迹的内部一致性。"
+    ]
+  }
+}

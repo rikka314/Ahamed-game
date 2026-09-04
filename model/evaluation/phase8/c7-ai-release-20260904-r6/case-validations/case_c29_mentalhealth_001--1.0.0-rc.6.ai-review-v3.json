@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:34564dbb19c84022a6e234fa28ec8d043f987cccdbc4e7296ca6ed0e678bb6b0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.c6dda4d3-9b02-45c3-b418-e4f185c77ef2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:25:13.029Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为成人非急性精神健康场景，半年多方面难以控制的担心，伴典型焦虑相关症状且仍可维持日常功能，支持广泛性焦虑障碍；甲状腺功能筛查异常和精神病性、躁狂、物质相关表现均被排除，事实一致。",
+        "生命体征稳定，精神状态评估显示现实检验完整且无危机表现；自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断、意识改变、循环不稳定、无法进食饮水及无法自理等红旗均有明确排除证据，符合安全门诊退出。",
+        "目标诊断、两个鉴别诊断、必问病史、必要检查及头颅MRI不必要的测试分类相互一致；回归成功、失败、安全中断和未知事实轨迹覆盖充分。",
+        "教学字段为隐藏状态，回归输入和评分摘要未暴露隐藏真相或服务端教学内容。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.c9b1930c-8f7a-4c11-8d04-180863ea6718",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:25:23.267Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例症状、病程和功能状态与广泛性焦虑障碍相符：多领域担心且难以控制，持续约半年，并有典型伴随症状；未见躁狂、精神病性症状或物质诱发线索。",
+        "诊断粒度适当且可解，目标诊断、接受同义词及两项鉴别诊断概念均有明确映射；现有病史足以支持精确诊断。",
+        "九项红旗均有对应患者事实，且均设为 absent；自伤、自杀、精神病性症状、躁狂、物质中毒或戒断及自理能力等关键安全排除项覆盖完整。",
+        "rubric 中 must-ask 事实均存在并与披露方式、问句匹配；鉴别诊断数量为2且与可接受概念一致；生命体征和精神状态评估标为必需，头颅MRI标为不必要，内部逻辑一致。",
+        "success、failure、safety、unknown 四类回归轨迹均与病例资产和评分预期一致：成功路径覆盖必要问诊、检查、诊断及鉴别；失败路径触发不必要MRI；安全路径应中断；unknown路径正确读取既往发作未知事实。",
+        "未发现 teaching_note、test-only生命体征或其他隐藏事实被回归输入直接泄露；unknown轨迹仅访问允许询问的既往发作事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为成人非急性精神健康场景，半年多方面难以控制的担心，伴典型焦虑相关症状且仍可维持日常功能，支持广泛性焦虑障碍；甲状腺功能筛查异常和精神病性、躁狂、物质相关表现均被排除，事实一致。",
+    "生命体征稳定，精神状态评估显示现实检验完整且无危机表现；自伤/自杀风险、精神病性症状、躁狂、物质中毒或戒断、意识改变、循环不稳定、无法进食饮水及无法自理等红旗均有明确排除证据，符合安全门诊退出。",
+    "目标诊断、两个鉴别诊断、必问病史、必要检查及头颅MRI不必要的测试分类相互一致；回归成功、失败、安全中断和未知事实轨迹覆盖充分。",
+    "教学字段为隐藏状态，回归输入和评分摘要未暴露隐藏真相或服务端教学内容。",
+    "病例症状、病程和功能状态与广泛性焦虑障碍相符：多领域担心且难以控制，持续约半年，并有典型伴随症状；未见躁狂、精神病性症状或物质诱发线索。",
+    "诊断粒度适当且可解，目标诊断、接受同义词及两项鉴别诊断概念均有明确映射；现有病史足以支持精确诊断。",
+    "九项红旗均有对应患者事实，且均设为 absent；自伤、自杀、精神病性症状、躁狂、物质中毒或戒断及自理能力等关键安全排除项覆盖完整。",
+    "rubric 中 must-ask 事实均存在并与披露方式、问句匹配；鉴别诊断数量为2且与可接受概念一致；生命体征和精神状态评估标为必需，头颅MRI标为不必要，内部逻辑一致。",
+    "success、failure、safety、unknown 四类回归轨迹均与病例资产和评分预期一致：成功路径覆盖必要问诊、检查、诊断及鉴别；失败路径触发不必要MRI；安全路径应中断；unknown路径正确读取既往发作未知事实。",
+    "未发现 teaching_note、test-only生命体征或其他隐藏事实被回归输入直接泄露；unknown轨迹仅访问允许询问的既往发作事实。"
+  ]
+}

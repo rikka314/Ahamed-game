@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:80648db8eed43fd754ce4157cad365e349221647052083bfe3166ba252f29a6f",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.09241a8f-8ddf-4fd0-8bdb-65c2ed078528",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:11:56.830Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为稳定成人门诊场景：多次诊室血压偏高且动态血压平均值升高，支持原发性高血压作为目标诊断；白大衣高血压和继发性高血压作为鉴别诊断合理。",
+        "生命体征稳定，且意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒及高血压急症均有明确排除依据。",
+        "诊断可由病史、生命体征和动态血压完成；头颅CT被明确标为不必要检查，未影响目标诊断的可解性。",
+        "must-ask事实、红旗排除矩阵、成功轨迹和评分策略之间相互覆盖且一致；安全轨迹在用户报告当前胸痛伴呼吸困难时正确中断，未产生医疗调用或原始文本写入。",
+        "隐藏教学字段未进入患者可见事实、回归期望或诊断流程，未发现隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.6f71a4fc-b00b-40a8-8ee1-0e3342cfd4cc",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:12:13.953Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "fail",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性不足：动态血压升高支持高血压诊断，但病例未提供血压具体数值、用药史或继发性高血压相关评估，直接确定“原发性”证据不足。",
+        "诊断可解性不足：现有信息可支持“高血压”，但不足以在“原发性高血压”与继发性高血压之间作出唯一、可复核的精确判定；白大衣高血压虽可由动态血压部分排除，但继发性病因仍未充分评估。",
+        "红旗排除矩阵中的10项红旗均有对应患者事实，状态一致为 absent，且与病例叙事及成功轨迹相符。",
+        "rubric内部一致：must-ask事实、两个鉴别诊断、必需/不必要检查及成功轨迹彼此对应；但其目标诊断粒度与病例证据强度不匹配。",
+        "四类回归轨迹均有覆盖：成功、失败、不安全输入中断及未知事实路径的预期结果与病例资产一致。",
+        "未见隐藏教学字段、review.pending或人工审核元数据泄露到玩家可见诊断路径；安全轨迹明确要求中断且无医疗调用和写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为稳定成人门诊场景：多次诊室血压偏高且动态血压平均值升高，支持原发性高血压作为目标诊断；白大衣高血压和继发性高血压作为鉴别诊断合理。",
+    "生命体征稳定，且意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒及高血压急症均有明确排除依据。",
+    "诊断可由病史、生命体征和动态血压完成；头颅CT被明确标为不必要检查，未影响目标诊断的可解性。",
+    "must-ask事实、红旗排除矩阵、成功轨迹和评分策略之间相互覆盖且一致；安全轨迹在用户报告当前胸痛伴呼吸困难时正确中断，未产生医疗调用或原始文本写入。",
+    "隐藏教学字段未进入患者可见事实、回归期望或诊断流程，未发现隐藏真相泄露。",
+    "临床一致性不足：动态血压升高支持高血压诊断，但病例未提供血压具体数值、用药史或继发性高血压相关评估，直接确定“原发性”证据不足。",
+    "诊断可解性不足：现有信息可支持“高血压”，但不足以在“原发性高血压”与继发性高血压之间作出唯一、可复核的精确判定；白大衣高血压虽可由动态血压部分排除，但继发性病因仍未充分评估。",
+    "红旗排除矩阵中的10项红旗均有对应患者事实，状态一致为 absent，且与病例叙事及成功轨迹相符。",
+    "rubric内部一致：must-ask事实、两个鉴别诊断、必需/不必要检查及成功轨迹彼此对应；但其目标诊断粒度与病例证据强度不匹配。",
+    "四类回归轨迹均有覆盖：成功、失败、不安全输入中断及未知事实路径的预期结果与病例资产一致。",
+    "未见隐藏教学字段、review.pending或人工审核元数据泄露到玩家可见诊断路径；安全轨迹明确要求中断且无医疗调用和写入。"
+  ]
+}

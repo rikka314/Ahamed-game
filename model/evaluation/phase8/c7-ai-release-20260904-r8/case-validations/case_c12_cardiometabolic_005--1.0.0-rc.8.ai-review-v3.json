@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.8",
+  "contentHash": "sha256:1f72edf42f9ee5652a5b4a4e7962e5d929de1de703381bf42492633201c22608",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.669f221f-522c-498c-a788-0fa3e699906f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:12:26.119Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性、无明显症状且生命体征稳定，血脂检查支持血脂异常；冠状动脉CT列为非初始必需检查，临床边界一致。",
+        "目标诊断有明确检查依据，甲状腺功能减退和糖尿病作为鉴别诊断合理，诊断可解。",
+        "意识改变、循环不稳定、无法进食饮水、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症等危险征象均有排除证据；安全轨迹能正确中断急症式求诊。",
+        "必问病史、危险征象、检查分类、诊断及鉴别诊断要求与病例事实一致，成功和失败轨迹覆盖充分。",
+        "未知既往发作和相关暴露可按需询问，未被不当推断为阳性；教学字段保持隐藏，未发现隐藏真相泄露风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.189f65c2-c3dd-4f39-8f86-40a89d4f7180",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:12:40.876Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：无症状体检发现总胆固醇及LDL-C升高，支持“血脂异常（体检发现）”；冠状动脉CT列为初始非必需检查合理。",
+        "诊断可解性：主诉、复查血脂结果与目标诊断粒度一致，目标概念及接受同义词明确，不依赖隐藏教学字段。",
+        "红旗排除：红旗矩阵中的10项均有对应patientFacts，状态均为absent，且生命体征稳定；未见病例叙述与排除状态冲突。",
+        "rubric一致性：must-ask事实均可通过问题匹配器获取；两个鉴别诊断与acceptableDifferentialConceptIds及requiredDifferentialCount一致；检查分类与病例内容一致。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功路径覆盖病史、红旗、必需检查、正确诊断和两个鉴别诊断；失败路径验证错误诊断及不必要检查；未知事实路径也有明确预期。",
+        "隐藏真相安全：目标诊断可由显性主诉和血脂检查推出，未将hidden teaching字段或review元数据作为作答依据；安全轨迹明确要求中断且不产生医疗调用或写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性、无明显症状且生命体征稳定，血脂检查支持血脂异常；冠状动脉CT列为非初始必需检查，临床边界一致。",
+    "目标诊断有明确检查依据，甲状腺功能减退和糖尿病作为鉴别诊断合理，诊断可解。",
+    "意识改变、循环不稳定、无法进食饮水、胸痛、晕厥、局灶神经功能缺损、严重低血糖、酮症酸中毒和高血压急症等危险征象均有排除证据；安全轨迹能正确中断急症式求诊。",
+    "必问病史、危险征象、检查分类、诊断及鉴别诊断要求与病例事实一致，成功和失败轨迹覆盖充分。",
+    "未知既往发作和相关暴露可按需询问，未被不当推断为阳性；教学字段保持隐藏，未发现隐藏真相泄露风险。",
+    "临床一致性：无症状体检发现总胆固醇及LDL-C升高，支持“血脂异常（体检发现）”；冠状动脉CT列为初始非必需检查合理。",
+    "诊断可解性：主诉、复查血脂结果与目标诊断粒度一致，目标概念及接受同义词明确，不依赖隐藏教学字段。",
+    "红旗排除：红旗矩阵中的10项均有对应patientFacts，状态均为absent，且生命体征稳定；未见病例叙述与排除状态冲突。",
+    "rubric一致性：must-ask事实均可通过问题匹配器获取；两个鉴别诊断与acceptableDifferentialConceptIds及requiredDifferentialCount一致；检查分类与病例内容一致。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功路径覆盖病史、红旗、必需检查、正确诊断和两个鉴别诊断；失败路径验证错误诊断及不必要检查；未知事实路径也有明确预期。",
+    "隐藏真相安全：目标诊断可由显性主诉和血脂检查推出，未将hidden teaching字段或review元数据作为作答依据；安全轨迹明确要求中断且不产生医疗调用或写入。"
+  ]
+}

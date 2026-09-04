@@ -1,0 +1,30 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "01",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 5,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "OpenAI built-in image generation for a discarded composition reference, followed by Codex deterministic pixel-native cleanup rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Preserve the accepted pale gray staggered stone-brick geometry and all outer border pixels. Replace sticker-like moss clusters with asymmetrical, irregular, joint-led growth using a restrained five-color olive and sage palette. Let some broken tendrils spread onto brick faces, keep stone gaps inside larger growths, and avoid copying any existing game texture or exact pixel arrangement. Keep 32x32 hard pixel edges, seamless tiling, no cracks, dirt, objects, text, logo, watermark or anti-aliasing.",
+  "humanEdits": [
+    "Translated only the general natural-growth logic of mossy brick materials into a project-original pixel arrangement.",
+    "Rebuilt the moss as one dominant lower-left damp growth, one thinner upper-right growth and one small central trace.",
+    "Added broken fringe pixels and stone holes so the moss does not read as solid stickers or repeated crosses.",
+    "Preserved every outer border pixel for seamless sparse mixing with the accepted G03 tile.",
+    "Created a mixed 4x4 patch preview to check repetition at gameplay scale."
+  ],
+  "status": "DRAFT"
+}

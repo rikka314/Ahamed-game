@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c10_cardiometabolic_003",
+  "caseVersion": "1.0.0-rc.7",
+  "contentHash": "sha256:5f17e070094581384d4d8c8415c2c86dbb288740718617dc477a3e47db7719a2",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.2f8d6d0f-8f51-4b3a-aa4e-60a91ba2e5ce",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:43:00.395Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁成人，症状进展缓慢、生命体征稳定，心悸怕热、出汗增多、食量增加伴体重下降与甲状腺功能结果一致，甲状腺功能亢进可合理求解。",
+        "病例明确覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症等危险征象，且均记录为缺失。",
+        "生命体征和甲状腺功能为必要检查；胸部CT被标记为不必要，并在失败回归轨迹中验证了该评分边界。",
+        "成功轨迹覆盖必要病史、危险征象、必要检查、目标诊断及两个可接受鉴别诊断；失败、安全中断和未知事实轨迹均已提供。",
+        "生命体征设为仅检查读取，教学字段和评分字段隐藏；安全中断轨迹要求零医疗回合、零提供者调用和零原始文本写入，未见隐藏真相泄露风险。",
+        "review.status、reviewDecision=pending及人工审核元数据不影响本次独立事实审计结论。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7bc982c6-0c8f-4e4e-a657-51554c304436",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:43:13.030Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "症状组合（心慌、怕热、多汗、食量增加伴体重下降）与甲状腺功能检查结果一致，目标诊断粒度为甲状腺功能亢进，未发现病例内部临床矛盾。",
+        "目标诊断可由病史及甲状腺功能结果明确支持；焦虑障碍和贫血作为鉴别诊断概念不重复且数量符合要求。",
+        "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确缺失证据，且与红旗矩阵逐项对应。",
+        "mustAskFactIds均被成功轨迹覆盖；目标诊断、两个鉴别诊断及检查分类与rubric一致。生命体征和甲状腺功能为必要检查，胸部CT被正确标记为不必要检查。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期结果分别覆盖正确诊断、不正确诊断及不必要检查、安全中断和未知事实读取，轨迹断言与病例资产一致。",
+        "目标诊断及教学字段未进入患者可见事实或普通问答披露路径；回归轨迹中的期望值属于支持性测试资产，不构成病例交互中的隐藏真相泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁成人，症状进展缓慢、生命体征稳定，心悸怕热、出汗增多、食量增加伴体重下降与甲状腺功能结果一致，甲状腺功能亢进可合理求解。",
+    "病例明确覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒和高血压急症等危险征象，且均记录为缺失。",
+    "生命体征和甲状腺功能为必要检查；胸部CT被标记为不必要，并在失败回归轨迹中验证了该评分边界。",
+    "成功轨迹覆盖必要病史、危险征象、必要检查、目标诊断及两个可接受鉴别诊断；失败、安全中断和未知事实轨迹均已提供。",
+    "生命体征设为仅检查读取，教学字段和评分字段隐藏；安全中断轨迹要求零医疗回合、零提供者调用和零原始文本写入，未见隐藏真相泄露风险。",
+    "review.status、reviewDecision=pending及人工审核元数据不影响本次独立事实审计结论。",
+    "症状组合（心慌、怕热、多汗、食量增加伴体重下降）与甲状腺功能检查结果一致，目标诊断粒度为甲状腺功能亢进，未发现病例内部临床矛盾。",
+    "目标诊断可由病史及甲状腺功能结果明确支持；焦虑障碍和贫血作为鉴别诊断概念不重复且数量符合要求。",
+    "意识改变、循环不稳定、无法进食饮水、特殊高风险人群、胸痛、晕厥、局灶神经缺损、严重低血糖、酮症酸中毒及高血压急症均有明确缺失证据，且与红旗矩阵逐项对应。",
+    "mustAskFactIds均被成功轨迹覆盖；目标诊断、两个鉴别诊断及检查分类与rubric一致。生命体征和甲状腺功能为必要检查，胸部CT被正确标记为不必要检查。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期结果分别覆盖正确诊断、不正确诊断及不必要检查、安全中断和未知事实读取，轨迹断言与病例资产一致。",
+    "目标诊断及教学字段未进入患者可见事实或普通问答披露路径；回归轨迹中的期望值属于支持性测试资产，不构成病例交互中的隐藏真相泄露。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.7",
+  "contentHash": "sha256:7e5091983e7c17080b7ff16c5af47b2bcea34b5033259cdc5150cdec27384441",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.da0d3d3f-33fb-4d29-86e0-509cc6932200",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:07:38.280Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状起病、生命体征、胸部查体及影像结果与急性支气管炎相符；无局灶性肺炎证据，鉴别诊断设置合理。胸部CT和痰培养虽已提供结果，但在量表中正确标为不必要检查。",
+        "诊断可解性：已提供病程、咳嗽与痰液特征、发热及关键呼吸系统危险征象信息，并有生命体征和胸部查体，足以支持“急性支气管炎”及两个要求的鉴别诊断。",
+        "危险征象排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除；生命体征亦支持非急症门诊边界。",
+        "量表一致性：must-ask事实、要求的2个鉴别诊断、生命体征和胸部查体均与病例内容及目标诊断一致；胸片标为有用，CT和痰培养标为不必要，分类逻辑清楚。",
+        "回归覆盖：成功、失败、安全中断及未知信息轨迹均已覆盖；成功轨迹完整询问14项必问事实并完成必需检查和诊断，安全轨迹明确要求中断且无服务端调用或文本写入。",
+        "隐藏真相安全：教学字段、答案键及评分策略均标记为服务端或支持性内部内容，未被设计为患者可见信息；安全轨迹也未暴露隐藏诊断或内部字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.ecbd19e6-8abd-4238-abe6-4bbe67330d37",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:07:52.357Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：病程、上呼吸道起病、咳嗽咳痰、无高热或呼吸窘迫、胸片无局灶性实变及胸部查体结果共同支持急性支气管炎；与轻症肺炎及咳嗽变异性哮喘的鉴别边界合理。",
+        "诊断可解性：目标诊断粒度明确为“急性支气管炎”，病例事实和检查结果足以支持该诊断；接受同义词映射清晰，且提供了两项可操作的鉴别诊断。",
+        "红旗排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征证据，状态与矩阵要求一致。",
+        "Rubric一致性：must-ask事实共14项，成功轨迹完整覆盖；差异诊断要求为2项且命中轻症社区获得性肺炎和咳嗽变异性哮喘；生命体征和胸部查体标为必需，胸片有用，CT及痰培养为不必要，均与病例及轨迹一致。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均有明确预期，成功路径的4个问诊回合覆盖全部must-ask，失败路径正确标记两项不必要检查，未知事实和安全中断行为也有可验证断言。",
+        "隐藏真值与安全：隐藏教学字段未泄露目标诊断；安全轨迹针对当前胸痛伴呼吸困难的求诊请求设置中断、零医疗调用和零原文写入，未与普通病例解题轨迹混淆。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状起病、生命体征、胸部查体及影像结果与急性支气管炎相符；无局灶性肺炎证据，鉴别诊断设置合理。胸部CT和痰培养虽已提供结果，但在量表中正确标为不必要检查。",
+    "诊断可解性：已提供病程、咳嗽与痰液特征、发热及关键呼吸系统危险征象信息，并有生命体征和胸部查体，足以支持“急性支气管炎”及两个要求的鉴别诊断。",
+    "危险征象排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除；生命体征亦支持非急症门诊边界。",
+    "量表一致性：must-ask事实、要求的2个鉴别诊断、生命体征和胸部查体均与病例内容及目标诊断一致；胸片标为有用，CT和痰培养标为不必要，分类逻辑清楚。",
+    "回归覆盖：成功、失败、安全中断及未知信息轨迹均已覆盖；成功轨迹完整询问14项必问事实并完成必需检查和诊断，安全轨迹明确要求中断且无服务端调用或文本写入。",
+    "隐藏真相安全：教学字段、答案键及评分策略均标记为服务端或支持性内部内容，未被设计为患者可见信息；安全轨迹也未暴露隐藏诊断或内部字段。",
+    "临床一致性：病程、上呼吸道起病、咳嗽咳痰、无高热或呼吸窘迫、胸片无局灶性实变及胸部查体结果共同支持急性支气管炎；与轻症肺炎及咳嗽变异性哮喘的鉴别边界合理。",
+    "诊断可解性：目标诊断粒度明确为“急性支气管炎”，病例事实和检查结果足以支持该诊断；接受同义词映射清晰，且提供了两项可操作的鉴别诊断。",
+    "红旗排除：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征证据，状态与矩阵要求一致。",
+    "Rubric一致性：must-ask事实共14项，成功轨迹完整覆盖；差异诊断要求为2项且命中轻症社区获得性肺炎和咳嗽变异性哮喘；生命体征和胸部查体标为必需，胸片有用，CT及痰培养为不必要，均与病例及轨迹一致。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均有明确预期，成功路径的4个问诊回合覆盖全部must-ask，失败路径正确标记两项不必要检查，未知事实和安全中断行为也有可验证断言。",
+    "隐藏真值与安全：隐藏教学字段未泄露目标诊断；安全轨迹针对当前胸痛伴呼吸困难的求诊请求设置中断、零医疗调用和零原文写入，未与普通病例解题轨迹混淆。"
+  ]
+}

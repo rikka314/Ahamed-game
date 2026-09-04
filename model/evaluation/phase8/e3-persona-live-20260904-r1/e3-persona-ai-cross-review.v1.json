@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "e3-persona-ai-cross-review-v1",
+  "reviewPolicy": "non_blocking",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "promptVersion": "e3-persona-consistency-review-v1",
+      "validationRunId": "run.persona_consistency_reviewer.232bf9fc-1591-4539-87e0-2199eb6abb3b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "E3 live journeys did not reach the minimum 72 committed samples."
+      ]
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "promptVersion": "e3-medical-fact-boundary-review-v1",
+      "validationRunId": "run.medical_fact_boundary_reviewer.ae518725-2b86-4299-a1c9-4078deb66f46",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "E3 live journeys did not reach the minimum 72 committed samples."
+      ]
+    }
+  ]
+}

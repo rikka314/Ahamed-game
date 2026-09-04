@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c10_cardiometabolic_003",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:90e4f468c3e223d9a842ed6ff5031519e5605b12000cd426a3059388da52087a",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4f4c5ee4-65af-49e3-b99c-a86a8a71ee47",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:34:08.775Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实一致：渐进性心悸、怕热、多汗、食量增加伴体重下降，与甲状腺功能亢进及甲状腺功能检查结果相符；生命体征稳定，符合非急症门诊边界。",
+        "诊断可解：关键病史、生命体征和甲状腺功能检查均可获得，目标诊断及两个可接受鉴别诊断明确，成功轨迹可达成精确诊断。",
+        "危险征象排除充分：矩阵列出的意识改变、低血压、不能进食、特殊高风险人群、胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症均明确为不存在；安全轨迹对胸痛伴呼吸困难请求进行中断处理。",
+        "评分规则与病例内容一致：must-ask事实、必需检查、两个鉴别诊断、不必要胸部CT及沟通标准均有对应内容，推荐回合数合理。",
+        "回归覆盖充分：包含成功、错误检查/诊断、安全中断和未知事实轨迹；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+        "隐藏真相保护可接受：教学字段保持hidden，回归与评分轨迹未要求向患者暴露服务端教学字段或内部审计信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b01e66da-13f0-40e6-a4e5-d6fbb7f6cd15",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:34:24.023Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、甲状腺功能结果与“甲状腺功能亢进”目标诊断一致；病情稳定，胸部CT标为不必要检查也合理。",
+        "症状模式（心悸、怕热、多汗、食量增加伴体重下降）结合TSH降低、游离甲状腺激素升高，足以支持目标诊断，诊断粒度适当。",
+        "红旗排除矩阵中的各项均有对应患者事实，状态一致为absent；生命体征报告亦未提示急症阈值。",
+        "must-ask事实、两个可接受鉴别诊断、鉴别诊断数量、检查分类及成功轨迹总体一致；成功轨迹诊断与答案键完全匹配。",
+        "unknown回归轨迹的问题同时询问了既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应披露的fact.relevant_exposure，导致回归期望与事实披露规则不一致。四类轨迹虽均存在，但该一致性缺陷足以阻塞发布。",
+        "未见teaching_note或其他隐藏服务端字段被患者可见内容、答案轨迹或诊断输出泄露；安全轨迹明确中断且不产生医疗回合，符合预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实一致：渐进性心悸、怕热、多汗、食量增加伴体重下降，与甲状腺功能亢进及甲状腺功能检查结果相符；生命体征稳定，符合非急症门诊边界。",
+    "诊断可解：关键病史、生命体征和甲状腺功能检查均可获得，目标诊断及两个可接受鉴别诊断明确，成功轨迹可达成精确诊断。",
+    "危险征象排除充分：矩阵列出的意识改变、低血压、不能进食、特殊高风险人群、胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症均明确为不存在；安全轨迹对胸痛伴呼吸困难请求进行中断处理。",
+    "评分规则与病例内容一致：must-ask事实、必需检查、两个鉴别诊断、不必要胸部CT及沟通标准均有对应内容，推荐回合数合理。",
+    "回归覆盖充分：包含成功、错误检查/诊断、安全中断和未知事实轨迹；安全轨迹明确要求零医疗回合、零提供方调用和零原文写入。",
+    "隐藏真相保护可接受：教学字段保持hidden，回归与评分轨迹未要求向患者暴露服务端教学字段或内部审计信息。",
+    "临床叙事、甲状腺功能结果与“甲状腺功能亢进”目标诊断一致；病情稳定，胸部CT标为不必要检查也合理。",
+    "症状模式（心悸、怕热、多汗、食量增加伴体重下降）结合TSH降低、游离甲状腺激素升高，足以支持目标诊断，诊断粒度适当。",
+    "红旗排除矩阵中的各项均有对应患者事实，状态一致为absent；生命体征报告亦未提示急症阈值。",
+    "must-ask事实、两个可接受鉴别诊断、鉴别诊断数量、检查分类及成功轨迹总体一致；成功轨迹诊断与答案键完全匹配。",
+    "unknown回归轨迹的问题同时询问了既往同样发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏应披露的fact.relevant_exposure，导致回归期望与事实披露规则不一致。四类轨迹虽均存在，但该一致性缺陷足以阻塞发布。",
+    "未见teaching_note或其他隐藏服务端字段被患者可见内容、答案轨迹或诊断输出泄露；安全轨迹明确中断且不产生医疗回合，符合预期。"
+  ]
+}

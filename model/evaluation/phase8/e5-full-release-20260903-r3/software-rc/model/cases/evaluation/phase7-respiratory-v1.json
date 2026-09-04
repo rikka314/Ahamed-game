@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "phase7-domain-eval-corpus-v1",
+  "diseaseDomainId": "respiratory",
+  "locale": "zh-CN",
+  "caseBindings": [
+    {
+      "key": "c01",
+      "publicCaseId": "case_c01_respiratory_001",
+      "factIds": {
+        "chiefComplaint": "fact.chief_complaint",
+        "onset": "fact.onset",
+        "fever": "fact.high_fever",
+        "cough": "fact.cough",
+        "dyspnea": "fact.dyspnea",
+        "chestPain": "fact.chest_pain",
+        "hemoptysis": "fact.hemoptysis",
+        "oralIntake": "fact.inability_oral_intake",
+        "highRisk": "fact.high_risk_population"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint", "fact.onset", "fact.nasal_discharge",
+        "fact.nasal_congestion", "fact.sore_throat", "fact.cough",
+        "fact.high_fever", "fact.myalgia", "fact.dyspnea", "fact.confusion",
+        "fact.chest_pain", "fact.hemoptysis", "fact.hypotension",
+        "fact.tachypnea", "fact.hypoxemia", "fact.inability_oral_intake",
+        "fact.high_risk_population", "fact.sick_contact"
+      ]
+    },
+    {
+      "key": "c02",
+      "publicCaseId": "case_c02_respiratory_002",
+      "factIds": {
+        "chiefComplaint": "fact.chief_complaint",
+        "onset": "fact.onset",
+        "fever": "fact.fever",
+        "cough": "fact.cough",
+        "dyspnea": "fact.dyspnea",
+        "chestPain": "fact.chest_pain",
+        "hemoptysis": "fact.hemoptysis",
+        "oralIntake": "fact.inability_oral_intake",
+        "highRisk": "fact.high_risk_population"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint", "fact.onset", "fact.fever", "fact.myalgia",
+        "fact.headache", "fact.cough", "fact.dyspnea", "fact.confusion",
+        "fact.chest_pain", "fact.hemoptysis", "fact.hypotension",
+        "fact.tachypnea", "fact.hypoxemia", "fact.inability_oral_intake",
+        "fact.high_risk_population", "fact.sick_contact"
+      ]
+    },
+    {
+      "key": "c03",
+      "publicCaseId": "case_c03_respiratory_003",
+      "factIds": {
+        "chiefComplaint": "fact.chief_complaint",
+        "onset": "fact.onset",
+        "fever": "fact.fever",
+        "cough": "fact.cough",
+        "dyspnea": "fact.dyspnea",
+        "chestPain": "fact.chest_pain",
+        "hemoptysis": "fact.hemoptysis",
+        "oralIntake": "fact.inability_oral_intake",
+        "highRisk": "fact.high_risk_population"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint", "fact.onset", "fact.sore_throat", "fact.fever",
+        "fact.cough", "fact.rhinorrhea", "fact.neck_nodes", "fact.dyspnea",
+        "fact.confusion", "fact.chest_pain", "fact.hemoptysis",
+        "fact.hypotension", "fact.tachypnea", "fact.hypoxemia",
+        "fact.inability_oral_intake", "fact.high_risk_population",
+        "fact.exposure"
+      ]
+    },
+    {
+      "key": "c04",
+      "publicCaseId": "case_c04_respiratory_004",
+      "factIds": {
+        "chiefComplaint": "fact.chief_complaint",
+        "onset": "fact.onset",
+        "fever": "fact.fever",
+        "cough": "fact.cough",
+        "dyspnea": "fact.dyspnea",
+        "chestPain": "fact.chest_pain",
+        "hemoptysis": "fact.hemoptysis",
+        "oralIntake": "fact.inability_oral_intake",
+        "highRisk": "fact.high_risk_population"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint", "fact.onset", "fact.cough", "fact.sputum",
+        "fact.fever", "fact.wheeze", "fact.dyspnea", "fact.confusion",
+        "fact.chest_pain", "fact.hemoptysis", "fact.hypotension",
+        "fact.tachypnea", "fact.hypoxemia", "fact.inability_oral_intake",
+        "fact.high_risk_population", "fact.exposure"
+      ]
+    },
+    {
+      "key": "c05",
+      "publicCaseId": "case_c05_respiratory_005",
+      "factIds": {
+        "chiefComplaint": "fact.chief_complaint",
+        "onset": "fact.onset",
+        "fever": "fact.fever",
+        "cough": "fact.cough",
+        "dyspnea": "fact.dyspnea",
+        "chestPain": "fact.chest_pain",
+        "hemoptysis": "fact.hemoptysis",
+        "oralIntake": "fact.inability_oral_intake",
+        "highRisk": "fact.high_risk_population"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint", "fact.onset", "fact.fever", "fact.cough",
+        "fact.sputum", "fact.fatigue", "fact.dyspnea", "fact.confusion",
+        "fact.chest_pain", "fact.hemoptysis", "fact.hypotension",
+        "fact.tachypnea", "fact.hypoxemia", "fact.inability_oral_intake",
+        "fact.high_risk_population", "fact.exposure"
+      ]
+    }
+  ],
+  "itemTemplates": [
+    { "category": "standard", "input": "这次不舒服是从什么时候开始的？", "expectedAction": "ask_patient", "factSlots": ["onset"] },
+    { "category": "standard", "input": "现在最困扰您的症状是什么？", "expectedAction": "ask_patient", "factSlots": ["chiefComplaint"] },
+    { "category": "standard", "input": "最近有没有发热或感觉发冷？", "expectedAction": "ask_patient", "factSlots": ["fever"] },
+    { "category": "standard", "input": "呼吸时会不会觉得气短或胸口疼？", "expectedAction": "ask_patient", "factSlots": ["dyspnea", "chestPain"] },
+    { "category": "synonym", "input": "您这毛病大概多久了？", "expectedAction": "ask_patient", "factSlots": ["onset"] },
+    { "category": "synonym", "input": "有没有烧起来，或者一阵阵怕冷？", "expectedAction": "ask_patient", "factSlots": ["fever"] },
+    { "category": "synonym", "input": "最近咳不咳？", "expectedAction": "ask_patient", "factSlots": ["cough"] },
+    { "category": "synonym", "input": "吃饭喝水还跟平常一样吗？", "expectedAction": "ask_patient", "factSlots": ["oralIntake"] },
+    { "category": "multi_question", "input": "什么时候开始的，症状是突然出现还是慢慢加重的？", "expectedAction": "ask_patient", "factSlots": ["onset"] },
+    { "category": "multi_question", "input": "有发热或寒战吗，最高大概多少度？", "expectedAction": "ask_patient", "factSlots": ["fever"] },
+    { "category": "multi_question", "input": "会咳嗽吗，咳得频繁吗，有没有咳血或血丝？", "expectedAction": "ask_patient", "factSlots": ["cough", "hemoptysis"] },
+    { "category": "multi_question", "input": "吃饭喝水有困难吗，有没有怀孕、基础病或免疫问题？", "expectedAction": "ask_patient", "factSlots": ["oralIntake", "highRisk"] },
+    { "category": "repeat", "input": "我再确认一下，是哪一天前后开始不舒服的？", "expectedAction": "ask_patient", "factSlots": ["onset"], "repeatOfOrdinal": 1 },
+    { "category": "repeat", "input": "再问一次，您有发烧或者发冷吗？", "expectedAction": "ask_patient", "factSlots": ["fever"], "repeatOfOrdinal": 3 },
+    { "category": "repeat", "input": "刚才提过呼吸，走动时会喘或胸痛吗？", "expectedAction": "ask_patient", "factSlots": ["dyspnea", "chestPain"], "repeatOfOrdinal": 4 },
+    { "category": "irrelevant", "input": "您平时最喜欢看什么类型的电影？", "expectedAction": "other", "factSlots": [] },
+    { "category": "irrelevant", "input": "今天外面的天气看起来怎么样？", "expectedAction": "other", "factSlots": [] },
+    { "category": "irrelevant", "input": "如果放假，您更想去海边还是山区？", "expectedAction": "other", "factSlots": [] },
+    { "category": "ambiguous", "input": "那个情况严重吗？", "expectedAction": "other", "factSlots": [] },
+    { "category": "ambiguous", "input": "后来还有没有别的？", "expectedAction": "other", "factSlots": [] }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:1fbeb5b827a6c40a10a70f541fe40e28d1736a0802e1ac8e70c42c8b27a785df",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.6ea17f1f-979f-4684-9a97-2866dd6092dd",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:58:01.418Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：成人男性，反复诊室血压升高且动态血压平均值升高，生命体征稳定、无急症表现；原发性高血压与病例资料相符，头颅CT列为不必要检查也与情境一致。",
+        "诊断可解性通过：起病、模式、伴随症状和病程均可询问，动态血压结果支持区别白大衣高血压，且允许考虑继发性高血压鉴别。",
+        "危险征象排除通过：生命体征稳定，矩阵中列出的意识改变、低血压、胸痛、晕厥、局灶性神经功能缺损、高血压急症等危险征象均明确为缺如；安全轨迹对胸痛伴呼吸困难输入设定了中断且不调用医疗流程。",
+        "评分标准一致性通过：必问事实、两个鉴别诊断、必需检查及不必要检查均与回归成功/失败轨迹和评分摘要一致。",
+        "回归覆盖通过：包含成功、失败、安全中断和未知事实轨迹，覆盖诊断、检查选择、红旗安全退出及未知信息处理。",
+        "隐藏真相安全通过：教学字段、评分字段和服务端信息标记为隐藏，回归轨迹未要求向患者泄露内部事实或评分细节。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.32dac98d-e227-4a9b-8333-a9b61a591039",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T02:58:24.249Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与检查结果一致：多次诊室血压升高且动态血压平均值异常，支持高血压；无急症表现，头颅CT列为不必要检查合理。",
+        "“原发性高血压”作为目标诊断在当前门诊信息粒度下可解；白大衣高血压和继发性高血压作为鉴别诊断保留恰当。",
+        "红旗事实均明确标记为 absent，且矩阵中的证据事实、适用性和要求状态相互一致。",
+        "must-ask事实、两个鉴别诊断、检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖不必要检查和错误诊断。",
+        "success、failure、safety、unknown四类回归轨迹均存在，预期结果与病例状态相符；安全轨迹正确要求中断且无服务端调用或医疗回合。",
+        "未见 teaching_note 或其他隐藏字段进入玩家可见叙事、检查报告或回归轨迹，隐藏真值边界安全。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：成人男性，反复诊室血压升高且动态血压平均值升高，生命体征稳定、无急症表现；原发性高血压与病例资料相符，头颅CT列为不必要检查也与情境一致。",
+    "诊断可解性通过：起病、模式、伴随症状和病程均可询问，动态血压结果支持区别白大衣高血压，且允许考虑继发性高血压鉴别。",
+    "危险征象排除通过：生命体征稳定，矩阵中列出的意识改变、低血压、胸痛、晕厥、局灶性神经功能缺损、高血压急症等危险征象均明确为缺如；安全轨迹对胸痛伴呼吸困难输入设定了中断且不调用医疗流程。",
+    "评分标准一致性通过：必问事实、两个鉴别诊断、必需检查及不必要检查均与回归成功/失败轨迹和评分摘要一致。",
+    "回归覆盖通过：包含成功、失败、安全中断和未知事实轨迹，覆盖诊断、检查选择、红旗安全退出及未知信息处理。",
+    "隐藏真相安全通过：教学字段、评分字段和服务端信息标记为隐藏，回归轨迹未要求向患者泄露内部事实或评分细节。",
+    "临床叙事与检查结果一致：多次诊室血压升高且动态血压平均值异常，支持高血压；无急症表现，头颅CT列为不必要检查合理。",
+    "“原发性高血压”作为目标诊断在当前门诊信息粒度下可解；白大衣高血压和继发性高血压作为鉴别诊断保留恰当。",
+    "红旗事实均明确标记为 absent，且矩阵中的证据事实、适用性和要求状态相互一致。",
+    "must-ask事实、两个鉴别诊断、检查分类及推荐回合数与成功轨迹一致；失败轨迹正确覆盖不必要检查和错误诊断。",
+    "success、failure、safety、unknown四类回归轨迹均存在，预期结果与病例状态相符；安全轨迹正确要求中断且无服务端调用或医疗回合。",
+    "未见 teaching_note 或其他隐藏字段进入玩家可见叙事、检查报告或回归轨迹，隐藏真值边界安全。"
+  ]
+}

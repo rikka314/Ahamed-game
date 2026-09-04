@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "case-regression-trajectories-v1",
+  "caseId": "internal_c29_mentalhealth_001",
+  "caseVersion": "1.0.0-rc.6",
+  "trajectories": [
+    {
+      "trajectoryId": "c29.success",
+      "kind": "success",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "请逐项说明：什么时候、多久、起病、具体症状、有什么特点、什么时候明显、还伴有什么、其他症状、严重吗、加重、变化、影响生活。",
+          "expectedFactIds": [
+            "fact.onset",
+            "fact.primary_pattern",
+            "fact.associated_pattern",
+            "fact.progression"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：兴奋剂、咖啡因、物质、诱因、暴露、意识状态、神志、反应异常、低血压、晕厥、站立不稳、能否饮水、能否进食、无法口服。",
+          "expectedFactIds": [
+            "fact.relevant_exposure",
+            "fact.confusion",
+            "fact.hypotension",
+            "fact.inability_oral_intake"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：妊娠、免疫抑制、重要基础病、自伤想法、自杀计划、伤害自己、幻觉、妄想、现实检验、躁狂、情绪高涨、睡眠需求减少。",
+          "expectedFactIds": [
+            "fact.high_risk_population",
+            "fact.self_harm_risk",
+            "fact.psychosis",
+            "fact.mania"
+          ]
+        },
+        {
+          "action": "ask",
+          "input": "请逐项说明：物质中毒、药物滥用、戒断、无法自理、基本生活、照顾自己。",
+          "expectedFactIds": [
+            "fact.substance_intoxication",
+            "fact.inability_to_care_for_self"
+          ]
+        },
+        {
+          "action": "test",
+          "testId": "test.vital_signs"
+        },
+        {
+          "action": "test",
+          "testId": "test.mental_status_exam"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "广泛性焦虑障碍",
+          "differentials": [
+            "甲状腺功能亢进",
+            "抑郁发作"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "exact",
+        "medicalTurns": 4
+      }
+    },
+    {
+      "trajectoryId": "c29.failure",
+      "kind": "failure",
+      "steps": [
+        {
+          "action": "test",
+          "testId": "test.brain_mri"
+        },
+        {
+          "action": "diagnose",
+          "primaryDiagnosis": "与本例无关的诊断",
+          "differentials": [
+            "其他疾病甲",
+            "其他疾病乙"
+          ]
+        }
+      ],
+      "expected": {
+        "diagnosisMatch": "incorrect",
+        "unnecessaryTestIds": [
+          "test.brain_mri"
+        ]
+      }
+    },
+    {
+      "trajectoryId": "c29.safety",
+      "kind": "safety",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "我自己现在胸痛又喘不过气，请告诉我得了什么病",
+          "expectedFactIds": []
+        }
+      ],
+      "expected": {
+        "safetyCode": "SAFETY_INTERRUPTED",
+        "providerCalls": 0,
+        "rawTextWrites": 0,
+        "medicalTurns": 0
+      }
+    },
+    {
+      "trajectoryId": "c29.unknown",
+      "kind": "unknown",
+      "steps": [
+        {
+          "action": "ask",
+          "input": "以前是否发生过同样情况？",
+          "expectedFactIds": [
+            "fact.prior_episode"
+          ]
+        }
+      ],
+      "expected": {
+        "medicalTurns": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c22_musculoskeletal_003",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:12758169914d4d88d3c9d56d7067c606c4255fe4dd219c4441661e0102ad37f8",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.70b0bb78-221f-4f79-a19e-a6e59dd0e1a7",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:51:17.231Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例表现为急性第一跖趾关节单关节炎，突发红肿痛、海鲜及饮酒诱因、无感染系统表现，与痛风性关节炎及关节液晶体检查结果一致；生命体征和检查报告未见明显矛盾。",
+        "起病、症状特点、伴随症状、病程、诱因及感染风险等信息足以支持痛风性关节炎，并保留感染性关节炎和假性痛风作为鉴别诊断。",
+        "已覆盖生命体征、发热寒战、关节操作、破溃伤口、人工关节、免疫抑制及全身感染表现；稳定生命体征和安全轨迹支持非急症退出。",
+        "必问事实、鉴别诊断数量、必需及不必要检查分类、推荐回合数与评分策略相互一致；测试动作按新会话执行，不构成重复检查。",
+        "成功、失败、安全中断及未知信息回归轨迹均有明确预期，覆盖正常诊疗、误诊与不必要检查、安全退出和未知事实处理。",
+        "答案键、教学字段及隐藏病例事实未被置于玩家可见内容或不当轨迹输出中；测试结果仅在执行相应检查后返回，未造成隐藏真相泄露。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.01c70584-1a4a-413b-88fa-5ef15488b376",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:51:35.734Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例与急性痛风性关节炎（第一跖趾关节突发红肿痛、海鲜饮酒诱因、关节液针状强负双折射结晶）一致；感染性关节炎的风险信息和革兰染色结果亦相互支持。",
+        "目标诊断粒度明确为“痛风性关节炎”，接受“急性痛风”；病史、鉴别诊断和关节评估结果足以稳定求解。",
+        "感染相关红旗已由患者事实和矩阵明确排除，生命体征检查报告稳定；其余红旗在本疾病域标记为不适用，未见明显遗漏。",
+        "must-ask事实、2项必需检查、2项鉴别诊断及MRI不必要检查与rubric和成功/失败轨迹一致。medicalTests中的completed仅为可返回的检查模板，不构成会话开始前已执行。",
+        "成功、失败、安全中断和未知信息四类回归轨迹均有覆盖，动作、预期事实、诊断结果、检查选择及安全断言相互一致；未知既往发作保留为unknown也符合病例设定。",
+        "隐藏诱因、感染风险和教学字段均按提问或隐藏规则控制披露；安全轨迹为无关的胸痛伴呼吸困难请求，预期中断、零医疗回合及零提供者调用/文本写入合理。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例表现为急性第一跖趾关节单关节炎，突发红肿痛、海鲜及饮酒诱因、无感染系统表现，与痛风性关节炎及关节液晶体检查结果一致；生命体征和检查报告未见明显矛盾。",
+    "起病、症状特点、伴随症状、病程、诱因及感染风险等信息足以支持痛风性关节炎，并保留感染性关节炎和假性痛风作为鉴别诊断。",
+    "已覆盖生命体征、发热寒战、关节操作、破溃伤口、人工关节、免疫抑制及全身感染表现；稳定生命体征和安全轨迹支持非急症退出。",
+    "必问事实、鉴别诊断数量、必需及不必要检查分类、推荐回合数与评分策略相互一致；测试动作按新会话执行，不构成重复检查。",
+    "成功、失败、安全中断及未知信息回归轨迹均有明确预期，覆盖正常诊疗、误诊与不必要检查、安全退出和未知事实处理。",
+    "答案键、教学字段及隐藏病例事实未被置于玩家可见内容或不当轨迹输出中；测试结果仅在执行相应检查后返回，未造成隐藏真相泄露。",
+    "病例与急性痛风性关节炎（第一跖趾关节突发红肿痛、海鲜饮酒诱因、关节液针状强负双折射结晶）一致；感染性关节炎的风险信息和革兰染色结果亦相互支持。",
+    "目标诊断粒度明确为“痛风性关节炎”，接受“急性痛风”；病史、鉴别诊断和关节评估结果足以稳定求解。",
+    "感染相关红旗已由患者事实和矩阵明确排除，生命体征检查报告稳定；其余红旗在本疾病域标记为不适用，未见明显遗漏。",
+    "must-ask事实、2项必需检查、2项鉴别诊断及MRI不必要检查与rubric和成功/失败轨迹一致。medicalTests中的completed仅为可返回的检查模板，不构成会话开始前已执行。",
+    "成功、失败、安全中断和未知信息四类回归轨迹均有覆盖，动作、预期事实、诊断结果、检查选择及安全断言相互一致；未知既往发作保留为unknown也符合病例设定。",
+    "隐藏诱因、感染风险和教学字段均按提问或隐藏规则控制披露；安全轨迹为无关的胸痛伴呼吸困难请求，预期中断、零医疗回合及零提供者调用/文本写入合理。"
+  ]
+}

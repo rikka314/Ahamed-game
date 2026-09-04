@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:82ccb0e9832595ab554f46120ebceeb7128e7e37ef47c7f3e10589e80d5b1461",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4f45c157-00bc-46fd-b452-c23466fe3a66",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:58:49.227Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实前后一致：无明显症状、血脂复查异常、体重增加及运动减少，生命体征稳定；血脂异常与检查结果相符。胸部CT/冠脉CT虽存在名称粒度差异，但已明确为本例初始非必需检查，不构成临床安全阻碍。",
+        "诊断可解：针对性血脂检查直接支持“血脂异常（体检发现）”，并提供甲状腺功能减退和糖尿病作为可接受鉴别诊断。",
+        "红旗排除充分：病例矩阵中各项危险表现均明确为缺失；成功轨迹覆盖核心非急症红旗，安全轨迹对胸痛伴呼吸困难正确中断并禁止医疗调用、文本写入和继续诊疗。",
+        "评分规则与病例内容一致：必问事实、鉴别诊断数量、必需/不必要检查及推荐回合数均能由成功和失败轨迹执行验证。",
+        "回归覆盖完整：包含成功、错误检查/错误诊断、安全中断和未知事实询问四类轨迹，预期结果明确且可测试。",
+        "隐藏真相保护通过：教学字段保持hidden，未在患者可见叙事或回归输入中泄露服务端评分信息；review.pending等兼容元数据不影响事实审核。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0af7bb15-e0ac-448e-9c17-74693360ef87",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T16:59:06.713Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事、血脂检查结果与“血脂异常（体检发现）”的目标诊断一致；甲减和糖尿病作为继发性病因鉴别也合理。",
+        "目标诊断粒度明确，且“高脂血症”已被列为可接受同义词；现有检查足以支持诊断。",
+        "redFlagExclusionMatrix声明10项红旗均适用且均需排除，但mustAsk和success轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症缺乏标准路径中的询问覆盖。",
+        "rubric的红旗must-ask范围与矩阵的10项适用红旗不一致，导致病例评分要求和红旗排除政策边界不清。",
+        "unknown轨迹的问题同时询问既往同类发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，回归期望与事实提取不一致。",
+        "隐藏教学字段未暴露，安全轨迹设置为SAFETY_INTERRUPTED且无医疗回合，未见隐藏真值泄漏风险。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实前后一致：无明显症状、血脂复查异常、体重增加及运动减少，生命体征稳定；血脂异常与检查结果相符。胸部CT/冠脉CT虽存在名称粒度差异，但已明确为本例初始非必需检查，不构成临床安全阻碍。",
+    "诊断可解：针对性血脂检查直接支持“血脂异常（体检发现）”，并提供甲状腺功能减退和糖尿病作为可接受鉴别诊断。",
+    "红旗排除充分：病例矩阵中各项危险表现均明确为缺失；成功轨迹覆盖核心非急症红旗，安全轨迹对胸痛伴呼吸困难正确中断并禁止医疗调用、文本写入和继续诊疗。",
+    "评分规则与病例内容一致：必问事实、鉴别诊断数量、必需/不必要检查及推荐回合数均能由成功和失败轨迹执行验证。",
+    "回归覆盖完整：包含成功、错误检查/错误诊断、安全中断和未知事实询问四类轨迹，预期结果明确且可测试。",
+    "隐藏真相保护通过：教学字段保持hidden，未在患者可见叙事或回归输入中泄露服务端评分信息；review.pending等兼容元数据不影响事实审核。",
+    "临床叙事、血脂检查结果与“血脂异常（体检发现）”的目标诊断一致；甲减和糖尿病作为继发性病因鉴别也合理。",
+    "目标诊断粒度明确，且“高脂血症”已被列为可接受同义词；现有检查足以支持诊断。",
+    "redFlagExclusionMatrix声明10项红旗均适用且均需排除，但mustAsk和success轨迹仅覆盖confusion、hypotension、inability_oral_intake、high_risk_population四项，胸痛、晕厥、局灶性神经功能缺损、重度低血糖、酮症酸中毒和高血压急症缺乏标准路径中的询问覆盖。",
+    "rubric的红旗must-ask范围与矩阵的10项适用红旗不一致，导致病例评分要求和红旗排除政策边界不清。",
+    "unknown轨迹的问题同时询问既往同类发作和相关接触/诱因，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，回归期望与事实提取不一致。",
+    "隐藏教学字段未暴露，安全轨迹设置为SAFETY_INTERRUPTED且无医疗回合，未见隐藏真值泄漏风险。"
+  ]
+}

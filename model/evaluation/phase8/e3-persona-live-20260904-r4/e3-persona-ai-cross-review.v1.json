@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "e3-persona-ai-cross-review-v1",
+  "reviewPolicy": "non_blocking",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "e3-persona-consistency-review-v2",
+      "validationRunId": "run.persona_consistency_reviewer.c43de84b-5eb6-4e94-b016-d185b7c8d482",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "completed",
+      "decision": "approved",
+      "assessedItems": 6,
+      "personaConsistencyRate": 1,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [
+        "gentle_cooperative",
+        "anxious_reassurance_seeking",
+        "impatient_direct",
+        "talkative_digressive",
+        "accommodating_minimizing",
+        "guarded_questioning"
+      ],
+      "findings": []
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "e3-medical-fact-boundary-review-v2",
+      "validationRunId": "run.medical_fact_boundary_reviewer.316a7009-68f0-43c0-ba06-242236919595",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "completed",
+      "decision": "rejected",
+      "assessedItems": 84,
+      "personaConsistencyRate": 1,
+      "seriousFactErrors": 1,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "e3-run-02.turn-7: 在 social_chat 中补充了“这两天鼻子不舒服”及其影响上课注意力等医学相关信息，但本样本的 authorizedFacts 为空；身份、住校、课程、音乐和散步等生活信息均有授权。未泄漏诊断或检查结果。"
+      ]
+    }
+  ]
+}

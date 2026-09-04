@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/case-package-v2-rc1.schema.json",
+  "title": "Private CasePackage v2-rc1",
+  "description": "Server-only case package with patient identity, communication persona, medical truth, provenance, and non-blocking review separated.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evaluationVersion",
+    "packageStatus",
+    "internalCaseId",
+    "publicCaseId",
+    "caseVersion",
+    "locale",
+    "playerVisible",
+    "patientIdentity",
+    "patientPersona",
+    "patientFacts",
+    "medicalTests",
+    "answerKey",
+    "rubric",
+    "review",
+    "provenance",
+    "redFlagExclusionMatrix"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "case-package-v2-rc1" },
+    "evaluationVersion": { "const": "scoring-policy-v1" },
+    "packageStatus": { "enum": ["fixture", "draft", "published", "withdrawn"] },
+    "internalCaseId": { "$ref": "#/$defs/id" },
+    "publicCaseId": { "$ref": "#/$defs/id" },
+    "caseVersion": { "$ref": "#/$defs/caseVersion" },
+    "locale": { "$ref": "#/$defs/nonEmpty" },
+    "playerVisible": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chiefComplaint"],
+      "properties": {
+        "chiefComplaint": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "patientIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patientRoleId",
+        "patientDisplayName",
+        "educationOrOccupation",
+        "dailyLife",
+        "interests"
+      ],
+      "properties": {
+        "patientRoleId": { "$ref": "#/$defs/id" },
+        "patientDisplayName": { "$ref": "#/$defs/nonEmpty" },
+        "ageBand": { "$ref": "#/$defs/nonEmpty" },
+        "genderDisplay": { "$ref": "#/$defs/nonEmpty" },
+        "educationOrOccupation": { "$ref": "#/$defs/nonEmpty" },
+        "dailyLife": { "$ref": "#/$defs/nonEmpty" },
+        "interests": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "patientPersona": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "personaTemplateId",
+        "personaTemplateVersion",
+        "languageStyle",
+        "communicationTraits",
+        "modifiers"
+      ],
+      "properties": {
+        "personaTemplateId": {
+          "enum": [
+            "gentle_cooperative",
+            "anxious_reassurance_seeking",
+            "impatient_direct",
+            "talkative_digressive",
+            "accommodating_minimizing",
+            "guarded_questioning"
+          ]
+        },
+        "personaTemplateVersion": { "const": "patient-persona-templates-v2" },
+        "languageStyle": { "$ref": "#/$defs/nonEmpty" },
+        "communicationTraits": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        },
+        "modifiers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["healthLiteracy", "recallReliability", "emotionalIntensity"],
+          "properties": {
+            "healthLiteracy": { "enum": ["low", "typical", "high"] },
+            "recallReliability": { "enum": ["low", "typical", "high"] },
+            "emotionalIntensity": { "enum": ["low", "moderate", "high"] }
+          }
+        }
+      }
+    },
+    "patientFacts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "value", "disclosure", "questionMatchers"],
+        "properties": {
+          "status": { "enum": ["present", "absent", "unknown"] },
+          "value": { "$ref": "#/$defs/nonEmpty" },
+          "disclosure": { "enum": ["spontaneous", "if_asked", "test_only", "hidden"] },
+          "questionMatchers": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+        }
+      }
+    },
+    "medicalTests": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status"],
+        "properties": {
+          "status": { "enum": ["unavailable", "completed"] },
+          "displayName": { "$ref": "#/$defs/nonEmpty" },
+          "aliases": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } },
+          "report": { "$ref": "#/$defs/nonEmpty" },
+          "assetId": { "type": "string" },
+          "reasonCode": { "type": "string" }
+        }
+      }
+    },
+    "answerKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targetConceptId", "targetDiagnosis", "acceptedSynonyms", "diagnosisConcepts"],
+      "properties": {
+        "targetConceptId": { "$ref": "#/$defs/id" },
+        "targetDiagnosis": { "$ref": "#/$defs/nonEmpty" },
+        "acceptedSynonyms": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/nonEmpty" } },
+        "diagnosisConcepts": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["conceptId", "preferredTerm", "acceptedSynonyms"],
+            "properties": {
+              "conceptId": { "$ref": "#/$defs/id" },
+              "preferredTerm": { "$ref": "#/$defs/nonEmpty" },
+              "acceptedSynonyms": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" } }
+            }
+          }
+        }
+      }
+    },
+    "rubric": { "$ref": "rubric-v1.schema.json" },
+    "review": { "$ref": "review-record-v1.schema.json" },
+    "releaseReview": { "$ref": "ai-case-cross-review-v3.schema.json" },
+    "provenance": { "$ref": "provenance-record-v2.schema.json" },
+    "redFlagExclusionMatrix": { "$ref": "red-flag-exclusion-matrix-v1.schema.json" }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "caseVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "id": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$" }
+  }
+}

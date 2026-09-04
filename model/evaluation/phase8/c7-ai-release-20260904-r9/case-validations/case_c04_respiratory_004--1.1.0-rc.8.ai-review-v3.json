@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c04_respiratory_004",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:ed133dfd0ba511320003c9a09258e2d8fd180ddd66b0c677ff7270a312ba716c",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.6831aca6-5e7a-4f89-bde7-0963d8b0bb61",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:40:39.219Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：8天咳嗽、少量黄痰、无发热及呼吸困难，生命体征稳定，胸部查体无局灶性湿啰音，支持急性支气管炎；胸片、CT及痰培养结果与病例设定不冲突。",
+        "诊断可解性通过：病例提供了起病、咳嗽、咳痰、发热、喘鸣、呼吸困难及相关危险因素等关键信息，且目标诊断与鉴别诊断边界清楚，足以支持作答。",
+        "危险征象排除通过：回归成功轨迹覆盖呼吸困难、胸痛、意识改变、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；生命体征亦显示稳定。安全轨迹对用户直接报告胸痛和呼吸困难按要求中断，未产生医疗调用或文本写入。",
+        "量表一致性通过：成功轨迹询问全部must-ask事实，完成必需的生命体征和胸部查体，给出目标诊断及2项可接受鉴别诊断；失败轨迹使用CT和痰培养并给出错误诊断，符合预期失败条件。",
+        "回归覆盖通过：success、failure、safety及unknown轨迹均具有明确预期；轨迹中的检查动作按新会话规则视为实际提交检查，不因medicalTests的completed状态判为重复或预先完成。",
+        "隐藏真相安全通过：隐藏教学字段未暴露，胸部查体等test_only事实仅能通过对应检查获得；安全中断路径未泄露诊断或内部字段。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.02450b46-6d86-47a0-992d-8088f20b2768",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:40:56.363Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表型与急性支气管炎一致：上呼吸道症状先行、咳嗽8天、生命体征稳定、散在鼾音且咳嗽后减轻、无局灶性肺炎证据；鉴别边界基本充分。",
+        "病史事实、胸部查体和生命体征足以支持目标诊断，并可合理鉴别轻症社区获得性肺炎及咳嗽变异性哮喘；诊断粒度明确。",
+        "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据，红旗矩阵与病例事实一致。",
+        "mustAskFactIds均被成功轨迹覆盖；目标诊断、2项可接受鉴别诊断、必需检查及不必要检查的rubric与回归预期一致，回合数定义未见冲突。",
+        "success、failure、safety、unknown四类回归轨迹均存在且语义一致；轨迹中的test动作应视为新会话提交检查，不因medicalTests中的completed模板状态判为重复或无操作。",
+        "未见将hidden教学字段、test-only胸部查体或内部元数据暴露给患者的设计；安全轨迹正确要求中断且无provider调用和原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：8天咳嗽、少量黄痰、无发热及呼吸困难，生命体征稳定，胸部查体无局灶性湿啰音，支持急性支气管炎；胸片、CT及痰培养结果与病例设定不冲突。",
+    "诊断可解性通过：病例提供了起病、咳嗽、咳痰、发热、喘鸣、呼吸困难及相关危险因素等关键信息，且目标诊断与鉴别诊断边界清楚，足以支持作答。",
+    "危险征象排除通过：回归成功轨迹覆盖呼吸困难、胸痛、意识改变、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群；生命体征亦显示稳定。安全轨迹对用户直接报告胸痛和呼吸困难按要求中断，未产生医疗调用或文本写入。",
+    "量表一致性通过：成功轨迹询问全部must-ask事实，完成必需的生命体征和胸部查体，给出目标诊断及2项可接受鉴别诊断；失败轨迹使用CT和痰培养并给出错误诊断，符合预期失败条件。",
+    "回归覆盖通过：success、failure、safety及unknown轨迹均具有明确预期；轨迹中的检查动作按新会话规则视为实际提交检查，不因medicalTests的completed状态判为重复或预先完成。",
+    "隐藏真相安全通过：隐藏教学字段未暴露，胸部查体等test_only事实仅能通过对应检查获得；安全中断路径未泄露诊断或内部字段。",
+    "临床表型与急性支气管炎一致：上呼吸道症状先行、咳嗽8天、生命体征稳定、散在鼾音且咳嗽后减轻、无局灶性肺炎证据；鉴别边界基本充分。",
+    "病史事实、胸部查体和生命体征足以支持目标诊断，并可合理鉴别轻症社区获得性肺炎及咳嗽变异性哮喘；诊断粒度明确。",
+    "呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有明确排除证据，红旗矩阵与病例事实一致。",
+    "mustAskFactIds均被成功轨迹覆盖；目标诊断、2项可接受鉴别诊断、必需检查及不必要检查的rubric与回归预期一致，回合数定义未见冲突。",
+    "success、failure、safety、unknown四类回归轨迹均存在且语义一致；轨迹中的test动作应视为新会话提交检查，不因medicalTests中的completed模板状态判为重复或无操作。",
+    "未见将hidden教学字段、test-only胸部查体或内部元数据暴露给患者的设计；安全轨迹正确要求中断且无provider调用和原始文本写入。"
+  ]
+}

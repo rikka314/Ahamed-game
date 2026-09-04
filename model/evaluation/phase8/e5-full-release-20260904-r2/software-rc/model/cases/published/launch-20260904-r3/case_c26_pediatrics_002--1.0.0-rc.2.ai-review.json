@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c26_pediatrics_002",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:bb4e58952a0a80820d40b2bca038b136cd2de1f6af80f924e278d01f0d13bc2f",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1653e87f-2c8f-4d7b-ac4a-c2cc9eeb7a32",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:44:38.155Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：输入病例明确为8–12岁儿童且内部标识为pediatrics，不符合本审核角色限定的合成成人非急症病例范围。",
+        "诊断可解性：脐周间歇性腹痛、无夜间痛醒/便血/持续呕吐、生长稳定及腹部查体阴性，能够支持学龄儿童功能性腹痛；鉴别诊断也有明确目标。",
+        "危险征象排除：病例列出多项儿童红旗均为缺如且生命体征稳定，但“age outside launch scope”为缺如与儿童年龄及成人范围限制相冲突，不能视为安全排除。",
+        "量表一致性：must-ask事实、必需检查、非必要CT、鉴别诊断数量及推荐回合数与成功轨迹总体一致；pending元数据不构成阻塞。",
+        "回归覆盖：成功、错误测试/诊断、安全中断及未知事实轨迹均有覆盖，且安全轨迹要求零医疗回合、零提供者调用和零原文写入。",
+        "隐藏真相安全：教学字段保持hidden，回归轨迹未暴露隐藏教学内容或内部答案实现细节。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.2d00072e-062b-4fd5-8ea5-c466fe2ba761",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:44:52.975Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：病程、脐周间歇性疼痛、正常进食与生长、无夜间痛醒及持续呕吐等，整体支持学龄儿童功能性腹痛；生长评估和生命体征与病例设定相符。",
+        "诊断可解性通过：目标诊断粒度明确，病例事实足以支持“学龄儿童功能性腹痛”；便秘和乳糜泻作为两个可接受鉴别诊断，数量和概念均清晰。",
+        "红旗排除通过：红旗矩阵中的证据事实均存在且标记为 absent，未见与病例年龄、病情或急症阈值冲突的红旗设定。",
+        "rubric 一致性通过：must-ask 事实、两个鉴别诊断、required/unnecessary 检查分类及推荐回合限制，与答案键和回归成功轨迹基本一致。",
+        "回归覆盖不通过：c26.unknown 的输入同时询问“以前是否发生过同样情况”及“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；这会造成未知事实轨迹的事实覆盖断言不一致。其余 success、failure、safety 轨迹未发现同等级别的断言冲突。",
+        "隐藏真值与安全性通过：teaching_note 未进入可见问答或期望事实；safety 轨迹针对非本病例胸痛伴呼吸困难，要求中断、零医疗回合、零 provider 调用和零原始文本写入，设定自洽。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：输入病例明确为8–12岁儿童且内部标识为pediatrics，不符合本审核角色限定的合成成人非急症病例范围。",
+    "诊断可解性：脐周间歇性腹痛、无夜间痛醒/便血/持续呕吐、生长稳定及腹部查体阴性，能够支持学龄儿童功能性腹痛；鉴别诊断也有明确目标。",
+    "危险征象排除：病例列出多项儿童红旗均为缺如且生命体征稳定，但“age outside launch scope”为缺如与儿童年龄及成人范围限制相冲突，不能视为安全排除。",
+    "量表一致性：must-ask事实、必需检查、非必要CT、鉴别诊断数量及推荐回合数与成功轨迹总体一致；pending元数据不构成阻塞。",
+    "回归覆盖：成功、错误测试/诊断、安全中断及未知事实轨迹均有覆盖，且安全轨迹要求零医疗回合、零提供者调用和零原文写入。",
+    "隐藏真相安全：教学字段保持hidden，回归轨迹未暴露隐藏教学内容或内部答案实现细节。",
+    "临床一致性通过：病程、脐周间歇性疼痛、正常进食与生长、无夜间痛醒及持续呕吐等，整体支持学龄儿童功能性腹痛；生长评估和生命体征与病例设定相符。",
+    "诊断可解性通过：目标诊断粒度明确，病例事实足以支持“学龄儿童功能性腹痛”；便秘和乳糜泻作为两个可接受鉴别诊断，数量和概念均清晰。",
+    "红旗排除通过：红旗矩阵中的证据事实均存在且标记为 absent，未见与病例年龄、病情或急症阈值冲突的红旗设定。",
+    "rubric 一致性通过：must-ask 事实、两个鉴别诊断、required/unnecessary 检查分类及推荐回合限制，与答案键和回归成功轨迹基本一致。",
+    "回归覆盖不通过：c26.unknown 的输入同时询问“以前是否发生过同样情况”及“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，遗漏 fact.relevant_exposure；这会造成未知事实轨迹的事实覆盖断言不一致。其余 success、failure、safety 轨迹未发现同等级别的断言冲突。",
+    "隐藏真值与安全性通过：teaching_note 未进入可见问答或期望事实；safety 轨迹针对非本病例胸痛伴呼吸困难，要求中断、零医疗回合、零 provider 调用和零原始文本写入，设定自洽。"
+  ]
+}

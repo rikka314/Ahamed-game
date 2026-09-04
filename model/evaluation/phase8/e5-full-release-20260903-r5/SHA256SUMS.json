@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "e5-sha256sums-v1",
+  "generatedAt": "2026-09-03T11:21:35.317Z",
+  "files": [
+    {
+      "path": "e5-full-acceptance-report.v1.json",
+      "sha256": "e01d7e9667c2c0c049fa79d35ff811b3ea26d76cc2a40a4d8ce73229077d6d96",
+      "size": 12839
+    },
+    {
+      "path": "e5-runtime-release-manifest.v1.json",
+      "sha256": "d90f61aa220d4a1eb12573dbba14074d6ef9c455280f10ebd55ae6146f11ca3d",
+      "size": 100615
+    },
+    {
+      "path": "e5-software-rc-index.v1.json",
+      "sha256": "94b1a228a468229b9f384b77329b63fb18192c5799507ead878e6f6f50c9a6db",
+      "size": 4946
+    },
+    {
+      "path": "e5-software-rc.tar.gz",
+      "sha256": "82dfaa4bc42dc85153739e0d8299c412a825493d9710ef68a376c3fb384976a7",
+      "size": 1671841
+    }
+  ]
+}

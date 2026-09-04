@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c14_digestive_002",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:a3f5ada48cd5ad9655f4c1f0dcd6db76770186a17b5855a5149747befa228e15",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.7ea3a1a5-e4b4-43e4-bbc9-e2d92bb24d72",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:46:37.599Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁成人女性，症状模式、病程、检查结果与功能性消化不良相符；生命体征稳定，未见明显临床矛盾。",
+        "首发策略包含足够的病史要点、必要检查及正常结果，能够支持功能性消化不良，并要求胃食管反流病和消化性溃疡作为鉴别诊断，诊断可解。",
+        "红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降；均明确为已排除，且有生命体征检查支持安全退出。",
+        "量表中的必问事实、必需检查、不必要腹部CT、鉴别诊断数量及推荐回合数与成功轨迹一致。",
+        "回归轨迹覆盖成功、失败、不必要检查、安全中断及未知既往史场景；安全轨迹明确要求无医疗调用、无原始文本写入和零医疗回合。",
+        "隐藏教学字段及服务端评分信息未进入患者可见内容；答案键、评分摘要和回归预期未泄露隐藏真相。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.029b2230-a768-4da1-a0ae-37b18620c575",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:47:04.748Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与功能性消化不良相符：典型餐后上腹饱胀、早饱，病程足够，内镜及基础实验室未发现器质性病变；腹部CT虽属不必要检查，但结果不构成临床矛盾。",
+        "诊断粒度适当，目标诊断、可接受同义词及两项鉴别诊断均明确，现有信息足以支持功能性消化不良。",
+        "红旗排除矩阵遗漏“进行性吞咽困难”，尽管该事实在associated_pattern中被提及，但未作为独立红旗条目、must-ask事实或对应回归证据，导致矩阵并非完整覆盖本疾病域的重要警示征象。",
+        "rubric中的必问事实、鉴别诊断数量、测试分类与答案键基本一致；生命体征和消化不良基础评估设为必需，腹部CT设为不必要，内部逻辑一致。",
+        "success回归轨迹第二轮仅询问“妊娠”，但expectedFactIds声称可覆盖包含免疫抑制和重要失代偿基础病的完整high_risk_population事实；提问范围不足以稳定触发该事实，且success轨迹同样未独立覆盖进行性吞咽困难。",
+        "答案键、教学字段及评分策略未在playerVisible内容中泄露目标诊断；failure、safety、unknown四类轨迹的意图和期望结果总体清晰。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁成人女性，症状模式、病程、检查结果与功能性消化不良相符；生命体征稳定，未见明显临床矛盾。",
+    "首发策略包含足够的病史要点、必要检查及正常结果，能够支持功能性消化不良，并要求胃食管反流病和消化性溃疡作为鉴别诊断，诊断可解。",
+    "红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降；均明确为已排除，且有生命体征检查支持安全退出。",
+    "量表中的必问事实、必需检查、不必要腹部CT、鉴别诊断数量及推荐回合数与成功轨迹一致。",
+    "回归轨迹覆盖成功、失败、不必要检查、安全中断及未知既往史场景；安全轨迹明确要求无医疗调用、无原始文本写入和零医疗回合。",
+    "隐藏教学字段及服务端评分信息未进入患者可见内容；答案键、评分摘要和回归预期未泄露隐藏真相。",
+    "临床叙事与功能性消化不良相符：典型餐后上腹饱胀、早饱，病程足够，内镜及基础实验室未发现器质性病变；腹部CT虽属不必要检查，但结果不构成临床矛盾。",
+    "诊断粒度适当，目标诊断、可接受同义词及两项鉴别诊断均明确，现有信息足以支持功能性消化不良。",
+    "红旗排除矩阵遗漏“进行性吞咽困难”，尽管该事实在associated_pattern中被提及，但未作为独立红旗条目、must-ask事实或对应回归证据，导致矩阵并非完整覆盖本疾病域的重要警示征象。",
+    "rubric中的必问事实、鉴别诊断数量、测试分类与答案键基本一致；生命体征和消化不良基础评估设为必需，腹部CT设为不必要，内部逻辑一致。",
+    "success回归轨迹第二轮仅询问“妊娠”，但expectedFactIds声称可覆盖包含免疫抑制和重要失代偿基础病的完整high_risk_population事实；提问范围不足以稳定触发该事实，且success轨迹同样未独立覆盖进行性吞咽困难。",
+    "答案键、教学字段及评分策略未在playerVisible内容中泄露目标诊断；failure、safety、unknown四类轨迹的意图和期望结果总体清晰。"
+  ]
+}

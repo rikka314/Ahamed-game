@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "phase8-patient-sample-ai-validation-v1",
+  "candidateRunSetSha256": "16d9b367e26d19daa7400ff5725a06c1d16f2fc5586b1b201ef89d51c2922576",
+  "sampleSetSha256": "8f30edfda3a854e437465835fa18a2782ff4f0b93abdad372b87a4cff2dab189",
+  "sampleCount": 359,
+  "decision": "not_run",
+  "factOrSafetySeriousErrors": 0,
+  "naturalAndRoleConsistentRate": 0,
+  "validations": [
+    {
+      "validatorId": "validator.ai.patient-fact-safety.v1",
+      "role": "fact_safety_auditor",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "patient-fact-safety-auditor-v3",
+      "validationRunId": "run.fact_safety_auditor.5e336b6c-416e-46d3-82ce-3e71bb8b5c1c",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T08:00:05.218Z",
+      "runStatus": "failed_to_run",
+      "decision": "not_run",
+      "assessedSamples": 0,
+      "seriousErrors": 0,
+      "unauthorizedFactLeaks": 0,
+      "diagnosisLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "naturalAndRoleConsistent": 0,
+      "subcallCount": 0,
+      "providerRequestIds": [],
+      "usage": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "totalTokens": 0
+      },
+      "assessments": [],
+      "failureCode": "INSUFFICIENT_PATIENT_SAMPLES"
+    },
+    {
+      "validatorId": "validator.ai.patient-language-role.v1",
+      "role": "language_role_auditor",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "patient-language-role-auditor-v3",
+      "validationRunId": "run.language_role_auditor.ee410863-9a61-4876-a28e-90bd6bce52ba",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T08:00:05.218Z",
+      "runStatus": "failed_to_run",
+      "decision": "not_run",
+      "assessedSamples": 0,
+      "seriousErrors": 0,
+      "unauthorizedFactLeaks": 0,
+      "diagnosisLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "naturalAndRoleConsistent": 0,
+      "subcallCount": 0,
+      "providerRequestIds": [],
+      "usage": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "totalTokens": 0
+      },
+      "assessments": [],
+      "failureCode": "INSUFFICIENT_PATIENT_SAMPLES"
+    }
+  ]
+}

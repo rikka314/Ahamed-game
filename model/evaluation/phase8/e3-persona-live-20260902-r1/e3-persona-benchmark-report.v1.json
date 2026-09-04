@@ -1,0 +1,641 @@
+{
+  "schemaVersion": "e3-persona-benchmark-report-v1",
+  "generatedAt": "2026-09-02T15:59:32.736Z",
+  "reviewPolicy": "non_blocking",
+  "status": "reported",
+  "decision": "not_run",
+  "coverage": {
+    "ruleAssertions": 72,
+    "rulePersonas": 6,
+    "ruleScenarios": 12,
+    "realPersonas": 6,
+    "committedTurns": 0,
+    "minimumTurnsPerPersona": 0
+  },
+  "metrics": {
+    "patientGeneratedReplyRate": 0,
+    "personaConsistencyRate": 0,
+    "seriousFactErrors": 0,
+    "diagnosisLeaks": 0,
+    "uncompletedTestResultLeaks": 0,
+    "unknownAsAbsentErrors": 0
+  },
+  "audit": [
+    {
+      "validatorId": "validator.ai.e3-persona-consistency.v1",
+      "role": "persona_consistency_reviewer",
+      "promptVersion": "e3-persona-consistency-review-v1",
+      "validationRunId": "run.persona_consistency_reviewer.ef2417fc-58a4-4ab5-a044-512381f83ef5",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.e3-medical-fact-boundary.v1",
+      "role": "medical_fact_boundary_reviewer",
+      "promptVersion": "e3-medical-fact-boundary-review-v1",
+      "validationRunId": "run.medical_fact_boundary_reviewer.3e65e995-5ea7-41d6-a0c5-776e1b0807f9",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "assessedItems": 0,
+      "personaConsistencyRate": 0,
+      "seriousFactErrors": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "unknownAsAbsentErrors": 0,
+      "identifiedPersonaIds": [],
+      "findings": [
+        "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "code": "COMMITTED_TURNS_BELOW_TARGET",
+      "message": "E3 live evidence is below 12 committed turns per persona or 72 total turns",
+      "expected": "12 per persona and 72 total",
+      "actual": "0 per persona and 0 total"
+    },
+    {
+      "code": "PATIENT_GENERATED_REPLY_RATE_BELOW_TARGET",
+      "message": "not every committed turn has a real Patient Agent reply",
+      "expected": 1,
+      "actual": 0
+    },
+    {
+      "code": "PERSONA_CONSISTENCY_BELOW_TARGET",
+      "message": "AI-audited persona consistency is below 95%",
+      "expected": 0.95,
+      "actual": 0
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "gentle_cooperative"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "anxious_reassurance_seeking"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "impatient_direct"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "talkative_digressive"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "accommodating_minimizing"
+    },
+    {
+      "code": "PERSONA_NOT_IDENTIFIED",
+      "message": "independent persona reviewer did not identify the expected persona",
+      "scope": "guarded_questioning"
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "persona_consistency_reviewer"
+    },
+    {
+      "code": "AUDIT_NOT_COMPLETED",
+      "message": "an independent E3 audit role did not complete",
+      "scope": "medical_fact_boundary_reviewer"
+    },
+    {
+      "code": "PERSONA_RUN_FAILED",
+      "message": "one or more live persona runs did not complete"
+    }
+  ],
+  "runs": [
+    {
+      "runId": "e3-run-01",
+      "personaTemplateId": "gentle_cooperative",
+      "status": "failed",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:fe99374c15aa089237745bf4309cf037a59006c97d07cd14ddd872b3e48b16db",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "The model provider is unavailable. [OPENAI_TRANSIENT]"
+    },
+    {
+      "runId": "e3-run-02",
+      "personaTemplateId": "anxious_reassurance_seeking",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:bb88ac0c737615734179d8739e61c3e3ff4efd6322efddf52f086c08e9f98ac6",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+    },
+    {
+      "runId": "e3-run-03",
+      "personaTemplateId": "impatient_direct",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:e13dc9aab315d8e99dee22e5aa42fac388d949285c4d5f55dd8429a70f24d58a",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+    },
+    {
+      "runId": "e3-run-04",
+      "personaTemplateId": "talkative_digressive",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:23aa554c03431d6887780cc5bd8a0164926d6d53113d1a715e5f81c31c4c2d50",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+    },
+    {
+      "runId": "e3-run-05",
+      "personaTemplateId": "accommodating_minimizing",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:283b6d3d336601ed536ced958552ecbeb0670cd79a1fbf3c848e9b98307d2a30",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+    },
+    {
+      "runId": "e3-run-06",
+      "personaTemplateId": "guarded_questioning",
+      "status": "not_run",
+      "anchorPublicCaseId": "case_c01_respiratory_001",
+      "anchorCaseVersion": "1.1.0-e3.1",
+      "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+      "variantContentHash": "sha256:15ae8c1fd06e4a282ef4b89b3ec2da25d0168f31177b6a7b3ad4fbf35ede513f",
+      "committedTurns": 0,
+      "fullHistoryTurns": 0,
+      "patientGeneratedReplies": 0,
+      "patientProviderCalls": 0,
+      "controllerProviderCalls": 0,
+      "localFakeReplies": 0,
+      "diagnosisLeaks": 0,
+      "uncompletedTestResultLeaks": 0,
+      "scenarioMedicalReferences": [
+        {
+          "scenarioId": "greeting",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "chief_complaint",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "onset",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "multiple_questions",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "repeated_question",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "ambiguous_reference",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "consecutive_off_topic",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "reassurance_and_emotion",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "questioning_a_test",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "unknown_fact",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "explicit_test_order",
+          "factIds": [],
+          "testStates": []
+        },
+        {
+          "scenarioId": "diagnosis_discussion_without_submission",
+          "factIds": [],
+          "testStates": []
+        }
+      ],
+      "failureCode": "Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: Skipped after Provider infrastructure failure: The model provider is unavailable. [OPENAI_TRANSIENT]"
+    }
+  ],
+  "evidenceStatus": "live_provider_observation",
+  "provider": {
+    "providerName": "openai-compatible.db5993310fdf5dd3",
+    "protocol": "openai-responses",
+    "endpointSha256": "db5993310fdf5dd384fc5aa8737f90e82889b073bd296269cf142d8a22a2f1cd",
+    "configuredModelId": "gpt-5.6-sol",
+    "actualModelIds": [],
+    "promptVersion": "v0.5.0+set.0aac708b202d7b18"
+  },
+  "bindings": {
+    "anchorCasePath": "cases/draft/c01-common-cold-v1.json",
+    "anchorCaseSha256": "5daa0ff35a04ea58cfb1cddfab848c47bd729bbdc847eff8b7453a56b416f1d1",
+    "medicalContentDigest": "sha256:491255755ec1007d3f8fa74fab7947e2757372687be704ca215df398ee4c8116",
+    "variantContentHashes": [
+      "sha256:fe99374c15aa089237745bf4309cf037a59006c97d07cd14ddd872b3e48b16db",
+      "sha256:bb88ac0c737615734179d8739e61c3e3ff4efd6322efddf52f086c08e9f98ac6",
+      "sha256:e13dc9aab315d8e99dee22e5aa42fac388d949285c4d5f55dd8429a70f24d58a",
+      "sha256:23aa554c03431d6887780cc5bd8a0164926d6d53113d1a715e5f81c31c4c2d50",
+      "sha256:283b6d3d336601ed536ced958552ecbeb0670cd79a1fbf3c848e9b98307d2a30",
+      "sha256:15ae8c1fd06e4a282ef4b89b3ec2da25d0168f31177b6a7b3ad4fbf35ede513f"
+    ],
+    "ruleCorpusSha256": "b27b4792722b6f79ef95c6b10c10742e5c1057835564b82e59619f512068c098",
+    "patientPromptSha256": "a5ebfe47ed2f5a2656f033ee85b66c77634a6ede7c01cf24660504e6c44f9233",
+    "sampleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "auditSha256": "29fad4305bed62803a8544757aa7ee085cbff9345087f86fe70ea6f3dcf3a189"
+  }
+}

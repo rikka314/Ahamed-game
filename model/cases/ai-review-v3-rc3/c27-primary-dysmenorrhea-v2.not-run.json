@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:c63a28bf6d6a836d089ded65d322c4129c440ea42edcba4b79f6f0b9c172dcde",
+  "decision": "not_run",
+  "validations": [
+    {
+      "validatorId": "validator.pending.1",
+      "role": "clinical_safety",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c27_gynecology_001.1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    },
+    {
+      "validatorId": "validator.pending.2",
+      "role": "diagnostic_quality",
+      "modelId": "not-configured",
+      "promptVersion": "ai-case-review-v3",
+      "validationRunId": "review.not-run.case_c27_gynecology_001.2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "runStatus": "skipped",
+      "decision": "not_run",
+      "validatedAt": "2026-09-03T00:00:00.000Z",
+      "findings": [
+        "真实独立 AI 审核尚未运行；该记录不得解释为质量批准。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例结构已生成，但两项真实 AI 交叉审核尚未运行。"
+  ]
+}

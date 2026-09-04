@@ -1,0 +1,31 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G04",
+  "componentVariant": "01",
+  "componentName": "室外地面变体",
+  "taskCardStatus": "LISTED_REQUIRED",
+  "revision": 8,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel variation derived from an AI-assisted DRAFT component; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g04-exterior-ground-variant-01-v7.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native revision rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Revise only G04 exterior ground variant 1 of 2. Remove the visible diagonal rhythm from both the moss texture and the review layout. Use eleven compact disconnected moss fragments at unrelated brick positions, then break every continuous diagonal moss run of three pixels or more. Preserve the accepted pale stone-brick geometry, all outer border pixels, 32x32 hard edges and seamless tiling. In the mixed 5x5 review, use uneven rows containing zero, one or two variant tiles rather than a regular diagonal placement.",
+  "humanEdits": [
+    "Replaced the tile-spanning moss direction with compact disconnected fragments.",
+    "Removed eleven pixels that participated in continuous diagonal runs of three pixels or more.",
+    "Kept moss patches unequal in size and separated by visible stone.",
+    "Preserved every outer border pixel for seamless sparse mixing with G03.",
+    "Used an uneven five-by-five review placement with variable counts per row."
+  ],
+  "status": "DRAFT"
+}

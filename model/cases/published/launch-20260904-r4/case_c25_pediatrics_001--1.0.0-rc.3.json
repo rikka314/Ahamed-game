@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "case-package-v2-rc1",
+  "evaluationVersion": "scoring-policy-v1",
+  "packageStatus": "published",
+  "internalCaseId": "internal_c25_pediatrics_001",
+  "publicCaseId": "case_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.3",
+  "locale": "zh-CN",
+  "playerVisible": {
+    "chiefComplaint": "耳痛伴听声音发闷两天"
+  },
+  "patientIdentity": {
+    "patientRoleId": "patient-role.public-c25",
+    "patientDisplayName": "患者25号",
+    "ageBand": "8–12岁",
+    "genderDisplay": "男",
+    "educationOrOccupation": "小学高年级学生",
+    "dailyLife": "日常生活规律，本次就诊信息为纯合成内容。",
+    "interests": [
+      "散步",
+      "听音乐"
+    ]
+  },
+  "patientPersona": {
+    "personaTemplateId": "anxious_reassurance_seeking",
+    "personaTemplateVersion": "patient-persona-templates-v2",
+    "languageStyle": "colloquial_zh",
+    "communicationTraits": [
+      "会表达担忧",
+      "希望获得解释与安抚"
+    ],
+    "modifiers": {
+      "healthLiteracy": "typical",
+      "recallReliability": "typical",
+      "emotionalIntensity": "high"
+    }
+  },
+  "patientFacts": {
+    "fact.chief_complaint": {
+      "status": "present",
+      "value": "耳痛伴听声音发闷两天",
+      "disclosure": "spontaneous",
+      "questionMatchers": [
+        "哪里不舒服",
+        "主要问题",
+        "怎么了"
+      ]
+    },
+    "fact.onset": {
+      "status": "present",
+      "value": "两天前感冒后开始",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "什么时候",
+        "多久",
+        "起病"
+      ]
+    },
+    "fact.primary_pattern": {
+      "status": "present",
+      "value": "右耳疼，听声音有些发闷",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "具体症状",
+        "有什么特点",
+        "什么时候明显"
+      ]
+    },
+    "fact.associated_pattern": {
+      "status": "present",
+      "value": "无耳后肿胀、嗜睡或呼吸困难",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "还伴有什么",
+        "其他症状",
+        "严重吗"
+      ]
+    },
+    "fact.progression": {
+      "status": "present",
+      "value": "总体变化缓慢，目前仍能完成基本日常活动。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "加重",
+        "变化",
+        "影响生活"
+      ]
+    },
+    "fact.prior_episode": {
+      "status": "unknown",
+      "value": "以前是否有过完全相同的情况记不清了。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "以前有过",
+        "复发",
+        "既往发作"
+      ]
+    },
+    "fact.medication_allergy": {
+      "status": "absent",
+      "value": "没有已知药物过敏。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "药物过敏",
+        "过敏史"
+      ]
+    },
+    "fact.relevant_exposure": {
+      "status": "unknown",
+      "value": "没有留意是否存在明确相关接触或诱因。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "接触",
+        "诱因",
+        "暴露"
+      ]
+    },
+    "fact.vital_signs": {
+      "status": "present",
+      "value": "生命体征只通过对应检查读取。",
+      "disclosure": "test_only",
+      "questionMatchers": []
+    },
+    "fact.teaching_note": {
+      "status": "present",
+      "value": "服务端教学与评分字段。",
+      "disclosure": "hidden",
+      "questionMatchers": []
+    },
+    "fact.confusion": {
+      "status": "absent",
+      "value": "未出现confusion相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.hypotension": {
+      "status": "absent",
+      "value": "未出现hypotension相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.inability_oral_intake": {
+      "status": "absent",
+      "value": "未出现inability oral intake相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.high_risk_population": {
+      "status": "absent",
+      "value": "未出现high risk population相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.age_outside_launch_scope": {
+      "status": "absent",
+      "value": "未出现age outside launch scope相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.pediatric_lethargy": {
+      "status": "absent",
+      "value": "未出现pediatric lethargy相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.pediatric_respiratory_distress": {
+      "status": "absent",
+      "value": "未出现pediatric respiratory distress相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.pediatric_dehydration": {
+      "status": "absent",
+      "value": "未出现pediatric dehydration相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    },
+    "fact.mastoid_swelling": {
+      "status": "absent",
+      "value": "未出现mastoid swelling相关危险表现。",
+      "disclosure": "if_asked",
+      "questionMatchers": [
+        "危险症状",
+        "严重表现",
+        "红旗"
+      ]
+    }
+  },
+  "medicalTests": {
+    "test.vital_signs": {
+      "status": "completed",
+      "displayName": "生命体征",
+      "aliases": [
+        "测生命体征",
+        "测体温",
+        "量血压",
+        "血氧"
+      ],
+      "report": "生命体征稳定，未达到本疾病域急症阈值。"
+    },
+    "test.otoscopy": {
+      "status": "completed",
+      "displayName": "耳镜检查",
+      "aliases": [
+        "耳镜检查",
+        "做耳镜检查",
+        "test.otoscopy"
+      ],
+      "report": "耳镜见鼓膜充血膨隆、活动度降低。"
+    },
+    "test.temporal_bone_ct": {
+      "status": "completed",
+      "displayName": "颞骨CT",
+      "aliases": [
+        "颞骨CT",
+        "做颞骨CT",
+        "test.temporal_bone_ct"
+      ],
+      "report": "颞骨CT不是无并发症病例的初始必需检查。"
+    }
+  },
+  "answerKey": {
+    "targetConceptId": "concept.acute_otitis_media",
+    "targetDiagnosis": "学龄儿童急性中耳炎",
+    "acceptedSynonyms": [
+      "急性中耳炎"
+    ],
+    "diagnosisConcepts": [
+      {
+        "conceptId": "concept.acute_otitis_media",
+        "preferredTerm": "学龄儿童急性中耳炎",
+        "acceptedSynonyms": [
+          "急性中耳炎"
+        ]
+      },
+      {
+        "conceptId": "concept.otitis_externa",
+        "preferredTerm": "外耳道炎",
+        "acceptedSynonyms": []
+      },
+      {
+        "conceptId": "concept.eustachian_tube_dysfunction",
+        "preferredTerm": "咽鼓管功能障碍",
+        "acceptedSynonyms": []
+      }
+    ]
+  },
+  "rubric": {
+    "mustAskFactIds": [
+      "fact.onset",
+      "fact.primary_pattern",
+      "fact.associated_pattern",
+      "fact.progression",
+      "fact.confusion",
+      "fact.hypotension",
+      "fact.inability_oral_intake",
+      "fact.high_risk_population",
+      "fact.age_outside_launch_scope",
+      "fact.pediatric_lethargy",
+      "fact.pediatric_respiratory_distress",
+      "fact.pediatric_dehydration",
+      "fact.mastoid_swelling"
+    ],
+    "acceptableDifferentialConceptIds": [
+      "concept.otitis_externa",
+      "concept.eustachian_tube_dysfunction"
+    ],
+    "requiredDifferentialCount": 2,
+    "testClassifications": {
+      "test.vital_signs": "required",
+      "test.otoscopy": "required",
+      "test.temporal_bone_ct": "unnecessary"
+    },
+    "recommendedTurnLimit": 10,
+    "communicationRubricVersion": "communication-rubric-v1",
+    "communicationCriterionIds": [
+      "communication.respectful_clear",
+      "communication.summary_transition"
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "author": "launch-case-authoring-v1",
+    "notes": "纯合成B5病例；AI 双审核尚未运行。"
+  },
+  "provenance": {
+    "schemaVersion": "provenance-record-v2",
+    "createdAt": "2026-09-03T00:00:00.000Z",
+    "contentHash": "sha256:107f6927a1390f9d0190eff6597bb92a8b2694a1b4da0002ac5ccbd959d5c5a0",
+    "sources": [
+      {
+        "sourceId": "source.who.icd11",
+        "sourceRole": "terminology",
+        "title": "ICD-11",
+        "authorsOrOrganization": "World Health Organization",
+        "url": "https://icd.who.int/en/",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "answerKey.targetDiagnosis",
+          "answerKey.diagnosisConcepts"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      },
+      {
+        "sourceId": "source.nice.pediatrics",
+        "sourceRole": "clinical_fact",
+        "title": "NICE guidance and quality standards index",
+        "authorsOrOrganization": "National Institute for Health and Care Excellence",
+        "url": "https://www.nice.org.uk/guidance",
+        "versionOrPublicationDate": "retrieved-2026-09-03",
+        "license": "official reference; terms require per-use review",
+        "attributionRequirements": "保留来源名称和链接，不复制原文。",
+        "adaptationAllowed": null,
+        "commercialUseAllowed": null,
+        "retrievedAt": "2026-09-03T00:00:00.000Z",
+        "projectUsage": "仅用于术语、门诊边界和红旗事实核对；病例叙事为项目原创合成。",
+        "includesVerbatimExcerpt": false,
+        "verifiedCaseFields": [
+          "patientFacts",
+          "medicalTests",
+          "redFlagExclusionMatrix"
+        ],
+        "licenseAssessment": "not_run",
+        "riskNotes": [
+          "正式发布前仍需完成独立来源与许可审核。"
+        ]
+      }
+    ]
+  },
+  "redFlagExclusionMatrix": {
+    "matrixVersion": "red-flag-exclusion-matrix-v1",
+    "caseId": "internal_c25_pediatrics_001",
+    "caseVersion": "1.0.0-rc.3",
+    "policyVersion": "red-flag-policy-manifest-v2",
+    "entries": [
+      {
+        "redFlagId": "redflag.confusion",
+        "canonicalName": "confusion",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.confusion"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.hypotension",
+        "canonicalName": "hypotension",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.hypotension"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.inability_oral_intake",
+        "canonicalName": "inability oral intake",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.inability_oral_intake"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.high_risk_population",
+        "canonicalName": "high risk population",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.high_risk_population"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.age_outside_launch_scope",
+        "canonicalName": "age outside launch scope",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.age_outside_launch_scope"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.pediatric_lethargy",
+        "canonicalName": "pediatric lethargy",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.pediatric_lethargy"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.pediatric_respiratory_distress",
+        "canonicalName": "pediatric respiratory distress",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.pediatric_respiratory_distress"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.pediatric_dehydration",
+        "canonicalName": "pediatric dehydration",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.pediatric_dehydration"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      },
+      {
+        "redFlagId": "redflag.mastoid_swelling",
+        "canonicalName": "mastoid swelling",
+        "applicable": true,
+        "requiredState": "absent",
+        "evidenceFactIds": [
+          "fact.mastoid_swelling"
+        ],
+        "evidenceType": "patient_fact",
+        "observedValue": "absent",
+        "criterionSourceId": "source.policy.pediatrics",
+        "criterionSourceVersion": "red-flag-policy-manifest-v2",
+        "reviewDecision": "pending"
+      }
+    ],
+    "review": {
+      "status": "pending"
+    }
+  },
+  "releaseReview": {
+    "schemaVersion": "ai-case-cross-review-v3",
+    "caseId": "internal_c25_pediatrics_001",
+    "caseVersion": "1.0.0-rc.3",
+    "contentHash": "sha256:107f6927a1390f9d0190eff6597bb92a8b2694a1b4da0002ac5ccbd959d5c5a0",
+    "decision": "approved",
+    "validations": [
+      {
+        "validatorId": "validator.ai.clinical-safety.v2",
+        "role": "clinical_safety",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "clinical-safety-case-validation-v2",
+        "validationRunId": "run.clinical_safety.ca03dd73-cc07-4ba2-a99a-1eaed101c03e",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:10:47.815Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床事实一致：8–12岁儿童感冒后出现耳痛、听力发闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；生命体征稳定，颞骨CT列为无并发症病例初始不必要检查合理。",
+          "诊断可解性充分：主诉、起病、症状模式及耳镜结果支持目标诊断，并提供外耳道炎和咽鼓管功能障碍作为可区分的鉴别诊断。",
+          "红旗排除完整：意识改变、低血压、无法口服、高风险人群、年龄范围外、儿科嗜睡、呼吸窘迫、脱水及乳突肿胀均明确为不存在；儿科适用性已按病例年龄带处理。",
+          "评分规则与病例内容一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制均有对应定义，未见互相矛盾的要求。",
+          "回归覆盖充分：包含成功、错误诊断及不必要检查、安全中断、未知既往史处理等轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+          "隐藏真相保护通过：教学字段和内部元数据标记为隐藏；回归输入未要求向患者暴露答案键、评分策略或内部病例标识。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成阻塞。"
+        ]
+      },
+      {
+        "validatorId": "validator.ai.diagnostic-quality.v2",
+        "role": "diagnostic_quality",
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "diagnostic-quality-case-validation-v2",
+        "validationRunId": "run.diagnostic_quality.ea63cdd0-7362-4c7e-906f-ba00236a9e52",
+        "isolation": {
+          "independentInvocation": true,
+          "counterpartOutputVisible": false
+        },
+        "validatedAt": "2026-09-04T03:11:01.896Z",
+        "runStatus": "completed",
+        "decision": "approved",
+        "checks": {
+          "clinicalConsistency": "pass",
+          "diagnosisSolvability": "pass",
+          "redFlagExclusions": "pass",
+          "rubricConsistency": "pass",
+          "regressionCoverage": "pass",
+          "hiddenTruthSafety": "pass"
+        },
+        "findings": [
+          "临床表现与耳镜所见（感冒后耳痛、听力发闷、鼓膜充血膨隆及活动度降低）一致支持学龄儿童急性中耳炎；颞骨CT列为无并发症病例的非初始必需检查，前后一致。",
+          "目标诊断粒度明确，耳镜检查后可解；外耳道炎和咽鼓管功能障碍作为两个鉴别诊断适当，且与评分词表一致。",
+          "红旗事实均明确标记为缺如，并在病例事实、必问清单及排除矩阵之间具有对应关系；生命体征通过检查读取的设定也与轨迹一致。",
+          "must-ask事实、两个鉴别诊断、检查分类和推荐回合数与rubric及冻结评分策略一致；成功轨迹覆盖必需问诊、必需检查和精确诊断。",
+          "supportingArtifacts包含success、failure、safety、unknown四类回归轨迹；成功、错误检查、跨域安全中断及未知既往史场景均有预期结果，未见明显覆盖缺口。",
+          "未发现将教学字段、内部评分信息或回归判定泄露到playerVisible内容的情况；review.status及各reviewDecision为兼容元数据，不构成阻塞。"
+        ]
+      }
+    ],
+    "findings": [
+      "临床事实一致：8–12岁儿童感冒后出现耳痛、听力发闷，耳镜示鼓膜充血膨隆且活动度降低，与学龄儿童急性中耳炎相符；生命体征稳定，颞骨CT列为无并发症病例初始不必要检查合理。",
+      "诊断可解性充分：主诉、起病、症状模式及耳镜结果支持目标诊断，并提供外耳道炎和咽鼓管功能障碍作为可区分的鉴别诊断。",
+      "红旗排除完整：意识改变、低血压、无法口服、高风险人群、年龄范围外、儿科嗜睡、呼吸窘迫、脱水及乳突肿胀均明确为不存在；儿科适用性已按病例年龄带处理。",
+      "评分规则与病例内容一致：必问事实、必需检查、不必要检查、鉴别诊断数量及推荐回合限制均有对应定义，未见互相矛盾的要求。",
+      "回归覆盖充分：包含成功、错误诊断及不必要检查、安全中断、未知既往史处理等轨迹；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供者调用和零原始文本写入。",
+      "隐藏真相保护通过：教学字段和内部元数据标记为隐藏；回归输入未要求向患者暴露答案键、评分策略或内部病例标识。review.status、reviewDecision=pending及draft状态属于兼容元数据，不构成阻塞。",
+      "临床表现与耳镜所见（感冒后耳痛、听力发闷、鼓膜充血膨隆及活动度降低）一致支持学龄儿童急性中耳炎；颞骨CT列为无并发症病例的非初始必需检查，前后一致。",
+      "目标诊断粒度明确，耳镜检查后可解；外耳道炎和咽鼓管功能障碍作为两个鉴别诊断适当，且与评分词表一致。",
+      "红旗事实均明确标记为缺如，并在病例事实、必问清单及排除矩阵之间具有对应关系；生命体征通过检查读取的设定也与轨迹一致。",
+      "must-ask事实、两个鉴别诊断、检查分类和推荐回合数与rubric及冻结评分策略一致；成功轨迹覆盖必需问诊、必需检查和精确诊断。",
+      "supportingArtifacts包含success、failure、safety、unknown四类回归轨迹；成功、错误检查、跨域安全中断及未知既往史场景均有预期结果，未见明显覆盖缺口。",
+      "未发现将教学字段、内部评分信息或回归判定泄露到playerVisible内容的情况；review.status及各reviewDecision为兼容元数据，不构成阻塞。"
+    ]
+  }
+}

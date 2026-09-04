@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c15_digestive_003",
+  "caseVersion": "1.0.0-rc.5",
+  "contentHash": "sha256:2106c01f078a4ec150714a77d92271551792456725e14eda36ebf4d95b86bebf",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.58a582de-8579-4c4b-9e55-84ff403d1097",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:47:42.920Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为26–35岁男性的非急性消化系统门诊场景；腹痛与排便相关、排便习惯反复改变，病程半年，且无便血、夜间痛醒、体重下降等警示特征，结合稳定生命体征及基础筛查正常，肠易激综合征作为目标诊断具有临床一致性。",
+        "首发问诊轨迹覆盖起病、主要症状、伴随症状、进展及全部列出的急症/高风险排除项，配合必要检查后可明确达到目标诊断，诊断可解性充分。",
+        "红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降；生命体征稳定，安全退出条件充分。",
+        "必问事实、鉴别诊断数量、检查分类及推荐回合数与成功轨迹一致；腹部CT被正确标记为不必要检查，失败轨迹也能覆盖该回归要求。",
+        "成功、失败、安全中断和未知事实轨迹均有明确预期结果；安全轨迹要求SAFETY_INTERRUPTED、零医疗回合、零服务端调用及零原始文本写入，回归覆盖完整。",
+        "教学字段、答案键及服务端评分信息标记为隐藏或服务端字段，患者可见内容未泄露隐藏真相；review状态和矩阵中的pending仅属兼容元数据，不构成阻塞。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.626d5cc6-4ea1-4942-8687-48a903d205c6",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:47:59.334Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与肠易激综合征一致：慢性腹痛与排便相关、排便频率和性状反复变化，且无出血、夜间痛醒、体重下降及其他急症表现；基础筛查正常，腹部CT被正确标为不必要检查。",
+        "目标诊断粒度明确且可判定，肠易激综合征与IBS同义词映射一致；现有症状和检查足以支持教学场景下的诊断，鉴别诊断为炎症性肠病和功能性便秘，数量及概念均符合要求。",
+        "红旗排除矩阵中的9项均有对应患者事实，requiredState与observedValue一致，且均纳入mustAsk；未发现矩阵、病例事实或回归轨迹之间的冲突。",
+        "mustAsk覆盖13项事实；成功轨迹分4次询问完整覆盖病史和红旗，生命体征及基础消化系统筛查分类为required，腹部CT分类为unnecessary，差异诊断数量和推荐回合约束一致。",
+        "四类回归轨迹均具备可验证的期望结果：成功、错误诊断加不必要检查、安全中断及unknown事实均有明确步骤和断言；成功轨迹的4次医疗询问与expected一致。",
+        "answerKey、teaching_note及评分字段保持服务端隐藏语义；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用和零原始文本写入，未见隐藏真值泄露或安全回归资产矛盾。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为26–35岁男性的非急性消化系统门诊场景；腹痛与排便相关、排便习惯反复改变，病程半年，且无便血、夜间痛醒、体重下降等警示特征，结合稳定生命体征及基础筛查正常，肠易激综合征作为目标诊断具有临床一致性。",
+    "首发问诊轨迹覆盖起病、主要症状、伴随症状、进展及全部列出的急症/高风险排除项，配合必要检查后可明确达到目标诊断，诊断可解性充分。",
+    "红旗矩阵覆盖意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降；生命体征稳定，安全退出条件充分。",
+    "必问事实、鉴别诊断数量、检查分类及推荐回合数与成功轨迹一致；腹部CT被正确标记为不必要检查，失败轨迹也能覆盖该回归要求。",
+    "成功、失败、安全中断和未知事实轨迹均有明确预期结果；安全轨迹要求SAFETY_INTERRUPTED、零医疗回合、零服务端调用及零原始文本写入，回归覆盖完整。",
+    "教学字段、答案键及服务端评分信息标记为隐藏或服务端字段，患者可见内容未泄露隐藏真相；review状态和矩阵中的pending仅属兼容元数据，不构成阻塞。",
+    "临床叙事与肠易激综合征一致：慢性腹痛与排便相关、排便频率和性状反复变化，且无出血、夜间痛醒、体重下降及其他急症表现；基础筛查正常，腹部CT被正确标为不必要检查。",
+    "目标诊断粒度明确且可判定，肠易激综合征与IBS同义词映射一致；现有症状和检查足以支持教学场景下的诊断，鉴别诊断为炎症性肠病和功能性便秘，数量及概念均符合要求。",
+    "红旗排除矩阵中的9项均有对应患者事实，requiredState与observedValue一致，且均纳入mustAsk；未发现矩阵、病例事实或回归轨迹之间的冲突。",
+    "mustAsk覆盖13项事实；成功轨迹分4次询问完整覆盖病史和红旗，生命体征及基础消化系统筛查分类为required，腹部CT分类为unnecessary，差异诊断数量和推荐回合约束一致。",
+    "四类回归轨迹均具备可验证的期望结果：成功、错误诊断加不必要检查、安全中断及unknown事实均有明确步骤和断言；成功轨迹的4次医疗询问与expected一致。",
+    "answerKey、teaching_note及评分字段保持服务端隐藏语义；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用和零原始文本写入，未见隐藏真值泄露或安全回归资产矛盾。"
+  ]
+}

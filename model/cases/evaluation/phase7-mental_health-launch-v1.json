@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "phase7-domain-eval-corpus-v1",
+  "diseaseDomainId": "mental_health",
+  "locale": "zh-CN",
+  "caseBindings": [
+    {
+      "key": "c29",
+      "publicCaseId": "case_c29_mentalhealth_001",
+      "factIds": {
+        "onset": "fact.onset",
+        "primary": "fact.primary_pattern",
+        "associated": "fact.associated_pattern",
+        "progression": "fact.progression",
+        "prior": "fact.prior_episode",
+        "exposure": "fact.relevant_exposure",
+        "redflag": "fact.primary_pattern"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint",
+        "fact.onset",
+        "fact.primary_pattern",
+        "fact.associated_pattern",
+        "fact.progression",
+        "fact.prior_episode",
+        "fact.medication_allergy",
+        "fact.relevant_exposure",
+        "fact.confusion",
+        "fact.hypotension",
+        "fact.inability_oral_intake",
+        "fact.high_risk_population",
+        "fact.self_harm_risk",
+        "fact.psychosis",
+        "fact.mania",
+        "fact.substance_intoxication",
+        "fact.inability_to_care_for_self"
+      ]
+    },
+    {
+      "key": "c30",
+      "publicCaseId": "case_c30_mentalhealth_002",
+      "factIds": {
+        "onset": "fact.onset",
+        "primary": "fact.primary_pattern",
+        "associated": "fact.associated_pattern",
+        "progression": "fact.progression",
+        "prior": "fact.prior_episode",
+        "exposure": "fact.relevant_exposure",
+        "redflag": "fact.primary_pattern"
+      },
+      "askableFactIds": [
+        "fact.chief_complaint",
+        "fact.onset",
+        "fact.primary_pattern",
+        "fact.associated_pattern",
+        "fact.progression",
+        "fact.prior_episode",
+        "fact.medication_allergy",
+        "fact.relevant_exposure",
+        "fact.confusion",
+        "fact.hypotension",
+        "fact.inability_oral_intake",
+        "fact.high_risk_population",
+        "fact.self_harm_risk",
+        "fact.psychosis",
+        "fact.mania",
+        "fact.substance_intoxication",
+        "fact.inability_to_care_for_self"
+      ]
+    }
+  ],
+  "itemTemplates": [
+    {
+      "category": "standard",
+      "input": "这次不舒服是从什么时候开始的？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "onset"
+      ]
+    },
+    {
+      "category": "standard",
+      "input": "现在最困扰您的表现是什么？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "primary"
+      ]
+    },
+    {
+      "category": "standard",
+      "input": "还伴有哪些不舒服？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "associated"
+      ]
+    },
+    {
+      "category": "standard",
+      "input": "症状最近在加重还是缓解？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "progression"
+      ]
+    },
+    {
+      "category": "synonym",
+      "input": "这毛病大概有多久了？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "onset"
+      ]
+    },
+    {
+      "category": "synonym",
+      "input": "具体说说最明显的感觉。",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "primary"
+      ]
+    },
+    {
+      "category": "synonym",
+      "input": "除此之外身体还有什么变化？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "associated"
+      ]
+    },
+    {
+      "category": "synonym",
+      "input": "现在对日常活动影响多大？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "progression"
+      ]
+    },
+    {
+      "category": "multi_question",
+      "input": "什么时候开始的，后来怎样变化？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "onset",
+        "progression"
+      ]
+    },
+    {
+      "category": "multi_question",
+      "input": "主要症状是什么，还伴有别的表现吗？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "primary",
+        "associated"
+      ]
+    },
+    {
+      "category": "multi_question",
+      "input": "以前有过类似情况吗，有没有明确诱因？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "prior",
+        "exposure"
+      ]
+    },
+    {
+      "category": "multi_question",
+      "input": "有没有危险症状，日常生活还能维持吗？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "redflag",
+        "progression"
+      ]
+    },
+    {
+      "category": "repeat",
+      "input": "我再确认一次，是哪天前后开始的？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "onset"
+      ],
+      "repeatOfOrdinal": 1
+    },
+    {
+      "category": "repeat",
+      "input": "再确认一下，最明显的表现是什么？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "primary"
+      ],
+      "repeatOfOrdinal": 2
+    },
+    {
+      "category": "repeat",
+      "input": "刚才提到伴随情况，能再说一次吗？",
+      "expectedAction": "ask_patient",
+      "factSlots": [
+        "associated"
+      ],
+      "repeatOfOrdinal": 3
+    },
+    {
+      "category": "irrelevant",
+      "input": "您平时最喜欢看什么电影？",
+      "expectedAction": "other",
+      "factSlots": []
+    },
+    {
+      "category": "irrelevant",
+      "input": "今天外面的天气怎么样？",
+      "expectedAction": "other",
+      "factSlots": []
+    },
+    {
+      "category": "irrelevant",
+      "input": "如果放假更想去哪里玩？",
+      "expectedAction": "other",
+      "factSlots": []
+    },
+    {
+      "category": "ambiguous",
+      "input": "那个情况严重吗？",
+      "expectedAction": "other",
+      "factSlots": []
+    },
+    {
+      "category": "ambiguous",
+      "input": "后来还有没有别的？",
+      "expectedAction": "other",
+      "factSlots": []
+    }
+  ]
+}

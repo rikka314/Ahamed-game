@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c08_cardiometabolic_001",
+  "caseVersion": "1.0.0-rc.2",
+  "contentHash": "sha256:81f1a8791ebce55953f25df04c79c528f976377b6d54a2eaf2d9f5b6dc746f8b",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.1273466f-4779-4d96-9323-a849064b44fb",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:32:48.187Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为稳定、非急症的成人高血压评估场景；生命体征稳定，动态血压升高且昼夜节律存在，与原发性高血压目标诊断相符。",
+        "起病、血压模式、伴随症状、进展及危险征象均有可获取事实；动态血压可支持区分白大衣高血压，诊断具有可解性。",
+        "红旗矩阵所列各项均明确为未出现，且生命体征报告未达到急症阈值；胸痛伴呼吸困难的安全轨迹能正确触发中断并避免医疗调用、写入和诊断回合。",
+        "量表要求、必需检查、鉴别诊断数量及测试分类彼此一致；头颅CT被正确标为不必要。",
+        "成功、失败、安全和未知信息回归轨迹均覆盖，预期结果与病例事实及评分策略一致。",
+        "教学字段、内部标识和评分摘要未被置于患者可见内容；不存在依赖隐藏真相才能完成诊断或安全判断的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.028c0e2c-6cd3-4199-b2f6-6fdf3d3df0b1",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:32:59.969Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床叙事与目标诊断一致：多次诊室血压升高且动态血压平均值持续高于正常范围，昼夜节律存在，支持原发性高血压；白大衣及继发性高血压作为鉴别诊断也合理。",
+        "目标诊断粒度明确且可由病例信息求解；动态血压和生命体征足以支持主要判断，未要求不必要的病因学细分。",
+        "红旗矩阵中的10项危险表现均有对应事实且状态为absent；生命体征稳定，未提示高血压急症。",
+        "rubric与答案键、测试分类及成功轨迹基本一致：要求2个鉴别诊断，且白大衣高血压、继发性高血压均被列入可接受鉴别；头颅CT标记为不必要也与失败轨迹一致。",
+        "回归轨迹存在覆盖不一致：unknown轨迹的问题同时询问既往同样情况和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏了已建模的fact.relevant_exposure。建议拆分问题或补充该事实ID。",
+        "未见隐藏教学字段、服务端字段或测试读取规则向玩家泄漏；安全轨迹对胸痛伴呼吸困难输入执行中断，并要求零provider调用、零原始文本写入，与安全预期一致。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为稳定、非急症的成人高血压评估场景；生命体征稳定，动态血压升高且昼夜节律存在，与原发性高血压目标诊断相符。",
+    "起病、血压模式、伴随症状、进展及危险征象均有可获取事实；动态血压可支持区分白大衣高血压，诊断具有可解性。",
+    "红旗矩阵所列各项均明确为未出现，且生命体征报告未达到急症阈值；胸痛伴呼吸困难的安全轨迹能正确触发中断并避免医疗调用、写入和诊断回合。",
+    "量表要求、必需检查、鉴别诊断数量及测试分类彼此一致；头颅CT被正确标为不必要。",
+    "成功、失败、安全和未知信息回归轨迹均覆盖，预期结果与病例事实及评分策略一致。",
+    "教学字段、内部标识和评分摘要未被置于患者可见内容；不存在依赖隐藏真相才能完成诊断或安全判断的设计。",
+    "临床叙事与目标诊断一致：多次诊室血压升高且动态血压平均值持续高于正常范围，昼夜节律存在，支持原发性高血压；白大衣及继发性高血压作为鉴别诊断也合理。",
+    "目标诊断粒度明确且可由病例信息求解；动态血压和生命体征足以支持主要判断，未要求不必要的病因学细分。",
+    "红旗矩阵中的10项危险表现均有对应事实且状态为absent；生命体征稳定，未提示高血压急症。",
+    "rubric与答案键、测试分类及成功轨迹基本一致：要求2个鉴别诊断，且白大衣高血压、继发性高血压均被列入可接受鉴别；头颅CT标记为不必要也与失败轨迹一致。",
+    "回归轨迹存在覆盖不一致：unknown轨迹的问题同时询问既往同样情况和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏了已建模的fact.relevant_exposure。建议拆分问题或补充该事实ID。",
+    "未见隐藏教学字段、服务端字段或测试读取规则向玩家泄漏；安全轨迹对胸痛伴呼吸困难输入执行中断，并要求零provider调用、零原始文本写入，与安全预期一致。"
+  ]
+}

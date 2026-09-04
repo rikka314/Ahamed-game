@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c20_musculoskeletal_001",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:072194a6d13c40ee337ed6eaba33a90efb4e697414a6aa61cb6152a03f88f847",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.ddfa48f3-20e5-4354-aa34-3155b4e47816",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:50:19.695Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁成人急性机械性腰痛，起病、诱因、活动相关疼痛及无神经缺损/红旗征象相互一致；生命体征和神经系统查体结果可支持非急症门诊处理。",
+        "通过询问病程、症状模式、进展及相关红旗征象，并配合生命体征和神经系统查体，机械性腰痛具有可判定性；鉴别诊断腰椎间盘突出和肾绞痛也与量表设置一致。",
+        "意识改变、循环不稳定、无法进食饮水、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤警示及进行性神经功能缺损均有事实状态和回归轨迹覆盖，具备安全退出所需的排除路径。",
+        "必问事实、必需检查、无需初始MRI的测试分类、鉴别诊断数量及推荐回合限制均与成功轨迹和评分摘要一致；成功轨迹使用4个问诊回合并完成所需检查。",
+        "回归轨迹同时覆盖成功、错误诊断/不必要MRI、安全中断和未知事实场景；安全轨迹对胸痛伴呼吸困难设置中断且不产生医疗输出，覆盖充分。",
+        "隐藏教学字段、答案键及评分实现未被要求暴露；medicalTests中completed仅作为可返回报告模板，成功轨迹中的检查动作不构成重复检查，隐藏真相保护无明显风险。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.44d242fa-5621-40db-b350-1257a8cd0142",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:50:33.340Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例与急性机械性腰痛的起病、诱发因素、活动相关疼痛及无神经缺损/红旗表现一致；生命体征和神经查体设置合理，MRI仅作为不必要检查轨迹。",
+        "已有事实足以支持“机械性腰痛”这一目标粒度，并能区分腰椎间盘突出和肾绞痛；目标诊断及同义词映射清晰。",
+        "must-ask事实覆盖起病、症状模式、进展及全部红旗排除项，红旗矩阵的状态与患者事实一致。",
+        "rubric中的必问事实、要求的两个鉴别诊断、必需/不必要检查分类及10回合限制与回归成功轨迹一致。",
+        "success、failure、safety、unknown四类回归轨迹均有覆盖；轨迹中的检查动作不应因medicalTests模板状态为completed而判定为重复或无操作。",
+        "安全轨迹对胸痛伴呼吸困难正确设置中断预期，且要求无provider调用、无原始文本写入和无医疗回合，未见隐藏事实泄露或不安全诊断诱导。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁成人急性机械性腰痛，起病、诱因、活动相关疼痛及无神经缺损/红旗征象相互一致；生命体征和神经系统查体结果可支持非急症门诊处理。",
+    "通过询问病程、症状模式、进展及相关红旗征象，并配合生命体征和神经系统查体，机械性腰痛具有可判定性；鉴别诊断腰椎间盘突出和肾绞痛也与量表设置一致。",
+    "意识改变、循环不稳定、无法进食饮水、高风险人群、马尾综合征、严重外伤、感染、恶性肿瘤警示及进行性神经功能缺损均有事实状态和回归轨迹覆盖，具备安全退出所需的排除路径。",
+    "必问事实、必需检查、无需初始MRI的测试分类、鉴别诊断数量及推荐回合限制均与成功轨迹和评分摘要一致；成功轨迹使用4个问诊回合并完成所需检查。",
+    "回归轨迹同时覆盖成功、错误诊断/不必要MRI、安全中断和未知事实场景；安全轨迹对胸痛伴呼吸困难设置中断且不产生医疗输出，覆盖充分。",
+    "隐藏教学字段、答案键及评分实现未被要求暴露；medicalTests中completed仅作为可返回报告模板，成功轨迹中的检查动作不构成重复检查，隐藏真相保护无明显风险。",
+    "病例与急性机械性腰痛的起病、诱发因素、活动相关疼痛及无神经缺损/红旗表现一致；生命体征和神经查体设置合理，MRI仅作为不必要检查轨迹。",
+    "已有事实足以支持“机械性腰痛”这一目标粒度，并能区分腰椎间盘突出和肾绞痛；目标诊断及同义词映射清晰。",
+    "must-ask事实覆盖起病、症状模式、进展及全部红旗排除项，红旗矩阵的状态与患者事实一致。",
+    "rubric中的必问事实、要求的两个鉴别诊断、必需/不必要检查分类及10回合限制与回归成功轨迹一致。",
+    "success、failure、safety、unknown四类回归轨迹均有覆盖；轨迹中的检查动作不应因medicalTests模板状态为completed而判定为重复或无操作。",
+    "安全轨迹对胸痛伴呼吸困难正确设置中断预期，且要求无provider调用、无原始文本写入和无医疗回合，未见隐藏事实泄露或不安全诊断诱导。"
+  ]
+}

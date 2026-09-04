@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:bad955f81f9057ff6dfa11bc8df442cfb463a1e45e6af9514fc4641dd7a458c5",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.663a3d89-666a-4968-b3e6-64ecfdbcecfe",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:11:12.612Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：test.chest_ct 的检查名称为“胸部CT”，但报告内容却称“盆腔CT不是本例初始必需检查”，检查部位与报告不匹配。",
+        "目标诊断原发性痛经由周期性、经期起始、两天内缓解且无明显异常出血或晕厥等事实支持；诊断及两个鉴别诊断均可判定，具有可解性。",
+        "红旗矩阵覆盖了意识改变、低血压、不能进食、高危人群、妊娠、显著出血、急性盆腔痛、妇科发热及黏膜或上行感染表现，且均标记为 absent；生命体征和针对性检查也提供了安全退出依据。",
+        "rubric 的 mustAskFactIds 仅纳入部分红旗事实，遗漏妊娠、血流动力学显著出血、急性盆腔痛、妇科发热及黏膜或上行感染表现，与适用且要求排除的红旗矩阵不一致；同时胸部CT报告错误进一步影响检查分类的一致性。",
+        "成功回归轨迹未覆盖全部 must-ask 事实及全部适用红旗，无法验证完整危险征象排除；仅覆盖了部分红旗，故回归覆盖不足。",
+        "教学字段、答案键及生命体征均未直接暴露给患者；安全轨迹对胸痛伴呼吸困难输入正确中断，且要求零医疗回合、零提供者调用和零原文写入，隐藏真相与安全退出保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7bba52eb-3e22-4072-a342-4b71431757e8",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:11:29.299Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线基本支持原发性痛经：月经初期痉挛痛、两天内缓解、周期规律且无明显异常出血；但 test.chest_ct 的检查名称、别名为胸部CT，报告却写成“盆腔CT”，存在检查对象与结果不一致。",
+        "诊断可解性良好，症状模式、病程、伴随症状及基础评估足以支持原发性痛经，并明确提供了子宫内膜异位症和盆腔炎作为可接受鉴别。",
+        "红旗矩阵中的9项均有对应 patient fact，且均标记为 absent，requiredState 与 observedValue 一致；未发现矩阵内部缺失或自相矛盾。",
+        "rubric.mustAskFactIds 仅包含4项红旗事实，但 redFlagExclusionMatrix 要求核对9项红旗，遗漏妊娠、显著出血、急性盆腔痛、妇科发热及黏膜/上行道受累等5项，导致必问项与红旗资产不一致；同时胸部CT/盆腔CT命名冲突也会影响 testSelection 评分。",
+        "success 轨迹只覆盖部分红旗必问事实，未覆盖 rubric 与红旗矩阵中的全部安全排除项；failure 轨迹虽然包含不必要检查，但其检查报告与 testId 不一致，无法稳定验证该回归；四类轨迹因此不能完整、无歧义地覆盖冻结资产。",
+        "未见将 teaching_note、答案键或其他隐藏服务端字段直接暴露给患者的轨迹；vital_signs 也保持 test_only，隐藏真值安全性可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：test.chest_ct 的检查名称为“胸部CT”，但报告内容却称“盆腔CT不是本例初始必需检查”，检查部位与报告不匹配。",
+    "目标诊断原发性痛经由周期性、经期起始、两天内缓解且无明显异常出血或晕厥等事实支持；诊断及两个鉴别诊断均可判定，具有可解性。",
+    "红旗矩阵覆盖了意识改变、低血压、不能进食、高危人群、妊娠、显著出血、急性盆腔痛、妇科发热及黏膜或上行感染表现，且均标记为 absent；生命体征和针对性检查也提供了安全退出依据。",
+    "rubric 的 mustAskFactIds 仅纳入部分红旗事实，遗漏妊娠、血流动力学显著出血、急性盆腔痛、妇科发热及黏膜或上行感染表现，与适用且要求排除的红旗矩阵不一致；同时胸部CT报告错误进一步影响检查分类的一致性。",
+    "成功回归轨迹未覆盖全部 must-ask 事实及全部适用红旗，无法验证完整危险征象排除；仅覆盖了部分红旗，故回归覆盖不足。",
+    "教学字段、答案键及生命体征均未直接暴露给患者；安全轨迹对胸痛伴呼吸困难输入正确中断，且要求零医疗回合、零提供者调用和零原文写入，隐藏真相与安全退出保护充分。",
+    "临床主线基本支持原发性痛经：月经初期痉挛痛、两天内缓解、周期规律且无明显异常出血；但 test.chest_ct 的检查名称、别名为胸部CT，报告却写成“盆腔CT”，存在检查对象与结果不一致。",
+    "诊断可解性良好，症状模式、病程、伴随症状及基础评估足以支持原发性痛经，并明确提供了子宫内膜异位症和盆腔炎作为可接受鉴别。",
+    "红旗矩阵中的9项均有对应 patient fact，且均标记为 absent，requiredState 与 observedValue 一致；未发现矩阵内部缺失或自相矛盾。",
+    "rubric.mustAskFactIds 仅包含4项红旗事实，但 redFlagExclusionMatrix 要求核对9项红旗，遗漏妊娠、显著出血、急性盆腔痛、妇科发热及黏膜/上行道受累等5项，导致必问项与红旗资产不一致；同时胸部CT/盆腔CT命名冲突也会影响 testSelection 评分。",
+    "success 轨迹只覆盖部分红旗必问事实，未覆盖 rubric 与红旗矩阵中的全部安全排除项；failure 轨迹虽然包含不必要检查，但其检查报告与 testId 不一致，无法稳定验证该回归；四类轨迹因此不能完整、无歧义地覆盖冻结资产。",
+    "未见将 teaching_note、答案键或其他隐藏服务端字段直接暴露给患者的轨迹；vital_signs 也保持 test_only，隐藏真值安全性可接受。"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "aiCrossReview": {
+    "reviews": [
+      {
+        "attemptedAt": "2026-09-04T08:09:17.992Z",
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260904-r9/private/contract_projection_reviewer.v2.json",
+        "evidenceSha256": "7bae1de917978ef66c036ea16d7b8977dfc8e8a4b1ce0530dc17b6d35e384a16",
+        "findings": [],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-contract-projection-review-v2",
+        "reviewerId": "contract_projection_reviewer",
+        "status": "pass"
+      },
+      {
+        "attemptedAt": "2026-09-04T08:09:33.708Z",
+        "counterpartOutputVisible": false,
+        "decision": "passed",
+        "evidencePath": "model/evaluation/phase8/e4-cross-layer-20260904-r9/private/hidden_data_leakage_reviewer.v2.json",
+        "evidenceSha256": "29de4bf9a946acd14cc0e1dc2f1647e66a19395720e31645fc6fdc63b68e7ad9",
+        "findings": [
+          {
+            "code": "save_export_not_available",
+            "message": "The saveExport surface is explicitly recorded as not_available because the current game shell does not expose a save-export surface. This is not treated as a failure; no sensitive matches were reported on the available surfaces.",
+            "severity": "warning"
+          },
+          {
+            "code": "public_artifact_allowlist_verified",
+            "message": "The recorded build/public-asset leakage scan reports no personaTemplateId, behaviorInstructions, answerKey, rubric, targetDiagnosis, or patientFacts tokens in .next static/server output or public assets. The public journey contains only projected patient-facing fields and reports sensitiveMatches: 0.",
+            "severity": "info"
+          },
+          {
+            "code": "browser_storage_surfaces_verified",
+            "message": "IndexedDB, localStorage, and sessionStorage were observed and reported with sensitiveMatches: 0.",
+            "severity": "info"
+          },
+          {
+            "code": "console_and_cache_surfaces_verified",
+            "message": "Console and CacheStorage were observed and reported with sensitiveMatches: 0; failedSurfaces is 0.",
+            "severity": "info"
+          },
+          {
+            "code": "private_evidence_separation_verified",
+            "message": "Public and private journey artifacts are separately identified by path, visibility, byte count, and SHA-256 digest; the supplied evidence does not show private evidence embedded in the public artifact.",
+            "severity": "info"
+          }
+        ],
+        "independentInvocation": true,
+        "modelId": "gpt-5.6-sol",
+        "promptVersion": "e4-hidden-data-leakage-review-v3",
+        "reviewerId": "hidden_data_leakage_reviewer",
+        "status": "pass"
+      }
+    ],
+    "status": "pass"
+  },
+  "bindings": {
+    "aiReviews": [
+      {
+        "bytes": 750,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/private/contract_projection_reviewer.v2.json",
+        "sha256": "7bae1de917978ef66c036ea16d7b8977dfc8e8a4b1ce0530dc17b6d35e384a16"
+      },
+      {
+        "bytes": 2226,
+        "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/private/hidden_data_leakage_reviewer.v2.json",
+        "sha256": "29de4bf9a946acd14cc0e1dc2f1647e66a19395720e31645fc6fdc63b68e7ad9"
+      }
+    ],
+    "baseQualityRecord": {
+      "bytes": 7025,
+      "path": "share/versions/e4-patient-identity-quality-record.v1.json",
+      "sha256": "6af69b7478d3c6eaefc37f8a148f308c8c816a413ed4c4b6439dd7d96aa6924a"
+    },
+    "journeyIndex": {
+      "bytes": 781,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/e4-cross-layer-evidence-index.v1.json",
+      "sha256": "ab0b9d1942d95e246e8160b768687442e6791cb16f89896e145bd6c5a7db5eb0"
+    },
+    "publicJourney": {
+      "bytes": 37814,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/public/e4-cross-layer-journey.v1.json",
+      "sha256": "5ba7823eaae4b2300bc833ead477b758da26dc84ecba2e8f62e1ecd6041f9099"
+    },
+    "reviewTarget": {
+      "bytes": 113595,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/private/e4-closure-review-target.v4.json",
+      "sha256": "ea51599b5c5400c0f50d1f5b98f1b6454b4296e81ab10448ab27cacf443d539b"
+    },
+    "runtimeSurfaceScan": {
+      "bytes": 62476,
+      "path": "model/evaluation/phase8/e4-cross-layer-20260904-r9/public/e4-runtime-surface-scan.v4.json",
+      "sha256": "5c4336b1ccc4a3bec39ec250b1bcd34f6d7a1c9262a9d913c3e9e100894d924a"
+    },
+    "scannerImplementation": {
+      "bytes": 22035,
+      "path": "game/tests/e2e/e4-patient-identity-closure.spec.ts",
+      "sha256": "adbab17d2ff8a9e4d0b612a595e657713b877c183f1227e1a3ebf5b7a3689e9d"
+    }
+  },
+  "checks": [
+    {
+      "checkId": "thirty_case_live_cross_layer_journey",
+      "details": "30 CasePackage v2 records completed ModelService create-session and ask-patient calls in 15 two-slot shifts.",
+      "status": "pass"
+    },
+    {
+      "checkId": "runtime_storage_and_log_leakage_scan",
+      "details": "5 browser surfaces observed; 1 unavailable surfaces recorded without fabrication; 0 surface scans failed; 0 sensitive matches.",
+      "status": "pass"
+    },
+    {
+      "checkId": "independent_ai_cross_review",
+      "details": "2 of 2 isolated Contract Projection / Hidden-data Leakage AI reviews completed.",
+      "status": "pass"
+    }
+  ],
+  "decision": "passed",
+  "generatedAt": "2026-09-04T08:09:54.642Z",
+  "metrics": {
+    "askPatientCalls": 30,
+    "completedAiReviews": 2,
+    "completedTurns": 30,
+    "createSessionCalls": 30,
+    "crossLayerCases": 30,
+    "failedRuntimeSurfaces": 0,
+    "observedRuntimeSurfaces": 5,
+    "publicPatientRoles": 30,
+    "reusableNpcSlots": 2,
+    "sensitiveMatches": 0,
+    "shifts": 15,
+    "unavailableRuntimeSurfaces": 1
+  },
+  "reviewPolicy": "non_blocking",
+  "schemaVersion": "e4-patient-identity-e5-closure-v4"
+}

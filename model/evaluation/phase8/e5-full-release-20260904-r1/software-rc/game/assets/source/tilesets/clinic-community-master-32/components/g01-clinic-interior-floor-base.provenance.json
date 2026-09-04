@@ -1,0 +1,20 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G01",
+  "componentName": "诊所室内地面基础款",
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-h3-32.png#tile-0",
+  "generator": "Existing Codex built-in imagegen direction reference and project raster draft; extracted with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Warm morning community clinic, strict orthographic top-down pixel art, exact 32x32 grid with native detail, hard edges, no text, logo, watermark, brand replica, diagnosis clue, anti-aliasing, or mixed pixel density.",
+  "humanEdits": [
+    "Extracted the existing native 32x32 floor candidate for isolated component review without changing its pixels"
+  ],
+  "status": "DRAFT"
+}

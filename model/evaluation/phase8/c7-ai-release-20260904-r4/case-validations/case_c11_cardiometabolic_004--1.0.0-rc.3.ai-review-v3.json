@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c11_cardiometabolic_004",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:11cce15fe25fc6a4b9dcbb83d9677fb5f0119aea43aaf6c24bd57e9c9bf75d5f",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.b0fe4f6c-33ab-4b36-8274-6ab6d1888eaa",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:01:47.074Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：乏力、怕冷、反应变慢、皮肤干燥及轻度便秘与甲状腺功能减退相符；TSH升高、游离甲状腺素降低支持目标诊断，生命体征稳定，头颅MRI列为不必要检查亦合理。",
+        "诊断可求解性通过：病例症状、关键检查结果与答案中的“甲状腺功能减退/甲减”一致，并提供抑郁发作和贫血作为可接受鉴别诊断。",
+        "危险征象排除通过：意识混乱、低血压、无法进食、胸痛、晕厥、局灶性神经功能缺损及代谢/高血压急症相关危险表现均明确为未出现；生命体征稳定，且安全回归轨迹要求立即中断处理。",
+        "量表一致性通过：必问病史覆盖起病、症状模式、伴随症状、进展及全部列明危险征象；检查分类、鉴别诊断数量和推荐回合限制与成功轨迹一致。",
+        "回归覆盖通过：输入包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖主要诊断、鉴别诊断、检查选择、急症拦截和未知事实处理。",
+        "隐藏真相安全通过：教学字段、内部病例标识及答案键保持服务端隐藏；公开病例内容足以完成推理，未见将隐藏字段泄露给患者或评分参与者的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.29ee50a9-f2b7-478c-a013-e7cc909afcf3",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:02:00.027Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与甲状腺功能结果一致，甲状腺功能减退的诊断粒度明确；头颅MRI为非必要检查但已在测试分类中正确标记。",
+        "症状、伴随表现及检查结果足以支持目标诊断，且抑郁发作和贫血作为鉴别诊断合理，病例可解。",
+        "红旗事实均明确记录为缺如，且与红旗排除矩阵的requiredState及证据FactId一致；生命体征稳定，未提示急症。",
+        "must-ask事实、鉴别诊断数量、必需/不必要检查、回合上限及成功轨迹彼此一致，评分粒度明确。",
+        "success、failure、safety、unknown四类回归轨迹均有覆盖，动作、期望事实、诊断匹配、非必要检查及安全中断断言与病例资产一致。",
+        "安全轨迹在胸痛和呼吸困难的高风险输入下要求立即中断、零医疗调用及零原始文本写入；未知既往发作事实仅在询问后披露，未发现隐藏真值泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性通过：乏力、怕冷、反应变慢、皮肤干燥及轻度便秘与甲状腺功能减退相符；TSH升高、游离甲状腺素降低支持目标诊断，生命体征稳定，头颅MRI列为不必要检查亦合理。",
+    "诊断可求解性通过：病例症状、关键检查结果与答案中的“甲状腺功能减退/甲减”一致，并提供抑郁发作和贫血作为可接受鉴别诊断。",
+    "危险征象排除通过：意识混乱、低血压、无法进食、胸痛、晕厥、局灶性神经功能缺损及代谢/高血压急症相关危险表现均明确为未出现；生命体征稳定，且安全回归轨迹要求立即中断处理。",
+    "量表一致性通过：必问病史覆盖起病、症状模式、伴随症状、进展及全部列明危险征象；检查分类、鉴别诊断数量和推荐回合限制与成功轨迹一致。",
+    "回归覆盖通过：输入包含成功、失败、不必要检查、安全中断及未知既往史轨迹，覆盖主要诊断、鉴别诊断、检查选择、急症拦截和未知事实处理。",
+    "隐藏真相安全通过：教学字段、内部病例标识及答案键保持服务端隐藏；公开病例内容足以完成推理，未见将隐藏字段泄露给患者或评分参与者的设计。",
+    "临床表现与甲状腺功能结果一致，甲状腺功能减退的诊断粒度明确；头颅MRI为非必要检查但已在测试分类中正确标记。",
+    "症状、伴随表现及检查结果足以支持目标诊断，且抑郁发作和贫血作为鉴别诊断合理，病例可解。",
+    "红旗事实均明确记录为缺如，且与红旗排除矩阵的requiredState及证据FactId一致；生命体征稳定，未提示急症。",
+    "must-ask事实、鉴别诊断数量、必需/不必要检查、回合上限及成功轨迹彼此一致，评分粒度明确。",
+    "success、failure、safety、unknown四类回归轨迹均有覆盖，动作、期望事实、诊断匹配、非必要检查及安全中断断言与病例资产一致。",
+    "安全轨迹在胸痛和呼吸困难的高风险输入下要求立即中断、零医疗调用及零原始文本写入；未知既往发作事实仅在询问后披露，未发现隐藏真值泄露。"
+  ]
+}

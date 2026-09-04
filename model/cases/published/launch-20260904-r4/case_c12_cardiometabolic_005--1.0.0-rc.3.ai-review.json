@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c12_cardiometabolic_005",
+  "caseVersion": "1.0.0-rc.3",
+  "contentHash": "sha256:3b5daa917a1f2239fadb4e9e7780939d6c5635397fa2e84b95a497325a6d92a1",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.43e818a3-2428-4e5d-9265-5a4087906ccd",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:02:16.759Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为36–45岁男性无症状体检发现血脂异常，病史、检查结果、诊断目标及鉴别诊断整体一致；生命体征稳定，冠状动脉CT明确为初始非必需检查。",
+        "目标诊断“血脂异常（体检发现）”有明确支持：血脂复查仍异常且总胆固醇和低密度脂蛋白胆固醇升高；甲状腺功能减退和糖尿病作为两个可接受鉴别诊断，病例信息足以完成判断。",
+        "全部列明危险征象均记录为未出现，且生命体征检查显示稳定、未达急症阈值，具备安全退出基础。",
+        "rubric要求的病史要点、红旗排除、必需检查、非必要检查、诊断及两个鉴别诊断均与病例内容和成功轨迹一致。",
+        "成功、失败、安全中断及未知信息轨迹均有覆盖；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供方调用和零原始文本写入。",
+        "隐藏教学字段、仅检查可读取的生命体征及服务端评分信息未被设置为患者可见内容，未见隐藏真相泄露或以兼容元数据替代事实审核的情况。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.b6f8c3ee-9cfb-4849-8ac9-de4b30260d52",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T03:02:27.501Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：无症状体检发现胆固醇升高，体重增加和运动减少与血脂异常相符；生命体征稳定，检查结果支持目标诊断。",
+        "诊断可解性通过：血脂检查明确显示总胆固醇及低密度脂蛋白胆固醇升高，足以支持“血脂异常（体检发现）”；目标诊断粒度及同义词映射清晰。",
+        "红旗排除通过：相关红旗事实均明确标记为 absent，且生命体征检查显示稳定；矩阵与病例事实、rubric及成功轨迹一致。",
+        "rubric一致性通过：必须询问事实、两个鉴别诊断、必需及不必要检查、推荐回合数均与病例内容及答案轨迹匹配；pending审核字段不构成阻塞。",
+        "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，预期诊断、检查选择、事实读取、SAFETY_INTERRUPTED及回合数与病例设定一致。",
+        "隐藏真值安全通过：教学字段未暴露；安全轨迹中的胸痛和呼吸困难输入被独立中断，不读取或写入医学回合，也未将其错误并入患者事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为36–45岁男性无症状体检发现血脂异常，病史、检查结果、诊断目标及鉴别诊断整体一致；生命体征稳定，冠状动脉CT明确为初始非必需检查。",
+    "目标诊断“血脂异常（体检发现）”有明确支持：血脂复查仍异常且总胆固醇和低密度脂蛋白胆固醇升高；甲状腺功能减退和糖尿病作为两个可接受鉴别诊断，病例信息足以完成判断。",
+    "全部列明危险征象均记录为未出现，且生命体征检查显示稳定、未达急症阈值，具备安全退出基础。",
+    "rubric要求的病史要点、红旗排除、必需检查、非必要检查、诊断及两个鉴别诊断均与病例内容和成功轨迹一致。",
+    "成功、失败、安全中断及未知信息轨迹均有覆盖；安全轨迹明确要求SAFETY_INTERRUPTED、零医疗回合、零提供方调用和零原始文本写入。",
+    "隐藏教学字段、仅检查可读取的生命体征及服务端评分信息未被设置为患者可见内容，未见隐藏真相泄露或以兼容元数据替代事实审核的情况。",
+    "临床一致性通过：无症状体检发现胆固醇升高，体重增加和运动减少与血脂异常相符；生命体征稳定，检查结果支持目标诊断。",
+    "诊断可解性通过：血脂检查明确显示总胆固醇及低密度脂蛋白胆固醇升高，足以支持“血脂异常（体检发现）”；目标诊断粒度及同义词映射清晰。",
+    "红旗排除通过：相关红旗事实均明确标记为 absent，且生命体征检查显示稳定；矩阵与病例事实、rubric及成功轨迹一致。",
+    "rubric一致性通过：必须询问事实、两个鉴别诊断、必需及不必要检查、推荐回合数均与病例内容及答案轨迹匹配；pending审核字段不构成阻塞。",
+    "回归覆盖通过：success、failure、safety、unknown四类轨迹均存在，预期诊断、检查选择、事实读取、SAFETY_INTERRUPTED及回合数与病例设定一致。",
+    "隐藏真值安全通过：教学字段未暴露；安全轨迹中的胸痛和呼吸困难输入被独立中断，不读取或写入医学回合，也未将其错误并入患者事实。"
+  ]
+}

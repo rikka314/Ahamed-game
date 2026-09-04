@@ -1,0 +1,26 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G13",
+  "componentVariant": "straight-down",
+  "componentName": "室外路沿直边",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from an AI-assisted DRAFT; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": "game/assets/source/tilesets/clinic-community-master-32/components/g03-exterior-front-ground-stone-brick-v2.png",
+  "generator": "Codex deterministic pixel-native extension rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create only the downward-facing horizontal outdoor curb tile for the temporary G13 extension. Preserve the accepted G03 stone-brick pavement in the upper area; add a clean curb cap, body, vertical face and contact shadow across the lower eight pixels. Keep a seamless horizontal repeat, muted sage-gray palette and native 32x32 hard pixel edges. Add no dirt, cracks, text, logo or watermark.",
+  "humanEdits": [
+    "Preserved the upper 24 rows from the accepted G03 stone-brick tile.",
+    "Built an eight-pixel curb strip with cap, body, front face and lower contact shadow.",
+    "Added repeating 16-pixel slab joints and restrained stone variation.",
+    "Created a nearest-neighbor single-tile and four-tile repeat review preview."
+  ],
+  "status": "DRAFT"
+}

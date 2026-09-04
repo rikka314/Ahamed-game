@@ -1,0 +1,30 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G14",
+  "componentVariant": "outer-up-left",
+  "componentName": "室外路沿外转角",
+  "taskCardStatus": "UNLISTED_EXTENSION",
+  "revision": 1,
+  "sourceType": "ai-assisted",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original pixel extension derived from AI-assisted DRAFT components; release rights require owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "derivedFrom": [
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-up.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-left.png",
+    "game/assets/source/tilesets/clinic-community-master-32/components/g13-exterior-curb-straight-down-v2.png"
+  ],
+  "generator": "Codex deterministic pixel-native corner construction rendered with Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": "Create only the first G14 exterior curb corner: an outer corner joining the upward-facing and left-facing G13 curb edges. Keep the pavement in the lower-right area, preserve the accepted twelve-pixel curb depth and warm-light-to-deep-shadow bands, and redraw the upper-left intersection as a continuous square-mitered turn. Preserve 32x32 hard pixels and edge compatibility; add no dirt, cracks, text, logo or watermark.",
+  "humanEdits": [
+    "Joined the accepted top and left curb strips without rotating the G03 pavement texture.",
+    "Redrew the twelve-by-twelve upper-left intersection as continuous mitered value bands.",
+    "Preserved the straight-edge pixels outside the corner intersection for tile compatibility.",
+    "Created a review scene combining this corner with the accepted top and left straight tiles."
+  ],
+  "status": "DRAFT"
+}

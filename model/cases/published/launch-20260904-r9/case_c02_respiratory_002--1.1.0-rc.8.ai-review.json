@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c02_respiratory_002",
+  "caseVersion": "1.1.0-rc.8",
+  "contentHash": "sha256:f81c1e86e57a918da13b8b9638cd1e593231da4a9fd50a0ba866c7e3b2cddcfd",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.3f783401-d248-4b97-8a8b-61a882be3d77",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:39:22.994Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "clinicalConsistency：病例为18–25岁成年男性，突发发热、干咳、肌痛及头痛，生命体征稳定，Influenza A阳性且胸部影像无实变，临床事实相互一致。",
+        "diagnosisSolvability：首发策略覆盖起病、发热、肌痛、头痛、咳嗽及关键鉴别信息，并完成生命体征检查；流行性感冒可被合理识别。",
+        "redFlagExclusions：已覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群等危险征象；安全轨迹对胸痛伴喘憋正确中断，符合安全退出要求。",
+        "rubricConsistency：目标诊断、可接受鉴别诊断、必问事实、检查分类及成功/失败预期彼此一致；胸片和胸部CT在失败轨迹中被正确标为不必要检查。",
+        "regressionCoverage：回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知接触史场景；测试动作按新会话提交执行，未被错误判作重复检查。",
+        "hiddenTruthSafety：教学字段及评分所需内部事实未纳入玩家可见内容；回归预期中的诊断和事实仅作为审计数据，未发现隐藏真相向患者角色泄露的结构性问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.67d753bf-8206-42f1-8722-1de737252479",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:39:39.771Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性通过：突发高热、干咳、头痛、明显肌痛，且呼吸道病毒核酸提示甲型流感，支持“流行性感冒”；生命体征和胸部影像与无肺炎、无重症表现一致。",
+        "诊断可解性通过：目标诊断粒度明确，接受同义词“流感”；症状组合及病毒检测足以支持目标诊断，并保留普通感冒和轻症社区获得性肺炎作为合理鉴别。",
+        "红旗排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征证据，且状态与矩阵一致。",
+        "rubric一致性通过：must-ask事实均可由成功轨迹覆盖；目标诊断、两个可接受鉴别诊断、必需生命体征检查及不必要胸部影像检查的分类相互一致。",
+        "回归覆盖通过：success、failure、safety、unknown 四类轨迹均与病例事实、预期评分和安全中断要求一致。medicalTests中的completed仅为可执行检查报告模板，不能视为会话开始前已执行，未构成重复检查或无操作。",
+        "隐藏真相安全通过：内部答案、教学字段和回归预期未被设计为患者可见信息；安全轨迹要求中断且不产生provider调用或原始文本写入，符合预期。"
+      ]
+    }
+  ],
+  "findings": [
+    "clinicalConsistency：病例为18–25岁成年男性，突发发热、干咳、肌痛及头痛，生命体征稳定，Influenza A阳性且胸部影像无实变，临床事实相互一致。",
+    "diagnosisSolvability：首发策略覆盖起病、发热、肌痛、头痛、咳嗽及关键鉴别信息，并完成生命体征检查；流行性感冒可被合理识别。",
+    "redFlagExclusions：已覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群等危险征象；安全轨迹对胸痛伴喘憋正确中断，符合安全退出要求。",
+    "rubricConsistency：目标诊断、可接受鉴别诊断、必问事实、检查分类及成功/失败预期彼此一致；胸片和胸部CT在失败轨迹中被正确标为不必要检查。",
+    "regressionCoverage：回归轨迹覆盖成功、错误诊断与不必要检查、安全中断及未知接触史场景；测试动作按新会话提交执行，未被错误判作重复检查。",
+    "hiddenTruthSafety：教学字段及评分所需内部事实未纳入玩家可见内容；回归预期中的诊断和事实仅作为审计数据，未发现隐藏真相向患者角色泄露的结构性问题。",
+    "临床一致性通过：突发高热、干咳、头痛、明显肌痛，且呼吸道病毒核酸提示甲型流感，支持“流行性感冒”；生命体征和胸部影像与无肺炎、无重症表现一致。",
+    "诊断可解性通过：目标诊断粒度明确，接受同义词“流感”；症状组合及病毒检测足以支持目标诊断，并保留普通感冒和轻症社区获得性肺炎作为合理鉴别。",
+    "红旗排除通过：呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食饮水及高风险人群均有对应事实或生命体征证据，且状态与矩阵一致。",
+    "rubric一致性通过：must-ask事实均可由成功轨迹覆盖；目标诊断、两个可接受鉴别诊断、必需生命体征检查及不必要胸部影像检查的分类相互一致。",
+    "回归覆盖通过：success、failure、safety、unknown 四类轨迹均与病例事实、预期评分和安全中断要求一致。medicalTests中的completed仅为可执行检查报告模板，不能视为会话开始前已执行，未构成重复检查或无操作。",
+    "隐藏真相安全通过：内部答案、教学字段和回归预期未被设计为患者可见信息；安全轨迹要求中断且不产生provider调用或原始文本写入，符合预期。"
+  ]
+}

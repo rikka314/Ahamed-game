@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c03_respiratory_003",
+  "caseVersion": "1.1.0-rc.1",
+  "contentHash": "sha256:ed46991aefa46ca1c03ea573a20213d635282486dead6a2b3fb67eba7c5e7e25",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.ffb3a4e8-71aa-4a8d-ab01-d5c8598f3f23",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:29:31.679Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "fail",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体一致：低热、咽痛、咽部充血及轻度扁桃体渗出，结合生命体征稳定和链球菌快检阴性，可支持急性咽炎；胸部影像虽属不必要检查，但已在量表中明确标为不必要，不构成诊断事实矛盾。",
+        "诊断可解：主要症状、起病、伴随症状、生命体征和咽部查体均可通过规定流程获得，目标诊断及两个鉴别诊断均可判定。",
+        "红旗排除不充分：矩阵覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群，但未明确排除喘鸣、声音含糊、张口受限、单侧咽旁/颈部肿胀等上气道梗阻或深部颈部感染相关危险表现；仅记录无流口水和无悬雍垂偏移不足以完整替代这些排除项。",
+        "量表与病例一致：必问事实、必需/有用/不必要检查、鉴别诊断数量及目标诊断均与成功轨迹和评分摘要相符。",
+        "回归覆盖充分：包含成功、错误检查/错误诊断、安全中断和未知信息轨迹；安全轨迹明确要求零服务端调用、零原文写入和零医疗回合。",
+        "隐藏真相保护合格：咽部查体限定为检查后获得，教学字段为隐藏字段，未知接触史不会被无条件披露；回归轨迹未要求泄露教学或内部评分信息。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.73a0ee19-0647-4f35-a973-e8e2737f6dff",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T18:30:00.009Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与急性咽炎一致：急性起病、咽部充血及轻度扁桃体肿大，且无呼吸困难、低氧或肺部实变证据；A组链球菌快检阴性也未造成目标诊断冲突。",
+        "目标诊断粒度适当且可由病史和咽部查体支持；链球菌性咽峡炎和流感作为两个可接受鉴别诊断，病例仍可稳定收敛至急性咽炎。",
+        "红旗排除项均有对应患者事实或生命体征支持，观察值内部一致；安全轨迹对新增胸痛和呼吸困难正确设置为中断，未要求继续诊疗。",
+        "must-ask事实、鉴别诊断数量、必需/有用/不必要检查分类及8回合限制相互一致；成功轨迹覆盖必需检查并命中目标及两个鉴别诊断。",
+        "success、failure、safety、unknown四类回归轨迹均存在且预期结果与病例资产一致；unknown轨迹仅请求未确定的接触史，failure轨迹使用不必要胸片并给出错误诊断。",
+        "隐藏教学字段未暴露；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用、零原始文本写入和零医疗回合，未见隐藏真相泄漏路径。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体一致：低热、咽痛、咽部充血及轻度扁桃体渗出，结合生命体征稳定和链球菌快检阴性，可支持急性咽炎；胸部影像虽属不必要检查，但已在量表中明确标为不必要，不构成诊断事实矛盾。",
+    "诊断可解：主要症状、起病、伴随症状、生命体征和咽部查体均可通过规定流程获得，目标诊断及两个鉴别诊断均可判定。",
+    "红旗排除不充分：矩阵覆盖呼吸困难、意识改变、胸痛、咯血、低血压、呼吸增快、低氧、无法进食及高风险人群，但未明确排除喘鸣、声音含糊、张口受限、单侧咽旁/颈部肿胀等上气道梗阻或深部颈部感染相关危险表现；仅记录无流口水和无悬雍垂偏移不足以完整替代这些排除项。",
+    "量表与病例一致：必问事实、必需/有用/不必要检查、鉴别诊断数量及目标诊断均与成功轨迹和评分摘要相符。",
+    "回归覆盖充分：包含成功、错误检查/错误诊断、安全中断和未知信息轨迹；安全轨迹明确要求零服务端调用、零原文写入和零医疗回合。",
+    "隐藏真相保护合格：咽部查体限定为检查后获得，教学字段为隐藏字段，未知接触史不会被无条件披露；回归轨迹未要求泄露教学或内部评分信息。",
+    "临床表现与急性咽炎一致：急性起病、咽部充血及轻度扁桃体肿大，且无呼吸困难、低氧或肺部实变证据；A组链球菌快检阴性也未造成目标诊断冲突。",
+    "目标诊断粒度适当且可由病史和咽部查体支持；链球菌性咽峡炎和流感作为两个可接受鉴别诊断，病例仍可稳定收敛至急性咽炎。",
+    "红旗排除项均有对应患者事实或生命体征支持，观察值内部一致；安全轨迹对新增胸痛和呼吸困难正确设置为中断，未要求继续诊疗。",
+    "must-ask事实、鉴别诊断数量、必需/有用/不必要检查分类及8回合限制相互一致；成功轨迹覆盖必需检查并命中目标及两个鉴别诊断。",
+    "success、failure、safety、unknown四类回归轨迹均存在且预期结果与病例资产一致；unknown轨迹仅请求未确定的接触史，failure轨迹使用不必要胸片并给出错误诊断。",
+    "隐藏教学字段未暴露；安全轨迹明确要求SAFETY_INTERRUPTED、零provider调用、零原始文本写入和零医疗回合，未见隐藏真相泄漏路径。"
+  ]
+}

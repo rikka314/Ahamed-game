@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "e0-expansion-evidence-supersession-v1",
+  "recordedAt": "2026-09-02T00:00:00.000Z",
+  "status": "superseded",
+  "reason": "这些证据早于 AI-only 完整历史纠偏或只覆盖 5 个 v1 病例，不能证明 30 例、Persona v2、CasePackage v2 和新内容 hash 的当前发布状态。",
+  "reviewPolicy": "non_blocking",
+  "currentReleaseState": "historical_evidence_only",
+  "scope": "E0 冻结时的最新 C6/C7、双 AI、真实对话、runtime manifest 和 Software RC 历史证据。原文件保持只读；本记录只声明它们不能用于本次扩充后的当前发布资格。",
+  "boundArtifacts": [
+    {
+      "artifactId": "c6.acceptance.r6",
+      "path": "c6-cli-acceptance-20260829-r6.json",
+      "sha256": "d10d7dcd09a568a3baf5e312ccef00659c484aa065f3f12612f171f6d71ab1a4",
+      "status": "superseded"
+    },
+    {
+      "artifactId": "c7.ai.r1",
+      "path": "c7-ai-20260828-r1/ai-evidence-index.json",
+      "sha256": "be2dd8ef45042204bc9c4676522b12950a8d3f2aa5723ae262770b643d6251c2",
+      "status": "superseded"
+    },
+    {
+      "artifactId": "c7.dialogue-live.r5",
+      "path": "c7-dialogue-live-20260829-r5/c7-dialogue-architecture-report.json",
+      "sha256": "d0ea2bfd5ab74bb532ff8b21f37d0b1c546fa06424eb579dfddb9b8086d9f89c",
+      "status": "superseded"
+    },
+    {
+      "artifactId": "c7.acceptance.r10",
+      "path": "c7-runtime-acceptance-20260829-r10.json",
+      "sha256": "3b75449162262f3ce771c8999a4d534062b8337f017380e0ce8b258309f5cd08",
+      "status": "superseded"
+    },
+    {
+      "artifactId": "c7.runtime-manifest.r11",
+      "path": "c7-runtime-release-20260829-r11/runtime-release-manifest.v1.json",
+      "sha256": "f7134f430d34e2eef819624b1c7ae65a13259380f85127f9747be6d3eb628d69",
+      "status": "superseded"
+    },
+    {
+      "artifactId": "c7.software-rc.r9",
+      "path": "c7-software-rc-20260829-r9.zip",
+      "sha256": "fa9bd2fcc63c8d9585bbc43226e1f59c552af5223d814bcc960995f02a411bad",
+      "status": "superseded"
+    }
+  ],
+  "reacceptanceRequired": [
+    "30 个最终病例版本与 content hash",
+    "Persona v2、CasePackage v2、Provenance v2 和 red-flag policy v2",
+    "基于最终内容的独立双 AI 病例审核与真实 Patient Agent 对话证据",
+    "新的 acceptance、runtime release manifest 和 Software RC"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "bytes": 37790,
+      "path": "public/e4-cross-layer-journey.v1.json",
+      "sha256": "3d8bf577a993e7fcc83857e4ef29ef9b21a5ed96a2ac522c62efe4fee66d7bb5",
+      "visibility": "public"
+    },
+    {
+      "bytes": 13305,
+      "path": "private/e4-cross-layer-journey.v1.json",
+      "sha256": "28464d9703bb10b9797209d0b68ca8ff870b4a998e59198b51dafa6029861f1d",
+      "visibility": "private"
+    }
+  ],
+  "artifactSetSha256": "243298e69321df083f960c66e395db6d360acd3f627e5fc9077718ffd89ccb43",
+  "generatedAt": "2026-09-03T12:11:42.864Z",
+  "manifest": {
+    "path": "cases/manifest.phase6-compat.v2-rc1.json",
+    "sha256": "9a5c8ed9c51895fabbbc0ae1f15528c011eb1a7acf413eb63f145f1ff6ec950f"
+  },
+  "schemaVersion": "e4-cross-layer-evidence-index-v1"
+}

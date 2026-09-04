@@ -1,0 +1,17 @@
+{
+  "assetId": "tileset.clinic.community-01",
+  "componentId": "G00",
+  "componentName": "完全透明空格",
+  "sourceType": "original",
+  "author": "AhaMed project draft",
+  "sourceUrl": null,
+  "license": "Project-original DRAFT; release license pending owner approval",
+  "commercialUse": true,
+  "modificationAllowed": true,
+  "generator": "Codex deterministic raster generation using Sharp 0.35.3",
+  "modelVersion": null,
+  "generatedAt": "2026-08-31",
+  "prompt": null,
+  "humanEdits": [],
+  "status": "DRAFT"
+}

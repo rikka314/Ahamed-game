@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c21_musculoskeletal_002",
+  "caseVersion": "1.0.0-rc.9",
+  "contentHash": "sha256:50afa9c8896fcea2a84580ed53b13b0daf15864cf2ac642ba33fbc4b04fabac4",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v3",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v3",
+      "validationRunId": "run.clinical_safety.aa193195-af28-4bc2-bdf4-95389e585300",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:50:49.313Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：56–65岁女性，半年渐进性活动痛、休息减轻、短暂晨僵且无红肿热，符合膝骨关节炎的门诊非急症叙事；膝X线所示间隙变窄和骨赘与目标诊断一致。",
+        "诊断可解性：病例提供了起病、疼痛模式、伴随症状、进展及关键排除信息；完成膝X线后可合理支持“膝骨关节炎”，并可形成规定的鉴别诊断。",
+        "危险征象排除：严重外伤、骨关节感染征象和恶性肿瘤警示均有明确的阴性事实；生命体征通过专门检查读取，安全轨迹对胸痛伴呼吸困难触发中断，退出机制充分。",
+        "量表一致性：must-ask事实、膝X线必需、MRI不必要、两个可接受鉴别诊断及推荐回合数均与成功轨迹和评分策略一致。",
+        "回归覆盖：成功、错误诊断/不必要检查、安全中断及未知既往史等轨迹均已覆盖，且测试动作应视为新会话中的实际提交，不构成重复检查。",
+        "隐藏真相安全：教学字段未向患者暴露，生命体征为test-only事实，检查completed状态未被错误当作会话开始前已执行；pending审核元数据不影响事实审计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v3",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v3",
+      "validationRunId": "run.diagnostic_quality.d29e8e6d-9e37-491e-aee3-92caa064ca8d",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T05:51:02.968Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与膝骨关节炎一致：中老年、慢性活动痛、休息后减轻、短暂晨僵，且X线轻度关节间隙变窄及骨赘可支持目标诊断。",
+        "目标诊断粒度明确，症状、红旗排除和膝关节X线共同保证诊断可解；MRI明确为初始非必需检查。",
+        "主要红旗（严重外伤、骨关节感染、恶性肿瘤警示）均有对应患者事实且状态为absent，矩阵与病例内容一致。",
+        "must-ask事实覆盖起病、症状模式、伴随症状、进展及三类红旗；鉴别诊断数量为2，且均属于rubric允许概念。生命体征、X线和MRI的useful/required/unnecessary分类与病例及轨迹一致。",
+        "success、failure、unknown轨迹分别覆盖成功诊断、错误诊断及不必要检查、未知既往发作信息；completed状态未被错误视为会话前已执行，轨迹中的X线测试动作有效。",
+        "safety轨迹对胸痛伴呼吸困难的会话中断、零医疗回合、零provider调用和零原文写入要求清晰，未暴露或依赖隐藏临床事实。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：56–65岁女性，半年渐进性活动痛、休息减轻、短暂晨僵且无红肿热，符合膝骨关节炎的门诊非急症叙事；膝X线所示间隙变窄和骨赘与目标诊断一致。",
+    "诊断可解性：病例提供了起病、疼痛模式、伴随症状、进展及关键排除信息；完成膝X线后可合理支持“膝骨关节炎”，并可形成规定的鉴别诊断。",
+    "危险征象排除：严重外伤、骨关节感染征象和恶性肿瘤警示均有明确的阴性事实；生命体征通过专门检查读取，安全轨迹对胸痛伴呼吸困难触发中断，退出机制充分。",
+    "量表一致性：must-ask事实、膝X线必需、MRI不必要、两个可接受鉴别诊断及推荐回合数均与成功轨迹和评分策略一致。",
+    "回归覆盖：成功、错误诊断/不必要检查、安全中断及未知既往史等轨迹均已覆盖，且测试动作应视为新会话中的实际提交，不构成重复检查。",
+    "隐藏真相安全：教学字段未向患者暴露，生命体征为test-only事实，检查completed状态未被错误当作会话开始前已执行；pending审核元数据不影响事实审计。",
+    "临床表现与膝骨关节炎一致：中老年、慢性活动痛、休息后减轻、短暂晨僵，且X线轻度关节间隙变窄及骨赘可支持目标诊断。",
+    "目标诊断粒度明确，症状、红旗排除和膝关节X线共同保证诊断可解；MRI明确为初始非必需检查。",
+    "主要红旗（严重外伤、骨关节感染、恶性肿瘤警示）均有对应患者事实且状态为absent，矩阵与病例内容一致。",
+    "must-ask事实覆盖起病、症状模式、伴随症状、进展及三类红旗；鉴别诊断数量为2，且均属于rubric允许概念。生命体征、X线和MRI的useful/required/unnecessary分类与病例及轨迹一致。",
+    "success、failure、unknown轨迹分别覆盖成功诊断、错误诊断及不必要检查、未知既往发作信息；completed状态未被错误视为会话前已执行，轨迹中的X线测试动作有效。",
+    "safety轨迹对胸痛伴呼吸困难的会话中断、零医疗回合、零provider调用和零原文写入要求清晰，未暴露或依赖隐藏临床事实。"
+  ]
+}

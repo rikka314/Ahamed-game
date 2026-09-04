@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahamed.internal/model/schemas/case-manifest-v1-rc1.schema.json",
+  "title": "Case manifest v1-rc1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "casePackageSchemaVersion",
+    "evaluationVersion",
+    "rubricSchema",
+    "casePackageSchema",
+    "reviewRecordSchema",
+    "aiCrossValidationSchema",
+    "provenanceRecordSchema",
+    "redFlagExclusionMatrixSchema",
+    "regressionTrajectoriesSchema",
+    "contentHashPolicyVersion",
+    "directories",
+    "draftCases",
+    "publishedCases"
+  ],
+  "properties": {
+    "manifestVersion": { "const": "case-manifest-v1-rc1" },
+    "casePackageSchemaVersion": { "const": "case-package-v1-rc1" },
+    "evaluationVersion": { "const": "scoring-policy-v1" },
+    "rubricSchema": { "const": "schemas/rubric-v1.schema.json" },
+    "casePackageSchema": { "const": "schemas/case-package-v1-rc1.schema.json" },
+    "reviewRecordSchema": { "const": "schemas/review-record-v1.schema.json" },
+    "aiCrossValidationSchema": { "const": "schemas/ai-case-cross-validation-v1.schema.json" },
+    "provenanceRecordSchema": { "const": "schemas/provenance-record-v1.schema.json" },
+    "redFlagExclusionMatrixSchema": { "const": "schemas/red-flag-exclusion-matrix-v1.schema.json" },
+    "regressionTrajectoriesSchema": { "const": "schemas/case-regression-trajectories-v1.schema.json" },
+    "contentHashPolicyVersion": { "const": "case-content-hash-v1" },
+    "directories": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["draft", "review", "published", "provenance", "regression", "fixtures"],
+      "properties": {
+        "draft": { "const": "draft" },
+        "review": { "const": "review" },
+        "published": { "const": "published" },
+        "provenance": { "const": "provenance" },
+        "regression": { "const": "regression" },
+        "fixtures": { "const": "fixtures" }
+      }
+    },
+    "draftCases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/draftCase" }
+    },
+    "publishedCases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/publishedCase" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "caseVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "draftCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicCaseId", "caseVersion", "path", "contentHash"],
+      "properties": {
+        "publicCaseId": { "$ref": "#/$defs/id" },
+        "caseVersion": { "$ref": "#/$defs/caseVersion" },
+        "path": { "type": "string", "minLength": 1, "pattern": "^draft[/\\\\](?!\\.\\.(?:[/\\\\]|$))(?!.*[/\\\\]\\.\\.(?:[/\\\\]|$)).+" },
+        "contentHash": { "$ref": "#/$defs/contentHash" }
+      }
+    },
+    "publishedCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publicCaseId",
+        "caseVersion",
+        "path",
+        "contentHash",
+        "releaseValidationMethod",
+        "validationRecordPath"
+      ],
+      "properties": {
+        "publicCaseId": { "$ref": "#/$defs/id" },
+        "caseVersion": { "$ref": "#/$defs/caseVersion" },
+        "path": { "type": "string", "minLength": 1, "pattern": "^published[/\\\\](?!\\.\\.(?:[/\\\\]|$))(?!.*[/\\\\]\\.\\.(?:[/\\\\]|$)).+" },
+        "contentHash": { "$ref": "#/$defs/contentHash" },
+        "releaseValidationMethod": { "const": "ai_cross_validation" },
+        "validationRecordPath": { "type": "string", "minLength": 1, "pattern": "^published[/\\\\](?!\\.\\.(?:[/\\\\]|$))(?!.*[/\\\\]\\.\\.(?:[/\\\\]|$)).+" }
+      }
+    }
+  }
+}

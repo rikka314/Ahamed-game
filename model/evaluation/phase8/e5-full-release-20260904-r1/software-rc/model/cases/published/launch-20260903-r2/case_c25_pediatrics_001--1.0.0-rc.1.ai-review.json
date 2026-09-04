@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c25_pediatrics_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:a942554e7a0c2ff9a6cd2cd7b30875d3ee19dc13a719c83b18c1b8dfbfb1a5cd",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.4d03a912-1a12-4828-9ffc-d5147c230879",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:09:49.500Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：病例明确为8–12岁儿童，而本审核范围限定为合成成人非急症病例；此外，检查ID/displayName为“胸部CT”，报告却描述“颞骨CT”，存在检查身份与报告内容不一致。",
+        "诊断可解性：感冒后耳痛、听力发闷及耳镜所见鼓膜充血膨隆、活动度降低，能够支持学龄儿童急性中耳炎；两个鉴别诊断和所需检查也已提供。",
+        "红旗排除：生命体征稳定，意识、进食、脱水、呼吸窘迫、嗜睡、乳突肿胀等危险征象均明确为缺如，未见需要升级急诊处理的事实缺口。",
+        "量表一致性：红旗矩阵要求核查mastoid swelling，但rubric.mustAskFactIds及成功回归轨迹的expectedFactIds均未纳入fact.mastoid_swelling，导致红旗要求与评分/回归覆盖不一致；同时病例年龄与成人审核范围不符。",
+        "回归覆盖：成功、错误检查/错误诊断、安全中断及未知信息轨迹均有覆盖，安全轨迹明确要求零医疗回合、零provider调用和零原始文本写入。",
+        "隐藏真相安全：生命体征仅可通过检查读取，教学字段保持hidden，未发现将服务端教学信息或隐藏事实暴露给玩家的设计。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.0a40654c-5e5c-415a-b068-d0434bc399ff",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:10:06.481Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主体诊断可由感冒后耳痛、听闷及耳镜所见（鼓膜充血膨隆、活动度降低）充分支持；但 test.chest_ct 的检查名称为“胸部CT”，报告却评价“颞骨CT”，检查身份与报告内容不一致，需统一。",
+        "目标诊断粒度适当，学龄儿童急性中耳炎与“急性中耳炎”同义映射明确；现有病史和耳镜检查足以完成诊断。",
+        "红旗矩阵中的各项均有对应 patientFact，状态均为 absent，且证据状态与要求一致；未发现病例内容直接包含未排除的危险表现。",
+        "mustAskFactIds、成功轨迹中的必问事实、鉴别诊断数量及检查分类整体相互对应；2个鉴别诊断和生命体征/耳镜必需、胸部CT不必要的设定一致。",
+        "成功轨迹仅覆盖部分红旗事实，遗漏 pediatric_lethargy、pediatric_respiratory_distress、pediatric_dehydration、mastoid_swelling 及 age_outside_launch_scope；unknown 轨迹询问了既往发作和相关接触，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致冻结回归资产覆盖不完整且预期不一致。",
+        "安全轨迹能够对胸痛伴呼吸困难这一独立急症请求执行中断，并明确要求 providerCalls、rawTextWrites 和 medicalTurns 均为0；未见隐藏教学字段或病例事实泄露。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：病例明确为8–12岁儿童，而本审核范围限定为合成成人非急症病例；此外，检查ID/displayName为“胸部CT”，报告却描述“颞骨CT”，存在检查身份与报告内容不一致。",
+    "诊断可解性：感冒后耳痛、听力发闷及耳镜所见鼓膜充血膨隆、活动度降低，能够支持学龄儿童急性中耳炎；两个鉴别诊断和所需检查也已提供。",
+    "红旗排除：生命体征稳定，意识、进食、脱水、呼吸窘迫、嗜睡、乳突肿胀等危险征象均明确为缺如，未见需要升级急诊处理的事实缺口。",
+    "量表一致性：红旗矩阵要求核查mastoid swelling，但rubric.mustAskFactIds及成功回归轨迹的expectedFactIds均未纳入fact.mastoid_swelling，导致红旗要求与评分/回归覆盖不一致；同时病例年龄与成人审核范围不符。",
+    "回归覆盖：成功、错误检查/错误诊断、安全中断及未知信息轨迹均有覆盖，安全轨迹明确要求零医疗回合、零provider调用和零原始文本写入。",
+    "隐藏真相安全：生命体征仅可通过检查读取，教学字段保持hidden，未发现将服务端教学信息或隐藏事实暴露给玩家的设计。",
+    "临床主体诊断可由感冒后耳痛、听闷及耳镜所见（鼓膜充血膨隆、活动度降低）充分支持；但 test.chest_ct 的检查名称为“胸部CT”，报告却评价“颞骨CT”，检查身份与报告内容不一致，需统一。",
+    "目标诊断粒度适当，学龄儿童急性中耳炎与“急性中耳炎”同义映射明确；现有病史和耳镜检查足以完成诊断。",
+    "红旗矩阵中的各项均有对应 patientFact，状态均为 absent，且证据状态与要求一致；未发现病例内容直接包含未排除的危险表现。",
+    "mustAskFactIds、成功轨迹中的必问事实、鉴别诊断数量及检查分类整体相互对应；2个鉴别诊断和生命体征/耳镜必需、胸部CT不必要的设定一致。",
+    "成功轨迹仅覆盖部分红旗事实，遗漏 pediatric_lethargy、pediatric_respiratory_distress、pediatric_dehydration、mastoid_swelling 及 age_outside_launch_scope；unknown 轨迹询问了既往发作和相关接触，但 expectedFactIds 只包含 fact.prior_episode，遗漏 fact.relevant_exposure，导致冻结回归资产覆盖不完整且预期不一致。",
+    "安全轨迹能够对胸痛伴呼吸困难这一独立急症请求执行中断，并明确要求 providerCalls、rawTextWrites 和 medicalTurns 均为0；未见隐藏教学字段或病例事实泄露。"
+  ]
+}

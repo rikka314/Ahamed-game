@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c13_digestive_001",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:e0e61d28b766307527c0119e0d01a61a66b5af9cf267a7c2d51b4a9e5303a158",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.f4427af9-b193-42be-8e9e-2d11016ca3ec",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:14:35.591Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：症状呈饭后及平卧位反酸、烧心，病程一个月且生命体征稳定，符合胃食管反流病的纯合成非急症设定；上消化道评估未见报警征象，腹部CT列为不必要检查与病例边界一致。",
+        "诊断可解性：起病、症状模式、伴随症状及进展信息足以支持胃食管反流病；功能性消化不良和消化性溃疡作为两个鉴别诊断，满足评分要求。",
+        "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确排除事实；生命体征和上消化道评估也已完成。急性胸痛伴呼吸困难的安全中断轨迹已覆盖。",
+        "量表一致性：must-ask事实、红旗排除矩阵、必需及不必要检查分类、诊断和鉴别诊断数量与评分策略相互对应；推荐回合数与成功轨迹也一致。",
+        "回归覆盖：成功、失败、不必要检查、安全中断及未知既往史场景均有轨迹；成功轨迹覆盖必问病史、红旗排除、必需检查、正确诊断和两个鉴别诊断。",
+        "隐藏真相安全：教学字段、服务端评分信息及内部标识未被设计为患者可见内容；review.pending等兼容元数据不影响事实判定，未发现将隐藏真相泄露给玩家的回归路径。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.afc59bd5-ae4c-4e7a-9329-6876fd503e9b",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:14:53.147Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性：餐后及平卧时反酸、烧心，病程一个月且无报警征象，与胃食管反流病相符；生命体征和上消化道评估结果不冲突。腹部CT被正确标为不必要检查。",
+        "诊断可解性：主诉、起病、诱发模式及伴随症状足以支持目标诊断，目标粒度为具体疾病而非过宽的症状标签；功能性消化不良和消化性溃疡作为鉴别诊断也可区分。",
+        "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确缺失状态，并与矩阵逐项对应。",
+        "Rubric一致性：must-ask事实共13项，成功轨迹四次询问全部覆盖；鉴别诊断数量和概念ID符合要求；生命体征及上消化道评估为必需，腹部CT为不必要，规则彼此一致。",
+        "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功轨迹的事实、检查、诊断和回合数预期一致；失败轨迹验证错误诊断及不必要检查；安全轨迹明确中断且无提供方调用或原始文本写入；unknown轨迹正确覆盖未知既往发作事实。",
+        "隐藏真值安全：教学字段、test-only生命体征及hidden字段未被玩家直接暴露；安全轨迹不会将急性胸痛伴呼吸困难强行归因于胃食管反流病，预期的SAFETY_INTERRUPTED与病例目标保持隔离。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床一致性：症状呈饭后及平卧位反酸、烧心，病程一个月且生命体征稳定，符合胃食管反流病的纯合成非急症设定；上消化道评估未见报警征象，腹部CT列为不必要检查与病例边界一致。",
+    "诊断可解性：起病、症状模式、伴随症状及进展信息足以支持胃食管反流病；功能性消化不良和消化性溃疡作为两个鉴别诊断，满足评分要求。",
+    "危险征象排除：意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确排除事实；生命体征和上消化道评估也已完成。急性胸痛伴呼吸困难的安全中断轨迹已覆盖。",
+    "量表一致性：must-ask事实、红旗排除矩阵、必需及不必要检查分类、诊断和鉴别诊断数量与评分策略相互对应；推荐回合数与成功轨迹也一致。",
+    "回归覆盖：成功、失败、不必要检查、安全中断及未知既往史场景均有轨迹；成功轨迹覆盖必问病史、红旗排除、必需检查、正确诊断和两个鉴别诊断。",
+    "隐藏真相安全：教学字段、服务端评分信息及内部标识未被设计为患者可见内容；review.pending等兼容元数据不影响事实判定，未发现将隐藏真相泄露给玩家的回归路径。",
+    "临床一致性：餐后及平卧时反酸、烧心，病程一个月且无报警征象，与胃食管反流病相符；生命体征和上消化道评估结果不冲突。腹部CT被正确标为不必要检查。",
+    "诊断可解性：主诉、起病、诱发模式及伴随症状足以支持目标诊断，目标粒度为具体疾病而非过宽的症状标签；功能性消化不良和消化性溃疡作为鉴别诊断也可区分。",
+    "红旗排除：意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降均有明确缺失状态，并与矩阵逐项对应。",
+    "Rubric一致性：must-ask事实共13项，成功轨迹四次询问全部覆盖；鉴别诊断数量和概念ID符合要求；生命体征及上消化道评估为必需，腹部CT为不必要，规则彼此一致。",
+    "回归覆盖：success、failure、safety、unknown四类轨迹均存在，成功轨迹的事实、检查、诊断和回合数预期一致；失败轨迹验证错误诊断及不必要检查；安全轨迹明确中断且无提供方调用或原始文本写入；unknown轨迹正确覆盖未知既往发作事实。",
+    "隐藏真值安全：教学字段、test-only生命体征及hidden字段未被玩家直接暴露；安全轨迹不会将急性胸痛伴呼吸困难强行归因于胃食管反流病，预期的SAFETY_INTERRUPTED与病例目标保持隔离。"
+  ]
+}

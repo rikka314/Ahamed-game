@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c17_urinary_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:8f62d8f0f68c6dac7dd999194c07c1a2d88eb345d2461496173879cebb87d2b7",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.9dab900b-fad1-4c6d-afe5-3b47599cc2db",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:02:20.061Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持急性单纯性膀胱炎：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛及梗阻表现。",
+        "存在检查标识与报告不一致：test.chest_ct 的显示名称及别名为胸部CT，但报告内容为泌尿系CT未见结石或梗阻；应统一检查名称，避免造成事实或临床语义混淆。",
+        "目标诊断可由症状、稳定生命体征及尿常规结果合理求解，鉴别诊断急性肾盂肾炎和尿道炎也有明确配置。",
+        "红旗排除矩阵覆盖混乱、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均明确为缺如；安全退出轨迹也已配置。",
+        "必问病史、鉴别诊断数量、检查选择及推荐回合数与成功回归轨迹一致；胸部/泌尿系CT被标为不必要检查的评分策略与失败轨迹相容。",
+        "成功、失败、安全中断及未知信息轨迹均有覆盖；生命体征和教学字段分别保持检查读取或隐藏，未见隐藏真相泄漏。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.7714b1cd-bf76-409b-b548-1a0ed7028c62",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T17:02:37.073Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床检查定义存在明显不一致：test.chest_ct 的显示名称和别名为胸部CT，但报告内容为“泌尿系CT未见结石或梗阻”，应统一检查标识、名称、别名和报告。",
+        "症状模式、尿常规白细胞及白细胞酯酶阳性、无发热或腰痛等信息足以支持“急性单纯性膀胱炎”，诊断粒度和可解性基本合适。",
+        "红旗矩阵中的9项均有对应患者事实，requiredState 与 observedValue 均为 absent，证据引用完整，未发现矩阵内部矛盾。",
+        "rubric 的 mustAskFactIds 仅覆盖4项红旗事实，而红旗矩阵另有 anuria、gross hematuria、infected obstruction、single kidney 等适用排除项，病例要求与评分要求未完全对齐。",
+        "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，缺少 fact.relevant_exposure，导致轨迹预期与事实披露不一致。",
+        "teaching_note、生命体征 test_only 事实及安全中断轨迹均未显示为患者可直接读取内容；安全轨迹明确要求零调用、零写入，隐藏真值泄漏风险可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持急性单纯性膀胱炎：尿频、尿急、排尿痛，尿常规白细胞及白细胞酯酶阳性，且无发热、腰痛及梗阻表现。",
+    "存在检查标识与报告不一致：test.chest_ct 的显示名称及别名为胸部CT，但报告内容为泌尿系CT未见结石或梗阻；应统一检查名称，避免造成事实或临床语义混淆。",
+    "目标诊断可由症状、稳定生命体征及尿常规结果合理求解，鉴别诊断急性肾盂肾炎和尿道炎也有明确配置。",
+    "红旗排除矩阵覆盖混乱、低血压、不能口服、高危人群、发热伴腰痛、无尿、肉眼血尿、感染性梗阻及孤立肾，均明确为缺如；安全退出轨迹也已配置。",
+    "必问病史、鉴别诊断数量、检查选择及推荐回合数与成功回归轨迹一致；胸部/泌尿系CT被标为不必要检查的评分策略与失败轨迹相容。",
+    "成功、失败、安全中断及未知信息轨迹均有覆盖；生命体征和教学字段分别保持检查读取或隐藏，未见隐藏真相泄漏。",
+    "临床检查定义存在明显不一致：test.chest_ct 的显示名称和别名为胸部CT，但报告内容为“泌尿系CT未见结石或梗阻”，应统一检查标识、名称、别名和报告。",
+    "症状模式、尿常规白细胞及白细胞酯酶阳性、无发热或腰痛等信息足以支持“急性单纯性膀胱炎”，诊断粒度和可解性基本合适。",
+    "红旗矩阵中的9项均有对应患者事实，requiredState 与 observedValue 均为 absent，证据引用完整，未发现矩阵内部矛盾。",
+    "rubric 的 mustAskFactIds 仅覆盖4项红旗事实，而红旗矩阵另有 anuria、gross hematuria、infected obstruction、single kidney 等适用排除项，病例要求与评分要求未完全对齐。",
+    "unknown 回归轨迹的问题同时询问“以前是否发生过同样情况”和“相关接触”，但 expectedFactIds 仅包含 fact.prior_episode，缺少 fact.relevant_exposure，导致轨迹预期与事实披露不一致。",
+    "teaching_note、生命体征 test_only 事实及安全中断轨迹均未显示为患者可直接读取内容；安全轨迹明确要求零调用、零写入，隐藏真值泄漏风险可接受。"
+  ]
+}

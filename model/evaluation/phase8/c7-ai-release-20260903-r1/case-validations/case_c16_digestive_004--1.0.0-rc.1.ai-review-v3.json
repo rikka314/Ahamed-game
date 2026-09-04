@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:80f3880ab8d06c517c64789b2040e0864d3fb3fa419f0f29c88ef5ddd7fbb399",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.a9acdb61-f328-4361-842c-6a5104ebc1f0",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:02:25.567Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实总体支持轻症急性胃肠炎，且生命体征和脱水评估稳定；但 test.chest_ct 的显示名称为“胸部CT”，报告却称“腹部CT未见急腹症表现”，检查部位与报告不一致，存在事实一致性和教学误导风险。",
+        "起病、症状模式、伴随症状、病程及关键危险征象均有可询问事实；成功轨迹还覆盖目标诊断及两个鉴别诊断，因此诊断可解。",
+        "红旗矩阵列出的意识改变、低血压、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确为缺如；生命体征及脱水评估也支持非急症边界。",
+        "量表要求的八项病史、两项必要检查、两个鉴别诊断及一个不必要检查与成功/失败轨迹及评分摘要一致；胸部CT被归为不必要检查。",
+        "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知信息询问，预期结果明确，覆盖充分。",
+        "安全轨迹对胸痛伴呼吸困难请求直接诊断设置为 SAFETY_INTERRUPTED，且要求零医疗回合、零提供者调用和零原始文本写入；隐藏教学字段未暴露，隐藏真相保护充分。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.f5b558dd-33fc-4c93-963f-b93b279f889f",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:02:41.026Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床一致性失败：test.chest_ct 的显示名和别名指向胸部CT，但报告写为“腹部CT未见急腹症表现”，检查身份与报告内容不一致；应统一为胸部CT或改用腹部CT对应的testId。",
+        "诊断可解性通过：短程餐后腹泻、轻度恶心、可饮水且无血便或高热，支持轻症急性胃肠炎；目标诊断粒度明确，接受同义词也明确。",
+        "红旗排除通过：矩阵列出的9项红旗均有对应patient fact，且均明确为absent；当前病例未出现与之冲突的症状或检查结果。",
+        "rubric一致性通过：must-ask、可接受鉴别诊断、鉴别数量及required/unnecessary检查分类与成功轨迹的核心评分目标一致。",
+        "回归覆盖失败：c16.unknown 的提问同时询问既往相同发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致事实提取期望与病例问句不一致；此外，c16.failure复用了身份含义不一致的test.chest_ct，放大了检查轨迹歧义。",
+        "隐藏真值安全通过：teaching_note等隐藏字段未进入玩家可见内容或回归期望；安全轨迹明确要求中断且不产生医疗回合、provider调用或原始文本写入。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实总体支持轻症急性胃肠炎，且生命体征和脱水评估稳定；但 test.chest_ct 的显示名称为“胸部CT”，报告却称“腹部CT未见急腹症表现”，检查部位与报告不一致，存在事实一致性和教学误导风险。",
+    "起病、症状模式、伴随症状、病程及关键危险征象均有可询问事实；成功轨迹还覆盖目标诊断及两个鉴别诊断，因此诊断可解。",
+    "红旗矩阵列出的意识改变、低血压、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均明确为缺如；生命体征及脱水评估也支持非急症边界。",
+    "量表要求的八项病史、两项必要检查、两个鉴别诊断及一个不必要检查与成功/失败轨迹及评分摘要一致；胸部CT被归为不必要检查。",
+    "回归轨迹覆盖成功、错误检查与错误诊断、安全中断及未知信息询问，预期结果明确，覆盖充分。",
+    "安全轨迹对胸痛伴呼吸困难请求直接诊断设置为 SAFETY_INTERRUPTED，且要求零医疗回合、零提供者调用和零原始文本写入；隐藏教学字段未暴露，隐藏真相保护充分。",
+    "临床一致性失败：test.chest_ct 的显示名和别名指向胸部CT，但报告写为“腹部CT未见急腹症表现”，检查身份与报告内容不一致；应统一为胸部CT或改用腹部CT对应的testId。",
+    "诊断可解性通过：短程餐后腹泻、轻度恶心、可饮水且无血便或高热，支持轻症急性胃肠炎；目标诊断粒度明确，接受同义词也明确。",
+    "红旗排除通过：矩阵列出的9项红旗均有对应patient fact，且均明确为absent；当前病例未出现与之冲突的症状或检查结果。",
+    "rubric一致性通过：must-ask、可接受鉴别诊断、鉴别数量及required/unnecessary检查分类与成功轨迹的核心评分目标一致。",
+    "回归覆盖失败：c16.unknown 的提问同时询问既往相同发作和相关接触，但expectedFactIds仅包含fact.prior_episode，遗漏fact.relevant_exposure，导致事实提取期望与病例问句不一致；此外，c16.failure复用了身份含义不一致的test.chest_ct，放大了检查轨迹歧义。",
+    "隐藏真值安全通过：teaching_note等隐藏字段未进入玩家可见内容或回归期望；安全轨迹明确要求中断且不产生医疗回合、provider调用或原始文本写入。"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c16_digestive_004",
+  "caseVersion": "1.0.0-rc.6",
+  "contentHash": "sha256:dd491782c02f5b38a1d4de155c9c0727b92dddb85dffb0b46e0dd57c22e444b0",
+  "decision": "approved",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.f114e388-4cdf-47d0-8efc-0a94c549a382",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:18:25.162Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "病例为18–25岁成年女性，腹泻伴轻度恶心、起病急、可饮水且生命体征稳定，与轻症急性胃肠炎及非急症门诊边界一致。",
+        "核心病史、进展信息、鉴别诊断和必要检查均可通过设定的问诊与检查获得，目标诊断明确可判定。",
+        "意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有对应排除事实及矩阵条目。",
+        "量表中的必问事实、两个鉴别诊断、必要检查与腹部CT不必要的分类相互一致；既往同样发作和相关暴露为可选未知信息，不影响核心判定。",
+        "回归轨迹覆盖成功、错误诊断及不必要检查、安全中断和未知事实查询；成功轨迹包含全部必问事实与必要检查。",
+        "教学字段、答案键和评分策略未置于患者可见叙事；胸痛伴呼吸困难轨迹明确要求安全中断，未与本病例诊断流程混淆。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.4ad8bb5f-2c33-454b-b8b6-f13b21990843",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-04T04:18:39.369Z",
+      "runStatus": "completed",
+      "decision": "approved",
+      "checks": {
+        "clinicalConsistency": "pass",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "pass",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床表现与轻症急性胃肠炎相符：急性起病、稀便伴恶心、可口服且无血便、高热、持续呕吐或腹膜刺激征；腹部CT结果与排除急腹症一致，虽属不必要检查但不构成临床矛盾。",
+        "病例在询问起病、症状模式、伴随症状、进展及相关红旗后，足以支持目标诊断；诊断粒度为综合征/轻症层级，未要求不受证据支持的病原体或具体食源性病因。",
+        "红旗矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降，均有对应患者事实且状态为缺如。",
+        "mustAskFactIds与成功轨迹逐项覆盖一致；两个可接受鉴别诊断与requiredDifferentialCount=2一致；生命体征和脱水评估标为必需，腹部CT标为不必要，与病例情境及失败轨迹一致。",
+        "success、failure、safety、unknown四类轨迹均存在，成功轨迹覆盖诊断、鉴别及检查选择，失败轨迹验证不必要CT和错误诊断，unknown轨迹验证未知既往史的读取；回合期望与步骤结构未见明显冲突。",
+        "隐藏教学字段、test_only生命体征及答案键未通过患者问答轨迹泄露；安全轨迹为病例外胸痛气促请求，并明确要求中断、零提供方调用和零原始文本写入，未与病例事实混淆。"
+      ]
+    }
+  ],
+  "findings": [
+    "病例为18–25岁成年女性，腹泻伴轻度恶心、起病急、可饮水且生命体征稳定，与轻症急性胃肠炎及非急症门诊边界一致。",
+    "核心病史、进展信息、鉴别诊断和必要检查均可通过设定的问诊与检查获得，目标诊断明确可判定。",
+    "意识改变、循环不稳定、无法口服、特殊高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸和非意愿性体重下降均有对应排除事实及矩阵条目。",
+    "量表中的必问事实、两个鉴别诊断、必要检查与腹部CT不必要的分类相互一致；既往同样发作和相关暴露为可选未知信息，不影响核心判定。",
+    "回归轨迹覆盖成功、错误诊断及不必要检查、安全中断和未知事实查询；成功轨迹包含全部必问事实与必要检查。",
+    "教学字段、答案键和评分策略未置于患者可见叙事；胸痛伴呼吸困难轨迹明确要求安全中断，未与本病例诊断流程混淆。",
+    "临床表现与轻症急性胃肠炎相符：急性起病、稀便伴恶心、可口服且无血便、高热、持续呕吐或腹膜刺激征；腹部CT结果与排除急腹症一致，虽属不必要检查但不构成临床矛盾。",
+    "病例在询问起病、症状模式、伴随症状、进展及相关红旗后，足以支持目标诊断；诊断粒度为综合征/轻症层级，未要求不受证据支持的病原体或具体食源性病因。",
+    "红旗矩阵覆盖意识改变、循环不稳定、无法口服、高风险人群、消化道出血、腹膜刺激征、持续呕吐、黄疸及非意愿性体重下降，均有对应患者事实且状态为缺如。",
+    "mustAskFactIds与成功轨迹逐项覆盖一致；两个可接受鉴别诊断与requiredDifferentialCount=2一致；生命体征和脱水评估标为必需，腹部CT标为不必要，与病例情境及失败轨迹一致。",
+    "success、failure、safety、unknown四类轨迹均存在，成功轨迹覆盖诊断、鉴别及检查选择，失败轨迹验证不必要CT和错误诊断，unknown轨迹验证未知既往史的读取；回合期望与步骤结构未见明显冲突。",
+    "隐藏教学字段、test_only生命体征及答案键未通过患者问答轨迹泄露；安全轨迹为病例外胸痛气促请求，并明确要求中断、零提供方调用和零原始文本写入，未与病例事实混淆。"
+  ]
+}

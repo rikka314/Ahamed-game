@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ai-case-cross-review-v3",
+  "caseId": "internal_c27_gynecology_001",
+  "caseVersion": "1.0.0-rc.1",
+  "contentHash": "sha256:bad955f81f9057ff6dfa11bc8df442cfb463a1e45e6af9514fc4641dd7a458c5",
+  "decision": "rejected",
+  "validations": [
+    {
+      "validatorId": "validator.ai.clinical-safety.v2",
+      "role": "clinical_safety",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "clinical-safety-case-validation-v2",
+      "validationRunId": "run.clinical_safety.54d763ed-0877-4616-a882-b55a7dda1cb2",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:11:26.401Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "pass",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床事实存在明显不一致：test.chest_ct 的检查名称为“胸部CT”，但报告却写成“盆腔CT不是本例初始必需检查”，检查部位与报告内容不匹配。",
+        "症状模式、病程、稳定生命体征及针对性检查能够支持原发性痛经，目标诊断可解且鉴别诊断设置明确。",
+        "红旗矩阵覆盖了意识改变、低血压、不能口服、妊娠、高危人群、显著出血、急性盆腔痛、妇科发热及黏膜/上行感染相关表现，均明确为阴性；安全中断轨迹也已定义。",
+        "量表的必问事实仅包含部分红旗项目，而红旗排除矩阵还列有妊娠、显著出血、急性盆腔痛、妇科发热及黏膜/上行感染等适用项目，病例规则未明确这些项目为何不属于必问，存在评分口径与安全矩阵不完全一致。",
+        "回归轨迹覆盖成功诊疗、错误检查/诊断、安全中断和未知信息处理，成功路径的诊断、鉴别诊断及必问事实与评分策略基本对齐。",
+        "隐藏教学字段未暴露给玩家可见内容；回归轨迹中的答案信息属于支持性内部工件，未发现通过患者可见叙事直接泄露隐藏真相的问题。"
+      ]
+    },
+    {
+      "validatorId": "validator.ai.diagnostic-quality.v2",
+      "role": "diagnostic_quality",
+      "modelId": "gpt-5.6-sol",
+      "promptVersion": "diagnostic-quality-case-validation-v2",
+      "validationRunId": "run.diagnostic_quality.a5a47cdd-78a3-4d58-b9c6-e4393819517e",
+      "isolation": {
+        "independentInvocation": true,
+        "counterpartOutputVisible": false
+      },
+      "validatedAt": "2026-09-03T13:11:49.743Z",
+      "runStatus": "completed",
+      "decision": "rejected",
+      "checks": {
+        "clinicalConsistency": "fail",
+        "diagnosisSolvability": "pass",
+        "redFlagExclusions": "pass",
+        "rubricConsistency": "fail",
+        "regressionCoverage": "fail",
+        "hiddenTruthSafety": "pass"
+      },
+      "findings": [
+        "临床主线总体支持原发性痛经，但 test.chest_ct 的显示名称为“胸部CT”，报告却写成“盆腔CT不是本例初始必需检查”，检查部位与报告不一致，需修正。",
+        "现有月经模式、周期及阴性表现足以支持原发性痛经，并可提出子宫内膜异位症和盆腔炎两个鉴别诊断，目标诊断粒度明确。",
+        "九项红旗均有对应 patient_fact，requiredState 与 observedValue 均为 absent，矩阵证据链完整，未发现红旗排除字段与病例事实冲突。",
+        "rubric 的检查分类与回归成功/失败轨迹基本对应，但 chest_ct 的检查报告部位错误；此外沟通标准声明需要显式 labeled fixture reviewer，而 supportingArtifacts 中未提供相应沟通评分fixture。",
+        "unknown 轨迹的问题同时询问既往相同发作和相关接触/诱因，按 questionMatchers 应可能命中 fact.prior_episode 与 fact.relevant_exposure，但 expectedFactIds 仅列出 fact.prior_episode，回归预期不完整。",
+        "病例未将 teaching_note、目标答案或内部字段暴露给患者交互；安全中断轨迹也不依赖隐藏诊断事实，隐藏真相边界可接受。"
+      ]
+    }
+  ],
+  "findings": [
+    "临床事实存在明显不一致：test.chest_ct 的检查名称为“胸部CT”，但报告却写成“盆腔CT不是本例初始必需检查”，检查部位与报告内容不匹配。",
+    "症状模式、病程、稳定生命体征及针对性检查能够支持原发性痛经，目标诊断可解且鉴别诊断设置明确。",
+    "红旗矩阵覆盖了意识改变、低血压、不能口服、妊娠、高危人群、显著出血、急性盆腔痛、妇科发热及黏膜/上行感染相关表现，均明确为阴性；安全中断轨迹也已定义。",
+    "量表的必问事实仅包含部分红旗项目，而红旗排除矩阵还列有妊娠、显著出血、急性盆腔痛、妇科发热及黏膜/上行感染等适用项目，病例规则未明确这些项目为何不属于必问，存在评分口径与安全矩阵不完全一致。",
+    "回归轨迹覆盖成功诊疗、错误检查/诊断、安全中断和未知信息处理，成功路径的诊断、鉴别诊断及必问事实与评分策略基本对齐。",
+    "隐藏教学字段未暴露给玩家可见内容；回归轨迹中的答案信息属于支持性内部工件，未发现通过患者可见叙事直接泄露隐藏真相的问题。",
+    "临床主线总体支持原发性痛经，但 test.chest_ct 的显示名称为“胸部CT”，报告却写成“盆腔CT不是本例初始必需检查”，检查部位与报告不一致，需修正。",
+    "现有月经模式、周期及阴性表现足以支持原发性痛经，并可提出子宫内膜异位症和盆腔炎两个鉴别诊断，目标诊断粒度明确。",
+    "九项红旗均有对应 patient_fact，requiredState 与 observedValue 均为 absent，矩阵证据链完整，未发现红旗排除字段与病例事实冲突。",
+    "rubric 的检查分类与回归成功/失败轨迹基本对应，但 chest_ct 的检查报告部位错误；此外沟通标准声明需要显式 labeled fixture reviewer，而 supportingArtifacts 中未提供相应沟通评分fixture。",
+    "unknown 轨迹的问题同时询问既往相同发作和相关接触/诱因，按 questionMatchers 应可能命中 fact.prior_episode 与 fact.relevant_exposure，但 expectedFactIds 仅列出 fact.prior_episode，回归预期不完整。",
+    "病例未将 teaching_note、目标答案或内部字段暴露给患者交互；安全中断轨迹也不依赖隐藏诊断事实，隐藏真相边界可接受。"
+  ]
+}
